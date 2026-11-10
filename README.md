@@ -5,7 +5,7 @@
 ## Запуск
 
 ```bash
-nvm use            # Node 24 (мінімум 22.12)
+nvm use            # Node 24 (мінімум 22.13)
 npm ci
 npm run dev        # http://localhost:3000
 ```
