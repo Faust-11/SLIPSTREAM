@@ -3,6 +3,8 @@ import { defineConfig, devices } from "@playwright/test";
 const PORT = 3100;
 const externalBaseURL = process.env.BASE_URL;
 const baseURL = externalBaseURL ?? `http://localhost:${PORT}`;
+// Прев'ю Vercel за Deployment Protection: секрет обходу — лише зі змінної середовища.
+const bypassSecret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
 
 export default defineConfig({
   testDir: "./e2e",
@@ -13,6 +15,9 @@ export default defineConfig({
   use: {
     baseURL,
     trace: "retain-on-failure",
+    extraHTTPHeaders: bypassSecret
+      ? { "x-vercel-protection-bypass": bypassSecret, "x-vercel-set-bypass-cookie": "true" }
+      : undefined,
   },
   projects: [
     {
@@ -29,9 +34,11 @@ export default defineConfig({
         command: process.env.CI
           ? `npx next start -p ${PORT}`
           : `npx next build && npx next start -p ${PORT}`,
-        url: baseURL,
-        reuseExistingServer: !process.env.CI,
-        timeout: 180_000,
+        // Готовність — відкритий порт, а не статус «/»: зламана сторінка має впасти в тесті, а не в тайм-ауті.
+        port: PORT,
+        // Чужий або старий сервер на порту дав би хибно-зелений прогін; перевикористання — лише явно.
+        reuseExistingServer: process.env.PW_REUSE === "1",
+        timeout: process.env.CI ? 60_000 : 180_000,
         env: { NEXT_TELEMETRY_DISABLED: "1" },
       },
 });
