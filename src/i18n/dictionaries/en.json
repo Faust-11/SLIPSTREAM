@@ -1,0 +1,10 @@
+{
+  "site": {
+    "name": "Slipstream",
+    "tagline": "Formula 1: seasons, races, drivers and stories"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "home": "Go to the home page"
+  }
+}

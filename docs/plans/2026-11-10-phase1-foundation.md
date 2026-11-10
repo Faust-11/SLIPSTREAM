@@ -89,6 +89,7 @@
 **Files:**
 - Create: `src/i18n/config.ts`, `src/i18n/paths.ts`, `src/i18n/dictionaries/en.json`, `src/i18n/dictionaries/uk.json`, `src/i18n/get-dictionary.ts`, `src/proxy.ts`, `src/app/[lang]/layout.tsx`, `src/app/[lang]/page.tsx`
 - Delete: `src/app/page.tsx`, `src/app/layout.tsx` (кореневий layout переїжджає в `[lang]`)
+- Create (відхилення, див. `docs/decisions.md`): `src/app/global-not-found.tsx`, `src/app/[lang]/not-found.tsx`, `experimental.globalNotFound` у `next.config.ts`, `public/e2e-probe.txt` (перевірка, що proxy не ламає `public/`)
 - Test: `src/i18n/__tests__/paths.test.ts`, `e2e/i18n.spec.ts`
 
 **Interfaces:**
@@ -140,7 +141,8 @@
 ### Task 6: Сторінки-заготовки, 404, метадані
 
 **Files:**
-- Create: `src/app/[lang]/{seasons,calendar,news,drivers,teams,circuits,stories,newbie,game}/page.tsx`, `src/components/site/section-hero.tsx`, `src/app/[lang]/not-found.tsx`, `src/app/[lang]/error.tsx`, `src/app/robots.ts`, `src/app/sitemap.ts`, `src/app/icon.svg`, `src/lib/seo.ts`
+- Create: `src/app/[lang]/{seasons,calendar,news,drivers,teams,circuits,stories,newbie,game}/page.tsx`, `src/components/site/section-hero.tsx`, `src/app/[lang]/error.tsx`
+- Modify: `src/app/global-not-found.tsx`, `src/app/[lang]/not-found.tsx` (створені в Task 3 — див. `docs/decisions.md`, «404: global-not-found»), `src/app/robots.ts`, `src/app/sitemap.ts`, `src/app/icon.svg`, `src/lib/seo.ts`
 - Test: `src/lib/__tests__/seo.test.ts`, `e2e/seo.spec.ts`
 
 **Interfaces:**
@@ -148,7 +150,7 @@
 
 - [ ] **Step 1: тести** — `pageMetadata({locale:'uk', path:'/teams', …}).alternates.languages` = `{ en: '/teams', uk: '/uk/teams', 'x-default': '/teams' }`; canonical для `uk` = `/uk/teams`; `robots.index === false` без `SITE_INDEXING`.
 - [ ] **Step 2:** FAIL → реалізація → PASS.
-- [ ] **Step 3:** заготовка розділу = `SectionHero` (назва розділу, колір із `SECTION_HERO`), без пояснювального тексту. `not-found.tsx` не отримує `params` — мову визначати з `usePathname()` (client-компонент) через `isLocale(segment)`; перевірити це в документації `03-api-reference/03-file-conventions/not-found.md` перед реалізацією.
+- [ ] **Step 3:** заготовка розділу = `SectionHero` (назва розділу, колір із `SECTION_HERO`), без пояснювального тексту. 404 вже серверний з Task 3 (`global-not-found` + заголовок `x-ss-locale` від proxy; `[lang]/not-found` — через `next/root-params`): тут лише оформити обидва (шапка, футер, стилі) без зміни механізму.
 - [ ] **Step 4: e2e** — кожна з 9 сторінок → 200 в обох мовах, має `<link rel=alternate hreflang=uk|en|x-default>` і `<meta name=robots content="noindex, nofollow">`; `/robots.txt` містить `Disallow: /`; `/sitemap.xml` містить обидві мовні версії кожної сторінки; `/uk/nope` → 404 з українським текстом.
 - [ ] **Step 5:** скіли `seo-technical` і `seo-hreflang` по локальному білду; знахідки — виправити.
 - [ ] **Step 6:** Commit `feat: розділи-заготовки, 404, SEO-база`.
