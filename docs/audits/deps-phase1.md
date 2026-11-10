@@ -24,23 +24,41 @@
 
 Усі версії — точні (`save-exact=true` у `.npmrc`).
 
+## Повторний аудит після Task 2 (тестові залежності)
+
+- Прямих залежностей 22 (3 продакшн + 19 dev), транзитивних 516. **Advisory — 0 серед прямих**; транзитивно — той самий `minimatch` 10.2.6 (лише лінтер).
+- Нові позначки — лише `Binary-Artifacts` репозиторіїв `vite` і `playwright` (бінарні файли в репо, не в пакеті) та «один публікатор» `@types/*` (бот DefinitelyTyped).
+- Install-скрипт з'явився в одного пакета: `fsevents` 2.3.3 (опційна залежність `vite`, лише macOS, `node-gyp rebuild` як запасний шлях). Пакет містить готовий бінарник; Vitest і Playwright з `ignore-scripts=true` працюють (перевірено запуском). На Linux (CI) пакет не встановлюється.
+- `playwright-core` закріплено явно (1.64.1): peer `>=1.0.0` у `@axe-core/playwright` інакше тягне другу, новішу копію, що ламає типи.
+
+| Пакет | Версія | Примітка |
+|---|---|---|
+| `vitest` | 5.1.0 | найновіша віком ≥ 7 днів |
+| `vite` | 8.3.5 | закріплено явно; має вбудований `resolve.tsconfigPaths` — `vite-tsconfig-paths` з плану не потрібен |
+| `@vitejs/plugin-react` | 6.2.1 | 6.3.0 вийшла 09.11 |
+| `jsdom` | **29.1.1** | 30.x вимагає Node `^22.22.2 \|\| ^24.15.0` — ширше за `engines` проєкту |
+| `@testing-library/react` / `dom` / `jest-dom` / `user-event` | 16.3.3 / 10.4.2 / 7.0.1 / 14.6.8 | `jest-dom` і `user-event` додано до плану: матчери й реалістичні події клавіатури для тестів меню |
+| `@playwright/test`, `playwright-core` | 1.64.1 | 1.65.0 вийшла 05.11 |
+| `@axe-core/playwright` | 4.14.0 | axe-core ~4.14.0 |
+
 ---
 
-## Додаток: звіт колектора (без змін)
+## Додаток: звіт колектора після Task 2 (без змін)
 
 # Supply Chain Risk Report — `slipstream`
 
 **Scanned:** `/Users/manager/Desktop/F1/slipstream`  
+**Commit:** `f111386cb6e1`  
 **Manifests read:** `package.json`, `package-lock.json`  
-**Scanned at:** 2026-11-10T21:35:13+00:00  
-**Direct dependencies:** 11 (npm 11)
+**Scanned at:** 2026-11-10T21:55:53+00:00  
+**Direct dependencies:** 22 (npm 22)
 
 ## Summary
 
-- **No known advisory affects any of the 11 direct dependencies**, checked at the versions this project resolves.
+- **No known advisory affects any of the 22 direct dependencies**, checked at the versions this project resolves.
 - **1 transitive package carries known advisories** at the locked versions — see Transitive advisories.
-- 5 of 11 dependencies carry at least one finding, 1 of which reaches production.
-- Weakest coverage: **Publisher concentration**, established for 5 of 11; the Coverage section lists every criterion.
+- 8 of 22 dependencies carry at least one finding, 1 of which reaches production.
+- Weakest coverage: **Publisher concentration**, established for 5 of 22; the Coverage section lists every criterion.
 
 ## Production dependencies
 
@@ -81,11 +99,14 @@ Declared as development dependencies. A compromise here reaches build and CI hos
 
 | Dependency | Version | Weekly downloads | Findings |
 |---|---|---|---|
+| `@playwright/test` | 1.64.1 | 120,602,104/wk | Binary-Artifacts scores 6/10 (below 10) |
 | `eslint-config-next` | 16.4.5 | 47,656,161/wk | Binary-Artifacts scores 0/10 (below 10) |
+| `playwright-core` | 1.64.1 | 184,415,152/wk | Binary-Artifacts scores 6/10 (below 10) |
+| `vite` | 8.3.5 | 263,886,976/wk | Binary-Artifacts scores 1/10 (below 10) |
 
 ## Transitive advisories
 
-1 package of the 416 registry-verified packages beyond the direct set (resolved by `package-lock.json`) carries known advisories at the locked versions. Only advisories were checked at this depth.
+1 package of the 516 registry-verified packages beyond the direct set (resolved by `package-lock.json`) carries known advisories at the locked versions. Only advisories were checked at this depth.
 
 | Package | Version | Reaches | Advisories |
 |---|---|---|---|
@@ -95,13 +116,13 @@ Declared as development dependencies. A compromise here reaches build and CI hos
 
 Measured, not flagged.
 
-- **CI token permissions**: median 0/10 across 9 scored dependencies; 6 score below 6. Not flagged — this measures whether CI workflows declare least-privilege tokens, which tracks project maturity rather than the likelihood of malicious code being published.
-- **Changes reviewed by a second person**: median 9/10 across 9 scored dependencies; 2 score below 6. Not flagged — this measures the share of recent commits reviewed by a second person, which is low for most small single-maintainer projects and largely restates publisher concentration.
-- **Publish provenance**: 6 of 11 publish with build provenance.
+- **CI token permissions**: median 0/10 across 19 scored dependencies; 11 score below 6. Not flagged — this measures whether CI workflows declare least-privilege tokens, which tracks project maturity rather than the likelihood of malicious code being published.
+- **Changes reviewed by a second person**: median 9/10 across 19 scored dependencies; 7 score below 6. Not flagged — this measures the share of recent commits reviewed by a second person, which is low for most small single-maintainer projects and largely restates publisher concentration.
+- **Publish provenance**: 17 of 22 publish with build provenance.
   Without: `@types/node`, `@types/react`, `@types/react-dom`, `eslint`, `typescript`
-- **Security policy published**: 9 of 11 publish a security policy.
-  Without: `@tailwindcss/postcss`, `tailwindcss`
-- **Download volume**: established for 11 of 11; median 203,865,755/week. Lowest: `eslint-config-next` (47,656,161/wk), `@tailwindcss/postcss` (60,572,503/wk), `next` (91,911,398/wk).
+- **Security policy published**: 16 of 22 publish a security policy.
+  Without: `@tailwindcss/postcss`, `@testing-library/dom`, `@testing-library/jest-dom`, `@testing-library/react`, `@testing-library/user-event`, `tailwindcss`
+- **Download volume**: established for 22 of 22; median 176,263,686/week. Lowest: `@axe-core/playwright` (23,044,700/wk), `eslint-config-next` (47,656,161/wk), `@tailwindcss/postcss` (60,572,503/wk).
 
 ## Coverage
 
@@ -109,45 +130,45 @@ What was and was not measured, per criterion.
 
 | Criterion | Tier | Assessed | Flagged | Not assessable |
 |---|---|---|---|---|
-| Known advisories | A | 11/11 | 0 | 0 |
-| Deprecated or yanked | A | 11/11 | 0 | 0 |
-| Repository archived | A | 11/11 | 0 | 0 |
-| Maintenance activity | A | 11/11 | 0 | 0 |
-| Publisher concentration | B | 5/11 | 3 | 6 |
-| Install-time script execution | B | 11/11 | 0 | 0 |
-| Dangerous CI workflow | scorecard | 9/11 | 0 | 2 |
-| CI token permissions | scorecard | 9/11 | 0 | 2 |
-| Checked-in binaries | scorecard | 9/11 | 2 | 2 |
-| Changes reviewed by a second person | scorecard | 9/11 | 0 | 2 |
-| Publish provenance | info | 11/11 | 0 | 0 |
-| Security policy published | info | 11/11 | 0 | 0 |
-| Download volume | info | 11/11 | 0 | 0 |
+| Known advisories | A | 22/22 | 0 | 0 |
+| Deprecated or yanked | A | 22/22 | 0 | 0 |
+| Repository archived | A | 22/22 | 0 | 0 |
+| Maintenance activity | A | 22/22 | 0 | 0 |
+| Publisher concentration | B | 5/22 | 3 | 17 |
+| Install-time script execution | B | 22/22 | 0 | 0 |
+| Dangerous CI workflow | scorecard | 19/22 | 0 | 3 |
+| CI token permissions | scorecard | 19/22 | 0 | 3 |
+| Checked-in binaries | scorecard | 19/22 | 5 | 3 |
+| Changes reviewed by a second person | scorecard | 19/22 | 0 | 3 |
+| Publish provenance | info | 22/22 | 0 | 0 |
+| Security policy published | info | 22/22 | 0 | 0 |
+| Download volume | info | 22/22 | 0 | 0 |
 
 ## Not assessable
 
 **Checked-in binaries**
 
-- 2 dependencies — OpenSSF Scorecard has no report for this repository: `react`, `react-dom`
+- 3 dependencies — OpenSSF Scorecard has no report for this repository: `react`, `react-dom`, `vitest`
 
 **Changes reviewed by a second person**
 
-- 2 dependencies — OpenSSF Scorecard has no report for this repository: `react`, `react-dom`
+- 3 dependencies — OpenSSF Scorecard has no report for this repository: `react`, `react-dom`, `vitest`
 
 **Dangerous CI workflow**
 
-- 2 dependencies — OpenSSF Scorecard has no report for this repository: `react`, `react-dom`
+- 3 dependencies — OpenSSF Scorecard has no report for this repository: `react`, `react-dom`, `vitest`
 
 **Publisher concentration**
 
-- 6 dependencies — publishes from CI with provenance, so the effective publisher set is whoever can merge to the release branch — not externally observable: `@tailwindcss/postcss`, `eslint-config-next`, `next`, `react`, `react-dom`, `tailwindcss`
+- 17 dependencies — publishes from CI with provenance, so the effective publisher set is whoever can merge to the release branch — not externally observable: `@axe-core/playwright`, `@playwright/test`, `@tailwindcss/postcss`, `@testing-library/dom`, `@testing-library/jest-dom`, `@testing-library/react` and 11 more
 
 **CI token permissions**
 
-- 2 dependencies — OpenSSF Scorecard has no report for this repository: `react`, `react-dom`
+- 3 dependencies — OpenSSF Scorecard has no report for this repository: `react`, `react-dom`, `vitest`
 
 ## Method and caveats
 
-- Repository-level criteria (archived, maintenance activity, security policy, and the Scorecard checks) describe the source repository rather than the package. 11 dependencies resolve to 6 distinct repositories, so one repository can appear as several findings. Shared: github.com/DefinitelyTyped/DefinitelyTyped, github.com/react/react, github.com/tailwindlabs/tailwindcss, github.com/vercel/next.js
+- Repository-level criteria (archived, maintenance activity, security policy, and the Scorecard checks) describe the source repository rather than the package. 22 dependencies resolve to 16 distinct repositories, so one repository can appear as several findings. Shared: github.com/DefinitelyTyped/DefinitelyTyped, github.com/microsoft/playwright, github.com/react/react, github.com/tailwindlabs/tailwindcss, github.com/vercel/next.js
 - Optional tooling detected: npm. Not installed, so not used: bundler-audit, cargo-audit, osv-scanner, pip-audit.
-- Every criterion except advisories applies to direct dependencies only. The 416 registry-verified packages resolved by package-lock.json were checked for known advisories at their locked versions, and for nothing else.
-- HTTP sources: 40 fetched, 33 served from cache (oldest 0.0h old), 0 refetched as stale, 0 unavailable offline, 0 errors.
+- Every criterion except advisories applies to direct dependencies only. The 516 registry-verified packages resolved by package-lock.json were checked for known advisories at their locked versions, and for nothing else.
+- HTTP sources: 50 fetched, 103 served from cache (oldest 0.3h old), 0 refetched as stale, 0 unavailable offline, 0 errors.
