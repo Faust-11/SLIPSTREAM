@@ -16,7 +16,8 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     return {
-      beforeFiles: [],
+      // Служебна сторінка Next доступна за прямою адресою й відповідає 500 — ховаємо за 404.
+      beforeFiles: [{ source: "/_global-error", destination: "/_not-found" }],
       afterFiles: [
         { source: "/", destination: "/en" },
         // Усе, що не /uk…, /en… і не службове _next, — англійська версія.

@@ -37,6 +37,8 @@ describe("localizedPath", () => {
 
   it("відкидає відносні шляхи", () => {
     expect(() => localizedPath("teams", "uk")).toThrow(TypeError);
+    expect(() => localizedPath("//evil.com", "en")).toThrow(TypeError);
+    expect(() => localizedPath("/\\evil.com", "en")).toThrow(TypeError);
   });
 
   it("зберігає query і hash", () => {

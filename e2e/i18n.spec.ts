@@ -1,4 +1,5 @@
 import { expect, test, type APIRequestContext, type Page } from "@playwright/test";
+import { expectNoA11yViolations } from "./axe";
 
 const TITLE = { en: "Page not found", uk: "Сторінку не знайдено" } as const;
 
@@ -20,6 +21,7 @@ async function expectBrowser404(page: Page, path: string, lang: "en" | "uk") {
   await expect(page.locator("html")).toHaveAttribute("lang", lang);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(TITLE[lang]);
   await expect(page).toHaveTitle("404 · Slipstream");
+  await expectNoA11yViolations(page);
 }
 
 test.describe("мови й маршрутизація", () => {
@@ -76,7 +78,7 @@ test.describe("мови й маршрутизація", () => {
       const res = await request.get(path, { headers: { RSC: "1" } });
       expect(res.status(), `RSC ${path}`).toBe(404);
     }
-    for (const path of ["/teams.rsc", "/uk.rsc", "/nope.png"]) {
+    for (const path of ["/teams.rsc", "/uk.rsc", "/nope.png", "/_global-error"]) {
       const res = await request.get(path);
       expect(res.status(), path).toBe(404);
     }
