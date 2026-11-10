@@ -20,3 +20,10 @@
 
 ## 2026-11-10 · `typecheck` = `next typegen && tsc --noEmit`
 Глобальні типи `PageProps`/`LayoutProps` генеруються в `.next/types`, яких на чистому дереві (CI) немає до збірки.
+
+## 2026-11-10 · Тестові інструменти (Task 2)
+- `vite-tsconfig-paths` не встановлено: Vite 8 має `resolve.tsconfigPaths`.
+- Додано `@testing-library/jest-dom` і `@testing-library/user-event` (у плані не названі).
+- `jsdom` 29.1.1, не 30.x — сумісність з `engines`.
+- Локально (macOS 12) e2e — у системному Chrome: `PLAYWRIGHT_CHANNEL=chrome`. CI — Chromium Playwright на ubuntu-latest.
+- Actions закріплені за SHA комітів релізів; `permissions: contents: read`; `persist-credentials: false`.
