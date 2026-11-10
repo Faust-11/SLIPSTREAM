@@ -6,7 +6,7 @@
 
 **Architecture:** App Router з сегментом `src/app/[lang]`; `src/proxy.ts` переписує URL без префікса на `en` і робить редирект `/en/*` → `/*`, щоб не було дублів. Дизайн-токени й шрифти переносяться з макетів (`~/Desktop/F1/data/_shared_css.txt`) у `globals.css` через Tailwind 4 `@theme`. Публічні сторінки статичні/ISR, тому CSP задається заголовком без nonce (nonce вимикає ISR — `node_modules/next/dist/docs/01-app/02-guides/content-security-policy.md`).
 
-**Tech Stack:** Next.js 16.2.9, React 19.2, TypeScript (strict), Tailwind CSS 4, `next/font/google`, Vitest + Testing Library, Playwright + `@axe-core/playwright`, ESLint (`eslint-config-next`), GitHub Actions.
+**Tech Stack:** Next.js 16.4.5 (у плані спершу 16.2.9 — замінено через critical-уразливості, див. `docs/decisions.md`), React 19.2, TypeScript (strict), Tailwind CSS 4, `next/font/google`, Vitest + Testing Library, Playwright + `@axe-core/playwright`, ESLint (`eslint-config-next`), GitHub Actions.
 
 **Spec:** макети (опубліковані артефакти й генератори) у `~/Desktop/F1/data/*_mockup/` (`home_mockup`, `admin_mockup`, `nav_fix.py` — меню й мобільна панель), рішення користувача — у пам'яті проєкту `project_f1_predictor.md`. Документація Next.js 16 — лише з `node_modules/next/dist/docs/` (див. `AGENTS.md`).
 
@@ -28,7 +28,7 @@
 
 ## Global Constraints
 
-- Next.js **16.2.9**, React **19.2.x**, TypeScript `strict: true` + `noUncheckedIndexedAccess: true`; Node **≥ 22** (локально 24.13.1).
+- Next.js **16.4.5** (див. `docs/decisions.md`), React **19.2.x**, TypeScript `strict: true` + `noUncheckedIndexedAccess: true`; Node **^22.13 || ≥ 24** (локально 24.13.1).
 - Перехоплення запитів — тільки `src/proxy.ts` (файл `middleware` у Next 16 застарів).
 - Мови: `en` — основна, **без префікса**; `uk` — під `/uk`. `/en` і `/en/*` → постійний редирект без префікса. `x-default` = EN.
 - Безкоштовні тарифи: Vercel Hobby (cron лише раз на добу), GitHub Free (**2 000 хв Actions/міс** для приватних репо), Supabase Free (проєкт спільний з Predictor, дані Slipstream лише в схемі `f1`).
@@ -64,11 +64,11 @@
 **Interfaces:**
 - Produces: скрипти `npm run lint`, `typecheck` (`tsc --noEmit`), `build`, `test`, `e2e` (останні два додає Task 2).
 
-- [ ] **Step 1:** `npx create-next-app@16.2.9 . --ts --tailwind --eslint --app --src-dir --import-alias "@/*" --use-npm --agents-md --disable-git` у клоні репозиторію (git уже є).
+- [ ] **Step 1:** `npx create-next-app@16.2.9 . --ts --tailwind --eslint --app --src-dir --import-alias "@/*" --use-npm --agents-md --disable-git`, далі оновлення до 16.4.5 у клоні репозиторію (git уже є).
 - [ ] **Step 2:** прибрати демо-вміст стартової сторінки й `public/*.svg` генератора; додати `typecheck`, `engines`, `.nvmrc`, `noUncheckedIndexedAccess`.
 - [ ] **Step 3:** `npm run lint && npm run typecheck && npm run build` — Expected: усі три без помилок і попереджень.
 - [ ] **Step 4:** `npm audit --omit=dev` — Expected: 0 high/critical; аудит залежностей скілом `supply-chain-risk-auditor` (звіт у `docs/audits/deps-phase1.md`).
-- [ ] **Step 5:** Commit `chore: каркас Next.js 16.2.9`.
+- [ ] **Step 5:** Commit `chore: каркас Next.js 16.4.5`.
 
 ### Task 2: Тести й CI
 
