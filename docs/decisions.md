@@ -27,3 +27,9 @@
 - `jsdom` 29.1.1, не 30.x — сумісність з `engines`.
 - Локально (macOS 12) e2e — у системному Chrome: `PLAYWRIGHT_CHANNEL=chrome`. CI — Chromium Playwright на ubuntu-latest.
 - Actions закріплені за SHA комітів релізів; `permissions: contents: read`; `persist-credentials: false`.
+
+## 2026-11-11 · Правки рев'ю Task 2
+- e2e чекає відкритий порт, а не `200` на `/`; сервер перевикористовується лише з `PW_REUSE=1`.
+- CI: `ubuntu-26.04` (замість `ubuntu-latest`), образ у ключі кешу браузерів; `cancel-in-progress` лише для PR.
+- Dependabot (actions + npm) щотижня з `cooldown: 7` днів — працює після злиття в `main`.
+- Відкладено: `incomplete`-результати axe логувати в Task 5/8; окреме `node`-середовище Vitest — коли з'являться тести завантажувачів (фаза 2); Node у `.nvmrc` = мажорна `24` (CI бере останню 24.x) — точну версію вирішити разом із налаштуванням Vercel.
