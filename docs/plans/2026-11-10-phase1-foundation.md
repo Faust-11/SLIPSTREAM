@@ -141,7 +141,7 @@
 ### Task 6: Сторінки-заготовки, 404, метадані
 
 **Files:**
-- Create: `src/app/[lang]/{seasons,calendar,news,drivers,teams,circuits,stories,newbie,game}/page.tsx`, `src/components/site/section-hero.tsx`, `src/app/[lang]/error.tsx`, `src/app/robots.ts`, `src/app/sitemap.ts`, `src/app/icon.svg`, `src/lib/seo.ts`
+- Create: `src/app/[lang]/{seasons,calendar,news,drivers,teams,circuits,stories,newbie,game}/page.tsx`, `src/components/site/section-hero.tsx`, `src/app/[lang]/error.tsx`, `src/app/robots.ts`, `src/app/sitemap.ts`, `src/lib/seo.ts` (`src/app/icon.svg` — уже з Task 4)
 - Modify: `src/app/global-not-found.tsx`, `src/app/[lang]/not-found.tsx` (створені в Task 3 — див. `docs/decisions.md`, «Маршрутизація мов і 404»)
 - Test: `src/lib/__tests__/seo.test.ts`, `e2e/seo.spec.ts`
 

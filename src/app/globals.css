@@ -1,5 +1,156 @@
 @import "tailwindcss";
 
+/*
+ * Токени з макетів (~/Desktop/F1/data/home_mockup, _shared_css.txt).
+ * Контраст (WCAG 2.2, заміряно): ink/paper 16.1, ink-soft/paper 6.8, blue-text/paper 7.2;
+ * темна: ink 15.9, ink-soft 7.9, blue-text 8.3. --red лише для плашок/графіки (4.1 на paper) —
+ * для тексту --red-text. Фокус: жовтий на світлому папері 1.45 < 3 → у світлій темі --focus = ink.
+ */
+:root {
+  --paper: #f3f4f1;
+  --paper-2: #e6e8e2;
+  --ink: #16181d;
+  --ink-soft: #50555e;
+  --rule: #16181d;
+  --hair: #c6c9c0;
+  --grid: #d9dcd4;
+  --yellow: #ffc400;
+  --on-yellow: #16181d;
+  --red: #e0301e;
+  --red-text: #c2261a;
+  --blue: #1d3fcc;
+  --blue-text: #1d3fcc;
+  --on-color: #ffffff;
+  --head-bg: #16181d;
+  --head-fg: #f3f4f1;
+  --card: #16181d;
+  --on-card: #f3f4f1;
+  --on-card-soft: #b9bdc5;
+  --focus: var(--ink);
+
+  --t-ferrari: #e8002d;
+  --t-mclaren: #ff8000;
+  --t-mercedes: #27d9c2;
+  --t-redbull: #1b2b6b;
+  --t-aston: #1e8a63;
+  --t-williams: #1868db;
+  --t-rb: #6692ff;
+  --t-alpine: #ff87bc;
+  --t-haas: #9ea3aa;
+  --t-audi: #8c9096;
+  --t-cadillac: #5c5f66;
+
+  --f-display: var(--font-display), "Arial Black", Impact, sans-serif;
+  --f-body: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+  --b: 4px;
+  --b2: 2px;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #111216;
+    --paper-2: #1b1d22;
+    --ink: #ecede8;
+    --ink-soft: #a4a8b0;
+    --rule: #4a4e57;
+    --hair: #2e3138;
+    --grid: #2a2d33;
+    --red-text: #ff6b5a;
+    --blue: #2f55f0;
+    --blue-text: #93a8ff;
+    --head-bg: #07080a;
+    --head-fg: #ecede8;
+    --card: #1e2026;
+    --focus: var(--yellow);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #111216;
+  --paper-2: #1b1d22;
+  --ink: #ecede8;
+  --ink-soft: #a4a8b0;
+  --rule: #4a4e57;
+  --hair: #2e3138;
+  --grid: #2a2d33;
+  --red-text: #ff6b5a;
+  --blue: #2f55f0;
+  --blue-text: #93a8ff;
+  --head-bg: #07080a;
+  --head-fg: #ecede8;
+  --card: #1e2026;
+  --focus: var(--yellow);
+  color-scheme: dark;
+}
+
+/* Утиліти Tailwind поверх токенів: bg-paper, text-ink, font-display тощо. */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-rule: var(--rule);
+  --color-hair: var(--hair);
+  --color-yellow: var(--yellow);
+  --color-on-yellow: var(--on-yellow);
+  --color-red: var(--red);
+  --color-red-text: var(--red-text);
+  --color-blue: var(--blue);
+  --color-blue-text: var(--blue-text);
+  --color-head-bg: var(--head-bg);
+  --color-head-fg: var(--head-fg);
+  --font-display: var(--f-display);
+  --font-body: var(--f-body);
+  --font-mono: var(--f-mono);
+}
+
+@layer base {
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.5;
+    word-spacing: normal;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--yellow);
+    color: var(--on-yellow);
+  }
+}
+
+@layer components {
+  /* Заголовки Rubik Mono One: щільний міжслівний інтервал лише тут, у тексті й mono — звичайний. */
+  .display {
+    font-family: var(--f-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    word-spacing: -0.35em;
+    line-height: 1;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
 /* global-not-found: після вибору мови скриптом лишається одна секція (без JS — обидві). */
 html[data-nf-lang="en"] [data-nf="uk"],
 html[data-nf-lang="uk"] [data-nf="en"] {

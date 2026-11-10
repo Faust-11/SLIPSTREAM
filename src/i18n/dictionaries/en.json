@@ -6,5 +6,9 @@
   "notFound": {
     "title": "Page not found",
     "home": "Go to the home page"
+  },
+  "theme": {
+    "toLight": "Switch to light theme",
+    "toDark": "Switch to dark theme"
   }
 }
