@@ -1,32 +1,32 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
-import { defaultLocale, isLocale, type Locale } from "@/i18n/config";
+import { locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
-import { LOCALE_HEADER, localizedPath } from "@/i18n/paths";
+import { localizedPath } from "@/i18n/paths";
 import "./globals.css";
 
-async function requestLocale(): Promise<Locale> {
-  const value = (await headers()).get(LOCALE_HEADER) ?? "";
-  return isLocale(value) ? value : defaultLocale;
-}
+// Статична сторінка (динамічна ламає RSC-запити: InvariantError → 500). Без JS — обидві мови;
+// з JS скрипт до першого кадру вибирає мову за адресою: html[lang] і видима секція.
+// Заголовок вкладки однаковий для обох мов: React під час гідратації повертає текст <title>.
+const LANG_SCRIPT = `(function(){var p=location.pathname,l=p==="/uk"||p.indexOf("/uk/")===0?"uk":"en",d=document.documentElement;d.lang=l;d.setAttribute("data-nf-lang",l)})()`;
 
-export async function generateMetadata(): Promise<Metadata> {
-  const dict = await getDictionary(await requestLocale());
-  return { title: `${dict.notFound.title} · ${dict.site.name}` };
-}
+export const metadata: Metadata = { title: "404 · Slipstream" };
 
-// Next 16: notFound() зі сторінки віддає порожній HTML (vercel/next.js#62228), тому 404 для всіх
-// невідомих адрес — тут, на рівні маршрутизації (unmatched URL і dynamicParams=false).
 export default async function GlobalNotFound() {
-  const locale = await requestLocale();
-  const dict = await getDictionary(locale);
+  const dicts = await Promise.all(locales.map(async (locale) => ({ locale, dict: await getDictionary(locale) })));
 
   return (
-    <html lang={locale}>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: LANG_SCRIPT }} />
+      </head>
       <body>
         <main>
-          <h1>{dict.notFound.title}</h1>
-          <a href={localizedPath("/", locale)}>{dict.notFound.home}</a>
+          {dicts.map(({ locale, dict }) => (
+            <section key={locale} lang={locale} data-nf={locale}>
+              <h1>{dict.notFound.title}</h1>
+              <a href={localizedPath("/", locale)}>{dict.notFound.home}</a>
+            </section>
+          ))}
         </main>
       </body>
     </html>

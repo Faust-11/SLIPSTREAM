@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+/* global-not-found: після вибору мови скриптом лишається одна секція (без JS — обидві). */
+html[data-nf-lang="en"] [data-nf="uk"],
+html[data-nf-lang="uk"] [data-nf="en"] {
+  display: none;
+}
