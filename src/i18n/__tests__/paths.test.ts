@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { defaultLocale, isLocale, locales } from "../config";
-import { localizedPath, resolveLocaleRoute, stripLocale, switchLocalePath } from "../paths";
+import { localizedPath, stripLocale, switchLocalePath } from "../paths";
 
 describe("config", () => {
   it("має дві мови, EN — основна", () => {
@@ -29,9 +29,20 @@ describe("localizedPath", () => {
     expect(localizedPath("/teams", "en")).toBe("/teams");
   });
 
+  it("ідемпотентна: наявний префікс мови замінюється, а не дублюється", () => {
+    expect(localizedPath("/uk/teams", "uk")).toBe("/uk/teams");
+    expect(localizedPath("/uk/teams", "en")).toBe("/teams");
+    expect(localizedPath("/en/teams", "uk")).toBe("/uk/teams");
+  });
+
+  it("відкидає відносні шляхи", () => {
+    expect(() => localizedPath("teams", "uk")).toThrow(TypeError);
+  });
+
   it("зберігає query і hash", () => {
     expect(localizedPath("/teams?q=lotus#a", "uk")).toBe("/uk/teams?q=lotus#a");
     expect(localizedPath("/?q=1", "uk")).toBe("/uk?q=1");
+    expect(localizedPath("/uk#top", "en")).toBe("/#top");
   });
 });
 
@@ -60,25 +71,5 @@ describe("switchLocalePath", () => {
   it("та сама мова — без змін", () => {
     expect(switchLocalePath("/uk/teams", "uk")).toBe("/uk/teams");
     expect(switchLocalePath("/teams", "en")).toBe("/teams");
-  });
-});
-
-describe("resolveLocaleRoute (логіка proxy)", () => {
-  it("/en і /en/* → постійний редирект без префікса", () => {
-    expect(resolveLocaleRoute("/en")).toEqual({ kind: "redirect", pathname: "/" });
-    expect(resolveLocaleRoute("/en/teams")).toEqual({ kind: "redirect", pathname: "/teams" });
-  });
-
-  it("/uk і /uk/* — без змін", () => {
-    expect(resolveLocaleRoute("/uk")).toEqual({ kind: "next", locale: "uk" });
-    expect(resolveLocaleRoute("/uk/teams")).toEqual({ kind: "next", locale: "uk" });
-  });
-
-  it("решта → внутрішній rewrite на /en", () => {
-    expect(resolveLocaleRoute("/")).toEqual({ kind: "rewrite", pathname: "/en", locale: "en" });
-    expect(resolveLocaleRoute("/teams")).toEqual({ kind: "rewrite", pathname: "/en/teams", locale: "en" });
-    expect(resolveLocaleRoute("/de/teams")).toEqual({ kind: "rewrite", pathname: "/en/de/teams", locale: "en" });
-    expect(resolveLocaleRoute("/ukraine")).toEqual({ kind: "rewrite", pathname: "/en/ukraine", locale: "en" });
-    expect(resolveLocaleRoute("/english")).toEqual({ kind: "rewrite", pathname: "/en/english", locale: "en" });
   });
 });

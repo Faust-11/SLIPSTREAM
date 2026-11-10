@@ -4,7 +4,7 @@
 
 **Goal:** каркас сайту Slipstream у `Faust-11/SLIPSTREAM`: Next.js 16, дві мови (EN без префікса, UK з `/uk`), шапка з десктопним і мобільним меню, футер, тема без мерехтіння, базове SEO, заголовки безпеки й автоматичні перевірки якості — усе зелене до того, як з'явиться перша сторінка з даними.
 
-**Architecture:** App Router з сегментом `src/app/[lang]`; `src/proxy.ts` переписує URL без префікса на `en` і робить редирект `/en/*` → `/*`, щоб не було дублів. Дизайн-токени й шрифти переносяться з макетів (`~/Desktop/F1/data/_shared_css.txt`) у `globals.css` через Tailwind 4 `@theme`. Публічні сторінки статичні/ISR, тому CSP задається заголовком без nonce (nonce вимикає ISR — `node_modules/next/dist/docs/01-app/02-guides/content-security-policy.md`).
+**Architecture:** App Router з сегментом `src/app/[lang]`; правила `redirects`/`rewrites` у `next.config.ts` переписують URL без префікса на `en` і роблять редирект `/en/*` → `/*`, щоб не було дублів (спершу планувався `src/proxy.ts` — замінено, див. `docs/decisions.md`). Дизайн-токени й шрифти переносяться з макетів (`~/Desktop/F1/data/_shared_css.txt`) у `globals.css` через Tailwind 4 `@theme`. Публічні сторінки статичні/ISR, тому CSP задається заголовком без nonce (nonce вимикає ISR — `node_modules/next/dist/docs/01-app/02-guides/content-security-policy.md`).
 
 **Tech Stack:** Next.js 16.4.5 (у плані спершу 16.2.9 — замінено через critical-уразливості, див. `docs/decisions.md`), React 19.2, TypeScript (strict), Tailwind CSS 4, `next/font/google`, Vitest + Testing Library, Playwright + `@axe-core/playwright`, ESLint (`eslint-config-next`), GitHub Actions.
 
@@ -29,7 +29,7 @@
 ## Global Constraints
 
 - Next.js **16.4.5** (див. `docs/decisions.md`), React **19.2.x**, TypeScript `strict: true` + `noUncheckedIndexedAccess: true`; Node **^22.13 || ≥ 24** (локально 24.13.1).
-- Перехоплення запитів — тільки `src/proxy.ts` (файл `middleware` у Next 16 застарів).
+- Без `middleware` (у Next 16 застарів). Маршрутизація мов — `redirects`/`rewrites` у `next.config.ts`; `src/proxy.ts` — лише для логіки на запит (не у фазі 1).
 - Мови: `en` — основна, **без префікса**; `uk` — під `/uk`. `/en` і `/en/*` → постійний редирект без префікса. `x-default` = EN.
 - Безкоштовні тарифи: Vercel Hobby (cron лише раз на добу), GitHub Free (**2 000 хв Actions/міс** для приватних репо), Supabase Free (проєкт спільний з Predictor, дані Slipstream лише в схемі `f1`).
 - Без логотипів F1 і команд; у футері: «Неофіційний фанатський сайт», дисклеймер про торгові марки, атрибуція Jolpica (CC BY-NC-SA 4.0).
@@ -87,9 +87,9 @@
 ### Task 3: Мови й маршрутизація
 
 **Files:**
-- Create: `src/i18n/config.ts`, `src/i18n/paths.ts`, `src/i18n/dictionaries/en.json`, `src/i18n/dictionaries/uk.json`, `src/i18n/get-dictionary.ts`, `src/proxy.ts`, `src/app/[lang]/layout.tsx`, `src/app/[lang]/page.tsx`
+- Create: `src/i18n/config.ts`, `src/i18n/paths.ts`, `src/i18n/dictionaries/en.json`, `src/i18n/dictionaries/uk.json`, `src/i18n/get-dictionary.ts`, `src/app/[lang]/layout.tsx`, `src/app/[lang]/page.tsx`; правила мов у `next.config.ts` (замість `src/proxy.ts`)
 - Delete: `src/app/page.tsx`, `src/app/layout.tsx` (кореневий layout переїжджає в `[lang]`)
-- Create (відхилення, див. `docs/decisions.md`): `src/app/global-not-found.tsx`, `src/app/[lang]/not-found.tsx`, `experimental.globalNotFound` у `next.config.ts`, `public/e2e-probe.txt` (перевірка, що proxy не ламає `public/`)
+- Create (відхилення, див. `docs/decisions.md`): `src/app/global-not-found.tsx`, `src/app/[lang]/not-found.tsx`, `experimental.globalNotFound` у `next.config.ts`, `public/e2e-probe.txt` (перевірка, що rewrite не ламає `public/`)
 - Test: `src/i18n/__tests__/paths.test.ts`, `e2e/i18n.spec.ts`
 
 **Interfaces:**
@@ -100,7 +100,7 @@
 
 - [ ] **Step 1: тести (Vitest)** — `localizedPath('/','uk') === '/uk'`, `localizedPath('/','en') === '/'`; `switchLocalePath('/uk/teams?q=lotus','en') === '/teams?q=lotus'`; `switchLocalePath('/teams?q=lotus','uk') === '/uk/teams?q=lotus'`; `switchLocalePath('/uk','en') === '/'`; `isLocale('de') === false`.
 - [ ] **Step 2:** запустити — Expected: FAIL (модулі не існують).
-- [ ] **Step 3:** реалізувати `config.ts`, `paths.ts`; `proxy.ts`: шлях з `/en` → 308 на шлях без префікса; шлях без префікса (і не `/_next`, не файл зі статикою) → `NextResponse.rewrite` на `/en${path}`; `/uk…` — пропустити.
+- [ ] **Step 3:** реалізувати `config.ts`, `paths.ts`; `next.config.ts`: `redirects` `/en…` → 308 на шлях без префікса; `rewrites.afterFiles` шлях без префікса (і не `/_next`) → `/en${path}`; `/uk…` — пропустити.
 - [ ] **Step 4:** `npm run test` — Expected: PASS.
 - [ ] **Step 5: e2e** — `/` → 200 і `html[lang=en]`; `/uk` → 200 і `html[lang=uk]`; `/en/teams` → 308 з `location: /teams`; `/de/teams` → 404; `/uk/nope` → 404 з `html[lang=uk]`. Expected: PASS.
 - [ ] **Step 6:** Commit `feat: дві мови, EN без префікса`.
@@ -141,8 +141,8 @@
 ### Task 6: Сторінки-заготовки, 404, метадані
 
 **Files:**
-- Create: `src/app/[lang]/{seasons,calendar,news,drivers,teams,circuits,stories,newbie,game}/page.tsx`, `src/components/site/section-hero.tsx`, `src/app/[lang]/error.tsx`
-- Modify: `src/app/global-not-found.tsx`, `src/app/[lang]/not-found.tsx` (створені в Task 3 — див. `docs/decisions.md`, «404: global-not-found»), `src/app/robots.ts`, `src/app/sitemap.ts`, `src/app/icon.svg`, `src/lib/seo.ts`
+- Create: `src/app/[lang]/{seasons,calendar,news,drivers,teams,circuits,stories,newbie,game}/page.tsx`, `src/components/site/section-hero.tsx`, `src/app/[lang]/error.tsx`, `src/app/robots.ts`, `src/app/sitemap.ts`, `src/app/icon.svg`, `src/lib/seo.ts`
+- Modify: `src/app/global-not-found.tsx`, `src/app/[lang]/not-found.tsx` (створені в Task 3 — див. `docs/decisions.md`, «Маршрутизація мов і 404»)
 - Test: `src/lib/__tests__/seo.test.ts`, `e2e/seo.spec.ts`
 
 **Interfaces:**
@@ -150,7 +150,7 @@
 
 - [ ] **Step 1: тести** — `pageMetadata({locale:'uk', path:'/teams', …}).alternates.languages` = `{ en: '/teams', uk: '/uk/teams', 'x-default': '/teams' }`; canonical для `uk` = `/uk/teams`; `robots.index === false` без `SITE_INDEXING`.
 - [ ] **Step 2:** FAIL → реалізація → PASS.
-- [ ] **Step 3:** заготовка розділу = `SectionHero` (назва розділу, колір із `SECTION_HERO`), без пояснювального тексту. 404 вже серверний з Task 3 (`global-not-found` + заголовок `x-ss-locale` від proxy; `[lang]/not-found` — через `next/root-params`): тут лише оформити обидва (шапка, футер, стилі) без зміни механізму.
+- [ ] **Step 3:** заготовка розділу = `SectionHero` (назва розділу, колір із `SECTION_HERO`), без пояснювального тексту. 404 вже серверний з Task 3 (статичний двомовний `global-not-found` + скрипт мови; `[lang]/not-found` — через `next/root-params`): тут лише оформити обидва (шапка, футер, стилі) без зміни механізму. Увага: URL метаданих, які Next генерує з шляху маршруту (`opengraph-image` у `[lang]`), для EN містять `/en/…` → зайвий 308; задавати такі URL явно через `localizedPath` або тримати файли метаданих поза `[lang]`.
 - [ ] **Step 4: e2e** — кожна з 9 сторінок → 200 в обох мовах, має `<link rel=alternate hreflang=uk|en|x-default>` і `<meta name=robots content="noindex, nofollow">`; `/robots.txt` містить `Disallow: /`; `/sitemap.xml` містить обидві мовні версії кожної сторінки; `/uk/nope` → 404 з українським текстом.
 - [ ] **Step 5:** скіли `seo-technical` і `seo-hreflang` по локальному білду; знахідки — виправити.
 - [ ] **Step 6:** Commit `feat: розділи-заготовки, 404, SEO-база`.
@@ -166,7 +166,7 @@
 
 - [ ] **Step 1: e2e** — відповідь `/` і `/uk/teams` містить усі заголовки вище; немає `x-powered-by`; у консолі сторінки 0 повідомлень про CSP.
 - [ ] **Step 2:** FAIL → реалізація → PASS.
-- [ ] **Step 3:** скіл `insecure-defaults` по `next.config.ts`, `proxy.ts`, CI; знахідки — виправити.
+- [ ] **Step 3:** скіл `insecure-defaults` по `next.config.ts` (заголовки, redirects/rewrites), CI; знахідки — виправити.
 - [ ] **Step 4:** Commit `feat: заголовки безпеки`.
 
 ### Task 8: Перевірка фази

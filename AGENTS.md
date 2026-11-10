@@ -11,6 +11,6 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 # Slipstream — правила для агентів
 
 - Плани фаз — `docs/plans/`, рішення — `docs/decisions.md`, аудити — `docs/audits/`.
-- Мови: `en` без префікса, `uk` під `/uk`. Перехоплення запитів — лише `src/proxy.ts`.
+- Мови: `en` без префікса, `uk` під `/uk`. Правила мов — `redirects`/`rewrites` у `next.config.ts`; 404 — `app/global-not-found.tsx`; неіснуючі параметри — `dynamicParams = false`, не `notFound()` (див. `docs/decisions.md`).
 - Версії залежностей — точні; нові залежності — лише після перевірки (`npm audit`, вік релізу, install-скрипти).
 - Перед комітом: `npm run lint && npm run typecheck && npm run test && npm run build`.
