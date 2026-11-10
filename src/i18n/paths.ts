@@ -6,8 +6,11 @@ function splitPath(path: string): [pathname: string, rest: string] {
   return i === -1 ? [path, ""] : [path.slice(0, i), path.slice(i)];
 }
 
+/** Лише шлях від кореня свого сайту: `//host` і `/\\host` браузер трактує як інший домен. */
 function assertAbsolute(path: string): void {
-  if (!path.startsWith("/")) throw new TypeError(`Очікується шлях від кореня сайту: "${path}"`);
+  if (!path.startsWith("/") || path.startsWith("//") || path.startsWith("/\\")) {
+    throw new TypeError(`Очікується шлях від кореня сайту: "${path}"`);
+  }
 }
 
 /** Префікс мови, якщо шлях починається з нього цілим сегментом (`/uk`, `/uk/...`, але не `/ukraine`). */
