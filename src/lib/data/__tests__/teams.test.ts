@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getTeamsCredits, getTeamsIndex, TEAMS_PAGE_SIZE } from "../teams";
+import { getTeamsCredits, getTeamsIndex, getTeamsSeason, TEAMS_PAGE_SIZE } from "../teams";
 
 describe("getTeamsIndex", () => {
   it("українською: країна, alt фото, прізвища пілотів", async () => {
@@ -32,6 +32,10 @@ describe("getTeamsIndex", () => {
       const [a, b] = [cards[i - 1]!, cards[i]!];
       expect(a.wins > b.wins || (a.wins === b.wins && a.grandsPrix >= b.grandsPrix), `${a.id} → ${b.id}`).toBe(true);
     }
+  });
+
+  it("поточний сезон — рік дати знімка (а не число в коді)", () => {
+    expect(getTeamsSeason()).toBe(2026);
   });
 
   it("розмір сторінки — 24", () => {

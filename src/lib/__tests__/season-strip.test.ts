@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { seasonStripGradient } from "../season-strip";
+import { seasonStripGradient, seasonsText } from "../season-strip";
 
 const ON = "var(--strip-on)";
 const OFF = "var(--strip-off)";
@@ -38,5 +38,14 @@ describe("seasonStripGradient", () => {
     expect(seasonStripGradient([[1975, 1976], [1978, 2026]])).toBe(
       `linear-gradient(to right, ${OFF} 0% 32.468%, ${ON} 32.468% 35.065%, ${OFF} 35.065% 36.364%, ${ON} 36.364% 100%)`,
     );
+  });
+});
+
+describe("seasonsText", () => {
+  it("як у макеті: роки й діапазони через кому; понад 3 — перший, … останній", () => {
+    expect(seasonsText([[2026, 2026]])).toBe("2026");
+    expect(seasonsText([[1954, 1955], [2010, 2026]])).toBe("1954–1955, 2010–2026");
+    expect(seasonsText([[1950, 1951], [1963, 1963], [1965, 1965]])).toBe("1950–1951, 1963, 1965");
+    expect(seasonsText([[1950, 1951], [1963, 1963], [1965, 1965], [1979, 1985], [2019, 2023]])).toBe("1950–1951, … 2019–2023");
   });
 });

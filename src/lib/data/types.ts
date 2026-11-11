@@ -25,6 +25,8 @@ export type TeamSnapshot = {
   /** Коротка назва, як у макеті: "Racing Bulls", "Haas". */
   name: string;
   country: L10n;
+  /** ISO 3166-1 alpha-3 ("GBR") — заглушка картки без фото, як у макеті. */
+  countryCode: string;
   /** Діапазони сезонів участі, відсортовані, без перетинів. */
   seasons: [number, number][];
   grandsPrix: number;

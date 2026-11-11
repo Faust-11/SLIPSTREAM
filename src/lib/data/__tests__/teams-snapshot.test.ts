@@ -1,10 +1,7 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import snapshot from "@/data/snapshot/teams.json";
-import type { TeamsSnapshot } from "../types";
-
-const data = snapshot as TeamsSnapshot;
+import { teamsSnapshot as data } from "../teams";
 const publicFile = (src: string) => join(process.cwd(), "public", src);
 
 // Вільні ліцензії, що реально трапляються в даних (замір 11.11). Нове значення — лише свідомим доповненням.
@@ -114,6 +111,7 @@ describe("знімок команд", () => {
     for (const t of data.teams) {
       expect(t.country.en.trim(), t.id).not.toBe("");
       expect(t.country.uk, t.id).toMatch(/[А-ЯҐЄІЇа-яґєії]/);
+      expect(t.countryCode, t.id).toMatch(/^[A-Z]{3}$/);
     }
   });
 });

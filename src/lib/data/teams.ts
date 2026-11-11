@@ -4,9 +4,17 @@ import snapshot from "@/data/snapshot/teams.json";
 import type { Locale } from "@/i18n/config";
 import type { Credit, TeamSnapshot, TeamsSnapshot } from "./types";
 
-const data = snapshot as TeamsSnapshot;
+// JSON-імпорт TypeScript типізує ширше (number[][] замість кортежів, number замість 480) — приводимо
+// через unknown; форму знімка гарантують тести інваріантів (`__tests__/teams-snapshot.test.ts`).
+export const teamsSnapshot = snapshot as unknown as TeamsSnapshot;
+const data = teamsSnapshot;
 
 export const TEAMS_PAGE_SIZE = 24;
+
+/** Поточний сезон — рік дати знімка (мітка «2026 · P1», «Пілоти 2026», фільтр «Сезон 2026»). */
+export function getTeamsSeason(): number {
+  return Number(data.asOf.slice(0, 4));
+}
 
 export type TeamCardDriver = { id: string; name: string; initials: string; avatar: string | null };
 
@@ -33,6 +41,7 @@ function toCard(t: TeamSnapshot, locale: Locale): TeamCard {
     wins: t.wins,
     titles: t.titles,
     country: t.country[locale],
+    countryCode: t.countryCode,
     current: t.current && {
       position: t.current.position,
       color: t.current.color,

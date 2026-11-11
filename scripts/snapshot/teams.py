@@ -120,7 +120,7 @@ def main():
                 drivers.append({"id": ref, "name": {"en": en, "uk": uk}, "surname": {"en": en.split()[-1], "uk": uk.split()[-1]},
                                 "initials": "".join(w[0] for w in en.split()[:2]).upper(), "avatar": avatar})
             current = {"position": standings[short]["pos"], "color": TCOL[short], "drivers": drivers}
-        teams.append({"id": tid, "name": short, "country": {"en": en_c, "uk": uk_c}, "seasons": years[full],
+        teams.append({"id": tid, "name": short, "country": {"en": en_c, "uk": uk_c}, "countryCode": t["cc"], "seasons": years[full],
                       "grandsPrix": t["gp"], "wins": t["w"], "titles": t["t"], "current": current, "photo": photo})
 
     ids = [t["id"] for t in teams]
