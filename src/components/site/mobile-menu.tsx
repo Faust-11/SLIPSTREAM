@@ -124,7 +124,7 @@ export function MobileMenu({
                       item.accent === "yellow" ? "is-accent" : undefined
                     }
                   >
-                    {item.label}
+                    {item.accent === "yellow" ? <span className="mnav-plate">{item.label}</span> : item.label}
                   </Link>
                 </li>
               ))}

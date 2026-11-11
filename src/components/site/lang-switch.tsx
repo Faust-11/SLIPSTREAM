@@ -5,12 +5,12 @@ import { useSearchParams, useSelectedLayoutSegments } from "next/navigation";
 import { Suspense } from "react";
 import { FOCUS_MAIN_FLAG } from "./route-focus";
 import { barePathFromSegments } from "@/config/nav";
-import type { Locale } from "@/i18n/config";
+import { LOCALE_LABEL, type Locale } from "@/i18n/config";
 import { switchLocalePath } from "@/i18n/paths";
 
 type Props = { current: Locale; label: string; names: Record<Locale, string> };
 
-// Порядок як у макеті: UK | EN.
+// Порядок як у макеті: UA | EN.
 const ORDER: readonly Locale[] = ["uk", "en"];
 
 /** Шлях сторінки без мови — з дерева маршрутів (стабільно при rewrites, без розбіжності гідратації). */
@@ -29,12 +29,13 @@ function markFocusMain() {
 
 function Links({ current, label, names, query }: Props & { query: string }) {
   const bare = useBarePath();
+  // translate="no": автоперекладач браузера не чіпає коди мов (Web Interface Guidelines).
   return (
-    <div className="lang" role="group" aria-label={label}>
+    <div className="lang" role="group" aria-label={label} translate="no">
       {ORDER.map((locale) =>
         locale === current ? (
           <span key={locale} className="lang-item is-current" aria-current="true" lang={locale} title={names[locale]}>
-            {locale.toUpperCase()}
+            {LOCALE_LABEL[locale]}
           </span>
         ) : (
           <Link
@@ -47,9 +48,11 @@ function Links({ current, label, names, query }: Props & { query: string }) {
             prefetch={false}
             onClick={markFocusMain}
           >
-            {/* Доступна назва містить видимий текст (WCAG 2.5.3): «UK — Українська». */}
-            {locale.toUpperCase()}
-            <span className="sr-only"> — {names[locale]}</span>
+            {/* Доступна назва містить видимий текст (WCAG 2.5.3): «UA — Українська». */}
+            {LOCALE_LABEL[locale]}
+            {/* Пробіл — окремим вузлом поза sr-only: інакше ім'я склеюється в «UA— Українська» (замір jsdom). */}
+            {" "}
+            <span className="sr-only">— {names[locale]}</span>
           </Link>
         ),
       )}

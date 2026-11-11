@@ -132,19 +132,35 @@ body::before {
   text-decoration: none;
   opacity: 0.88;
 }
+/* Жовтий у шапці (рішення користувача 11.11) — лише дві ролі: плашка «Гра» і риска поточного
+   розділу. Наведення — світла риска кольору тексту, без жовтого. */
 .nav a:hover {
   opacity: 1;
-  color: var(--yellow);
+  box-shadow: inset 0 -2px 0 var(--head-fg);
 }
 .nav a[aria-current="page"] {
   opacity: 1;
-  color: var(--yellow);
   box-shadow: inset 0 -2px 0 var(--yellow);
 }
-.nav a.is-accent,
-.mnav a.is-accent {
-  color: var(--yellow);
+.nav a.is-accent {
+  position: relative;
+  padding-inline: 8px;
+  background: var(--yellow);
+  color: var(--on-yellow);
   opacity: 1;
+}
+.nav a.is-accent:hover {
+  background: color-mix(in srgb, var(--yellow) 78%, var(--head-fg));
+  box-shadow: none;
+}
+/* Поточна «Гра»: та сама жовта риска, що й в інших розділів, — під плашкою з відступом
+   (риска на самій плашці зливалась з нею — UX-прохід 11.11). */
+.nav a.is-accent[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -6px;
+  height: 2px;
+  background: var(--yellow);
 }
 
 .lang {
@@ -250,13 +266,25 @@ body::before {
   text-decoration: none;
   color: inherit;
 }
-.mnav a:hover {
-  color: var(--yellow);
+.mnav a:hover::after {
+  opacity: 1;
 }
-.mnav-btn:hover,
-.mnav-fallback:hover,
-.mnav-theme:hover {
-  color: var(--yellow);
+/* Лише для миші: на тач-екрані :hover «залипає» після тапу (UX-прохід 11.11). */
+@media (hover: hover) {
+  .mnav-btn:hover,
+  .mnav-fallback:hover,
+  .mnav-theme:hover {
+    background: rgb(255 255 255 / 0.1);
+  }
+}
+/* «Гра» в панелі — та сама жовта плашка; текст вирівняний з іншими пунктами. */
+/* Ліва межа плашки — по лінії тексту інших пунктів; від'ємні вертикальні поля тримають висоту
+   рядка такою ж, як в інших (UX-прохід 11.11). */
+.mnav-plate {
+  margin-block: -4px;
+  padding: 4px 9px;
+  background: var(--yellow);
+  color: var(--on-yellow);
 }
 .mnav a::after {
   /* Порожній alt-текст: дикторам не читати «стрілка вправо». */
@@ -267,12 +295,10 @@ body::before {
   font-size: 15px;
   opacity: 0.5;
 }
-.mnav a[aria-current="page"] {
-  color: var(--yellow);
-}
 .mnav a[aria-current="page"]::after {
   content: "●" / "";
-  font-size: 10px;
+  font-size: 14px;
+  color: var(--yellow);
   opacity: 1;
 }
 .mnav-theme {
@@ -418,8 +444,8 @@ html:not([data-hydrated]) .mnav-btn {
   text-decoration: none;
 }
 .foot-nav a:hover {
-  color: var(--yellow);
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .unofficial {
   display: inline-block;
