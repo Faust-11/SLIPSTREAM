@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { ThemeScript } from "@/components/theme/theme-script";
 import { locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";
+import { fontVariables } from "./fonts";
 import "./globals.css";
 
 // Статична сторінка (динамічна ламає RSC-запити: InvariantError → 500). Без JS — обидві мови;
@@ -15,8 +17,9 @@ export default async function GlobalNotFound() {
   const dicts = await Promise.all(locales.map(async (locale) => ({ locale, dict: await getDictionary(locale) })));
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={fontVariables} suppressHydrationWarning>
       <head>
+        <ThemeScript />
         <script dangerouslySetInnerHTML={{ __html: LANG_SCRIPT }} />
       </head>
       <body>

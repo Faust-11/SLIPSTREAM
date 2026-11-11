@@ -76,6 +76,7 @@ describe("themeScriptSource (inline-скрипт у <head>)", () => {
   afterEach(() => {
     if (original) Object.defineProperty(window, "localStorage", original);
     document.documentElement.removeAttribute("data-theme");
+    document.documentElement.removeAttribute("data-js");
   });
 
   function runWith(storage: Storage) {
@@ -87,6 +88,11 @@ describe("themeScriptSource (inline-скрипт у <head>)", () => {
   it("ставить data-theme зі сховища", () => {
     expect(runWith(storageWith("light"))).toBe("light");
     expect(runWith(storageWith("dark"))).toBe("dark");
+  });
+
+  it("позначає, що JS працює (data-js), навіть без сховища", () => {
+    runWith(throwingStorage);
+    expect(document.documentElement.hasAttribute("data-js")).toBe(true);
   });
 
   it("ігнорує сміття й недоступне сховище", () => {

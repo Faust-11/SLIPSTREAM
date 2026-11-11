@@ -40,9 +40,9 @@
   --t-audi: #8c9096;
   --t-cadillac: #5c5f66;
 
-  --f-display: var(--font-display), "Arial Black", Impact, sans-serif;
-  --f-body: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
-  --f-mono: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+  --f-display: var(--nf-display, "Arial Black"), "Arial Black", Impact, sans-serif;
+  --f-body: var(--nf-body, system-ui), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: var(--nf-mono, ui-monospace), ui-monospace, Menlo, Consolas, monospace;
   --b: 4px;
   --b2: 2px;
 
@@ -103,6 +103,24 @@
   --color-blue-text: var(--blue-text);
   --color-head-bg: var(--head-bg);
   --color-head-fg: var(--head-fg);
+  --color-grid: var(--grid);
+  --color-card: var(--card);
+  --color-on-card: var(--on-card);
+  --color-on-card-soft: var(--on-card-soft);
+  --color-on-color: var(--on-color);
+  --color-focus: var(--focus);
+  --color-t-ferrari: var(--t-ferrari);
+  --color-t-mclaren: var(--t-mclaren);
+  --color-t-mercedes: var(--t-mercedes);
+  --color-t-redbull: var(--t-redbull);
+  --color-t-aston: var(--t-aston);
+  --color-t-williams: var(--t-williams);
+  --color-t-rb: var(--t-rb);
+  --color-t-alpine: var(--t-alpine);
+  --color-t-haas: var(--t-haas);
+  --color-t-audi: var(--t-audi);
+  --color-t-cadillac: var(--t-cadillac);
+  --font-sans: var(--f-body);
   --font-display: var(--f-display);
   --font-body: var(--f-body);
   --font-mono: var(--f-mono);
@@ -128,6 +146,23 @@
     outline-offset: 2px;
   }
 
+  /* На темних поверхнях (шапка, картки) кільце ink дало б 1:1 — жовте (11:1). */
+  .site-head,
+  .mnav,
+  .site-foot,
+  [data-surface="dark"] {
+    --focus: var(--yellow);
+  }
+
+  /* Моно — завжди звичайний міжслівний інтервал, навіть усередині .display. */
+  code,
+  kbd,
+  samp,
+  pre,
+  .font-mono {
+    word-spacing: normal;
+  }
+
   ::selection {
     background: var(--yellow);
     color: var(--on-yellow);
@@ -148,6 +183,29 @@
 
   .num {
     font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Перемикач теми: обидва стани в розмітці, видимий — за чинною темою (без розбіжності при гідратації).
+   Без JS кнопка прихована: ThemeScript ставить html[data-js]. */
+html:not([data-js]) .theme-toggle {
+  display: none;
+}
+.theme-toggle .tt-to-light {
+  display: none;
+}
+:root[data-theme="dark"] .theme-toggle .tt-to-light {
+  display: inline;
+}
+:root[data-theme="dark"] .theme-toggle .tt-to-dark {
+  display: none;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .tt-to-light {
+    display: inline;
+  }
+  :root:not([data-theme="light"]) .theme-toggle .tt-to-dark {
+    display: none;
   }
 }
 

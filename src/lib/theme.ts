@@ -36,9 +36,10 @@ export function resolveTheme(attribute: string | null | undefined, prefersDark: 
 }
 
 /**
- * Inline-скрипт для `<head>`: до першого кадру ставить `data-theme` зі сховища.
- * Без збереженого вибору атрибута немає — діє `prefers-color-scheme`.
+ * Inline-скрипт для `<head>`: до першого кадру ставить `data-theme` зі сховища і `data-js`
+ * (ознака, що JS працює: без нього перемикач теми прихований).
+ * Без збереженого вибору `data-theme` немає — діє `prefers-color-scheme`.
  */
-export const themeScriptSource = `(function(){try{var t=localStorage.getItem(${JSON.stringify(
+export const themeScriptSource = `(function(){var d=document.documentElement;d.setAttribute("data-js","");try{var t=localStorage.getItem(${JSON.stringify(
   THEME_STORAGE_KEY,
-)});if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`;
+)});if(t==="light"||t==="dark")d.setAttribute("data-theme",t)}catch(e){}})()`;
