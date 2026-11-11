@@ -9,10 +9,6 @@ on:
     - cron: "0 6 * * 1"   # понеділок 06:00 UTC — після гоночних вихідних
     - cron: "0 6 * * 4"   # четвер — пізні зміни результатів, новий дамп (щовівторка)
   workflow_dispatch:
-  # ТИМЧАСОВО (перший запуск до злиття: workflow_dispatch бачить лише файли з main) — прибрати наступним комітом.
-  push:
-    branches: [phase2/data]
-    paths: [".github/workflows/data-sync.yml"]
 
 concurrency:
   group: data-sync
