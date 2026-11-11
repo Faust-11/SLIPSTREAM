@@ -542,24 +542,6 @@
   "current_drivers": []
  },
  {
-  "id": "de-tomaso",
-  "seasons": [
-   [
-    1961,
-    1963
-   ],
-   [
-    1970,
-    1970
-   ]
-  ],
-  "grands_prix": 10,
-  "wins": 0,
-  "titles": 0,
-  "current_position": null,
-  "current_drivers": []
- },
- {
   "id": "deidt",
   "seasons": [
    [
@@ -596,6 +578,24 @@
    ]
   ],
   "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "de-tomaso",
+  "seasons": [
+   [
+    1961,
+    1963
+   ],
+   [
+    1970,
+    1970
+   ]
+  ],
+  "grands_prix": 10,
   "wins": 0,
   "titles": 0,
   "current_position": null,
