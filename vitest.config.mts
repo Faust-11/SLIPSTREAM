@@ -3,7 +3,11 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   plugins: [react()],
-  resolve: { tsconfigPaths: true },
+  resolve: {
+    tsconfigPaths: true,
+    // `server-only` Next підставляє сам (next/dist/compiled/server-only); у тестах — порожній модуль.
+    alias: { "server-only": "next/dist/compiled/server-only/empty.js" },
+  },
   test: {
     environment: "jsdom",
     setupFiles: ["./vitest.setup.ts"],

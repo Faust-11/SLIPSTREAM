@@ -33,9 +33,9 @@ describe("знімок команд", () => {
     for (const id of ids) expect(id).toMatch(/^[a-z0-9]+(-[a-z0-9]+)*$/);
   });
 
-  it("131 команда з фото; кожен файл існує, ліцензія вільна, автор указаний", () => {
+  it("127 команд з фото; кожен файл існує, ліцензія вільна, автор — ім'я, а не URL чи «Unknown»", () => {
     const withPhoto = data.teams.filter((t) => t.photo);
-    expect(withPhoto).toHaveLength(131);
+    expect(withPhoto).toHaveLength(127);
     for (const t of withPhoto) {
       const p = t.photo!;
       expect(p.src, t.id).toBe(`/img/cars/${t.id}.jpg`);
@@ -43,6 +43,7 @@ describe("знімок команд", () => {
       expect([p.width, p.height]).toEqual([480, 300]);
       expect(FREE_LICENSES.has(p.credit.license), `${t.id}: ${p.credit.license}`).toBe(true);
       expect(p.credit.author.trim(), t.id).not.toBe("");
+      expect(p.credit.author, t.id).not.toMatch(/^Unknown$|https?:|^Original:|original uploader/i);
       expect(p.credit.page, t.id).toMatch(/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/);
     }
   });
@@ -74,6 +75,8 @@ describe("знімок команд", () => {
         expect(credit, d.id).toBeDefined();
         expect(FREE_LICENSES.has(credit!.license), `${d.id}: ${credit!.license}`).toBe(true);
         expect(credit!.author.trim(), d.id).not.toBe("");
+        expect(credit!.author, d.id).not.toMatch(/^Unknown$|https?:|^Original:|original uploader/i);
+        expect(credit!.page, d.id).toMatch(/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/);
       }
     }
   });
@@ -105,6 +108,38 @@ describe("знімок команд", () => {
     }
     expect(data.teams.filter((t) => t.titles > 0)).toHaveLength(15);
     expect(data.teams.filter((t) => t.wins > 0)).toHaveLength(38);
+  });
+
+  it("хибні фото (рев'ю 11.11) виключено: Dallara, Theodore, Politoys, BRP — без фото", () => {
+    for (const id of ["dallara", "theodore", "politoys", "brp"]) expect(data.teams.find((t) => t.id === id)?.photo, id).toBeNull();
+  });
+
+  it("еталонні числа (звірка з дампом/API Jolpica, docs/audits/phase3a-data.md)", () => {
+    const pick = (id: string) => {
+      const t = data.teams.find((x) => x.id === id)!;
+      return [t.grandsPrix, t.wins, t.titles];
+    };
+    // Перемоги — за гонками (спільні машини 1950-х — одна перемога); Гран-прі — лише зі стартом.
+    expect(pick("ferrari")).toEqual([1143, 250, 16]);
+    expect(pick("alfa-romeo")).toEqual([216, 10, 0]);
+    expect(pick("vanwall")).toEqual([28, 9, 1]);
+    expect(pick("tyrrell")).toEqual([430, 23, 1]);
+    expect(pick("brm")).toEqual([197, 17, 1]);
+    expect(pick("andrea-moda")).toEqual([1, 0, 0]);
+    expect(pick("mercedes")).toEqual([361, 143, 9]);
+    expect(pick("red-bull")).toEqual([437, 133, 6]);
+  });
+
+  it("пілоти 2026 — у порядку заліку пілотів (як у макеті)", () => {
+    const crew = (id: string) => data.teams.find((t) => t.id === id)!.current!.drivers.map((d) => d.id);
+    expect(crew("ferrari")).toEqual(["hamilton", "leclerc"]);
+    expect(crew("mercedes")).toEqual(["antonelli", "russell"]);
+    expect(crew("mclaren")).toEqual(["norris", "piastri"]);
+  });
+
+  it("refs: кожна команда має конструктори Jolpica, злиття видно (McLaren-Ford → McLaren)", () => {
+    for (const t of data.teams) expect(t.refs.length, t.id).toBeGreaterThan(0);
+    expect(data.teams.find((t) => t.id === "mclaren")!.refs).toContain("mclaren-ford");
   });
 
   it("країна обома мовами", () => {

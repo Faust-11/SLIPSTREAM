@@ -4,8 +4,10 @@
 
 | Знімок | Скрипт | Стан на | Вміст |
 |---|---|---|---|
-| `src/data/snapshot/teams.json` | `python3 -I scripts/snapshot/teams.py ~/Desktop/F1/data` | 08.11.2026 (після 20-го етапу) | 164 команди (92 КБ), 131 фото `public/img/cars` (480×300, 4,3 МБ), 22 аватари `public/img/drivers` (112×112, 156 КБ) |
+| `src/data/snapshot/teams.json` | `python3 -I scripts/snapshot/teams.py ~/Desktop/F1/data` | 08.11.2026 (після 20-го етапу) | 164 команди (JSON ≈ 92 КБ, gzip ≈ 12 КБ), 127 фото `public/img/cars` (480×300, ≈ 4,1 МБ байтів), 22 аватари `public/img/drivers` (112×112, ≈ 99 КБ) |
 
 - Джерело — локальні дані макетів (`index_mockup/index_data.json`, `teams_cards/data/*.json`, `avatars.json`, `driver_photos/`), тобто ті самі числа, що в затвердженому макеті. Звірка з Jolpica — `docs/audits/phase3a-data.md`.
 - Фото — лише вільні ліцензії з Wikimedia Commons; автори й ліцензії — у знімку (`credit`, `avatarCredits`) і на сторінці.
+- Лічильники макета виправляються за CSV-дампом Jolpica (перемоги — за гонками, Гран-прі — лише зі стартом); у кожної команди `refs` — злиті конструктори Jolpica (для контракт-тесту фази 2).
+- Скрипт пише в тимчасову теку й замінює файли лише після успіху; `public/img/drivers` — спільна тека, скрипт лише додає/оновлює свої аватари.
 - Оновлення: перезапустити скрипт → `npm run test` (інваріанти знімка) → закомітити JSON і фото.

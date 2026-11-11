@@ -7,11 +7,14 @@
 показувала ті самі числа, що й затверджений макет. Тимчасово до фази 2 (база `f1` у Supabase).
 """
 import ast
+import collections
+import csv
 import html
 import json
 import re
 import shutil
 import sys
+import tempfile
 from pathlib import Path
 
 from PIL import Image
@@ -34,8 +37,19 @@ CC = {"GBR": ("Велика Британія", "United Kingdom"), "USA": ("СШ�
       "ZAF": ("ПАР", "South Africa"), "NZL": ("Нова Зеландія", "New Zealand"), "BRA": ("Бразилія", "Brazil"), "HKG": ("Гонконг", "Hong Kong"),
       "MEX": ("Мексика", "Mexico"), "IRL": ("Ірландія", "Ireland"), "AUT": ("Австрія", "Austria"), "IND": ("Індія", "India"),
       "ESP": ("Іспанія", "Spain"), "MYS": ("Малайзія", "Malaysia")}
-# У метаданих Commons немає поля Artist — автора взято з опису файлу (як у макеті).
-ART_FIX = {"Veritas": "Lothar Spurzem", "BRM": "Lothar Spurzem", "Brabham": "Gerald Swan", "BAR": "Dan Smith"}
+# У метаданих Commons немає поля Artist — автора взято з опису файлу (як у макеті); решта — замість
+# URL Flickr / службового тексту ім'я автора зі сторінки Commons (FlickreviewR, рев'ю Task 2, 11.11).
+ART_FIX = {"Veritas": "Lothar Spurzem", "BRM": "Lothar Spurzem", "Brabham": "Gerald Swan", "BAR": "Dan Smith",
+           "Racing Point": "Renzopaso", "AGS": "taka_suzuki", "Scarab": "Dave Hamster",
+           "Fittipaldi": "Paulo Carmona Sanches Neto (кадрування: Morio)", "Iso Marlboro": "Hans Peters / Anefo",
+           "Rial": "Der Alf (похідна робота: Danyele)"}
+AVATAR_ART_FIX = {"norris": "Steffen Prößdorf"}
+# Фото іншої машини (рев'ю Task 2, 11.11, перевірено переглядом): краще без фото, ніж хибне.
+#   Dallara — болід A1GP (Бруно Сенна, 2006); Theodore — Ralt RT3 F3 (Макао-1983);
+#   Politoys — Brabham BT26 (1969); BRP — BRM P25 (BRP виступала на ньому як на BRM, а не на шасі BRP).
+WRONG_PHOTO = {"Dallara", "Theodore", "Politoys", "BRP"}
+REF_RE = re.compile(r"^[a-z0-9_]+$")
+NOSTART = re.compile(r"did not (start|qualify|pre)|withdr|not classified.*dns|^dn[sq]", re.I)
 
 
 def load(rel):
@@ -45,6 +59,49 @@ def load(rel):
 
 def slug(s):
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
+
+
+def fam(name):
+    """Родина шасі, як у compute_index.py макета: «McLaren-Ford» → «McLaren» (у Jolpica пари шасі-двигун — окремі конструктори)."""
+    n = {"Team Lotus": "Lotus"}.get(name, name)
+    return n.split("-")[0].strip() if "-" in n and n not in ("Mercedes-Benz",) else n
+
+
+def dump_corrections():
+    """Виправлення лічильників index_data.json за CSV-дампом Jolpica (рев'ю Task 2, 11.11):
+    - перемоги — за гонками, а не за заявками: у 1950-х перемогу спільної машини записано двом пілотам;
+    - «Гран-прі» — без гонок, де жодна машина команди не стартувала (grid 0 і 0 кіл: аварія на тренуванні,
+      виключення до старту, зняття), хоча евристика макета зарахувала їх як старт;
+    - refs — усі конструктори Jolpica, злиті в родину (для контракт-тесту фази 2).
+    Гонки 2026 після дампу (з API) макет уже фільтрує за статусом — їх це не стосується."""
+    d = SRC / "jolpica_dump_raw/csv/formula_one_"
+    rd = lambda n: list(csv.DictReader(open(f"{d}{n}.csv", encoding="utf-8")))
+    teams = {r["id"]: r for r in rd("team")}
+    seasons = {r["id"]: int(r["year"]) for r in rd("season")}
+    rounds = {r["id"]: r for r in rd("round")}
+    td = {r["id"]: r for r in rd("teamdriver")}
+    rentry = {r["id"]: r for r in rd("roundentry")}
+    races = {r["id"] for r in rd("session") if r["type"] == "R" and r["is_cancelled"] == "f"}
+    starts = collections.defaultdict(lambda: collections.defaultdict(list))
+    winners = collections.defaultdict(collections.Counter)
+    for e in rd("sessionentry"):
+        if e["session_id"] not in races:
+            continue
+        ren = rentry[e["round_entry_id"]]
+        rnd = rounds[ren["round_id"]]
+        f = fam(teams[td[ren["team_driver_id"]]["team_id"]]["name"])
+        if NOSTART.search(e["detail"] or "") or (e["laps_completed"] in ("", None) and e["position"] == ""):
+            continue  # макет теж не рахує
+        key = (seasons[rnd["season_id"]], rnd["number"])
+        starts[f][key].append(e["grid"] in ("", "0") and e["laps_completed"] in ("", "0"))
+        if e["is_classified"] == "t" and e["position"] == "1":
+            winners[f][key] += 1
+    phantom = collections.Counter({f: sum(all(v) for v in rs.values()) for f, rs in starts.items()})
+    dup_wins = collections.Counter({f: sum(n - 1 for n in c.values() if n > 1) for f, c in winners.items()})
+    refs = collections.defaultdict(set)
+    for t in teams.values():
+        refs[fam(t["name"])].add(t["reference"])
+    return phantom, dup_wins, refs
 
 
 def uk_names():
@@ -69,19 +126,26 @@ def main():
     race = load("newbie_mockup/saopaulo2026_results.json")["MRData"]["RaceTable"]["Races"][0]
     ukn = uk_names()
     en_names = idx["driver_names"]
+    assert idx["round"] == int(race["round"]), f"index_data — етап {idx['round']}, результати — етап {race['round']}"
+    phantom, dup_wins, refs = dump_corrections()
 
     standings = {TSHORT.get(t["name"], t["name"]): t for t in idx["cur_teams"]}
-    in_standings = {d["ref"] for d in idx["cur_drivers"]}
+    # Склад — пілоти останньої гонки; порядок — за місцем у заліку пілотів (як у макеті).
+    standing = {d["ref"]: d["pos"] for d in idx["cur_drivers"]}
     crew = {}
     for r in race["Results"]:
         ref, team = r["Driver"]["driverId"], r["Constructor"]["name"]
-        if ref in in_standings:
+        assert REF_RE.match(ref), ref
+        if ref in standing:
             crew.setdefault(TSHORT.get(team, team), []).append(ref)
+    for refs_ in crew.values():
+        refs_.sort(key=lambda r: standing[r])
 
-    for d in (CARS, DRIVERS):
-        if d.exists():
-            shutil.rmtree(d)
-        d.mkdir(parents=True)
+    # Пишемо в тимчасову теку й замінюємо лише після успіху: збій не лишає public/img порожнім.
+    tmp = Path(tempfile.mkdtemp(prefix="teams-snapshot-", dir=REPO / "public"))
+    tmp_cars, tmp_drivers = tmp / "cars", tmp / "drivers"
+    tmp_cars.mkdir()
+    tmp_drivers.mkdir()
 
     teams, avatar_credits = [], {}
     for t in sorted(idx["teams"], key=lambda t: (-t["w"], -t["gp"])):
@@ -92,10 +156,10 @@ def main():
         photo = None
         p = pick.get(full)
         src_img = SRC / "teams_cards/img/c" / f"{slug(full)}.jpg"
-        if p and src_img.exists():
+        if p and src_img.exists() and short not in WRONG_PHOTO:
             with Image.open(src_img) as im:
                 assert im.size == (480, 300), (full, im.size)
-            shutil.copyfile(src_img, CARS / f"{tid}.jpg")
+            shutil.copyfile(src_img, tmp_cars / f"{tid}.jpg")
             author = ART_FIX.get(full) or html.unescape(p.get("artist") or "").strip() or "Unknown"
             photo = {"src": f"/img/cars/{tid}.jpg", "width": 480, "height": 300,
                      "credit": {"page": p["page"], "author": author, "license": p["lic"]}}
@@ -114,17 +178,31 @@ def main():
                         side = min(w, h)
                         top = 0 if h <= w else int((h - side) * 0.12)
                         left = (w - side) // 2
-                        im.crop((left, top, left + side, top + side)).resize((112, 112), Image.Resampling.LANCZOS).save(DRIVERS / f"{ref}.jpg", quality=82)
+                        im.crop((left, top, left + side, top + side)).resize((112, 112), Image.Resampling.LANCZOS).save(tmp_drivers / f"{ref}.jpg", quality=82)
                     avatar = f"/img/drivers/{ref}.jpg"
-                    avatar_credits[ref] = {"page": av["page"], "author": html.unescape(av.get("artist") or "").strip() or "Unknown", "license": av["lic"]}
+                    author = AVATAR_ART_FIX.get(ref) or html.unescape(av.get("artist") or "").strip() or "Unknown"
+                    avatar_credits[ref] = {"page": av["page"], "author": author, "license": av["lic"]}
                 drivers.append({"id": ref, "name": {"en": en, "uk": uk}, "surname": {"en": en.split()[-1], "uk": uk.split()[-1]},
                                 "initials": "".join(w[0] for w in en.split()[:2]).upper(), "avatar": avatar})
             current = {"position": standings[short]["pos"], "color": TCOL[short], "drivers": drivers}
-        teams.append({"id": tid, "name": short, "country": {"en": en_c, "uk": uk_c}, "countryCode": t["cc"], "seasons": years[full],
-                      "grandsPrix": t["gp"], "wins": t["w"], "titles": t["t"], "current": current, "photo": photo})
+        teams.append({"id": tid, "name": short, "fullName": full, "country": {"en": en_c, "uk": uk_c}, "countryCode": t["cc"], "seasons": years[full],
+                      "grandsPrix": t["gp"] - phantom[full], "wins": t["w"] - dup_wins[full], "titles": t["t"],
+                      "refs": sorted(refs[full]), "current": current, "photo": photo})
 
+    # Порядок макета (перемоги ↓, Гран-прі ↓) — за виправленими числами; рівність — як у макеті (стабільне сортування).
+    teams.sort(key=lambda t: (-t["wins"], -t["grandsPrix"]))
     ids = [t["id"] for t in teams]
     assert len(ids) == len(set(ids)), "дублікати id"
+    unknown = [t["name"] for t in teams if t["photo"] and t["photo"]["credit"]["author"] == "Unknown"]
+    assert not unknown, f"автор невідомий: {unknown}"
+    # Заміна: боліди — тека цілком (лише цей скрипт); аватари — лише свої файли (тека спільна з іншими сторінками).
+    if CARS.exists():
+        shutil.rmtree(CARS)
+    tmp_cars.rename(CARS)
+    DRIVERS.mkdir(parents=True, exist_ok=True)
+    for f in tmp_drivers.iterdir():
+        f.replace(DRIVERS / f.name)
+    shutil.rmtree(tmp)
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     out = {"asOf": race["date"], "teams": teams, "avatarCredits": dict(sorted(avatar_credits.items()))}
     OUT_JSON.write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")

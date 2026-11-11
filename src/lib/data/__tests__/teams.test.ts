@@ -22,7 +22,10 @@ describe("getTeamsIndex", () => {
 
   it("поле пошуку: назва, країна обома мовами, нижній регістр", async () => {
     const ferrari = (await getTeamsIndex("en")).find((c) => c.id === "ferrari")!;
-    for (const part of ["ferrari", "italy", "італія"]) expect(ferrari.search).toContain(part);
+    for (const part of ["ferrari", "italy", "італія", "ita"]) expect(ferrari.search).toContain(part);
+    const haas = (await getTeamsIndex("en")).find((c) => c.id === "haas")!;
+    expect(haas.search).toContain("haas f1 team");
+    expect(haas.search).toContain("usa");
     expect(ferrari.search).toBe(ferrari.search.toLowerCase());
   });
 
@@ -45,8 +48,8 @@ describe("getTeamsIndex", () => {
 
 describe("getTeamsCredits", () => {
   it("фото болідів і портрети — лише показані, з автором і ліцензією, за алфавітом", async () => {
-    const credits = getTeamsCredits();
-    expect(credits.cars).toHaveLength(131);
+    const credits = await getTeamsCredits();
+    expect(credits.cars).toHaveLength(127);
     expect(credits.avatars).toHaveLength(22);
     const names = credits.cars.map((c) => c.team);
     expect(names).toEqual([...names].sort((a, b) => a.localeCompare(b, "en")));
