@@ -315,6 +315,11 @@ def main() -> None:
             "insert into f1.data_loads (source, file_sha256, uploaded_at, row_counts) values (%s, %s, %s, %s)",
             ("jolpica-csv-dump", sha, uploaded_at, json.dumps(final)),
         )
+        # Похідні дані (міграція 0002) — у тій самій транзакції.
+        cur.execute("select to_regprocedure('f1.refresh_derived()') is not null")
+        if cur.fetchone()[0]:
+            cur.execute("select f1.refresh_derived()")
+            log("derived data refreshed")
         if args.dry_run:
             conn.rollback()
             log("dry run: verified and rolled back")
