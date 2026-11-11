@@ -20,7 +20,7 @@ const EXPECTED: Record<string, string> = {
   "x-content-type-options": "nosniff",
   "referrer-policy": "strict-origin-when-cross-origin",
   "permissions-policy":
-    "accelerometer=(), autoplay=(), bluetooth=(), browsing-topics=(), camera=(), display-capture=(), encrypted-media=(), " +
+    "accelerometer=(), autoplay=(), browsing-topics=(), camera=(), display-capture=(), encrypted-media=(), " +
     "geolocation=(), gyroscope=(), hid=(), idle-detection=(), local-fonts=(), magnetometer=(), microphone=(), midi=(), " +
     "payment=(), screen-wake-lock=(), serial=(), usb=(), window-management=(), xr-spatial-tracking=()",
   "x-frame-options": "DENY",
