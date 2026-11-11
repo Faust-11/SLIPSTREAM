@@ -1,0 +1,2 @@
+# Лише для скриптів даних (scripts/jolpica, scripts/db). Точні версії; перевірка — docs/audits/deps-phase2.md.
+psycopg[binary]==3.3.7
