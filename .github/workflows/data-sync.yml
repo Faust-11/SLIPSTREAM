@@ -47,6 +47,7 @@ jobs:
         run: python scripts/jolpica/topup_api.py
       - name: Перевірка даних
         run: python scripts/db/check_live.py
+      # Перевірка прав саме на бою: 11.11 вона знайшла читання f1.schema_migrations для anon, якого CI не бачив (0003).
       - name: Права доступу на бою (тестові зміни відкочуються)
         run: python scripts/db/rls_smoke.py
       - name: Замір після (приріст, таблиці Predictor без змін, ліміт 500 МБ)
