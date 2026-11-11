@@ -446,3 +446,87 @@ html:not([data-hydrated]) .mnav-btn {
     gap: 28px;
   }
 }
+
+/* ---------- перший екран розділу ---------- */
+.section-hero {
+  background: var(--hero-bg, var(--paper-2));
+  color: var(--hero-fg, var(--ink));
+  border-bottom: var(--b) solid var(--rule);
+}
+.section-hero .wrap {
+  padding-block: clamp(40px, 7vw, 88px) clamp(32px, 5vw, 64px);
+}
+/* ≥ 32 px: великий текст (WCAG 3:1) — на кольорах розділів дрібний текст не ставимо. */
+.section-hero h1 {
+  font-size: clamp(32px, 7vw, 76px);
+  overflow-wrap: anywhere;
+}
+.hero-tagline {
+  margin: 16px 0 0;
+  font-size: clamp(16px, 2vw, 20px);
+  max-width: 48ch;
+  color: var(--ink-soft);
+}
+.eyebrow {
+  margin: 0 0 12px;
+  font-family: var(--f-mono);
+  word-spacing: normal;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.btn {
+  display: inline-grid;
+  place-items: center;
+  min-height: 44px;
+  padding: 0 18px;
+  background: var(--yellow);
+  color: var(--on-yellow);
+  border: var(--b2) solid var(--yellow);
+  font: 600 14px/1 var(--f-body);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background: transparent;
+  color: var(--ink);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--rule);
+}
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.nf-sections {
+  margin-top: 36px;
+}
+.nf-sections ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-weight: 600;
+}
+.nf-sections a {
+  display: inline-block;
+  padding: 6px 0;
+  text-underline-offset: 3px;
+}
+.nf-sections a:hover {
+  color: var(--blue-text);
+}

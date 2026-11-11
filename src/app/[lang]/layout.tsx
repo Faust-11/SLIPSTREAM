@@ -7,6 +7,7 @@ import { RouteFocus } from "@/components/site/route-focus";
 import "@/components/site/site.css";
 import { ThemeScript } from "@/components/theme/theme-script";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { siteUrl } from "@/lib/seo";
 import { fontVariables } from "../fonts";
 import "../globals.css";
 
@@ -28,7 +29,11 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
   const { lang } = await params;
   if (!isLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return { title: { default: dict.site.name, template: `%s · ${dict.site.name}` } };
+  return {
+    metadataBase: siteUrl(),
+    applicationName: dict.site.name,
+    title: { default: dict.site.name, template: `%s · ${dict.site.name}` },
+  };
 }
 
 export default async function RootLayout({ children, params }: LayoutProps<"/[lang]">) {

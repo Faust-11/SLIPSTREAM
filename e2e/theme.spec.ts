@@ -116,8 +116,12 @@ test.describe("тема", () => {
   test("404 теж бере збережену тему й шрифти сайту", async ({ page }) => {
     const p = await probe(page, "/uk/nope", "light");
     expect(p.bg).toBe(PAPER.light);
-    const font = await page.evaluate(() => getComputedStyle(document.querySelector("h1:not([hidden])")!).fontFamily);
-    expect(font).toMatch(/IBM Plex Sans/);
+    const fonts = await page.evaluate(() => ({
+      body: getComputedStyle(document.body).fontFamily,
+      h1: getComputedStyle(document.querySelector("h1")!).fontFamily,
+    }));
+    expect(fonts.body).toMatch(/IBM Plex Sans/);
+    expect(fonts.h1).toMatch(/Rubik Mono One/);
   });
 });
 

@@ -1,15 +1,6 @@
-import { notFound } from "next/navigation";
-import { isLocale } from "@/i18n/config";
-import { getDictionary } from "@/i18n/get-dictionary";
+import { sectionPage } from "@/components/site/section-page";
 
-// Заготовка (Task 5): лише заголовок, щоб посилання меню вели на сторінку. Перший екран і метадані — Task 6.
-export default async function Page({ params }: PageProps<"/[lang]/calendar">) {
-  const { lang } = await params;
-  if (!isLocale(lang)) notFound();
-  const dict = await getDictionary(lang);
-  return (
-    <div className="wrap">
-      <h1 className="display">{dict.nav.calendar}</h1>
-    </div>
-  );
-}
+const { generateMetadata, Page } = sectionPage("calendar");
+
+export { generateMetadata };
+export default Page;
