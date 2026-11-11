@@ -1,0 +1,4044 @@
+{
+ "teams": [
+  {
+   "id": "ferrari",
+   "name": "Ferrari",
+   "fullName": "Ferrari",
+   "aliases": [
+    "Феррарі",
+    "Феррари"
+   ],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "ferrari"
+   ],
+   "color": "#E8002D",
+   "photo": {
+    "src": "/img/cars/ferrari-480.webp",
+    "srcSet": "/img/cars/ferrari-256.webp 256w, /img/cars/ferrari-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Charles_Leclerc,_2019_Chinese_GP.jpg",
+     "author": "Liauzh",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "mclaren",
+   "name": "McLaren",
+   "fullName": "McLaren",
+   "aliases": [
+    "Макларен"
+   ],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "mclaren",
+    "mclaren-alfa_romeo",
+    "mclaren-brm",
+    "mclaren-ford",
+    "mclaren-seren"
+   ],
+   "color": "#FF8000",
+   "photo": {
+    "src": "/img/cars/mclaren-480.webp",
+    "srcSet": "/img/cars/mclaren-256.webp 256w, /img/cars/mclaren-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_McLaren_-_Lando_Norris_-_FP1.jpg",
+     "author": "Liauzh",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "mercedes",
+   "name": "Mercedes",
+   "fullName": "Mercedes",
+   "aliases": [
+    "Мерседес"
+   ],
+   "countryCode": "DEU",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "refs": [
+    "mercedes"
+   ],
+   "color": "#27D9C2",
+   "photo": {
+    "src": "/img/cars/mercedes-480.webp",
+    "srcSet": "/img/cars/mercedes-256.webp 256w, /img/cars/mercedes-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:George_Russell_2022.jpg",
+     "author": "Wastrick",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "red-bull",
+   "name": "Red Bull",
+   "fullName": "Red Bull",
+   "aliases": [
+    "Ред Булл"
+   ],
+   "countryCode": "AUT",
+   "country": {
+    "en": "Austria",
+    "uk": "Австрія"
+   },
+   "refs": [
+    "red_bull"
+   ],
+   "color": "#1B2B6B",
+   "photo": {
+    "src": "/img/cars/red-bull-480.webp",
+    "srcSet": "/img/cars/red-bull-256.webp 256w, /img/cars/red-bull-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2022_Miami_GP_-_Red_Bull_RB18_of_Sergio_P%C3%A9rez.jpg",
+     "author": "Dcmaradiaga",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "williams",
+   "name": "Williams",
+   "fullName": "Williams",
+   "aliases": [
+    "Вільямс",
+    "Уільямс",
+    "Уильямс"
+   ],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "williams"
+   ],
+   "color": "#1868DB",
+   "photo": {
+    "src": "/img/cars/williams-480.webp",
+    "srcSet": "/img/cars/williams-256.webp 256w, /img/cars/williams-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1991_Williams_FW14_Formula_1_Car_(53434974722).jpg",
+     "author": "David Merrett from Daventry, England",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "lotus",
+   "name": "Lotus",
+   "fullName": "Lotus",
+   "aliases": [
+    "Лотус"
+   ],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "lotus-borgward",
+    "lotus-brm",
+    "lotus-climax",
+    "lotus-ford",
+    "lotus-maserati",
+    "lotus-pw",
+    "team_lotus"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/lotus-480.webp",
+    "srcSet": "/img/cars/lotus-256.webp 256w, /img/cars/lotus-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Mansell_Lotus_95T_Dallas_1984_F1.jpg",
+     "author": "twm1340",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "renault",
+   "name": "Renault",
+   "fullName": "Renault",
+   "aliases": [
+    "Рено"
+   ],
+   "countryCode": "FRA",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "refs": [
+    "renault"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/renault-480.webp",
+    "srcSet": "/img/cars/renault-256.webp 256w, /img/cars/renault-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2006_Malaysian_Grand_Prix.jpg",
+     "author": "Kamalsell",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "brabham",
+   "name": "Brabham",
+   "fullName": "Brabham",
+   "aliases": [
+    "Брабем",
+    "Брэбем"
+   ],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "brabham",
+    "brabham-alfa_romeo",
+    "brabham-brm",
+    "brabham-climax",
+    "brabham-ford",
+    "brabham-repco"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/brabham-480.webp",
+    "srcSet": "/img/cars/brabham-256.webp 256w, /img/cars/brabham-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1969_British_Grand_Prix_P_Courage_Brabham_BT26.jpg",
+     "author": "Gerald Swan",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "benetton",
+   "name": "Benetton",
+   "fullName": "Benetton",
+   "aliases": [
+    "Бенеттон"
+   ],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "benetton"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/benetton-480.webp",
+    "srcSet": "/img/cars/benetton-256.webp 256w, /img/cars/benetton-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Button_2001_French_Grand_Prix.jpg",
+     "author": "Mathieu Felten",
+     "license": "CC BY 2.5"
+    }
+   }
+  },
+  {
+   "id": "tyrrell",
+   "name": "Tyrrell",
+   "fullName": "Tyrrell",
+   "aliases": [
+    "Тіррелл",
+    "Тиррелл"
+   ],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "tyrrell"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/tyrrell-480.webp",
+    "srcSet": "/img/cars/tyrrell-256.webp 256w, /img/cars/tyrrell-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Bellof_Tyrrell_012_1984_Dallas_F1.jpg",
+     "author": "twm1340",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "brm",
+   "name": "BRM",
+   "fullName": "BRM",
+   "aliases": [
+    "БРМ"
+   ],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "brm",
+    "brm-ford"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/brm-480.webp",
+    "srcSet": "/img/cars/brm-256.webp 256w, /img/cars/brm-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1962-08-05_Graham_Hill,_BRM_-_Hatzenbach_(sw).jpg",
+     "author": "Lothar Spurzem",
+     "license": "CC BY-SA 2.0 de"
+    }
+   }
+  },
+  {
+   "id": "cooper",
+   "name": "Cooper",
+   "fullName": "Cooper",
+   "aliases": [
+    "Купер"
+   ],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "cooper",
+    "cooper-alfa_romeo",
+    "cooper-ats",
+    "cooper-borgward",
+    "cooper-brm",
+    "cooper-castellotti",
+    "cooper-climax",
+    "cooper-ferrari",
+    "cooper-ford",
+    "cooper-maserati",
+    "cooper-osca"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/cooper-480.webp",
+    "srcSet": "/img/cars/cooper-256.webp 256w, /img/cars/cooper-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Cooper-Climax_T54_%22The_Kimberly_Special%22_-_Flickr_-_andrewbasterfield.jpg",
+     "author": "Andrew Basterfield",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "alfa-romeo",
+   "name": "Alfa Romeo",
+   "fullName": "Alfa Romeo",
+   "aliases": [
+    "Альфа Ромео"
+   ],
+   "countryCode": "CHE",
+   "country": {
+    "en": "Switzerland",
+    "uk": "Швейцарія"
+   },
+   "refs": [
+    "alfa"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/alfa-romeo-480.webp",
+    "srcSet": "/img/cars/alfa-romeo-256.webp 256w, /img/cars/alfa-romeo-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Alfa-Romeo-159-(1951).jpg",
+     "author": "Lennart Coopmans",
+     "license": "CC BY-SA 2.5"
+    }
+   }
+  },
+  {
+   "id": "ligier",
+   "name": "Ligier",
+   "fullName": "Ligier",
+   "aliases": [
+    "Ліжьє",
+    "Лижье"
+   ],
+   "countryCode": "FRA",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "refs": [
+    "ligier"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/ligier-480.webp",
+    "srcSet": "/img/cars/ligier-256.webp 256w, /img/cars/ligier-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Eric_Bernard_-_Ligier_JS39B_at_the_1994_British_Grand_Prix_(31729365813).jpg",
+     "author": "Martin Lee from London, UK",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "maserati",
+   "name": "Maserati",
+   "fullName": "Maserati",
+   "aliases": [
+    "Мазераті",
+    "Мазерати"
+   ],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "maserati"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/maserati-480.webp",
+    "srcSet": "/img/cars/maserati-256.webp 256w, /img/cars/maserati-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Fangio_%26_Maserati_250F.jpg",
+     "author": "玛莎拉蒂",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "matra",
+   "name": "Matra",
+   "fullName": "Matra",
+   "aliases": [
+    "Матра"
+   ],
+   "countryCode": "FRA",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "refs": [
+    "matra",
+    "matra-ford"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/matra-480.webp",
+    "srcSet": "/img/cars/matra-256.webp 256w, /img/cars/matra-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Matra_MS_84_(1969).jpg",
+     "author": "Spurzem - Lothar Spurzem",
+     "license": "CC BY-SA 2.0 de"
+    }
+   }
+  },
+  {
+   "id": "vanwall",
+   "name": "Vanwall",
+   "fullName": "Vanwall",
+   "aliases": [
+    "Венволл",
+    "Вэнуолл"
+   ],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "vanwall"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/vanwall-480.webp",
+    "srcSet": "/img/cars/vanwall-256.webp 256w, /img/cars/vanwall-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Vanwall_VW5_Aintree_1957.jpg",
+     "author": "Terry Whalebone from Bolton, UK",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "brawn",
+   "name": "Brawn",
+   "fullName": "Brawn",
+   "aliases": [
+    "Браун"
+   ],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "brawn"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/brawn-480.webp",
+    "srcSet": "/img/cars/brawn-256.webp 256w, /img/cars/brawn-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Brawn.GP.4.Spain.09.jpg",
+     "author": "-JoSeLiN-",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "kurtis-kraft",
+   "name": "Kurtis Kraft",
+   "fullName": "Kurtis Kraft",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "kurtis_kraft"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/kurtis-kraft-480.webp",
+    "srcSet": "/img/cars/kurtis-kraft-256.webp 256w, /img/cars/kurtis-kraft-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Kurtis500B_Jimmy_Davies.jpg",
+     "author": "Carey Akin",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "jordan",
+   "name": "Jordan",
+   "fullName": "Jordan",
+   "aliases": [
+    "Джордан"
+   ],
+   "countryCode": "IRL",
+   "country": {
+    "en": "Ireland",
+    "uk": "Ірландія"
+   },
+   "refs": [
+    "jordan"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/jordan-480.webp",
+    "srcSet": "/img/cars/jordan-256.webp 256w, /img/cars/jordan-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Jordan_GP_2002_sato.jpg",
+     "author": "RickDikeman",
+     "license": "CC0"
+    }
+   }
+  },
+  {
+   "id": "march",
+   "name": "March",
+   "fullName": "March",
+   "aliases": [
+    "Марч"
+   ],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "march",
+    "march-alfa_romeo",
+    "march-ford"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/march-480.webp",
+    "srcSet": "/img/cars/march-256.webp 256w, /img/cars/march-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1971_Andrea_de_Adamich,_March,_Fuchsr%C3%B6hre.jpg",
+     "author": "Lothar Spurzem",
+     "license": "CC BY-SA 2.0 de"
+    }
+   }
+  },
+  {
+   "id": "honda",
+   "name": "Honda",
+   "fullName": "Honda",
+   "aliases": [
+    "Хонда"
+   ],
+   "countryCode": "JPN",
+   "country": {
+    "en": "Japan",
+    "uk": "Японія"
+   },
+   "refs": [
+    "honda"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/honda-480.webp",
+    "srcSet": "/img/cars/honda-256.webp 256w, /img/cars/honda-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2006_SAG_-_F1_Honda_RA272_1965_-01.JPG",
+     "author": "Semnoz",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "wolf",
+   "name": "Wolf",
+   "fullName": "Wolf",
+   "aliases": [],
+   "countryCode": "CAN",
+   "country": {
+    "en": "Canada",
+    "uk": "Канада"
+   },
+   "refs": [
+    "wolf"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/wolf-480.webp",
+    "srcSet": "/img/cars/wolf-256.webp 256w, /img/cars/wolf-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Keke_Rosberg_1979_Imola.jpg",
+     "author": "Gilberto Benni from Bologna, Italia",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "watson",
+   "name": "Watson",
+   "fullName": "Watson",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "watson"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/watson-480.webp",
+    "srcSet": "/img/cars/watson-256.webp 256w, /img/cars/watson-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Rathmann_Leader_Card_Monza.jpg",
+     "author": "Carey Akin from Manvel, Texas, USA",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "lotus-f1",
+   "name": "Lotus F1",
+   "fullName": "Lotus F1",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "lotus_f1"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/lotus-f1-480.webp",
+    "srcSet": "/img/cars/lotus-f1-256.webp 256w, /img/cars/lotus-f1-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2013_Italian_GP_-_Kimi.jpg",
+     "author": "Craig Dennis from England",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "epperly",
+   "name": "Epperly",
+   "fullName": "Epperly",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "epperly"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/epperly-480.webp",
+    "srcSet": "/img/cars/epperly-256.webp 256w, /img/cars/epperly-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Salih_Special_1957-58_Indy_500_Winner_-_Sam_Hanks_%26_Jimmy_Bryan.jpg",
+     "author": "OctaviaCombi",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "toro-rosso",
+   "name": "Toro Rosso",
+   "fullName": "Toro Rosso",
+   "aliases": [
+    "Торо Россо"
+   ],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "toro_rosso"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/toro-rosso-480.webp",
+    "srcSet": "/img/cars/toro-rosso-256.webp 256w, /img/cars/toro-rosso-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Daniil_Kvyat_2014_British_GP_004.jpg",
+     "author": "Jake Archibald",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "alpine",
+   "name": "Alpine",
+   "fullName": "Alpine F1 Team",
+   "aliases": [
+    "Альпін",
+    "Альпин"
+   ],
+   "countryCode": "FRA",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "refs": [
+    "alpine"
+   ],
+   "color": "#FF87BC",
+   "photo": {
+    "src": "/img/cars/alpine-480.webp",
+    "srcSet": "/img/cars/alpine-256.webp 256w, /img/cars/alpine-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Alpine_-_Jack_Doohan_-_FP3.jpg",
+     "author": "Liauzh",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "shadow",
+   "name": "Shadow",
+   "fullName": "Shadow",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "shadow",
+    "shadow-ford",
+    "shadow-matra"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/shadow-480.webp",
+    "srcSet": "/img/cars/shadow-256.webp 256w, /img/cars/shadow-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1977_Shadow_DN8_(19700874653).jpg",
+     "author": "David Merrett from Daventry, England",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "alphatauri",
+   "name": "AlphaTauri",
+   "fullName": "AlphaTauri",
+   "aliases": [
+    "Альфа Таурі",
+    "Альфа Таури"
+   ],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "alphatauri"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/alphatauri-480.webp",
+    "srcSet": "/img/cars/alphatauri-256.webp 256w, /img/cars/alphatauri-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2020_Formula_One_tests_Barcelona,_AlphaTauri_AT01,_Pierre_Gasly.jpg",
+     "author": "Artes Max from Spain",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "bmw-sauber",
+   "name": "BMW Sauber",
+   "fullName": "BMW Sauber",
+   "aliases": [],
+   "countryCode": "DEU",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "refs": [
+    "bmw_sauber"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/bmw-sauber-480.webp",
+    "srcSet": "/img/cars/bmw-sauber-256.webp 256w, /img/cars/bmw-sauber-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Heidfeld_2009_Spain.jpg",
+     "author": "Jose Mª Izquierdo Galiot",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "hesketh",
+   "name": "Hesketh",
+   "fullName": "Hesketh",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "hesketh"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/hesketh-480.webp",
+    "srcSet": "/img/cars/hesketh-256.webp 256w, /img/cars/hesketh-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Hesketh_308E.jpg",
+     "author": "John Chapman (Pyrope)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "stewart",
+   "name": "Stewart",
+   "fullName": "Stewart",
+   "aliases": [
+    "Стюарт"
+   ],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "stewart"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/stewart-480.webp",
+    "srcSet": "/img/cars/stewart-256.webp 256w, /img/cars/stewart-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Stewart_gp_barrichello_1997.jpg",
+     "author": "Rick Dikeman",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "penske",
+   "name": "Penske",
+   "fullName": "Penske",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "penske"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/penske-480.webp",
+    "srcSet": "/img/cars/penske-256.webp 256w, /img/cars/penske-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Penske_PC3_2001_Silverstone_Classic.jpg",
+     "author": "John Williams",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "racing-point",
+   "name": "Racing Point",
+   "fullName": "Racing Point",
+   "aliases": [
+    "Рейсінг Пойнт",
+    "Рейсинг Пойнт"
+   ],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "racing_point"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/racing-point-480.webp",
+    "srcSet": "/img/cars/racing-point-256.webp 256w, /img/cars/racing-point-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2019_Formula_One_tests_Barcelona,_Stroll_(47209286722).jpg",
+     "author": "Renzopaso",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "porsche",
+   "name": "Porsche",
+   "fullName": "Porsche",
+   "aliases": [],
+   "countryCode": "DEU",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "refs": [
+    "porsche"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/porsche-480.webp",
+    "srcSet": "/img/cars/porsche-256.webp 256w, /img/cars/porsche-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Porsche_804_Donington.jpg",
+     "author": "John Chapman (Pyrope)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "eagle",
+   "name": "Eagle",
+   "fullName": "Eagle",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "eagle",
+    "eagle-climax",
+    "eagle-weslake"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/eagle-480.webp",
+    "srcSet": "/img/cars/eagle-256.webp 256w, /img/cars/eagle-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Eagle_Rislone_Special_front_Honda_Collection_Hall.jpg",
+     "author": "Morio",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "kuzma",
+   "name": "Kuzma",
+   "fullName": "Kuzma",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "kuzma"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/kuzma-480.webp",
+    "srcSet": "/img/cars/kuzma-256.webp 256w, /img/cars/kuzma-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Indianapolis_Motor_Speedway_Museum_May_2026_43_(Troy_Ruttman%27s_1952_Agajanian_Special_Kuzma).jpg",
+     "author": "Michael Barera",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "sauber",
+   "name": "Sauber",
+   "fullName": "Sauber",
+   "aliases": [
+    "Заубер"
+   ],
+   "countryCode": "CHE",
+   "country": {
+    "en": "Switzerland",
+    "uk": "Швейцарія"
+   },
+   "refs": [
+    "sauber"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/sauber-480.webp",
+    "srcSet": "/img/cars/sauber-256.webp 256w, /img/cars/sauber-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Sauber_-_Gabriel_Bortoleto_-_FP2.jpg",
+     "author": "Liauzh",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "minardi",
+   "name": "Minardi",
+   "fullName": "Minardi",
+   "aliases": [
+    "Мінарді",
+    "Минарди"
+   ],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "minardi"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/minardi-480.webp",
+    "srcSet": "/img/cars/minardi-256.webp 256w, /img/cars/minardi-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1985_European_GP_Martini.jpg",
+     "author": "Jerry Lewis-Evans",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "arrows",
+   "name": "Arrows",
+   "fullName": "Arrows",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "arrows"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/arrows-480.webp",
+    "srcSet": "/img/cars/arrows-256.webp 256w, /img/cars/arrows-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1985_European_GP_Boutsen.jpg",
+     "author": "Jerry Lewis-Evans",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "haas",
+   "name": "Haas",
+   "fullName": "Haas F1 Team",
+   "aliases": [
+    "Хаас"
+   ],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "haas"
+   ],
+   "color": "#9EA3AA",
+   "photo": {
+    "src": "/img/cars/haas-480.webp",
+    "srcSet": "/img/cars/haas-256.webp 256w, /img/cars/haas-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2026_Chinese_GP_-_Haas_-_Oliver_Bearman_-_Qualifying.jpg",
+     "author": "Liauzh",
+     "license": "CC BY 4.0"
+    }
+   }
+  },
+  {
+   "id": "force-india",
+   "name": "Force India",
+   "fullName": "Force India",
+   "aliases": [
+    "Форс Індія",
+    "Форс Индия"
+   ],
+   "countryCode": "IND",
+   "country": {
+    "en": "India",
+    "uk": "Індія"
+   },
+   "refs": [
+    "force_india"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/force-india-480.webp",
+    "srcSet": "/img/cars/force-india-256.webp 256w, /img/cars/force-india-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._31_Ocon.jpg",
+     "author": "Lukas Raich",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "aston-martin",
+   "name": "Aston Martin",
+   "fullName": "Aston Martin",
+   "aliases": [
+    "Астон Мартін",
+    "Астон Мартин"
+   ],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "aston_martin"
+   ],
+   "color": "#1E8A63",
+   "photo": {
+    "src": "/img/cars/aston-martin-480.webp",
+    "srcSet": "/img/cars/aston-martin-256.webp 256w, /img/cars/aston-martin-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Aston_Martin_-_Fernando_Alonso_-_FP1.jpg",
+     "author": "Liauzh",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "toyota",
+   "name": "Toyota",
+   "fullName": "Toyota",
+   "aliases": [
+    "Тойота"
+   ],
+   "countryCode": "JPN",
+   "country": {
+    "en": "Japan",
+    "uk": "Японія"
+   },
+   "refs": [
+    "toyota"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/toyota-480.webp",
+    "srcSet": "/img/cars/toyota-256.webp 256w, /img/cars/toyota-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Toyota_f1_usgp_2004.jpg",
+     "author": "Rick Dikeman",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "osella",
+   "name": "Osella",
+   "fullName": "Osella",
+   "aliases": [],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "osella"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/osella-480.webp",
+    "srcSet": "/img/cars/osella-256.webp 256w, /img/cars/osella-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Ghinzani_Osella_FA1F_1984_Dallas_F1.jpg",
+     "author": "twm1340",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "surtees",
+   "name": "Surtees",
+   "fullName": "Surtees",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "surtees"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/surtees-480.webp",
+    "srcSet": "/img/cars/surtees-256.webp 256w, /img/cars/surtees-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Surtees_TS19_Mallory_Park.JPG",
+     "author": "TOM at Picassa.",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "bar",
+   "name": "BAR",
+   "fullName": "BAR",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "bar"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/bar-480.webp",
+    "srcSet": "/img/cars/bar-256.webp 256w, /img/cars/bar-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Button_(BAR)_qualifying_at_USGP_2005.jpg",
+     "author": "Dan Smith",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "larrousse",
+   "name": "Larrousse",
+   "fullName": "Larrousse",
+   "aliases": [],
+   "countryCode": "FRA",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "refs": [
+    "larrousse"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/larrousse-480.webp",
+    "srcSet": "/img/cars/larrousse-256.webp 256w, /img/cars/larrousse-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Venturi_Larrousse_Lamborghini_LC_92_(1992).jpg",
+     "author": "Liondartois",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "fittipaldi",
+   "name": "Fittipaldi",
+   "fullName": "Fittipaldi",
+   "aliases": [],
+   "countryCode": "BRA",
+   "country": {
+    "en": "Brazil",
+    "uk": "Бразилія"
+   },
+   "refs": [
+    "fittipaldi"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/fittipaldi-480.webp",
+    "srcSet": "/img/cars/fittipaldi-256.webp 256w, /img/cars/fittipaldi-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Copersucar_FD04_1976.jpg",
+     "author": "Paulo Carmona Sanches Neto (кадрування: Morio)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "ensign",
+   "name": "Ensign",
+   "fullName": "Ensign",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "ensign"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/ensign-480.webp",
+    "srcSet": "/img/cars/ensign-256.webp 256w, /img/cars/ensign-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Ensign_N177_2009_Lime_Rock.jpg",
+     "author": "Mike Powell from United States",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "ats",
+   "name": "ATS",
+   "fullName": "ATS",
+   "aliases": [],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "ats"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/ats-480.webp",
+    "srcSet": "/img/cars/ats-256.webp 256w, /img/cars/ats-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Winkelhock_ATS_D7_1984_Dallas_F1.jpg",
+     "author": "twm1340",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "footwork",
+   "name": "Footwork",
+   "fullName": "Footwork",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "footwork"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/footwork-480.webp",
+    "srcSet": "/img/cars/footwork-256.webp 256w, /img/cars/footwork-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Massimiliano_Papis_1995_Britain.jpg",
+     "author": "Fox 1 from Beta Quadrant, England",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "lola",
+   "name": "Lola",
+   "fullName": "Lola",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "lola"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/lola-480.webp",
+    "srcSet": "/img/cars/lola-256.webp 256w, /img/cars/lola-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Lola_T370_1974.jpg",
+     "author": "Calreyn88",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "jaguar",
+   "name": "Jaguar",
+   "fullName": "Jaguar",
+   "aliases": [
+    "Ягуар"
+   ],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "jaguar"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/jaguar-480.webp",
+    "srcSet": "/img/cars/jaguar-256.webp 256w, /img/cars/jaguar-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Eddie_Irvine_2002.jpg",
+     "author": "Rick Dikeman",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "prost",
+   "name": "Prost",
+   "fullName": "Prost",
+   "aliases": [],
+   "countryCode": "FRA",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "refs": [
+    "prost"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/prost-480.webp",
+    "srcSet": "/img/cars/prost-256.webp 256w, /img/cars/prost-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Alesi_2001.jpg",
+     "author": "Mathieu Felten",
+     "license": "CC BY 2.5"
+    }
+   }
+  },
+  {
+   "id": "dallara",
+   "name": "Dallara",
+   "fullName": "Dallara",
+   "aliases": [],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "dallara"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "racing-bulls",
+   "name": "Racing Bulls",
+   "fullName": "RB F1 Team",
+   "aliases": [
+    "Рейсінг Буллз",
+    "Рейсинг Буллз"
+   ],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "rb"
+   ],
+   "color": "#6692FF",
+   "photo": {
+    "src": "/img/cars/racing-bulls-480.webp",
+    "srcSet": "/img/cars/racing-bulls-256.webp 256w, /img/cars/racing-bulls-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Racing_Bulls_-_Isack_Hadjar_-_FP2.jpg",
+     "author": "Liauzh",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "toleman",
+   "name": "Toleman",
+   "fullName": "Toleman",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "toleman"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/toleman-480.webp",
+    "srcSet": "/img/cars/toleman-256.webp 256w, /img/cars/toleman-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Toleman_TG184_Senna_Donington_Grand_Prix_Collection.jpg",
+     "author": "John Chapman (Pyrope)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "hrt",
+   "name": "HRT",
+   "fullName": "HRT",
+   "aliases": [],
+   "countryCode": "ESP",
+   "country": {
+    "en": "Spain",
+    "uk": "Іспанія"
+   },
+   "refs": [
+    "hrt"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/hrt-480.webp",
+    "srcSet": "/img/cars/hrt-256.webp 256w, /img/cars/hrt-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Bruno_Senna_2010_Bahrain_2.jpg",
+     "author": "Andrew Griffith from United Kingdom",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "caterham",
+   "name": "Caterham",
+   "fullName": "Caterham",
+   "aliases": [],
+   "countryCode": "MYS",
+   "country": {
+    "en": "Malaysia",
+    "uk": "Малайзія"
+   },
+   "refs": [
+    "caterham"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/caterham-480.webp",
+    "srcSet": "/img/cars/caterham-256.webp 256w, /img/cars/caterham-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:F1_2012_Jerez_test_-_Caterham_4.jpg",
+     "author": "Gil Abrantes from Portugal",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "marussia",
+   "name": "Marussia",
+   "fullName": "Marussia",
+   "aliases": [],
+   "countryCode": "RUS",
+   "country": {
+    "en": "Russia",
+    "uk": "Росія"
+   },
+   "refs": [
+    "marussia"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/marussia-480.webp",
+    "srcSet": "/img/cars/marussia-256.webp 256w, /img/cars/marussia-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Charles_Pic_2012_Malaysia_FP1.jpg",
+     "author": "Morio",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "zakspeed",
+   "name": "Zakspeed",
+   "fullName": "Zakspeed",
+   "aliases": [],
+   "countryCode": "DEU",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "refs": [
+    "zakspeed"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/zakspeed-480.webp",
+    "srcSet": "/img/cars/zakspeed-256.webp 256w, /img/cars/zakspeed-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1987_Zakspeed_West_F1.JPG",
+     "author": "AlfvanBeem",
+     "license": "CC0"
+    }
+   }
+  },
+  {
+   "id": "ags",
+   "name": "AGS",
+   "fullName": "AGS",
+   "aliases": [],
+   "countryCode": "FRA",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "refs": [
+    "ags"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/ags-480.webp",
+    "srcSet": "/img/cars/ags-256.webp 256w, /img/cars/ags-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Philippe_Streiff_AGS_JH23_2018_Japanese_Grand_Prix_(43814923310).jpg",
+     "author": "taka_suzuki",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "super-aguri",
+   "name": "Super Aguri",
+   "fullName": "Super Aguri",
+   "aliases": [],
+   "countryCode": "JPN",
+   "country": {
+    "en": "Japan",
+    "uk": "Японія"
+   },
+   "refs": [
+    "super_aguri"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/super-aguri-480.webp",
+    "srcSet": "/img/cars/super-aguri-256.webp 256w, /img/cars/super-aguri-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Franck_Montagny_2006_French_Grand_Prix.jpg",
+     "author": "cobber_cpd",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "manor-marussia",
+   "name": "Manor Marussia",
+   "fullName": "Manor Marussia",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "manor"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/manor-marussia-480.webp",
+    "srcSet": "/img/cars/manor-marussia-256.webp 256w, /img/cars/manor-marussia-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Merhi_Russia_2015.jpg",
+     "author": "Eventful Sochi",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "virgin",
+   "name": "Virgin",
+   "fullName": "Virgin",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "virgin"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/virgin-480.webp",
+    "srcSet": "/img/cars/virgin-256.webp 256w, /img/cars/virgin-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Virgin_Glock_Jerez_2010.jpg",
+     "author": "slitz from Portugal",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "theodore",
+   "name": "Theodore",
+   "fullName": "Theodore",
+   "aliases": [],
+   "countryCode": "HKG",
+   "country": {
+    "en": "Hong Kong",
+    "uk": "Гонконг"
+   },
+   "refs": [
+    "theodore"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "gordini",
+   "name": "Gordini",
+   "fullName": "Gordini",
+   "aliases": [],
+   "countryCode": "FRA",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "refs": [
+    "gordini"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/gordini-480.webp",
+    "srcSet": "/img/cars/gordini-256.webp 256w, /img/cars/gordini-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Gordini_Type_16.jpg",
+     "author": "MPW57",
+     "license": "Public domain"
+    }
+   }
+  },
+  {
+   "id": "ram",
+   "name": "RAM",
+   "fullName": "RAM",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "ram"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/ram-480.webp",
+    "srcSet": "/img/cars/ram-256.webp 256w, /img/cars/ram-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:RAM_01.jpg",
+     "author": "Ben Sutherland",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "iso-marlboro",
+   "name": "Iso Marlboro",
+   "fullName": "Iso Marlboro",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "iso_marlboro"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/iso-marlboro-480.webp",
+    "srcSet": "/img/cars/iso-marlboro-256.webp 256w, /img/cars/iso-marlboro-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Van_Lennep_at_1974_Dutch_Grand_Prix_(3).jpg",
+     "author": "Hans Peters / Anefo",
+     "license": "CC0"
+    }
+   }
+  },
+  {
+   "id": "leyton-house",
+   "name": "Leyton House",
+   "fullName": "Leyton House",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "leyton"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/leyton-house-480.webp",
+    "srcSet": "/img/cars/leyton-house-256.webp 256w, /img/cars/leyton-house-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Gugelmin_US_gp_1991.jpg",
+     "author": "Stuart Seeger",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "spirit",
+   "name": "Spirit",
+   "fullName": "Spirit",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "spirit"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/spirit-480.webp",
+    "srcSet": "/img/cars/spirit-256.webp 256w, /img/cars/spirit-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Spirit201-F2.jpg",
+     "author": "Falcadore",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "forti",
+   "name": "Forti",
+   "fullName": "Forti",
+   "aliases": [],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "forti"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/forti-480.webp",
+    "srcSet": "/img/cars/forti-256.webp 256w, /img/cars/forti-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Pedro_Diniz_Forti_1995_Britain_(crop).jpg",
+     "author": "Dave from Leeds, England",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "pacific",
+   "name": "Pacific",
+   "fullName": "Pacific",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "pacific"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/pacific-480.webp",
+    "srcSet": "/img/cars/pacific-256.webp 256w, /img/cars/pacific-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Bertrand_Gachot_1995_Britain.jpg",
+     "author": "Fox 1 from Beta Quadrant, England",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "simtek",
+   "name": "Simtek",
+   "fullName": "Simtek",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "simtek"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/simtek-480.webp",
+    "srcSet": "/img/cars/simtek-256.webp 256w, /img/cars/simtek-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Ratzenberger.jpg",
+     "author": "Sgozzi",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "rial",
+   "name": "Rial",
+   "fullName": "Rial",
+   "aliases": [],
+   "countryCode": "DEU",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "refs": [
+    "rial"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/rial-480.webp",
+    "srcSet": "/img/cars/rial-256.webp 256w, /img/cars/rial-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:F1_1988,_Rial_ARC1,_Spa_Francorchamps_(55425564171)_(cropped).jpg",
+     "author": "Der Alf (похідна робота: Danyele)",
+     "license": "CC BY 4.0"
+    }
+   }
+  },
+  {
+   "id": "audi",
+   "name": "Audi",
+   "fullName": "Audi",
+   "aliases": [
+    "Ауді",
+    "Ауди"
+   ],
+   "countryCode": "DEU",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "refs": [
+    "audi"
+   ],
+   "color": "#8C9096",
+   "photo": {
+    "src": "/img/cars/audi-480.webp",
+    "srcSet": "/img/cars/audi-256.webp 256w, /img/cars/audi-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2026_Chinese_GP_-_Audi_-_Gabriel_Bortoleto_-_Qualifying.jpg",
+     "author": "Liauzh",
+     "license": "CC BY 4.0"
+    }
+   }
+  },
+  {
+   "id": "cadillac",
+   "name": "Cadillac",
+   "fullName": "Cadillac F1 Team",
+   "aliases": [
+    "Каділлак",
+    "Кадиллак"
+   ],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "cadillac"
+   ],
+   "color": "#5C5F66",
+   "photo": {
+    "src": "/img/cars/cadillac-480.webp",
+    "srcSet": "/img/cars/cadillac-256.webp 256w, /img/cars/cadillac-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2026_Nr._11_Perez_(3).jpg",
+     "author": "Lukas Raich",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "fondmetal",
+   "name": "Fondmetal",
+   "fullName": "Fondmetal",
+   "aliases": [],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "fondmetal"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/fondmetal-480.webp",
+    "srcSet": "/img/cars/fondmetal-256.webp 256w, /img/cars/fondmetal-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1992_Andrea_Chiesa_Fondmetal.jpg",
+     "author": "Iwao from Tokyo, Japan",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "connaught",
+   "name": "Connaught",
+   "fullName": "Connaught",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "connaught"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/connaught-480.webp",
+    "srcSet": "/img/cars/connaught-256.webp 256w, /img/cars/connaught-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Beaulieu_National_Motor_Museum_Connaught_Type_B_(1955)_15-10-2011_13-10-02.png",
+     "author": "Paul Hermans",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "onyx",
+   "name": "Onyx",
+   "fullName": "Onyx",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "onyx"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/onyx-480.webp",
+    "srcSet": "/img/cars/onyx-256.webp 256w, /img/cars/onyx-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Bertrand_Gachot_1989_Belgian_GP_2.jpg",
+     "author": "madagascarica from Verneuil Grand, France",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "spyker",
+   "name": "Spyker",
+   "fullName": "Spyker",
+   "aliases": [],
+   "countryCode": "NLD",
+   "country": {
+    "en": "Netherlands",
+    "uk": "Нідерланди"
+   },
+   "refs": [
+    "spyker"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/spyker-480.webp",
+    "srcSet": "/img/cars/spyker-256.webp 256w, /img/cars/spyker-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Christijan_Albers_2007_USA.jpg",
+     "author": "Jeff Wunrow from Minneapolis, MN, USA",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "parnelli",
+   "name": "Parnelli",
+   "fullName": "Parnelli",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "parnelli"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/parnelli-480.webp",
+    "srcSet": "/img/cars/parnelli-256.webp 256w, /img/cars/parnelli-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Lola_T332-Chevrolet_as_entered_by_the_Parnelli_team_for_Al_Unser_in_F5000_in_1976,_Goodwood_Festival_of_Speed_2021.jpg",
+     "author": "In Vitrio",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "euro-brun",
+   "name": "Euro Brun",
+   "fullName": "Euro Brun",
+   "aliases": [],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "eurobrun"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/euro-brun-480.webp",
+    "srcSet": "/img/cars/euro-brun-256.webp 256w, /img/cars/euro-brun-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:EurobrunER189_RaceHistoryOnTrack_HH2011.jpg",
+     "author": "DoomWarrior",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "simca",
+   "name": "Simca",
+   "fullName": "Simca",
+   "aliases": [],
+   "countryCode": "FRA",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "refs": [
+    "simca"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/simca-480.webp",
+    "srcSet": "/img/cars/simca-256.webp 256w, /img/cars/simca-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Gordini_11_course_1946_-aa.jpg",
+     "author": "Eric Manesse",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "hwm",
+   "name": "HWM",
+   "fullName": "HWM",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "hwm"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/hwm-480.webp",
+    "srcSet": "/img/cars/hwm-256.webp 256w, /img/cars/hwm-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:HWM_1952_car_Donington_2007.jpg",
+     "author": "John Chapman (Pyrope)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "mf1",
+   "name": "MF1",
+   "fullName": "MF1",
+   "aliases": [],
+   "countryCode": "RUS",
+   "country": {
+    "en": "Russia",
+    "uk": "Росія"
+   },
+   "refs": [
+    "mf1"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/mf1-480.webp",
+    "srcSet": "/img/cars/mf1-256.webp 256w, /img/cars/mf1-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Christijan_Albers_USA_2006.jpg",
+     "author": "jwunrow",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "talbot",
+   "name": "Talbot",
+   "fullName": "Talbot",
+   "aliases": [],
+   "countryCode": "FRA",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "refs": [
+    "lago"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/talbot-480.webp",
+    "srcSet": "/img/cars/talbot-256.webp 256w, /img/cars/talbot-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Talbot_Lago_Type_26C_of_Ron_Townley.jpg",
+     "author": "GTHO",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "brp",
+   "name": "BRP",
+   "fullName": "BRP",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "brp"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "coloni",
+   "name": "Coloni",
+   "fullName": "Coloni",
+   "aliases": [],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "coloni"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/coloni-480.webp",
+    "srcSet": "/img/cars/coloni-256.webp 256w, /img/cars/coloni-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Coloni_FC188B_2008_Donington_Park.jpg",
+     "author": "jo3hug",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "de-tomaso",
+   "name": "De Tomaso",
+   "fullName": "De Tomaso",
+   "aliases": [],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "de_tomaso-alfa_romeo",
+    "de_tomaso-ferrari",
+    "de_tomaso-osca",
+    "tomaso"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/de-tomaso-480.webp",
+    "srcSet": "/img/cars/de-tomaso-256.webp 256w, /img/cars/de-tomaso-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:De_Tomaso_Tipo_505.jpg",
+     "author": "Brian Snelson from Hockley, Essex, England",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "tecno",
+   "name": "Tecno",
+   "fullName": "Tecno",
+   "aliases": [],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "tecno"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/tecno-480.webp",
+    "srcSet": "/img/cars/tecno-256.webp 256w, /img/cars/tecno-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1972_Tecno_PA123_(19807884464).jpg",
+     "author": "Edvvc from London, UK",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "embassy-hill",
+   "name": "Embassy Hill",
+   "fullName": "Embassy Hill",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "hill"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/embassy-hill-480.webp",
+    "srcSet": "/img/cars/embassy-hill-256.webp 256w, /img/cars/embassy-hill-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Graham_Hill_1974_British_GP.jpg",
+     "author": "Martin Lee",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "merzario",
+   "name": "Merzario",
+   "fullName": "Merzario",
+   "aliases": [],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "merzario"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/merzario-480.webp",
+    "srcSet": "/img/cars/merzario-256.webp 256w, /img/cars/merzario-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Merzario_A2_2015_Oldtimer_Grand_Prix_N%C3%BCrburgring.jpg",
+     "author": "MPW57",
+     "license": "CC BY 3.0"
+    }
+   }
+  },
+  {
+   "id": "lesovsky",
+   "name": "Lesovsky",
+   "fullName": "Lesovsky",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "lesovsky"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "era",
+   "name": "ERA",
+   "fullName": "ERA",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "era"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/era-480.webp",
+    "srcSet": "/img/cars/era-256.webp 256w, /img/cars/era-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:ERA_E-type.jpg",
+     "author": "John Chapman (Pyrope)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "phillips",
+   "name": "Phillips",
+   "fullName": "Phillips",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "phillips"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "stevens",
+   "name": "Stevens",
+   "fullName": "Stevens",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "stevens"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "veritas",
+   "name": "Veritas",
+   "fullName": "Veritas",
+   "aliases": [],
+   "countryCode": "DEU",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "refs": [
+    "veritas"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/veritas-480.webp",
+    "srcSet": "/img/cars/veritas-256.webp 256w, /img/cars/veritas-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Veritas_Meteor.jpg",
+     "author": "Lothar Spurzem",
+     "license": "CC BY-SA 2.0 de"
+    }
+   }
+  },
+  {
+   "id": "trojan",
+   "name": "Trojan",
+   "fullName": "Trojan",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "trojan"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/trojan-480.webp",
+    "srcSet": "/img/cars/trojan-256.webp 256w, /img/cars/trojan-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Trojan_103_Brands_Hatch.jpg",
+     "author": "Readro",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "boro",
+   "name": "Boro",
+   "fullName": "Boro",
+   "aliases": [],
+   "countryCode": "NLD",
+   "country": {
+    "en": "Netherlands",
+    "uk": "Нідерланди"
+   },
+   "refs": [
+    "boro"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/boro-480.webp",
+    "srcSet": "/img/cars/boro-256.webp 256w, /img/cars/boro-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:-33_-_Ensign_MN175_-_1975.jpg",
+     "author": "_morgado2",
+     "license": "CC BY 4.0"
+    }
+   }
+  },
+  {
+   "id": "lambo",
+   "name": "Lambo",
+   "fullName": "Lambo",
+   "aliases": [],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "lambo"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/lambo-480.webp",
+    "srcSet": "/img/cars/lambo-256.webp 256w, /img/cars/lambo-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Lambo_291_V12_(22527014528).jpg",
+     "author": "Rob Oo from NL",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "alta",
+   "name": "Alta",
+   "fullName": "Alta",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "alta"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/alta-480.webp",
+    "srcSet": "/img/cars/alta-256.webp 256w, /img/cars/alta-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Alta_Donington_2007.jpg",
+     "author": "John Chapman (Pyrope)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "lds",
+   "name": "LDS",
+   "fullName": "LDS",
+   "aliases": [],
+   "countryCode": "ZAF",
+   "country": {
+    "en": "South Africa",
+    "uk": "ПАР"
+   },
+   "refs": [
+    "lds",
+    "lds-alfa_romeo",
+    "lds-climax"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/lds-480.webp",
+    "srcSet": "/img/cars/lds-256.webp 256w, /img/cars/lds-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:LDS-Climax_Mark_3.jpg",
+     "author": "In Vitrio",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "scirocco",
+   "name": "Scirocco",
+   "fullName": "Scirocco",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "scirocco"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/scirocco-480.webp",
+    "srcSet": "/img/cars/scirocco-256.webp 256w, /img/cars/scirocco-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1962_Scirocco_BRM_SP-1_at_Goodwood_Revival_2012.jpg",
+     "author": "David Merrett from Daventry, England",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "martini",
+   "name": "Martini",
+   "fullName": "Martini",
+   "aliases": [],
+   "countryCode": "FRA",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "refs": [
+    "martini"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/martini-480.webp",
+    "srcSet": "/img/cars/martini-256.webp 256w, /img/cars/martini-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Martini_MK15.jpg",
+     "author": "SunflowerYuri",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "schroeder",
+   "name": "Schroeder",
+   "fullName": "Schroeder",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "schroeder"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "bromme",
+   "name": "Bromme",
+   "fullName": "Bromme",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "bromme"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "trevis",
+   "name": "Trevis",
+   "fullName": "Trevis",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "trevis"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "osca",
+   "name": "OSCA",
+   "fullName": "OSCA",
+   "aliases": [],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "osca"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "frazer-nash",
+   "name": "Frazer Nash",
+   "fullName": "Frazer Nash",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "frazer_nash"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/frazer-nash-480.webp",
+    "srcSet": "/img/cars/frazer-nash-256.webp 256w, /img/cars/frazer-nash-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1950_Frazer_Nash_Le_Mans_Replica_(32132760881).jpg",
+     "author": "David Merrett from Daventry, England",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "afm",
+   "name": "AFM",
+   "fullName": "AFM",
+   "aliases": [],
+   "countryCode": "DEU",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "refs": [
+    "afm"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/afm-480.webp",
+    "srcSet": "/img/cars/afm-256.webp 256w, /img/cars/afm-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Bechem_AFM_Norisring_1951.jpg",
+     "author": "Karl-Günther Bechem",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "lancia",
+   "name": "Lancia",
+   "fullName": "Lancia",
+   "aliases": [],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "lancia"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/lancia-480.webp",
+    "srcSet": "/img/cars/lancia-256.webp 256w, /img/cars/lancia-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:D50_003.jpg",
+     "author": "Unknown authorUnknown author",
+     "license": "Public domain"
+    }
+   }
+  },
+  {
+   "id": "emeryson",
+   "name": "Emeryson",
+   "fullName": "Emeryson",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "emeryson"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/emeryson-480.webp",
+    "srcSet": "/img/cars/emeryson-256.webp 256w, /img/cars/emeryson-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1961_Emeryson-Climax_at_the_2018_Historic_Grand_Prix_of_Monaco.jpg",
+     "author": "In Vitrio",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "jbw",
+   "name": "JBW",
+   "fullName": "JBW",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "jbw"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/jbw-480.webp",
+    "srcSet": "/img/cars/jbw-256.webp 256w, /img/cars/jbw-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:JBW_Type_1_at_Silverstone_Classic_2009_(1).jpg",
+     "author": "David Merrett from Daventry, England",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "spyker-mf1",
+   "name": "Spyker MF1",
+   "fullName": "Spyker MF1",
+   "aliases": [],
+   "countryCode": "NLD",
+   "country": {
+    "en": "Netherlands",
+    "uk": "Нідерланди"
+   },
+   "refs": [
+    "spyker_mf1"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/spyker-mf1-480.webp",
+    "srcSet": "/img/cars/spyker-mf1-256.webp 256w, /img/cars/spyker-mf1-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Christijan_Albers_USA_2006.jpg",
+     "author": "jwunrow",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "deidt",
+   "name": "Deidt",
+   "fullName": "Deidt",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "deidt"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/deidt-480.webp",
+    "srcSet": "/img/cars/deidt-256.webp 256w, /img/cars/deidt-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Indy500winningcar1949.JPG",
+     "author": "Doctorindy",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "moore",
+   "name": "Moore",
+   "fullName": "Moore",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "moore"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "pawl",
+   "name": "Pawl",
+   "fullName": "Pawl",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "pawl"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "dunn",
+   "name": "Dunn",
+   "fullName": "Dunn",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "dunn"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "scarab",
+   "name": "Scarab",
+   "fullName": "Scarab",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "scarab"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/scarab-480.webp",
+    "srcSet": "/img/cars/scarab-256.webp 256w, /img/cars/scarab-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Chuck_Daigh_Scarab_F1_2018_Silverstone_Classic_(40064501923).jpg",
+     "author": "Dave Hamster",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "gilby",
+   "name": "Gilby",
+   "fullName": "Gilby",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "gilby"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/gilby-480.webp",
+    "srcSet": "/img/cars/gilby-256.webp 256w, /img/cars/gilby-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Gilby-Climax_from_1961_at_the_Goodwood_Revival,_2014.jpg",
+     "author": "In Vitrio",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "token",
+   "name": "Token",
+   "fullName": "Token",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "token"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/token-480.webp",
+    "srcSet": "/img/cars/token-256.webp 256w, /img/cars/token-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Token_RJ02.,_Goodwood_Members%27_Meeting_2015.jpg",
+     "author": "In Vitrio",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "lec",
+   "name": "LEC",
+   "fullName": "LEC",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "lec"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/lec-480.webp",
+    "srcSet": "/img/cars/lec-256.webp 256w, /img/cars/lec-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:LEC_CRP1_Donington_Grand_Prix_Collection_in_2007.jpg",
+     "author": "John Chapman (Pyrope)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "nichels",
+   "name": "Nichels",
+   "fullName": "Nichels",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "nichels"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "marchese",
+   "name": "Marchese",
+   "fullName": "Marchese",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "marchese"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "ewing",
+   "name": "Ewing",
+   "fullName": "Ewing",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "ewing"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "sherman",
+   "name": "Sherman",
+   "fullName": "Sherman",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "sherman"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "aston-butterworth",
+   "name": "Aston Butterworth",
+   "fullName": "Aston Butterworth",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "butterworth"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/aston-butterworth-480.webp",
+    "srcSet": "/img/cars/aston-butterworth-256.webp 256w, /img/cars/aston-butterworth-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Aston_Butterworth_NB42_at_Crystal_Palace_2015.jpg",
+     "author": "Eagleash",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "bmw",
+   "name": "BMW",
+   "fullName": "BMW",
+   "aliases": [],
+   "countryCode": "DEU",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "refs": [
+    "bmw"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/bmw-480.webp",
+    "srcSet": "/img/cars/bmw-256.webp 256w, /img/cars/bmw-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:MitterG-BMW-F2-1969-08-01.jpg",
+     "author": "Lothar Spurzem",
+     "license": "CC BY-SA 2.0 de"
+    }
+   }
+  },
+  {
+   "id": "pankratz",
+   "name": "Pankratz",
+   "fullName": "Pankratz",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "pankratz"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "christensen",
+   "name": "Christensen",
+   "fullName": "Christensen",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "vhristensen"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "behra",
+   "name": "Behra",
+   "fullName": "Behra",
+   "aliases": [],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "behra-porsche"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "bellasi",
+   "name": "Bellasi",
+   "fullName": "Bellasi",
+   "aliases": [],
+   "countryCode": "CHE",
+   "country": {
+    "en": "Switzerland",
+    "uk": "Швейцарія"
+   },
+   "refs": [
+    "bellasi"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "kojima",
+   "name": "Kojima",
+   "fullName": "Kojima",
+   "aliases": [],
+   "countryCode": "JPN",
+   "country": {
+    "en": "Japan",
+    "uk": "Японія"
+   },
+   "refs": [
+    "kojima"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/kojima-480.webp",
+    "srcSet": "/img/cars/kojima-256.webp 256w, /img/cars/kojima-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Kojima_KE007_front-right_2013_Yurakucho.jpg",
+     "author": "Morio",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "andrea-moda",
+   "name": "Andrea Moda",
+   "fullName": "Andrea Moda",
+   "aliases": [],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "moda"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/andrea-moda-480.webp",
+    "srcSet": "/img/cars/andrea-moda-256.webp 256w, /img/cars/andrea-moda-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:AndreaModaMisano.jpg",
+     "author": "Masbrolla",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "langley",
+   "name": "Langley",
+   "fullName": "Langley",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "langley"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "rae",
+   "name": "Rae",
+   "fullName": "Rae",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "rae"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "olson",
+   "name": "Olson",
+   "fullName": "Olson",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "olson"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "wetteroth",
+   "name": "Wetteroth",
+   "fullName": "Wetteroth",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "wetteroth"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "snowberger",
+   "name": "Snowberger",
+   "fullName": "Snowberger",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "snowberger"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "adams",
+   "name": "Adams",
+   "fullName": "Adams",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "adams"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/adams-480.webp",
+    "srcSet": "/img/cars/adams-256.webp 256w, /img/cars/adams-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:B._Levrett_in_Adams_Offenhauser_Palmer_Special,_1950-05-30_Indianapolis_500.jpg",
+     "author": "Tower Photograhers, Indianapolis",
+     "license": "Public domain"
+    }
+   }
+  },
+  {
+   "id": "hall",
+   "name": "Hall",
+   "fullName": "Hall",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "hall"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "turner",
+   "name": "Turner",
+   "fullName": "Turner",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "turner"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "del-roy",
+   "name": "Del Roy",
+   "fullName": "Del Roy",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "del_roy"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "emw",
+   "name": "EMW",
+   "fullName": "EMW",
+   "aliases": [],
+   "countryCode": "DEU",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "refs": [
+    "emw"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "klenk",
+   "name": "Klenk",
+   "fullName": "Klenk",
+   "aliases": [],
+   "countryCode": "DEU",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "refs": [
+    "klenk"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "bugatti",
+   "name": "Bugatti",
+   "fullName": "Bugatti",
+   "aliases": [],
+   "countryCode": "FRA",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "refs": [
+    "bugatti"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/bugatti-480.webp",
+    "srcSet": "/img/cars/bugatti-256.webp 256w, /img/cars/bugatti-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Bugatti_GP_Type_251.jpg",
+     "author": "MPW57",
+     "license": "Public domain"
+    }
+   }
+  },
+  {
+   "id": "elder",
+   "name": "Elder",
+   "fullName": "Elder",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "elder"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "sutton",
+   "name": "Sutton",
+   "fullName": "Sutton",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "sutton"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "tec",
+   "name": "Tec",
+   "fullName": "Tec",
+   "aliases": [],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "tec-mec"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/tec-480.webp",
+    "srcSet": "/img/cars/tec-256.webp 256w, /img/cars/tec-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Maserati_TecMec.jpg",
+     "author": "Kogo",
+     "license": "CC BY-SA 3.0 de"
+    }
+   }
+  },
+  {
+   "id": "meskowski",
+   "name": "Meskowski",
+   "fullName": "Meskowski",
+   "aliases": [],
+   "countryCode": "USA",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "refs": [
+    "meskowski"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/meskowski-480.webp",
+    "srcSet": "/img/cars/meskowski-256.webp 256w, /img/cars/meskowski-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Henry_Ford_Museum_August_2012_22_(1960_Meskowski).jpg",
+     "author": "Michael Barera",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "ferguson",
+   "name": "Ferguson",
+   "fullName": "Ferguson",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "ferguson"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/ferguson-480.webp",
+    "srcSet": "/img/cars/ferguson-256.webp 256w, /img/cars/ferguson-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Ferguson_climax_P99.jpg",
+     "author": "Ed Callow",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "enb",
+   "name": "ENB",
+   "fullName": "ENB",
+   "aliases": [],
+   "countryCode": "BEL",
+   "country": {
+    "en": "Belgium",
+    "uk": "Бельгія"
+   },
+   "refs": [
+    "enb"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/enb-480.webp",
+    "srcSet": "/img/cars/enb-256.webp 256w, /img/cars/enb-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1961_Emeryson-Climax_at_the_2018_Historic_Grand_Prix_of_Monaco.jpg",
+     "author": "In Vitrio",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "stebro",
+   "name": "Stebro",
+   "fullName": "Stebro",
+   "aliases": [],
+   "countryCode": "CAN",
+   "country": {
+    "en": "Canada",
+    "uk": "Канада"
+   },
+   "refs": [
+    "stebro"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "derrington",
+   "name": "Derrington",
+   "fullName": "Derrington",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "derrington"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/derrington-480.webp",
+    "srcSet": "/img/cars/derrington-256.webp 256w, /img/cars/derrington-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Derrington_Francis-ATS,_BRM_Celebration_Day,_Bourne,_Lincolnshire,_2012.jpg",
+     "author": "In Vitrio",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "shannon",
+   "name": "Shannon",
+   "fullName": "Shannon",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "shannon"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "protos",
+   "name": "Protos",
+   "fullName": "Protos",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "protos"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "politoys",
+   "name": "Politoys",
+   "fullName": "Politoys",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "politoys"
+   ],
+   "color": null,
+   "photo": null
+  },
+  {
+   "id": "connew",
+   "name": "Connew",
+   "fullName": "Connew",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "connew"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/connew-480.webp",
+    "srcSet": "/img/cars/connew-256.webp 256w, /img/cars/connew-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Connew_PC1-Cosworth.jpg",
+     "author": "In Vitrio",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "amon",
+   "name": "Amon",
+   "fullName": "Amon",
+   "aliases": [],
+   "countryCode": "NZL",
+   "country": {
+    "en": "New Zealand",
+    "uk": "Нова Зеландія"
+   },
+   "refs": [
+    "amon"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/amon-480.webp",
+    "srcSet": "/img/cars/amon-256.webp 256w, /img/cars/amon-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:ChrisAmonAF101.jpg",
+     "author": "StickboyNZ",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "lyncar",
+   "name": "Lyncar",
+   "fullName": "Lyncar",
+   "aliases": [],
+   "countryCode": "GBR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "refs": [
+    "lyncar"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/lyncar-480.webp",
+    "srcSet": "/img/cars/lyncar-256.webp 256w, /img/cars/lyncar-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Lyncar_F1_Ford_Cosworht_(1977)._(55078840707).jpg",
+     "author": "Txemari. (Navarra). from Navarra, España",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "rebaque",
+   "name": "Rebaque",
+   "fullName": "Rebaque",
+   "aliases": [],
+   "countryCode": "MEX",
+   "country": {
+    "en": "Mexico",
+    "uk": "Мексика"
+   },
+   "refs": [
+    "rebaque"
+   ],
+   "color": null,
+   "photo": {
+    "src": "/img/cars/rebaque-480.webp",
+    "srcSet": "/img/cars/rebaque-256.webp 256w, /img/cars/rebaque-480.webp 480w",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Hector_Rebaque_Lotus_78.jpg",
+     "author": "Keith Long",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "lotus-racing",
+   "name": "Lotus Racing",
+   "fullName": "Lotus",
+   "aliases": [
+    "Лотус Рейсінг",
+    "Лотус"
+   ],
+   "countryCode": "MYS",
+   "country": {
+    "en": "Malaysia",
+    "uk": "Малайзія"
+   },
+   "refs": [
+    "lotus_racing"
+   ],
+   "color": null,
+   "photo": null
+  }
+ ]
+}

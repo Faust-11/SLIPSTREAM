@@ -1,0 +1,378 @@
+{
+ "drivers": {
+  "albon": {
+   "name": {
+    "en": "Alexander Albon",
+    "uk": "Александер Албон"
+   },
+   "surname": {
+    "en": "Albon",
+    "uk": "Албон"
+   },
+   "initials": "AA",
+   "avatar": "/img/drivers/albon-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Alex_Albon_at_the_Melbourne_Walk_during_the_2026_Australian_Grand_Prix_(028A8626)_(cropped).jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   }
+  },
+  "alonso": {
+   "name": {
+    "en": "Fernando Alonso",
+    "uk": "Фернандо Алонсо"
+   },
+   "surname": {
+    "en": "Alonso",
+    "uk": "Алонсо"
+   },
+   "initials": "FA",
+   "avatar": "/img/drivers/alonso-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Alonso-68_(24710447098).jpg",
+    "author": "United Autosports",
+    "license": "CC BY-SA 2.0"
+   }
+  },
+  "antonelli": {
+   "name": {
+    "en": "Andrea Kimi Antonelli",
+    "uk": "Кімі Антонеллі"
+   },
+   "surname": {
+    "en": "Antonelli",
+    "uk": "Антонеллі"
+   },
+   "initials": "AK",
+   "avatar": "/img/drivers/antonelli-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:2026-08-23_Motorsport,_Formel_1,_Gro%C3%9Fer_Preis_der_Niederlande_2026_STP_3010_(cropped2).jpg",
+    "author": "Steffen Prößdorf",
+    "license": "CC BY-SA 4.0"
+   }
+  },
+  "arvid_lindblad": {
+   "name": {
+    "en": "Arvid Lindblad",
+    "uk": "Арвід Ліндблад"
+   },
+   "surname": {
+    "en": "Lindblad",
+    "uk": "Ліндблад"
+   },
+   "initials": "AL",
+   "avatar": "/img/drivers/arvid_lindblad-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Arvid_Lindblad_at_the_Red_Bull_Fan_Zone_%E2%80%93_Crown_Riverwalk,_Melbourne_(028A7869)_(cropped).jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   }
+  },
+  "bearman": {
+   "name": {
+    "en": "Oliver Bearman",
+    "uk": "Олівер Бермен"
+   },
+   "surname": {
+    "en": "Bearman",
+    "uk": "Бермен"
+   },
+   "initials": "OB",
+   "avatar": "/img/drivers/bearman-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Haas_-_Oliver_Bearman_-_Thursday_(cropped).jpg",
+    "author": "Liauzh",
+    "license": "CC BY-SA 4.0"
+   }
+  },
+  "bortoleto": {
+   "name": {
+    "en": "Gabriel Bortoleto",
+    "uk": "Габріель Бортолето"
+   },
+   "surname": {
+    "en": "Bortoleto",
+    "uk": "Бортолето"
+   },
+   "initials": "GB",
+   "avatar": "/img/drivers/bortoleto-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Gabriel_Bortoleto_at_the_Melbourne_Walk_during_the_2026_Australian_Grand_Prix_(028A8581)_cropped.jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   }
+  },
+  "bottas": {
+   "name": {
+    "en": "Valtteri Bottas",
+    "uk": "Валттері Боттас"
+   },
+   "surname": {
+    "en": "Bottas",
+    "uk": "Боттас"
+   },
+   "initials": "VB",
+   "avatar": "/img/drivers/bottas-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Valtteri_Bottas_at_the_2026_Adelaide_Motorsport_Festival_(028A7556).jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   }
+  },
+  "colapinto": {
+   "name": {
+    "en": "Franco Colapinto",
+    "uk": "Франко Колапінто"
+   },
+   "surname": {
+    "en": "Colapinto",
+    "uk": "Колапінто"
+   },
+   "initials": "FC",
+   "avatar": "/img/drivers/colapinto-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Franco_Colapinto_at_the_Melbourne_Walk_during_the_2026_Australian_Grand_Prix_(028A8698)_cropped.jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   }
+  },
+  "gasly": {
+   "name": {
+    "en": "Pierre Gasly",
+    "uk": "П'єр Гаслі"
+   },
+   "surname": {
+    "en": "Gasly",
+    "uk": "Гаслі"
+   },
+   "initials": "PG",
+   "avatar": "/img/drivers/gasly-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Pierre_Gasly_2017_Malaysia.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 4.0"
+   }
+  },
+  "hadjar": {
+   "name": {
+    "en": "Isack Hadjar",
+    "uk": "Ісак Хаджар"
+   },
+   "surname": {
+    "en": "Hadjar",
+    "uk": "Хаджар"
+   },
+   "initials": "IH",
+   "avatar": "/img/drivers/hadjar-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Isack_Hadjar_at_the_Melbourne_Walk_during_the_2026_Australian_Grand_Prix_(028A8753)_(cropped).jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   }
+  },
+  "hamilton": {
+   "name": {
+    "en": "Lewis Hamilton",
+    "uk": "Льюїс Гамілтон"
+   },
+   "surname": {
+    "en": "Hamilton",
+    "uk": "Гамілтон"
+   },
+   "initials": "LH",
+   "avatar": "/img/drivers/hamilton-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Prime_Minister_Keir_Starmer_meets_Sir_Lewis_Hamilton_(54566928382)_(cropped).jpg",
+    "author": "Picture by Lauren Hurley",
+    "license": "OGL 3"
+   }
+  },
+  "hulkenberg": {
+   "name": {
+    "en": "Nico Hülkenberg",
+    "uk": "Ніко Гюлькенберг"
+   },
+   "surname": {
+    "en": "Hülkenberg",
+    "uk": "Гюлькенберг"
+   },
+   "initials": "NH",
+   "avatar": "/img/drivers/hulkenberg-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:2019_Formula_One_tests_Barcelona,_Hulkenberg_(40287128313).jpg",
+    "author": "Marc Alvarado",
+    "license": "CC BY-SA 2.0"
+   }
+  },
+  "lawson": {
+   "name": {
+    "en": "Liam Lawson",
+    "uk": "Ліам Лоусон"
+   },
+   "surname": {
+    "en": "Lawson",
+    "uk": "Лоусон"
+   },
+   "initials": "LL",
+   "avatar": "/img/drivers/lawson-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Liam_Lawson_at_the_Red_Bull_Fan_Zone_%E2%80%93_Crown_Riverwalk,_Melbourne_(028A7795).jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   }
+  },
+  "leclerc": {
+   "name": {
+    "en": "Charles Leclerc",
+    "uk": "Шарль Леклер"
+   },
+   "surname": {
+    "en": "Leclerc",
+    "uk": "Леклер"
+   },
+   "initials": "CL",
+   "avatar": "/img/drivers/leclerc-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Charles_Leclerc_at_the_2026_Cannes_Film_Festival_(cropped).jpg",
+    "author": "Gabriel Hutchinson",
+    "license": "CC BY-SA 4.0"
+   }
+  },
+  "max_verstappen": {
+   "name": {
+    "en": "Max Verstappen",
+    "uk": "Макс Ферстаппен"
+   },
+   "surname": {
+    "en": "Verstappen",
+    "uk": "Ферстаппен"
+   },
+   "initials": "MV",
+   "avatar": "/img/drivers/max_verstappen-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:2024-08-25_Motorsport,_Formel_1,_Gro%C3%9Fer_Preis_der_Niederlande_2024_STP_3973_by_Stepro_(medium_crop).jpg",
+    "author": "Steffen Prößdorf",
+    "license": "CC BY-SA 4.0"
+   }
+  },
+  "norris": {
+   "name": {
+    "en": "Lando Norris",
+    "uk": "Ландо Норріс"
+   },
+   "surname": {
+    "en": "Norris",
+    "uk": "Норріс"
+   },
+   "initials": "LN",
+   "avatar": "/img/drivers/norris-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:2024-08-25_Motorsport,_Formel_1,_Gro%C3%9Fer_Preis_der_Niederlande_2024_STP_3968_by_Stepro_(cropped2).jpg",
+    "author": "Steffen Prößdorf",
+    "license": "CC BY-SA 4.0"
+   }
+  },
+  "perez": {
+   "name": {
+    "en": "Sergio Pérez",
+    "uk": "Серхіо Перес"
+   },
+   "surname": {
+    "en": "Pérez",
+    "uk": "Перес"
+   },
+   "initials": "SP",
+   "avatar": "/img/drivers/perez-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Sergio_P%C3%A9rez_2019_(cropped).jpg",
+    "author": "XaviYuahanda",
+    "license": "CC BY-SA 4.0"
+   }
+  },
+  "piastri": {
+   "name": {
+    "en": "Oscar Piastri",
+    "uk": "Оскар Піастрі"
+   },
+   "surname": {
+    "en": "Piastri",
+    "uk": "Піастрі"
+   },
+   "initials": "OP",
+   "avatar": "/img/drivers/piastri-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:2026_Chinese_GP_-_Oscar_Piastri_(cropped)_(cropped).jpg",
+    "author": "Liauzh",
+    "license": "CC BY 4.0"
+   }
+  },
+  "rafael_camara": {
+   "name": {
+    "en": "Rafael Camara",
+    "uk": "Рафаель Камара"
+   },
+   "surname": {
+    "en": "Camara",
+    "uk": "Камара"
+   },
+   "initials": "RC",
+   "avatar": "/img/drivers/rafael_camara-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Rafael_C%C3%A2mara_in_2022.jpg",
+    "author": "KVYTICAL",
+    "license": "CC BY-SA 4.0"
+   }
+  },
+  "russell": {
+   "name": {
+    "en": "George Russell",
+    "uk": "Джордж Расселл"
+   },
+   "surname": {
+    "en": "Russell",
+    "uk": "Расселл"
+   },
+   "initials": "GR",
+   "avatar": "/img/drivers/russell-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:KingsLeonSilverstne040724_(28_of_112)_(53838006028)_(cropped).jpg",
+    "author": "Raph_PH",
+    "license": "CC BY 2.0"
+   }
+  },
+  "sainz": {
+   "name": {
+    "en": "Carlos Sainz",
+    "uk": "Карлос Сайнс"
+   },
+   "surname": {
+    "en": "Sainz",
+    "uk": "Сайнс"
+   },
+   "initials": "CS",
+   "avatar": "/img/drivers/sainz-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Carlos_Sainz_at_the_83rd_Venice_FILM_festival-9_(cropped).jpg",
+    "author": "LucaFazPhoto",
+    "license": "CC BY-SA 4.0"
+   }
+  },
+  "stroll": {
+   "name": {
+    "en": "Lance Stroll",
+    "uk": "Ленс Стролл"
+   },
+   "surname": {
+    "en": "Stroll",
+    "uk": "Стролл"
+   },
+   "initials": "LS",
+   "avatar": "/img/drivers/stroll-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Aston_Martin_-_Lance_Stroll_-_Fanzone_Stage_(cropped).jpg",
+    "author": "Liauzh",
+    "license": "CC BY-SA 4.0"
+   }
+  }
+ }
+}

@@ -302,6 +302,11 @@ def main() -> None:
                     total[k] = total.get(k, 0) + v
         if not total:
             log("nothing to top up")
+        # Похідні дані (міграція 0002) — у тій самій транзакції.
+        cur.execute("select to_regprocedure('f1.refresh_derived()') is not null")
+        if total and cur.fetchone()[0]:
+            cur.execute("select f1.refresh_derived()")
+            log("derived data refreshed")
         if args.dry_run:
             conn.rollback()
             log("dry run: rolled back")

@@ -63,5 +63,13 @@ jobs:
           python scripts/db/apply_migrations.py  # повторно — нічого не застосовує
       - name: Дамп у базу
         run: python scripts/jolpica/load_dump.py --zip dump_csv.zip
+      - name: Кураторські дані (команди) і доливка гонок після дампу з API Jolpica
+        run: |
+          python scripts/db/seed_curated.py --strict
+          python scripts/jolpica/topup_api.py
       - name: Права доступу (RLS)
         run: python scripts/db/rls_smoke.py
+      - name: Синхронізація й похідні дані команд
+        env:
+          DUMP_ZIP: dump_csv.zip
+        run: python scripts/db/test_data.py
