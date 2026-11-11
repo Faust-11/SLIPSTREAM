@@ -40,7 +40,7 @@
 - Кольори першого екрана розділів: Історії `#E8002D`, Гра `#FF8000`, Новачкам `#27D9C2`, Календар `#1868DB`, Новини `#1E8A63`.
 - Меню (порядок): Сезони · Календар · Новини · Пілоти · Команди · Траси · Історії · Новачкам · Гра (Гра — жовта).
 - Доступність: WCAG 2.2 AA, axe — 0 порушень у світлій і темній темі.
-- Бюджет: Lighthouse ≥ 95 у всіх категоріях на сторінках фази 1 (мобільний профіль); CLS < 0.1.
+- Бюджет (уточнено рішенням користувача 11.11, `docs/decisions.md`): Lighthouse (мобільний, CI, медіана 5) — Accessibility, Best Practices, SEO ≥ 95; Performance ≥ 90 і не нижче порожньої сторінки Next мінус 3 бали (зараз ≥ 92); LCP < 2,5 с, CLS < 0.1, TBT < 350 мс.
 - До запуску: `robots` = `noindex, nofollow` на всіх сторінках (прев'ю не індексуємо).
 - Жодних секретів у клієнтському коді; `.env*` у `.gitignore`, `.env.example` без значень.
 
@@ -172,7 +172,7 @@
 ### Task 8: Перевірка фази
 
 - [ ] **Step 1:** `npm run lint && npm run typecheck && npm run test && npm run build && npm run e2e` — Expected: усе зелене.
-- [ ] **Step 2:** Lighthouse (chrome-devtools-mcp `lighthouse_audit`, мобільний профіль) для `/`, `/uk/teams`, 404 — Expected: ≥ 95 у кожній категорії; скіл `web-quality-audit` — звіт у `docs/audits/phase1-quality.md`.
+- [ ] **Step 2:** Lighthouse (`scripts/lighthouse.mjs` на CI — локально performance не вимірюваний, див. `docs/audits/phase1-quality.md`; мобільний профіль) для `/`, `/uk/teams`, 404 — Expected: пороги з Global Constraints; скіл `web-quality-audit` — звіт у `docs/audits/phase1-quality.md`.
 - [ ] **Step 3:** скіл `code-review` по гілці; виправити підтверджені знахідки.
 - [ ] **Step 4:** скіл `verification-before-completion`; PR `phase1/foundation` → `main`, CI зелений.
 - [ ] **Step 5:** користувач імпортує репозиторій у Vercel (новий проєкт у тому ж акаунті, Root Directory — корінь, Node 24) — перевірити прев'ю-URL тими ж e2e (`BASE_URL=<preview>`).
