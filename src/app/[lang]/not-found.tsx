@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { lang } from "next/root-params";
-import { navItems } from "@/components/site/header";
+import { navItems } from "@/config/nav";
 import { defaultLocale, isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";

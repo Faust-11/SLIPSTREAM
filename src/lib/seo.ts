@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { defaultLocale, type Locale } from "@/i18n/config";
+import { defaultLocale, locales, type Locale } from "@/i18n/config";
 import { localizedPath } from "@/i18n/paths";
 
 const OG_LOCALE: Record<Locale, string> = { en: "en_GB", uk: "uk_UA" };
@@ -36,6 +36,14 @@ export function robotsMetadata(): Metadata["robots"] {
   return { index, follow: index };
 }
 
+/** hreflang-альтернативи шляху: кожна мова + x-default (= EN). Спільні для <head> і sitemap. */
+export function languageAlternates(path: string, toUrl: (localized: string) => string = (p) => p) {
+  return {
+    ...Object.fromEntries(locales.map((l) => [l, toUrl(localizedPath(path, l))])),
+    "x-default": toUrl(localizedPath(path, defaultLocale)),
+  } as Record<Locale | "x-default", string>;
+}
+
 /** Метадані сторінки: canonical своєю мовою, hreflang (en, uk, x-default = EN), Open Graph, robots. */
 export function pageMetadata({
   locale,
@@ -54,11 +62,7 @@ export function pageMetadata({
     description,
     alternates: {
       canonical: url,
-      languages: {
-        en: localizedPath(path, "en"),
-        uk: localizedPath(path, "uk"),
-        "x-default": localizedPath(path, defaultLocale),
-      },
+      languages: languageAlternates(path),
     },
     openGraph: {
       type: "website",

@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
 import { NAV } from "@/config/nav";
-import { defaultLocale, locales } from "@/i18n/config";
+import { locales } from "@/i18n/config";
 import { localizedPath } from "@/i18n/paths";
-import { siteUrl } from "@/lib/seo";
+import { languageAlternates, siteUrl } from "@/lib/seo";
 
 /** Кожна сторінка обома мовами; у кожного запису — hreflang-альтернативи (en, uk, x-default). */
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -14,10 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   };
   const paths = ["/", ...NAV.map((item) => item.href)];
   return paths.flatMap((path) => {
-    const languages = {
-      ...Object.fromEntries(locales.map((l) => [l, abs(localizedPath(path, l))])),
-      "x-default": abs(localizedPath(path, defaultLocale)),
-    };
+    const languages = languageAlternates(path, abs);
     return locales.map((locale) => ({ url: abs(localizedPath(path, locale)), alternates: { languages } }));
   });
 }

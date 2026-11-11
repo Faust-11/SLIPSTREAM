@@ -115,3 +115,11 @@
 - **Секрет обходу Vercel** — лише cookie домену прев'ю (`e2e/vercel-bypass.setup.ts`), не `extraHTTPHeaders` (ті йшли б на сторонні хости й у trace); trace вимкнено при `BASE_URL`.
 - Без заголовків лишаються 308 з `redirects` і внутрішній trailing-slash-редирект Next (`/uk/teams/` → `/uk/teams`) — тіла немає; на Vercel перевірити в Task 8.
 - **CSP для майбутніх фаз** (рев'ю, мнение): Supabase лише на сервері — CSP без змін; превью новин — через `/_next/image` з `remotePatterns` (img-src лишається `'self'`); Vercel Toolbar на прев'ю — вимкнути або дозволити `vercel.live` лише при `VERCEL_ENV=preview`; Google-вхід — `form-action`/`frame-src` `accounts.google.com`, COOP `same-origin-allow-popups`, на динамічних сторінках входу — nonce + `'strict-dynamic'`; `report-to` — разом із першим стороннім джерелом.
+
+## 2026-11-11 · Правки код-рев'ю гілки (Task 8)
+- **Фокус після зміни мови:** перемонтування `[lang]/layout` скидало фокус на `<body>`; перемикач ставить позначку в `sessionStorage`, `RouteFocus` після монтування фокусує `#main`. `RouteFocus` порівнює з попереднім маршрутом, а не з прапорцем «перший рендер» (StrictMode у dev двічі запускає ефект).
+- **`upgrade-insecure-requests` — лише продакшн:** у dev і з телефона по `http://<IP у мережі>` ламав усі ресурси.
+- **Rewrite на `/en` — спільний список `NON_LOCALIZED_PREFIXES`** (`src/i18n/routing.ts`: мови, `_next`, `_vercel`, `api`, `.well-known`): `afterFiles` виконуються до динамічних маршрутів, тож майбутні `/api/...` інакше пішли б у `/en/...` → 404. Unit-тести на регулярку.
+- `navItems` — у `src/config/nav.ts` (404 і футер більше не тягнуть клієнтські компоненти шапки); hreflang для `<head>` і sitemap — один `languageAlternates()`; перевірка мови — один `requireLocale()` (`src/i18n/require-locale.ts`, окремо від `config.ts`, який імпортує `next.config`).
+- `theme-color` іде за явним вибором теми (`applyThemeColor`); `global-error` — стилі кнопок і збережена тема.
+- `scripts/lighthouse.mjs`: перевірка `--runs`; провали й звіт — з прогону з медіанним performance.

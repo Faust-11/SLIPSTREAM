@@ -25,6 +25,23 @@ export function writeStoredTheme(storage: Storage | null, theme: ThemeChoice): v
   }
 }
 
+/** Колір панелі браузера = колір шапки (--head-bg) для теми. */
+export const THEME_COLOR: Record<ThemeChoice, string> = { light: "#16181d", dark: "#07080a" };
+
+/** Явний вибір теми — і колір панелі браузера (meta theme-color з media стоять для системної теми). */
+export function applyThemeColor(theme: ThemeChoice | null): void {
+  for (const meta of document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]')) {
+    if (!meta.dataset.media) meta.dataset.media = meta.media;
+    if (theme) {
+      meta.content = THEME_COLOR[theme];
+      meta.media = "";
+    } else {
+      meta.media = meta.dataset.media;
+      meta.content = meta.dataset.media.includes("dark") ? THEME_COLOR.dark : THEME_COLOR.light;
+    }
+  }
+}
+
 export function nextTheme(current: ThemeChoice): ThemeChoice {
   return current === "dark" ? "light" : "dark";
 }

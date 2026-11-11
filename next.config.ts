@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { localeRewritePattern } from "./src/i18n/routing";
 
 const isDev = process.env.NODE_ENV === "development";
 
@@ -17,7 +18,8 @@ const csp = [
   "base-uri 'self'",
   "form-action 'self'",
   "frame-ancestors 'none'",
-  "upgrade-insecure-requests",
+  // Лише продакшн: у dev (і з телефона по http://<IP у мережі>) апгрейд на https ламав би всі ресурси.
+  ...(isDev ? [] : ["upgrade-insecure-requests"]),
 ].join("; ");
 
 const PERMISSIONS_POLICY = [
@@ -70,8 +72,8 @@ const nextConfig: NextConfig = {
       beforeFiles: [{ source: "/_global-error", destination: "/_not-found" }],
       afterFiles: [
         { source: "/", destination: "/en" },
-        // Усе, що не /uk…, /en… і не службове _next, — англійська версія.
-        { source: "/:path((?!uk(?:/|$)|en(?:/|$)|_next/).*)", destination: "/en/:path" },
+        // Усе, крім мовних префіксів і службових/не-сторінкових шляхів (src/i18n/routing.ts), — англійська версія.
+        { source: `/:path(${localeRewritePattern()})`, destination: "/en/:path" },
       ],
       fallback: [],
     };
