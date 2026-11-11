@@ -51,28 +51,71 @@ test("1280 px: десктопне меню з 9 розділами, бургер
   await expect(play).toHaveCSS("color", "rgb(22, 24, 29)");
 });
 
-test("1280 px: жовтий — лише плашка «Гра» й підкреслення поточного розділу, не наведення", async ({ page }) => {
+const YELLOW = "rgb(255, 196, 0)";
+const HEAD_FG = "rgb(243, 244, 241)";
+const ON_YELLOW = "rgb(22, 24, 29)";
+const NONE = "rgba(0, 0, 0, 0)";
+
+/** Риска під пунктом меню (::after): колір і нижній край у px від верху вікна. */
+function mark(link: import("@playwright/test").Locator) {
+  return link.evaluate((el) => {
+    const a = getComputedStyle(el, "::after");
+    return { bg: a.backgroundColor, bottom: Math.round(el.getBoundingClientRect().bottom - parseFloat(a.bottom)) };
+  });
+}
+
+test("1280 px: жовтий — лише плашка «Гра» й риска поточного розділу, не наведення", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.goto("/uk/teams");
   const nav = page.getByRole("navigation", { name: "Головне меню" });
   const current = nav.getByRole("link", { name: "Команди" });
   await expect(current).toHaveAttribute("aria-current", "page");
-  await expect(current).toHaveCSS("color", "rgb(243, 244, 241)");
-  await expect(current).toHaveCSS("box-shadow", /rgb\(255, 196, 0\)/);
+  await expect(current).toHaveCSS("color", HEAD_FG);
+  expect((await mark(current)).bg).toBe(YELLOW);
+  // Наведення: світла риска, текст не жовтіє; на поточному риска лишається жовтою.
   const other = nav.getByRole("link", { name: "Сезони" });
   await other.hover();
-  await expect(other).toHaveCSS("color", "rgb(243, 244, 241)");
-  await expect(other).toHaveCSS("box-shadow", /rgb\(243, 244, 241\)/);
-  // Поточна «Гра»: плашка лишається, позначка поточного — жовта риска під плашкою, з відступом.
-  await page.goto("/uk/game");
+  await expect(other).toHaveCSS("color", HEAD_FG);
+  expect((await mark(other)).bg).toBe(HEAD_FG);
+  await current.hover();
+  expect((await mark(current)).bg).toBe(YELLOW);
+  // Наведення на «Гра»: світлий фон замість жовтого (помітно), текст лишається темним.
   const play = nav.getByRole("link", { name: "Гра" });
+  await play.hover();
+  await expect(play).toHaveCSS("background-color", HEAD_FG);
+  await expect(play).toHaveCSS("color", ON_YELLOW);
+  // Футер і перемикач мови: наведення без жовтого.
+  const footLink = page.locator(".foot-nav").getByRole("link", { name: "Сезони" });
+  await footLink.hover();
+  await expect(footLink).not.toHaveCSS("color", YELLOW);
+  const toEn = page.getByRole("group", { name: "Мова" }).getByRole("link");
+  await toEn.hover();
+  await expect(toEn).not.toHaveCSS("color", YELLOW);
+  // Поточна «Гра»: плашка лишається, жовта риска — на тій самій висоті, що й у інших розділів.
+  await page.goto("/uk/game");
   await expect(play).toHaveAttribute("aria-current", "page");
-  await expect(play).toHaveCSS("background-color", "rgb(255, 196, 0)");
-  const mark = await play.evaluate((el) => {
-    const a = getComputedStyle(el, "::after");
-    return { bg: a.backgroundColor, h: a.height, bottom: a.bottom };
+  await expect(play).toHaveCSS("background-color", YELLOW);
+  const playMark = await mark(play);
+  expect(playMark.bg).toBe(YELLOW);
+  await page.mouse.move(0, 400);
+  await page.goto("/uk/teams");
+  expect((await mark(current)).bottom).toBe(playMark.bottom);
+});
+
+test.describe("сенсорний екран з десктопною шапкою (iPad у ландшафті)", () => {
+  test.use({ viewport: { width: 1180, height: 820 }, hasTouch: true });
+
+  test("після дотику пункт не лишається «наведеним» — одна риска, лише в поточного", async ({ page }) => {
+    await page.goto("/uk/teams");
+    expect(await page.evaluate(() => matchMedia("(hover: hover)").matches)).toBe(false);
+    const nav = page.getByRole("navigation", { name: "Головне меню" });
+    const other = nav.getByRole("link", { name: "Сезони" });
+    await other.hover();
+    expect((await mark(other)).bg).toBe(NONE);
+    const play = nav.getByRole("link", { name: "Гра" });
+    await play.hover();
+    await expect(play).toHaveCSS("background-color", YELLOW);
   });
-  expect(mark).toEqual({ bg: "rgb(255, 196, 0)", h: "2px", bottom: "-6px" });
 });
 
 test.describe("мобільне меню", () => {
@@ -110,9 +153,13 @@ test.describe("мобільне меню", () => {
     expect(new Set(rows).size).toBe(1);
     const left = await panel.getByRole("link", { name: "Сезони" }).evaluate((e) => e.getBoundingClientRect().left);
     expect(Math.round((await plate.boundingBox())!.x)).toBe(Math.round(left));
+    await expect(current).toHaveCSS("text-decoration-color", "rgb(255, 196, 0)");
+    await expect(current).toHaveCSS("text-decoration-line", "underline");
     const other = panel.getByRole("link", { name: "Сезони" });
     await other.hover();
     await expect(other).toHaveCSS("color", "rgb(243, 244, 241)");
+    await expectNoA11yViolations(page);
+    await page.emulateMedia({ colorScheme: "dark" });
     await expectNoA11yViolations(page);
   });
 
