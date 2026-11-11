@@ -39,6 +39,7 @@ export default defineConfig({
         // Чужий або старий сервер на порту дав би хибно-зелений прогін; перевикористання — лише явно.
         reuseExistingServer: process.env.PW_REUSE === "1",
         timeout: process.env.CI ? 60_000 : 180_000,
-        env: { NEXT_TELEMETRY_DISABLED: "1" },
+        // Абсолютні canonical/hreflang/sitemap мають вказувати на цей сервер (e2e порівнює рядки повністю).
+        env: { NEXT_TELEMETRY_DISABLED: "1", SITE_URL: `http://localhost:${PORT}` },
       },
 });

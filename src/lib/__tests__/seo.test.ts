@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { pageMetadata, siteUrl } from "../seo";
+import { pageMetadata, robotsMetadata, siteUrl } from "../seo";
 
 afterEach(() => {
   vi.unstubAllEnvs();
@@ -38,6 +38,16 @@ describe("pageMetadata", () => {
     vi.stubEnv("SITE_INDEXING", "on");
     expect(pageMetadata({ locale: "en", path: "/", ...base }).robots).toEqual({ index: true, follow: true });
   });
+
+  it("прев'ю й dev-деплої Vercel не індексуються навіть із SITE_INDEXING=on", () => {
+    vi.stubEnv("SITE_INDEXING", "on");
+    vi.stubEnv("VERCEL_ENV", "preview");
+    expect(robotsMetadata()).toEqual({ index: false, follow: false });
+    vi.stubEnv("VERCEL_ENV", "development");
+    expect(robotsMetadata()).toEqual({ index: false, follow: false });
+    vi.stubEnv("VERCEL_ENV", "production");
+    expect(robotsMetadata()).toEqual({ index: true, follow: true });
+  });
 });
 
 describe("siteUrl", () => {
@@ -61,5 +71,7 @@ describe("siteUrl", () => {
   it("некоректний SITE_URL — помилка, а не тиха підміна", () => {
     vi.stubEnv("SITE_URL", "not a url");
     expect(() => siteUrl()).toThrow();
+    vi.stubEnv("SITE_URL", "https://slipstream.example/base");
+    expect(() => siteUrl()).toThrow(/origin/);
   });
 });

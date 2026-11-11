@@ -48,7 +48,7 @@
     },
     "sections": {
       "seasons": "Every Formula 1 season since 1950: champions, standings and races.",
-      "calendar": "The 2026 Formula 1 calendar: dates, circuits and session times.",
+      "calendar": "The Formula 1 calendar: dates, circuits and session times.",
       "news": "Formula 1 news from trusted sources.",
       "drivers": "Formula 1 drivers: careers, wins, poles and teams.",
       "teams": "Formula 1 teams: history, titles and drivers.",
@@ -57,10 +57,5 @@
       "newbie": "New to Formula 1? The rules, terms and race weekend explained.",
       "game": "Hot Lap: a browser racing game on four circuits."
     }
-  },
-  "error": {
-    "title": "Something went wrong",
-    "retry": "Try again",
-    "home": "Go to the home page"
   }
 }
