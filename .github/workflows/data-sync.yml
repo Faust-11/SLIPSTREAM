@@ -1,0 +1,49 @@
+name: Data sync
+
+# Бойова база (Supabase, схема f1): міграції → дамп Jolpica (якщо новий) → кураторські дані → доливка гонок
+# після дампу з API → перевірка → перезбірка сайту (deploy hook Vercel). Секрети — у GitHub (вставляє власник):
+#   DATABASE_URL        — Supabase → Connect → Session pooler (роль postgres);
+#   VERCEL_DEPLOY_HOOK  — Vercel → Settings → Git → Deploy Hooks (гілка main).
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # понеділок 06:00 UTC — після гоночних вихідних
+    - cron: "0 6 * * 4"   # четвер — пізні зміни результатів, новий дамп (щовівторка)
+  workflow_dispatch:
+
+concurrency:
+  group: data-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-26.04
+    timeout-minutes: 20
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - run: pip install -r scripts/requirements.txt
+      - name: Міграції
+        run: python scripts/db/apply_migrations.py
+      - name: Дамп Jolpica (лише новий)
+        run: python scripts/jolpica/load_dump.py --download --skip-if-loaded
+      - name: Кураторські дані (команди)
+        run: python scripts/db/seed_curated.py --strict
+      - name: Доливка гонок після дампу (API Jolpica)
+        run: python scripts/jolpica/topup_api.py
+      - name: Перевірка даних
+        run: python scripts/db/check_live.py
+      - name: Перезбірка сайту
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          test -n "$VERCEL_DEPLOY_HOOK" || { echo "VERCEL_DEPLOY_HOOK не задано"; exit 1; }
+          curl -fsS -X POST "$VERCEL_DEPLOY_HOOK" > /dev/null && echo "deploy hook: ok"
