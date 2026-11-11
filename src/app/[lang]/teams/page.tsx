@@ -21,7 +21,7 @@ export default async function TeamsPage({ params }: Props) {
   const dict = await getDictionary(lang);
   const t = dict.teams;
   const cards = await getTeamsIndex(lang);
-  const season = getTeamsSeason();
+  const season = await getTeamsSeason();
   const credits = await getTeamsCredits();
   const count = (n: number, forms: typeof t.facts.constructors) => ({ value: n, label: plural(n, lang, forms) });
 

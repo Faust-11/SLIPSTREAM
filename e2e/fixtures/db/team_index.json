@@ -1,0 +1,2513 @@
+[
+ {
+  "id": "adams",
+  "seasons": [
+   [
+    1950,
+    1950
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "afm",
+  "seasons": [
+   [
+    1952,
+    1953
+   ]
+  ],
+  "grands_prix": 4,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "ags",
+  "seasons": [
+   [
+    1986,
+    1991
+   ]
+  ],
+  "grands_prix": 48,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "alfa-romeo",
+  "seasons": [
+   [
+    1950,
+    1951
+   ],
+   [
+    1963,
+    1963
+   ],
+   [
+    1965,
+    1965
+   ],
+   [
+    1979,
+    1985
+   ],
+   [
+    2019,
+    2023
+   ]
+  ],
+  "grands_prix": 216,
+  "wins": 10,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "alphatauri",
+  "seasons": [
+   [
+    2020,
+    2023
+   ]
+  ],
+  "grands_prix": 83,
+  "wins": 1,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "alpine",
+  "seasons": [
+   [
+    2021,
+    2026
+   ]
+  ],
+  "grands_prix": 134,
+  "wins": 1,
+  "titles": 0,
+  "current_position": 6,
+  "current_drivers": [
+   "gasly",
+   "colapinto"
+  ]
+ },
+ {
+  "id": "alta",
+  "seasons": [
+   [
+    1950,
+    1952
+   ]
+  ],
+  "grands_prix": 5,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "amon",
+  "seasons": [
+   [
+    1974,
+    1974
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "andrea-moda",
+  "seasons": [
+   [
+    1992,
+    1992
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "arrows",
+  "seasons": [
+   [
+    1978,
+    1990
+   ],
+   [
+    1997,
+    2002
+   ]
+  ],
+  "grands_prix": 291,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "aston-butterworth",
+  "seasons": [
+   [
+    1952,
+    1952
+   ]
+  ],
+  "grands_prix": 2,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "aston-martin",
+  "seasons": [
+   [
+    1959,
+    1960
+   ],
+   [
+    2021,
+    2026
+   ]
+  ],
+  "grands_prix": 139,
+  "wins": 0,
+  "titles": 0,
+  "current_position": 10,
+  "current_drivers": [
+   "alonso",
+   "stroll"
+  ]
+ },
+ {
+  "id": "ats",
+  "seasons": [
+   [
+    1963,
+    1963
+   ],
+   [
+    1978,
+    1984
+   ]
+  ],
+  "grands_prix": 94,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "audi",
+  "seasons": [
+   [
+    2026,
+    2026
+   ]
+  ],
+  "grands_prix": 20,
+  "wins": 0,
+  "titles": 0,
+  "current_position": 8,
+  "current_drivers": [
+   "bortoleto",
+   "hulkenberg"
+  ]
+ },
+ {
+  "id": "bar",
+  "seasons": [
+   [
+    1999,
+    2005
+   ]
+  ],
+  "grands_prix": 117,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "behra",
+  "seasons": [
+   [
+    1960,
+    1960
+   ]
+  ],
+  "grands_prix": 2,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "bellasi",
+  "seasons": [
+   [
+    1970,
+    1971
+   ]
+  ],
+  "grands_prix": 2,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "benetton",
+  "seasons": [
+   [
+    1986,
+    2001
+   ]
+  ],
+  "grands_prix": 260,
+  "wins": 27,
+  "titles": 1,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "bmw",
+  "seasons": [
+   [
+    1952,
+    1953
+   ]
+  ],
+  "grands_prix": 2,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "bmw-sauber",
+  "seasons": [
+   [
+    2006,
+    2009
+   ]
+  ],
+  "grands_prix": 70,
+  "wins": 1,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "boro",
+  "seasons": [
+   [
+    1976,
+    1977
+   ]
+  ],
+  "grands_prix": 6,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "brabham",
+  "seasons": [
+   [
+    1962,
+    1987
+   ],
+   [
+    1989,
+    1992
+   ]
+  ],
+  "grands_prix": 393,
+  "wins": 35,
+  "titles": 2,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "brawn",
+  "seasons": [
+   [
+    2009,
+    2009
+   ]
+  ],
+  "grands_prix": 17,
+  "wins": 8,
+  "titles": 1,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "brm",
+  "seasons": [
+   [
+    1951,
+    1951
+   ],
+   [
+    1956,
+    1977
+   ]
+  ],
+  "grands_prix": 197,
+  "wins": 17,
+  "titles": 1,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "bromme",
+  "seasons": [
+   [
+    1951,
+    1954
+   ]
+  ],
+  "grands_prix": 4,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "brp",
+  "seasons": [
+   [
+    1963,
+    1964
+   ]
+  ],
+  "grands_prix": 13,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "bugatti",
+  "seasons": [
+   [
+    1956,
+    1956
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "cadillac",
+  "seasons": [
+   [
+    2026,
+    2026
+   ]
+  ],
+  "grands_prix": 20,
+  "wins": 0,
+  "titles": 0,
+  "current_position": 11,
+  "current_drivers": [
+   "bottas",
+   "perez"
+  ]
+ },
+ {
+  "id": "caterham",
+  "seasons": [
+   [
+    2012,
+    2014
+   ]
+  ],
+  "grands_prix": 56,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "christensen",
+  "seasons": [
+   [
+    1959,
+    1960
+   ]
+  ],
+  "grands_prix": 2,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "coloni",
+  "seasons": [
+   [
+    1987,
+    1989
+   ]
+  ],
+  "grands_prix": 13,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "connaught",
+  "seasons": [
+   [
+    1952,
+    1959
+   ]
+  ],
+  "grands_prix": 17,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "connew",
+  "seasons": [
+   [
+    1972,
+    1972
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "cooper",
+  "seasons": [
+   [
+    1950,
+    1950
+   ],
+   [
+    1952,
+    1969
+   ]
+  ],
+  "grands_prix": 129,
+  "wins": 16,
+  "titles": 2,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "dallara",
+  "seasons": [
+   [
+    1988,
+    1992
+   ]
+  ],
+  "grands_prix": 78,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "de-tomaso",
+  "seasons": [
+   [
+    1961,
+    1963
+   ],
+   [
+    1970,
+    1970
+   ]
+  ],
+  "grands_prix": 10,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "deidt",
+  "seasons": [
+   [
+    1950,
+    1952
+   ]
+  ],
+  "grands_prix": 3,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "del-roy",
+  "seasons": [
+   [
+    1953,
+    1953
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "derrington",
+  "seasons": [
+   [
+    1964,
+    1964
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "dunn",
+  "seasons": [
+   [
+    1957,
+    1959
+   ]
+  ],
+  "grands_prix": 3,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "eagle",
+  "seasons": [
+   [
+    1966,
+    1969
+   ]
+  ],
+  "grands_prix": 25,
+  "wins": 1,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "elder",
+  "seasons": [
+   [
+    1959,
+    1959
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "embassy-hill",
+  "seasons": [
+   [
+    1975,
+    1975
+   ]
+  ],
+  "grands_prix": 10,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "emeryson",
+  "seasons": [
+   [
+    1956,
+    1956
+   ],
+   [
+    1961,
+    1962
+   ]
+  ],
+  "grands_prix": 4,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "emw",
+  "seasons": [
+   [
+    1953,
+    1953
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "enb",
+  "seasons": [
+   [
+    1962,
+    1962
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "ensign",
+  "seasons": [
+   [
+    1973,
+    1982
+   ]
+  ],
+  "grands_prix": 100,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "epperly",
+  "seasons": [
+   [
+    1955,
+    1955
+   ],
+   [
+    1957,
+    1960
+   ]
+  ],
+  "grands_prix": 5,
+  "wins": 2,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "era",
+  "seasons": [
+   [
+    1950,
+    1952
+   ]
+  ],
+  "grands_prix": 7,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "euro-brun",
+  "seasons": [
+   [
+    1988,
+    1988
+   ],
+   [
+    1990,
+    1990
+   ]
+  ],
+  "grands_prix": 14,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "ewing",
+  "seasons": [
+   [
+    1950,
+    1950
+   ],
+   [
+    1960,
+    1960
+   ]
+  ],
+  "grands_prix": 2,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "ferguson",
+  "seasons": [
+   [
+    1961,
+    1961
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "ferrari",
+  "seasons": [
+   [
+    1950,
+    2026
+   ]
+  ],
+  "grands_prix": 1143,
+  "wins": 250,
+  "titles": 16,
+  "current_position": 2,
+  "current_drivers": [
+   "hamilton",
+   "leclerc"
+  ]
+ },
+ {
+  "id": "fittipaldi",
+  "seasons": [
+   [
+    1975,
+    1982
+   ]
+  ],
+  "grands_prix": 101,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "fondmetal",
+  "seasons": [
+   [
+    1991,
+    1992
+   ]
+  ],
+  "grands_prix": 19,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "footwork",
+  "seasons": [
+   [
+    1991,
+    1996
+   ]
+  ],
+  "grands_prix": 91,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "force-india",
+  "seasons": [
+   [
+    2008,
+    2018
+   ]
+  ],
+  "grands_prix": 212,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "forti",
+  "seasons": [
+   [
+    1995,
+    1996
+   ]
+  ],
+  "grands_prix": 23,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "frazer-nash",
+  "seasons": [
+   [
+    1952,
+    1952
+   ]
+  ],
+  "grands_prix": 4,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "gilby",
+  "seasons": [
+   [
+    1961,
+    1963
+   ]
+  ],
+  "grands_prix": 3,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "gordini",
+  "seasons": [
+   [
+    1952,
+    1956
+   ]
+  ],
+  "grands_prix": 33,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "haas",
+  "seasons": [
+   [
+    2016,
+    2026
+   ]
+  ],
+  "grands_prix": 234,
+  "wins": 0,
+  "titles": 0,
+  "current_position": 7,
+  "current_drivers": [
+   "bearman",
+   "rafael_camara"
+  ]
+ },
+ {
+  "id": "hall",
+  "seasons": [
+   [
+    1951,
+    1951
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "hesketh",
+  "seasons": [
+   [
+    1974,
+    1978
+   ]
+  ],
+  "grands_prix": 52,
+  "wins": 1,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "honda",
+  "seasons": [
+   [
+    1964,
+    1968
+   ],
+   [
+    2006,
+    2008
+   ]
+  ],
+  "grands_prix": 88,
+  "wins": 3,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "hrt",
+  "seasons": [
+   [
+    2010,
+    2012
+   ]
+  ],
+  "grands_prix": 56,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "hwm",
+  "seasons": [
+   [
+    1951,
+    1954
+   ]
+  ],
+  "grands_prix": 14,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "iso-marlboro",
+  "seasons": [
+   [
+    1973,
+    1974
+   ]
+  ],
+  "grands_prix": 30,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "jaguar",
+  "seasons": [
+   [
+    2000,
+    2004
+   ]
+  ],
+  "grands_prix": 85,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "jbw",
+  "seasons": [
+   [
+    1959,
+    1961
+   ]
+  ],
+  "grands_prix": 4,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "jordan",
+  "seasons": [
+   [
+    1991,
+    2005
+   ]
+  ],
+  "grands_prix": 250,
+  "wins": 4,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "klenk",
+  "seasons": [
+   [
+    1954,
+    1954
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "kojima",
+  "seasons": [
+   [
+    1976,
+    1977
+   ]
+  ],
+  "grands_prix": 2,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "kurtis-kraft",
+  "seasons": [
+   [
+    1950,
+    1960
+   ]
+  ],
+  "grands_prix": 12,
+  "wins": 5,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "kuzma",
+  "seasons": [
+   [
+    1951,
+    1960
+   ]
+  ],
+  "grands_prix": 10,
+  "wins": 1,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "lambo",
+  "seasons": [
+   [
+    1991,
+    1991
+   ]
+  ],
+  "grands_prix": 6,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "lancia",
+  "seasons": [
+   [
+    1954,
+    1955
+   ]
+  ],
+  "grands_prix": 4,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "langley",
+  "seasons": [
+   [
+    1950,
+    1950
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "larrousse",
+  "seasons": [
+   [
+    1987,
+    1994
+   ]
+  ],
+  "grands_prix": 113,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "lds",
+  "seasons": [
+   [
+    1962,
+    1963
+   ],
+   [
+    1965,
+    1965
+   ],
+   [
+    1967,
+    1968
+   ]
+  ],
+  "grands_prix": 5,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "lec",
+  "seasons": [
+   [
+    1977,
+    1977
+   ]
+  ],
+  "grands_prix": 3,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "lesovsky",
+  "seasons": [
+   [
+    1950,
+    1953
+   ],
+   [
+    1956,
+    1960
+   ]
+  ],
+  "grands_prix": 9,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "leyton-house",
+  "seasons": [
+   [
+    1990,
+    1991
+   ]
+  ],
+  "grands_prix": 30,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "ligier",
+  "seasons": [
+   [
+    1976,
+    1996
+   ]
+  ],
+  "grands_prix": 326,
+  "wins": 9,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "lola",
+  "seasons": [
+   [
+    1962,
+    1963
+   ],
+   [
+    1967,
+    1968
+   ],
+   [
+    1974,
+    1975
+   ],
+   [
+    1985,
+    1986
+   ],
+   [
+    1991,
+    1991
+   ],
+   [
+    1993,
+    1993
+   ]
+  ],
+  "grands_prix": 85,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "lotus",
+  "seasons": [
+   [
+    1958,
+    1994
+   ]
+  ],
+  "grands_prix": 491,
+  "wins": 79,
+  "titles": 7,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "lotus-f1",
+  "seasons": [
+   [
+    2012,
+    2015
+   ]
+  ],
+  "grands_prix": 77,
+  "wins": 2,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "lotus-racing",
+  "seasons": [
+   [
+    2010,
+    2011
+   ]
+  ],
+  "grands_prix": 38,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "lyncar",
+  "seasons": [
+   [
+    1975,
+    1975
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "manor-marussia",
+  "seasons": [
+   [
+    2015,
+    2016
+   ]
+  ],
+  "grands_prix": 39,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "march",
+  "seasons": [
+   [
+    1970,
+    1977
+   ],
+   [
+    1981,
+    1982
+   ],
+   [
+    1987,
+    1989
+   ],
+   [
+    1992,
+    1992
+   ]
+  ],
+  "grands_prix": 197,
+  "wins": 3,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "marchese",
+  "seasons": [
+   [
+    1950,
+    1951
+   ]
+  ],
+  "grands_prix": 2,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "martini",
+  "seasons": [
+   [
+    1978,
+    1978
+   ]
+  ],
+  "grands_prix": 5,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "marussia",
+  "seasons": [
+   [
+    2012,
+    2014
+   ]
+  ],
+  "grands_prix": 55,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "maserati",
+  "seasons": [
+   [
+    1950,
+    1960
+   ]
+  ],
+  "grands_prix": 70,
+  "wins": 9,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "matra",
+  "seasons": [
+   [
+    1967,
+    1972
+   ]
+  ],
+  "grands_prix": 59,
+  "wins": 9,
+  "titles": 1,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "mclaren",
+  "seasons": [
+   [
+    1966,
+    2026
+   ]
+  ],
+  "grands_prix": 1013,
+  "wins": 206,
+  "titles": 10,
+  "current_position": 4,
+  "current_drivers": [
+   "norris",
+   "piastri"
+  ]
+ },
+ {
+  "id": "mercedes",
+  "seasons": [
+   [
+    1954,
+    1955
+   ],
+   [
+    2010,
+    2026
+   ]
+  ],
+  "grands_prix": 361,
+  "wins": 143,
+  "titles": 9,
+  "current_position": 1,
+  "current_drivers": [
+   "antonelli",
+   "russell"
+  ]
+ },
+ {
+  "id": "merzario",
+  "seasons": [
+   [
+    1978,
+    1979
+   ]
+  ],
+  "grands_prix": 10,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "meskowski",
+  "seasons": [
+   [
+    1960,
+    1960
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "mf1",
+  "seasons": [
+   [
+    2006,
+    2006
+   ]
+  ],
+  "grands_prix": 14,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "minardi",
+  "seasons": [
+   [
+    1985,
+    2005
+   ]
+  ],
+  "grands_prix": 341,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "moore",
+  "seasons": [
+   [
+    1950,
+    1951
+   ],
+   [
+    1959,
+    1959
+   ]
+  ],
+  "grands_prix": 3,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "nichels",
+  "seasons": [
+   [
+    1950,
+    1950
+   ],
+   [
+    1954,
+    1954
+   ]
+  ],
+  "grands_prix": 2,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "olson",
+  "seasons": [
+   [
+    1950,
+    1950
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "onyx",
+  "seasons": [
+   [
+    1989,
+    1990
+   ]
+  ],
+  "grands_prix": 17,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "osca",
+  "seasons": [
+   [
+    1951,
+    1953
+   ]
+  ],
+  "grands_prix": 4,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "osella",
+  "seasons": [
+   [
+    1980,
+    1990
+   ]
+  ],
+  "grands_prix": 132,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "pacific",
+  "seasons": [
+   [
+    1994,
+    1995
+   ]
+  ],
+  "grands_prix": 22,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "pankratz",
+  "seasons": [
+   [
+    1954,
+    1955
+   ]
+  ],
+  "grands_prix": 2,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "parnelli",
+  "seasons": [
+   [
+    1974,
+    1976
+   ]
+  ],
+  "grands_prix": 16,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "pawl",
+  "seasons": [
+   [
+    1951,
+    1951
+   ],
+   [
+    1954,
+    1955
+   ]
+  ],
+  "grands_prix": 3,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "penske",
+  "seasons": [
+   [
+    1974,
+    1977
+   ]
+  ],
+  "grands_prix": 40,
+  "wins": 1,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "phillips",
+  "seasons": [
+   [
+    1954,
+    1960
+   ]
+  ],
+  "grands_prix": 7,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "politoys",
+  "seasons": [
+   [
+    1972,
+    1972
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "porsche",
+  "seasons": [
+   [
+    1957,
+    1964
+   ]
+  ],
+  "grands_prix": 32,
+  "wins": 1,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "prost",
+  "seasons": [
+   [
+    1997,
+    2001
+   ]
+  ],
+  "grands_prix": 83,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "protos",
+  "seasons": [
+   [
+    1967,
+    1967
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "racing-bulls",
+  "seasons": [
+   [
+    2024,
+    2026
+   ]
+  ],
+  "grands_prix": 68,
+  "wins": 0,
+  "titles": 0,
+  "current_position": 5,
+  "current_drivers": [
+   "lawson",
+   "arvid_lindblad"
+  ]
+ },
+ {
+  "id": "racing-point",
+  "seasons": [
+   [
+    2019,
+    2020
+   ]
+  ],
+  "grands_prix": 38,
+  "wins": 1,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "rae",
+  "seasons": [
+   [
+    1950,
+    1950
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "ram",
+  "seasons": [
+   [
+    1983,
+    1985
+   ]
+  ],
+  "grands_prix": 31,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "rebaque",
+  "seasons": [
+   [
+    1979,
+    1979
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "red-bull",
+  "seasons": [
+   [
+    2005,
+    2026
+   ]
+  ],
+  "grands_prix": 437,
+  "wins": 133,
+  "titles": 6,
+  "current_position": 3,
+  "current_drivers": [
+   "max_verstappen",
+   "hadjar"
+  ]
+ },
+ {
+  "id": "renault",
+  "seasons": [
+   [
+    1977,
+    1985
+   ],
+   [
+    2002,
+    2011
+   ],
+   [
+    2016,
+    2020
+   ]
+  ],
+  "grands_prix": 400,
+  "wins": 35,
+  "titles": 2,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "rial",
+  "seasons": [
+   [
+    1988,
+    1989
+   ]
+  ],
+  "grands_prix": 20,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "sauber",
+  "seasons": [
+   [
+    1993,
+    2005
+   ],
+   [
+    2010,
+    2018
+   ],
+   [
+    2024,
+    2025
+   ]
+  ],
+  "grands_prix": 440,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "scarab",
+  "seasons": [
+   [
+    1960,
+    1960
+   ]
+  ],
+  "grands_prix": 3,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "schroeder",
+  "seasons": [
+   [
+    1951,
+    1951
+   ],
+   [
+    1953,
+    1955
+   ]
+  ],
+  "grands_prix": 4,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "scirocco",
+  "seasons": [
+   [
+    1963,
+    1964
+   ]
+  ],
+  "grands_prix": 5,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "shadow",
+  "seasons": [
+   [
+    1973,
+    1980
+   ]
+  ],
+  "grands_prix": 104,
+  "wins": 1,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "shannon",
+  "seasons": [
+   [
+    1966,
+    1966
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "sherman",
+  "seasons": [
+   [
+    1951,
+    1952
+   ]
+  ],
+  "grands_prix": 2,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "simca",
+  "seasons": [
+   [
+    1950,
+    1953
+   ]
+  ],
+  "grands_prix": 14,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "simtek",
+  "seasons": [
+   [
+    1994,
+    1995
+   ]
+  ],
+  "grands_prix": 21,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "snowberger",
+  "seasons": [
+   [
+    1950,
+    1950
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "spirit",
+  "seasons": [
+   [
+    1983,
+    1985
+   ]
+  ],
+  "grands_prix": 23,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "spyker",
+  "seasons": [
+   [
+    2007,
+    2007
+   ]
+  ],
+  "grands_prix": 17,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "spyker-mf1",
+  "seasons": [
+   [
+    2006,
+    2006
+   ]
+  ],
+  "grands_prix": 4,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "stebro",
+  "seasons": [
+   [
+    1963,
+    1963
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "stevens",
+  "seasons": [
+   [
+    1950,
+    1950
+   ],
+   [
+    1952,
+    1956
+   ]
+  ],
+  "grands_prix": 6,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "stewart",
+  "seasons": [
+   [
+    1997,
+    1999
+   ]
+  ],
+  "grands_prix": 49,
+  "wins": 1,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "super-aguri",
+  "seasons": [
+   [
+    2006,
+    2008
+   ]
+  ],
+  "grands_prix": 39,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "surtees",
+  "seasons": [
+   [
+    1970,
+    1978
+   ]
+  ],
+  "grands_prix": 117,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "sutton",
+  "seasons": [
+   [
+    1959,
+    1959
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "talbot",
+  "seasons": [
+   [
+    1950,
+    1951
+   ]
+  ],
+  "grands_prix": 13,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "tec",
+  "seasons": [
+   [
+    1959,
+    1959
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "tecno",
+  "seasons": [
+   [
+    1972,
+    1973
+   ]
+  ],
+  "grands_prix": 10,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "theodore",
+  "seasons": [
+   [
+    1978,
+    1978
+   ],
+   [
+    1981,
+    1983
+   ]
+  ],
+  "grands_prix": 34,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "token",
+  "seasons": [
+   [
+    1974,
+    1974
+   ]
+  ],
+  "grands_prix": 3,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "toleman",
+  "seasons": [
+   [
+    1981,
+    1985
+   ]
+  ],
+  "grands_prix": 57,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "toro-rosso",
+  "seasons": [
+   [
+    2006,
+    2019
+   ]
+  ],
+  "grands_prix": 268,
+  "wins": 1,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "toyota",
+  "seasons": [
+   [
+    2002,
+    2009
+   ]
+  ],
+  "grands_prix": 139,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "trevis",
+  "seasons": [
+   [
+    1951,
+    1952
+   ],
+   [
+    1955,
+    1955
+   ],
+   [
+    1960,
+    1960
+   ]
+  ],
+  "grands_prix": 4,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "trojan",
+  "seasons": [
+   [
+    1974,
+    1974
+   ]
+  ],
+  "grands_prix": 6,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "turner",
+  "seasons": [
+   [
+    1953,
+    1953
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "tyrrell",
+  "seasons": [
+   [
+    1970,
+    1998
+   ]
+  ],
+  "grands_prix": 430,
+  "wins": 23,
+  "titles": 1,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "vanwall",
+  "seasons": [
+   [
+    1954,
+    1960
+   ]
+  ],
+  "grands_prix": 28,
+  "wins": 9,
+  "titles": 1,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "veritas",
+  "seasons": [
+   [
+    1951,
+    1953
+   ]
+  ],
+  "grands_prix": 6,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "virgin",
+  "seasons": [
+   [
+    2010,
+    2011
+   ]
+  ],
+  "grands_prix": 38,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "watson",
+  "seasons": [
+   [
+    1950,
+    1953
+   ],
+   [
+    1956,
+    1960
+   ]
+  ],
+  "grands_prix": 9,
+  "wins": 3,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "wetteroth",
+  "seasons": [
+   [
+    1950,
+    1950
+   ]
+  ],
+  "grands_prix": 1,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "williams",
+  "seasons": [
+   [
+    1975,
+    1976
+   ],
+   [
+    1978,
+    2026
+   ]
+  ],
+  "grands_prix": 884,
+  "wins": 114,
+  "titles": 9,
+  "current_position": 9,
+  "current_drivers": [
+   "sainz",
+   "albon"
+  ]
+ },
+ {
+  "id": "wolf",
+  "seasons": [
+   [
+    1976,
+    1979
+   ]
+  ],
+  "grands_prix": 60,
+  "wins": 3,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ },
+ {
+  "id": "zakspeed",
+  "seasons": [
+   [
+    1985,
+    1989
+   ]
+  ],
+  "grands_prix": 54,
+  "wins": 0,
+  "titles": 0,
+  "current_position": null,
+  "current_drivers": []
+ }
+]

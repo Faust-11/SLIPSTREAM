@@ -9,8 +9,8 @@ async function hydrated(page: Page) {
 }
 
 for (const [path, h1, facts] of [
-  ["/uk/teams", "Команди", ["164 конструктори", "15 володарів Кубка", "38 переможців гонок"]],
-  ["/teams", "Teams", ["164 constructors", "15 title winners", "38 race winners"]],
+  ["/uk/teams", "Команди", ["165 конструкторів", "15 володарів Кубка", "38 переможців гонок"]],
+  ["/teams", "Teams", ["165 constructors", "15 title winners", "38 race winners"]],
 ] as const) {
   test(`${path}: заголовок, числа зі знімка, 24 картки, перші 11 — сезон 2026 за позицією`, async ({ page }) => {
     const errors: string[] = [];
@@ -43,14 +43,14 @@ test("картка McLaren: колір команди, пілоти 2026 з ав
   await expect(noPhoto.locator("img")).toHaveCount(0);
 });
 
-test("«Показати ще» до кінця: 164 картки, кнопка зникає, фокус на першій новій картці", async ({ page }) => {
+test("«Показати ще» до кінця: 165 карток, кнопка зникає, фокус на першій новій картці", async ({ page }) => {
   await page.goto("/uk/teams");
   await hydrated(page);
   const more = page.getByRole("button", { name: /Показати ще/ });
-  await expect(more).toHaveText("Показати ще 24 з 140");
-  for (let shown = 24; shown < 164; shown += 24) {
+  await expect(more).toHaveText("Показати ще 24 з 141");
+  for (let shown = 24; shown < 165; shown += 24) {
     await more.click();
-    await expect(visibleCards(page)).toHaveCount(Math.min(shown + 24, 164));
+    await expect(visibleCards(page)).toHaveCount(Math.min(shown + 24, 165));
     await expect(visibleCards(page).nth(shown)).toBeFocused();
   }
   await expect(more).toHaveCount(0);
@@ -107,19 +107,19 @@ test("сміття в URL (Review Focus 2): 200, стан за замовчув�
 test.describe("без JavaScript (Review Focus 4)", () => {
   test.use({ javaScriptEnabled: false });
 
-  test("видно всі 164 команди: 24 картки + решта списком; інструменти й «Показати ще» приховані", async ({ page }) => {
+  test("видно всі 165 команд: 24 картки + решта списком; інструменти й «Показати ще» приховані", async ({ page }) => {
     await page.goto("/uk/teams");
     await expect(cards(page)).toHaveCount(24);
-    await expect(page.locator(".teams-rest li")).toHaveCount(140);
+    await expect(page.locator(".teams-rest li")).toHaveCount(141);
     await expect(page.locator(".teams-rest")).toHaveAttribute("start", "25");
     await expect(page.locator(".teams-rest li").first()).toContainText(/Гран-прі \d/);
-    // Кожна з 164 команд — рівно один раз (картки + список).
+    // Кожна з 165 команд — рівно один раз (картки + список).
     const names = [
       ...(await cards(page).locator("h2").allTextContents()),
       ...(await page.locator(".teams-rest li b").allTextContents()),
     ];
-    expect(names).toHaveLength(164);
-    expect(new Set(names).size).toBe(164);
+    expect(names).toHaveLength(165);
+    expect(new Set(names).size).toBe(165);
     await expect(page.locator(".teams-tools")).toBeHidden();
     await expect(page.getByRole("button", { name: /Показати ще/ })).toBeHidden();
   });
@@ -242,7 +242,7 @@ test.describe("дизайн-рев'ю 11.11", () => {
     const box = (await first.boundingBox())!;
     expect(box.height).toBeLessThanOrEqual(280);
     expect(box.y + box.height).toBeLessThanOrEqual(844);
-    await expect(page.locator(".teams-count")).toHaveText("Знайдено 164 команди");
+    await expect(page.locator(".teams-count")).toHaveText("Знайдено 165 команд");
     // Чипи — один ряд.
     const tops = await page.locator(".chip").evaluateAll((cs) => new Set(cs.map((c) => Math.round(c.getBoundingClientRect().top))).size);
     expect(tops).toBe(1);

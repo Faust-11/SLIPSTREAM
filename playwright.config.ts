@@ -1,6 +1,8 @@
 import { defineConfig, devices } from "@playwright/test";
 
 const PORT = 3100;
+const DB_PORT = 54321;
+const FAKE_DB_ENV = { SUPABASE_URL: `http://127.0.0.1:${DB_PORT}`, SUPABASE_ANON_KEY: "test-anon" };
 const externalBaseURL = process.env.BASE_URL;
 const baseURL = externalBaseURL ?? `http://localhost:${PORT}`;
 // Прев'ю Vercel за Deployment Protection: global-setup обмінює секрет на cookie домену прев'ю
@@ -28,10 +30,17 @@ export default defineConfig({
     },
   ],
   // BASE_URL задано (прев'ю Vercel) — локальний сервер не потрібен.
-  // У CI збірку робить окремий крок, тут лише запуск.
+  // У CI збірку робить окремий крок, тут лише запуск. Дані — фейковий PostgREST з фікстурою бази
+  // (e2e/fixtures/db; у CI його вже запустив окремий крок — перевикористовуємо).
   webServer: externalBaseURL
     ? undefined
-    : {
+    : [
+        {
+          command: `node scripts/dev/fake-postgrest.mjs --port ${DB_PORT}`,
+          port: DB_PORT,
+          reuseExistingServer: true,
+        },
+        {
         command: process.env.CI
           ? `npx next start -p ${PORT}`
           : `npx next build && npx next start -p ${PORT}`,
@@ -41,6 +50,7 @@ export default defineConfig({
         reuseExistingServer: process.env.PW_REUSE === "1",
         timeout: process.env.CI ? 60_000 : 180_000,
         // Абсолютні canonical/hreflang/sitemap мають вказувати на цей сервер (e2e порівнює рядки повністю).
-        env: { NEXT_TELEMETRY_DISABLED: "1", SITE_URL: `http://localhost:${PORT}` },
-      },
+        env: { NEXT_TELEMETRY_DISABLED: "1", SITE_URL: `http://localhost:${PORT}`, ...FAKE_DB_ENV },
+        },
+      ],
 });

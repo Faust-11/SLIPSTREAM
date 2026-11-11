@@ -1,5 +1,8 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { getTeamsCredits, getTeamsIndex, getTeamsSeason, TEAMS_PAGE_SIZE } from "../teams";
+
+// Дані — з фікстури бази (без живого Supabase).
+vi.mock("@/lib/data/db", () => import("@/lib/data/__tests__/db-fixture"));
 
 describe("getTeamsIndex", () => {
   it("українською: країна, alt фото, прізвища пілотів", async () => {
@@ -37,8 +40,8 @@ describe("getTeamsIndex", () => {
     }
   });
 
-  it("поточний сезон — рік дати знімка (а не число в коді)", () => {
-    expect(getTeamsSeason()).toBe(2026);
+  it("поточний сезон — з бази (site_meta), а не число в коді", async () => {
+    expect(await getTeamsSeason()).toBe(2026);
   });
 
   it("розмір сторінки — 24", () => {

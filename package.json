@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "e2e": "playwright test",
-    "lighthouse": "node scripts/lighthouse.mjs"
+    "lighthouse": "node scripts/lighthouse.mjs",
+    "db:fake": "node scripts/dev/fake-postgrest.mjs"
   },
   "dependencies": {
     "next": "16.4.5",
