@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Brand } from "@/components/site/brand";
-import { navItems } from "@/components/site/header";
+import { navItems } from "@/config/nav";
 import { Livery } from "@/components/site/livery";
 import "@/components/site/site.css";
 import { ThemeScript } from "@/components/theme/theme-script";

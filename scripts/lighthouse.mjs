@@ -23,6 +23,10 @@ const arg = (name, fallback) => {
 const BASE_URL = process.env.BASE_URL ?? "http://localhost:3100";
 const CHROME_PATH = process.env.CHROME_PATH;
 const RUNS = Number(arg("runs", "3"));
+if (!Number.isInteger(RUNS) || RUNS < 1) {
+  console.error(`--runs має бути цілим ≥ 1, отримано: ${arg("runs", "3")}`);
+  process.exit(2);
+}
 const OUT = arg("out", "lighthouse-report");
 const THRESHOLD = 95;
 
@@ -110,8 +114,10 @@ for (const path of PAGES) {
   const below = gated.filter((c) => categories[c] !== undefined && categories[c] < THRESHOLD);
   const pass = below.length === 0 && metrics.cls < 0.1;
   summary.ok &&= pass;
-  summary.pages.push({ path, mode: "navigation", categories, metrics, failing: failingAudits(lhrs[0]), pass });
-  await writeFile(join(OUT, `${path === "/" ? "_root" : path.replaceAll("/", "_")}.json`), JSON.stringify(lhrs[0], null, 1));
+  // Провали й звіт — з прогону з медіанним performance (не з першого, можливо викидного).
+  const medianRun = lhrs.find((l) => pct(l.categories.performance.score) === categories.performance) ?? lhrs[0];
+  summary.pages.push({ path, mode: "navigation", categories, metrics, failing: failingAudits(medianRun), pass });
+  await writeFile(join(OUT, `${path === "/" ? "_root" : path.replaceAll("/", "_")}.json`), JSON.stringify(medianRun, null, 1));
 }
 
 {

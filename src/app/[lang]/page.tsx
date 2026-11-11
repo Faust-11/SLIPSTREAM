@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { isLocale } from "@/i18n/config";
+import { requireLocale } from "@/i18n/require-locale";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]">): Promise<Metadata> {
-  const { lang } = await params;
-  if (!isLocale(lang)) return {};
+  const lang = requireLocale((await params).lang);
   const dict = await getDictionary(lang);
   const meta = pageMetadata({ locale: lang, path: "/", title: dict.meta.home.title, description: dict.meta.home.description });
   // Головна — повна назва без шаблону «… · Slipstream».
@@ -14,8 +12,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]">): Promis
 }
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
-  const { lang } = await params;
-  if (!isLocale(lang)) notFound();
+  const lang = requireLocale((await params).lang);
   const dict = await getDictionary(lang);
 
   return (

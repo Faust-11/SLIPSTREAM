@@ -3,7 +3,7 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";
 import { Brand } from "./brand";
-import { navItems } from "./header";
+import { navItems } from "@/config/nav";
 
 export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   return (

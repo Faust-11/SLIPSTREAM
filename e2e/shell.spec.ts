@@ -175,6 +175,17 @@ test("активний розділ на десктопі: aria-current і пі�
   await expect(nav.getByRole("link", { name: "Teams" })).not.toHaveAttribute("aria-current");
 });
 
+test("зміна мови з клавіатури — фокус на змісті, не на <body>", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("/teams");
+  await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+  const toUk = page.getByRole("link", { name: /Українська/ });
+  await toUk.focus();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/uk\/teams$/);
+  await expect(page.locator("main#main")).toBeFocused();
+});
+
 test("skip-link переносить фокус на зміст", async ({ page }) => {
   await page.goto("/");
   await page.keyboard.press("Tab");

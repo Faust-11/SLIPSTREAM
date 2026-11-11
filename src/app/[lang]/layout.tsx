@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { notFound } from "next/navigation";
-import { isLocale, locales, type Locale } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { requireLocale } from "@/i18n/require-locale";
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
 import { RouteFocus } from "@/components/site/route-focus";
@@ -8,16 +8,18 @@ import "@/components/site/site.css";
 import { ThemeScript } from "@/components/theme/theme-script";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { robotsMetadata, siteUrl } from "@/lib/seo";
+import { THEME_COLOR } from "@/lib/theme";
 import { fontVariables } from "../fonts";
 import "../globals.css";
 
 export const dynamicParams = false;
 
-// Колір панелі браузера = колір шапки (вона темна в обох темах).
+// Колір панелі браузера = колір шапки (--head-bg) за системною темою; явний вибір перемикача
+// переписує його в браузері (applyThemeColor).
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#16181d" },
-    { media: "(prefers-color-scheme: dark)", color: "#07080a" },
+    { media: "(prefers-color-scheme: light)", color: THEME_COLOR.light },
+    { media: "(prefers-color-scheme: dark)", color: THEME_COLOR.dark },
   ],
 };
 
@@ -26,8 +28,7 @@ export function generateStaticParams(): { lang: Locale }[] {
 }
 
 export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Promise<Metadata> {
-  const { lang } = await params;
-  if (!isLocale(lang)) return {};
+  const lang = requireLocale((await params).lang);
   const dict = await getDictionary(lang);
   return {
     metadataBase: siteUrl(),
@@ -39,8 +40,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
 }
 
 export default async function RootLayout({ children, params }: LayoutProps<"/[lang]">) {
-  const { lang } = await params;
-  if (!isLocale(lang)) notFound();
+  const lang = requireLocale((await params).lang);
   const dict = await getDictionary(lang);
 
   return (

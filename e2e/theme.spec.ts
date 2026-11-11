@@ -80,6 +80,20 @@ test.describe("тема", () => {
     expect(errors).toEqual([]);
   });
 
+  test("колір панелі браузера (theme-color) іде за явним вибором теми", async ({ page }) => {
+    await page.goto("/");
+    await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+    await page.getByRole("button", { name: "Switch to light theme" }).click();
+    const colors = await page.locator('meta[name="theme-color"]').evaluateAll((ms) =>
+      ms.map((m) => [(m as HTMLMetaElement).content, (m as HTMLMetaElement).media]),
+    );
+    expect(colors.length).toBeGreaterThan(0);
+    for (const [content, media] of colors) {
+      expect(content).toBe("#16181d");
+      expect(media).toBe("");
+    }
+  });
+
   test("без вибору тема стежить за системою на льоту", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator("body")).toHaveCSS("background-color", PAPER.dark);

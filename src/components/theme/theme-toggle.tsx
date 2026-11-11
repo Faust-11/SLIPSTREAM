@@ -1,7 +1,14 @@
 "use client";
 
 import { useEffect } from "react";
-import { THEME_STORAGE_KEY, nextTheme, readStoredTheme, resolveTheme, writeStoredTheme } from "@/lib/theme";
+import {
+  THEME_STORAGE_KEY,
+  applyThemeColor,
+  nextTheme,
+  readStoredTheme,
+  resolveTheme,
+  writeStoredTheme,
+} from "@/lib/theme";
 
 function safeStorage(): Storage | null {
   try {
@@ -33,13 +40,15 @@ export function ThemeToggle({
   /** Видимий текст (мобільна панель) замість лише іконки. */
   withText?: boolean;
 }) {
-  // Вибір в іншій вкладці — застосувати й тут.
+  // Колір панелі браузера — за збереженим вибором; вибір в іншій вкладці — застосувати й тут.
   useEffect(() => {
+    applyThemeColor(readStoredTheme(safeStorage()));
     function onStorage(e: StorageEvent) {
       if (e.key !== THEME_STORAGE_KEY) return;
       const theme = readStoredTheme(safeStorage());
       if (theme) document.documentElement.setAttribute("data-theme", theme);
       else document.documentElement.removeAttribute("data-theme");
+      applyThemeColor(theme);
     }
     window.addEventListener("storage", onStorage);
     return () => window.removeEventListener("storage", onStorage);
@@ -49,6 +58,7 @@ export function ThemeToggle({
     const next = nextTheme(currentTheme());
     document.documentElement.setAttribute("data-theme", next);
     writeStoredTheme(safeStorage(), next);
+    applyThemeColor(next);
   }
 
   return (

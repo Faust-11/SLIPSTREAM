@@ -1,5 +1,5 @@
 import { ThemeToggle } from "@/components/theme/theme-toggle";
-import { NAV } from "@/config/nav";
+import { navItems } from "@/config/nav";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";
@@ -7,11 +7,7 @@ import { Brand } from "./brand";
 import { LangSwitch } from "./lang-switch";
 import { Livery } from "./livery";
 import { MainNav } from "./main-nav";
-import { MobileMenu, type MenuItem } from "./mobile-menu";
-
-export function navItems(locale: Locale, dict: Dictionary): MenuItem[] {
-  return NAV.map((item) => ({ ...item, href: localizedPath(item.href, locale), label: dict.nav[item.key] }));
-}
+import { MobileMenu } from "./mobile-menu";
 
 export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const items = navItems(locale, dict);

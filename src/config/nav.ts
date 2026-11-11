@@ -1,3 +1,7 @@
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/get-dictionary";
+import { localizedPath } from "@/i18n/paths";
+
 export type NavKey = "seasons" | "calendar" | "news" | "drivers" | "teams" | "circuits" | "stories" | "newbie" | "game";
 
 export type NavItem = { key: NavKey; href: string; accent?: "yellow" };
@@ -36,4 +40,11 @@ export function activeNavKey(segments: readonly string[]): NavKey | null {
  */
 export function barePathFromSegments(segments: readonly string[]): string {
   return `/${segments.filter((s) => !s.startsWith("(")).join("/")}`;
+}
+
+export type LocalizedNavItem = NavItem & { label: string };
+
+/** Пункти меню мовою сторінки (без UI-залежностей: використовують шапка, футер і обидві 404). */
+export function navItems(locale: Locale, dict: Dictionary): LocalizedNavItem[] {
+  return NAV.map((item) => ({ ...item, href: localizedPath(item.href, locale), label: dict.nav[item.key] }));
 }
