@@ -56,7 +56,9 @@ async function launch() {
   return puppeteer.launch({
     executablePath: CHROME_PATH,
     headless: true,
-    args: ["--no-first-run", "--no-default-browser-check"],
+    // LH_NO_SANDBOX=1 — лише на CI: Ubuntu 23.10+ (AppArmor) не дає Chromium sandbox («No usable sandbox»);
+    // одноразовий раннер і лише наш localhost (так само Playwright за замовчуванням).
+    args: ["--no-first-run", "--no-default-browser-check", ...(process.env.LH_NO_SANDBOX === "1" ? ["--no-sandbox"] : [])],
   });
 }
 

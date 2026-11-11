@@ -64,6 +64,7 @@ jobs:
       - name: Lighthouse (мобільний, медіана 3 прогонів)
         run: |
           export CHROME_PATH="$(node -p "require('playwright-core').chromium.executablePath()")"
+          export LH_NO_SANDBOX=1
           node scripts/lighthouse.mjs --runs 3 --out lighthouse-report
 
       - name: Звіти
