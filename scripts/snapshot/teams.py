@@ -1,7 +1,9 @@
 """Знімок даних розділу «Команди» з локальних даних макетів Slipstream.
 
 Запуск (з кореня репозиторію):  python3 -I scripts/snapshot/teams.py ~/Desktop/F1/data
-Пише:  src/data/snapshot/teams.json, public/img/cars/<id>.jpg (480×300), public/img/drivers/<id>.jpg (112×112).
+Пише:  src/data/snapshot/teams.json, public/img/cars/<id>-256.webp і <id>-480.webp (16:10),
+       public/img/drivers/<id>-96.webp (96×96). Готові WebP замість next/image: без оптимізації на сервері
+       при кожному запиті (Lighthouse CI: 163 мс на фото LCP) і без витрати ліміту перетворень Vercel Hobby.
 
 Логіка повторює генератор макета (~/Desktop/F1/data/teams_cards/build_teams.py), щоб сторінка
 показувала ті самі числа, що й затверджений макет. Тимчасово до фази 2 (база `f1` у Supabase).
@@ -156,6 +158,7 @@ def main():
         refs_.sort(key=lambda r: standing[r])
 
     # Пишемо в тимчасову теку й замінюємо лише після успіху: збій не лишає public/img порожнім.
+    (REPO / "public/img").mkdir(parents=True, exist_ok=True)
     tmp = Path(tempfile.mkdtemp(prefix="teams-snapshot-", dir=REPO / "public"))
     tmp_cars, tmp_drivers = tmp / "cars", tmp / "drivers"
     tmp_cars.mkdir()
@@ -173,9 +176,13 @@ def main():
         if p and src_img.exists() and short not in WRONG_PHOTO:
             with Image.open(src_img) as im:
                 assert im.size == (480, 300), (full, im.size)
-            shutil.copyfile(src_img, tmp_cars / f"{tid}.jpg")
+                im = im.convert("RGB")
+                for w in (256, 480):
+                    (im if w == 480 else im.resize((w, w * 300 // 480), Image.Resampling.LANCZOS)).save(
+                        tmp_cars / f"{tid}-{w}.webp", "WEBP", quality=78, method=6)
             author = ART_FIX.get(full) or html.unescape(p.get("artist") or "").strip() or "Unknown"
-            photo = {"src": f"/img/cars/{tid}.jpg", "width": 480, "height": 300,
+            photo = {"src": f"/img/cars/{tid}-480.webp",
+                     "srcSet": f"/img/cars/{tid}-256.webp 256w, /img/cars/{tid}-480.webp 480w", "width": 480, "height": 300,
                      "credit": {"page": p["page"], "author": author, "license": p["lic"]}}
         current = None
         if short in standings:
@@ -192,8 +199,8 @@ def main():
                         side = min(w, h)
                         top = 0 if h <= w else int((h - side) * 0.12)
                         left = (w - side) // 2
-                        im.crop((left, top, left + side, top + side)).resize((112, 112), Image.Resampling.LANCZOS).save(tmp_drivers / f"{ref}.jpg", quality=82)
-                    avatar = f"/img/drivers/{ref}.jpg"
+                        im.crop((left, top, left + side, top + side)).resize((96, 96), Image.Resampling.LANCZOS).save(tmp_drivers / f"{ref}-96.webp", "WEBP", quality=80, method=6)
+                    avatar = f"/img/drivers/{ref}-96.webp"
                     author = AVATAR_ART_FIX.get(ref) or html.unescape(av.get("artist") or "").strip() or "Unknown"
                     avatar_credits[ref] = {"page": av["page"], "author": author, "license": av["lic"]}
                 drivers.append({"id": ref, "name": {"en": en, "uk": uk}, "surname": {"en": en.split()[-1], "uk": uk.split()[-1]},

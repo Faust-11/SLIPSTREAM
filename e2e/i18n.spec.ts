@@ -91,8 +91,8 @@ test.describe("мови й маршрутизація", () => {
 
   test("файл з public/ віддається без rewrite", async ({ request }) => {
     // Реальний файл замість проби фази 1: фото з public/img не мають іти в rewrite на /en/…
-    const res = await request.get("/img/cars/ferrari.jpg");
+    const res = await request.get("/img/cars/ferrari-480.webp");
     expect(res.status()).toBe(200);
-    expect(res.headers()["content-type"]).toBe("image/jpeg");
+    expect(res.headers()["content-type"]).toBe("image/webp");
   });
 });

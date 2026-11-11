@@ -15,7 +15,7 @@ export type SnapshotDriver = {
   surname: L10n;
   /** 1–2 великі літери з англійського імені — замість фото, коли вільного немає. */
   initials: string;
-  /** `/img/drivers/<id>.jpg` (112×112) або `null`. */
+  /** `/img/drivers/<id>-96.webp` (96×96) або `null`. */
   avatar: string | null;
 };
 
@@ -40,7 +40,8 @@ export type TeamSnapshot = {
   titles: number;
   /** Лише в команд поточного сезону: позиція в Кубку конструкторів, колір, пілоти останньої гонки. */
   current: null | { position: number; color: string; drivers: SnapshotDriver[] };
-  photo: null | { src: string; width: 480; height: 300; credit: Credit };
+  /** Готові WebP 256 і 480 px (`srcSet`), `src` — 480 px. */
+  photo: null | { src: string; srcSet: string; width: 480; height: 300; credit: Credit };
 };
 
 export type TeamsSnapshot = {

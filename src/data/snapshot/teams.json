@@ -41,7 +41,7 @@
        "uk": "Гамілтон"
       },
       "initials": "LH",
-      "avatar": "/img/drivers/hamilton.jpg"
+      "avatar": "/img/drivers/hamilton-96.webp"
      },
      {
       "id": "leclerc",
@@ -54,12 +54,13 @@
        "uk": "Леклер"
       },
       "initials": "CL",
-      "avatar": "/img/drivers/leclerc.jpg"
+      "avatar": "/img/drivers/leclerc-96.webp"
      }
     ]
    },
    "photo": {
-    "src": "/img/cars/ferrari.jpg",
+    "src": "/img/cars/ferrari-480.webp",
+    "srcSet": "/img/cars/ferrari-256.webp 256w, /img/cars/ferrari-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -112,7 +113,7 @@
        "uk": "Норріс"
       },
       "initials": "LN",
-      "avatar": "/img/drivers/norris.jpg"
+      "avatar": "/img/drivers/norris-96.webp"
      },
      {
       "id": "piastri",
@@ -125,12 +126,13 @@
        "uk": "Піастрі"
       },
       "initials": "OP",
-      "avatar": "/img/drivers/piastri.jpg"
+      "avatar": "/img/drivers/piastri-96.webp"
      }
     ]
    },
    "photo": {
-    "src": "/img/cars/mclaren.jpg",
+    "src": "/img/cars/mclaren-480.webp",
+    "srcSet": "/img/cars/mclaren-256.webp 256w, /img/cars/mclaren-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -183,7 +185,7 @@
        "uk": "Антонеллі"
       },
       "initials": "AK",
-      "avatar": "/img/drivers/antonelli.jpg"
+      "avatar": "/img/drivers/antonelli-96.webp"
      },
      {
       "id": "russell",
@@ -196,12 +198,13 @@
        "uk": "Расселл"
       },
       "initials": "GR",
-      "avatar": "/img/drivers/russell.jpg"
+      "avatar": "/img/drivers/russell-96.webp"
      }
     ]
    },
    "photo": {
-    "src": "/img/cars/mercedes.jpg",
+    "src": "/img/cars/mercedes-480.webp",
+    "srcSet": "/img/cars/mercedes-256.webp 256w, /img/cars/mercedes-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -250,7 +253,7 @@
        "uk": "Ферстаппен"
       },
       "initials": "MV",
-      "avatar": "/img/drivers/max_verstappen.jpg"
+      "avatar": "/img/drivers/max_verstappen-96.webp"
      },
      {
       "id": "hadjar",
@@ -263,12 +266,13 @@
        "uk": "Хаджар"
       },
       "initials": "IH",
-      "avatar": "/img/drivers/hadjar.jpg"
+      "avatar": "/img/drivers/hadjar-96.webp"
      }
     ]
    },
    "photo": {
-    "src": "/img/cars/red-bull.jpg",
+    "src": "/img/cars/red-bull-480.webp",
+    "srcSet": "/img/cars/red-bull-256.webp 256w, /img/cars/red-bull-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -323,7 +327,7 @@
        "uk": "Сайнс"
       },
       "initials": "CS",
-      "avatar": "/img/drivers/sainz.jpg"
+      "avatar": "/img/drivers/sainz-96.webp"
      },
      {
       "id": "albon",
@@ -336,12 +340,13 @@
        "uk": "Албон"
       },
       "initials": "AA",
-      "avatar": "/img/drivers/albon.jpg"
+      "avatar": "/img/drivers/albon-96.webp"
      }
     ]
    },
    "photo": {
-    "src": "/img/cars/williams.jpg",
+    "src": "/img/cars/williams-480.webp",
+    "srcSet": "/img/cars/williams-256.webp 256w, /img/cars/williams-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -388,7 +393,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/lotus.jpg",
+    "src": "/img/cars/lotus-480.webp",
+    "srcSet": "/img/cars/lotus-256.webp 256w, /img/cars/lotus-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -432,7 +438,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/renault.jpg",
+    "src": "/img/cars/renault-480.webp",
+    "srcSet": "/img/cars/renault-256.webp 256w, /img/cars/renault-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -478,7 +485,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/brabham.jpg",
+    "src": "/img/cars/brabham-480.webp",
+    "srcSet": "/img/cars/brabham-256.webp 256w, /img/cars/brabham-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -514,7 +522,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/benetton.jpg",
+    "src": "/img/cars/benetton-480.webp",
+    "srcSet": "/img/cars/benetton-256.webp 256w, /img/cars/benetton-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -551,7 +560,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/tyrrell.jpg",
+    "src": "/img/cars/tyrrell-480.webp",
+    "srcSet": "/img/cars/tyrrell-256.webp 256w, /img/cars/tyrrell-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -592,7 +602,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/brm.jpg",
+    "src": "/img/cars/brm-480.webp",
+    "srcSet": "/img/cars/brm-256.webp 256w, /img/cars/brm-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -642,7 +653,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/cooper.jpg",
+    "src": "/img/cars/cooper-480.webp",
+    "srcSet": "/img/cars/cooper-256.webp 256w, /img/cars/cooper-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -694,7 +706,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/alfa-romeo.jpg",
+    "src": "/img/cars/alfa-romeo-480.webp",
+    "srcSet": "/img/cars/alfa-romeo-256.webp 256w, /img/cars/alfa-romeo-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -731,7 +744,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/ligier.jpg",
+    "src": "/img/cars/ligier-480.webp",
+    "srcSet": "/img/cars/ligier-256.webp 256w, /img/cars/ligier-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -768,7 +782,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/maserati.jpg",
+    "src": "/img/cars/maserati-480.webp",
+    "srcSet": "/img/cars/maserati-256.webp 256w, /img/cars/maserati-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -805,7 +820,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/matra.jpg",
+    "src": "/img/cars/matra-480.webp",
+    "srcSet": "/img/cars/matra-256.webp 256w, /img/cars/matra-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -842,7 +858,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/vanwall.jpg",
+    "src": "/img/cars/vanwall-480.webp",
+    "srcSet": "/img/cars/vanwall-256.webp 256w, /img/cars/vanwall-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -878,7 +895,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/brawn.jpg",
+    "src": "/img/cars/brawn-480.webp",
+    "srcSet": "/img/cars/brawn-256.webp 256w, /img/cars/brawn-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -912,7 +930,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/kurtis-kraft.jpg",
+    "src": "/img/cars/kurtis-kraft-480.webp",
+    "srcSet": "/img/cars/kurtis-kraft-256.webp 256w, /img/cars/kurtis-kraft-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -948,7 +967,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/jordan.jpg",
+    "src": "/img/cars/jordan-480.webp",
+    "srcSet": "/img/cars/jordan-256.webp 256w, /img/cars/jordan-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -998,7 +1018,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/march.jpg",
+    "src": "/img/cars/march-480.webp",
+    "srcSet": "/img/cars/march-256.webp 256w, /img/cars/march-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1038,7 +1059,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/honda.jpg",
+    "src": "/img/cars/honda-480.webp",
+    "srcSet": "/img/cars/honda-256.webp 256w, /img/cars/honda-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1072,7 +1094,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/wolf.jpg",
+    "src": "/img/cars/wolf-480.webp",
+    "srcSet": "/img/cars/wolf-256.webp 256w, /img/cars/wolf-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1110,7 +1133,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/watson.jpg",
+    "src": "/img/cars/watson-480.webp",
+    "srcSet": "/img/cars/watson-256.webp 256w, /img/cars/watson-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1144,7 +1168,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/lotus-f1.jpg",
+    "src": "/img/cars/lotus-f1-480.webp",
+    "srcSet": "/img/cars/lotus-f1-256.webp 256w, /img/cars/lotus-f1-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1182,7 +1207,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/epperly.jpg",
+    "src": "/img/cars/epperly-480.webp",
+    "srcSet": "/img/cars/epperly-256.webp 256w, /img/cars/epperly-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1218,7 +1244,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/toro-rosso.jpg",
+    "src": "/img/cars/toro-rosso-480.webp",
+    "srcSet": "/img/cars/toro-rosso-256.webp 256w, /img/cars/toro-rosso-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1268,7 +1295,7 @@
        "uk": "Гаслі"
       },
       "initials": "PG",
-      "avatar": "/img/drivers/gasly.jpg"
+      "avatar": "/img/drivers/gasly-96.webp"
      },
      {
       "id": "colapinto",
@@ -1281,12 +1308,13 @@
        "uk": "Колапінто"
       },
       "initials": "FC",
-      "avatar": "/img/drivers/colapinto.jpg"
+      "avatar": "/img/drivers/colapinto-96.webp"
      }
     ]
    },
    "photo": {
-    "src": "/img/cars/alpine.jpg",
+    "src": "/img/cars/alpine-480.webp",
+    "srcSet": "/img/cars/alpine-256.webp 256w, /img/cars/alpine-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1322,7 +1350,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/shadow.jpg",
+    "src": "/img/cars/shadow-480.webp",
+    "srcSet": "/img/cars/shadow-256.webp 256w, /img/cars/shadow-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1359,7 +1388,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/alphatauri.jpg",
+    "src": "/img/cars/alphatauri-480.webp",
+    "srcSet": "/img/cars/alphatauri-256.webp 256w, /img/cars/alphatauri-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1393,7 +1423,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/bmw-sauber.jpg",
+    "src": "/img/cars/bmw-sauber-480.webp",
+    "srcSet": "/img/cars/bmw-sauber-256.webp 256w, /img/cars/bmw-sauber-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1427,7 +1458,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/hesketh.jpg",
+    "src": "/img/cars/hesketh-480.webp",
+    "srcSet": "/img/cars/hesketh-256.webp 256w, /img/cars/hesketh-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1463,7 +1495,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/stewart.jpg",
+    "src": "/img/cars/stewart-480.webp",
+    "srcSet": "/img/cars/stewart-256.webp 256w, /img/cars/stewart-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1497,7 +1530,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/penske.jpg",
+    "src": "/img/cars/penske-480.webp",
+    "srcSet": "/img/cars/penske-256.webp 256w, /img/cars/penske-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1534,7 +1568,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/racing-point.jpg",
+    "src": "/img/cars/racing-point-480.webp",
+    "srcSet": "/img/cars/racing-point-256.webp 256w, /img/cars/racing-point-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1568,7 +1603,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/porsche.jpg",
+    "src": "/img/cars/porsche-480.webp",
+    "srcSet": "/img/cars/porsche-256.webp 256w, /img/cars/porsche-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1604,7 +1640,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/eagle.jpg",
+    "src": "/img/cars/eagle-480.webp",
+    "srcSet": "/img/cars/eagle-256.webp 256w, /img/cars/eagle-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1638,7 +1675,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/kuzma.jpg",
+    "src": "/img/cars/kuzma-480.webp",
+    "srcSet": "/img/cars/kuzma-256.webp 256w, /img/cars/kuzma-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1682,7 +1720,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/sauber.jpg",
+    "src": "/img/cars/sauber-480.webp",
+    "srcSet": "/img/cars/sauber-256.webp 256w, /img/cars/sauber-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1719,7 +1758,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/minardi.jpg",
+    "src": "/img/cars/minardi-480.webp",
+    "srcSet": "/img/cars/minardi-256.webp 256w, /img/cars/minardi-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1757,7 +1797,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/arrows.jpg",
+    "src": "/img/cars/arrows-480.webp",
+    "srcSet": "/img/cars/arrows-256.webp 256w, /img/cars/arrows-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1806,7 +1847,7 @@
        "uk": "Бермен"
       },
       "initials": "OB",
-      "avatar": "/img/drivers/bearman.jpg"
+      "avatar": "/img/drivers/bearman-96.webp"
      },
      {
       "id": "rafael_camara",
@@ -1819,12 +1860,13 @@
        "uk": "Камара"
       },
       "initials": "RC",
-      "avatar": "/img/drivers/rafael_camara.jpg"
+      "avatar": "/img/drivers/rafael_camara-96.webp"
      }
     ]
    },
    "photo": {
-    "src": "/img/cars/haas.jpg",
+    "src": "/img/cars/haas-480.webp",
+    "srcSet": "/img/cars/haas-256.webp 256w, /img/cars/haas-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1861,7 +1903,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/force-india.jpg",
+    "src": "/img/cars/force-india-480.webp",
+    "srcSet": "/img/cars/force-india-256.webp 256w, /img/cars/force-india-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1915,7 +1958,7 @@
        "uk": "Алонсо"
       },
       "initials": "FA",
-      "avatar": "/img/drivers/alonso.jpg"
+      "avatar": "/img/drivers/alonso-96.webp"
      },
      {
       "id": "stroll",
@@ -1928,12 +1971,13 @@
        "uk": "Стролл"
       },
       "initials": "LS",
-      "avatar": "/img/drivers/stroll.jpg"
+      "avatar": "/img/drivers/stroll-96.webp"
      }
     ]
    },
    "photo": {
-    "src": "/img/cars/aston-martin.jpg",
+    "src": "/img/cars/aston-martin-480.webp",
+    "srcSet": "/img/cars/aston-martin-256.webp 256w, /img/cars/aston-martin-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -1969,7 +2013,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/toyota.jpg",
+    "src": "/img/cars/toyota-480.webp",
+    "srcSet": "/img/cars/toyota-256.webp 256w, /img/cars/toyota-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2003,7 +2048,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/osella.jpg",
+    "src": "/img/cars/osella-480.webp",
+    "srcSet": "/img/cars/osella-256.webp 256w, /img/cars/osella-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2037,7 +2083,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/surtees.jpg",
+    "src": "/img/cars/surtees-480.webp",
+    "srcSet": "/img/cars/surtees-256.webp 256w, /img/cars/surtees-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2071,7 +2118,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/bar.jpg",
+    "src": "/img/cars/bar-480.webp",
+    "srcSet": "/img/cars/bar-256.webp 256w, /img/cars/bar-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2105,7 +2153,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/larrousse.jpg",
+    "src": "/img/cars/larrousse-480.webp",
+    "srcSet": "/img/cars/larrousse-256.webp 256w, /img/cars/larrousse-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2139,7 +2188,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/fittipaldi.jpg",
+    "src": "/img/cars/fittipaldi-480.webp",
+    "srcSet": "/img/cars/fittipaldi-256.webp 256w, /img/cars/fittipaldi-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2173,7 +2223,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/ensign.jpg",
+    "src": "/img/cars/ensign-480.webp",
+    "srcSet": "/img/cars/ensign-256.webp 256w, /img/cars/ensign-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2211,7 +2262,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/ats.jpg",
+    "src": "/img/cars/ats-480.webp",
+    "srcSet": "/img/cars/ats-256.webp 256w, /img/cars/ats-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2245,7 +2297,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/footwork.jpg",
+    "src": "/img/cars/footwork-480.webp",
+    "srcSet": "/img/cars/footwork-256.webp 256w, /img/cars/footwork-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2299,7 +2352,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/lola.jpg",
+    "src": "/img/cars/lola-480.webp",
+    "srcSet": "/img/cars/lola-256.webp 256w, /img/cars/lola-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2335,7 +2389,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/jaguar.jpg",
+    "src": "/img/cars/jaguar-480.webp",
+    "srcSet": "/img/cars/jaguar-256.webp 256w, /img/cars/jaguar-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2369,7 +2424,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/prost.jpg",
+    "src": "/img/cars/prost-480.webp",
+    "srcSet": "/img/cars/prost-256.webp 256w, /img/cars/prost-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2444,7 +2500,7 @@
        "uk": "Лоусон"
       },
       "initials": "LL",
-      "avatar": "/img/drivers/lawson.jpg"
+      "avatar": "/img/drivers/lawson-96.webp"
      },
      {
       "id": "arvid_lindblad",
@@ -2457,12 +2513,13 @@
        "uk": "Ліндблад"
       },
       "initials": "AL",
-      "avatar": "/img/drivers/arvid_lindblad.jpg"
+      "avatar": "/img/drivers/arvid_lindblad-96.webp"
      }
     ]
    },
    "photo": {
-    "src": "/img/cars/racing-bulls.jpg",
+    "src": "/img/cars/racing-bulls-480.webp",
+    "srcSet": "/img/cars/racing-bulls-256.webp 256w, /img/cars/racing-bulls-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2496,7 +2553,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/toleman.jpg",
+    "src": "/img/cars/toleman-480.webp",
+    "srcSet": "/img/cars/toleman-256.webp 256w, /img/cars/toleman-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2530,7 +2588,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/hrt.jpg",
+    "src": "/img/cars/hrt-480.webp",
+    "srcSet": "/img/cars/hrt-256.webp 256w, /img/cars/hrt-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2564,7 +2623,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/caterham.jpg",
+    "src": "/img/cars/caterham-480.webp",
+    "srcSet": "/img/cars/caterham-256.webp 256w, /img/cars/caterham-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2598,7 +2658,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/marussia.jpg",
+    "src": "/img/cars/marussia-480.webp",
+    "srcSet": "/img/cars/marussia-256.webp 256w, /img/cars/marussia-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2632,7 +2693,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/zakspeed.jpg",
+    "src": "/img/cars/zakspeed-480.webp",
+    "srcSet": "/img/cars/zakspeed-256.webp 256w, /img/cars/zakspeed-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2666,7 +2728,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/ags.jpg",
+    "src": "/img/cars/ags-480.webp",
+    "srcSet": "/img/cars/ags-256.webp 256w, /img/cars/ags-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2700,7 +2763,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/super-aguri.jpg",
+    "src": "/img/cars/super-aguri-480.webp",
+    "srcSet": "/img/cars/super-aguri-256.webp 256w, /img/cars/super-aguri-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2734,7 +2798,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/manor-marussia.jpg",
+    "src": "/img/cars/manor-marussia-480.webp",
+    "srcSet": "/img/cars/manor-marussia-256.webp 256w, /img/cars/manor-marussia-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2768,7 +2833,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/virgin.jpg",
+    "src": "/img/cars/virgin-480.webp",
+    "srcSet": "/img/cars/virgin-256.webp 256w, /img/cars/virgin-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2831,7 +2897,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/gordini.jpg",
+    "src": "/img/cars/gordini-480.webp",
+    "srcSet": "/img/cars/gordini-256.webp 256w, /img/cars/gordini-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2865,7 +2932,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/ram.jpg",
+    "src": "/img/cars/ram-480.webp",
+    "srcSet": "/img/cars/ram-256.webp 256w, /img/cars/ram-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2899,7 +2967,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/iso-marlboro.jpg",
+    "src": "/img/cars/iso-marlboro-480.webp",
+    "srcSet": "/img/cars/iso-marlboro-256.webp 256w, /img/cars/iso-marlboro-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2933,7 +3002,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/leyton-house.jpg",
+    "src": "/img/cars/leyton-house-480.webp",
+    "srcSet": "/img/cars/leyton-house-256.webp 256w, /img/cars/leyton-house-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -2967,7 +3037,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/spirit.jpg",
+    "src": "/img/cars/spirit-480.webp",
+    "srcSet": "/img/cars/spirit-256.webp 256w, /img/cars/spirit-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3001,7 +3072,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/forti.jpg",
+    "src": "/img/cars/forti-480.webp",
+    "srcSet": "/img/cars/forti-256.webp 256w, /img/cars/forti-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3035,7 +3107,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/pacific.jpg",
+    "src": "/img/cars/pacific-480.webp",
+    "srcSet": "/img/cars/pacific-256.webp 256w, /img/cars/pacific-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3069,7 +3142,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/simtek.jpg",
+    "src": "/img/cars/simtek-480.webp",
+    "srcSet": "/img/cars/simtek-256.webp 256w, /img/cars/simtek-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3103,7 +3177,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/rial.jpg",
+    "src": "/img/cars/rial-480.webp",
+    "srcSet": "/img/cars/rial-256.webp 256w, /img/cars/rial-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3153,7 +3228,7 @@
        "uk": "Бортолето"
       },
       "initials": "GB",
-      "avatar": "/img/drivers/bortoleto.jpg"
+      "avatar": "/img/drivers/bortoleto-96.webp"
      },
      {
       "id": "hulkenberg",
@@ -3166,12 +3241,13 @@
        "uk": "Гюлькенберг"
       },
       "initials": "NH",
-      "avatar": "/img/drivers/hulkenberg.jpg"
+      "avatar": "/img/drivers/hulkenberg-96.webp"
      }
     ]
    },
    "photo": {
-    "src": "/img/cars/audi.jpg",
+    "src": "/img/cars/audi-480.webp",
+    "srcSet": "/img/cars/audi-256.webp 256w, /img/cars/audi-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3221,7 +3297,7 @@
        "uk": "Боттас"
       },
       "initials": "VB",
-      "avatar": "/img/drivers/bottas.jpg"
+      "avatar": "/img/drivers/bottas-96.webp"
      },
      {
       "id": "perez",
@@ -3234,12 +3310,13 @@
        "uk": "Перес"
       },
       "initials": "SP",
-      "avatar": "/img/drivers/perez.jpg"
+      "avatar": "/img/drivers/perez-96.webp"
      }
     ]
    },
    "photo": {
-    "src": "/img/cars/cadillac.jpg",
+    "src": "/img/cars/cadillac-480.webp",
+    "srcSet": "/img/cars/cadillac-256.webp 256w, /img/cars/cadillac-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3273,7 +3350,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/fondmetal.jpg",
+    "src": "/img/cars/fondmetal-480.webp",
+    "srcSet": "/img/cars/fondmetal-256.webp 256w, /img/cars/fondmetal-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3307,7 +3385,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/connaught.jpg",
+    "src": "/img/cars/connaught-480.webp",
+    "srcSet": "/img/cars/connaught-256.webp 256w, /img/cars/connaught-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3341,7 +3420,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/onyx.jpg",
+    "src": "/img/cars/onyx-480.webp",
+    "srcSet": "/img/cars/onyx-256.webp 256w, /img/cars/onyx-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3375,7 +3455,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/spyker.jpg",
+    "src": "/img/cars/spyker-480.webp",
+    "srcSet": "/img/cars/spyker-256.webp 256w, /img/cars/spyker-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3409,7 +3490,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/parnelli.jpg",
+    "src": "/img/cars/parnelli-480.webp",
+    "srcSet": "/img/cars/parnelli-256.webp 256w, /img/cars/parnelli-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3447,7 +3529,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/euro-brun.jpg",
+    "src": "/img/cars/euro-brun-480.webp",
+    "srcSet": "/img/cars/euro-brun-256.webp 256w, /img/cars/euro-brun-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3481,7 +3564,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/simca.jpg",
+    "src": "/img/cars/simca-480.webp",
+    "srcSet": "/img/cars/simca-256.webp 256w, /img/cars/simca-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3515,7 +3599,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/hwm.jpg",
+    "src": "/img/cars/hwm-480.webp",
+    "srcSet": "/img/cars/hwm-256.webp 256w, /img/cars/hwm-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3549,7 +3634,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/mf1.jpg",
+    "src": "/img/cars/mf1-480.webp",
+    "srcSet": "/img/cars/mf1-256.webp 256w, /img/cars/mf1-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3583,7 +3669,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/talbot.jpg",
+    "src": "/img/cars/talbot-480.webp",
+    "srcSet": "/img/cars/talbot-256.webp 256w, /img/cars/talbot-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3642,7 +3729,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/coloni.jpg",
+    "src": "/img/cars/coloni-480.webp",
+    "srcSet": "/img/cars/coloni-256.webp 256w, /img/cars/coloni-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3683,7 +3771,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/de-tomaso.jpg",
+    "src": "/img/cars/de-tomaso-480.webp",
+    "srcSet": "/img/cars/de-tomaso-256.webp 256w, /img/cars/de-tomaso-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3717,7 +3806,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/tecno.jpg",
+    "src": "/img/cars/tecno-480.webp",
+    "srcSet": "/img/cars/tecno-256.webp 256w, /img/cars/tecno-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3751,7 +3841,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/embassy-hill.jpg",
+    "src": "/img/cars/embassy-hill-480.webp",
+    "srcSet": "/img/cars/embassy-hill-256.webp 256w, /img/cars/embassy-hill-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3785,7 +3876,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/merzario.jpg",
+    "src": "/img/cars/merzario-480.webp",
+    "srcSet": "/img/cars/merzario-256.webp 256w, /img/cars/merzario-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3848,7 +3940,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/era.jpg",
+    "src": "/img/cars/era-480.webp",
+    "srcSet": "/img/cars/era-256.webp 256w, /img/cars/era-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3936,7 +4029,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/veritas.jpg",
+    "src": "/img/cars/veritas-480.webp",
+    "srcSet": "/img/cars/veritas-256.webp 256w, /img/cars/veritas-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -3970,7 +4064,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/trojan.jpg",
+    "src": "/img/cars/trojan-480.webp",
+    "srcSet": "/img/cars/trojan-256.webp 256w, /img/cars/trojan-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4004,7 +4099,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/boro.jpg",
+    "src": "/img/cars/boro-480.webp",
+    "srcSet": "/img/cars/boro-256.webp 256w, /img/cars/boro-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4038,7 +4134,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/lambo.jpg",
+    "src": "/img/cars/lambo-480.webp",
+    "srcSet": "/img/cars/lambo-256.webp 256w, /img/cars/lambo-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4072,7 +4169,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/alta.jpg",
+    "src": "/img/cars/alta-480.webp",
+    "srcSet": "/img/cars/alta-256.webp 256w, /img/cars/alta-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4116,7 +4214,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/lds.jpg",
+    "src": "/img/cars/lds-480.webp",
+    "srcSet": "/img/cars/lds-256.webp 256w, /img/cars/lds-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4150,7 +4249,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/scirocco.jpg",
+    "src": "/img/cars/scirocco-480.webp",
+    "srcSet": "/img/cars/scirocco-256.webp 256w, /img/cars/scirocco-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4184,7 +4284,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/martini.jpg",
+    "src": "/img/cars/martini-480.webp",
+    "srcSet": "/img/cars/martini-256.webp 256w, /img/cars/martini-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4330,7 +4431,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/frazer-nash.jpg",
+    "src": "/img/cars/frazer-nash-480.webp",
+    "srcSet": "/img/cars/frazer-nash-256.webp 256w, /img/cars/frazer-nash-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4364,7 +4466,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/afm.jpg",
+    "src": "/img/cars/afm-480.webp",
+    "srcSet": "/img/cars/afm-256.webp 256w, /img/cars/afm-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4398,7 +4501,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/lancia.jpg",
+    "src": "/img/cars/lancia-480.webp",
+    "srcSet": "/img/cars/lancia-256.webp 256w, /img/cars/lancia-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4436,7 +4540,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/emeryson.jpg",
+    "src": "/img/cars/emeryson-480.webp",
+    "srcSet": "/img/cars/emeryson-256.webp 256w, /img/cars/emeryson-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4470,7 +4575,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/jbw.jpg",
+    "src": "/img/cars/jbw-480.webp",
+    "srcSet": "/img/cars/jbw-256.webp 256w, /img/cars/jbw-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4504,7 +4610,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/spyker-mf1.jpg",
+    "src": "/img/cars/spyker-mf1-480.webp",
+    "srcSet": "/img/cars/spyker-mf1-256.webp 256w, /img/cars/spyker-mf1-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4538,7 +4645,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/deidt.jpg",
+    "src": "/img/cars/deidt-480.webp",
+    "srcSet": "/img/cars/deidt-256.webp 256w, /img/cars/deidt-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4655,7 +4763,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/scarab.jpg",
+    "src": "/img/cars/scarab-480.webp",
+    "srcSet": "/img/cars/scarab-256.webp 256w, /img/cars/scarab-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4689,7 +4798,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/gilby.jpg",
+    "src": "/img/cars/gilby-480.webp",
+    "srcSet": "/img/cars/gilby-256.webp 256w, /img/cars/gilby-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4723,7 +4833,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/token.jpg",
+    "src": "/img/cars/token-480.webp",
+    "srcSet": "/img/cars/token-256.webp 256w, /img/cars/token-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4757,7 +4868,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/lec.jpg",
+    "src": "/img/cars/lec-480.webp",
+    "srcSet": "/img/cars/lec-256.webp 256w, /img/cars/lec-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4899,7 +5011,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/aston-butterworth.jpg",
+    "src": "/img/cars/aston-butterworth-480.webp",
+    "srcSet": "/img/cars/aston-butterworth-256.webp 256w, /img/cars/aston-butterworth-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -4933,7 +5046,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/bmw.jpg",
+    "src": "/img/cars/bmw-480.webp",
+    "srcSet": "/img/cars/bmw-256.webp 256w, /img/cars/bmw-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -5067,7 +5181,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/kojima.jpg",
+    "src": "/img/cars/kojima-480.webp",
+    "srcSet": "/img/cars/kojima-256.webp 256w, /img/cars/kojima-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -5101,7 +5216,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/andrea-moda.jpg",
+    "src": "/img/cars/andrea-moda-480.webp",
+    "srcSet": "/img/cars/andrea-moda-256.webp 256w, /img/cars/andrea-moda-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -5260,7 +5376,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/adams.jpg",
+    "src": "/img/cars/adams-480.webp",
+    "srcSet": "/img/cars/adams-256.webp 256w, /img/cars/adams-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -5419,7 +5536,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/bugatti.jpg",
+    "src": "/img/cars/bugatti-480.webp",
+    "srcSet": "/img/cars/bugatti-256.webp 256w, /img/cars/bugatti-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -5503,7 +5621,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/tec.jpg",
+    "src": "/img/cars/tec-480.webp",
+    "srcSet": "/img/cars/tec-256.webp 256w, /img/cars/tec-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -5537,7 +5656,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/meskowski.jpg",
+    "src": "/img/cars/meskowski-480.webp",
+    "srcSet": "/img/cars/meskowski-256.webp 256w, /img/cars/meskowski-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -5571,7 +5691,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/ferguson.jpg",
+    "src": "/img/cars/ferguson-480.webp",
+    "srcSet": "/img/cars/ferguson-256.webp 256w, /img/cars/ferguson-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -5605,7 +5726,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/enb.jpg",
+    "src": "/img/cars/enb-480.webp",
+    "srcSet": "/img/cars/enb-256.webp 256w, /img/cars/enb-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -5664,7 +5786,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/derrington.jpg",
+    "src": "/img/cars/derrington-480.webp",
+    "srcSet": "/img/cars/derrington-256.webp 256w, /img/cars/derrington-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -5773,7 +5896,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/connew.jpg",
+    "src": "/img/cars/connew-480.webp",
+    "srcSet": "/img/cars/connew-256.webp 256w, /img/cars/connew-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -5807,7 +5931,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/amon.jpg",
+    "src": "/img/cars/amon-480.webp",
+    "srcSet": "/img/cars/amon-256.webp 256w, /img/cars/amon-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -5841,7 +5966,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/lyncar.jpg",
+    "src": "/img/cars/lyncar-480.webp",
+    "srcSet": "/img/cars/lyncar-256.webp 256w, /img/cars/lyncar-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {
@@ -5875,7 +6001,8 @@
    ],
    "current": null,
    "photo": {
-    "src": "/img/cars/rebaque.jpg",
+    "src": "/img/cars/rebaque-480.webp",
+    "srcSet": "/img/cars/rebaque-256.webp 256w, /img/cars/rebaque-480.webp 480w",
     "width": 480,
     "height": 300,
     "credit": {

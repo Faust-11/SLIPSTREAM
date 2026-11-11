@@ -6,14 +6,6 @@ import { TeamsBrowser, type TeamsBrowserLabels } from "../teams-browser";
 
 let search = "";
 vi.mock("next/navigation", () => ({ useSearchParams: () => new URLSearchParams(search) }));
-vi.mock("next/image", () => ({
-  default: (props: Record<string, unknown>) => {
-    const { preload, ...rest } = props;
-    void preload;
-    // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
-    return <img {...(rest as object)} />;
-  },
-}));
 
 const cards: TeamCard[] = Array.from({ length: 30 }, (_, i) => ({
   id: `t${i}`,

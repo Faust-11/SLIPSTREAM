@@ -160,8 +160,8 @@ test("фото далеко нижче першого екрана не зава
   const far = await visibleCards(page).evaluateAll((cs) =>
     cs.slice(20).map((c) => c.querySelector(".tc-art img")?.getAttribute("src")).filter(Boolean) as string[],
   );
-  const id = (src: string) => decodeURIComponent(src).match(/\/img\/cars\/[^&]+\.jpg/)?.[0] ?? src;
-  const farIds = far.map(id);
+  // /img/cars/<id>-480.webp → префікс /img/cars/<id>- (будь-яка ширина з srcset).
+  const farIds = far.map((src) => src.replace(/\d+\.webp$/, ""));
   expect(farIds.length).toBeGreaterThan(0);
   expect(requested.filter((u) => farIds.some((f) => u.includes(f)))).toEqual([]);
   await visibleCards(page).nth(22).scrollIntoViewIfNeeded();
