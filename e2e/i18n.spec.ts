@@ -78,7 +78,12 @@ test.describe("мови й маршрутизація", () => {
       const res = await request.get(path, { headers: { RSC: "1" } });
       expect(res.status(), `RSC ${path}`).toBe(404);
     }
-    for (const path of ["/teams.rsc", "/uk.rsc", "/nope.png", "/_global-error"]) {
+    // Vercel віддає готові .rsc відомих сторінок (200) — вимога лише «не 500».
+    for (const path of ["/teams.rsc", "/uk.rsc"]) {
+      const res = await request.get(path);
+      expect(res.status(), path).toBeLessThan(500);
+    }
+    for (const path of ["/nope.png", "/_global-error"]) {
       const res = await request.get(path);
       expect(res.status(), path).toBe(404);
     }

@@ -134,3 +134,11 @@
 - **Node.js 24.x** (за замовчуванням Vercel пропонував 26.x; `engines` `^22.13 || >=24` дозволяє 26, але CI і `.nvmrc` — 24).
 - Змінних середовища немає: `SITE_URL` береться з `VERCEL_PROJECT_PRODUCTION_URL`, `SITE_INDEXING` не задано → noindex; на прев'ю індексація вимкнена й з помилковим `SITE_INDEXING=on` (`VERCEL_ENV`).
 - Продакшн-деплой із `main` до злиття PR не має сенсу (порожній коміт).
+
+## 2026-11-11 · Особливості Vercel (e2e проти прев'ю, замір)
+- **RSC головної:** Vercel внутрішньо називає корінь `index` — prefetch `/` приходить як `/index.segments/_tree.segment.rsc`, повна RSC-навігація — як `/index.rsc` (заголовок `x-matched-path`). Catch-all переписував їх у `/en/index.…` → 404, і клієнтський перехід на головну перезавантажував сторінку. Додано явні rewrites `/index.rsc` → `/en.rsc`, `/index.segments/*` → `/en.segments/*`; e2e «перехід на головну без перезавантаження» (на `next start` проблеми не було — лише на Vercel).
+- `/_global-error` → rewrite на `/en/_global-error` (неіснуюча адреса → 404): rewrite на `/_not-found` на Vercel віддавав сторінку 404 зі статусом 200.
+- Готові `.rsc` відомих сторінок Vercel віддає з 200 (`/teams.rsc`, `/uk.rsc`) — вимога e2e лише «не 500».
+- **Vercel Toolbar вимкнено** (Settings → General, обидва типи деплоїв): він вбудовує `vercel.live/…/feedback.js`, який блокує CSP (`script-src 'self'`) → помилки консолі. CSP не послаблювали.
+- Vercel сам додає HSTS `max-age=63072000; includeSubDomains; preload` на `*.vercel.app` (TLD `.app` і так у preload-списку); наш заголовок — без preload (до рішення про домен).
+- Автор комітів — `Faust-11` (noreply): Vercel Hobby не збирає приватний репозиторій з комітів не-членів команди (рішення користувача 11.11).
