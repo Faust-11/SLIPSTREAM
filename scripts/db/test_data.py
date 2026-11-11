@@ -147,6 +147,8 @@ with psycopg.connect(DSN, autocommit=True) as conn:
         check("титул 2026 ще не вирішено після 18-го етапу → Mercedes 8", merc == 8, merc)
         raise psycopg.Rollback()
 
-    print(f"Lotus: {lotus['gp']} Гран-прі; Lotus Racing: {racing['gp']}")
+    meta = conn.execute("select current_season, last_round, last_race_date from f1.site_meta").fetchall()
+    check("site_meta: один рядок, сезон 2026, останній етап ≥ 20", len(meta) == 1 and meta[0][0] == 2026 and meta[0][1] >= 20, meta)
+    print(f"Lotus: {lotus['gp']} Гран-прі; Lotus Racing: {racing['gp']}; site_meta {meta}")
 
 sys.exit(1 if failed else 0)

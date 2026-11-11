@@ -153,8 +153,22 @@ left join crew cr on cr.family_id = f.family_id;
 create unique index if not exists team_index_id_idx on f1.team_index(id);
 grant select on f1.team_index to anon, authenticated;
 
+-- Стан даних для сайту: поточний сезон і остання гонка з результатами (рядок «2026 · P1», «Пілоти 2026»).
+drop materialized view if exists f1.site_meta;
+create materialized view f1.site_meta as
+select ro.season_year as current_season, ro.number as last_round, ro.date as last_race_date
+from f1.rounds ro
+where exists (
+  select 1 from f1.sessions s join f1.results r on r.session_id = s.id
+  where s.round_id = ro.id and s.type = 'R' and not s.is_cancelled
+)
+order by ro.season_year desc, ro.number desc
+limit 1;
+grant select on f1.site_meta to anon, authenticated;
+
 -- Оновлення похідних даних — наприкінці кожного завантаження (load_dump.py, topup_api.py, seed_curated.py).
 create or replace function f1.refresh_derived() returns void language sql as $$
   refresh materialized view f1.team_index;
+  refresh materialized view f1.site_meta;
 $$;
 revoke all on function f1.refresh_derived() from public, anon, authenticated;

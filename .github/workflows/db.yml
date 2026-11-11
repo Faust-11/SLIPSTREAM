@@ -73,3 +73,10 @@ jobs:
         env:
           DUMP_ZIP: dump_csv.zip
         run: python scripts/db/test_data.py
+      - name: Фікстура для сайту (unit/e2e) — артефакт
+        run: python scripts/db/export_fixture.py db-fixture
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: db-fixture
+          path: db-fixture/
+          retention-days: 14
