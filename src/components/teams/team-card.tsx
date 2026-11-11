@@ -19,7 +19,7 @@ type Props = {
   labels: TeamCardLabels;
   locale: Locale;
   season: number;
-  /** 0 — preload (LCP), 1–3 — eager (перший ряд), решта — lazy. */
+  /** 0 — fetchpriority=high (LCP), 0–3 — eager (перший ряд), решта — lazy. */
   index: number;
 };
 
@@ -49,8 +49,11 @@ export function TeamCard({ card, labels, locale, season, index }: Props) {
             height={card.photo.height}
             alt={card.photo.alt}
             sizes={SIZES}
-            preload={index === 0}
-            loading={index === 0 ? undefined : index < 4 ? "eager" : "lazy"}
+            // Перша картка — кандидат LCP: високий пріоритет запиту (Lighthouse CI: preload без fetchpriority
+            // ставав у чергу з пріоритетом Low за шрифтами — LCP 3,0 с на /teams). Docs image.md радять саме
+            // fetchPriority / loading="eager" замість preload.
+            fetchPriority={index === 0 ? "high" : undefined}
+            loading={index < 4 ? "eager" : "lazy"}
           />
         ) : (
           <span className="tc-none" aria-hidden="true" translate="no">
