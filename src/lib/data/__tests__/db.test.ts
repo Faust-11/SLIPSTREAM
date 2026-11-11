@@ -22,7 +22,7 @@ describe("dbSelect (PostgREST Supabase, схема f1)", () => {
     const headers = new Headers(init.headers);
     expect(headers.get("accept-profile")).toBe("f1");
     expect(headers.get("apikey")).toBe("anon-key");
-    expect(headers.get("authorization")).toBe("Bearer anon-key");
+    expect(headers.get("authorization")).toBeNull(); // publishable — не JWT, лише apikey
   });
 
   it("без SUPABASE_URL чи ключа — ясна помилка (збірка падає, а не викладає порожню сторінку)", async () => {

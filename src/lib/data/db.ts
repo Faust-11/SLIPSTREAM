@@ -3,7 +3,7 @@ import "server-only";
 /**
  * Читання бази Slipstream (Supabase, схема f1) через PostgREST — звичайний fetch, без SDK.
  * Лише на сервері: під час `next build` (статичні сторінки; дані оновлюються перезбіркою після синхронізації,
- * docs fetch.md — `auto no cache` = один запит під час збірки). Ключ anon: читання опублікованого через RLS.
+ * docs fetch.md — `auto no cache` = один запит під час збірки). Ключ publishable (роль anon): читання опублікованого через RLS.
  */
 const VIEW_RE = /^[a-z_]+$/;
 
@@ -14,7 +14,9 @@ export async function dbSelect<T>(view: string, query: string): Promise<T[]> {
   if (!url) throw new Error("SUPABASE_URL не задано (Vercel → Environment Variables; локально — .env.local)");
   if (!key) throw new Error("SUPABASE_ANON_KEY не задано (Vercel → Environment Variables; локально — .env.local)");
   const res = await fetch(`${url.replace(/\/$/, "")}/rest/v1/${view}?${query}`, {
-    headers: { apikey: key, authorization: `Bearer ${key}`, "accept-profile": "f1", accept: "application/json" },
+    // Ключ publishable (sb_publishable_…) — лише в заголовку apikey: це не JWT, у Authorization: Bearer його не передають
+    // (docs Supabase «API keys»). Legacy anon (JWT) Supabase вимикає до кінця 2026 — тому publishable.
+    headers: { apikey: key, "accept-profile": "f1", accept: "application/json" },
   });
   if (!res.ok) throw new Error(`База: ${view} → ${res.status} ${(await res.text()).slice(0, 200)}`);
   const rows = (await res.json()) as T[];
