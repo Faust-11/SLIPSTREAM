@@ -334,3 +334,12 @@ test("параметри q/f/sort на інших сторінках не хов
     await expect(page.locator(".site-foot")).toHaveCSS("visibility", "visible");
   }
 });
+
+test("фото першої картки (кандидат LCP) — fetchpriority=high і eager, решта першого ряду — eager без пріоритету", async ({ page }) => {
+  await page.goto("/teams");
+  const imgs = visibleCards(page).locator(".tc-art img");
+  await expect(imgs.nth(0)).toHaveAttribute("fetchpriority", "high");
+  await expect(imgs.nth(0)).toHaveAttribute("loading", "eager");
+  await expect(imgs.nth(1)).not.toHaveAttribute("fetchpriority", "high");
+  await expect(imgs.nth(4)).toHaveAttribute("loading", "lazy");
+});
