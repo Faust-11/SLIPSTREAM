@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 import { localeRewritePattern } from "./src/i18n/routing";
 
 const isDev = process.env.NODE_ENV === "development";
+// Збірка на Vercel (там своя маршрутизація RSC — див. rewrites).
+const onVercel = process.env.VERCEL === "1";
 
 // Без nonce: публічні сторінки статичні/ISR, а nonce вимикає статичний рендер
 // (docs: 02-guides/content-security-policy.md, «Without Nonces»). 'unsafe-eval' — лише dev (Fast Refresh).
@@ -73,6 +75,18 @@ const nextConfig: NextConfig = {
       // (Rewrite на /_not-found на Vercel віддавав сторінку 404 зі статусом 200 — замір прев'ю 11.11.)
       beforeFiles: [{ source: "/_global-error", destination: "/en/_global-error" }],
       afterFiles: [
+        // Vercel: RSC-навігація на корінь (без segment-prefetch) приходила як «/» і віддавала HTML /en
+        // (x-matched-path: /en) — клієнт перезавантажував сторінку. На next start цього немає.
+        ...(onVercel
+          ? [
+              {
+                source: "/",
+                has: [{ type: "header" as const, key: "rsc" }],
+                missing: [{ type: "header" as const, key: "next-router-segment-prefetch" }],
+                destination: "/en.rsc",
+              },
+            ]
+          : []),
         { source: "/", destination: "/en" },
         // Vercel внутрішньо називає корінь «index»: RSC-запити головної приходять як /index.rsc і
         // /index.segments/… (замір x-matched-path на прев'ю 11.11). Без цих правил catch-all нижче дає
