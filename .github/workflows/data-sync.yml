@@ -57,4 +57,9 @@ jobs:
           VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
         run: |
           test -n "$VERCEL_DEPLOY_HOOK" || { echo "VERCEL_DEPLOY_HOOK не задано"; exit 1; }
-          curl -fsS -X POST "$VERCEL_DEPLOY_HOOK" > /dev/null && echo "deploy hook: ok"
+          # Діагностика без розкриття секрету: лише хост, пробіли/переноси, код і тіло відповіді (id задачі або помилка).
+          case "$VERCEL_DEPLOY_HOOK" in *[[:space:]]*) echo "VERCEL_DEPLOY_HOOK містить пробіл або перенос рядка"; exit 1;; esac
+          echo "хост: $(printf '%s' "$VERCEL_DEPLOY_HOOK" | cut -d/ -f1-3)"
+          code=$(curl -sS -o hook.json -w '%{http_code}' -X POST "$VERCEL_DEPLOY_HOOK" || echo 000)
+          echo "deploy hook: HTTP $code $(head -c 300 hook.json 2>/dev/null)"
+          test "$code" -ge 200 && test "$code" -lt 300
