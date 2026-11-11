@@ -100,3 +100,8 @@
 - 404 без JS — один логотип (два поруч давали скрол на 320–390 px). Заголовки першого екрана — `overflow-wrap: break-word` + `hyphens: auto` замість `anywhere`.
 - `robots.txt` `Disallow: /` + `noindex` лишаємо до запуску (план): Google не побачить noindex закритих URL, але прев'ю не публікуємо, ризик індексації «голого» URL низький. Перед запуском — `Allow` + `index`.
 - **Для Task 8 (рев'ю, гіпотези):** Lighthouse SEO < 95 через noindex (`is-crawlable`) — SEO міряти окремою збіркою з `SITE_INDEXING=on`; Vercel Toolbar на прев'ю (`vercel.live`) заблокує CSP — вимкнути toolbar для прев'ю або врахувати в e2e.
+
+## 2026-11-11 · Заголовки безпеки (Task 7)
+- CSP — за планом, без nonce (`'unsafe-inline'` для script/style): nonce зробив би всі сторінки динамічними; inline-скрипти — ThemeScript, мова 404 і власні скрипти Next (`self.__next_f`, різні на кожній сторінці — хешами не закрити). Dev: + `'unsafe-eval'` (Fast Refresh), замір — 0 повідомлень CSP у dev і prod.
+- Понад план: `X-Frame-Options: DENY` (дубль `frame-ancestors` для старих браузерів), `Cross-Origin-Opener-Policy: same-origin`.
+- **Замір:** відповіді `redirects` з next.config (308 `/en/…`) не отримують заголовків з `headers()` у `next start` 16.4.5; тіла немає, цільова 200 — із заголовками. e2e фіксує поведінку; на Vercel перевірити в Task 8.
