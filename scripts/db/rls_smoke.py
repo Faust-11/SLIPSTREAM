@@ -43,6 +43,7 @@ def check(label: str, role: str, sql: str, expect_ok: bool = True, expect_rows: 
 for role in ("anon", "authenticated"):
     check(f"{role} reads f1.teams", role, "select id from f1.teams limit 1")
     check(f"{role} reads f1.team_index", role, "select id from f1.team_index limit 1")
+    check(f"{role} reads f1.site_meta", role, "select current_season from f1.site_meta")
     check(f"{role} cannot refresh derived data", role, "select f1.refresh_derived()", expect_ok=False)
     check(f"{role} cannot write f1.team_families", role, "delete from f1.team_families", expect_ok=False)
     check(f"{role} cannot insert f1.teams", role, "insert into f1.teams(ref, name) values ('rls-x', 'x')", expect_ok=False)
