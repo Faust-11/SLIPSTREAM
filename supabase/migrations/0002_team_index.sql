@@ -20,11 +20,12 @@ create policy "public_read" on f1.team_families for select to anon, authenticate
 grant select on f1.team_families to anon, authenticated;
 
 -- Чи почала машина гонку (правило фази 3a, scripts/snapshot/teams.py: NOSTART + «grid 0 і 0 кіл»).
-create or replace function f1.result_started(detail text, position smallint, laps smallint, grid smallint)
+-- Параметри з префіксом p_: «position» — зарезервоване слово, як ім'я параметра — синтаксична помилка.
+create or replace function f1.result_started(p_detail text, p_position smallint, p_laps smallint, p_grid smallint)
 returns boolean language sql immutable as $$
-  select coalesce(detail, '') !~* '(did not (start|qualify|pre)|withdr|not classified.*dns|^dn[sq])'
-     and (laps is not null or position is not null)
-     and not (coalesce(grid, 0) = 0 and coalesce(laps, 0) = 0)
+  select coalesce(p_detail, '') !~* '(did not (start|qualify|pre)|withdr|not classified.*dns|^dn[sq])'
+     and (p_laps is not null or p_position is not null)
+     and not (coalesce(p_grid, 0) = 0 and coalesce(p_laps, 0) = 0)
 $$;
 
 drop materialized view if exists f1.team_index;
