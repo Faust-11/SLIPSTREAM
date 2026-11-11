@@ -7,16 +7,9 @@ import {
   nextTheme,
   readStoredTheme,
   resolveTheme,
+  safeStorage,
   writeStoredTheme,
 } from "@/lib/theme";
-
-function safeStorage(): Storage | null {
-  try {
-    return window.localStorage;
-  } catch {
-    return null;
-  }
-}
 
 function currentTheme() {
   return resolveTheme(

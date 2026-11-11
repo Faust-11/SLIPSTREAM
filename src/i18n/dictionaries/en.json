@@ -57,5 +57,69 @@
       "newbie": "New to Formula 1? The rules, terms and race weekend explained.",
       "game": "Hot Lap: a browser racing game on four circuits."
     }
+  },
+  "teams": {
+    "factsLabel": "Teams in numbers",
+    "facts": {
+      "constructors": {
+        "one": "constructor",
+        "few": "constructors",
+        "many": "constructors",
+        "other": "constructors"
+      },
+      "champions": {
+        "one": "title winner",
+        "few": "title winners",
+        "many": "title winners",
+        "other": "title winners"
+      },
+      "winners": {
+        "one": "race winner",
+        "few": "race winners",
+        "many": "race winners",
+        "other": "race winners"
+      }
+    },
+    "search": "Search teams",
+    "searchPlaceholder": "Lotus, Italy, Brabham…",
+    "filtersLabel": "Show",
+    "filters": {
+      "all": "All",
+      "cur": "{year} season",
+      "ch": "Title winners",
+      "win": "Race winners"
+    },
+    "sortLabel": "Sort",
+    "sorts": {
+      "p": "{year} season first",
+      "w": "by wins",
+      "gp": "by Grands Prix",
+      "t": "by titles",
+      "y1": "most recent first",
+      "y0": "oldest first",
+      "a": "A–Z"
+    },
+    "empty": "Nothing found.",
+    "reset": "Clear search and filter",
+    "more": "Show {n} more · {left} left",
+    "found": {
+      "one": "{n} team found",
+      "few": "{n} teams found",
+      "many": "{n} teams found",
+      "other": "{n} teams found"
+    },
+    "stats": {
+      "grandsPrix": "Grands Prix",
+      "wins": "Wins",
+      "titles": "Titles"
+    },
+    "seasons": "Seasons",
+    "position": "{year} · P{pos}",
+    "positionLabel": "{year} season: position {pos} in the Constructors’ Championship",
+    "drivers": "{year} drivers",
+    "credits": {
+      "cars": "Car photos: authors and licences",
+      "drivers": "Driver portraits: authors and licences"
+    }
   }
 }

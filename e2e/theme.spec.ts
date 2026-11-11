@@ -62,6 +62,29 @@ for (const system of ["light", "dark"] as const) {
 test.describe("тема", () => {
   test.use({ colorScheme: "dark" });
 
+  test("зміна мови не скидає обрану тему й ознаку JS (перемонтування кореневого layout)", async ({ page }) => {
+    await page.goto("/uk/teams");
+    await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+    await page.getByRole("button", { name: "Увімкнути світлу тему" }).click();
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+    // Кадри під час переходу: тема не має блимнути системною (темною).
+    await page.evaluate(() => {
+      (window as unknown as { __frames: string[] }).__frames = [];
+      const tick = () => {
+        (window as unknown as { __frames: string[] }).__frames.push(getComputedStyle(document.body).backgroundColor);
+        requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+    await page.getByRole("group", { name: "Мова" }).getByRole("link").click();
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+    await expect(page.locator("html")).toHaveAttribute("data-js", "");
+    await expect(page.getByRole("button", { name: "Switch to dark theme" })).toBeVisible();
+    const frames = await page.evaluate(() => (window as unknown as { __frames: string[] }).__frames);
+    expect(new Set(frames)).toEqual(new Set([PAPER.light]));
+  });
+
   test("перемикач змінює тему й сховище, вибір переживає перезавантаження", async ({ page }) => {
     const errors = collectErrors(page);
     await page.goto("/");

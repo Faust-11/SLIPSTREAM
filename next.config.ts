@@ -51,6 +51,17 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
 
+  images: {
+    // Лише власні фото з public/img (вільні ліцензії); сторонніх джерел немає — remotePatterns не потрібні.
+    localPatterns: [{ pathname: "/img/**", search: "" }],
+    // У Next 16 перелік якостей обов'язковий (docs image.md, qualities).
+    qualities: [75],
+    // Оригінали ≤ 480 px (боліди) і 112 px (аватари): ширші варіанти srcset давали б дублікати
+    // перетворень (Vercel рахує кожне). Аватар 28 px → 32/64; картка 304–488 px → 384/480/640/828.
+    imageSizes: [32, 64, 128, 256, 384],
+    deviceSizes: [480, 640, 828, 1080],
+  },
+
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
