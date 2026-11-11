@@ -86,6 +86,26 @@ describe("themeScriptSource (inline-скрипт у <head>)", () => {
     return document.documentElement.getAttribute("data-theme");
   }
 
+  it("data-list-query — лише на сторінці «Команди» з параметрами списку (рев'ю: футер ховався на інших сторінках)", () => {
+    const cases: [string, boolean][] = [
+      ["/uk/teams?q=lotus", true],
+      ["/teams?f=win", true],
+      ["/teams?sort=a", true],
+      ["/teams", false],
+      ["/uk?f=1", false],
+      ["/uk/drivers?sort=x", false],
+      ["/teams?utm_source=fb", false],
+    ];
+    for (const [url, expected] of cases) {
+      window.history.replaceState(null, "", url);
+      document.documentElement.removeAttribute("data-list-query");
+      runWith(storageWith(null));
+      expect(document.documentElement.hasAttribute("data-list-query"), url).toBe(expected);
+    }
+    window.history.replaceState(null, "", "/");
+    document.documentElement.removeAttribute("data-list-query");
+  });
+
   it("ставить data-theme зі сховища", () => {
     expect(runWith(storageWith("light"))).toBe("light");
     expect(runWith(storageWith("dark"))).toBe("dark");

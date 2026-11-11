@@ -6,6 +6,7 @@ import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
 import type { TeamCard as TeamCardData } from "@/lib/data/teams";
 import { plural } from "@/lib/plural";
+import { seasonsText } from "@/lib/season-strip";
 import {
   parseTeamsQuery,
   selectTeams,
@@ -36,7 +37,7 @@ export type TeamsBrowserLabels = {
 };
 
 type Props = {
-  /** Порядок за замовчуванням (sort=p вже застосовано на сервері). */
+  /** Усі команди (порядок знімка; порядок показу визначає selectTeams). */
   cards: TeamCardData[];
   locale: Locale;
   season: number;
@@ -88,6 +89,10 @@ export function TeamsBrowser({ cards, locale, season, pageSize, labels }: Props)
   const tools = useRef<HTMLDivElement>(null);
 
   const selected = useMemo(() => selectTeams(cards, query, locale), [cards, query, locale]);
+  const nf = useMemo(() => new Intl.NumberFormat(locale), [locale]);
+  // Порядок за замовчуванням (sort=p) — для серверних перших 24 і <noscript>-решти: обидва з одного
+  // списку, інакше без JS частина команд двічі, а частина — ніде (code-review PR #5: знімок упорядкований інакше).
+  const defaultOrder = useMemo(() => selectTeams(cards, DEFAULT_QUERY, locale), [cards, locale]);
   const left = Math.max(0, selected.length - shown);
   const visible = selected.slice(0, shown);
 
@@ -191,13 +196,19 @@ export function TeamsBrowser({ cards, locale, season, pageSize, labels }: Props)
             <TeamCard key={card.id} card={card} labels={labels.card} locale={locale} season={season} index={i} />
           ))}
         </div>
-        {/* Без JS — решта карток (з JS вміст <noscript> не потрапляє в DOM). */}
+        {/* Без JS — решта команд компактним списком (з JS вміст <noscript> не потрапляє в DOM).
+            Не повні картки: 140 карток із фото — 203 КБ HTML, що з JS лише розбирається (Lighthouse CI:
+            TBT 437–452 мс > 400). */}
         <noscript>
-          <div className="teams-grid teams-grid-rest">
-            {cards.slice(pageSize).map((card, i) => (
-              <TeamCard key={card.id} card={card} labels={labels.card} locale={locale} season={season} index={pageSize + i} />
+          <ol className="teams-rest" start={pageSize + 1}>
+            {defaultOrder.slice(pageSize).map((card) => (
+              <li key={card.id}>
+                <b translate="no">{card.name}</b> · {card.country} · <span className="num">{seasonsText(card.seasons)}</span> ·{" "}
+                {labels.card.stats.grandsPrix} {nf.format(card.grandsPrix)} · {labels.card.stats.wins} {nf.format(card.wins)} ·{" "}
+                {labels.card.stats.titles} {nf.format(card.titles)}
+              </li>
             ))}
-          </div>
+          </ol>
         </noscript>
         {selected.length === 0 && (
           <div className="teams-empty">

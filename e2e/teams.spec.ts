@@ -107,11 +107,19 @@ test("сміття в URL (Review Focus 2): 200, стан за замовчув�
 test.describe("без JavaScript (Review Focus 4)", () => {
   test.use({ javaScriptEnabled: false });
 
-  test("видно всі 164 картки, інструменти й «Показати ще» приховані", async ({ page }) => {
+  test("видно всі 164 команди: 24 картки + решта списком; інструменти й «Показати ще» приховані", async ({ page }) => {
     await page.goto("/uk/teams");
-    await expect(cards(page)).toHaveCount(164);
-    const shown = await cards(page).evaluateAll((els) => els.filter((e) => getComputedStyle(e).display !== "none").length);
-    expect(shown).toBe(164);
+    await expect(cards(page)).toHaveCount(24);
+    await expect(page.locator(".teams-rest li")).toHaveCount(140);
+    await expect(page.locator(".teams-rest")).toHaveAttribute("start", "25");
+    await expect(page.locator(".teams-rest li").first()).toContainText(/Гран-прі \d/);
+    // Кожна з 164 команд — рівно один раз (картки + список).
+    const names = [
+      ...(await cards(page).locator("h2").allTextContents()),
+      ...(await page.locator(".teams-rest li b").allTextContents()),
+    ];
+    expect(names).toHaveLength(164);
+    expect(new Set(names).size).toBe(164);
     await expect(page.locator(".teams-tools")).toBeHidden();
     await expect(page.getByRole("button", { name: /Показати ще/ })).toBeHidden();
   });
@@ -317,4 +325,12 @@ test.describe("рев'ю коду Task 3–4", () => {
     expect(await page.evaluate(() => (window as unknown as { __removed: number }).__removed)).toBe(0);
     await expect(visibleCards(page)).toHaveCount(24);
   });
+});
+
+test("параметри q/f/sort на інших сторінках не ховають футер (code-review PR #5)", async ({ page }) => {
+  for (const url of ["/uk?f=1", "/uk/drivers?sort=x"]) {
+    await page.goto(url);
+    await expect(page.locator("html")).not.toHaveAttribute("data-list-query");
+    await expect(page.locator(".site-foot")).toHaveCSS("visibility", "visible");
+  }
 });

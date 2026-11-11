@@ -163,6 +163,12 @@ html:has(.teams-tools) {
   background: var(--paper);
   border: var(--b2) solid var(--rule);
 }
+/* Картки нижче першого ряду: браузер не рахує їх розкладку й малювання, доки не наблизяться до
+   екрана (Lighthouse CI: Style & Layout 673 мс проти 328 на головній). Розмір запам'ятовується. */
+.tc:nth-child(n + 5) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 430px;
+}
 .tc:focus-visible {
   outline-offset: 3px;
 }
@@ -402,8 +408,14 @@ html[data-list-query] .site-foot {
 
 /* Без JS: решта карток — з <noscript> окремою сіткою; інструменти (не працюють) приховані.
    data-js ставить ThemeScript. */
-.teams-grid-rest {
-  margin-top: 16px;
+.teams-rest {
+  margin: 24px 0 0;
+  padding-left: 2.5em;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.teams-rest li + li {
+  margin-top: 4px;
 }
 html:not([data-js]) .teams-tools,
 html:not([data-js]) .teams-more,
@@ -593,5 +605,8 @@ html:not([data-js]) .teams-count {
   }
   .tc-none {
     font-size: 22px;
+  }
+  .tc:nth-child(n + 5) {
+    contain-intrinsic-size: auto 260px;
   }
 }
