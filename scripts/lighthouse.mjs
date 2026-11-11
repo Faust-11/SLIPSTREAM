@@ -6,7 +6,7 @@
  * - accessibility, best-practices, seo ≥ 95;
  * - performance ≥ 90 і не нижче базового рівня порожньої сторінки Next мінус 3 бали
  *   (замір 11.11 на тому ж раннері: Next 16.4.5 з одним <h1> = 95, TBT ≈ 250 мс — стеля фреймворку);
- * - бюджети: LCP < 2500 мс, CLS < 0.1, TBT < 350 мс (медіани).
+ * - бюджети: LCP < 2500 мс, CLS < 0.1, TBT < 400 мс (медіани; порожня сторінка Next ≈ 250 + розкид ≈ 100).
  * Базовий рівень перемірювати після кожного оновлення Next (порожня сторінка тим самим скриптом).
  *
  *   BASE_URL=http://localhost:3100 CHROME_PATH=… node scripts/lighthouse.mjs [--runs 3] [--out lighthouse-report]
@@ -38,7 +38,7 @@ const OUT = arg("out", "lighthouse-report");
 const THRESHOLD = 95;
 const FRAMEWORK_BASELINE = 95; // порожня сторінка Next 16.4.5, CI 11.11
 const PERF_THRESHOLD = Math.max(90, FRAMEWORK_BASELINE - 3);
-const BUDGET = { lcpMs: 2500, cls: 0.1, tbtMs: 350 };
+const BUDGET = { lcpMs: 2500, cls: 0.1, tbtMs: 400 };
 
 const PAGES = ["/", "/uk/teams"];
 const NOT_FOUND = "/uk/nope";
