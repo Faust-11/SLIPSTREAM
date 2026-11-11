@@ -170,6 +170,11 @@ body::before {
 .lang a.lang-item:hover {
   opacity: 1;
 }
+/* Приховану назву мови («— Українська» на EN-сторінці) — системним шрифтом: інакше браузер
+   вантажить кириличні файли Plex Mono лише заради невидимого тексту. */
+.lang .sr-only {
+  font-family: system-ui, sans-serif;
+}
 .lang-item.is-current {
   background: var(--head-fg);
   color: var(--head-bg);
