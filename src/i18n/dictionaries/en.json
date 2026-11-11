@@ -5,7 +5,8 @@
   },
   "notFound": {
     "title": "Page not found",
-    "home": "Go to the home page"
+    "home": "Go to the home page",
+    "sections": "Sections"
   },
   "theme": {
     "toLight": "Switch to light theme",
@@ -39,5 +40,27 @@
     "unofficial": "Unofficial fan site",
     "disclaimer": "Slipstream is not affiliated with Formula 1, the FIA or any team. F1, Formula 1 and related marks are trademarks of Formula One Licensing B.V.",
     "dataLabel": "Results, standings and records"
+  },
+  "meta": {
+    "home": {
+      "title": "Slipstream — Formula 1 seasons, races, drivers and stories",
+      "description": "An unofficial Formula 1 fan site: seasons, races, drivers, teams, circuits and stories."
+    },
+    "sections": {
+      "seasons": "Every Formula 1 season since 1950: champions, standings and races.",
+      "calendar": "The 2026 Formula 1 calendar: dates, circuits and session times.",
+      "news": "Formula 1 news from trusted sources.",
+      "drivers": "Formula 1 drivers: careers, wins, poles and teams.",
+      "teams": "Formula 1 teams: history, titles and drivers.",
+      "circuits": "Formula 1 circuits: layout, length, corners and winners.",
+      "stories": "Stories from Formula 1 history, with sources.",
+      "newbie": "New to Formula 1? The rules, terms and race weekend explained.",
+      "game": "Hot Lap: a browser racing game on four circuits."
+    }
+  },
+  "error": {
+    "title": "Something went wrong",
+    "retry": "Try again",
+    "home": "Go to the home page"
   }
 }
