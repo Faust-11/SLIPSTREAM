@@ -162,7 +162,7 @@
 - Test: `e2e/security.spec.ts`
 
 **Interfaces:**
-- Produces: заголовки на всіх відповідях: `Content-Security-Policy` (`default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests`), `Strict-Transport-Security: max-age=63072000; includeSubDomains; preload`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy: camera=(), microphone=(), geolocation=()`.
+- Produces (уточнено рев'ю безпеки, див. `docs/decisions.md`): заголовки на всіх відповідях: `Content-Security-Policy` (`default-src 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests`), `Strict-Transport-Security: max-age=63072000` (`includeSubDomains; preload` — після рішення про домен, фаза 8), `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (вимкнено 21 можливість, зокрема camera, microphone, geolocation), `X-Frame-Options: DENY`, `Cross-Origin-Opener-Policy: same-origin`.
 
 - [ ] **Step 1: e2e** — відповідь `/` і `/uk/teams` містить усі заголовки вище; немає `x-powered-by`; у консолі сторінки 0 повідомлень про CSP.
 - [ ] **Step 2:** FAIL → реалізація → PASS.

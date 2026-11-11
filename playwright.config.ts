@@ -3,8 +3,9 @@ import { defineConfig, devices } from "@playwright/test";
 const PORT = 3100;
 const externalBaseURL = process.env.BASE_URL;
 const baseURL = externalBaseURL ?? `http://localhost:${PORT}`;
-// Прев'ю Vercel за Deployment Protection: секрет обходу — лише зі змінної середовища.
-const bypassSecret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
+// Прев'ю Vercel за Deployment Protection: global-setup обмінює секрет на cookie домену прев'ю
+// (не extraHTTPHeaders — ті йдуть з кожним запитом, зокрема на сторонні хости, і потрапляють у trace).
+const bypass = !!externalBaseURL && !!process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
 
 export default defineConfig({
   testDir: "./e2e",
@@ -12,12 +13,12 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? [["github"], ["list"]] : "list",
+  globalSetup: bypass ? "./e2e/vercel-bypass.setup.ts" : undefined,
   use: {
     baseURL,
-    trace: "retain-on-failure",
-    extraHTTPHeaders: bypassSecret
-      ? { "x-vercel-protection-bypass": bypassSecret, "x-vercel-set-bypass-cookie": "true" }
-      : undefined,
+    // Проти прев'ю trace не пишемо: у ньому були б cookie обходу захисту.
+    trace: externalBaseURL ? "off" : "retain-on-failure",
+    storageState: bypass ? "e2e/.auth/vercel.json" : undefined,
   },
   projects: [
     {
