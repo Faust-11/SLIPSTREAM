@@ -52,3 +52,7 @@ next-env.d.ts
 
 # Lighthouse
 /lighthouse-report/
+
+# Python
+__pycache__/
+*.pyc
