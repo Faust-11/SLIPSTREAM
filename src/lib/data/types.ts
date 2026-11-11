@@ -26,6 +26,8 @@ export type TeamSnapshot = {
   name: string;
   /** Повна назва в Jolpica ("Haas F1 Team") — для пошуку. */
   fullName: string;
+  /** Назви кирилицею (укр./рос.) — лише для пошуку, на сторінці не показуються. */
+  aliases: string[];
   /** Конструктори Jolpica, злиті в цю команду (пари «шасі-двигун»): контракт-тест фази 2. */
   refs: string[];
   country: L10n;

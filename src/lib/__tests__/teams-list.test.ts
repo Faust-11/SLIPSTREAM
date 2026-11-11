@@ -87,6 +87,48 @@ describe("selectTeams на знімку", async () => {
     expect(ids({ q: "   " })).toHaveLength(164);
   });
 
+  it("пошук кирилицею, за пілотом і з опечатками (дизайн-рев'ю 11.11)", () => {
+    // Українські й російські назви, транслітерація запиту.
+    expect(ids({ q: "мерседес" })).toContain("mercedes");
+    expect(ids({ q: "Макларен" })).toContain("mclaren");
+    expect(ids({ q: "ред булл" })).toContain("red-bull");
+    expect(ids({ q: "редбул" })).toContain("red-bull");
+    expect(ids({ q: "лотус" })).toEqual(expect.arrayContaining(["lotus", "lotus-f1"]));
+    expect(ids({ q: "феррарі" })).toContain("ferrari");
+    expect(ids({ q: "феррари" })).toContain("ferrari");
+    expect(ids({ q: "уильямс" })).toContain("williams");
+    // Пілоти поточного складу — обома мовами.
+    expect(ids({ q: "гамілтон" })).toEqual(["ferrari"]);
+    expect(ids({ q: "Hamilton" }, en, "en")).toEqual(["ferrari"]);
+    expect(ids({ q: "норріс" })).toEqual(["mclaren"]);
+    // Опечатки — лише коли точних збігів немає.
+    expect(ids({ q: "ferari" })).toContain("ferrari");
+    expect(ids({ q: "mclarn" })).toContain("mclaren");
+    // Без хибних збігів.
+    expect(ids({ q: "zzz" })).toEqual([]);
+    expect(ids({ q: "qwerty" })).toEqual([]);
+    expect(ids({ q: "italy" })).toHaveLength(ids({ q: "італія" }).length);
+  });
+
+  it("сортування не залежить від порядку на вході — вторинні ключі (рев'ю: знімок уже відсортований)", () => {
+    // Детерміноване «перемішування»: розворот + чергування.
+    const shuffled = [...uk].reverse().sort((a, b) => (a.id.length % 3) - (b.id.length % 3));
+    for (const sort of TEAMS_SORTS) {
+      if (sort === "a") continue;
+      expect(selectTeams(shuffled, { ...DEFAULT, sort }, "uk").map((c) => c.id), sort).toEqual(ids({ sort }));
+    }
+    // Рівні Кубки (Mercedes 9, Williams 9) → за перемогами, незалежно від входу.
+    const pair = uk.filter((c) => c.id === "williams" || c.id === "mercedes");
+    expect(selectTeams([...pair].reverse(), { ...DEFAULT, sort: "t" }, "uk").map((c) => c.id)).toEqual(["mercedes", "williams"]);
+    expect(selectTeams(pair, { ...DEFAULT, sort: "t" }, "uk").map((c) => c.id)).toEqual(["mercedes", "williams"]);
+  });
+
+  it("q обрізається за символами, а не UTF-16 (емодзі не розрізається)", () => {
+    const q = parseTeamsQuery(new URLSearchParams(`q=${"a".repeat(99)}🏎️x`)).q;
+    expect(Array.from(q)).toHaveLength(100);
+    expect(q.endsWith("🏎")).toBe(true);
+  });
+
   it("сортування: перемоги, Гран-прі, Кубки, роки, А–Я", () => {
     expect(ids({ sort: "w" })[0]).toBe("ferrari");
     expect(ids({ sort: "gp" })[0]).toBe("ferrari");

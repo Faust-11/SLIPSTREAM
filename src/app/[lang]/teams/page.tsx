@@ -50,6 +50,7 @@ export default async function TeamsPage({ params }: Props) {
           sortLabel: t.sortLabel,
           sorts: t.sorts,
           empty: t.empty,
+          emptyQuery: t.emptyQuery,
           reset: t.reset,
           more: t.more,
           found: t.found,

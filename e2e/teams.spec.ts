@@ -2,7 +2,7 @@ import { expect, test, type Page } from "@playwright/test";
 import { expectNoA11yViolations } from "./axe";
 
 const cards = (page: Page) => page.locator(".teams-grid .tc");
-const visibleCards = (page: Page) => page.locator(".teams-grid .tc:not(.is-later)");
+const visibleCards = (page: Page) => page.locator(".teams-grid .tc");
 
 async function hydrated(page: Page) {
   await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
@@ -47,7 +47,7 @@ test("«Показати ще» до кінця: 164 картки, кнопка 
   await page.goto("/uk/teams");
   await hydrated(page);
   const more = page.getByRole("button", { name: /Показати ще/ });
-  await expect(more).toHaveText("Показати ще 24 · лишилось 140");
+  await expect(more).toHaveText("Показати ще 24 з 140");
   for (let shown = 24; shown < 164; shown += 24) {
     await more.click();
     await expect(visibleCards(page)).toHaveCount(Math.min(shown + 24, 164));
@@ -101,7 +101,7 @@ test("сміття в URL (Review Focus 2): 200, стан за замовчув�
   await page.goto(`/uk/teams?q=${longQ}`);
   await hydrated(page);
   expect((await page.getByRole("searchbox").inputValue()).length).toBe(100);
-  await expect(page.getByText("Нічого не знайдено.")).toBeVisible();
+  await expect(page.getByText(/^Нічого не знайдено за запитом «a+»\.$/)).toBeVisible();
 });
 
 test.describe("без JavaScript (Review Focus 4)", () => {
@@ -141,18 +141,23 @@ for (const width of [320, 390, 768, 1024, 1280]) {
   });
 }
 
-test("фото нижче першого екрана не завантажуються до прокрутки (Review Focus 5)", async ({ page }) => {
+test("фото далеко нижче першого екрана не завантажуються до прокрутки (Review Focus 5)", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 800 });
-  const requested = new Set<string>();
-  page.on("request", (r) => r.resourceType() === "image" && requested.add(r.url()));
+  const requested: string[] = [];
+  page.on("request", (r) => r.resourceType() === "image" && requested.push(decodeURIComponent(r.url())));
   await page.goto("/uk/teams");
   await hydrated(page);
   await page.waitForLoadState("networkidle");
-  const cars = [...requested].filter((u) => u.includes("%2Fimg%2Fcars%2F") || u.includes("/img/cars/"));
-  // Перший ряд (до 4: preload + eager) — так; решта з 24 видимих — лише після прокрутки.
-  expect(cars.length).toBeLessThanOrEqual(4);
-  await visibleCards(page).nth(20).scrollIntoViewIfNeeded();
-  await expect.poll(() => [...requested].filter((u) => u.includes("cars")).length).toBeGreaterThan(cars.length);
+  // Картки 21–24 (з фото) — далеко за першим екраном і запасом lazy-loading Chrome.
+  const far = await visibleCards(page).evaluateAll((cs) =>
+    cs.slice(20).map((c) => c.querySelector(".tc-art img")?.getAttribute("src")).filter(Boolean) as string[],
+  );
+  const id = (src: string) => decodeURIComponent(src).match(/\/img\/cars\/[^&]+\.jpg/)?.[0] ?? src;
+  const farIds = far.map(id);
+  expect(farIds.length).toBeGreaterThan(0);
+  expect(requested.filter((u) => farIds.some((f) => u.includes(f)))).toEqual([]);
+  await visibleCards(page).nth(22).scrollIntoViewIfNeeded();
+  await expect.poll(() => requested.filter((u) => farIds.some((f) => u.includes(f))).length).toBeGreaterThan(0);
 });
 
 test("автори фото: кожне показане фото є в переліку з автором і ліцензією", async ({ page }) => {
@@ -188,8 +193,128 @@ for (const colorScheme of ["light", "dark"] as const) {
       await hydrated(page);
       await expectNoA11yViolations(page);
       await page.getByRole("searchbox").fill("zzz");
-      await expect(page.getByText("Нічого не знайдено.")).toBeVisible();
+      await expect(page.getByText("Нічого не знайдено за запитом «zzz».")).toBeVisible();
       await expectNoA11yViolations(page);
     });
   }
 }
+
+test.describe("дизайн-рев'ю 11.11", () => {
+  test("посилання зі станом: до гідратації список прихований, після — відфільтрований", async ({ page }) => {
+    await page.goto("/uk/teams?q=ferrari");
+    await hydrated(page);
+    await expect(page.locator("html")).not.toHaveAttribute("data-list-query");
+    await expect(page.locator(".teams-grid")).toBeVisible();
+    await expect(visibleCards(page).locator("h2")).toHaveText(["Ferrari"]);
+  });
+
+  test("посилання зі станом, а JS не завантажився: список з'являється за запобіжником (≤ 6 с)", async ({ page }) => {
+    await page.route("**/_next/static/chunks/*.js", (r) => r.abort());
+    await page.goto("/uk/teams?q=ferrari");
+    await expect(page.locator("html")).toHaveAttribute("data-list-query", "");
+    await expect(page.locator(".teams-grid")).toHaveCSS("visibility", "hidden");
+    await expect(page.locator(".teams-grid")).toHaveCSS("visibility", "visible", { timeout: 9000 });
+  });
+
+  test("автори фото й футер — без світлого «шва» між ними", async ({ page }) => {
+    await page.goto("/uk/teams");
+    const gap = await page.evaluate(() => {
+      const credits = document.querySelector(".page-credits")!.getBoundingClientRect();
+      const foot = document.querySelector(".site-foot")!.getBoundingClientRect();
+      return Math.round(foot.top - credits.bottom);
+    });
+    expect(gap).toBe(0);
+  });
+
+  test("390 px: компактна картка ≤ 280 px, перша команда видна на першому екрані, видно кількість", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/uk/teams");
+    await hydrated(page);
+    const first = visibleCards(page).first();
+    const box = (await first.boundingBox())!;
+    expect(box.height).toBeLessThanOrEqual(280);
+    expect(box.y + box.height).toBeLessThanOrEqual(844);
+    await expect(page.locator(".teams-count")).toHaveText("Знайдено 164 команди");
+    // Чипи — один ряд.
+    const tops = await page.locator(".chip").evaluateAll((cs) => new Set(cs.map((c) => Math.round(c.getBoundingClientRect().top))).size);
+    expect(tops).toBe(1);
+  });
+
+  test("числа з розрядами за мовою: 1 143 (UA) і 1,143 (EN); на 320 px між числами ≥ 16 px", async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 800 });
+    await page.goto("/uk/teams?q=ferrari");
+    await hydrated(page);
+    await expect(page.getByRole("article", { name: "Ferrari" }).locator("dd").first()).toHaveText("1 143");
+    const gaps = await page.getByRole("article", { name: "Ferrari" }).locator("dd").evaluateAll((dds) => {
+      const r = dds.map((d) => {
+        const range = document.createRange();
+        range.selectNodeContents(d);
+        return range.getBoundingClientRect();
+      });
+      return [r[1]!.left - r[0]!.right, r[2]!.left - r[1]!.right];
+    });
+    for (const g of gaps) expect(g).toBeGreaterThanOrEqual(16);
+    await page.goto("/teams?q=ferrari");
+    await hydrated(page);
+    await expect(page.getByRole("article", { name: "Ferrari" }).locator("dd").first()).toHaveText("1,143");
+  });
+});
+
+test.describe("рев'ю коду Task 3–4", () => {
+  test("клік «Команди» в шапці скидає пошук — стан списку слідом за адресою", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page.goto("/uk/teams");
+    await hydrated(page);
+    await page.getByRole("searchbox").fill("lotus");
+    await expect(page).toHaveURL(/\?q=lotus$/);
+    await page.getByRole("navigation", { name: "Головне меню" }).getByRole("link", { name: "Команди" }).click();
+    await expect(page).toHaveURL(/\/uk\/teams$/);
+    await expect(page.getByRole("searchbox")).toHaveValue("");
+    await expect(visibleCards(page)).toHaveCount(24);
+    await expect(page.getByRole("group", { name: "Мова" }).getByRole("link")).toHaveAttribute("href", "/teams");
+  });
+
+  test("сторонні параметри адреси (utm, fbclid) не стираються", async ({ page }) => {
+    await page.goto("/uk/teams?q=lotus&utm_source=fb&fbclid=abc");
+    await hydrated(page);
+    await page.getByRole("button", { name: "Переможці гонок" }).click();
+    await expect(page).toHaveURL(/\?q=lotus&f=win&utm_source=fb&fbclid=abc$/);
+  });
+
+  for (const qs of ["?q=lotus", "?q=zzz", "?f=ch&sort=t"]) {
+    test(`CLS посилання зі станом ${qs} < 0.1 (390 і 1280 px)`, async ({ page }) => {
+      for (const width of [390, 1280]) {
+        await page.setViewportSize({ width, height: 900 });
+        await page.addInitScript(() => {
+          (window as unknown as { __cls: number }).__cls = 0;
+          new PerformanceObserver((list) => {
+            for (const e of list.getEntries() as unknown as { value: number; hadRecentInput: boolean }[])
+              if (!e.hadRecentInput) (window as unknown as { __cls: number }).__cls += e.value;
+          }).observe({ type: "layout-shift", buffered: true });
+        });
+        await page.goto(`/uk/teams${qs}`);
+        await hydrated(page);
+        await expect(page.locator("html")).not.toHaveAttribute("data-list-query");
+        await page.waitForTimeout(500);
+        const cls = await page.evaluate(() => (window as unknown as { __cls: number }).__cls);
+        expect(cls, `${qs} @${width}`).toBeLessThan(0.1);
+      }
+    });
+  }
+
+  test("після гідратації серверні картки не перестворюються (гідратація, а не клієнтський рендер)", async ({ page }) => {
+    await page.addInitScript(() => {
+      (window as unknown as { __removed: number }).__removed = 0;
+      new MutationObserver((ms) => {
+        for (const m of ms)
+          for (const n of m.removedNodes)
+            if (n instanceof Element && n.classList.contains("tc")) (window as unknown as { __removed: number }).__removed++;
+      }).observe(document, { childList: true, subtree: true });
+    });
+    await page.goto("/uk/teams");
+    await hydrated(page);
+    await page.waitForLoadState("networkidle");
+    expect(await page.evaluate(() => (window as unknown as { __removed: number }).__removed)).toBe(0);
+    await expect(visibleCards(page)).toHaveCount(24);
+  });
+});

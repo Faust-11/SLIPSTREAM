@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
+import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
 import type { TeamCard as TeamCardData } from "@/lib/data/teams";
 import { seasonStripGradient, seasonsText } from "@/lib/season-strip";
@@ -16,23 +17,25 @@ export type TeamCardLabels = {
 type Props = {
   card: TeamCardData;
   labels: TeamCardLabels;
+  locale: Locale;
   season: number;
   /** 0 — preload (LCP), 1–3 — eager (перший ряд), решта — lazy. */
   index: number;
-  /** Лише серверний фолбек: картка поза першими N — прихована CSS, а без JS видима (teams.css). */
-  later?: boolean;
 };
 
 // Ширина картки за сіткою: 1 / 2 / 3 / 4 колонки (teams.css), поле .wrap 16 px, проміжок 16 px.
-const SIZES = "(width <= 520px) calc(100vw - 32px), (width <= 860px) calc(50vw - 24px), (width <= 1100px) calc(33vw - 22px), 304px";
+// ≤ 520 px — компактна горизонтальна картка з фото 128 px (teams.css).
+const SIZES = "(width <= 520px) 128px, (width <= 860px) calc(50vw - 24px), (width <= 1100px) calc(33vw - 22px), 304px";
+const numberFormat = { uk: new Intl.NumberFormat("uk"), en: new Intl.NumberFormat("en") };
 
 /** Картка команди. Без хуків — рендериться і в серверному фолбеку, і в клієнтському списку. */
-export function TeamCard({ card, labels, season, index, later }: Props) {
+export function TeamCard({ card, labels, locale, season, index }: Props) {
+  const n = (v: number) => numberFormat[locale].format(v);
   const titleId = `team-${card.id}`;
   const style = card.current ? ({ "--team": card.current.color } as CSSProperties) : undefined;
   return (
     <article
-      className={`tc${card.current ? " is-current" : ""}${later ? " is-later" : ""}`}
+      className={card.current ? "tc is-current" : "tc"}
       style={style}
       aria-labelledby={titleId}
       data-id={card.id}
@@ -76,15 +79,15 @@ export function TeamCard({ card, labels, season, index, later }: Props) {
       <dl className="tc-st">
         <div>
           <dt>{labels.stats.grandsPrix}</dt>
-          <dd className="num">{card.grandsPrix}</dd>
+          <dd className="num">{n(card.grandsPrix)}</dd>
         </div>
         <div>
           <dt>{labels.stats.wins}</dt>
-          <dd className="num">{card.wins}</dd>
+          <dd className="num">{n(card.wins)}</dd>
         </div>
         <div>
           <dt>{labels.stats.titles}</dt>
-          <dd className="num">{card.titles}</dd>
+          <dd className="num">{n(card.titles)}</dd>
         </div>
       </dl>
       {card.current && card.current.drivers.length > 0 && (

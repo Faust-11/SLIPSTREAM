@@ -49,6 +49,20 @@ AVATAR_ART_FIX = {"norris": "Steffen Prößdorf"}
 #   Politoys — Brabham BT26 (1969); BRP — BRM P25 (BRP виступала на ньому як на BRM, а не на шасі BRP).
 WRONG_PHOTO = {"Dallara", "Theodore", "Politoys", "BRP"}
 REF_RE = re.compile(r"^[a-z0-9_]+$")
+# Назви кирилицею — лише для пошуку (на сторінці назви команд не перекладаються): українська
+# (як у Вікіпедії) і поширена російська, якщо відрізняється. Решта команд — транслітерацією запиту.
+CYRILLIC_ALIASES = {
+    "Ferrari": ["Феррарі", "Феррари"], "McLaren": ["Макларен"], "Mercedes": ["Мерседес"], "Red Bull": ["Ред Булл"],
+    "Williams": ["Вільямс", "Уільямс", "Уильямс"], "Lotus": ["Лотус"], "Renault": ["Рено"], "Brabham": ["Брабем", "Брэбем"],
+    "Benetton": ["Бенеттон"], "Tyrrell": ["Тіррелл", "Тиррелл"], "BRM": ["БРМ"], "Cooper": ["Купер"],
+    "Alfa Romeo": ["Альфа Ромео"], "Ligier": ["Ліжьє", "Лижье"], "Maserati": ["Мазераті", "Мазерати"], "Matra": ["Матра"],
+    "Vanwall": ["Венволл", "Вэнуолл"], "Brawn": ["Браун"], "Jordan": ["Джордан"], "March": ["Марч"], "Honda": ["Хонда"],
+    "Alpine": ["Альпін", "Альпин"], "Haas": ["Хаас"], "Aston Martin": ["Астон Мартін", "Астон Мартин"],
+    "Racing Bulls": ["Рейсінг Буллз", "Рейсинг Буллз"], "Audi": ["Ауді", "Ауди"], "Cadillac": ["Каділлак", "Кадиллак"],
+    "Sauber": ["Заубер"], "Toyota": ["Тойота"], "Minardi": ["Мінарді", "Минарди"], "Jaguar": ["Ягуар"],
+    "Stewart": ["Стюарт"], "Force India": ["Форс Індія", "Форс Индия"], "Toro Rosso": ["Торо Россо"],
+    "AlphaTauri": ["Альфа Таурі", "Альфа Таури"], "Racing Point": ["Рейсінг Пойнт", "Рейсинг Пойнт"],
+}
 NOSTART = re.compile(r"did not (start|qualify|pre)|withdr|not classified.*dns|^dn[sq]", re.I)
 
 
@@ -185,7 +199,7 @@ def main():
                 drivers.append({"id": ref, "name": {"en": en, "uk": uk}, "surname": {"en": en.split()[-1], "uk": uk.split()[-1]},
                                 "initials": "".join(w[0] for w in en.split()[:2]).upper(), "avatar": avatar})
             current = {"position": standings[short]["pos"], "color": TCOL[short], "drivers": drivers}
-        teams.append({"id": tid, "name": short, "fullName": full, "country": {"en": en_c, "uk": uk_c}, "countryCode": t["cc"], "seasons": years[full],
+        teams.append({"id": tid, "name": short, "fullName": full, "aliases": CYRILLIC_ALIASES.get(short, []), "country": {"en": en_c, "uk": uk_c}, "countryCode": t["cc"], "seasons": years[full],
                       "grandsPrix": t["gp"] - phantom[full], "wins": t["w"] - dup_wins[full], "titles": t["t"],
                       "refs": sorted(refs[full]), "current": current, "photo": photo})
 
@@ -193,6 +207,8 @@ def main():
     teams.sort(key=lambda t: (-t["wins"], -t["grandsPrix"]))
     ids = [t["id"] for t in teams]
     assert len(ids) == len(set(ids)), "дублікати id"
+    unknown_alias = set(CYRILLIC_ALIASES) - {t["name"] for t in teams}
+    assert not unknown_alias, f"псевдоніми для неіснуючих команд: {unknown_alias}"
     unknown = [t["name"] for t in teams if t["photo"] and t["photo"]["credit"]["author"] == "Unknown"]
     assert not unknown, f"автор невідомий: {unknown}"
     # Заміна: боліди — тека цілком (лише цей скрипт); аватари — лише свої файли (тека спільна з іншими сторінками).

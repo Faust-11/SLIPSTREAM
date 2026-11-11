@@ -74,9 +74,11 @@ export function resolveTheme(attribute: string | null | undefined, prefersDark: 
 
 /**
  * Inline-скрипт для `<head>`: до першого кадру ставить `data-theme` зі сховища і `data-js`
- * (ознака, що JS працює: без нього перемикач теми прихований).
+ * (ознака, що JS працює: без нього перемикач теми прихований), а `data-list-query` — якщо в адресі
+ * є стан списку (`q`/`f`/`sort`): список ховається до гідратації, щоб не показувати нефільтрований
+ * (дизайн-рев'ю 11.11: на повільному телефоні ~4 с видно «не той» список).
  * Без збереженого вибору `data-theme` немає — діє `prefers-color-scheme`.
  */
-export const themeScriptSource = `(function(){var d=document.documentElement;d.setAttribute("data-js","");try{var t=localStorage.getItem(${JSON.stringify(
+export const themeScriptSource = `(function(){var d=document.documentElement;d.setAttribute("data-js","");if(/[?&](q|f|sort)=/.test(location.search))d.setAttribute("data-list-query","");try{var t=localStorage.getItem(${JSON.stringify(
   THEME_STORAGE_KEY,
 )});if(t==="light"||t==="dark")d.setAttribute("data-theme",t)}catch(e){}})()`;

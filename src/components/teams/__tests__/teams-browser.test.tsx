@@ -38,8 +38,9 @@ const labels: TeamsBrowserLabels = {
   sortLabel: "Сортувати",
   sorts: { p: "спершу сезон {year}", w: "за перемогами", gp: "за Гран-прі", t: "за Кубками", y1: "нещодавні", y0: "найстаріші", a: "А–Я" },
   empty: "Нічого не знайдено.",
+  emptyQuery: "Нічого не знайдено за запитом «{q}».",
   reset: "Скинути пошук і фільтр",
-  more: "Показати ще {n} · лишилось {left}",
+  more: "Показати ще {n} з {left}",
   found: { one: "Знайдено {n} команду", few: "Знайдено {n} команди", many: "Знайдено {n} команд", other: "Знайдено {n} команди" },
 };
 
@@ -48,7 +49,7 @@ function setup(qs = "") {
   render(<TeamsBrowser cards={cards} locale="uk" season={2026} pageSize={24} labels={labels} />);
   return userEvent.setup();
 }
-const visible = () => screen.getAllByRole("article").filter((a) => !a.classList.contains("is-later"));
+const visible = () => screen.queryAllByRole("article");
 let replace: ReturnType<typeof vi.spyOn>;
 
 describe("TeamsBrowser", () => {
@@ -58,10 +59,10 @@ describe("TeamsBrowser", () => {
     replace = vi.spyOn(window.history, "replaceState");
   });
 
-  it("спершу 24 картки й «Показати ще 6 · лишилось 6»; клік — усі 30, кнопки немає, фокус на 25-й картці", async () => {
+  it("спершу 24 картки й «Показати ще 6 з 6»; клік — усі 30, кнопки немає, фокус на 25-й картці", async () => {
     const user = setup();
     expect(visible()).toHaveLength(24);
-    await user.click(screen.getByRole("button", { name: "Показати ще 6 · лишилось 6" }));
+    await user.click(screen.getByRole("button", { name: "Показати ще 6 з 6" }));
     expect(visible()).toHaveLength(30);
     expect(screen.queryByRole("button", { name: /Показати ще/ })).toBeNull();
     expect(document.activeElement).toBe(visible()[24]);
@@ -75,7 +76,7 @@ describe("TeamsBrowser", () => {
     expect(screen.getByRole("button", { name: "Усі" })).toHaveAttribute("aria-pressed", "false");
     expect(visible()).toHaveLength(5);
     expect(replace).toHaveBeenLastCalledWith(null, "", "/uk/teams?f=win");
-    expect(screen.getByRole("status")).toHaveTextContent("Знайдено 5 команд");
+    expect(screen.getByRole("status")).toHaveTextContent(/^Знайдено 5 команд$/);
   });
 
   it("підписи з роком сезону; спершу команди сезону за позицією", () => {
@@ -91,8 +92,8 @@ describe("TeamsBrowser", () => {
     const input = screen.getByRole("searchbox", { name: "Пошук команди" });
     await user.type(input, "zzz");
     expect(screen.queryAllByRole("article")).toHaveLength(0);
-    expect(screen.getByText("Нічого не знайдено.")).toBeInTheDocument();
-    expect(screen.getByRole("status")).toHaveTextContent("Знайдено 0 команд");
+    expect(screen.getByText("Нічого не знайдено за запитом «zzz».")).toBeInTheDocument();
+    expect(screen.getByRole("status")).toHaveTextContent(/^Знайдено 0 команд$/);
     expect(replace).toHaveBeenLastCalledWith(null, "", "/uk/teams?q=zzz");
     await user.click(screen.getByRole("button", { name: "Скинути пошук і фільтр" }));
     expect(visible()).toHaveLength(24);
@@ -118,10 +119,13 @@ describe("TeamsBrowser", () => {
     expect(visible()).toHaveLength(24);
   });
 
-  it("зміна фільтра скидає пагінацію до 24", async () => {
+  it("зміна фільтра скидає пагінацію до 24; повторне натискання активного чипа — ні", async () => {
     const user = setup();
     await user.click(screen.getByRole("button", { name: /Показати ще/ }));
     expect(visible()).toHaveLength(30);
+    await user.click(screen.getByRole("button", { name: "Усі" }));
+    expect(visible()).toHaveLength(30);
+    await user.click(screen.getByRole("button", { name: "Переможці гонок" }));
     await user.click(screen.getByRole("button", { name: "Усі" }));
     expect(visible()).toHaveLength(24);
   });

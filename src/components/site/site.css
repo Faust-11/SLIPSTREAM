@@ -307,16 +307,10 @@ body::before {
   font-size: 15px;
   opacity: 0.5;
 }
-/* Поточний пункт панелі — жовте підкреслення назви (як риска в десктопі) + жовта крапка праворуч. */
+/* Поточний пункт панелі — жовте підкреслення назви (як риска в десктопі); одна позначка, без крапки. */
 .mnav a[aria-current="page"] {
   text-decoration: underline 3px var(--yellow);
   text-underline-offset: 7px;
-}
-.mnav a[aria-current="page"]::after {
-  content: "●" / "";
-  font-size: 14px;
-  color: var(--yellow);
-  opacity: 1;
 }
 .mnav-theme {
   margin-top: 18px;
@@ -424,6 +418,10 @@ html:not([data-hydrated]) .mnav-btn {
   background: var(--head-bg);
   color: var(--head-fg);
   margin-top: 64px;
+}
+/* Сторінка закінчується темним блоком (автори фото) — футер впритул, без світлого «шва» між ними. */
+main:has(> .page-credits:last-child) + .site-foot {
+  margin-top: 0;
 }
 .site-foot .wrap {
   padding-block: 36px 40px;
