@@ -7,7 +7,7 @@ import { RouteFocus } from "@/components/site/route-focus";
 import "@/components/site/site.css";
 import { ThemeScript } from "@/components/theme/theme-script";
 import { getDictionary } from "@/i18n/get-dictionary";
-import { siteUrl } from "@/lib/seo";
+import { robotsMetadata, siteUrl } from "@/lib/seo";
 import { fontVariables } from "../fonts";
 import "../globals.css";
 
@@ -33,6 +33,8 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
     metadataBase: siteUrl(),
     applicationName: dict.site.name,
     title: { default: dict.site.name, template: `%s · ${dict.site.name}` },
+    // За замовчуванням для всіх сторінок (pageMetadata лише повторює те саме).
+    robots: robotsMetadata(),
   };
 }
 

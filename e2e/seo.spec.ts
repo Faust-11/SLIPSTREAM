@@ -5,13 +5,21 @@ const SECTIONS = ["/seasons", "/calendar", "/news", "/drivers", "/teams", "/circ
 const PAGES = ["/", ...SECTIONS];
 const uk = (p: string) => (p === "/" ? "/uk" : `/uk${p}`);
 
+/**
+ * Очікуваний origin абсолютних URL у метаданих: адреса тестового сервера (SITE_URL у збірці),
+ * для прев'ю Vercel — продакшн-домен (E2E_SITE_URL). Корінь — без кінцевого «/», як canonical Next.
+ */
+function absolute(baseURL: string | undefined, path: string): string {
+  const site = (process.env.E2E_SITE_URL ?? new URL(baseURL!).origin).replace(/\/$/, "");
+  return path === "/" ? site : site + path;
+}
+
 for (const path of PAGES) {
   for (const locale of ["en", "uk"] as const) {
     const url = locale === "en" ? path : uk(path);
     test(`${url}: 200, hreflang, canonical, noindex`, async ({ page, baseURL }) => {
       const res = await page.goto(url);
       expect(res?.status()).toBe(200);
-      const origin = new URL(baseURL!).origin;
       const head = await page.evaluate(() => ({
         alternates: Object.fromEntries(
           [...document.querySelectorAll('link[rel="alternate"][hreflang]')].map((l) => [
@@ -26,13 +34,13 @@ for (const path of PAGES) {
         h1: document.querySelectorAll("h1").length,
         title: document.title,
       }));
-      // Абсолютні URL: SITE_URL не задано → localhost:3000 у локальній збірці; перевіряємо шлях.
-      const pathOf = (u: string | undefined | null) => (u ? new URL(u, origin).pathname : u);
-      expect(Object.keys(head.alternates).sort()).toEqual(["en", "uk", "x-default"]);
-      expect(pathOf(head.alternates.en)).toBe(path);
-      expect(pathOf(head.alternates.uk)).toBe(uk(path));
-      expect(pathOf(head.alternates["x-default"])).toBe(path);
-      expect(pathOf(head.canonical)).toBe(url);
+      // Повні абсолютні URL — рядки цілком (відносні hreflang Google не приймає).
+      expect(head.alternates).toEqual({
+        en: absolute(baseURL, path),
+        uk: absolute(baseURL, uk(path)),
+        "x-default": absolute(baseURL, path),
+      });
+      expect(head.canonical).toBe(absolute(baseURL, url));
       expect(head.robots).toBe("noindex, nofollow");
       expect(head.ogLocale).toBe(locale === "en" ? "en_GB" : "uk_UA");
       expect(head.description?.length).toBeGreaterThan(20);
@@ -63,13 +71,25 @@ test("/robots.txt забороняє все до запуску й вказує 
   expect(body).toMatch(/^Sitemap: https?:\/\/.+\/sitemap\.xml$/m);
 });
 
-test("/sitemap.xml: кожна сторінка обома мовами з hreflang", async ({ request }) => {
+test("/sitemap.xml: кожна сторінка обома мовами з hreflang, <loc> = canonical", async ({ request, baseURL }) => {
   const res = await request.get("/sitemap.xml");
   expect(res.status()).toBe(200);
   const xml = await res.text();
-  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]!).pathname);
-  expect(locs.sort()).toEqual([...PAGES, ...PAGES.map(uk)].sort());
+  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]!);
+  expect(locs.sort()).toEqual([...PAGES, ...PAGES.map(uk)].map((p) => absolute(baseURL, p)).sort());
   expect((xml.match(/hreflang="x-default"/g) ?? []).length).toBe(PAGES.length * 2);
+});
+
+test("кожна сторінка з sitemap — noindex і canonical на себе (сторінки без pageMetadata теж)", async ({ request, baseURL }) => {
+  const xml = await (await request.get("/sitemap.xml")).text();
+  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]!);
+  const site = absolute(baseURL, "/");
+  for (const loc of locs) {
+    const path = loc === site ? "/" : loc.slice(site.length);
+    const html = await (await request.get(path)).text();
+    expect(html, loc).toContain('<meta name="robots" content="noindex, nofollow"/>');
+    expect(html, loc).toContain(`<link rel="canonical" href="${loc}"/>`);
+  }
 });
 
 test("/uk/nope → 404 українською з посиланнями на розділи", async ({ page }) => {

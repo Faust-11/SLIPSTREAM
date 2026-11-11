@@ -459,7 +459,9 @@ html:not([data-hydrated]) .mnav-btn {
 /* ≥ 32 px: великий текст (WCAG 3:1) — на кольорах розділів дрібний текст не ставимо. */
 .section-hero h1 {
   font-size: clamp(32px, 7vw, 76px);
-  overflow-wrap: anywhere;
+  /* Довге слово переноситься з дефісом за мовою html[lang], а не рветься будь-де. */
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 .hero-tagline {
   margin: 16px 0 0;
@@ -510,6 +512,11 @@ html:not([data-hydrated]) .mnav-btn {
   background: var(--ink);
   color: var(--paper);
 }
+/* 404 без JS: один логотип (EN), інакше два поруч дають скрол на 320–390 px. */
+html:not([data-nf-lang]) .nf-brand[data-nf="uk"] {
+  display: none;
+}
+
 .nf-sections {
   margin-top: 36px;
 }

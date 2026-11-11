@@ -132,6 +132,13 @@ test("футер містить усі 9 розділів обома мовам�
 test.describe("без JavaScript", () => {
   test.use({ javaScriptEnabled: false });
 
+  test("404 на 320 px: один логотип, без горизонтального скролу", async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 700 });
+    await page.goto("/uk/nope");
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+    await expect(page.locator(".site-head .brand:visible")).toHaveCount(1);
+  });
+
   test("розділи досяжні через футер, бургер прихований, у шапці — посилання на розділи", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 800 });
     await page.goto("/uk");
