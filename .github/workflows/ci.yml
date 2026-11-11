@@ -1,9 +1,13 @@
 name: CI
 
+# Повні перевірки — після готової сторінки (рішення користувача 11.11): на PR-чернетках не запускаємо,
+# лише коли PR готовий до рев'ю (і на кожен наступний коміт у ньому), у main і вручну.
 on:
   push:
     branches: [main]
   pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -14,12 +18,16 @@ permissions:
   contents: read
 
 env:
+  # Дані сайту — фейковий PostgREST з фікстурою (без живого Supabase і секретів у CI).
+  SUPABASE_URL: http://127.0.0.1:54321
+  SUPABASE_ANON_KEY: test-anon
   NEXT_TELEMETRY_DISABLED: "1"
   # Збірка для e2e: абсолютні URL у метаданих = адреса next start у тестах.
   SITE_URL: http://localhost:3100
 
 jobs:
   check:
+    if: github.event_name != 'pull_request' || !github.event.pull_request.draft
     runs-on: ubuntu-26.04
     timeout-minutes: 15
     steps:
@@ -37,6 +45,10 @@ jobs:
       - run: npm run lint
       - run: npm run typecheck
       - run: npm run test
+      - name: Фейкова база (фікстура e2e/fixtures/db)
+        run: |
+          node scripts/dev/fake-postgrest.mjs > /tmp/fake-postgrest.log 2>&1 &
+          for i in $(seq 1 30); do curl -sf -o /dev/null -H "apikey: x" -H "accept-profile: f1" http://127.0.0.1:54321/rest/v1/site_meta && break; sleep 1; done
       - run: npm run build
 
       - name: Версія Playwright

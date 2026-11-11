@@ -2,8 +2,10 @@ name: Lighthouse
 
 # Окремо від CI: локальна машина розробника перевантажена (контрольна порожня сторінка Next — performance 72–95),
 # тож performance міряємо на чистому раннері. Пороги — scripts/lighthouse.mjs (рішення 11.11: a11y/BP/SEO ≥ 95, performance — за базовим рівнем фреймворку).
+# Лише для готового PR (не чернетки) і вручну — рішення користувача 11.11: перевірки після готової сторінки.
 on:
   pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
   workflow_dispatch:
 
 concurrency:
@@ -14,6 +16,9 @@ permissions:
   contents: read
 
 env:
+  # Дані сайту — фейковий PostgREST з фікстурою (без живого Supabase і секретів у CI).
+  SUPABASE_URL: http://127.0.0.1:54321
+  SUPABASE_ANON_KEY: test-anon
   NEXT_TELEMETRY_DISABLED: "1"
   SITE_URL: http://localhost:3100
   # SEO міряємо як після запуску: інакше is-crawlable провалюється через навмисний noindex.
@@ -21,6 +26,7 @@ env:
 
 jobs:
   lighthouse:
+    if: github.event_name != 'pull_request' || !github.event.pull_request.draft
     runs-on: ubuntu-26.04
     timeout-minutes: 20
     steps:
@@ -34,6 +40,10 @@ jobs:
           cache: npm
 
       - run: npm ci
+      - name: Фейкова база (фікстура e2e/fixtures/db)
+        run: |
+          node scripts/dev/fake-postgrest.mjs > /tmp/fake-postgrest.log 2>&1 &
+          for i in $(seq 1 30); do curl -sf -o /dev/null -H "apikey: x" -H "accept-profile: f1" http://127.0.0.1:54321/rest/v1/site_meta && break; sleep 1; done
       - run: npm run build
 
       - name: Версія Playwright

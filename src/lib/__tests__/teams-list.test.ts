@@ -1,6 +1,7 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { getTeamsIndex } from "@/lib/data/teams";
 import {
+
   normalizeSearch,
   parseTeamsQuery,
   selectTeams,
@@ -9,6 +10,9 @@ import {
   teamsQueryString,
   type TeamsQuery,
 } from "../teams-list";
+
+// Дані — з фікстури бази (без живого Supabase).
+vi.mock("@/lib/data/db", () => import("@/lib/data/__tests__/db-fixture"));
 
 const DEFAULT: TeamsQuery = { q: "", f: "all", sort: "p" };
 const params = (s: string) => new URLSearchParams(s);
@@ -64,7 +68,7 @@ describe("selectTeams на знімку", async () => {
 
   it("за замовчуванням (sort=p): спершу 11 команд сезону 2026 за позицією, далі решта", () => {
     const res = selectTeams(uk, DEFAULT, "uk");
-    expect(res).toHaveLength(164);
+    expect(res).toHaveLength(165);
     expect(res.slice(0, 11).map((c) => c.current?.position)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
     expect(res[11]!.current).toBeNull();
   });
@@ -84,7 +88,7 @@ describe("selectTeams на знімку", async () => {
     expect(ids({ q: "ferr" })).toContain("ferrari");
     expect(ids({ q: "lotus" })).toEqual(expect.arrayContaining(["lotus", "lotus-f1"]));
     expect(ids({ q: "zzz" })).toEqual([]);
-    expect(ids({ q: "   " })).toHaveLength(164);
+    expect(ids({ q: "   " })).toHaveLength(165);
   });
 
   it("пошук кирилицею, за пілотом і з опечатками (дизайн-рев'ю 11.11)", () => {

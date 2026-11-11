@@ -52,3 +52,38 @@ export type TeamsSnapshot = {
   /** Атрибуція аватарів пілотів, показаних у картках. */
   avatarCredits: Record<string, Credit>;
 };
+
+/** Кураторські дані команди (src/data/curated/teams.json) — наш контент; числа — з бази (f1.team_index). */
+export type CuratedTeam = {
+  id: string;
+  name: string;
+  fullName: string;
+  aliases: string[];
+  countryCode: string;
+  country: L10n;
+  /** Конструктори Jolpica цієї команди (f1.team_families). */
+  refs: string[];
+  /** Колір команди поточного сезону (смуга під фото); null — команда не виступає. */
+  color: string | null;
+  photo: TeamSnapshot["photo"];
+};
+
+/** Кураторські дані пілота (src/data/curated/drivers.json). */
+export type CuratedDriver = {
+  name: L10n;
+  surname: L10n;
+  initials: string;
+  avatar: string | null;
+  credit: Credit | null;
+};
+
+/** Рядок f1.team_index (PostgREST). */
+export type TeamIndexRow = {
+  id: string;
+  seasons: [number, number][];
+  grands_prix: number;
+  wins: number;
+  titles: number;
+  current_position: number | null;
+  current_drivers: string[];
+};
