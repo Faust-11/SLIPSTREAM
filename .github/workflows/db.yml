@@ -1,0 +1,67 @@
+name: DB
+
+# Схема f1 і завантажувачі на чистому Postgres (service container): міграції, повний дамп Jolpica,
+# права доступу, тести синхронізації й похідних даних. Supabase тут не використовується.
+on:
+  pull_request:
+    paths:
+      - "supabase/**"
+      - "scripts/jolpica/**"
+      - "scripts/db/**"
+      - "scripts/requirements.txt"
+      - "src/data/curated/**"
+      - ".github/workflows/db.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  db:
+    runs-on: ubuntu-26.04
+    timeout-minutes: 25
+    services:
+      postgres:
+        image: postgres:17.10
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 20
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+      TEST_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - name: Залежності
+        run: pip install -r scripts/requirements.txt
+      - name: Ключ кешу дампу (SHA-256 з API Jolpica)
+        id: dump
+        run: echo "sha=$(python scripts/jolpica/load_dump.py --print-hash)" >> "$GITHUB_OUTPUT"
+      - name: Кеш дампу
+        id: cache
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: dump_csv.zip
+          key: jolpica-dump-${{ steps.dump.outputs.sha }}
+      - name: Завантажити дамп
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: python scripts/jolpica/load_dump.py --download --save dump_csv.zip
+      - name: Ролі Supabase і міграції
+        run: |
+          python -c "import os, psycopg; psycopg.connect(os.environ['DATABASE_URL'], autocommit=True).execute(open('scripts/db/supabase_stub.sql').read())"
+          python scripts/db/apply_migrations.py
+          python scripts/db/apply_migrations.py  # повторно — нічого не застосовує
+      - name: Дамп у базу
+        run: python scripts/jolpica/load_dump.py --zip dump_csv.zip
+      - name: Права доступу (RLS)
+        run: python scripts/db/rls_smoke.py
