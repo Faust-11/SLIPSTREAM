@@ -23,7 +23,16 @@ function currentTheme() {
  * (globals.css, `.theme-toggle`). Тож сервер і клієнт рендерять однаково, і до гідратації
  * кнопка вже показує правильну дію.
  */
-export function ThemeToggle({ labels, className = "" }: { labels: { toLight: string; toDark: string }; className?: string }) {
+export function ThemeToggle({
+  labels,
+  className = "",
+  withText = false,
+}: {
+  labels: { toLight: string; toDark: string; text?: string };
+  className?: string;
+  /** Видимий текст (мобільна панель) замість лише іконки. */
+  withText?: boolean;
+}) {
   // Вибір в іншій вкладці — застосувати й тут.
   useEffect(() => {
     function onStorage(e: StorageEvent) {
@@ -46,15 +55,15 @@ export function ThemeToggle({ labels, className = "" }: { labels: { toLight: str
     <button
       type="button"
       onClick={toggle}
-      className={`theme-toggle inline-grid min-h-[30px] min-w-[30px] cursor-pointer place-items-center p-1.5 ${className}`}
+      className={`theme-toggle ${className}`}
     >
       <span className="tt-to-light">
-        <SunIcon />
-        <span className="sr-only">{labels.toLight}</span>
+        {!withText && <SunIcon />}
+        <span className={withText ? undefined : "sr-only"}>{labels.toLight}</span>
       </span>
       <span className="tt-to-dark">
-        <MoonIcon />
-        <span className="sr-only">{labels.toDark}</span>
+        {!withText && <MoonIcon />}
+        <span className={withText ? undefined : "sr-only"}>{labels.toDark}</span>
       </span>
     </button>
   );

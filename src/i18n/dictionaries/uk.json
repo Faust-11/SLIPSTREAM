@@ -10,5 +10,34 @@
   "theme": {
     "toLight": "Увімкнути світлу тему",
     "toDark": "Увімкнути темну тему"
+  },
+  "nav": {
+    "seasons": "Сезони",
+    "calendar": "Календар",
+    "news": "Новини",
+    "drivers": "Пілоти",
+    "teams": "Команди",
+    "circuits": "Траси",
+    "stories": "Історії",
+    "newbie": "Новачкам",
+    "game": "Гра"
+  },
+  "header": {
+    "home": "Slipstream — головна",
+    "mainNav": "Головне меню",
+    "language": "Мова",
+    "languageNames": {
+      "en": "English",
+      "uk": "Українська"
+    },
+    "menu": "Меню",
+    "skip": "До змісту"
+  },
+  "footer": {
+    "tagline": "Безкоштовний дім для вболівальників Формули-1. Кожен факт має джерело.",
+    "navLabel": "Розділи",
+    "unofficial": "Неофіційний фанатський сайт",
+    "disclaimer": "Slipstream не пов’язаний з Formula 1, FIA чи командами. F1, Formula 1 та пов’язані позначення є торговими марками Formula One Licensing B.V.",
+    "dataLabel": "Результати, таблиці й рекорди"
   }
 }
