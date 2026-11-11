@@ -60,7 +60,6 @@ jobs:
         run: |
           python -c "import os, psycopg; psycopg.connect(os.environ['DATABASE_URL'], autocommit=True).execute(open('scripts/db/supabase_stub.sql').read())"
           python scripts/db/apply_migrations.py
-          python scripts/db/apply_migrations.py  # повторно — нічого не застосовує
       - name: Дамп у базу
         run: python scripts/jolpica/load_dump.py --zip dump_csv.zip
       - name: Кураторські дані (команди) і доливка гонок після дампу з API Jolpica
@@ -68,7 +67,12 @@ jobs:
           python scripts/db/seed_curated.py --strict
           python scripts/jolpica/topup_api.py
       - name: Права доступу (RLS)
-        run: python scripts/db/rls_smoke.py
+        run: |
+          python scripts/db/rls_smoke.py
+          # Повторний прогін міграцій — ПІСЛЯ перевірки прав: на бою міграції застосовуються один раз, а повтор
+          # знову виконує блок журналу (revoke) і маскував би права, які видала сама міграція (11.11 так і сталося).
+          python scripts/db/apply_migrations.py | tee /dev/stderr | grep -q "no pending migrations"
+          python scripts/db/rls_smoke.py
       - name: Синхронізація й похідні дані команд
         env:
           DUMP_ZIP: dump_csv.zip
