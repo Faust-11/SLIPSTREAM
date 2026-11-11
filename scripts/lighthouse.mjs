@@ -66,6 +66,18 @@ async function launch() {
   });
 }
 
+// Збої запису трейсу Lighthouse (NO_NAVSTART тощо) — не оцінка сторінки: повторюємо прогін.
+async function withRetry(fn, url, attempts = 3) {
+  for (let i = 1; ; i++) {
+    try {
+      return await fn(url);
+    } catch (e) {
+      if (i >= attempts) throw e;
+      console.warn(`повтор ${i}/${attempts - 1}: ${e.message}`);
+    }
+  }
+}
+
 async function navigationRun(url) {
   const browser = await launch();
   try {
@@ -99,7 +111,7 @@ await mkdir(OUT, { recursive: true });
 for (const path of PAGES) {
   const url = new URL(path, BASE_URL).href;
   const lhrs = [];
-  for (let i = 0; i < RUNS; i++) lhrs.push(await navigationRun(url));
+  for (let i = 0; i < RUNS; i++) lhrs.push(await withRetry(navigationRun, url));
   const categories = Object.fromEntries(
     Object.keys(lhrs[0].categories).map((c) => [c, median(lhrs.map((l) => pct(l.categories[c].score)))]),
   );
