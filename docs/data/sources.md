@@ -11,4 +11,4 @@
 | Знімок фази 3a | `src/data/snapshot/teams.json` | більше не оновлюється — фікстура тестів паритету |
 
 Правила підрахунку — `supabase/migrations/0002_team_index.sql` (шапка) і `docs/audits/phase3a-data.md`.
-Сайт читає базу лише під час збірки (`src/lib/data/db.ts`, PostgREST, ключ anon); після синхронізації `data-sync.yml` викликає deploy hook Vercel.
+Сайт читає базу лише під час збірки (`src/lib/data/db.ts`, PostgREST, ключ publishable — роль anon); після синхронізації `data-sync.yml` викликає deploy hook Vercel.
