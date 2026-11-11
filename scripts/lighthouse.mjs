@@ -1,6 +1,13 @@
 #!/usr/bin/env node
 /**
- * Lighthouse фази 1 (Task 8): мобільний профіль, медіана N прогонів, пороги з плану (≥ 95 у кожній категорії).
+ * Lighthouse фази 1 (Task 8): мобільний профіль, медіана N прогонів.
+ *
+ * Пороги (рішення користувача 11.11, docs/decisions.md):
+ * - accessibility, best-practices, seo ≥ 95;
+ * - performance ≥ 90 і не нижче базового рівня порожньої сторінки Next мінус 3 бали
+ *   (замір 11.11 на тому ж раннері: Next 16.4.5 з одним <h1> = 95, TBT ≈ 250 мс — стеля фреймворку);
+ * - бюджети: LCP < 2500 мс, CLS < 0.1, TBT < 350 мс (медіани).
+ * Базовий рівень перемірювати після кожного оновлення Next (порожня сторінка тим самим скриптом).
  *
  *   BASE_URL=http://localhost:3100 CHROME_PATH=… node scripts/lighthouse.mjs [--runs 3] [--out lighthouse-report]
  *
@@ -22,13 +29,16 @@ const arg = (name, fallback) => {
 
 const BASE_URL = process.env.BASE_URL ?? "http://localhost:3100";
 const CHROME_PATH = process.env.CHROME_PATH;
-const RUNS = Number(arg("runs", "3"));
+const RUNS = Number(arg("runs", "5"));
 if (!Number.isInteger(RUNS) || RUNS < 1) {
   console.error(`--runs має бути цілим ≥ 1, отримано: ${arg("runs", "3")}`);
   process.exit(2);
 }
 const OUT = arg("out", "lighthouse-report");
 const THRESHOLD = 95;
+const FRAMEWORK_BASELINE = 95; // порожня сторінка Next 16.4.5, CI 11.11
+const PERF_THRESHOLD = Math.max(90, FRAMEWORK_BASELINE - 3);
+const BUDGET = { lcpMs: 2500, cls: 0.1, tbtMs: 350 };
 
 const PAGES = ["/", "/uk/teams"];
 const NOT_FOUND = "/uk/nope";
@@ -105,7 +115,13 @@ async function snapshotRun(url) {
   }
 }
 
-const summary = { baseUrl: BASE_URL, runs: RUNS, threshold: THRESHOLD, pages: [], ok: true };
+const summary = {
+  baseUrl: BASE_URL,
+  runs: RUNS,
+  thresholds: { categories: THRESHOLD, performance: PERF_THRESHOLD, frameworkBaseline: FRAMEWORK_BASELINE, budget: BUDGET },
+  pages: [],
+  ok: true,
+};
 await mkdir(OUT, { recursive: true });
 
 for (const path of PAGES) {
@@ -121,14 +137,17 @@ for (const path of PAGES) {
     tbtMs: median(lhrs.map((l) => Math.round(l.audits["total-blocking-time"].numericValue))),
     benchmarkIndex: median(lhrs.map((l) => l.environment.benchmarkIndex)),
   };
-  // Порогові категорії плану; agentic-browsing — довідково (дріб, не 0–100).
-  const gated = ["performance", "accessibility", "best-practices", "seo"];
-  const below = gated.filter((c) => categories[c] !== undefined && categories[c] < THRESHOLD);
-  const pass = below.length === 0 && metrics.cls < 0.1;
+  // agentic-browsing — довідково (дріб, не 0–100).
+  const below = ["accessibility", "best-practices", "seo"].filter((c) => categories[c] !== undefined && categories[c] < THRESHOLD);
+  if (categories.performance < PERF_THRESHOLD) below.push(`performance < ${PERF_THRESHOLD}`);
+  if (metrics.lcpMs >= BUDGET.lcpMs) below.push(`LCP ≥ ${BUDGET.lcpMs}`);
+  if (metrics.cls >= BUDGET.cls) below.push(`CLS ≥ ${BUDGET.cls}`);
+  if (metrics.tbtMs >= BUDGET.tbtMs) below.push(`TBT ≥ ${BUDGET.tbtMs}`);
+  const pass = below.length === 0;
   summary.ok &&= pass;
   // Провали й звіт — з прогону з медіанним performance (не з першого, можливо викидного).
   const medianRun = lhrs.find((l) => pct(l.categories.performance.score) === categories.performance) ?? lhrs[0];
-  summary.pages.push({ path, mode: "navigation", categories, metrics, failing: failingAudits(medianRun), pass });
+  summary.pages.push({ path, mode: "navigation", categories, metrics, below, failing: failingAudits(medianRun), pass });
   await writeFile(join(OUT, `${path === "/" ? "_root" : path.replaceAll("/", "_")}.json`), JSON.stringify(medianRun, null, 1));
 }
 
@@ -157,6 +176,7 @@ for (const p of summary.pages) {
       .map(([c, v]) => `${c}=${v}`)
       .join(" ")}${p.metrics ? ` | LCP ${p.metrics.lcpMs} ms, CLS ${p.metrics.cls.toFixed(3)}, TBT ${p.metrics.tbtMs} ms, BI ${p.metrics.benchmarkIndex}` : ""}`,
   );
-  if (p.failing.length) console.log(`    провали: ${p.failing.join(", ")}`);
+  if (p.below?.length) console.log(`    нижче порогу: ${p.below.join(", ")}`);
+  if (p.failing.length) console.log(`    аудити < 0.9: ${p.failing.join(", ")}`);
 }
 process.exit(summary.ok ? 0 : 1);

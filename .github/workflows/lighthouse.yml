@@ -1,7 +1,7 @@
 name: Lighthouse
 
 # Окремо від CI: локальна машина розробника перевантажена (контрольна порожня сторінка Next — performance 72–95),
-# тож performance міряємо на чистому раннері. Пороги — ≥ 95 у кожній категорії (план фази 1, Task 8).
+# тож performance міряємо на чистому раннері. Пороги — scripts/lighthouse.mjs (рішення 11.11: a11y/BP/SEO ≥ 95, performance — за базовим рівнем фреймворку).
 on:
   pull_request:
   workflow_dispatch:
@@ -22,7 +22,7 @@ env:
 jobs:
   lighthouse:
     runs-on: ubuntu-26.04
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -61,11 +61,11 @@ jobs:
           for i in $(seq 1 30); do curl -sf http://localhost:3100/ > /dev/null && exit 0; sleep 1; done
           cat next.log; exit 1
 
-      - name: Lighthouse (мобільний, медіана 3 прогонів)
+      - name: Lighthouse (мобільний, медіана 5 прогонів)
         run: |
           export CHROME_PATH="$(node -p "require('playwright-core').chromium.executablePath()")"
           export LH_NO_SANDBOX=1
-          node scripts/lighthouse.mjs --runs 3 --out lighthouse-report
+          node scripts/lighthouse.mjs --runs 5 --out lighthouse-report
 
       - name: Звіти
         if: always()
