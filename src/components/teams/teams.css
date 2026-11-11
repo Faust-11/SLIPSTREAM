@@ -1,0 +1,469 @@
+/* Розділ «Команди» — картки за макетом (index_mockup/teams: circuits.css + teams.css), токени — globals.css. */
+
+/* Липка панель інструментів (десктоп) не перекриває елемент у фокусі (Web Interface Guidelines). */
+html:has(.teams-tools) {
+  scroll-padding-top: 152px;
+}
+@media (width <= 860px) {
+  html:has(.teams-tools) {
+    scroll-padding-top: 80px;
+  }
+}
+
+/* ---------- перший екран ---------- */
+.teams-intro {
+  border-bottom: var(--b) solid var(--rule);
+}
+.teams-intro .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px 32px;
+  align-items: end;
+  padding-block: clamp(28px, 5vw, 48px) 28px;
+}
+.teams-intro h1 {
+  font-size: clamp(40px, 7vw, 88px);
+  line-height: 0.95;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+.facts {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: var(--b2) solid var(--rule);
+}
+.facts li {
+  min-width: 0;
+  padding: 12px 18px;
+}
+.facts li + li {
+  border-left: var(--b2) solid var(--rule);
+}
+.facts b {
+  display: block;
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.1;
+}
+.facts span {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* ---------- інструменти ---------- */
+.teams-tools {
+  position: sticky;
+  top: calc(64px + env(safe-area-inset-top, 0px));
+  z-index: 5;
+  background: var(--paper);
+  border-bottom: var(--b2) solid var(--rule);
+}
+.teams-tools .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  align-items: center;
+  padding-block: 12px;
+}
+.teams-q {
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 12px;
+  font: 500 16px/1.2 var(--f-body);
+  word-spacing: normal;
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--b2) solid var(--rule);
+  border-radius: 0;
+}
+.teams-q::placeholder {
+  color: var(--ink-soft);
+  opacity: 1;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.chip {
+  min-height: 36px;
+  padding: 9px 11px;
+  font: 600 12.5px/1 var(--f-mono);
+  word-spacing: normal;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  box-shadow: inset 0 0 0 1.5px var(--rule);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.chip[aria-pressed="true"] {
+  color: var(--paper);
+  background: var(--ink);
+}
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-mono);
+  word-spacing: normal;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.sort select {
+  min-height: 36px;
+  padding: 8px 10px;
+  font: 600 13px/1 var(--f-body);
+  word-spacing: normal;
+  color: var(--ink);
+  background-color: var(--paper);
+  border: var(--b2) solid var(--rule);
+  border-radius: 0;
+}
+@media (hover: hover) {
+  .chip[aria-pressed="false"]:hover {
+    background: var(--paper-2);
+  }
+}
+
+/* ---------- сітка карток ---------- */
+.teams-body {
+  padding-block: 24px 40px;
+}
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.tc {
+  display: grid;
+  grid-template-rows: auto auto auto auto 1fr auto;
+  gap: 8px;
+  min-width: 0;
+  padding-bottom: 12px;
+  background: var(--paper);
+  border: var(--b2) solid var(--rule);
+}
+/* Не атрибут hidden: preflight Tailwind 4 ховає [hidden] з !important у @layer base, а !important
+   у шарі перемагає будь-яке !important поза шаром — показати без JS було б неможливо (замір e2e). */
+.tc.is-later {
+  display: none;
+}
+.tc:focus-visible {
+  outline-offset: 3px;
+}
+.tc-art {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--paper-2);
+  border-bottom: var(--b2) solid var(--rule);
+}
+.tc.is-current .tc-art {
+  border-bottom: 6px solid var(--team, var(--rule));
+}
+.tc-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tc-none {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-size: 34px;
+  color: var(--hair);
+}
+.tc-pos {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  margin: 0;
+  padding: 3px 6px;
+  font: 700 11px/1.3 var(--f-mono);
+  word-spacing: normal;
+  color: var(--on-yellow);
+  background: var(--yellow);
+}
+.tc-name {
+  margin: 0;
+  padding: 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.tc-loc {
+  margin: 0;
+  padding: 0 12px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+.tc-yr {
+  display: grid;
+  gap: 5px;
+  align-content: start;
+  padding: 0 12px;
+}
+/* Смуга 1950–2026: один градієнт (season-strip.ts) + сітка сезонів 1 px кольором паперу зверху,
+   щоб читались окремі роки, як у макеті (там 77 елементів). */
+.tc-strip {
+  --strip-on: var(--ink);
+  --strip-off: var(--paper-2);
+  display: block;
+  height: 12px;
+  box-shadow: inset 0 0 0 1px var(--hair);
+}
+.tc-strip::before {
+  content: "";
+  display: block;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to right,
+    transparent 0 calc(100% / 77 - 1px),
+    var(--paper) calc(100% / 77 - 1px) calc(100% / 77)
+  );
+}
+.tc-yt {
+  font-family: var(--f-mono);
+  word-spacing: normal;
+  font-size: 11.5px;
+  color: var(--ink-soft);
+}
+.tc-st {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  margin: 0;
+  padding: 8px 12px 0;
+  border-top: 1px solid var(--hair);
+}
+.tc-st div {
+  min-width: 0;
+}
+.tc-st dt {
+  font-family: var(--f-mono);
+  word-spacing: normal;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  overflow-wrap: anywhere;
+}
+.tc-st dd {
+  margin: 0;
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-size: 20px;
+  line-height: 1.2;
+}
+.tc-crew {
+  display: grid;
+  gap: 6px;
+  padding: 6px 12px 0;
+}
+.tc-lbl {
+  margin: 0;
+  font-family: var(--f-mono);
+  word-spacing: normal;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.tc-crew ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tc-crew li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.av {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--paper-2);
+}
+.av-ini {
+  display: inline-grid;
+  place-items: center;
+  font: 600 10px/1 var(--f-mono);
+  word-spacing: normal;
+  color: var(--ink-soft);
+  box-shadow: inset 0 0 0 1.5px var(--hair);
+}
+
+/* ---------- стани ---------- */
+.teams-empty {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin: 24px 0;
+}
+.teams-empty p {
+  margin: 0;
+  font-size: 17px;
+}
+.btn-line,
+.teams-more {
+  min-height: 44px;
+  padding: 12px 14px;
+  font: 600 13px/1 var(--f-mono);
+  word-spacing: normal;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  box-shadow: inset 0 0 0 1.5px var(--rule);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.teams-more {
+  width: 100%;
+  margin-top: 20px;
+}
+@media (hover: hover) {
+  .btn-line:hover,
+  .teams-more:hover {
+    color: var(--paper);
+    background: var(--ink);
+  }
+}
+
+/* Без JS: видно всі картки, інструменти (не працюють) приховані. data-js ставить ThemeScript. */
+html:not([data-js]) .teams-tools,
+html:not([data-js]) .teams-more {
+  display: none;
+}
+html:not([data-js]) .tc.is-later {
+  display: grid;
+}
+
+/* ---------- автори фото ---------- */
+.page-credits {
+  background: var(--head-bg);
+  color: var(--head-fg);
+  border-top: 1px solid rgb(255 255 255 / 0.14);
+}
+.page-credits .wrap {
+  display: grid;
+  gap: 10px;
+  padding-block: 20px;
+}
+.page-credits summary {
+  cursor: pointer;
+  font: 600 12px/1.4 var(--f-mono);
+  word-spacing: normal;
+  opacity: 0.85;
+}
+.page-credits ul {
+  margin: 10px 0 4px;
+  padding: 0;
+  list-style: none;
+  font-size: 12px;
+  line-height: 1.7;
+  opacity: 0.85;
+  columns: 3 280px;
+  column-gap: 32px;
+}
+.page-credits li {
+  break-inside: avoid;
+}
+.page-credits a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---------- пошук з іконкою ---------- */
+.teams-search {
+  position: relative;
+  flex: 1 1 240px;
+  min-width: 0;
+  display: flex;
+}
+.teams-search svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  translate: 0 -50%;
+  color: var(--ink-soft);
+  pointer-events: none;
+}
+.teams-search .teams-q {
+  flex: 1;
+  padding-left: 38px;
+}
+
+/* ---------- адаптивність ---------- */
+@media (width <= 1100px) {
+  .teams-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (width <= 860px) {
+  .teams-tools {
+    position: static;
+  }
+  .teams-intro .wrap {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .teams-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (width <= 520px) {
+  .teams-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .facts li {
+    padding: 10px 12px;
+  }
+  .sort {
+    flex: 1 1 100%;
+  }
+  .sort select {
+    flex: 1;
+  }
+}
+
+/* ≤ 420 px: числа першого екрана — рядками «164 конструктори» (у три колонки «конструктори»
+   не влазило на 320–360 px — замір UX-проходу 11.11). */
+@media (width <= 420px) {
+  .facts {
+    flex-direction: column;
+  }
+  .facts li {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 8px 12px;
+  }
+  .facts li + li {
+    border-left: 0;
+    border-top: var(--b2) solid var(--rule);
+  }
+  .facts b {
+    font-size: 22px;
+  }
+  .facts span {
+    font-size: 14px;
+  }
+}

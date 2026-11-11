@@ -42,6 +42,26 @@ export function applyThemeColor(theme: ThemeChoice | null): void {
   }
 }
 
+/** localStorage або null (приватний режим, заблоковані дані сайту). */
+export function safeStorage(): Storage | null {
+  try {
+    return window.localStorage;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Атрибути `<html>`, які ставить inline-скрипт (`data-js`, `data-theme`), — повторно після кожного
+ * монтування кореневого layout: зміна мови перемонтовує `<html>`, і React стирає «чужі» атрибути
+ * (замір 11.11: після UA → EN тема скидалась на системну, перемикач теми ховався).
+ */
+export function restoreHtmlAttributes(root: HTMLElement, storage: Storage | null): void {
+  root.setAttribute("data-js", "");
+  const theme = readStoredTheme(storage);
+  if (theme) root.setAttribute("data-theme", theme);
+}
+
 export function nextTheme(current: ThemeChoice): ThemeChoice {
   return current === "dark" ? "light" : "dark";
 }

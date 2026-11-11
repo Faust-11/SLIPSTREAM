@@ -40,7 +40,7 @@ const FRAMEWORK_BASELINE = 95; // порожня сторінка Next 16.4.5, C
 const PERF_THRESHOLD = Math.max(90, FRAMEWORK_BASELINE - 3);
 const BUDGET = { lcpMs: 2500, cls: 0.1, tbtMs: 400 };
 
-const PAGES = ["/", "/uk/teams"];
+const PAGES = ["/", "/teams", "/uk/teams"];
 const NOT_FOUND = "/uk/nope";
 // Для 404 за визначенням: статус 404 (SEO) — не вада сторінки.
 const IGNORED_ON_404 = new Set(["http-status-code"]);

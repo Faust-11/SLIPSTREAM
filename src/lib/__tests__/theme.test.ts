@@ -4,6 +4,7 @@ import {
   nextTheme,
   readStoredTheme,
   resolveTheme,
+  restoreHtmlAttributes,
   themeScriptSource,
   writeStoredTheme,
 } from "../theme";
@@ -98,5 +99,18 @@ describe("themeScriptSource (inline-скрипт у <head>)", () => {
   it("ігнорує сміття й недоступне сховище", () => {
     expect(runWith(storageWith("<img onerror=1>"))).toBeNull();
     expect(runWith(throwingStorage)).toBeNull();
+  });
+});
+
+describe("restoreHtmlAttributes", () => {
+  it("ставить data-js і збережену тему; без вибору — лише data-js", () => {
+    const el = document.createElement("html");
+    restoreHtmlAttributes(el, storageWith("dark"));
+    expect(el.getAttribute("data-js")).toBe("");
+    expect(el.getAttribute("data-theme")).toBe("dark");
+    const el2 = document.createElement("html");
+    restoreHtmlAttributes(el2, null);
+    expect(el2.hasAttribute("data-js")).toBe(true);
+    expect(el2.hasAttribute("data-theme")).toBe(false);
   });
 });
