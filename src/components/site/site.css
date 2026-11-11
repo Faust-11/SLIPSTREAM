@@ -1,0 +1,437 @@
+/* Шапка, мобільне меню, футер — порт макета (~/Desktop/F1/data/home_mockup, nav_fix.py). */
+
+html {
+  /* Sticky-шапка 64 px + смуга 8 px не мають закривати фокус і якорі. */
+  scroll-padding-top: calc(80px + env(safe-area-inset-top, 0px));
+  -webkit-tap-highlight-color: transparent;
+}
+a,
+button {
+  touch-action: manipulation;
+}
+
+/* Футер притиснутий до низу навіть на коротких сторінках. */
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+body > main {
+  flex: 1 0 auto;
+}
+
+.wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 30;
+  background: var(--yellow);
+  color: var(--on-yellow);
+  padding: 10px 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 8px;
+  outline-color: var(--ink);
+}
+
+/* safe area: смуга кольору шапки під вирізом екрана */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--head-bg);
+}
+
+/* ---------- header ---------- */
+.site-head {
+  background: var(--head-bg);
+  color: var(--head-fg);
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+}
+.site-head .wrap {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  height: 64px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.brand .roundel {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow:
+    0 0 0 3px var(--head-bg),
+    0 0 0 5px var(--yellow);
+  display: flex;
+  flex-shrink: 0;
+}
+.brand .roundel svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.brand b {
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-weight: 400;
+  font-size: 17px;
+  letter-spacing: 0.04em;
+}
+
+.nav {
+  margin-left: auto;
+}
+.nav ul,
+.mnav ul,
+.foot-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav ul {
+  display: flex;
+  gap: 22px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.nav a {
+  display: inline-block;
+  padding: 6px 0;
+  white-space: nowrap;
+  text-decoration: none;
+  opacity: 0.88;
+}
+.nav a:hover {
+  opacity: 1;
+  color: var(--yellow);
+}
+.nav a[aria-current="page"] {
+  opacity: 1;
+  color: var(--yellow);
+  box-shadow: inset 0 -2px 0 var(--yellow);
+}
+.nav a.is-accent,
+.mnav a.is-accent {
+  color: var(--yellow);
+  opacity: 1;
+}
+
+.lang {
+  display: flex;
+  font-family: var(--f-mono);
+  word-spacing: normal;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / 0.35);
+}
+.lang-item {
+  display: inline-grid;
+  place-items: center;
+  min-width: 36px;
+  min-height: 30px;
+  padding: 0 9px;
+  color: var(--head-fg);
+  text-decoration: none;
+}
+.lang a.lang-item {
+  opacity: 0.75;
+}
+.lang a.lang-item:hover {
+  opacity: 1;
+}
+.lang-item.is-current {
+  background: var(--head-fg);
+  color: var(--head-bg);
+}
+
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+.theme-btn {
+  min-width: 32px;
+  min-height: 32px;
+  margin-left: -16px;
+  opacity: 0.85;
+}
+.theme-btn:hover {
+  opacity: 1;
+}
+.theme-btn svg {
+  display: block;
+}
+
+/* ---------- mobile menu (≤1140 px) ---------- */
+.mnav-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+.mnav-btn svg {
+  display: block;
+}
+.mnav {
+  position: fixed;
+  inset: var(--mnav-top, 64px) 0 0 0;
+  z-index: 19;
+  background: var(--head-bg);
+  color: var(--head-fg);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  padding: 4px max(16px, env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom, 0px))
+    max(16px, env(safe-area-inset-left, 0px));
+  border-top: 1px solid rgb(255 255 255 / 0.14);
+}
+.mnav[hidden] {
+  display: none;
+}
+.mnav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 0;
+  border-bottom: 1px solid rgb(255 255 255 / 0.14);
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-size: 21px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+}
+.mnav a:hover {
+  color: var(--yellow);
+}
+.mnav-btn:hover,
+.mnav-fallback:hover,
+.mnav-theme:hover {
+  color: var(--yellow);
+}
+.mnav a::after {
+  content: "→";
+  /* У латинському наборі Plex немає U+2192 — без цього стрілку малює Arial (замір CDP). */
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  word-spacing: normal;
+  font-size: 15px;
+  opacity: 0.5;
+}
+.mnav a[aria-current="page"] {
+  color: var(--yellow);
+}
+.mnav a[aria-current="page"]::after {
+  content: "●";
+  font-size: 10px;
+  opacity: 1;
+}
+.mnav-theme {
+  margin-top: 18px;
+  align-self: flex-start;
+  font: 600 12px/1 var(--f-mono);
+  word-spacing: normal;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / 0.4);
+  padding: 12px 14px;
+}
+body.mnav-open {
+  overflow: hidden;
+}
+
+/* Без JS бургер нічого не робить — ховаємо; замість нього посилання на розділи у футері. */
+html:not([data-js]) .mnav-btn {
+  display: none !important;
+}
+.mnav-fallback {
+  display: none;
+  min-height: 40px;
+  place-items: center;
+  font: 600 12px/1 var(--f-mono);
+  word-spacing: normal;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0 4px;
+}
+
+/* Поріг бургера 1140 px: меню UK ≈ 707 + бренд 211 + мова 72 + тема 32 + відступи — інакше
+   на 861–1135 px пункти переносяться й виходять за край (замір рев'ю). */
+@media (max-width: 1140px) {
+  .nav,
+  .site-head .theme-btn {
+    display: none;
+  }
+  .mnav-btn {
+    display: inline-grid;
+  }
+  html:not([data-js]) .mnav-fallback {
+    display: inline-grid;
+  }
+  .site-head .wrap {
+    gap: 12px;
+  }
+  .site-head .lang {
+    margin-left: auto;
+  }
+}
+@media (max-width: 400px) {
+  .site-head .brand {
+    gap: 10px;
+  }
+  .site-head .brand b {
+    font-size: 15px;
+  }
+  .site-head .roundel {
+    width: 40px;
+    height: 40px;
+  }
+}
+/* 320–359 px: логотип + мова + бургер мають влізти в 288 px (замір: 320 px без цього → +16 px скролу). */
+@media (max-width: 359px) {
+  .site-head .wrap {
+    gap: 8px;
+  }
+  .site-head .brand {
+    gap: 8px;
+  }
+  .site-head .brand b {
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+  .site-head .lang-item {
+    min-width: 32px;
+    padding: 0 6px;
+  }
+}
+@media (min-width: 1141px) {
+  .mnav {
+    display: none !important;
+  }
+}
+
+/* ---------- livery ---------- */
+.livery {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  height: 8px;
+}
+.livery i:nth-child(1) { background: var(--t-ferrari); }
+.livery i:nth-child(2) { background: var(--t-mclaren); }
+.livery i:nth-child(3) { background: var(--t-mercedes); }
+.livery i:nth-child(4) { background: var(--t-redbull); }
+.livery i:nth-child(5) { background: var(--t-aston); }
+.livery i:nth-child(6) { background: var(--t-williams); }
+.livery i:nth-child(7) { background: var(--yellow); }
+
+/* ---------- footer ---------- */
+.site-foot {
+  background: var(--head-bg);
+  color: var(--head-fg);
+  margin-top: 64px;
+}
+.site-foot .wrap {
+  padding-block: 36px 40px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: 40px;
+}
+.site-foot .brand .roundel {
+  width: 64px;
+  height: 64px;
+}
+.foot-brand .brand {
+  margin-bottom: 14px;
+}
+.site-foot p {
+  margin: 0 0 10px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  opacity: 0.85;
+  max-width: 62ch;
+}
+.foot-nav ul {
+  display: grid;
+  /* Колонками, як читається меню: Сезони, Календар, Новини… */
+  grid-auto-flow: column;
+  grid-template-rows: repeat(5, auto);
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  gap: 6px 28px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.foot-nav a {
+  display: inline-block;
+  padding: 4px 0;
+  text-decoration: none;
+}
+.foot-nav a:hover {
+  color: var(--yellow);
+  text-decoration: underline;
+}
+.unofficial {
+  display: inline-block;
+  font-family: var(--f-mono);
+  word-spacing: normal;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1.5px solid currentColor;
+  padding: 4px 8px;
+  margin-bottom: 12px;
+}
+.site-foot .credits {
+  font-family: var(--f-mono);
+  word-spacing: normal;
+  font-size: 11.5px;
+  line-height: 1.7;
+  opacity: 0.75;
+}
+/* Посилання в тексті відрізняються не лише кольором (WCAG 1.4.1). */
+.site-foot .credits a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+@media (max-width: 860px) {
+  .site-foot .wrap {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+}

@@ -126,7 +126,7 @@ test.describe("без JavaScript", () => {
 
   test("перемикач прихований (без JS він нічого не робить), діє системна тема", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator(".theme-toggle")).toBeHidden();
+    await expect(page.locator(".theme-btn")).toBeHidden();
     await expect(page.locator("body")).toHaveCSS("background-color", PAPER.dark);
   });
 });

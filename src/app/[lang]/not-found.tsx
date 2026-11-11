@@ -10,9 +10,9 @@ export default async function NotFound() {
   const dict = await getDictionary(locale);
 
   return (
-    <main>
+    <div className="wrap">
       <h1>{dict.notFound.title}</h1>
       <Link href={localizedPath("/", locale)}>{dict.notFound.home}</Link>
-    </main>
+    </div>
   );
 }
