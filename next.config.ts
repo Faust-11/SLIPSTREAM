@@ -69,9 +69,16 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return {
       // Служебна сторінка Next доступна за прямою адресою й відповідає 500 — ховаємо за 404.
-      beforeFiles: [{ source: "/_global-error", destination: "/_not-found" }],
+      // Службова сторінка Next доступна за прямою адресою й відповідає 500 — на неіснуючу адресу (404).
+      // (Rewrite на /_not-found на Vercel віддавав сторінку 404 зі статусом 200 — замір прев'ю 11.11.)
+      beforeFiles: [{ source: "/_global-error", destination: "/en/_global-error" }],
       afterFiles: [
         { source: "/", destination: "/en" },
+        // Vercel внутрішньо називає корінь «index»: RSC-запити головної приходять як /index.rsc і
+        // /index.segments/… (замір x-matched-path на прев'ю 11.11). Без цих правил catch-all нижче дає
+        // /en/index.segments/… → 404, і клієнтський перехід на головну перезавантажує сторінку.
+        { source: "/index.rsc", destination: "/en.rsc" },
+        { source: "/index.segments/:path*", destination: "/en.segments/:path*" },
         // Усе, крім мовних префіксів і службових/не-сторінкових шляхів (src/i18n/routing.ts), — англійська версія.
         { source: `/:path(${localeRewritePattern()})`, destination: "/en/:path" },
       ],

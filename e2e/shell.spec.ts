@@ -112,7 +112,8 @@ test.describe("мобільне меню", () => {
   });
 
   test("до гідратації (бандл не завантажився) — замість бургера посилання на розділи", async ({ page }) => {
-    await page.route("**/_next/static/chunks/*.js", (route) => route.abort());
+    // ** — і з query (на Vercel до чанків додається ?dpl=…).
+    await page.route(/\/_next\/static\/chunks\/.+\.js(\?.*)?$/, (route) => route.abort());
     await page.goto("/uk");
     await expect(page.locator(".mnav-btn")).toBeHidden();
     const fallback = page.getByRole("link", { name: "Меню", exact: true });
@@ -237,3 +238,20 @@ for (const colorScheme of ["light", "dark"] as const) {
     }
   }
 }
+
+test("клієнтський перехід на головну — без перезавантаження сторінки (RSC кореня)", async ({ page }) => {
+  await page.goto("/teams");
+  await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+  await page.evaluate(() => ((window as unknown as { __marker: number }).__marker = 1));
+  const bad: string[] = [];
+  page.on("response", (r) => {
+    if (r.url().includes("_rsc") && (r.status() >= 400 || !(r.headers()["content-type"] ?? "").includes("text/x-component"))) {
+      bad.push(`${r.status()} ${r.headers()["content-type"]} ${new URL(r.url()).pathname}`);
+    }
+  });
+  await page.getByRole("link", { name: "Slipstream — home" }).first().click();
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Slipstream");
+  expect(await page.evaluate(() => (window as unknown as { __marker?: number }).__marker)).toBe(1);
+  expect(bad).toEqual([]);
+});
