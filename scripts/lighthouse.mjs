@@ -9,6 +9,11 @@
  * - бюджети: LCP < 2500 мс, CLS < 0.1, TBT < 400 мс (медіани; порожня сторінка Next ≈ 250 + розкид ≈ 100).
  * Базовий рівень перемірювати після кожного оновлення Next (порожня сторінка тим самим скриптом).
  *
+ * Троттлінг — `devtools` (рішення користувача 11.11): мережа й CPU сповільнюються по-справжньому з тими самими
+ * параметрами мобільного 4G (mobileSlow4G: затримка, пропускна здатність, CPU ×4), а не моделюються (lantern).
+ * Причина: на /teams симульований LCP 2,9 с при спостереженому 293 мс (фото малюється з першим кадром) —
+ * модель, а не сторінка (docs/decisions.md). Повертаючи simulate, перемірювати базовий рівень.
+ *
  *   BASE_URL=http://localhost:3100 CHROME_PATH=… node scripts/lighthouse.mjs [--runs 3] [--out lighthouse-report]
  *
  * - Сторінки 200 — режим navigation (усі категорії, зокрема performance).
@@ -92,7 +97,7 @@ async function navigationRun(url) {
   const browser = await launch();
   try {
     const page = await browser.newPage();
-    const result = await lighthouse(url, { output: "json", logLevel: "error" }, undefined, page);
+    const result = await lighthouse(url, { output: "json", logLevel: "error", throttlingMethod: "devtools" }, undefined, page);
     if (!result || result.lhr.runtimeError) throw new Error(`${url}: ${result?.lhr.runtimeError?.message ?? "немає результату"}`);
     return result.lhr;
   } finally {
@@ -118,6 +123,7 @@ async function snapshotRun(url) {
 const summary = {
   baseUrl: BASE_URL,
   runs: RUNS,
+  throttling: "devtools",
   thresholds: { categories: THRESHOLD, performance: PERF_THRESHOLD, frameworkBaseline: FRAMEWORK_BASELINE, budget: BUDGET },
   pages: [],
   ok: true,
