@@ -1,29 +1,7 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
-import { nextTheme, resolveTheme, writeStoredTheme, type ThemeChoice } from "@/lib/theme";
-
-const DARK_QUERY = "(prefers-color-scheme: dark)";
-
-function subscribe(onChange: () => void): () => void {
-  const media = window.matchMedia(DARK_QUERY);
-  const observer = new MutationObserver(onChange);
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-  media.addEventListener("change", onChange);
-  return () => {
-    observer.disconnect();
-    media.removeEventListener("change", onChange);
-  };
-}
-
-function getSnapshot(): ThemeChoice {
-  return resolveTheme(document.documentElement.getAttribute("data-theme"), window.matchMedia(DARK_QUERY).matches);
-}
-
-// На сервері тема невідома: до гідратації — нейтральний стан, щоб не було розбіжності розмітки.
-function getServerSnapshot(): ThemeChoice | null {
-  return null;
-}
+import { useEffect } from "react";
+import { THEME_STORAGE_KEY, nextTheme, readStoredTheme, resolveTheme, writeStoredTheme } from "@/lib/theme";
 
 function safeStorage(): Storage | null {
   try {
@@ -33,19 +11,51 @@ function safeStorage(): Storage | null {
   }
 }
 
-export function ThemeToggle({ labels, className }: { labels: { toLight: string; toDark: string }; className?: string }) {
-  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-  const label = theme === "dark" ? labels.toLight : labels.toDark;
+function currentTheme() {
+  return resolveTheme(
+    document.documentElement.getAttribute("data-theme"),
+    window.matchMedia("(prefers-color-scheme: dark)").matches,
+  );
+}
+
+/**
+ * Обидві іконки й обидва підписи — у розмітці; видимий стан обирає CSS за чинною темою
+ * (globals.css, `.theme-toggle`). Тож сервер і клієнт рендерять однаково, і до гідратації
+ * кнопка вже показує правильну дію.
+ */
+export function ThemeToggle({ labels, className = "" }: { labels: { toLight: string; toDark: string }; className?: string }) {
+  // Вибір в іншій вкладці — застосувати й тут.
+  useEffect(() => {
+    function onStorage(e: StorageEvent) {
+      if (e.key !== THEME_STORAGE_KEY) return;
+      const theme = readStoredTheme(safeStorage());
+      if (theme) document.documentElement.setAttribute("data-theme", theme);
+      else document.documentElement.removeAttribute("data-theme");
+    }
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
+  }, []);
 
   function toggle() {
-    const next = nextTheme(getSnapshot());
+    const next = nextTheme(currentTheme());
     document.documentElement.setAttribute("data-theme", next);
     writeStoredTheme(safeStorage(), next);
   }
 
   return (
-    <button type="button" className={className} onClick={toggle} aria-label={label} title={label}>
-      {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+    <button
+      type="button"
+      onClick={toggle}
+      className={`theme-toggle inline-grid min-h-[30px] min-w-[30px] cursor-pointer place-items-center p-1.5 ${className}`}
+    >
+      <span className="tt-to-light">
+        <SunIcon />
+        <span className="sr-only">{labels.toLight}</span>
+      </span>
+      <span className="tt-to-dark">
+        <MoonIcon />
+        <span className="sr-only">{labels.toDark}</span>
+      </span>
     </button>
   );
 }
