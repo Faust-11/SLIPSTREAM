@@ -45,7 +45,34 @@ test("1280 px: десктопне меню з 9 розділами, бургер
   await expect(nav).toBeVisible();
   await expect(nav.getByRole("link")).toHaveCount(9);
   await expect(page.locator(".mnav-btn")).toBeHidden();
-  await expect(nav.getByRole("link", { name: "Play" })).toHaveCSS("color", "rgb(255, 196, 0)");
+  // «Гра» — заливна жовта плашка (рішення користувача 11.11).
+  const play = nav.getByRole("link", { name: "Play" });
+  await expect(play).toHaveCSS("background-color", "rgb(255, 196, 0)");
+  await expect(play).toHaveCSS("color", "rgb(22, 24, 29)");
+});
+
+test("1280 px: жовтий — лише плашка «Гра» й підкреслення поточного розділу, не наведення", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("/uk/teams");
+  const nav = page.getByRole("navigation", { name: "Головне меню" });
+  const current = nav.getByRole("link", { name: "Команди" });
+  await expect(current).toHaveAttribute("aria-current", "page");
+  await expect(current).toHaveCSS("color", "rgb(243, 244, 241)");
+  await expect(current).toHaveCSS("box-shadow", /rgb\(255, 196, 0\)/);
+  const other = nav.getByRole("link", { name: "Сезони" });
+  await other.hover();
+  await expect(other).toHaveCSS("color", "rgb(243, 244, 241)");
+  await expect(other).toHaveCSS("box-shadow", /rgb\(243, 244, 241\)/);
+  // Поточна «Гра»: плашка лишається, позначка поточного — жовта риска під плашкою, з відступом.
+  await page.goto("/uk/game");
+  const play = nav.getByRole("link", { name: "Гра" });
+  await expect(play).toHaveAttribute("aria-current", "page");
+  await expect(play).toHaveCSS("background-color", "rgb(255, 196, 0)");
+  const mark = await play.evaluate((el) => {
+    const a = getComputedStyle(el, "::after");
+    return { bg: a.backgroundColor, h: a.height, bottom: a.bottom };
+  });
+  expect(mark).toEqual({ bg: "rgb(255, 196, 0)", h: "2px", bottom: "-6px" });
 });
 
 test.describe("мобільне меню", () => {
@@ -65,6 +92,29 @@ test.describe("мобільне меню", () => {
     await expect(page.locator("main")).not.toHaveAttribute("inert");
     await expect(page.locator("body")).not.toHaveClass(/mnav-open/);
   }
+
+  test("панель: «Гра» — жовта плашка, поточний розділ — жовта позначка без жовтого тексту", async ({ page }) => {
+    await page.goto("/uk/teams");
+    await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+    await page.getByRole("button", { name: "Меню" }).click();
+    const panel = page.locator(".mnav");
+    const current = panel.getByRole("link", { name: "Команди" });
+    await expect(current).toHaveAttribute("aria-current", "page");
+    await expect(current).toHaveCSS("color", "rgb(243, 244, 241)");
+    expect(await current.evaluate((el) => getComputedStyle(el, "::after").color)).toBe("rgb(255, 196, 0)");
+    const plate = panel.getByRole("link", { name: "Гра" }).locator(".mnav-plate");
+    await expect(plate).toHaveCSS("background-color", "rgb(255, 196, 0)");
+    await expect(plate).toHaveCSS("color", "rgb(22, 24, 29)");
+    // Рядок «Гра» тієї ж висоти, що й інші; плашка — по лінії тексту, не ближче до краю.
+    const rows = await panel.getByRole("link").evaluateAll((els) => els.map((e) => Math.round(e.getBoundingClientRect().height)));
+    expect(new Set(rows).size).toBe(1);
+    const left = await panel.getByRole("link", { name: "Сезони" }).evaluate((e) => e.getBoundingClientRect().left);
+    expect(Math.round((await plate.boundingBox())!.x)).toBe(Math.round(left));
+    const other = panel.getByRole("link", { name: "Сезони" });
+    await other.hover();
+    await expect(other).toHaveCSS("color", "rgb(243, 244, 241)");
+    await expectNoA11yViolations(page);
+  });
 
   test("відкривається; Escape з фокусом у панелі закриває й повертає фокус", async ({ page }) => {
     await page.goto("/");
@@ -203,9 +253,9 @@ test("перемикач мови на головній зберігає пар�
   await expect(page.locator("html")).toHaveAttribute("lang", "uk");
   const toEn = page.getByRole("group", { name: "Мова" }).getByRole("link", { name: "English" });
   await expect(toEn).toHaveAttribute("href", "/?q=lotus");
-  await expect(page.getByRole("group", { name: "Мова" }).locator('[aria-current="true"]')).toHaveText("UK");
+  await expect(page.getByRole("group", { name: "Мова" }).locator('[aria-current="true"]')).toHaveText("UA");
   // Порядок як у макеті.
-  await expect(page.locator(".lang .lang-item").first()).toContainText("UK");
+  await expect(page.locator(".lang .lang-item").first()).toContainText("UA");
 });
 
 test("футер: притиснутий до низу, посилання Jolpica підкреслене", async ({ page }) => {
