@@ -49,3 +49,6 @@ next-env.d.ts
 
 # e2e: стан обходу захисту Vercel (cookie)
 /e2e/.auth/
+
+# Lighthouse
+/lighthouse-report/

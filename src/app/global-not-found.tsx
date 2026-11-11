@@ -15,7 +15,10 @@ import "./globals.css";
 // Заголовок вкладки однаковий для обох мов: React під час гідратації повертає текст <title>.
 const LANG_SCRIPT = `(function(){var p=location.pathname,l=p==="/uk"||p.indexOf("/uk/")===0?"uk":"en",d=document.documentElement;d.lang=l;d.setAttribute("data-nf-lang",l)})()`;
 
-export const metadata: Metadata = { title: "404 · Slipstream" };
+export const metadata: Metadata = {
+  title: "404 · Slipstream",
+  description: "Page not found · Сторінку не знайдено — Slipstream, an unofficial Formula 1 fan site.",
+};
 
 export default async function GlobalNotFound() {
   const dicts = await Promise.all(locales.map(async (locale) => ({ locale, dict: await getDictionary(locale) })));
