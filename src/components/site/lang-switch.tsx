@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { useSearchParams, useSelectedLayoutSegments } from "next/navigation";
 import { Suspense } from "react";
+import { barePathFromSegments } from "@/config/nav";
 import type { Locale } from "@/i18n/config";
-import { localizedPath } from "@/i18n/paths";
+import { switchLocalePath } from "@/i18n/paths";
 
 type Props = { current: Locale; label: string; names: Record<Locale, string> };
 
@@ -13,8 +14,7 @@ const ORDER: readonly Locale[] = ["uk", "en"];
 
 /** Шлях сторінки без мови — з дерева маршрутів (стабільно при rewrites, без розбіжності гідратації). */
 function useBarePath(): string {
-  const segments = useSelectedLayoutSegments().filter((s) => !s.startsWith("("));
-  return `/${segments.map(encodeURIComponent).join("/")}`;
+  return barePathFromSegments(useSelectedLayoutSegments());
 }
 
 function Links({ current, label, names, query }: Props & { query: string }) {
@@ -30,7 +30,7 @@ function Links({ current, label, names, query }: Props & { query: string }) {
           <Link
             key={locale}
             className="lang-item"
-            href={localizedPath(bare, locale) + query}
+            href={switchLocalePath(bare + query, locale)}
             hrefLang={locale}
             lang={locale}
           >

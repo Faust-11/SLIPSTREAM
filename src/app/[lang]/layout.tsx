@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
+import { RouteFocus } from "@/components/site/route-focus";
 import "@/components/site/site.css";
 import { ThemeScript } from "@/components/theme/theme-script";
 import { getDictionary } from "@/i18n/get-dictionary";
@@ -50,6 +51,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
           {children}
         </main>
         <Footer locale={lang} dict={dict} />
+        <RouteFocus />
       </body>
     </html>
   );

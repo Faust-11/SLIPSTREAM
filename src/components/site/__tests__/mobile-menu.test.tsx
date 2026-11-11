@@ -21,9 +21,16 @@ function setup() {
   return { user: userEvent.setup(), button: screen.getByRole("button", { name: "Меню" }) };
 }
 
+// jsdom не вміє переходити між документами: справжній перехід перевіряє e2e.
+function preventNavigation(e: MouseEvent) {
+  if ((e.target as Element).closest("a")) e.preventDefault();
+}
+
 describe("MobileMenu", () => {
   beforeEach(() => {
     document.body.className = "";
+    document.addEventListener("click", preventNavigation);
+    return () => document.removeEventListener("click", preventNavigation);
   });
 
   it("закрите за замовчуванням: aria-expanded=false і aria-controls на панель", () => {

@@ -28,7 +28,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           <p>{dict.footer.disclaimer}</p>
           <p className="credits">
             {dict.footer.dataLabel}:{" "}
-            <a href="https://jolpi.ca" rel="noopener" translate="no">
+            <a href="https://jolpi.ca" translate="no">
               Jolpica F1
             </a>{" "}
             · CC BY-NC-SA 4.0

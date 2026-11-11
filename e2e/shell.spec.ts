@@ -46,19 +46,77 @@ test("1280 px: десктопне меню з 9 розділами, бургер
   await expect(nav.getByRole("link", { name: "Play" })).toHaveCSS("color", "rgb(255, 196, 0)");
 });
 
-test("мобільне меню: відкривається, Escape закриває, фокус повертається", async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 800 });
-  await page.goto("/");
-  const button = page.getByRole("button", { name: "Menu" });
-  await button.click();
-  const panel = page.locator(".mnav");
-  await expect(panel).toBeVisible();
-  await expect(panel.getByRole("link")).toHaveCount(9);
-  await expect(page.locator("main")).toHaveAttribute("inert", "");
-  await expectNoA11yViolations(page);
-  await page.keyboard.press("Escape");
-  await expect(panel).toBeHidden();
-  await expect(page.getByRole("button", { name: "Menu" })).toBeFocused();
+test.describe("мобільне меню", () => {
+  test.use({ viewport: { width: 390, height: 800 } });
+
+  async function openMenu(page: import("@playwright/test").Page) {
+    await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+    const button = page.getByRole("button", { name: "Menu" });
+    await button.click();
+    await expect(button).toHaveAttribute("aria-expanded", "true");
+    return button;
+  }
+
+  async function expectClosed(page: import("@playwright/test").Page) {
+    await expect(page.getByRole("button", { name: "Menu" })).toHaveAttribute("aria-expanded", "false");
+    await expect(page.locator(".mnav")).toBeHidden();
+    await expect(page.locator("main")).not.toHaveAttribute("inert");
+    await expect(page.locator("body")).not.toHaveClass(/mnav-open/);
+  }
+
+  test("відкривається; Escape з фокусом у панелі закриває й повертає фокус", async ({ page }) => {
+    await page.goto("/");
+    await openMenu(page);
+    const panel = page.locator(".mnav");
+    await expect(panel.getByRole("link")).toHaveCount(9);
+    await expect(page.locator("main")).toHaveAttribute("inert", "");
+    await expect(page.getByRole("link", { name: "Skip to content" })).toBeHidden();
+    await expectNoA11yViolations(page);
+    await page.keyboard.press("Tab");
+    await expect(panel.getByRole("link").first()).toBeFocused();
+    await page.keyboard.press("Escape");
+    await expectClosed(page);
+    await expect(page.getByRole("button", { name: "Menu" })).toBeFocused();
+  });
+
+  test("закривається при переході поза панеллю: логотип, Back", async ({ page }) => {
+    await page.goto("/teams");
+    await openMenu(page);
+    await page.getByRole("link", { name: "Slipstream — home" }).first().click();
+    await expect(page).toHaveURL(/\/$/);
+    await expectClosed(page);
+
+    await openMenu(page);
+    await page.goBack();
+    await expect(page).toHaveURL(/\/teams$/);
+    await expectClosed(page);
+  });
+
+  test("закривається, коли вікно стає десктопним", async ({ page }) => {
+    await page.goto("/");
+    await openMenu(page);
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await expect(page.locator("main")).not.toHaveAttribute("inert");
+    await expect(page.locator("body")).not.toHaveClass(/mnav-open/);
+  });
+
+  test("після переходу з клавіатури фокус на початку змісту", async ({ page }) => {
+    await page.goto("/");
+    await openMenu(page);
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Enter");
+    await expect(page).toHaveURL(/\/seasons$/);
+    await expect(page.locator("main#main")).toBeFocused();
+  });
+
+  test("до гідратації (бандл не завантажився) — замість бургера посилання на розділи", async ({ page }) => {
+    await page.route("**/_next/static/chunks/*.js", (route) => route.abort());
+    await page.goto("/uk");
+    await expect(page.locator(".mnav-btn")).toBeHidden();
+    const fallback = page.getByRole("link", { name: "Меню", exact: true });
+    await expect(fallback).toBeVisible();
+    await expect(fallback).toHaveAttribute("href", "#sections");
+  });
 });
 
 test("футер містить усі 9 розділів обома мовами", async ({ page }) => {
@@ -76,7 +134,7 @@ test.describe("без JavaScript", () => {
     await page.setViewportSize({ width: 390, height: 800 });
     await page.goto("/uk");
     await expect(page.locator(".mnav-btn")).toBeHidden();
-    const fallback = page.getByRole("link", { name: "Меню ↓" });
+    const fallback = page.getByRole("link", { name: "Меню", exact: true });
     await expect(fallback).toBeVisible();
     await expect(fallback).toHaveAttribute("href", "#sections");
     const links = page.locator(".foot-nav a");
@@ -85,7 +143,37 @@ test.describe("без JavaScript", () => {
   });
 });
 
-test("перемикач мови зберігає сторінку й параметри", async ({ page }) => {
+test("перемикач мови зберігає сторінку й параметри: /teams?q=lotus ↔ /uk/teams?q=lotus", async ({ page }) => {
+  await page.goto("/teams?q=lotus");
+  const toUk = page.getByRole("group", { name: "Language" }).getByRole("link", { name: "Українська" });
+  await expect(toUk).toHaveAttribute("href", "/uk/teams?q=lotus");
+  await toUk.click();
+  await expect(page).toHaveURL(/\/uk\/teams\?q=lotus$/);
+  await expect(page.getByRole("group", { name: "Мова" }).getByRole("link", { name: "English" })).toHaveAttribute(
+    "href",
+    "/teams?q=lotus",
+  );
+});
+
+test("активний розділ на десктопі: aria-current і після клієнтського переходу", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("/teams");
+  const nav = page.getByRole("navigation", { name: "Main" });
+  await expect(nav.getByRole("link", { name: "Teams" })).toHaveAttribute("aria-current", "page");
+  await nav.getByRole("link", { name: "Drivers" }).click();
+  await expect(page).toHaveURL(/\/drivers$/);
+  await expect(nav.getByRole("link", { name: "Drivers" })).toHaveAttribute("aria-current", "page");
+  await expect(nav.getByRole("link", { name: "Teams" })).not.toHaveAttribute("aria-current");
+});
+
+test("skip-link переносить фокус на зміст", async ({ page }) => {
+  await page.goto("/");
+  await page.keyboard.press("Tab");
+  await page.keyboard.press("Enter");
+  await expect(page.locator("main#main")).toBeFocused();
+});
+
+test("перемикач мови на головній зберігає параметри", async ({ page }) => {
   await page.goto("/?q=lotus");
   const toUk = page.getByRole("group", { name: "Language" }).getByRole("link", { name: "Українська" });
   await expect(toUk).toHaveAttribute("href", "/uk?q=lotus");

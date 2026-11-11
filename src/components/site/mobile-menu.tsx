@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { useSelectedLayoutSegments } from "next/navigation";
 import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { useActiveNav } from "./use-active-nav";
 
 export type MenuItem = { key: string; href: string; label: string; accent?: "yellow" };
 
-// Узгоджено з site.css (@media max-width: 1140px).
-const DESKTOP = "(min-width: 1141px)";
+// Узгоджено з site.css (@media (width > 1140px)).
+const DESKTOP = "(width > 1140px)";
 
 export function MobileMenu({
   items,
@@ -23,6 +24,19 @@ export function MobileMenu({
   const buttonRef = useRef<HTMLButtonElement>(null);
   const active = useActiveNav();
 
+  // Будь-яка зміна маршруту (логотип, Back/Forward, router.push) закриває панель.
+  const route = useSelectedLayoutSegments().join("/");
+  const [shownRoute, setShownRoute] = useState(route);
+  if (route !== shownRoute) {
+    setShownRoute(route);
+    setOpen(false);
+  }
+
+  // Після гідратації бургер замінює запасне посилання на розділи (див. site.css).
+  useEffect(() => {
+    document.documentElement.setAttribute("data-hydrated", "");
+  }, []);
+
   const close = useCallback((returnFocus: boolean) => {
     setOpen(false);
     if (returnFocus) buttonRef.current?.focus();
@@ -33,7 +47,10 @@ export function MobileMenu({
     const blocked = document.querySelectorAll<HTMLElement>("[data-mnav-inert]");
     blocked.forEach((el) => el.toggleAttribute("inert", open));
     document.body.classList.toggle("mnav-open", open);
-    if (!open) return;
+    if (!open) {
+      document.documentElement.style.removeProperty("--mnav-top");
+      return;
+    }
 
     const header = buttonRef.current?.closest(".site-head");
     const top = header ? Math.max(0, header.getBoundingClientRect().bottom) : 64;
