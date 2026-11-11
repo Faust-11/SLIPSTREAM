@@ -4,6 +4,7 @@
   {
    "id": "ferrari",
    "name": "Ferrari",
+   "fullName": "Ferrari",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -15,26 +16,16 @@
      2026
     ]
    ],
-   "grandsPrix": 1144,
-   "wins": 251,
+   "grandsPrix": 1143,
+   "wins": 250,
    "titles": 16,
+   "refs": [
+    "ferrari"
+   ],
    "current": {
     "position": 2,
     "color": "#E8002D",
     "drivers": [
-     {
-      "id": "leclerc",
-      "name": {
-       "en": "Charles Leclerc",
-       "uk": "Шарль Леклер"
-      },
-      "surname": {
-       "en": "Leclerc",
-       "uk": "Леклер"
-      },
-      "initials": "CL",
-      "avatar": "/img/drivers/leclerc.jpg"
-     },
      {
       "id": "hamilton",
       "name": {
@@ -47,6 +38,19 @@
       },
       "initials": "LH",
       "avatar": "/img/drivers/hamilton.jpg"
+     },
+     {
+      "id": "leclerc",
+      "name": {
+       "en": "Charles Leclerc",
+       "uk": "Шарль Леклер"
+      },
+      "surname": {
+       "en": "Leclerc",
+       "uk": "Леклер"
+      },
+      "initials": "CL",
+      "avatar": "/img/drivers/leclerc.jpg"
      }
     ]
    },
@@ -64,6 +68,7 @@
   {
    "id": "mclaren",
    "name": "McLaren",
+   "fullName": "McLaren",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -78,6 +83,13 @@
    "grandsPrix": 1013,
    "wins": 206,
    "titles": 10,
+   "refs": [
+    "mclaren",
+    "mclaren-alfa_romeo",
+    "mclaren-brm",
+    "mclaren-ford",
+    "mclaren-seren"
+   ],
    "current": {
     "position": 4,
     "color": "#FF8000",
@@ -124,6 +136,7 @@
   {
    "id": "mercedes",
    "name": "Mercedes",
+   "fullName": "Mercedes",
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -142,23 +155,13 @@
    "grandsPrix": 361,
    "wins": 143,
    "titles": 9,
+   "refs": [
+    "mercedes"
+   ],
    "current": {
     "position": 1,
     "color": "#27D9C2",
     "drivers": [
-     {
-      "id": "russell",
-      "name": {
-       "en": "George Russell",
-       "uk": "Джордж Расселл"
-      },
-      "surname": {
-       "en": "Russell",
-       "uk": "Расселл"
-      },
-      "initials": "GR",
-      "avatar": "/img/drivers/russell.jpg"
-     },
      {
       "id": "antonelli",
       "name": {
@@ -171,6 +174,19 @@
       },
       "initials": "AK",
       "avatar": "/img/drivers/antonelli.jpg"
+     },
+     {
+      "id": "russell",
+      "name": {
+       "en": "George Russell",
+       "uk": "Джордж Расселл"
+      },
+      "surname": {
+       "en": "Russell",
+       "uk": "Расселл"
+      },
+      "initials": "GR",
+      "avatar": "/img/drivers/russell.jpg"
      }
     ]
    },
@@ -188,6 +204,7 @@
   {
    "id": "red-bull",
    "name": "Red Bull",
+   "fullName": "Red Bull",
    "country": {
     "en": "Austria",
     "uk": "Австрія"
@@ -202,6 +219,9 @@
    "grandsPrix": 437,
    "wins": 133,
    "titles": 6,
+   "refs": [
+    "red_bull"
+   ],
    "current": {
     "position": 3,
     "color": "#1B2B6B",
@@ -248,6 +268,7 @@
   {
    "id": "williams",
    "name": "Williams",
+   "fullName": "Williams",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -266,23 +287,13 @@
    "grandsPrix": 884,
    "wins": 114,
    "titles": 9,
+   "refs": [
+    "williams"
+   ],
    "current": {
     "position": 9,
     "color": "#1868DB",
     "drivers": [
-     {
-      "id": "albon",
-      "name": {
-       "en": "Alexander Albon",
-       "uk": "Александер Албон"
-      },
-      "surname": {
-       "en": "Albon",
-       "uk": "Албон"
-      },
-      "initials": "AA",
-      "avatar": "/img/drivers/albon.jpg"
-     },
      {
       "id": "sainz",
       "name": {
@@ -295,6 +306,19 @@
       },
       "initials": "CS",
       "avatar": "/img/drivers/sainz.jpg"
+     },
+     {
+      "id": "albon",
+      "name": {
+       "en": "Alexander Albon",
+       "uk": "Александер Албон"
+      },
+      "surname": {
+       "en": "Albon",
+       "uk": "Албон"
+      },
+      "initials": "AA",
+      "avatar": "/img/drivers/albon.jpg"
      }
     ]
    },
@@ -312,6 +336,7 @@
   {
    "id": "lotus",
    "name": "Lotus",
+   "fullName": "Lotus",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -327,9 +352,19 @@
      2011
     ]
    ],
-   "grandsPrix": 530,
+   "grandsPrix": 529,
    "wins": 79,
    "titles": 7,
+   "refs": [
+    "lotus-borgward",
+    "lotus-brm",
+    "lotus-climax",
+    "lotus-ford",
+    "lotus-maserati",
+    "lotus-pw",
+    "lotus_racing",
+    "team_lotus"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/lotus.jpg",
@@ -345,6 +380,7 @@
   {
    "id": "renault",
    "name": "Renault",
+   "fullName": "Renault",
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -367,6 +403,9 @@
    "grandsPrix": 400,
    "wins": 35,
    "titles": 2,
+   "refs": [
+    "renault"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/renault.jpg",
@@ -382,6 +421,7 @@
   {
    "id": "brabham",
    "name": "Brabham",
+   "fullName": "Brabham",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -400,6 +440,14 @@
    "grandsPrix": 393,
    "wins": 35,
    "titles": 2,
+   "refs": [
+    "brabham",
+    "brabham-alfa_romeo",
+    "brabham-brm",
+    "brabham-climax",
+    "brabham-ford",
+    "brabham-repco"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/brabham.jpg",
@@ -415,6 +463,7 @@
   {
    "id": "benetton",
    "name": "Benetton",
+   "fullName": "Benetton",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -429,6 +478,9 @@
    "grandsPrix": 260,
    "wins": 27,
    "titles": 1,
+   "refs": [
+    "benetton"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/benetton.jpg",
@@ -444,6 +496,7 @@
   {
    "id": "tyrrell",
    "name": "Tyrrell",
+   "fullName": "Tyrrell",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -455,9 +508,12 @@
      1998
     ]
    ],
-   "grandsPrix": 432,
+   "grandsPrix": 430,
    "wins": 23,
    "titles": 1,
+   "refs": [
+    "tyrrell"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/tyrrell.jpg",
@@ -473,6 +529,7 @@
   {
    "id": "brm",
    "name": "BRM",
+   "fullName": "BRM",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -488,9 +545,13 @@
      1977
     ]
    ],
-   "grandsPrix": 198,
+   "grandsPrix": 197,
    "wins": 17,
    "titles": 1,
+   "refs": [
+    "brm",
+    "brm-ford"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/brm.jpg",
@@ -506,6 +567,7 @@
   {
    "id": "cooper",
    "name": "Cooper",
+   "fullName": "Cooper",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -524,6 +586,19 @@
    "grandsPrix": 129,
    "wins": 16,
    "titles": 2,
+   "refs": [
+    "cooper",
+    "cooper-alfa_romeo",
+    "cooper-ats",
+    "cooper-borgward",
+    "cooper-brm",
+    "cooper-castellotti",
+    "cooper-climax",
+    "cooper-ferrari",
+    "cooper-ford",
+    "cooper-maserati",
+    "cooper-osca"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/cooper.jpg",
@@ -539,6 +614,7 @@
   {
    "id": "alfa-romeo",
    "name": "Alfa Romeo",
+   "fullName": "Alfa Romeo",
    "country": {
     "en": "Switzerland",
     "uk": "Швейцарія"
@@ -567,8 +643,11 @@
     ]
    ],
    "grandsPrix": 216,
-   "wins": 11,
+   "wins": 10,
    "titles": 0,
+   "refs": [
+    "alfa"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/alfa-romeo.jpg",
@@ -582,37 +661,9 @@
    }
   },
   {
-   "id": "vanwall",
-   "name": "Vanwall",
-   "country": {
-    "en": "United Kingdom",
-    "uk": "Велика Британія"
-   },
-   "countryCode": "GBR",
-   "seasons": [
-    [
-     1954,
-     1960
-    ]
-   ],
-   "grandsPrix": 29,
-   "wins": 10,
-   "titles": 1,
-   "current": null,
-   "photo": {
-    "src": "/img/cars/vanwall.jpg",
-    "width": 480,
-    "height": 300,
-    "credit": {
-     "page": "https://commons.wikimedia.org/wiki/File:Vanwall_VW5_Aintree_1957.jpg",
-     "author": "Terry Whalebone from Bolton, UK",
-     "license": "CC BY 2.0"
-    }
-   }
-  },
-  {
    "id": "ligier",
    "name": "Ligier",
+   "fullName": "Ligier",
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -627,6 +678,9 @@
    "grandsPrix": 326,
    "wins": 9,
    "titles": 0,
+   "refs": [
+    "ligier"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/ligier.jpg",
@@ -642,6 +696,7 @@
   {
    "id": "maserati",
    "name": "Maserati",
+   "fullName": "Maserati",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -653,9 +708,12 @@
      1960
     ]
    ],
-   "grandsPrix": 71,
+   "grandsPrix": 70,
    "wins": 9,
    "titles": 0,
+   "refs": [
+    "maserati"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/maserati.jpg",
@@ -671,6 +729,7 @@
   {
    "id": "matra",
    "name": "Matra",
+   "fullName": "Matra",
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -685,6 +744,10 @@
    "grandsPrix": 59,
    "wins": 9,
    "titles": 1,
+   "refs": [
+    "matra",
+    "matra-ford"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/matra.jpg",
@@ -698,8 +761,42 @@
    }
   },
   {
+   "id": "vanwall",
+   "name": "Vanwall",
+   "fullName": "Vanwall",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "countryCode": "GBR",
+   "seasons": [
+    [
+     1954,
+     1960
+    ]
+   ],
+   "grandsPrix": 28,
+   "wins": 9,
+   "titles": 1,
+   "refs": [
+    "vanwall"
+   ],
+   "current": null,
+   "photo": {
+    "src": "/img/cars/vanwall.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Vanwall_VW5_Aintree_1957.jpg",
+     "author": "Terry Whalebone from Bolton, UK",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
    "id": "brawn",
    "name": "Brawn",
+   "fullName": "Brawn",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -714,6 +811,9 @@
    "grandsPrix": 17,
    "wins": 8,
    "titles": 1,
+   "refs": [
+    "brawn"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/brawn.jpg",
@@ -729,6 +829,7 @@
   {
    "id": "kurtis-kraft",
    "name": "Kurtis Kraft",
+   "fullName": "Kurtis Kraft",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -743,6 +844,9 @@
    "grandsPrix": 12,
    "wins": 5,
    "titles": 0,
+   "refs": [
+    "kurtis_kraft"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/kurtis-kraft.jpg",
@@ -758,6 +862,7 @@
   {
    "id": "jordan",
    "name": "Jordan",
+   "fullName": "Jordan",
    "country": {
     "en": "Ireland",
     "uk": "Ірландія"
@@ -772,6 +877,9 @@
    "grandsPrix": 250,
    "wins": 4,
    "titles": 0,
+   "refs": [
+    "jordan"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/jordan.jpg",
@@ -787,6 +895,7 @@
   {
    "id": "march",
    "name": "March",
+   "fullName": "March",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -813,6 +922,11 @@
    "grandsPrix": 197,
    "wins": 3,
    "titles": 0,
+   "refs": [
+    "march",
+    "march-alfa_romeo",
+    "march-ford"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/march.jpg",
@@ -828,6 +942,7 @@
   {
    "id": "honda",
    "name": "Honda",
+   "fullName": "Honda",
    "country": {
     "en": "Japan",
     "uk": "Японія"
@@ -846,6 +961,9 @@
    "grandsPrix": 88,
    "wins": 3,
    "titles": 0,
+   "refs": [
+    "honda"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/honda.jpg",
@@ -861,6 +979,7 @@
   {
    "id": "wolf",
    "name": "Wolf",
+   "fullName": "Wolf",
    "country": {
     "en": "Canada",
     "uk": "Канада"
@@ -875,6 +994,9 @@
    "grandsPrix": 60,
    "wins": 3,
    "titles": 0,
+   "refs": [
+    "wolf"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/wolf.jpg",
@@ -890,6 +1012,7 @@
   {
    "id": "watson",
    "name": "Watson",
+   "fullName": "Watson",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -908,6 +1031,9 @@
    "grandsPrix": 9,
    "wins": 3,
    "titles": 0,
+   "refs": [
+    "watson"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/watson.jpg",
@@ -923,6 +1049,7 @@
   {
    "id": "lotus-f1",
    "name": "Lotus F1",
+   "fullName": "Lotus F1",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -937,6 +1064,9 @@
    "grandsPrix": 77,
    "wins": 2,
    "titles": 0,
+   "refs": [
+    "lotus_f1"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/lotus-f1.jpg",
@@ -952,6 +1082,7 @@
   {
    "id": "epperly",
    "name": "Epperly",
+   "fullName": "Epperly",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -970,6 +1101,9 @@
    "grandsPrix": 5,
    "wins": 2,
    "titles": 0,
+   "refs": [
+    "epperly"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/epperly.jpg",
@@ -985,6 +1119,7 @@
   {
    "id": "toro-rosso",
    "name": "Toro Rosso",
+   "fullName": "Toro Rosso",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -999,6 +1134,9 @@
    "grandsPrix": 268,
    "wins": 1,
    "titles": 0,
+   "refs": [
+    "toro_rosso"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/toro-rosso.jpg",
@@ -1014,6 +1152,7 @@
   {
    "id": "alpine",
    "name": "Alpine",
+   "fullName": "Alpine F1 Team",
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -1028,23 +1167,13 @@
    "grandsPrix": 134,
    "wins": 1,
    "titles": 0,
+   "refs": [
+    "alpine"
+   ],
    "current": {
     "position": 6,
     "color": "#FF87BC",
     "drivers": [
-     {
-      "id": "colapinto",
-      "name": {
-       "en": "Franco Colapinto",
-       "uk": "Франко Колапінто"
-      },
-      "surname": {
-       "en": "Colapinto",
-       "uk": "Колапінто"
-      },
-      "initials": "FC",
-      "avatar": "/img/drivers/colapinto.jpg"
-     },
      {
       "id": "gasly",
       "name": {
@@ -1057,6 +1186,19 @@
       },
       "initials": "PG",
       "avatar": "/img/drivers/gasly.jpg"
+     },
+     {
+      "id": "colapinto",
+      "name": {
+       "en": "Franco Colapinto",
+       "uk": "Франко Колапінто"
+      },
+      "surname": {
+       "en": "Colapinto",
+       "uk": "Колапінто"
+      },
+      "initials": "FC",
+      "avatar": "/img/drivers/colapinto.jpg"
      }
     ]
    },
@@ -1074,6 +1216,7 @@
   {
    "id": "shadow",
    "name": "Shadow",
+   "fullName": "Shadow",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1088,6 +1231,11 @@
    "grandsPrix": 104,
    "wins": 1,
    "titles": 0,
+   "refs": [
+    "shadow",
+    "shadow-ford",
+    "shadow-matra"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/shadow.jpg",
@@ -1103,6 +1251,7 @@
   {
    "id": "alphatauri",
    "name": "AlphaTauri",
+   "fullName": "AlphaTauri",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -1117,6 +1266,9 @@
    "grandsPrix": 83,
    "wins": 1,
    "titles": 0,
+   "refs": [
+    "alphatauri"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/alphatauri.jpg",
@@ -1132,6 +1284,7 @@
   {
    "id": "bmw-sauber",
    "name": "BMW Sauber",
+   "fullName": "BMW Sauber",
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -1146,6 +1299,9 @@
    "grandsPrix": 70,
    "wins": 1,
    "titles": 0,
+   "refs": [
+    "bmw_sauber"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/bmw-sauber.jpg",
@@ -1161,6 +1317,7 @@
   {
    "id": "hesketh",
    "name": "Hesketh",
+   "fullName": "Hesketh",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1175,6 +1332,9 @@
    "grandsPrix": 52,
    "wins": 1,
    "titles": 0,
+   "refs": [
+    "hesketh"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/hesketh.jpg",
@@ -1190,6 +1350,7 @@
   {
    "id": "stewart",
    "name": "Stewart",
+   "fullName": "Stewart",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1204,6 +1365,9 @@
    "grandsPrix": 49,
    "wins": 1,
    "titles": 0,
+   "refs": [
+    "stewart"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/stewart.jpg",
@@ -1219,6 +1383,7 @@
   {
    "id": "penske",
    "name": "Penske",
+   "fullName": "Penske",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -1233,6 +1398,9 @@
    "grandsPrix": 40,
    "wins": 1,
    "titles": 0,
+   "refs": [
+    "penske"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/penske.jpg",
@@ -1248,6 +1416,7 @@
   {
    "id": "racing-point",
    "name": "Racing Point",
+   "fullName": "Racing Point",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1262,6 +1431,9 @@
    "grandsPrix": 38,
    "wins": 1,
    "titles": 0,
+   "refs": [
+    "racing_point"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/racing-point.jpg",
@@ -1269,7 +1441,7 @@
     "height": 300,
     "credit": {
      "page": "https://commons.wikimedia.org/wiki/File:2019_Formula_One_tests_Barcelona,_Stroll_(47209286722).jpg",
-     "author": "https://www.flickr.com/photos/105731165@N07/",
+     "author": "Renzopaso",
      "license": "CC BY-SA 2.0"
     }
    }
@@ -1277,6 +1449,7 @@
   {
    "id": "porsche",
    "name": "Porsche",
+   "fullName": "Porsche",
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -1291,6 +1464,9 @@
    "grandsPrix": 32,
    "wins": 1,
    "titles": 0,
+   "refs": [
+    "porsche"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/porsche.jpg",
@@ -1306,6 +1482,7 @@
   {
    "id": "eagle",
    "name": "Eagle",
+   "fullName": "Eagle",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -1320,6 +1497,11 @@
    "grandsPrix": 25,
    "wins": 1,
    "titles": 0,
+   "refs": [
+    "eagle",
+    "eagle-climax",
+    "eagle-weslake"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/eagle.jpg",
@@ -1335,6 +1517,7 @@
   {
    "id": "kuzma",
    "name": "Kuzma",
+   "fullName": "Kuzma",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -1349,6 +1532,9 @@
    "grandsPrix": 10,
    "wins": 1,
    "titles": 0,
+   "refs": [
+    "kuzma"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/kuzma.jpg",
@@ -1364,6 +1550,7 @@
   {
    "id": "sauber",
    "name": "Sauber",
+   "fullName": "Sauber",
    "country": {
     "en": "Switzerland",
     "uk": "Швейцарія"
@@ -1383,9 +1570,12 @@
      2025
     ]
    ],
-   "grandsPrix": 442,
+   "grandsPrix": 440,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "sauber"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/sauber.jpg",
@@ -1401,6 +1591,7 @@
   {
    "id": "minardi",
    "name": "Minardi",
+   "fullName": "Minardi",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -1415,6 +1606,9 @@
    "grandsPrix": 341,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "minardi"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/minardi.jpg",
@@ -1430,6 +1624,7 @@
   {
    "id": "arrows",
    "name": "Arrows",
+   "fullName": "Arrows",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1448,6 +1643,9 @@
    "grandsPrix": 291,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "arrows"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/arrows.jpg",
@@ -1463,6 +1661,7 @@
   {
    "id": "haas",
    "name": "Haas",
+   "fullName": "Haas F1 Team",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -1477,6 +1676,9 @@
    "grandsPrix": 234,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "haas"
+   ],
    "current": {
     "position": 7,
     "color": "#9EA3AA",
@@ -1523,6 +1725,7 @@
   {
    "id": "force-india",
    "name": "Force India",
+   "fullName": "Force India",
    "country": {
     "en": "India",
     "uk": "Індія"
@@ -1537,6 +1740,9 @@
    "grandsPrix": 212,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "force_india"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/force-india.jpg",
@@ -1552,6 +1758,7 @@
   {
    "id": "aston-martin",
    "name": "Aston Martin",
+   "fullName": "Aston Martin",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1570,6 +1777,9 @@
    "grandsPrix": 139,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "aston_martin"
+   ],
    "current": {
     "position": 10,
     "color": "#1E8A63",
@@ -1616,6 +1826,7 @@
   {
    "id": "toyota",
    "name": "Toyota",
+   "fullName": "Toyota",
    "country": {
     "en": "Japan",
     "uk": "Японія"
@@ -1630,6 +1841,9 @@
    "grandsPrix": 139,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "toyota"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/toyota.jpg",
@@ -1645,6 +1859,7 @@
   {
    "id": "osella",
    "name": "Osella",
+   "fullName": "Osella",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -1656,9 +1871,12 @@
      1990
     ]
    ],
-   "grandsPrix": 133,
+   "grandsPrix": 132,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "osella"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/osella.jpg",
@@ -1674,6 +1892,7 @@
   {
    "id": "surtees",
    "name": "Surtees",
+   "fullName": "Surtees",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1688,6 +1907,9 @@
    "grandsPrix": 117,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "surtees"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/surtees.jpg",
@@ -1703,6 +1925,7 @@
   {
    "id": "bar",
    "name": "BAR",
+   "fullName": "BAR",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1717,6 +1940,9 @@
    "grandsPrix": 117,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "bar"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/bar.jpg",
@@ -1732,6 +1958,7 @@
   {
    "id": "larrousse",
    "name": "Larrousse",
+   "fullName": "Larrousse",
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -1746,6 +1973,9 @@
    "grandsPrix": 113,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "larrousse"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/larrousse.jpg",
@@ -1761,6 +1991,7 @@
   {
    "id": "fittipaldi",
    "name": "Fittipaldi",
+   "fullName": "Fittipaldi",
    "country": {
     "en": "Brazil",
     "uk": "Бразилія"
@@ -1775,6 +2006,9 @@
    "grandsPrix": 101,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "fittipaldi"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/fittipaldi.jpg",
@@ -1782,7 +2016,7 @@
     "height": 300,
     "credit": {
      "page": "https://commons.wikimedia.org/wiki/File:Copersucar_FD04_1976.jpg",
-     "author": "photo takeb by Paulo Carmona Sanches Neto. Cropped by Morio",
+     "author": "Paulo Carmona Sanches Neto (кадрування: Morio)",
      "license": "CC BY-SA 3.0"
     }
    }
@@ -1790,6 +2024,7 @@
   {
    "id": "ensign",
    "name": "Ensign",
+   "fullName": "Ensign",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1804,6 +2039,9 @@
    "grandsPrix": 100,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "ensign"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/ensign.jpg",
@@ -1819,6 +2057,7 @@
   {
    "id": "ats",
    "name": "ATS",
+   "fullName": "ATS",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -1834,9 +2073,12 @@
      1984
     ]
    ],
-   "grandsPrix": 96,
+   "grandsPrix": 94,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "ats"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/ats.jpg",
@@ -1852,6 +2094,7 @@
   {
    "id": "footwork",
    "name": "Footwork",
+   "fullName": "Footwork",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1866,6 +2109,9 @@
    "grandsPrix": 91,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "footwork"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/footwork.jpg",
@@ -1881,6 +2127,7 @@
   {
    "id": "lola",
    "name": "Lola",
+   "fullName": "Lola",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1915,6 +2162,9 @@
    "grandsPrix": 85,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "lola"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/lola.jpg",
@@ -1930,6 +2180,7 @@
   {
    "id": "jaguar",
    "name": "Jaguar",
+   "fullName": "Jaguar",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1944,6 +2195,9 @@
    "grandsPrix": 85,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "jaguar"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/jaguar.jpg",
@@ -1959,6 +2213,7 @@
   {
    "id": "prost",
    "name": "Prost",
+   "fullName": "Prost",
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -1973,6 +2228,9 @@
    "grandsPrix": 83,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "prost"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/prost.jpg",
@@ -1988,6 +2246,7 @@
   {
    "id": "dallara",
    "name": "Dallara",
+   "fullName": "Dallara",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -2002,21 +2261,16 @@
    "grandsPrix": 78,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "dallara"
+   ],
    "current": null,
-   "photo": {
-    "src": "/img/cars/dallara.jpg",
-    "width": 480,
-    "height": 300,
-    "credit": {
-     "page": "https://commons.wikimedia.org/wiki/File:Bruno_Senna_2006_Australian_Grand_Prix-3.jpg",
-     "author": "Glenn Thomas / Windsok",
-     "license": "CC BY-SA 2.5"
-    }
-   }
+   "photo": null
   },
   {
    "id": "racing-bulls",
    "name": "Racing Bulls",
+   "fullName": "RB F1 Team",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -2031,6 +2285,9 @@
    "grandsPrix": 68,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "rb"
+   ],
    "current": {
     "position": 5,
     "color": "#6692FF",
@@ -2077,6 +2334,7 @@
   {
    "id": "toleman",
    "name": "Toleman",
+   "fullName": "Toleman",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2091,6 +2349,9 @@
    "grandsPrix": 57,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "toleman"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/toleman.jpg",
@@ -2106,6 +2367,7 @@
   {
    "id": "hrt",
    "name": "HRT",
+   "fullName": "HRT",
    "country": {
     "en": "Spain",
     "uk": "Іспанія"
@@ -2120,6 +2382,9 @@
    "grandsPrix": 56,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "hrt"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/hrt.jpg",
@@ -2135,6 +2400,7 @@
   {
    "id": "caterham",
    "name": "Caterham",
+   "fullName": "Caterham",
    "country": {
     "en": "Malaysia",
     "uk": "Малайзія"
@@ -2149,6 +2415,9 @@
    "grandsPrix": 56,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "caterham"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/caterham.jpg",
@@ -2164,6 +2433,7 @@
   {
    "id": "marussia",
    "name": "Marussia",
+   "fullName": "Marussia",
    "country": {
     "en": "Russia",
     "uk": "Росія"
@@ -2178,6 +2448,9 @@
    "grandsPrix": 55,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "marussia"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/marussia.jpg",
@@ -2193,6 +2466,7 @@
   {
    "id": "zakspeed",
    "name": "Zakspeed",
+   "fullName": "Zakspeed",
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -2207,6 +2481,9 @@
    "grandsPrix": 54,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "zakspeed"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/zakspeed.jpg",
@@ -2222,6 +2499,7 @@
   {
    "id": "ags",
    "name": "AGS",
+   "fullName": "AGS",
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -2236,6 +2514,9 @@
    "grandsPrix": 48,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "ags"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/ags.jpg",
@@ -2243,7 +2524,7 @@
     "height": 300,
     "credit": {
      "page": "https://commons.wikimedia.org/wiki/File:Philippe_Streiff_AGS_JH23_2018_Japanese_Grand_Prix_(43814923310).jpg",
-     "author": "https://www.flickr.com/photos/78475089@N02/",
+     "author": "taka_suzuki",
      "license": "CC BY-SA 2.0"
     }
    }
@@ -2251,6 +2532,7 @@
   {
    "id": "super-aguri",
    "name": "Super Aguri",
+   "fullName": "Super Aguri",
    "country": {
     "en": "Japan",
     "uk": "Японія"
@@ -2265,6 +2547,9 @@
    "grandsPrix": 39,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "super_aguri"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/super-aguri.jpg",
@@ -2280,6 +2565,7 @@
   {
    "id": "manor-marussia",
    "name": "Manor Marussia",
+   "fullName": "Manor Marussia",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2294,6 +2580,9 @@
    "grandsPrix": 39,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "manor"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/manor-marussia.jpg",
@@ -2309,6 +2598,7 @@
   {
    "id": "virgin",
    "name": "Virgin",
+   "fullName": "Virgin",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2323,6 +2613,9 @@
    "grandsPrix": 38,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "virgin"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/virgin.jpg",
@@ -2338,6 +2631,7 @@
   {
    "id": "theodore",
    "name": "Theodore",
+   "fullName": "Theodore",
    "country": {
     "en": "Hong Kong",
     "uk": "Гонконг"
@@ -2356,21 +2650,16 @@
    "grandsPrix": 34,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "theodore"
+   ],
    "current": null,
-   "photo": {
-    "src": "/img/cars/theodore.jpg",
-    "width": 480,
-    "height": 300,
-    "credit": {
-     "page": "https://commons.wikimedia.org/wiki/File:Ralt_RT3_(Ayrton_Senna,_1983_Macau_GP)_front-left_2015_Grand_Prix_Museum.jpg",
-     "author": "Morio",
-     "license": "CC BY-SA 4.0"
-    }
-   }
+   "photo": null
   },
   {
    "id": "gordini",
    "name": "Gordini",
+   "fullName": "Gordini",
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -2385,6 +2674,9 @@
    "grandsPrix": 33,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "gordini"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/gordini.jpg",
@@ -2400,6 +2692,7 @@
   {
    "id": "ram",
    "name": "RAM",
+   "fullName": "RAM",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2414,6 +2707,9 @@
    "grandsPrix": 31,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "ram"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/ram.jpg",
@@ -2429,6 +2725,7 @@
   {
    "id": "iso-marlboro",
    "name": "Iso Marlboro",
+   "fullName": "Iso Marlboro",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2443,6 +2740,9 @@
    "grandsPrix": 30,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "iso_marlboro"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/iso-marlboro.jpg",
@@ -2450,7 +2750,7 @@
     "height": 300,
     "credit": {
      "page": "https://commons.wikimedia.org/wiki/File:Van_Lennep_at_1974_Dutch_Grand_Prix_(3).jpg",
-     "author": "Hans Peters for Anefo   / neg. stroken, 1945-1989, 2.24.01.05, item number 927-2737",
+     "author": "Hans Peters / Anefo",
      "license": "CC0"
     }
    }
@@ -2458,6 +2758,7 @@
   {
    "id": "leyton-house",
    "name": "Leyton House",
+   "fullName": "Leyton House",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2472,6 +2773,9 @@
    "grandsPrix": 30,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "leyton"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/leyton-house.jpg",
@@ -2487,6 +2791,7 @@
   {
    "id": "spirit",
    "name": "Spirit",
+   "fullName": "Spirit",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2501,6 +2806,9 @@
    "grandsPrix": 23,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "spirit"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/spirit.jpg",
@@ -2516,6 +2824,7 @@
   {
    "id": "forti",
    "name": "Forti",
+   "fullName": "Forti",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -2530,6 +2839,9 @@
    "grandsPrix": 23,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "forti"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/forti.jpg",
@@ -2545,6 +2857,7 @@
   {
    "id": "pacific",
    "name": "Pacific",
+   "fullName": "Pacific",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2559,6 +2872,9 @@
    "grandsPrix": 22,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "pacific"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/pacific.jpg",
@@ -2572,37 +2888,9 @@
    }
   },
   {
-   "id": "rial",
-   "name": "Rial",
-   "country": {
-    "en": "Germany",
-    "uk": "Німеччина"
-   },
-   "countryCode": "DEU",
-   "seasons": [
-    [
-     1988,
-     1989
-    ]
-   ],
-   "grandsPrix": 21,
-   "wins": 0,
-   "titles": 0,
-   "current": null,
-   "photo": {
-    "src": "/img/cars/rial.jpg",
-    "width": 480,
-    "height": 300,
-    "credit": {
-     "page": "https://commons.wikimedia.org/wiki/File:F1_1988,_Rial_ARC1,_Spa_Francorchamps_(55425564171)_(cropped).jpg",
-     "author": "Original:  Der Alf / Derivative work:  Danyele",
-     "license": "CC BY 4.0"
-    }
-   }
-  },
-  {
    "id": "simtek",
    "name": "Simtek",
+   "fullName": "Simtek",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2617,6 +2905,9 @@
    "grandsPrix": 21,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "simtek"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/simtek.jpg",
@@ -2630,8 +2921,42 @@
    }
   },
   {
+   "id": "rial",
+   "name": "Rial",
+   "fullName": "Rial",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "countryCode": "DEU",
+   "seasons": [
+    [
+     1988,
+     1989
+    ]
+   ],
+   "grandsPrix": 20,
+   "wins": 0,
+   "titles": 0,
+   "refs": [
+    "rial"
+   ],
+   "current": null,
+   "photo": {
+    "src": "/img/cars/rial.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:F1_1988,_Rial_ARC1,_Spa_Francorchamps_(55425564171)_(cropped).jpg",
+     "author": "Der Alf (похідна робота: Danyele)",
+     "license": "CC BY 4.0"
+    }
+   }
+  },
+  {
    "id": "audi",
    "name": "Audi",
+   "fullName": "Audi",
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -2646,23 +2971,13 @@
    "grandsPrix": 20,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "audi"
+   ],
    "current": {
     "position": 8,
     "color": "#8C9096",
     "drivers": [
-     {
-      "id": "hulkenberg",
-      "name": {
-       "en": "Nico Hülkenberg",
-       "uk": "Ніко Гюлькенберг"
-      },
-      "surname": {
-       "en": "Hülkenberg",
-       "uk": "Гюлькенберг"
-      },
-      "initials": "NH",
-      "avatar": "/img/drivers/hulkenberg.jpg"
-     },
      {
       "id": "bortoleto",
       "name": {
@@ -2675,6 +2990,19 @@
       },
       "initials": "GB",
       "avatar": "/img/drivers/bortoleto.jpg"
+     },
+     {
+      "id": "hulkenberg",
+      "name": {
+       "en": "Nico Hülkenberg",
+       "uk": "Ніко Гюлькенберг"
+      },
+      "surname": {
+       "en": "Hülkenberg",
+       "uk": "Гюлькенберг"
+      },
+      "initials": "NH",
+      "avatar": "/img/drivers/hulkenberg.jpg"
      }
     ]
    },
@@ -2692,6 +3020,7 @@
   {
    "id": "cadillac",
    "name": "Cadillac",
+   "fullName": "Cadillac F1 Team",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -2706,23 +3035,13 @@
    "grandsPrix": 20,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "cadillac"
+   ],
    "current": {
     "position": 11,
     "color": "#5C5F66",
     "drivers": [
-     {
-      "id": "perez",
-      "name": {
-       "en": "Sergio Pérez",
-       "uk": "Серхіо Перес"
-      },
-      "surname": {
-       "en": "Pérez",
-       "uk": "Перес"
-      },
-      "initials": "SP",
-      "avatar": "/img/drivers/perez.jpg"
-     },
      {
       "id": "bottas",
       "name": {
@@ -2735,6 +3054,19 @@
       },
       "initials": "VB",
       "avatar": "/img/drivers/bottas.jpg"
+     },
+     {
+      "id": "perez",
+      "name": {
+       "en": "Sergio Pérez",
+       "uk": "Серхіо Перес"
+      },
+      "surname": {
+       "en": "Pérez",
+       "uk": "Перес"
+      },
+      "initials": "SP",
+      "avatar": "/img/drivers/perez.jpg"
      }
     ]
    },
@@ -2752,6 +3084,7 @@
   {
    "id": "fondmetal",
    "name": "Fondmetal",
+   "fullName": "Fondmetal",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -2766,6 +3099,9 @@
    "grandsPrix": 19,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "fondmetal"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/fondmetal.jpg",
@@ -2781,6 +3117,7 @@
   {
    "id": "connaught",
    "name": "Connaught",
+   "fullName": "Connaught",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2795,6 +3132,9 @@
    "grandsPrix": 17,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "connaught"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/connaught.jpg",
@@ -2810,6 +3150,7 @@
   {
    "id": "onyx",
    "name": "Onyx",
+   "fullName": "Onyx",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2824,6 +3165,9 @@
    "grandsPrix": 17,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "onyx"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/onyx.jpg",
@@ -2839,6 +3183,7 @@
   {
    "id": "spyker",
    "name": "Spyker",
+   "fullName": "Spyker",
    "country": {
     "en": "Netherlands",
     "uk": "Нідерланди"
@@ -2853,6 +3198,9 @@
    "grandsPrix": 17,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "spyker"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/spyker.jpg",
@@ -2868,6 +3216,7 @@
   {
    "id": "parnelli",
    "name": "Parnelli",
+   "fullName": "Parnelli",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -2882,6 +3231,9 @@
    "grandsPrix": 16,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "parnelli"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/parnelli.jpg",
@@ -2897,6 +3249,7 @@
   {
    "id": "euro-brun",
    "name": "Euro Brun",
+   "fullName": "Euro Brun",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -2912,9 +3265,12 @@
      1990
     ]
    ],
-   "grandsPrix": 15,
+   "grandsPrix": 14,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "eurobrun"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/euro-brun.jpg",
@@ -2930,6 +3286,7 @@
   {
    "id": "simca",
    "name": "Simca",
+   "fullName": "Simca",
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -2944,6 +3301,9 @@
    "grandsPrix": 14,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "simca"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/simca.jpg",
@@ -2959,6 +3319,7 @@
   {
    "id": "hwm",
    "name": "HWM",
+   "fullName": "HWM",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2973,6 +3334,9 @@
    "grandsPrix": 14,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "hwm"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/hwm.jpg",
@@ -2988,6 +3352,7 @@
   {
    "id": "mf1",
    "name": "MF1",
+   "fullName": "MF1",
    "country": {
     "en": "Russia",
     "uk": "Росія"
@@ -3002,6 +3367,9 @@
    "grandsPrix": 14,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "mf1"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/mf1.jpg",
@@ -3017,6 +3385,7 @@
   {
    "id": "talbot",
    "name": "Talbot",
+   "fullName": "Talbot",
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -3031,6 +3400,9 @@
    "grandsPrix": 13,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "lago"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/talbot.jpg",
@@ -3046,6 +3418,7 @@
   {
    "id": "brp",
    "name": "BRP",
+   "fullName": "BRP",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3060,21 +3433,16 @@
    "grandsPrix": 13,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "brp"
+   ],
    "current": null,
-   "photo": {
-    "src": "/img/cars/brp.jpg",
-    "width": 480,
-    "height": 300,
-    "credit": {
-     "page": "https://commons.wikimedia.org/wiki/File:BRM_P25.jpg",
-     "author": "John Chapman (Pyrope)",
-     "license": "CC BY-SA 3.0"
-    }
-   }
+   "photo": null
   },
   {
    "id": "coloni",
    "name": "Coloni",
+   "fullName": "Coloni",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -3089,6 +3457,9 @@
    "grandsPrix": 13,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "coloni"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/coloni.jpg",
@@ -3104,6 +3475,7 @@
   {
    "id": "de-tomaso",
    "name": "De Tomaso",
+   "fullName": "De Tomaso",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -3122,6 +3494,12 @@
    "grandsPrix": 10,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "de_tomaso-alfa_romeo",
+    "de_tomaso-ferrari",
+    "de_tomaso-osca",
+    "tomaso"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/de-tomaso.jpg",
@@ -3137,6 +3515,7 @@
   {
    "id": "tecno",
    "name": "Tecno",
+   "fullName": "Tecno",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -3151,6 +3530,9 @@
    "grandsPrix": 10,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "tecno"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/tecno.jpg",
@@ -3166,6 +3548,7 @@
   {
    "id": "embassy-hill",
    "name": "Embassy Hill",
+   "fullName": "Embassy Hill",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3180,6 +3563,9 @@
    "grandsPrix": 10,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "hill"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/embassy-hill.jpg",
@@ -3195,6 +3581,7 @@
   {
    "id": "merzario",
    "name": "Merzario",
+   "fullName": "Merzario",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -3209,6 +3596,9 @@
    "grandsPrix": 10,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "merzario"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/merzario.jpg",
@@ -3224,6 +3614,7 @@
   {
    "id": "lesovsky",
    "name": "Lesovsky",
+   "fullName": "Lesovsky",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -3242,12 +3633,16 @@
    "grandsPrix": 9,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "lesovsky"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "era",
    "name": "ERA",
+   "fullName": "ERA",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3262,6 +3657,9 @@
    "grandsPrix": 7,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "era"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/era.jpg",
@@ -3277,6 +3675,7 @@
   {
    "id": "phillips",
    "name": "Phillips",
+   "fullName": "Phillips",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -3291,12 +3690,16 @@
    "grandsPrix": 7,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "phillips"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "stevens",
    "name": "Stevens",
+   "fullName": "Stevens",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -3315,12 +3718,16 @@
    "grandsPrix": 6,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "stevens"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "veritas",
    "name": "Veritas",
+   "fullName": "Veritas",
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -3335,6 +3742,9 @@
    "grandsPrix": 6,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "veritas"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/veritas.jpg",
@@ -3350,6 +3760,7 @@
   {
    "id": "trojan",
    "name": "Trojan",
+   "fullName": "Trojan",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3364,6 +3775,9 @@
    "grandsPrix": 6,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "trojan"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/trojan.jpg",
@@ -3379,6 +3793,7 @@
   {
    "id": "boro",
    "name": "Boro",
+   "fullName": "Boro",
    "country": {
     "en": "Netherlands",
     "uk": "Нідерланди"
@@ -3393,6 +3808,9 @@
    "grandsPrix": 6,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "boro"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/boro.jpg",
@@ -3408,6 +3826,7 @@
   {
    "id": "lambo",
    "name": "Lambo",
+   "fullName": "Lambo",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -3422,6 +3841,9 @@
    "grandsPrix": 6,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "lambo"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/lambo.jpg",
@@ -3437,6 +3859,7 @@
   {
    "id": "alta",
    "name": "Alta",
+   "fullName": "Alta",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3451,6 +3874,9 @@
    "grandsPrix": 5,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "alta"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/alta.jpg",
@@ -3466,6 +3892,7 @@
   {
    "id": "lds",
    "name": "LDS",
+   "fullName": "LDS",
    "country": {
     "en": "South Africa",
     "uk": "ПАР"
@@ -3488,6 +3915,11 @@
    "grandsPrix": 5,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "lds",
+    "lds-alfa_romeo",
+    "lds-climax"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/lds.jpg",
@@ -3503,6 +3935,7 @@
   {
    "id": "scirocco",
    "name": "Scirocco",
+   "fullName": "Scirocco",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3517,6 +3950,9 @@
    "grandsPrix": 5,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "scirocco"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/scirocco.jpg",
@@ -3532,6 +3968,7 @@
   {
    "id": "martini",
    "name": "Martini",
+   "fullName": "Martini",
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -3546,6 +3983,9 @@
    "grandsPrix": 5,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "martini"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/martini.jpg",
@@ -3561,6 +4001,7 @@
   {
    "id": "schroeder",
    "name": "Schroeder",
+   "fullName": "Schroeder",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -3579,12 +4020,16 @@
    "grandsPrix": 4,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "schroeder"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "bromme",
    "name": "Bromme",
+   "fullName": "Bromme",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -3599,12 +4044,16 @@
    "grandsPrix": 4,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "bromme"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "trevis",
    "name": "Trevis",
+   "fullName": "Trevis",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -3627,12 +4076,16 @@
    "grandsPrix": 4,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "trevis"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "osca",
    "name": "OSCA",
+   "fullName": "OSCA",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -3647,12 +4100,16 @@
    "grandsPrix": 4,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "osca"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "frazer-nash",
    "name": "Frazer Nash",
+   "fullName": "Frazer Nash",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3667,6 +4124,9 @@
    "grandsPrix": 4,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "frazer_nash"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/frazer-nash.jpg",
@@ -3682,6 +4142,7 @@
   {
    "id": "afm",
    "name": "AFM",
+   "fullName": "AFM",
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -3696,6 +4157,9 @@
    "grandsPrix": 4,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "afm"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/afm.jpg",
@@ -3711,6 +4175,7 @@
   {
    "id": "lancia",
    "name": "Lancia",
+   "fullName": "Lancia",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -3725,6 +4190,9 @@
    "grandsPrix": 4,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "lancia"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/lancia.jpg",
@@ -3740,6 +4208,7 @@
   {
    "id": "emeryson",
    "name": "Emeryson",
+   "fullName": "Emeryson",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3758,6 +4227,9 @@
    "grandsPrix": 4,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "emeryson"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/emeryson.jpg",
@@ -3773,6 +4245,7 @@
   {
    "id": "jbw",
    "name": "JBW",
+   "fullName": "JBW",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3787,6 +4260,9 @@
    "grandsPrix": 4,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "jbw"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/jbw.jpg",
@@ -3802,6 +4278,7 @@
   {
    "id": "spyker-mf1",
    "name": "Spyker MF1",
+   "fullName": "Spyker MF1",
    "country": {
     "en": "Netherlands",
     "uk": "Нідерланди"
@@ -3816,6 +4293,9 @@
    "grandsPrix": 4,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "spyker_mf1"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/spyker-mf1.jpg",
@@ -3831,6 +4311,7 @@
   {
    "id": "deidt",
    "name": "Deidt",
+   "fullName": "Deidt",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -3845,6 +4326,9 @@
    "grandsPrix": 3,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "deidt"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/deidt.jpg",
@@ -3860,6 +4344,7 @@
   {
    "id": "moore",
    "name": "Moore",
+   "fullName": "Moore",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -3878,12 +4363,16 @@
    "grandsPrix": 3,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "moore"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "pawl",
    "name": "Pawl",
+   "fullName": "Pawl",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -3902,12 +4391,16 @@
    "grandsPrix": 3,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "pawl"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "dunn",
    "name": "Dunn",
+   "fullName": "Dunn",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -3922,12 +4415,16 @@
    "grandsPrix": 3,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "dunn"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "scarab",
    "name": "Scarab",
+   "fullName": "Scarab",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -3942,6 +4439,9 @@
    "grandsPrix": 3,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "scarab"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/scarab.jpg",
@@ -3949,7 +4449,7 @@
     "height": 300,
     "credit": {
      "page": "https://commons.wikimedia.org/wiki/File:Chuck_Daigh_Scarab_F1_2018_Silverstone_Classic_(40064501923).jpg",
-     "author": "https://www.flickr.com/photos/davehamster/",
+     "author": "Dave Hamster",
      "license": "CC BY 2.0"
     }
    }
@@ -3957,6 +4457,7 @@
   {
    "id": "gilby",
    "name": "Gilby",
+   "fullName": "Gilby",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3971,6 +4472,9 @@
    "grandsPrix": 3,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "gilby"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/gilby.jpg",
@@ -3986,6 +4490,7 @@
   {
    "id": "token",
    "name": "Token",
+   "fullName": "Token",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -4000,6 +4505,9 @@
    "grandsPrix": 3,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "token"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/token.jpg",
@@ -4015,6 +4523,7 @@
   {
    "id": "lec",
    "name": "LEC",
+   "fullName": "LEC",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -4029,6 +4538,9 @@
    "grandsPrix": 3,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "lec"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/lec.jpg",
@@ -4044,6 +4556,7 @@
   {
    "id": "nichels",
    "name": "Nichels",
+   "fullName": "Nichels",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4062,12 +4575,16 @@
    "grandsPrix": 2,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "nichels"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "marchese",
    "name": "Marchese",
+   "fullName": "Marchese",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4082,12 +4599,16 @@
    "grandsPrix": 2,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "marchese"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "ewing",
    "name": "Ewing",
+   "fullName": "Ewing",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4106,12 +4627,16 @@
    "grandsPrix": 2,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "ewing"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "sherman",
    "name": "Sherman",
+   "fullName": "Sherman",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4126,12 +4651,16 @@
    "grandsPrix": 2,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "sherman"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "aston-butterworth",
    "name": "Aston Butterworth",
+   "fullName": "Aston Butterworth",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -4146,6 +4675,9 @@
    "grandsPrix": 2,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "butterworth"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/aston-butterworth.jpg",
@@ -4161,6 +4693,7 @@
   {
    "id": "bmw",
    "name": "BMW",
+   "fullName": "BMW",
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -4175,6 +4708,9 @@
    "grandsPrix": 2,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "bmw"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/bmw.jpg",
@@ -4190,6 +4726,7 @@
   {
    "id": "pankratz",
    "name": "Pankratz",
+   "fullName": "Pankratz",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4204,12 +4741,16 @@
    "grandsPrix": 2,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "pankratz"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "christensen",
    "name": "Christensen",
+   "fullName": "Christensen",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4224,12 +4765,16 @@
    "grandsPrix": 2,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "vhristensen"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "behra",
    "name": "Behra",
+   "fullName": "Behra",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -4244,12 +4789,16 @@
    "grandsPrix": 2,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "behra-porsche"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "bellasi",
    "name": "Bellasi",
+   "fullName": "Bellasi",
    "country": {
     "en": "Switzerland",
     "uk": "Швейцарія"
@@ -4264,12 +4813,16 @@
    "grandsPrix": 2,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "bellasi"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "kojima",
    "name": "Kojima",
+   "fullName": "Kojima",
    "country": {
     "en": "Japan",
     "uk": "Японія"
@@ -4284,6 +4837,9 @@
    "grandsPrix": 2,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "kojima"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/kojima.jpg",
@@ -4299,6 +4855,7 @@
   {
    "id": "andrea-moda",
    "name": "Andrea Moda",
+   "fullName": "Andrea Moda",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -4310,9 +4867,12 @@
      1992
     ]
    ],
-   "grandsPrix": 2,
+   "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "moda"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/andrea-moda.jpg",
@@ -4328,6 +4888,7 @@
   {
    "id": "langley",
    "name": "Langley",
+   "fullName": "Langley",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4342,12 +4903,16 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "langley"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "rae",
    "name": "Rae",
+   "fullName": "Rae",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4362,12 +4927,16 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "rae"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "olson",
    "name": "Olson",
+   "fullName": "Olson",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4382,12 +4951,16 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "olson"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "wetteroth",
    "name": "Wetteroth",
+   "fullName": "Wetteroth",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4402,12 +4975,16 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "wetteroth"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "snowberger",
    "name": "Snowberger",
+   "fullName": "Snowberger",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4422,12 +4999,16 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "snowberger"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "adams",
    "name": "Adams",
+   "fullName": "Adams",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4442,6 +5023,9 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "adams"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/adams.jpg",
@@ -4457,6 +5041,7 @@
   {
    "id": "hall",
    "name": "Hall",
+   "fullName": "Hall",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4471,12 +5056,16 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "hall"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "turner",
    "name": "Turner",
+   "fullName": "Turner",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4491,12 +5080,16 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "turner"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "del-roy",
    "name": "Del Roy",
+   "fullName": "Del Roy",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4511,12 +5104,16 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "del_roy"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "emw",
    "name": "EMW",
+   "fullName": "EMW",
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -4531,12 +5128,16 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "emw"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "klenk",
    "name": "Klenk",
+   "fullName": "Klenk",
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -4551,12 +5152,16 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "klenk"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "bugatti",
    "name": "Bugatti",
+   "fullName": "Bugatti",
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -4571,6 +5176,9 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "bugatti"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/bugatti.jpg",
@@ -4586,6 +5194,7 @@
   {
    "id": "elder",
    "name": "Elder",
+   "fullName": "Elder",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4600,12 +5209,16 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "elder"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "sutton",
    "name": "Sutton",
+   "fullName": "Sutton",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4620,12 +5233,16 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "sutton"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "tec",
    "name": "Tec",
+   "fullName": "Tec",
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -4640,6 +5257,9 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "tec-mec"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/tec.jpg",
@@ -4655,6 +5275,7 @@
   {
    "id": "meskowski",
    "name": "Meskowski",
+   "fullName": "Meskowski",
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4669,6 +5290,9 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "meskowski"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/meskowski.jpg",
@@ -4684,6 +5308,7 @@
   {
    "id": "ferguson",
    "name": "Ferguson",
+   "fullName": "Ferguson",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -4698,6 +5323,9 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "ferguson"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/ferguson.jpg",
@@ -4713,6 +5341,7 @@
   {
    "id": "enb",
    "name": "ENB",
+   "fullName": "ENB",
    "country": {
     "en": "Belgium",
     "uk": "Бельгія"
@@ -4727,6 +5356,9 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "enb"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/enb.jpg",
@@ -4742,6 +5374,7 @@
   {
    "id": "stebro",
    "name": "Stebro",
+   "fullName": "Stebro",
    "country": {
     "en": "Canada",
     "uk": "Канада"
@@ -4756,12 +5389,16 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "stebro"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "derrington",
    "name": "Derrington",
+   "fullName": "Derrington",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -4776,6 +5413,9 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "derrington"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/derrington.jpg",
@@ -4791,6 +5431,7 @@
   {
    "id": "shannon",
    "name": "Shannon",
+   "fullName": "Shannon",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -4805,12 +5446,16 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "shannon"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "protos",
    "name": "Protos",
+   "fullName": "Protos",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -4825,12 +5470,16 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "protos"
+   ],
    "current": null,
    "photo": null
   },
   {
    "id": "politoys",
    "name": "Politoys",
+   "fullName": "Politoys",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -4845,21 +5494,16 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "politoys"
+   ],
    "current": null,
-   "photo": {
-    "src": "/img/cars/politoys.jpg",
-    "width": 480,
-    "height": 300,
-    "credit": {
-     "page": "https://commons.wikimedia.org/wiki/File:1969_British_Grand_Prix_P_Courage_Brabham_BT26_close.jpg",
-     "author": "The original uploader was 4u1e at English Wikipedia.",
-     "license": "CC BY-SA 3.0"
-    }
-   }
+   "photo": null
   },
   {
    "id": "connew",
    "name": "Connew",
+   "fullName": "Connew",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -4874,6 +5518,9 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "connew"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/connew.jpg",
@@ -4889,6 +5536,7 @@
   {
    "id": "amon",
    "name": "Amon",
+   "fullName": "Amon",
    "country": {
     "en": "New Zealand",
     "uk": "Нова Зеландія"
@@ -4903,6 +5551,9 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "amon"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/amon.jpg",
@@ -4918,6 +5569,7 @@
   {
    "id": "lyncar",
    "name": "Lyncar",
+   "fullName": "Lyncar",
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -4932,6 +5584,9 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "lyncar"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/lyncar.jpg",
@@ -4947,6 +5602,7 @@
   {
    "id": "rebaque",
    "name": "Rebaque",
+   "fullName": "Rebaque",
    "country": {
     "en": "Mexico",
     "uk": "Мексика"
@@ -4961,6 +5617,9 @@
    "grandsPrix": 1,
    "wins": 0,
    "titles": 0,
+   "refs": [
+    "rebaque"
+   ],
    "current": null,
    "photo": {
     "src": "/img/cars/rebaque.jpg",
@@ -5052,7 +5711,7 @@
   },
   "norris": {
    "page": "https://commons.wikimedia.org/wiki/File:2024-08-25_Motorsport,_Formel_1,_Gro%C3%9Fer_Preis_der_Niederlande_2024_STP_3968_by_Stepro_(cropped2).jpg",
-   "author": "Original: Steffen Prößdorf",
+   "author": "Steffen Prößdorf",
    "license": "CC BY-SA 4.0"
   },
   "perez": {

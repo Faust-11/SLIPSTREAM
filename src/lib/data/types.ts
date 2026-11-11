@@ -24,6 +24,10 @@ export type TeamSnapshot = {
   id: string;
   /** Коротка назва, як у макеті: "Racing Bulls", "Haas". */
   name: string;
+  /** Повна назва в Jolpica ("Haas F1 Team") — для пошуку. */
+  fullName: string;
+  /** Конструктори Jolpica, злиті в цю команду (пари «шасі-двигун»): контракт-тест фази 2. */
+  refs: string[];
   country: L10n;
   /** ISO 3166-1 alpha-3 ("GBR") — заглушка картки без фото, як у макеті. */
   countryCode: string;
