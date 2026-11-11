@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { CSSProperties } from "react";
 import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
@@ -43,15 +42,18 @@ export function TeamCard({ card, labels, locale, season, index }: Props) {
     >
       <div className="tc-art">
         {card.photo ? (
-          <Image
+          // Звичайний <img> з готовими WebP (srcSet зі знімка), а не next/image: без оптимізації на сервері
+          // при кожному запиті (Lighthouse CI: 163 мс на фото LCP) і без ліміту перетворень Vercel Hobby.
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
             src={card.photo.src}
+            srcSet={card.photo.srcSet}
+            sizes={SIZES}
             width={card.photo.width}
             height={card.photo.height}
             alt={card.photo.alt}
-            sizes={SIZES}
-            // Перша картка — кандидат LCP: високий пріоритет запиту (Lighthouse CI: preload без fetchpriority
-            // ставав у чергу з пріоритетом Low за шрифтами — LCP 3,0 с на /teams). Docs image.md радять саме
-            // fetchPriority / loading="eager" замість preload.
+            decoding="async"
+            // Перша картка — кандидат LCP: високий пріоритет; перший ряд — eager, решта — lazy.
             fetchPriority={index === 0 ? "high" : undefined}
             loading={index < 4 ? "eager" : "lazy"}
           />
@@ -100,7 +102,8 @@ export function TeamCard({ card, labels, locale, season, index }: Props) {
             {card.current.drivers.map((d) => (
               <li key={d.id}>
                 {d.avatar ? (
-                  <Image className="av" src={d.avatar} width={28} height={28} alt="" loading="lazy" />
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img className="av" src={d.avatar} width={28} height={28} alt="" loading="lazy" decoding="async" />
                 ) : (
                   <span className="av av-ini" aria-hidden="true">
                     {d.initials}

@@ -38,8 +38,10 @@ describe("знімок команд", () => {
     expect(withPhoto).toHaveLength(127);
     for (const t of withPhoto) {
       const p = t.photo!;
-      expect(p.src, t.id).toBe(`/img/cars/${t.id}.jpg`);
-      expect(existsSync(publicFile(p.src)), p.src).toBe(true);
+      // Готові WebP (без оптимізації на сервері при кожному запиті — LCP, ліміт Vercel).
+      expect(p.src, t.id).toBe(`/img/cars/${t.id}-480.webp`);
+      expect(p.srcSet, t.id).toBe(`/img/cars/${t.id}-256.webp 256w, /img/cars/${t.id}-480.webp 480w`);
+      for (const f of [`/img/cars/${t.id}-256.webp`, p.src]) expect(existsSync(publicFile(f)), f).toBe(true);
       expect([p.width, p.height]).toEqual([480, 300]);
       expect(FREE_LICENSES.has(p.credit.license), `${t.id}: ${p.credit.license}`).toBe(true);
       expect(p.credit.author.trim(), t.id).not.toBe("");
@@ -69,7 +71,7 @@ describe("знімок команд", () => {
       expect(d.name.uk.endsWith(d.surname.uk), d.id).toBe(true);
       expect(d.initials, d.id).toMatch(/^\p{Lu}{1,2}$/u);
       if (d.avatar) {
-        expect(d.avatar).toBe(`/img/drivers/${d.id}.jpg`);
+        expect(d.avatar).toBe(`/img/drivers/${d.id}-96.webp`);
         expect(existsSync(publicFile(d.avatar)), d.avatar).toBe(true);
         const credit = data.avatarCredits[d.id];
         expect(credit, d.id).toBeDefined();

@@ -4,7 +4,7 @@
 
 | Знімок | Скрипт | Стан на | Вміст |
 |---|---|---|---|
-| `src/data/snapshot/teams.json` | `python3 -I scripts/snapshot/teams.py ~/Desktop/F1/data` | 08.11.2026 (після 20-го етапу) | 164 команди (JSON ≈ 92 КБ, gzip ≈ 12 КБ), 127 фото `public/img/cars` (480×300, ≈ 4,1 МБ байтів), 22 аватари `public/img/drivers` (112×112, ≈ 99 КБ) |
+| `src/data/snapshot/teams.json` | `python3 -I scripts/snapshot/teams.py ~/Desktop/F1/data` | 08.11.2026 (після 20-го етапу) | 164 команди (JSON ≈ 92 КБ, gzip ≈ 12 КБ), 127 фото `public/img/cars` (WebP 256 і 480 px, ≈ 3,9 МБ), 22 аватари `public/img/drivers` (WebP 96 px, ≈ 53 КБ) |
 
 - Джерело — локальні дані макетів (`index_mockup/index_data.json`, `teams_cards/data/*.json`, `avatars.json`, `driver_photos/`), тобто ті самі числа, що в затвердженому макеті. Звірка з Jolpica — `docs/audits/phase3a-data.md`.
 - Фото — лише вільні ліцензії з Wikimedia Commons; автори й ліцензії — у знімку (`credit`, `avatarCredits`) і на сторінці.

@@ -23,7 +23,7 @@ export type TeamCardDriver = { id: string; name: string; initials: string; avata
 export type TeamCard = Omit<TeamSnapshot, "country" | "current" | "photo" | "fullName" | "refs" | "aliases"> & {
   country: string;
   current: null | { position: number; color: string; drivers: TeamCardDriver[] };
-  photo: null | { src: string; width: number; height: number; alt: string };
+  photo: null | { src: string; srcSet: string; width: number; height: number; alt: string };
   /** Рядок для пошуку: назва, повна назва, кирилиця, код і країна обома мовами, пілоти сезону обома мовами — нижній регістр. */
   search: string;
 };
@@ -48,7 +48,13 @@ function toCard(t: TeamSnapshot, locale: Locale): TeamCard {
       color: t.current.color,
       drivers: t.current.drivers.map((d) => ({ id: d.id, name: d.surname[locale], initials: d.initials, avatar: d.avatar })),
     },
-    photo: t.photo && { src: t.photo.src, width: t.photo.width, height: t.photo.height, alt: ALT[locale](t.name) },
+    photo: t.photo && {
+      src: t.photo.src,
+      srcSet: t.photo.srcSet,
+      width: t.photo.width,
+      height: t.photo.height,
+      alt: ALT[locale](t.name),
+    },
     search: [
       t.name,
       t.fullName,
