@@ -52,10 +52,13 @@ jobs:
 
       - name: Встановити Chromium
         if: steps.pw-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install chromium
 
+      # Через apt (дзеркала Ubuntu): 11.11 DNS security.ubuntu.com на раннері падав і валив увесь прогін.
+      # Образ раннера вже має бібліотеки Chrome; якщо чогось бракує — e2e/Lighthouse впадуть із явною помилкою.
       - name: Системні залежності Chromium
-        if: steps.pw-cache.outputs.cache-hit == 'true'
+        continue-on-error: true
+        timeout-minutes: 5
         run: npx playwright install-deps chromium
 
       - name: e2e
