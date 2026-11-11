@@ -111,7 +111,7 @@ for (const path of PAGES) {
   const pass = below.length === 0 && metrics.cls < 0.1;
   summary.ok &&= pass;
   summary.pages.push({ path, mode: "navigation", categories, metrics, failing: failingAudits(lhrs[0]), pass });
-  await writeFile(join(OUT, `${path.replaceAll("/", "_") || "_root"}.json`), JSON.stringify(lhrs[0], null, 1));
+  await writeFile(join(OUT, `${path === "/" ? "_root" : path.replaceAll("/", "_")}.json`), JSON.stringify(lhrs[0], null, 1));
 }
 
 {
