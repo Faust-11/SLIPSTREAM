@@ -27,8 +27,8 @@ export function seasonStripGradient(
   return `linear-gradient(to right, ${stops.join(", ")})`;
 }
 
-/** Підпис років під смугою (як у макеті): «1954–1955, 2010–2026»; понад 3 діапазони — «перший, … останній». */
+/** Підпис років під смугою: усі діапазони «1954–1955, 2010–2026» (у макеті понад 3 скорочувались
+ *  до «перший, … останній» — губились роки, які смуга показує; дизайн-рев'ю 11.11). */
 export function seasonsText(ranges: readonly (readonly [number, number])[]): string {
-  const parts = ranges.map(([a, b]) => (a === b ? `${a}` : `${a}–${b}`));
-  return parts.length <= 3 ? parts.join(", ") : `${parts[0]}, … ${parts.at(-1)}`;
+  return ranges.map(([a, b]) => (a === b ? `${a}` : `${a}–${b}`)).join(", ");
 }

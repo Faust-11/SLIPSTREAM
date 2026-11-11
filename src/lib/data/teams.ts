@@ -20,11 +20,11 @@ export function getTeamsSeason(): number {
 export type TeamCardDriver = { id: string; name: string; initials: string; avatar: string | null };
 
 /** Картка команди мовою сторінки — те, що отримує UI. */
-export type TeamCard = Omit<TeamSnapshot, "country" | "current" | "photo" | "fullName" | "refs"> & {
+export type TeamCard = Omit<TeamSnapshot, "country" | "current" | "photo" | "fullName" | "refs" | "aliases"> & {
   country: string;
   current: null | { position: number; color: string; drivers: TeamCardDriver[] };
   photo: null | { src: string; width: number; height: number; alt: string };
-  /** Рядок для пошуку (як data-k макета): назва, повна назва, код і країна обома мовами — нижній регістр. */
+  /** Рядок для пошуку: назва, повна назва, кирилиця, код і країна обома мовами, пілоти сезону обома мовами — нижній регістр. */
   search: string;
 };
 
@@ -49,7 +49,17 @@ function toCard(t: TeamSnapshot, locale: Locale): TeamCard {
       drivers: t.current.drivers.map((d) => ({ id: d.id, name: d.surname[locale], initials: d.initials, avatar: d.avatar })),
     },
     photo: t.photo && { src: t.photo.src, width: t.photo.width, height: t.photo.height, alt: ALT[locale](t.name) },
-    search: [t.name, t.fullName, t.countryCode, t.country.en, t.country.uk].join(" ").toLowerCase(),
+    search: [
+      t.name,
+      t.fullName,
+      ...t.aliases,
+      t.countryCode,
+      t.country.en,
+      t.country.uk,
+      ...(t.current?.drivers ?? []).flatMap((d) => [d.name.en, d.name.uk]),
+    ]
+      .join(" ")
+      .toLowerCase(),
   };
 }
 

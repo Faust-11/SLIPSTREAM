@@ -5,6 +5,10 @@
    "id": "ferrari",
    "name": "Ferrari",
    "fullName": "Ferrari",
+   "aliases": [
+    "Феррарі",
+    "Феррари"
+   ],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -69,6 +73,9 @@
    "id": "mclaren",
    "name": "McLaren",
    "fullName": "McLaren",
+   "aliases": [
+    "Макларен"
+   ],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -137,6 +144,9 @@
    "id": "mercedes",
    "name": "Mercedes",
    "fullName": "Mercedes",
+   "aliases": [
+    "Мерседес"
+   ],
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -205,6 +215,9 @@
    "id": "red-bull",
    "name": "Red Bull",
    "fullName": "Red Bull",
+   "aliases": [
+    "Ред Булл"
+   ],
    "country": {
     "en": "Austria",
     "uk": "Австрія"
@@ -269,6 +282,11 @@
    "id": "williams",
    "name": "Williams",
    "fullName": "Williams",
+   "aliases": [
+    "Вільямс",
+    "Уільямс",
+    "Уильямс"
+   ],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -337,6 +355,9 @@
    "id": "lotus",
    "name": "Lotus",
    "fullName": "Lotus",
+   "aliases": [
+    "Лотус"
+   ],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -381,6 +402,9 @@
    "id": "renault",
    "name": "Renault",
    "fullName": "Renault",
+   "aliases": [
+    "Рено"
+   ],
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -422,6 +446,10 @@
    "id": "brabham",
    "name": "Brabham",
    "fullName": "Brabham",
+   "aliases": [
+    "Брабем",
+    "Брэбем"
+   ],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -464,6 +492,9 @@
    "id": "benetton",
    "name": "Benetton",
    "fullName": "Benetton",
+   "aliases": [
+    "Бенеттон"
+   ],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -497,6 +528,10 @@
    "id": "tyrrell",
    "name": "Tyrrell",
    "fullName": "Tyrrell",
+   "aliases": [
+    "Тіррелл",
+    "Тиррелл"
+   ],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -530,6 +565,9 @@
    "id": "brm",
    "name": "BRM",
    "fullName": "BRM",
+   "aliases": [
+    "БРМ"
+   ],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -568,6 +606,9 @@
    "id": "cooper",
    "name": "Cooper",
    "fullName": "Cooper",
+   "aliases": [
+    "Купер"
+   ],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -615,6 +656,9 @@
    "id": "alfa-romeo",
    "name": "Alfa Romeo",
    "fullName": "Alfa Romeo",
+   "aliases": [
+    "Альфа Ромео"
+   ],
    "country": {
     "en": "Switzerland",
     "uk": "Швейцарія"
@@ -664,6 +708,10 @@
    "id": "ligier",
    "name": "Ligier",
    "fullName": "Ligier",
+   "aliases": [
+    "Ліжьє",
+    "Лижье"
+   ],
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -697,6 +745,10 @@
    "id": "maserati",
    "name": "Maserati",
    "fullName": "Maserati",
+   "aliases": [
+    "Мазераті",
+    "Мазерати"
+   ],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -730,6 +782,9 @@
    "id": "matra",
    "name": "Matra",
    "fullName": "Matra",
+   "aliases": [
+    "Матра"
+   ],
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -764,6 +819,10 @@
    "id": "vanwall",
    "name": "Vanwall",
    "fullName": "Vanwall",
+   "aliases": [
+    "Венволл",
+    "Вэнуолл"
+   ],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -797,6 +856,9 @@
    "id": "brawn",
    "name": "Brawn",
    "fullName": "Brawn",
+   "aliases": [
+    "Браун"
+   ],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -830,6 +892,7 @@
    "id": "kurtis-kraft",
    "name": "Kurtis Kraft",
    "fullName": "Kurtis Kraft",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -863,6 +926,9 @@
    "id": "jordan",
    "name": "Jordan",
    "fullName": "Jordan",
+   "aliases": [
+    "Джордан"
+   ],
    "country": {
     "en": "Ireland",
     "uk": "Ірландія"
@@ -896,6 +962,9 @@
    "id": "march",
    "name": "March",
    "fullName": "March",
+   "aliases": [
+    "Марч"
+   ],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -943,6 +1012,9 @@
    "id": "honda",
    "name": "Honda",
    "fullName": "Honda",
+   "aliases": [
+    "Хонда"
+   ],
    "country": {
     "en": "Japan",
     "uk": "Японія"
@@ -980,6 +1052,7 @@
    "id": "wolf",
    "name": "Wolf",
    "fullName": "Wolf",
+   "aliases": [],
    "country": {
     "en": "Canada",
     "uk": "Канада"
@@ -1013,6 +1086,7 @@
    "id": "watson",
    "name": "Watson",
    "fullName": "Watson",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -1050,6 +1124,7 @@
    "id": "lotus-f1",
    "name": "Lotus F1",
    "fullName": "Lotus F1",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1083,6 +1158,7 @@
    "id": "epperly",
    "name": "Epperly",
    "fullName": "Epperly",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -1120,6 +1196,9 @@
    "id": "toro-rosso",
    "name": "Toro Rosso",
    "fullName": "Toro Rosso",
+   "aliases": [
+    "Торо Россо"
+   ],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -1153,6 +1232,10 @@
    "id": "alpine",
    "name": "Alpine",
    "fullName": "Alpine F1 Team",
+   "aliases": [
+    "Альпін",
+    "Альпин"
+   ],
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -1217,6 +1300,7 @@
    "id": "shadow",
    "name": "Shadow",
    "fullName": "Shadow",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1252,6 +1336,10 @@
    "id": "alphatauri",
    "name": "AlphaTauri",
    "fullName": "AlphaTauri",
+   "aliases": [
+    "Альфа Таурі",
+    "Альфа Таури"
+   ],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -1285,6 +1373,7 @@
    "id": "bmw-sauber",
    "name": "BMW Sauber",
    "fullName": "BMW Sauber",
+   "aliases": [],
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -1318,6 +1407,7 @@
    "id": "hesketh",
    "name": "Hesketh",
    "fullName": "Hesketh",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1351,6 +1441,9 @@
    "id": "stewart",
    "name": "Stewart",
    "fullName": "Stewart",
+   "aliases": [
+    "Стюарт"
+   ],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1384,6 +1477,7 @@
    "id": "penske",
    "name": "Penske",
    "fullName": "Penske",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -1417,6 +1511,10 @@
    "id": "racing-point",
    "name": "Racing Point",
    "fullName": "Racing Point",
+   "aliases": [
+    "Рейсінг Пойнт",
+    "Рейсинг Пойнт"
+   ],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1450,6 +1548,7 @@
    "id": "porsche",
    "name": "Porsche",
    "fullName": "Porsche",
+   "aliases": [],
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -1483,6 +1582,7 @@
    "id": "eagle",
    "name": "Eagle",
    "fullName": "Eagle",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -1518,6 +1618,7 @@
    "id": "kuzma",
    "name": "Kuzma",
    "fullName": "Kuzma",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -1551,6 +1652,9 @@
    "id": "sauber",
    "name": "Sauber",
    "fullName": "Sauber",
+   "aliases": [
+    "Заубер"
+   ],
    "country": {
     "en": "Switzerland",
     "uk": "Швейцарія"
@@ -1592,6 +1696,10 @@
    "id": "minardi",
    "name": "Minardi",
    "fullName": "Minardi",
+   "aliases": [
+    "Мінарді",
+    "Минарди"
+   ],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -1625,6 +1733,7 @@
    "id": "arrows",
    "name": "Arrows",
    "fullName": "Arrows",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1662,6 +1771,9 @@
    "id": "haas",
    "name": "Haas",
    "fullName": "Haas F1 Team",
+   "aliases": [
+    "Хаас"
+   ],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -1726,6 +1838,10 @@
    "id": "force-india",
    "name": "Force India",
    "fullName": "Force India",
+   "aliases": [
+    "Форс Індія",
+    "Форс Индия"
+   ],
    "country": {
     "en": "India",
     "uk": "Індія"
@@ -1759,6 +1875,10 @@
    "id": "aston-martin",
    "name": "Aston Martin",
    "fullName": "Aston Martin",
+   "aliases": [
+    "Астон Мартін",
+    "Астон Мартин"
+   ],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1827,6 +1947,9 @@
    "id": "toyota",
    "name": "Toyota",
    "fullName": "Toyota",
+   "aliases": [
+    "Тойота"
+   ],
    "country": {
     "en": "Japan",
     "uk": "Японія"
@@ -1860,6 +1983,7 @@
    "id": "osella",
    "name": "Osella",
    "fullName": "Osella",
+   "aliases": [],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -1893,6 +2017,7 @@
    "id": "surtees",
    "name": "Surtees",
    "fullName": "Surtees",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1926,6 +2051,7 @@
    "id": "bar",
    "name": "BAR",
    "fullName": "BAR",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -1959,6 +2085,7 @@
    "id": "larrousse",
    "name": "Larrousse",
    "fullName": "Larrousse",
+   "aliases": [],
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -1992,6 +2119,7 @@
    "id": "fittipaldi",
    "name": "Fittipaldi",
    "fullName": "Fittipaldi",
+   "aliases": [],
    "country": {
     "en": "Brazil",
     "uk": "Бразилія"
@@ -2025,6 +2153,7 @@
    "id": "ensign",
    "name": "Ensign",
    "fullName": "Ensign",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2058,6 +2187,7 @@
    "id": "ats",
    "name": "ATS",
    "fullName": "ATS",
+   "aliases": [],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -2095,6 +2225,7 @@
    "id": "footwork",
    "name": "Footwork",
    "fullName": "Footwork",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2128,6 +2259,7 @@
    "id": "lola",
    "name": "Lola",
    "fullName": "Lola",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2181,6 +2313,9 @@
    "id": "jaguar",
    "name": "Jaguar",
    "fullName": "Jaguar",
+   "aliases": [
+    "Ягуар"
+   ],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2214,6 +2349,7 @@
    "id": "prost",
    "name": "Prost",
    "fullName": "Prost",
+   "aliases": [],
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -2247,6 +2383,7 @@
    "id": "dallara",
    "name": "Dallara",
    "fullName": "Dallara",
+   "aliases": [],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -2271,6 +2408,10 @@
    "id": "racing-bulls",
    "name": "Racing Bulls",
    "fullName": "RB F1 Team",
+   "aliases": [
+    "Рейсінг Буллз",
+    "Рейсинг Буллз"
+   ],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -2335,6 +2476,7 @@
    "id": "toleman",
    "name": "Toleman",
    "fullName": "Toleman",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2368,6 +2510,7 @@
    "id": "hrt",
    "name": "HRT",
    "fullName": "HRT",
+   "aliases": [],
    "country": {
     "en": "Spain",
     "uk": "Іспанія"
@@ -2401,6 +2544,7 @@
    "id": "caterham",
    "name": "Caterham",
    "fullName": "Caterham",
+   "aliases": [],
    "country": {
     "en": "Malaysia",
     "uk": "Малайзія"
@@ -2434,6 +2578,7 @@
    "id": "marussia",
    "name": "Marussia",
    "fullName": "Marussia",
+   "aliases": [],
    "country": {
     "en": "Russia",
     "uk": "Росія"
@@ -2467,6 +2612,7 @@
    "id": "zakspeed",
    "name": "Zakspeed",
    "fullName": "Zakspeed",
+   "aliases": [],
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -2500,6 +2646,7 @@
    "id": "ags",
    "name": "AGS",
    "fullName": "AGS",
+   "aliases": [],
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -2533,6 +2680,7 @@
    "id": "super-aguri",
    "name": "Super Aguri",
    "fullName": "Super Aguri",
+   "aliases": [],
    "country": {
     "en": "Japan",
     "uk": "Японія"
@@ -2566,6 +2714,7 @@
    "id": "manor-marussia",
    "name": "Manor Marussia",
    "fullName": "Manor Marussia",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2599,6 +2748,7 @@
    "id": "virgin",
    "name": "Virgin",
    "fullName": "Virgin",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2632,6 +2782,7 @@
    "id": "theodore",
    "name": "Theodore",
    "fullName": "Theodore",
+   "aliases": [],
    "country": {
     "en": "Hong Kong",
     "uk": "Гонконг"
@@ -2660,6 +2811,7 @@
    "id": "gordini",
    "name": "Gordini",
    "fullName": "Gordini",
+   "aliases": [],
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -2693,6 +2845,7 @@
    "id": "ram",
    "name": "RAM",
    "fullName": "RAM",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2726,6 +2879,7 @@
    "id": "iso-marlboro",
    "name": "Iso Marlboro",
    "fullName": "Iso Marlboro",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2759,6 +2913,7 @@
    "id": "leyton-house",
    "name": "Leyton House",
    "fullName": "Leyton House",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2792,6 +2947,7 @@
    "id": "spirit",
    "name": "Spirit",
    "fullName": "Spirit",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2825,6 +2981,7 @@
    "id": "forti",
    "name": "Forti",
    "fullName": "Forti",
+   "aliases": [],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -2858,6 +3015,7 @@
    "id": "pacific",
    "name": "Pacific",
    "fullName": "Pacific",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2891,6 +3049,7 @@
    "id": "simtek",
    "name": "Simtek",
    "fullName": "Simtek",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -2924,6 +3083,7 @@
    "id": "rial",
    "name": "Rial",
    "fullName": "Rial",
+   "aliases": [],
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -2957,6 +3117,10 @@
    "id": "audi",
    "name": "Audi",
    "fullName": "Audi",
+   "aliases": [
+    "Ауді",
+    "Ауди"
+   ],
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -3021,6 +3185,10 @@
    "id": "cadillac",
    "name": "Cadillac",
    "fullName": "Cadillac F1 Team",
+   "aliases": [
+    "Каділлак",
+    "Кадиллак"
+   ],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -3085,6 +3253,7 @@
    "id": "fondmetal",
    "name": "Fondmetal",
    "fullName": "Fondmetal",
+   "aliases": [],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -3118,6 +3287,7 @@
    "id": "connaught",
    "name": "Connaught",
    "fullName": "Connaught",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3151,6 +3321,7 @@
    "id": "onyx",
    "name": "Onyx",
    "fullName": "Onyx",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3184,6 +3355,7 @@
    "id": "spyker",
    "name": "Spyker",
    "fullName": "Spyker",
+   "aliases": [],
    "country": {
     "en": "Netherlands",
     "uk": "Нідерланди"
@@ -3217,6 +3389,7 @@
    "id": "parnelli",
    "name": "Parnelli",
    "fullName": "Parnelli",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -3250,6 +3423,7 @@
    "id": "euro-brun",
    "name": "Euro Brun",
    "fullName": "Euro Brun",
+   "aliases": [],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -3287,6 +3461,7 @@
    "id": "simca",
    "name": "Simca",
    "fullName": "Simca",
+   "aliases": [],
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -3320,6 +3495,7 @@
    "id": "hwm",
    "name": "HWM",
    "fullName": "HWM",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3353,6 +3529,7 @@
    "id": "mf1",
    "name": "MF1",
    "fullName": "MF1",
+   "aliases": [],
    "country": {
     "en": "Russia",
     "uk": "Росія"
@@ -3386,6 +3563,7 @@
    "id": "talbot",
    "name": "Talbot",
    "fullName": "Talbot",
+   "aliases": [],
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -3419,6 +3597,7 @@
    "id": "brp",
    "name": "BRP",
    "fullName": "BRP",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3443,6 +3622,7 @@
    "id": "coloni",
    "name": "Coloni",
    "fullName": "Coloni",
+   "aliases": [],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -3476,6 +3656,7 @@
    "id": "de-tomaso",
    "name": "De Tomaso",
    "fullName": "De Tomaso",
+   "aliases": [],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -3516,6 +3697,7 @@
    "id": "tecno",
    "name": "Tecno",
    "fullName": "Tecno",
+   "aliases": [],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -3549,6 +3731,7 @@
    "id": "embassy-hill",
    "name": "Embassy Hill",
    "fullName": "Embassy Hill",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3582,6 +3765,7 @@
    "id": "merzario",
    "name": "Merzario",
    "fullName": "Merzario",
+   "aliases": [],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -3615,6 +3799,7 @@
    "id": "lesovsky",
    "name": "Lesovsky",
    "fullName": "Lesovsky",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -3643,6 +3828,7 @@
    "id": "era",
    "name": "ERA",
    "fullName": "ERA",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3676,6 +3862,7 @@
    "id": "phillips",
    "name": "Phillips",
    "fullName": "Phillips",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -3700,6 +3887,7 @@
    "id": "stevens",
    "name": "Stevens",
    "fullName": "Stevens",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -3728,6 +3916,7 @@
    "id": "veritas",
    "name": "Veritas",
    "fullName": "Veritas",
+   "aliases": [],
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -3761,6 +3950,7 @@
    "id": "trojan",
    "name": "Trojan",
    "fullName": "Trojan",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3794,6 +3984,7 @@
    "id": "boro",
    "name": "Boro",
    "fullName": "Boro",
+   "aliases": [],
    "country": {
     "en": "Netherlands",
     "uk": "Нідерланди"
@@ -3827,6 +4018,7 @@
    "id": "lambo",
    "name": "Lambo",
    "fullName": "Lambo",
+   "aliases": [],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -3860,6 +4052,7 @@
    "id": "alta",
    "name": "Alta",
    "fullName": "Alta",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3893,6 +4086,7 @@
    "id": "lds",
    "name": "LDS",
    "fullName": "LDS",
+   "aliases": [],
    "country": {
     "en": "South Africa",
     "uk": "ПАР"
@@ -3936,6 +4130,7 @@
    "id": "scirocco",
    "name": "Scirocco",
    "fullName": "Scirocco",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -3969,6 +4164,7 @@
    "id": "martini",
    "name": "Martini",
    "fullName": "Martini",
+   "aliases": [],
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -4002,6 +4198,7 @@
    "id": "schroeder",
    "name": "Schroeder",
    "fullName": "Schroeder",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4030,6 +4227,7 @@
    "id": "bromme",
    "name": "Bromme",
    "fullName": "Bromme",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4054,6 +4252,7 @@
    "id": "trevis",
    "name": "Trevis",
    "fullName": "Trevis",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4086,6 +4285,7 @@
    "id": "osca",
    "name": "OSCA",
    "fullName": "OSCA",
+   "aliases": [],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -4110,6 +4310,7 @@
    "id": "frazer-nash",
    "name": "Frazer Nash",
    "fullName": "Frazer Nash",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -4143,6 +4344,7 @@
    "id": "afm",
    "name": "AFM",
    "fullName": "AFM",
+   "aliases": [],
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -4176,6 +4378,7 @@
    "id": "lancia",
    "name": "Lancia",
    "fullName": "Lancia",
+   "aliases": [],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -4209,6 +4412,7 @@
    "id": "emeryson",
    "name": "Emeryson",
    "fullName": "Emeryson",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -4246,6 +4450,7 @@
    "id": "jbw",
    "name": "JBW",
    "fullName": "JBW",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -4279,6 +4484,7 @@
    "id": "spyker-mf1",
    "name": "Spyker MF1",
    "fullName": "Spyker MF1",
+   "aliases": [],
    "country": {
     "en": "Netherlands",
     "uk": "Нідерланди"
@@ -4312,6 +4518,7 @@
    "id": "deidt",
    "name": "Deidt",
    "fullName": "Deidt",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4345,6 +4552,7 @@
    "id": "moore",
    "name": "Moore",
    "fullName": "Moore",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4373,6 +4581,7 @@
    "id": "pawl",
    "name": "Pawl",
    "fullName": "Pawl",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4401,6 +4610,7 @@
    "id": "dunn",
    "name": "Dunn",
    "fullName": "Dunn",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4425,6 +4635,7 @@
    "id": "scarab",
    "name": "Scarab",
    "fullName": "Scarab",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4458,6 +4669,7 @@
    "id": "gilby",
    "name": "Gilby",
    "fullName": "Gilby",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -4491,6 +4703,7 @@
    "id": "token",
    "name": "Token",
    "fullName": "Token",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -4524,6 +4737,7 @@
    "id": "lec",
    "name": "LEC",
    "fullName": "LEC",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -4557,6 +4771,7 @@
    "id": "nichels",
    "name": "Nichels",
    "fullName": "Nichels",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4585,6 +4800,7 @@
    "id": "marchese",
    "name": "Marchese",
    "fullName": "Marchese",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4609,6 +4825,7 @@
    "id": "ewing",
    "name": "Ewing",
    "fullName": "Ewing",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4637,6 +4854,7 @@
    "id": "sherman",
    "name": "Sherman",
    "fullName": "Sherman",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4661,6 +4879,7 @@
    "id": "aston-butterworth",
    "name": "Aston Butterworth",
    "fullName": "Aston Butterworth",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -4694,6 +4913,7 @@
    "id": "bmw",
    "name": "BMW",
    "fullName": "BMW",
+   "aliases": [],
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -4727,6 +4947,7 @@
    "id": "pankratz",
    "name": "Pankratz",
    "fullName": "Pankratz",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4751,6 +4972,7 @@
    "id": "christensen",
    "name": "Christensen",
    "fullName": "Christensen",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4775,6 +4997,7 @@
    "id": "behra",
    "name": "Behra",
    "fullName": "Behra",
+   "aliases": [],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -4799,6 +5022,7 @@
    "id": "bellasi",
    "name": "Bellasi",
    "fullName": "Bellasi",
+   "aliases": [],
    "country": {
     "en": "Switzerland",
     "uk": "Швейцарія"
@@ -4823,6 +5047,7 @@
    "id": "kojima",
    "name": "Kojima",
    "fullName": "Kojima",
+   "aliases": [],
    "country": {
     "en": "Japan",
     "uk": "Японія"
@@ -4856,6 +5081,7 @@
    "id": "andrea-moda",
    "name": "Andrea Moda",
    "fullName": "Andrea Moda",
+   "aliases": [],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -4889,6 +5115,7 @@
    "id": "langley",
    "name": "Langley",
    "fullName": "Langley",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4913,6 +5140,7 @@
    "id": "rae",
    "name": "Rae",
    "fullName": "Rae",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4937,6 +5165,7 @@
    "id": "olson",
    "name": "Olson",
    "fullName": "Olson",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4961,6 +5190,7 @@
    "id": "wetteroth",
    "name": "Wetteroth",
    "fullName": "Wetteroth",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -4985,6 +5215,7 @@
    "id": "snowberger",
    "name": "Snowberger",
    "fullName": "Snowberger",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -5009,6 +5240,7 @@
    "id": "adams",
    "name": "Adams",
    "fullName": "Adams",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -5042,6 +5274,7 @@
    "id": "hall",
    "name": "Hall",
    "fullName": "Hall",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -5066,6 +5299,7 @@
    "id": "turner",
    "name": "Turner",
    "fullName": "Turner",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -5090,6 +5324,7 @@
    "id": "del-roy",
    "name": "Del Roy",
    "fullName": "Del Roy",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -5114,6 +5349,7 @@
    "id": "emw",
    "name": "EMW",
    "fullName": "EMW",
+   "aliases": [],
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -5138,6 +5374,7 @@
    "id": "klenk",
    "name": "Klenk",
    "fullName": "Klenk",
+   "aliases": [],
    "country": {
     "en": "Germany",
     "uk": "Німеччина"
@@ -5162,6 +5399,7 @@
    "id": "bugatti",
    "name": "Bugatti",
    "fullName": "Bugatti",
+   "aliases": [],
    "country": {
     "en": "France",
     "uk": "Франція"
@@ -5195,6 +5433,7 @@
    "id": "elder",
    "name": "Elder",
    "fullName": "Elder",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -5219,6 +5458,7 @@
    "id": "sutton",
    "name": "Sutton",
    "fullName": "Sutton",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -5243,6 +5483,7 @@
    "id": "tec",
    "name": "Tec",
    "fullName": "Tec",
+   "aliases": [],
    "country": {
     "en": "Italy",
     "uk": "Італія"
@@ -5276,6 +5517,7 @@
    "id": "meskowski",
    "name": "Meskowski",
    "fullName": "Meskowski",
+   "aliases": [],
    "country": {
     "en": "United States",
     "uk": "США"
@@ -5309,6 +5551,7 @@
    "id": "ferguson",
    "name": "Ferguson",
    "fullName": "Ferguson",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -5342,6 +5585,7 @@
    "id": "enb",
    "name": "ENB",
    "fullName": "ENB",
+   "aliases": [],
    "country": {
     "en": "Belgium",
     "uk": "Бельгія"
@@ -5375,6 +5619,7 @@
    "id": "stebro",
    "name": "Stebro",
    "fullName": "Stebro",
+   "aliases": [],
    "country": {
     "en": "Canada",
     "uk": "Канада"
@@ -5399,6 +5644,7 @@
    "id": "derrington",
    "name": "Derrington",
    "fullName": "Derrington",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -5432,6 +5678,7 @@
    "id": "shannon",
    "name": "Shannon",
    "fullName": "Shannon",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -5456,6 +5703,7 @@
    "id": "protos",
    "name": "Protos",
    "fullName": "Protos",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -5480,6 +5728,7 @@
    "id": "politoys",
    "name": "Politoys",
    "fullName": "Politoys",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -5504,6 +5753,7 @@
    "id": "connew",
    "name": "Connew",
    "fullName": "Connew",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -5537,6 +5787,7 @@
    "id": "amon",
    "name": "Amon",
    "fullName": "Amon",
+   "aliases": [],
    "country": {
     "en": "New Zealand",
     "uk": "Нова Зеландія"
@@ -5570,6 +5821,7 @@
    "id": "lyncar",
    "name": "Lyncar",
    "fullName": "Lyncar",
+   "aliases": [],
    "country": {
     "en": "United Kingdom",
     "uk": "Велика Британія"
@@ -5603,6 +5855,7 @@
    "id": "rebaque",
    "name": "Rebaque",
    "fullName": "Rebaque",
+   "aliases": [],
    "country": {
     "en": "Mexico",
     "uk": "Мексика"

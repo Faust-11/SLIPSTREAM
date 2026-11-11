@@ -1,8 +1,23 @@
 /* Розділ «Команди» — картки за макетом (index_mockup/teams: circuits.css + teams.css), токени — globals.css. */
 
+/* Межа полів і чипів: у темній темі --rule (#4A4E57) на папері — 2.24:1 < 3:1 (WCAG 1.4.11, рев'ю);
+   --ink-soft — 7.9:1. У світлій --rule = ink. */
+.teams-tools {
+  --control-line: var(--rule);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .teams-tools {
+    --control-line: var(--ink-soft);
+  }
+}
+:root[data-theme="dark"] .teams-tools {
+  --control-line: var(--ink-soft);
+}
+
 /* Липка панель інструментів (десктоп) не перекриває елемент у фокусі (Web Interface Guidelines). */
 html:has(.teams-tools) {
-  scroll-padding-top: 152px;
+  /* --teams-tools-h — фактична висота панелі (1 чи 2 ряди), ставить TeamsBrowser. */
+  scroll-padding-top: calc(64px + var(--teams-tools-h, 72px) + 16px);
 }
 @media (width <= 860px) {
   html:has(.teams-tools) {
@@ -77,7 +92,7 @@ html:has(.teams-tools) {
   word-spacing: normal;
   color: var(--ink);
   background: var(--paper);
-  border: var(--b2) solid var(--rule);
+  border: var(--b2) solid var(--control-line);
   border-radius: 0;
 }
 .teams-q::placeholder {
@@ -97,7 +112,7 @@ html:has(.teams-tools) {
   color: var(--ink);
   background: transparent;
   border: 0;
-  box-shadow: inset 0 0 0 1.5px var(--rule);
+  box-shadow: inset 0 0 0 1.5px var(--control-line);
   cursor: pointer;
   touch-action: manipulation;
 }
@@ -121,7 +136,7 @@ html:has(.teams-tools) {
   word-spacing: normal;
   color: var(--ink);
   background-color: var(--paper);
-  border: var(--b2) solid var(--rule);
+  border: var(--b2) solid var(--control-line);
   border-radius: 0;
 }
 @media (hover: hover) {
@@ -148,11 +163,6 @@ html:has(.teams-tools) {
   background: var(--paper);
   border: var(--b2) solid var(--rule);
 }
-/* Не атрибут hidden: preflight Tailwind 4 ховає [hidden] з !important у @layer base, а !important
-   у шарі перемагає будь-яке !important поза шаром — показати без JS було б неможливо (замір e2e). */
-.tc.is-later {
-  display: none;
-}
 .tc:focus-visible {
   outline-offset: 3px;
 }
@@ -171,10 +181,12 @@ html:has(.teams-tools) {
   height: 100%;
   object-fit: cover;
 }
+/* Без фото: штрихування (а не плоский фон — інакше читається як «зображення не довантажилось»). */
 .tc-none {
   display: grid;
   place-items: center;
   height: 100%;
+  background: repeating-linear-gradient(-45deg, transparent 0 9px, color-mix(in srgb, var(--hair) 55%, transparent) 9px 10px);
   font-family: var(--f-display);
   word-spacing: -0.35em;
   font-size: 34px;
@@ -194,7 +206,7 @@ html:has(.teams-tools) {
 .tc-name {
   margin: 0;
   padding: 0 12px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   line-height: 1.25;
   overflow-wrap: anywhere;
@@ -233,13 +245,16 @@ html:has(.teams-tools) {
 .tc-yt {
   font-family: var(--f-mono);
   word-spacing: normal;
-  font-size: 11.5px;
+  font-size: 12px;
   color: var(--ink-soft);
 }
+/* Колонки за вмістом з явним проміжком: рівні третини на 320 px склеювали «1 143» і «250»
+   в одне число (UX-прохід 11.11). */
 .tc-st {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 6px;
+  grid-template-columns: repeat(3, max-content);
+  justify-content: start;
+  gap: 6px 28px;
   margin: 0;
   padding: 8px 12px 0;
   border-top: 1px solid var(--hair);
@@ -250,7 +265,7 @@ html:has(.teams-tools) {
 .tc-st dt {
   font-family: var(--f-mono);
   word-spacing: normal;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -272,7 +287,7 @@ html:has(.teams-tools) {
   margin: 0;
   font-family: var(--f-mono);
   word-spacing: normal;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -311,6 +326,44 @@ html:has(.teams-tools) {
 }
 
 /* ---------- стани ---------- */
+.teams-count {
+  margin: 0 0 12px;
+  font-family: var(--f-mono);
+  word-spacing: normal;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.teams-count:empty {
+  display: none;
+}
+/* Посилання зі станом списку (?q=…): до гідратації не показувати нефільтрований список. */
+/* Висота — рівно один екран: футер лишається за його межею, і коли список скоротиться до
+   відфільтрованого, зсув не потрапляє в CLS (рев'ю: 0.11–0.37 на ?q=…). */
+html[data-list-query] .teams-grid {
+  height: 100vh;
+  overflow: hidden;
+}
+/* Футер і автори фото теж приховані: коли список скорочується, вони в'їжджають у екран знизу,
+   а приховані елементи не рахуються в CLS (замір: ?q=zzz — 0.34 без цього). */
+html[data-list-query] .teams-grid,
+html[data-list-query] .teams-more,
+html[data-list-query] .teams-empty,
+html[data-list-query] .page-credits,
+html[data-list-query] .site-foot {
+  visibility: hidden;
+  /* Запобіжник: якщо гідратація зірвалась (помилка JS), список усе одно з'явиться. */
+  animation: list-reveal 0s linear 6s forwards;
+}
+@keyframes list-reveal {
+  to {
+    visibility: visible;
+  }
+}
+.chip:active,
+.btn-line:active,
+.teams-more:active {
+  translate: 0 1px;
+}
 .teams-empty {
   display: flex;
   flex-wrap: wrap;
@@ -347,17 +400,20 @@ html:has(.teams-tools) {
   }
 }
 
-/* Без JS: видно всі картки, інструменти (не працюють) приховані. data-js ставить ThemeScript. */
-html:not([data-js]) .teams-tools,
-html:not([data-js]) .teams-more {
-  display: none;
+/* Без JS: решта карток — з <noscript> окремою сіткою; інструменти (не працюють) приховані.
+   data-js ставить ThemeScript. */
+.teams-grid-rest {
+  margin-top: 16px;
 }
-html:not([data-js]) .tc.is-later {
-  display: grid;
+html:not([data-js]) .teams-tools,
+html:not([data-js]) .teams-more,
+html:not([data-js]) .teams-count {
+  display: none;
 }
 
 /* ---------- автори фото ---------- */
 .page-credits {
+  margin-top: 64px;
   background: var(--head-bg);
   color: var(--head-fg);
   border-top: 1px solid rgb(255 255 255 / 0.14);
@@ -444,26 +500,98 @@ html:not([data-js]) .tc.is-later {
   }
 }
 
-/* ≤ 420 px: числа першого екрана — рядками «164 конструктори» (у три колонки «конструктори»
-   не влазило на 320–360 px — замір UX-проходу 11.11). */
-@media (width <= 420px) {
+/* ≤ 520 px (дизайн-рев'ю 11.11): перша команда має бути видно на першому екрані, а 24 картки —
+   не 11 000 px прокрутки. Числа — одним рядком тексту; чипи — один ряд з горизонтальною прокруткою;
+   картка — компактна горизонтальна (фото 128 px ліворуч). */
+@media (width <= 520px) {
+  .teams-intro .wrap {
+    gap: 12px;
+    padding-block: 24px 18px;
+  }
   .facts {
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2px 14px;
+    border: 0;
   }
-  .facts li {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    padding: 8px 12px;
-  }
+  .facts li,
   .facts li + li {
-    border-left: 0;
-    border-top: var(--b2) solid var(--rule);
+    padding: 0;
+    border: 0;
   }
   .facts b {
-    font-size: 22px;
+    display: inline;
+    font-size: 18px;
   }
   .facts span {
-    font-size: 14px;
+    font-size: 13px;
+  }
+  .teams-tools .wrap {
+    gap: 10px;
+  }
+  .chips {
+    flex-wrap: nowrap;
+    flex: 1 1 100%;
+    min-width: 0;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    /* Край ряду: частково видимий чип підказує, що ряд прокручується. */
+    margin-inline: -16px;
+    padding-inline: 16px;
+    scroll-padding-inline: 16px;
+  }
+  .chip {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    white-space: nowrap;
+  }
+  .tc {
+    grid-template-columns: 128px minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-areas:
+      "art name"
+      "art loc"
+      "art ."
+      "yr yr"
+      "st st"
+      "crew crew";
+    column-gap: 0;
+    row-gap: 6px;
+  }
+  .tc-art {
+    grid-area: art;
+    align-self: start;
+    border-bottom: 0;
+    border-right: var(--b2) solid var(--rule);
+  }
+  .tc.is-current .tc-art {
+    border-bottom: 4px solid var(--team, var(--rule));
+  }
+  .tc-pos {
+    top: auto;
+    bottom: 4px;
+    right: 4px;
+    padding: 2px 4px;
+    font-size: 10px;
+  }
+  .tc-name {
+    grid-area: name;
+    padding-top: 8px;
+  }
+  .tc-loc {
+    grid-area: loc;
+  }
+  .tc-yr {
+    grid-area: yr;
+    padding-top: 6px;
+  }
+  .tc-st {
+    grid-area: st;
+  }
+  .tc-crew {
+    grid-area: crew;
+  }
+  .tc-none {
+    font-size: 22px;
   }
 }

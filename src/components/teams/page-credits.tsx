@@ -18,7 +18,8 @@ export function PageCredits({ groups }: { groups: CreditGroup[] }) {
             <summary>{g.title}</summary>
             <ul>
               {g.items.map((it) => (
-                <li key={it.href}>
+                // Один файл Commons буває в двох команд (MF1 / Spyker MF1) — ключ не лише за посиланням.
+                <li key={`${it.label}|${it.href}`}>
                   <a href={it.href} rel="noopener" translate="no">
                     {it.label}
                   </a>

@@ -101,7 +101,7 @@
     },
     "empty": "Nothing found.",
     "reset": "Clear search and filter",
-    "more": "Show {n} more · {left} left",
+    "more": "Show {n} more of {left}",
     "found": {
       "one": "{n} team found",
       "few": "{n} teams found",
@@ -120,6 +120,7 @@
     "credits": {
       "cars": "Car photos: authors and licences",
       "drivers": "Driver portraits: authors and licences"
-    }
+    },
+    "emptyQuery": "Nothing found for “{q}”."
   }
 }

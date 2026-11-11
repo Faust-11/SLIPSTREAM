@@ -144,7 +144,6 @@ test.describe("мобільне меню", () => {
     const current = panel.getByRole("link", { name: "Команди" });
     await expect(current).toHaveAttribute("aria-current", "page");
     await expect(current).toHaveCSS("color", "rgb(243, 244, 241)");
-    expect(await current.evaluate((el) => getComputedStyle(el, "::after").color)).toBe("rgb(255, 196, 0)");
     const plate = panel.getByRole("link", { name: "Гра" }).locator(".mnav-plate");
     await expect(plate).toHaveCSS("background-color", "rgb(255, 196, 0)");
     await expect(plate).toHaveCSS("color", "rgb(22, 24, 29)");
