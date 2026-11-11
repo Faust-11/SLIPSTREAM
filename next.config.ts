@@ -21,7 +21,7 @@ const csp = [
 ].join("; ");
 
 const PERMISSIONS_POLICY = [
-  "accelerometer", "autoplay", "bluetooth", "browsing-topics", "camera", "display-capture", "encrypted-media",
+  "accelerometer", "autoplay", "browsing-topics", "camera", "display-capture", "encrypted-media",
   "geolocation", "gyroscope", "hid", "idle-detection", "local-fonts", "magnetometer", "microphone", "midi",
   "payment", "screen-wake-lock", "serial", "usb", "window-management", "xr-spatial-tracking",
 ]
@@ -35,7 +35,8 @@ const securityHeaders = [
   { key: "Strict-Transport-Security", value: "max-age=63072000" },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-  // Вимкнено все, що сайту не потрібне (замір: без помилок консолі в Chrome 150). Не чіпаємо
+  // Вимкнено все, що сайту не потрібне. Лише ознаки, відомі і Chrome 150, і Chromium Playwright 1.64:
+  // невідома ознака дає попередження в консолі (bluetooth — так, CI 11.11). Не чіпаємо
   // publickey-credentials-get / identity-credentials-get — знадобляться для входу (фаза 9).
   { key: "Permissions-Policy", value: PERMISSIONS_POLICY },
   // Дублює frame-ancestors для старих браузерів.
