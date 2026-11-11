@@ -26,7 +26,9 @@ export default async function NotFound() {
           <ul>
             {navItems(locale, dict).map((item) => (
               <li key={item.key}>
-                <Link href={item.href}>{item.label}</Link>
+                <Link href={item.href} prefetch={false}>
+                  {item.label}
+                </Link>
               </li>
             ))}
           </ul>

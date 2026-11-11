@@ -33,6 +33,8 @@ function Links({ current, label, names, query }: Props & { query: string }) {
             href={switchLocalePath(bare + query, locale)}
             hrefLang={locale}
             lang={locale}
+            // Мову перемикають рідко — не передзавантажуємо іншомовну версію на кожній сторінці.
+            prefetch={false}
           >
             {/* Доступна назва містить видимий текст (WCAG 2.5.3): «UK — Українська». */}
             {locale.toUpperCase()}

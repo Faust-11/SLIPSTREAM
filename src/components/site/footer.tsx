@@ -18,7 +18,10 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           <ul>
             {navItems(locale, dict).map((item) => (
               <li key={item.key}>
-                <Link href={item.href}>{item.label}</Link>
+                {/* Дубль меню: не передзавантажуємо (на коротких сторінках футер одразу у в'юпорті → 9 запитів). */}
+                <Link href={item.href} prefetch={false}>
+                  {item.label}
+                </Link>
               </li>
             ))}
           </ul>
