@@ -24,6 +24,8 @@ for (const width of [861, 1024, 1100, 1140, 1141, 1280, 1440]) {
     await page.setViewportSize({ width, height: 800 });
     for (const path of ["/", "/uk"]) {
       await page.goto(path);
+      // Бургер з'являється після гідратації — чекаємо її, інакше гонка.
+      await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
       const r = await page.evaluate(() => ({
         overflow: document.documentElement.scrollWidth - window.innerWidth,
         head: document.querySelector(".site-head")!.getBoundingClientRect().height,
@@ -206,14 +208,14 @@ test("фокус у шапці видимий (жовте кільце на те
 });
 
 for (const colorScheme of ["light", "dark"] as const) {
-  test(`без порушень axe: ${colorScheme}, обидві мови, мобільний і десктоп`, async ({ page }) => {
-    await page.emulateMedia({ colorScheme });
-    for (const width of [390, 1280]) {
-      await page.setViewportSize({ width, height: 800 });
-      for (const path of ["/", "/uk"]) {
+  for (const width of [390, 1280]) {
+    for (const path of ["/", "/uk"]) {
+      test(`без порушень axe: ${colorScheme}, ${width} px, ${path}`, async ({ page }) => {
+        await page.emulateMedia({ colorScheme });
+        await page.setViewportSize({ width, height: 800 });
         await page.goto(path);
         await expectNoA11yViolations(page);
-      }
+      });
     }
-  });
+  }
 }
