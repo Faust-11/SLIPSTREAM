@@ -9,6 +9,10 @@ on:
     - cron: "0 6 * * 1"   # понеділок 06:00 UTC — після гоночних вихідних
     - cron: "0 6 * * 4"   # четвер — пізні зміни результатів, новий дамп (щовівторка)
   workflow_dispatch:
+  # ТИМЧАСОВО (перший запуск до злиття: workflow_dispatch бачить лише файли з main) — прибрати наступним комітом.
+  push:
+    branches: [phase2/data]
+    paths: [".github/workflows/data-sync.yml"]
 
 concurrency:
   group: data-sync
@@ -31,6 +35,8 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r scripts/requirements.txt
+      - name: Замір до (розмір, таблиці Predictor; стоп, якщо схема f1 чужа)
+        run: python scripts/db/measure_live.py before "$RUNNER_TEMP/db-before.json"
       - name: Міграції
         run: python scripts/db/apply_migrations.py
       - name: Дамп Jolpica (лише новий)
@@ -41,6 +47,10 @@ jobs:
         run: python scripts/jolpica/topup_api.py
       - name: Перевірка даних
         run: python scripts/db/check_live.py
+      - name: Права доступу на бою (тестові зміни відкочуються)
+        run: python scripts/db/rls_smoke.py
+      - name: Замір після (приріст, таблиці Predictor без змін, ліміт 500 МБ)
+        run: python scripts/db/measure_live.py after "$RUNNER_TEMP/db-before.json"
       - name: Перезбірка сайту
         env:
           VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
