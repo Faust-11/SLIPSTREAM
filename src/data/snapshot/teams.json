@@ -1,0 +1,4925 @@
+{
+ "asOf": "2026-11-08",
+ "teams": [
+  {
+   "id": "ferrari",
+   "name": "Ferrari",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1950,
+     2026
+    ]
+   ],
+   "grandsPrix": 1144,
+   "wins": 251,
+   "titles": 16,
+   "current": {
+    "position": 2,
+    "color": "#E8002D",
+    "drivers": [
+     {
+      "id": "leclerc",
+      "name": {
+       "en": "Charles Leclerc",
+       "uk": "Шарль Леклер"
+      },
+      "surname": {
+       "en": "Leclerc",
+       "uk": "Леклер"
+      },
+      "initials": "CL",
+      "avatar": "/img/drivers/leclerc.jpg"
+     },
+     {
+      "id": "hamilton",
+      "name": {
+       "en": "Lewis Hamilton",
+       "uk": "Льюїс Гамілтон"
+      },
+      "surname": {
+       "en": "Hamilton",
+       "uk": "Гамілтон"
+      },
+      "initials": "LH",
+      "avatar": "/img/drivers/hamilton.jpg"
+     }
+    ]
+   },
+   "photo": {
+    "src": "/img/cars/ferrari.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Charles_Leclerc,_2019_Chinese_GP.jpg",
+     "author": "Liauzh",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "mclaren",
+   "name": "McLaren",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1966,
+     2026
+    ]
+   ],
+   "grandsPrix": 1013,
+   "wins": 206,
+   "titles": 10,
+   "current": {
+    "position": 4,
+    "color": "#FF8000",
+    "drivers": [
+     {
+      "id": "norris",
+      "name": {
+       "en": "Lando Norris",
+       "uk": "Ландо Норріс"
+      },
+      "surname": {
+       "en": "Norris",
+       "uk": "Норріс"
+      },
+      "initials": "LN",
+      "avatar": "/img/drivers/norris.jpg"
+     },
+     {
+      "id": "piastri",
+      "name": {
+       "en": "Oscar Piastri",
+       "uk": "Оскар Піастрі"
+      },
+      "surname": {
+       "en": "Piastri",
+       "uk": "Піастрі"
+      },
+      "initials": "OP",
+      "avatar": "/img/drivers/piastri.jpg"
+     }
+    ]
+   },
+   "photo": {
+    "src": "/img/cars/mclaren.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_McLaren_-_Lando_Norris_-_FP1.jpg",
+     "author": "Liauzh",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "mercedes",
+   "name": "Mercedes",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "seasons": [
+    [
+     1954,
+     1955
+    ],
+    [
+     2010,
+     2026
+    ]
+   ],
+   "grandsPrix": 361,
+   "wins": 143,
+   "titles": 9,
+   "current": {
+    "position": 1,
+    "color": "#27D9C2",
+    "drivers": [
+     {
+      "id": "russell",
+      "name": {
+       "en": "George Russell",
+       "uk": "Джордж Расселл"
+      },
+      "surname": {
+       "en": "Russell",
+       "uk": "Расселл"
+      },
+      "initials": "GR",
+      "avatar": "/img/drivers/russell.jpg"
+     },
+     {
+      "id": "antonelli",
+      "name": {
+       "en": "Andrea Kimi Antonelli",
+       "uk": "Кімі Антонеллі"
+      },
+      "surname": {
+       "en": "Antonelli",
+       "uk": "Антонеллі"
+      },
+      "initials": "AK",
+      "avatar": "/img/drivers/antonelli.jpg"
+     }
+    ]
+   },
+   "photo": {
+    "src": "/img/cars/mercedes.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:George_Russell_2022.jpg",
+     "author": "Wastrick",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "red-bull",
+   "name": "Red Bull",
+   "country": {
+    "en": "Austria",
+    "uk": "Австрія"
+   },
+   "seasons": [
+    [
+     2005,
+     2026
+    ]
+   ],
+   "grandsPrix": 437,
+   "wins": 133,
+   "titles": 6,
+   "current": {
+    "position": 3,
+    "color": "#1B2B6B",
+    "drivers": [
+     {
+      "id": "max_verstappen",
+      "name": {
+       "en": "Max Verstappen",
+       "uk": "Макс Ферстаппен"
+      },
+      "surname": {
+       "en": "Verstappen",
+       "uk": "Ферстаппен"
+      },
+      "initials": "MV",
+      "avatar": "/img/drivers/max_verstappen.jpg"
+     },
+     {
+      "id": "hadjar",
+      "name": {
+       "en": "Isack Hadjar",
+       "uk": "Ісак Хаджар"
+      },
+      "surname": {
+       "en": "Hadjar",
+       "uk": "Хаджар"
+      },
+      "initials": "IH",
+      "avatar": "/img/drivers/hadjar.jpg"
+     }
+    ]
+   },
+   "photo": {
+    "src": "/img/cars/red-bull.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2022_Miami_GP_-_Red_Bull_RB18_of_Sergio_P%C3%A9rez.jpg",
+     "author": "Dcmaradiaga",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "williams",
+   "name": "Williams",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1975,
+     1976
+    ],
+    [
+     1978,
+     2026
+    ]
+   ],
+   "grandsPrix": 884,
+   "wins": 114,
+   "titles": 9,
+   "current": {
+    "position": 9,
+    "color": "#1868DB",
+    "drivers": [
+     {
+      "id": "albon",
+      "name": {
+       "en": "Alexander Albon",
+       "uk": "Александер Албон"
+      },
+      "surname": {
+       "en": "Albon",
+       "uk": "Албон"
+      },
+      "initials": "AA",
+      "avatar": "/img/drivers/albon.jpg"
+     },
+     {
+      "id": "sainz",
+      "name": {
+       "en": "Carlos Sainz",
+       "uk": "Карлос Сайнс"
+      },
+      "surname": {
+       "en": "Sainz",
+       "uk": "Сайнс"
+      },
+      "initials": "CS",
+      "avatar": "/img/drivers/sainz.jpg"
+     }
+    ]
+   },
+   "photo": {
+    "src": "/img/cars/williams.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1991_Williams_FW14_Formula_1_Car_(53434974722).jpg",
+     "author": "David Merrett from Daventry, England",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "lotus",
+   "name": "Lotus",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1958,
+     1994
+    ],
+    [
+     2010,
+     2011
+    ]
+   ],
+   "grandsPrix": 530,
+   "wins": 79,
+   "titles": 7,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/lotus.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Mansell_Lotus_95T_Dallas_1984_F1.jpg",
+     "author": "twm1340",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "renault",
+   "name": "Renault",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "seasons": [
+    [
+     1977,
+     1985
+    ],
+    [
+     2002,
+     2011
+    ],
+    [
+     2016,
+     2020
+    ]
+   ],
+   "grandsPrix": 400,
+   "wins": 35,
+   "titles": 2,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/renault.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2006_Malaysian_Grand_Prix.jpg",
+     "author": "Kamalsell",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "brabham",
+   "name": "Brabham",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1962,
+     1987
+    ],
+    [
+     1989,
+     1992
+    ]
+   ],
+   "grandsPrix": 393,
+   "wins": 35,
+   "titles": 2,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/brabham.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1969_British_Grand_Prix_P_Courage_Brabham_BT26.jpg",
+     "author": "Gerald Swan",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "benetton",
+   "name": "Benetton",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1986,
+     2001
+    ]
+   ],
+   "grandsPrix": 260,
+   "wins": 27,
+   "titles": 1,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/benetton.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Button_2001_French_Grand_Prix.jpg",
+     "author": "Mathieu Felten",
+     "license": "CC BY 2.5"
+    }
+   }
+  },
+  {
+   "id": "tyrrell",
+   "name": "Tyrrell",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1970,
+     1998
+    ]
+   ],
+   "grandsPrix": 432,
+   "wins": 23,
+   "titles": 1,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/tyrrell.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Bellof_Tyrrell_012_1984_Dallas_F1.jpg",
+     "author": "twm1340",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "brm",
+   "name": "BRM",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1951,
+     1951
+    ],
+    [
+     1956,
+     1977
+    ]
+   ],
+   "grandsPrix": 198,
+   "wins": 17,
+   "titles": 1,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/brm.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1962-08-05_Graham_Hill,_BRM_-_Hatzenbach_(sw).jpg",
+     "author": "Lothar Spurzem",
+     "license": "CC BY-SA 2.0 de"
+    }
+   }
+  },
+  {
+   "id": "cooper",
+   "name": "Cooper",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1950,
+     1950
+    ],
+    [
+     1952,
+     1969
+    ]
+   ],
+   "grandsPrix": 129,
+   "wins": 16,
+   "titles": 2,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/cooper.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Cooper-Climax_T54_%22The_Kimberly_Special%22_-_Flickr_-_andrewbasterfield.jpg",
+     "author": "Andrew Basterfield",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "alfa-romeo",
+   "name": "Alfa Romeo",
+   "country": {
+    "en": "Switzerland",
+    "uk": "Швейцарія"
+   },
+   "seasons": [
+    [
+     1950,
+     1951
+    ],
+    [
+     1963,
+     1963
+    ],
+    [
+     1965,
+     1965
+    ],
+    [
+     1979,
+     1985
+    ],
+    [
+     2019,
+     2023
+    ]
+   ],
+   "grandsPrix": 216,
+   "wins": 11,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/alfa-romeo.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Alfa-Romeo-159-(1951).jpg",
+     "author": "Lennart Coopmans",
+     "license": "CC BY-SA 2.5"
+    }
+   }
+  },
+  {
+   "id": "vanwall",
+   "name": "Vanwall",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1954,
+     1960
+    ]
+   ],
+   "grandsPrix": 29,
+   "wins": 10,
+   "titles": 1,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/vanwall.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Vanwall_VW5_Aintree_1957.jpg",
+     "author": "Terry Whalebone from Bolton, UK",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "ligier",
+   "name": "Ligier",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "seasons": [
+    [
+     1976,
+     1996
+    ]
+   ],
+   "grandsPrix": 326,
+   "wins": 9,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/ligier.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Eric_Bernard_-_Ligier_JS39B_at_the_1994_British_Grand_Prix_(31729365813).jpg",
+     "author": "Martin Lee from London, UK",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "maserati",
+   "name": "Maserati",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1950,
+     1960
+    ]
+   ],
+   "grandsPrix": 71,
+   "wins": 9,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/maserati.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Fangio_%26_Maserati_250F.jpg",
+     "author": "玛莎拉蒂",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "matra",
+   "name": "Matra",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "seasons": [
+    [
+     1967,
+     1972
+    ]
+   ],
+   "grandsPrix": 59,
+   "wins": 9,
+   "titles": 1,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/matra.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Matra_MS_84_(1969).jpg",
+     "author": "Spurzem - Lothar Spurzem",
+     "license": "CC BY-SA 2.0 de"
+    }
+   }
+  },
+  {
+   "id": "brawn",
+   "name": "Brawn",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     2009,
+     2009
+    ]
+   ],
+   "grandsPrix": 17,
+   "wins": 8,
+   "titles": 1,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/brawn.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Brawn.GP.4.Spain.09.jpg",
+     "author": "-JoSeLiN-",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "kurtis-kraft",
+   "name": "Kurtis Kraft",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1950,
+     1960
+    ]
+   ],
+   "grandsPrix": 12,
+   "wins": 5,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/kurtis-kraft.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Kurtis500B_Jimmy_Davies.jpg",
+     "author": "Carey Akin",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "jordan",
+   "name": "Jordan",
+   "country": {
+    "en": "Ireland",
+    "uk": "Ірландія"
+   },
+   "seasons": [
+    [
+     1991,
+     2005
+    ]
+   ],
+   "grandsPrix": 250,
+   "wins": 4,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/jordan.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Jordan_GP_2002_sato.jpg",
+     "author": "RickDikeman",
+     "license": "CC0"
+    }
+   }
+  },
+  {
+   "id": "march",
+   "name": "March",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1970,
+     1977
+    ],
+    [
+     1981,
+     1982
+    ],
+    [
+     1987,
+     1989
+    ],
+    [
+     1992,
+     1992
+    ]
+   ],
+   "grandsPrix": 197,
+   "wins": 3,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/march.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1971_Andrea_de_Adamich,_March,_Fuchsr%C3%B6hre.jpg",
+     "author": "Lothar Spurzem",
+     "license": "CC BY-SA 2.0 de"
+    }
+   }
+  },
+  {
+   "id": "honda",
+   "name": "Honda",
+   "country": {
+    "en": "Japan",
+    "uk": "Японія"
+   },
+   "seasons": [
+    [
+     1964,
+     1968
+    ],
+    [
+     2006,
+     2008
+    ]
+   ],
+   "grandsPrix": 88,
+   "wins": 3,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/honda.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2006_SAG_-_F1_Honda_RA272_1965_-01.JPG",
+     "author": "Semnoz",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "wolf",
+   "name": "Wolf",
+   "country": {
+    "en": "Canada",
+    "uk": "Канада"
+   },
+   "seasons": [
+    [
+     1976,
+     1979
+    ]
+   ],
+   "grandsPrix": 60,
+   "wins": 3,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/wolf.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Keke_Rosberg_1979_Imola.jpg",
+     "author": "Gilberto Benni from Bologna, Italia",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "watson",
+   "name": "Watson",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1950,
+     1953
+    ],
+    [
+     1956,
+     1960
+    ]
+   ],
+   "grandsPrix": 9,
+   "wins": 3,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/watson.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Rathmann_Leader_Card_Monza.jpg",
+     "author": "Carey Akin from Manvel, Texas, USA",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "lotus-f1",
+   "name": "Lotus F1",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     2012,
+     2015
+    ]
+   ],
+   "grandsPrix": 77,
+   "wins": 2,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/lotus-f1.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2013_Italian_GP_-_Kimi.jpg",
+     "author": "Craig Dennis from England",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "epperly",
+   "name": "Epperly",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1955,
+     1955
+    ],
+    [
+     1957,
+     1960
+    ]
+   ],
+   "grandsPrix": 5,
+   "wins": 2,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/epperly.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Salih_Special_1957-58_Indy_500_Winner_-_Sam_Hanks_%26_Jimmy_Bryan.jpg",
+     "author": "OctaviaCombi",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "toro-rosso",
+   "name": "Toro Rosso",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     2006,
+     2019
+    ]
+   ],
+   "grandsPrix": 268,
+   "wins": 1,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/toro-rosso.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Daniil_Kvyat_2014_British_GP_004.jpg",
+     "author": "Jake Archibald",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "alpine",
+   "name": "Alpine",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "seasons": [
+    [
+     2021,
+     2026
+    ]
+   ],
+   "grandsPrix": 134,
+   "wins": 1,
+   "titles": 0,
+   "current": {
+    "position": 6,
+    "color": "#FF87BC",
+    "drivers": [
+     {
+      "id": "colapinto",
+      "name": {
+       "en": "Franco Colapinto",
+       "uk": "Франко Колапінто"
+      },
+      "surname": {
+       "en": "Colapinto",
+       "uk": "Колапінто"
+      },
+      "initials": "FC",
+      "avatar": "/img/drivers/colapinto.jpg"
+     },
+     {
+      "id": "gasly",
+      "name": {
+       "en": "Pierre Gasly",
+       "uk": "П'єр Гаслі"
+      },
+      "surname": {
+       "en": "Gasly",
+       "uk": "Гаслі"
+      },
+      "initials": "PG",
+      "avatar": "/img/drivers/gasly.jpg"
+     }
+    ]
+   },
+   "photo": {
+    "src": "/img/cars/alpine.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Alpine_-_Jack_Doohan_-_FP3.jpg",
+     "author": "Liauzh",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "shadow",
+   "name": "Shadow",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1973,
+     1980
+    ]
+   ],
+   "grandsPrix": 104,
+   "wins": 1,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/shadow.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1977_Shadow_DN8_(19700874653).jpg",
+     "author": "David Merrett from Daventry, England",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "alphatauri",
+   "name": "AlphaTauri",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     2020,
+     2023
+    ]
+   ],
+   "grandsPrix": 83,
+   "wins": 1,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/alphatauri.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2020_Formula_One_tests_Barcelona,_AlphaTauri_AT01,_Pierre_Gasly.jpg",
+     "author": "Artes Max from Spain",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "bmw-sauber",
+   "name": "BMW Sauber",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "seasons": [
+    [
+     2006,
+     2009
+    ]
+   ],
+   "grandsPrix": 70,
+   "wins": 1,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/bmw-sauber.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Heidfeld_2009_Spain.jpg",
+     "author": "Jose Mª Izquierdo Galiot",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "hesketh",
+   "name": "Hesketh",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1974,
+     1978
+    ]
+   ],
+   "grandsPrix": 52,
+   "wins": 1,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/hesketh.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Hesketh_308E.jpg",
+     "author": "John Chapman (Pyrope)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "stewart",
+   "name": "Stewart",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1997,
+     1999
+    ]
+   ],
+   "grandsPrix": 49,
+   "wins": 1,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/stewart.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Stewart_gp_barrichello_1997.jpg",
+     "author": "Rick Dikeman",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "penske",
+   "name": "Penske",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1974,
+     1977
+    ]
+   ],
+   "grandsPrix": 40,
+   "wins": 1,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/penske.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Penske_PC3_2001_Silverstone_Classic.jpg",
+     "author": "John Williams",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "racing-point",
+   "name": "Racing Point",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     2019,
+     2020
+    ]
+   ],
+   "grandsPrix": 38,
+   "wins": 1,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/racing-point.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2019_Formula_One_tests_Barcelona,_Stroll_(47209286722).jpg",
+     "author": "https://www.flickr.com/photos/105731165@N07/",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "porsche",
+   "name": "Porsche",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "seasons": [
+    [
+     1957,
+     1964
+    ]
+   ],
+   "grandsPrix": 32,
+   "wins": 1,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/porsche.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Porsche_804_Donington.jpg",
+     "author": "John Chapman (Pyrope)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "eagle",
+   "name": "Eagle",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1966,
+     1969
+    ]
+   ],
+   "grandsPrix": 25,
+   "wins": 1,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/eagle.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Eagle_Rislone_Special_front_Honda_Collection_Hall.jpg",
+     "author": "Morio",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "kuzma",
+   "name": "Kuzma",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1951,
+     1960
+    ]
+   ],
+   "grandsPrix": 10,
+   "wins": 1,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/kuzma.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Indianapolis_Motor_Speedway_Museum_May_2026_43_(Troy_Ruttman%27s_1952_Agajanian_Special_Kuzma).jpg",
+     "author": "Michael Barera",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "sauber",
+   "name": "Sauber",
+   "country": {
+    "en": "Switzerland",
+    "uk": "Швейцарія"
+   },
+   "seasons": [
+    [
+     1993,
+     2005
+    ],
+    [
+     2010,
+     2018
+    ],
+    [
+     2024,
+     2025
+    ]
+   ],
+   "grandsPrix": 442,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/sauber.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Sauber_-_Gabriel_Bortoleto_-_FP2.jpg",
+     "author": "Liauzh",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "minardi",
+   "name": "Minardi",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1985,
+     2005
+    ]
+   ],
+   "grandsPrix": 341,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/minardi.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1985_European_GP_Martini.jpg",
+     "author": "Jerry Lewis-Evans",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "arrows",
+   "name": "Arrows",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1978,
+     1990
+    ],
+    [
+     1997,
+     2002
+    ]
+   ],
+   "grandsPrix": 291,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/arrows.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1985_European_GP_Boutsen.jpg",
+     "author": "Jerry Lewis-Evans",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "haas",
+   "name": "Haas",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     2016,
+     2026
+    ]
+   ],
+   "grandsPrix": 234,
+   "wins": 0,
+   "titles": 0,
+   "current": {
+    "position": 7,
+    "color": "#9EA3AA",
+    "drivers": [
+     {
+      "id": "bearman",
+      "name": {
+       "en": "Oliver Bearman",
+       "uk": "Олівер Бермен"
+      },
+      "surname": {
+       "en": "Bearman",
+       "uk": "Бермен"
+      },
+      "initials": "OB",
+      "avatar": "/img/drivers/bearman.jpg"
+     },
+     {
+      "id": "rafael_camara",
+      "name": {
+       "en": "Rafael Camara",
+       "uk": "Рафаель Камара"
+      },
+      "surname": {
+       "en": "Camara",
+       "uk": "Камара"
+      },
+      "initials": "RC",
+      "avatar": "/img/drivers/rafael_camara.jpg"
+     }
+    ]
+   },
+   "photo": {
+    "src": "/img/cars/haas.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2026_Chinese_GP_-_Haas_-_Oliver_Bearman_-_Qualifying.jpg",
+     "author": "Liauzh",
+     "license": "CC BY 4.0"
+    }
+   }
+  },
+  {
+   "id": "force-india",
+   "name": "Force India",
+   "country": {
+    "en": "India",
+    "uk": "Індія"
+   },
+   "seasons": [
+    [
+     2008,
+     2018
+    ]
+   ],
+   "grandsPrix": 212,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/force-india.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._31_Ocon.jpg",
+     "author": "Lukas Raich",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "aston-martin",
+   "name": "Aston Martin",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1959,
+     1960
+    ],
+    [
+     2021,
+     2026
+    ]
+   ],
+   "grandsPrix": 139,
+   "wins": 0,
+   "titles": 0,
+   "current": {
+    "position": 10,
+    "color": "#1E8A63",
+    "drivers": [
+     {
+      "id": "alonso",
+      "name": {
+       "en": "Fernando Alonso",
+       "uk": "Фернандо Алонсо"
+      },
+      "surname": {
+       "en": "Alonso",
+       "uk": "Алонсо"
+      },
+      "initials": "FA",
+      "avatar": "/img/drivers/alonso.jpg"
+     },
+     {
+      "id": "stroll",
+      "name": {
+       "en": "Lance Stroll",
+       "uk": "Ленс Стролл"
+      },
+      "surname": {
+       "en": "Stroll",
+       "uk": "Стролл"
+      },
+      "initials": "LS",
+      "avatar": "/img/drivers/stroll.jpg"
+     }
+    ]
+   },
+   "photo": {
+    "src": "/img/cars/aston-martin.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Aston_Martin_-_Fernando_Alonso_-_FP1.jpg",
+     "author": "Liauzh",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "toyota",
+   "name": "Toyota",
+   "country": {
+    "en": "Japan",
+    "uk": "Японія"
+   },
+   "seasons": [
+    [
+     2002,
+     2009
+    ]
+   ],
+   "grandsPrix": 139,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/toyota.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Toyota_f1_usgp_2004.jpg",
+     "author": "Rick Dikeman",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "osella",
+   "name": "Osella",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1980,
+     1990
+    ]
+   ],
+   "grandsPrix": 133,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/osella.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Ghinzani_Osella_FA1F_1984_Dallas_F1.jpg",
+     "author": "twm1340",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "surtees",
+   "name": "Surtees",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1970,
+     1978
+    ]
+   ],
+   "grandsPrix": 117,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/surtees.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Surtees_TS19_Mallory_Park.JPG",
+     "author": "TOM at Picassa.",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "bar",
+   "name": "BAR",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1999,
+     2005
+    ]
+   ],
+   "grandsPrix": 117,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/bar.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Button_(BAR)_qualifying_at_USGP_2005.jpg",
+     "author": "Dan Smith",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "larrousse",
+   "name": "Larrousse",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "seasons": [
+    [
+     1987,
+     1994
+    ]
+   ],
+   "grandsPrix": 113,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/larrousse.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Venturi_Larrousse_Lamborghini_LC_92_(1992).jpg",
+     "author": "Liondartois",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "fittipaldi",
+   "name": "Fittipaldi",
+   "country": {
+    "en": "Brazil",
+    "uk": "Бразилія"
+   },
+   "seasons": [
+    [
+     1975,
+     1982
+    ]
+   ],
+   "grandsPrix": 101,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/fittipaldi.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Copersucar_FD04_1976.jpg",
+     "author": "photo takeb by Paulo Carmona Sanches Neto. Cropped by Morio",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "ensign",
+   "name": "Ensign",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1973,
+     1982
+    ]
+   ],
+   "grandsPrix": 100,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/ensign.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Ensign_N177_2009_Lime_Rock.jpg",
+     "author": "Mike Powell from United States",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "ats",
+   "name": "ATS",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1963,
+     1963
+    ],
+    [
+     1978,
+     1984
+    ]
+   ],
+   "grandsPrix": 96,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/ats.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Winkelhock_ATS_D7_1984_Dallas_F1.jpg",
+     "author": "twm1340",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "footwork",
+   "name": "Footwork",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1991,
+     1996
+    ]
+   ],
+   "grandsPrix": 91,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/footwork.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Massimiliano_Papis_1995_Britain.jpg",
+     "author": "Fox 1 from Beta Quadrant, England",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "lola",
+   "name": "Lola",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1962,
+     1963
+    ],
+    [
+     1967,
+     1968
+    ],
+    [
+     1974,
+     1975
+    ],
+    [
+     1985,
+     1986
+    ],
+    [
+     1991,
+     1991
+    ],
+    [
+     1993,
+     1993
+    ]
+   ],
+   "grandsPrix": 85,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/lola.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Lola_T370_1974.jpg",
+     "author": "Calreyn88",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "jaguar",
+   "name": "Jaguar",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     2000,
+     2004
+    ]
+   ],
+   "grandsPrix": 85,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/jaguar.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Eddie_Irvine_2002.jpg",
+     "author": "Rick Dikeman",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "prost",
+   "name": "Prost",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "seasons": [
+    [
+     1997,
+     2001
+    ]
+   ],
+   "grandsPrix": 83,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/prost.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Alesi_2001.jpg",
+     "author": "Mathieu Felten",
+     "license": "CC BY 2.5"
+    }
+   }
+  },
+  {
+   "id": "dallara",
+   "name": "Dallara",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1988,
+     1992
+    ]
+   ],
+   "grandsPrix": 78,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/dallara.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Bruno_Senna_2006_Australian_Grand_Prix-3.jpg",
+     "author": "Glenn Thomas / Windsok",
+     "license": "CC BY-SA 2.5"
+    }
+   }
+  },
+  {
+   "id": "racing-bulls",
+   "name": "Racing Bulls",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     2024,
+     2026
+    ]
+   ],
+   "grandsPrix": 68,
+   "wins": 0,
+   "titles": 0,
+   "current": {
+    "position": 5,
+    "color": "#6692FF",
+    "drivers": [
+     {
+      "id": "lawson",
+      "name": {
+       "en": "Liam Lawson",
+       "uk": "Ліам Лоусон"
+      },
+      "surname": {
+       "en": "Lawson",
+       "uk": "Лоусон"
+      },
+      "initials": "LL",
+      "avatar": "/img/drivers/lawson.jpg"
+     },
+     {
+      "id": "arvid_lindblad",
+      "name": {
+       "en": "Arvid Lindblad",
+       "uk": "Арвід Ліндблад"
+      },
+      "surname": {
+       "en": "Lindblad",
+       "uk": "Ліндблад"
+      },
+      "initials": "AL",
+      "avatar": "/img/drivers/arvid_lindblad.jpg"
+     }
+    ]
+   },
+   "photo": {
+    "src": "/img/cars/racing-bulls.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Racing_Bulls_-_Isack_Hadjar_-_FP2.jpg",
+     "author": "Liauzh",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "toleman",
+   "name": "Toleman",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1981,
+     1985
+    ]
+   ],
+   "grandsPrix": 57,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/toleman.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Toleman_TG184_Senna_Donington_Grand_Prix_Collection.jpg",
+     "author": "John Chapman (Pyrope)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "hrt",
+   "name": "HRT",
+   "country": {
+    "en": "Spain",
+    "uk": "Іспанія"
+   },
+   "seasons": [
+    [
+     2010,
+     2012
+    ]
+   ],
+   "grandsPrix": 56,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/hrt.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Bruno_Senna_2010_Bahrain_2.jpg",
+     "author": "Andrew Griffith from United Kingdom",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "caterham",
+   "name": "Caterham",
+   "country": {
+    "en": "Malaysia",
+    "uk": "Малайзія"
+   },
+   "seasons": [
+    [
+     2012,
+     2014
+    ]
+   ],
+   "grandsPrix": 56,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/caterham.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:F1_2012_Jerez_test_-_Caterham_4.jpg",
+     "author": "Gil Abrantes from Portugal",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "marussia",
+   "name": "Marussia",
+   "country": {
+    "en": "Russia",
+    "uk": "Росія"
+   },
+   "seasons": [
+    [
+     2012,
+     2014
+    ]
+   ],
+   "grandsPrix": 55,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/marussia.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Charles_Pic_2012_Malaysia_FP1.jpg",
+     "author": "Morio",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "zakspeed",
+   "name": "Zakspeed",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "seasons": [
+    [
+     1985,
+     1989
+    ]
+   ],
+   "grandsPrix": 54,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/zakspeed.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1987_Zakspeed_West_F1.JPG",
+     "author": "AlfvanBeem",
+     "license": "CC0"
+    }
+   }
+  },
+  {
+   "id": "ags",
+   "name": "AGS",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "seasons": [
+    [
+     1986,
+     1991
+    ]
+   ],
+   "grandsPrix": 48,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/ags.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Philippe_Streiff_AGS_JH23_2018_Japanese_Grand_Prix_(43814923310).jpg",
+     "author": "https://www.flickr.com/photos/78475089@N02/",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "super-aguri",
+   "name": "Super Aguri",
+   "country": {
+    "en": "Japan",
+    "uk": "Японія"
+   },
+   "seasons": [
+    [
+     2006,
+     2008
+    ]
+   ],
+   "grandsPrix": 39,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/super-aguri.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Franck_Montagny_2006_French_Grand_Prix.jpg",
+     "author": "cobber_cpd",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "manor-marussia",
+   "name": "Manor Marussia",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     2015,
+     2016
+    ]
+   ],
+   "grandsPrix": 39,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/manor-marussia.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Merhi_Russia_2015.jpg",
+     "author": "Eventful Sochi",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "virgin",
+   "name": "Virgin",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     2010,
+     2011
+    ]
+   ],
+   "grandsPrix": 38,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/virgin.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Virgin_Glock_Jerez_2010.jpg",
+     "author": "slitz from Portugal",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "theodore",
+   "name": "Theodore",
+   "country": {
+    "en": "Hong Kong",
+    "uk": "Гонконг"
+   },
+   "seasons": [
+    [
+     1978,
+     1978
+    ],
+    [
+     1981,
+     1983
+    ]
+   ],
+   "grandsPrix": 34,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/theodore.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Ralt_RT3_(Ayrton_Senna,_1983_Macau_GP)_front-left_2015_Grand_Prix_Museum.jpg",
+     "author": "Morio",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "gordini",
+   "name": "Gordini",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "seasons": [
+    [
+     1952,
+     1956
+    ]
+   ],
+   "grandsPrix": 33,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/gordini.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Gordini_Type_16.jpg",
+     "author": "MPW57",
+     "license": "Public domain"
+    }
+   }
+  },
+  {
+   "id": "ram",
+   "name": "RAM",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1983,
+     1985
+    ]
+   ],
+   "grandsPrix": 31,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/ram.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:RAM_01.jpg",
+     "author": "Ben Sutherland",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "iso-marlboro",
+   "name": "Iso Marlboro",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1973,
+     1974
+    ]
+   ],
+   "grandsPrix": 30,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/iso-marlboro.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Van_Lennep_at_1974_Dutch_Grand_Prix_(3).jpg",
+     "author": "Hans Peters for Anefo   / neg. stroken, 1945-1989, 2.24.01.05, item number 927-2737",
+     "license": "CC0"
+    }
+   }
+  },
+  {
+   "id": "leyton-house",
+   "name": "Leyton House",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1990,
+     1991
+    ]
+   ],
+   "grandsPrix": 30,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/leyton-house.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Gugelmin_US_gp_1991.jpg",
+     "author": "Stuart Seeger",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "spirit",
+   "name": "Spirit",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1983,
+     1985
+    ]
+   ],
+   "grandsPrix": 23,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/spirit.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Spirit201-F2.jpg",
+     "author": "Falcadore",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "forti",
+   "name": "Forti",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1995,
+     1996
+    ]
+   ],
+   "grandsPrix": 23,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/forti.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Pedro_Diniz_Forti_1995_Britain_(crop).jpg",
+     "author": "Dave from Leeds, England",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "pacific",
+   "name": "Pacific",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1994,
+     1995
+    ]
+   ],
+   "grandsPrix": 22,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/pacific.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Bertrand_Gachot_1995_Britain.jpg",
+     "author": "Fox 1 from Beta Quadrant, England",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "rial",
+   "name": "Rial",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "seasons": [
+    [
+     1988,
+     1989
+    ]
+   ],
+   "grandsPrix": 21,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/rial.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:F1_1988,_Rial_ARC1,_Spa_Francorchamps_(55425564171)_(cropped).jpg",
+     "author": "Original:  Der Alf / Derivative work:  Danyele",
+     "license": "CC BY 4.0"
+    }
+   }
+  },
+  {
+   "id": "simtek",
+   "name": "Simtek",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1994,
+     1995
+    ]
+   ],
+   "grandsPrix": 21,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/simtek.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Ratzenberger.jpg",
+     "author": "Sgozzi",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "audi",
+   "name": "Audi",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "seasons": [
+    [
+     2026,
+     2026
+    ]
+   ],
+   "grandsPrix": 20,
+   "wins": 0,
+   "titles": 0,
+   "current": {
+    "position": 8,
+    "color": "#8C9096",
+    "drivers": [
+     {
+      "id": "hulkenberg",
+      "name": {
+       "en": "Nico Hülkenberg",
+       "uk": "Ніко Гюлькенберг"
+      },
+      "surname": {
+       "en": "Hülkenberg",
+       "uk": "Гюлькенберг"
+      },
+      "initials": "NH",
+      "avatar": "/img/drivers/hulkenberg.jpg"
+     },
+     {
+      "id": "bortoleto",
+      "name": {
+       "en": "Gabriel Bortoleto",
+       "uk": "Габріель Бортолето"
+      },
+      "surname": {
+       "en": "Bortoleto",
+       "uk": "Бортолето"
+      },
+      "initials": "GB",
+      "avatar": "/img/drivers/bortoleto.jpg"
+     }
+    ]
+   },
+   "photo": {
+    "src": "/img/cars/audi.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:2026_Chinese_GP_-_Audi_-_Gabriel_Bortoleto_-_Qualifying.jpg",
+     "author": "Liauzh",
+     "license": "CC BY 4.0"
+    }
+   }
+  },
+  {
+   "id": "cadillac",
+   "name": "Cadillac",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     2026,
+     2026
+    ]
+   ],
+   "grandsPrix": 20,
+   "wins": 0,
+   "titles": 0,
+   "current": {
+    "position": 11,
+    "color": "#5C5F66",
+    "drivers": [
+     {
+      "id": "perez",
+      "name": {
+       "en": "Sergio Pérez",
+       "uk": "Серхіо Перес"
+      },
+      "surname": {
+       "en": "Pérez",
+       "uk": "Перес"
+      },
+      "initials": "SP",
+      "avatar": "/img/drivers/perez.jpg"
+     },
+     {
+      "id": "bottas",
+      "name": {
+       "en": "Valtteri Bottas",
+       "uk": "Валттері Боттас"
+      },
+      "surname": {
+       "en": "Bottas",
+       "uk": "Боттас"
+      },
+      "initials": "VB",
+      "avatar": "/img/drivers/bottas.jpg"
+     }
+    ]
+   },
+   "photo": {
+    "src": "/img/cars/cadillac.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2026_Nr._11_Perez_(3).jpg",
+     "author": "Lukas Raich",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "fondmetal",
+   "name": "Fondmetal",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1991,
+     1992
+    ]
+   ],
+   "grandsPrix": 19,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/fondmetal.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1992_Andrea_Chiesa_Fondmetal.jpg",
+     "author": "Iwao from Tokyo, Japan",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "connaught",
+   "name": "Connaught",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1952,
+     1959
+    ]
+   ],
+   "grandsPrix": 17,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/connaught.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Beaulieu_National_Motor_Museum_Connaught_Type_B_(1955)_15-10-2011_13-10-02.png",
+     "author": "Paul Hermans",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "onyx",
+   "name": "Onyx",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1989,
+     1990
+    ]
+   ],
+   "grandsPrix": 17,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/onyx.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Bertrand_Gachot_1989_Belgian_GP_2.jpg",
+     "author": "madagascarica from Verneuil Grand, France",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "spyker",
+   "name": "Spyker",
+   "country": {
+    "en": "Netherlands",
+    "uk": "Нідерланди"
+   },
+   "seasons": [
+    [
+     2007,
+     2007
+    ]
+   ],
+   "grandsPrix": 17,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/spyker.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Christijan_Albers_2007_USA.jpg",
+     "author": "Jeff Wunrow from Minneapolis, MN, USA",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "parnelli",
+   "name": "Parnelli",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1974,
+     1976
+    ]
+   ],
+   "grandsPrix": 16,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/parnelli.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Lola_T332-Chevrolet_as_entered_by_the_Parnelli_team_for_Al_Unser_in_F5000_in_1976,_Goodwood_Festival_of_Speed_2021.jpg",
+     "author": "In Vitrio",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "euro-brun",
+   "name": "Euro Brun",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1988,
+     1988
+    ],
+    [
+     1990,
+     1990
+    ]
+   ],
+   "grandsPrix": 15,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/euro-brun.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:EurobrunER189_RaceHistoryOnTrack_HH2011.jpg",
+     "author": "DoomWarrior",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "simca",
+   "name": "Simca",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "seasons": [
+    [
+     1950,
+     1953
+    ]
+   ],
+   "grandsPrix": 14,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/simca.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Gordini_11_course_1946_-aa.jpg",
+     "author": "Eric Manesse",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "hwm",
+   "name": "HWM",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1951,
+     1954
+    ]
+   ],
+   "grandsPrix": 14,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/hwm.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:HWM_1952_car_Donington_2007.jpg",
+     "author": "John Chapman (Pyrope)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "mf1",
+   "name": "MF1",
+   "country": {
+    "en": "Russia",
+    "uk": "Росія"
+   },
+   "seasons": [
+    [
+     2006,
+     2006
+    ]
+   ],
+   "grandsPrix": 14,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/mf1.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Christijan_Albers_USA_2006.jpg",
+     "author": "jwunrow",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "talbot",
+   "name": "Talbot",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "seasons": [
+    [
+     1950,
+     1951
+    ]
+   ],
+   "grandsPrix": 13,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/talbot.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Talbot_Lago_Type_26C_of_Ron_Townley.jpg",
+     "author": "GTHO",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "brp",
+   "name": "BRP",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1963,
+     1964
+    ]
+   ],
+   "grandsPrix": 13,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/brp.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:BRM_P25.jpg",
+     "author": "John Chapman (Pyrope)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "coloni",
+   "name": "Coloni",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1987,
+     1989
+    ]
+   ],
+   "grandsPrix": 13,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/coloni.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Coloni_FC188B_2008_Donington_Park.jpg",
+     "author": "jo3hug",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "de-tomaso",
+   "name": "De Tomaso",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1961,
+     1963
+    ],
+    [
+     1970,
+     1970
+    ]
+   ],
+   "grandsPrix": 10,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/de-tomaso.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:De_Tomaso_Tipo_505.jpg",
+     "author": "Brian Snelson from Hockley, Essex, England",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "tecno",
+   "name": "Tecno",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1972,
+     1973
+    ]
+   ],
+   "grandsPrix": 10,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/tecno.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1972_Tecno_PA123_(19807884464).jpg",
+     "author": "Edvvc from London, UK",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "embassy-hill",
+   "name": "Embassy Hill",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1975,
+     1975
+    ]
+   ],
+   "grandsPrix": 10,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/embassy-hill.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Graham_Hill_1974_British_GP.jpg",
+     "author": "Martin Lee",
+     "license": "CC BY-SA 2.0"
+    }
+   }
+  },
+  {
+   "id": "merzario",
+   "name": "Merzario",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1978,
+     1979
+    ]
+   ],
+   "grandsPrix": 10,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/merzario.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Merzario_A2_2015_Oldtimer_Grand_Prix_N%C3%BCrburgring.jpg",
+     "author": "MPW57",
+     "license": "CC BY 3.0"
+    }
+   }
+  },
+  {
+   "id": "lesovsky",
+   "name": "Lesovsky",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1950,
+     1953
+    ],
+    [
+     1956,
+     1960
+    ]
+   ],
+   "grandsPrix": 9,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "era",
+   "name": "ERA",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1950,
+     1952
+    ]
+   ],
+   "grandsPrix": 7,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/era.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:ERA_E-type.jpg",
+     "author": "John Chapman (Pyrope)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "phillips",
+   "name": "Phillips",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1954,
+     1960
+    ]
+   ],
+   "grandsPrix": 7,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "stevens",
+   "name": "Stevens",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1950,
+     1950
+    ],
+    [
+     1952,
+     1956
+    ]
+   ],
+   "grandsPrix": 6,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "veritas",
+   "name": "Veritas",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "seasons": [
+    [
+     1951,
+     1953
+    ]
+   ],
+   "grandsPrix": 6,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/veritas.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Veritas_Meteor.jpg",
+     "author": "Lothar Spurzem",
+     "license": "CC BY-SA 2.0 de"
+    }
+   }
+  },
+  {
+   "id": "trojan",
+   "name": "Trojan",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1974,
+     1974
+    ]
+   ],
+   "grandsPrix": 6,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/trojan.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Trojan_103_Brands_Hatch.jpg",
+     "author": "Readro",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "boro",
+   "name": "Boro",
+   "country": {
+    "en": "Netherlands",
+    "uk": "Нідерланди"
+   },
+   "seasons": [
+    [
+     1976,
+     1977
+    ]
+   ],
+   "grandsPrix": 6,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/boro.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:-33_-_Ensign_MN175_-_1975.jpg",
+     "author": "_morgado2",
+     "license": "CC BY 4.0"
+    }
+   }
+  },
+  {
+   "id": "lambo",
+   "name": "Lambo",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1991,
+     1991
+    ]
+   ],
+   "grandsPrix": 6,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/lambo.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Lambo_291_V12_(22527014528).jpg",
+     "author": "Rob Oo from NL",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "alta",
+   "name": "Alta",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1950,
+     1952
+    ]
+   ],
+   "grandsPrix": 5,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/alta.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Alta_Donington_2007.jpg",
+     "author": "John Chapman (Pyrope)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "lds",
+   "name": "LDS",
+   "country": {
+    "en": "South Africa",
+    "uk": "ПАР"
+   },
+   "seasons": [
+    [
+     1962,
+     1963
+    ],
+    [
+     1965,
+     1965
+    ],
+    [
+     1967,
+     1968
+    ]
+   ],
+   "grandsPrix": 5,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/lds.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:LDS-Climax_Mark_3.jpg",
+     "author": "In Vitrio",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "scirocco",
+   "name": "Scirocco",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1963,
+     1964
+    ]
+   ],
+   "grandsPrix": 5,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/scirocco.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1962_Scirocco_BRM_SP-1_at_Goodwood_Revival_2012.jpg",
+     "author": "David Merrett from Daventry, England",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "martini",
+   "name": "Martini",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "seasons": [
+    [
+     1978,
+     1978
+    ]
+   ],
+   "grandsPrix": 5,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/martini.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Martini_MK15.jpg",
+     "author": "SunflowerYuri",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "schroeder",
+   "name": "Schroeder",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1951,
+     1951
+    ],
+    [
+     1953,
+     1955
+    ]
+   ],
+   "grandsPrix": 4,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "bromme",
+   "name": "Bromme",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1951,
+     1954
+    ]
+   ],
+   "grandsPrix": 4,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "trevis",
+   "name": "Trevis",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1951,
+     1952
+    ],
+    [
+     1955,
+     1955
+    ],
+    [
+     1960,
+     1960
+    ]
+   ],
+   "grandsPrix": 4,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "osca",
+   "name": "OSCA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1951,
+     1953
+    ]
+   ],
+   "grandsPrix": 4,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "frazer-nash",
+   "name": "Frazer Nash",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1952,
+     1952
+    ]
+   ],
+   "grandsPrix": 4,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/frazer-nash.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1950_Frazer_Nash_Le_Mans_Replica_(32132760881).jpg",
+     "author": "David Merrett from Daventry, England",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "afm",
+   "name": "AFM",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "seasons": [
+    [
+     1952,
+     1953
+    ]
+   ],
+   "grandsPrix": 4,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/afm.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Bechem_AFM_Norisring_1951.jpg",
+     "author": "Karl-Günther Bechem",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "lancia",
+   "name": "Lancia",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1954,
+     1955
+    ]
+   ],
+   "grandsPrix": 4,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/lancia.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:D50_003.jpg",
+     "author": "Unknown authorUnknown author",
+     "license": "Public domain"
+    }
+   }
+  },
+  {
+   "id": "emeryson",
+   "name": "Emeryson",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1956,
+     1956
+    ],
+    [
+     1961,
+     1962
+    ]
+   ],
+   "grandsPrix": 4,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/emeryson.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1961_Emeryson-Climax_at_the_2018_Historic_Grand_Prix_of_Monaco.jpg",
+     "author": "In Vitrio",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "jbw",
+   "name": "JBW",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1959,
+     1961
+    ]
+   ],
+   "grandsPrix": 4,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/jbw.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:JBW_Type_1_at_Silverstone_Classic_2009_(1).jpg",
+     "author": "David Merrett from Daventry, England",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "spyker-mf1",
+   "name": "Spyker MF1",
+   "country": {
+    "en": "Netherlands",
+    "uk": "Нідерланди"
+   },
+   "seasons": [
+    [
+     2006,
+     2006
+    ]
+   ],
+   "grandsPrix": 4,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/spyker-mf1.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Christijan_Albers_USA_2006.jpg",
+     "author": "jwunrow",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "deidt",
+   "name": "Deidt",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1950,
+     1952
+    ]
+   ],
+   "grandsPrix": 3,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/deidt.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Indy500winningcar1949.JPG",
+     "author": "Doctorindy",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "moore",
+   "name": "Moore",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1950,
+     1951
+    ],
+    [
+     1959,
+     1959
+    ]
+   ],
+   "grandsPrix": 3,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "pawl",
+   "name": "Pawl",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1951,
+     1951
+    ],
+    [
+     1954,
+     1955
+    ]
+   ],
+   "grandsPrix": 3,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "dunn",
+   "name": "Dunn",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1957,
+     1959
+    ]
+   ],
+   "grandsPrix": 3,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "scarab",
+   "name": "Scarab",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1960,
+     1960
+    ]
+   ],
+   "grandsPrix": 3,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/scarab.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Chuck_Daigh_Scarab_F1_2018_Silverstone_Classic_(40064501923).jpg",
+     "author": "https://www.flickr.com/photos/davehamster/",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "gilby",
+   "name": "Gilby",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1961,
+     1963
+    ]
+   ],
+   "grandsPrix": 3,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/gilby.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Gilby-Climax_from_1961_at_the_Goodwood_Revival,_2014.jpg",
+     "author": "In Vitrio",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "token",
+   "name": "Token",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1974,
+     1974
+    ]
+   ],
+   "grandsPrix": 3,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/token.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Token_RJ02.,_Goodwood_Members%27_Meeting_2015.jpg",
+     "author": "In Vitrio",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "lec",
+   "name": "LEC",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1977,
+     1977
+    ]
+   ],
+   "grandsPrix": 3,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/lec.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:LEC_CRP1_Donington_Grand_Prix_Collection_in_2007.jpg",
+     "author": "John Chapman (Pyrope)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "nichels",
+   "name": "Nichels",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1950,
+     1950
+    ],
+    [
+     1954,
+     1954
+    ]
+   ],
+   "grandsPrix": 2,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "marchese",
+   "name": "Marchese",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1950,
+     1951
+    ]
+   ],
+   "grandsPrix": 2,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "ewing",
+   "name": "Ewing",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1950,
+     1950
+    ],
+    [
+     1960,
+     1960
+    ]
+   ],
+   "grandsPrix": 2,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "sherman",
+   "name": "Sherman",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1951,
+     1952
+    ]
+   ],
+   "grandsPrix": 2,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "aston-butterworth",
+   "name": "Aston Butterworth",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1952,
+     1952
+    ]
+   ],
+   "grandsPrix": 2,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/aston-butterworth.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Aston_Butterworth_NB42_at_Crystal_Palace_2015.jpg",
+     "author": "Eagleash",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "bmw",
+   "name": "BMW",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "seasons": [
+    [
+     1952,
+     1953
+    ]
+   ],
+   "grandsPrix": 2,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/bmw.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:MitterG-BMW-F2-1969-08-01.jpg",
+     "author": "Lothar Spurzem",
+     "license": "CC BY-SA 2.0 de"
+    }
+   }
+  },
+  {
+   "id": "pankratz",
+   "name": "Pankratz",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1954,
+     1955
+    ]
+   ],
+   "grandsPrix": 2,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "christensen",
+   "name": "Christensen",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1959,
+     1960
+    ]
+   ],
+   "grandsPrix": 2,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "behra",
+   "name": "Behra",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1960,
+     1960
+    ]
+   ],
+   "grandsPrix": 2,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "bellasi",
+   "name": "Bellasi",
+   "country": {
+    "en": "Switzerland",
+    "uk": "Швейцарія"
+   },
+   "seasons": [
+    [
+     1970,
+     1971
+    ]
+   ],
+   "grandsPrix": 2,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "kojima",
+   "name": "Kojima",
+   "country": {
+    "en": "Japan",
+    "uk": "Японія"
+   },
+   "seasons": [
+    [
+     1976,
+     1977
+    ]
+   ],
+   "grandsPrix": 2,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/kojima.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Kojima_KE007_front-right_2013_Yurakucho.jpg",
+     "author": "Morio",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "andrea-moda",
+   "name": "Andrea Moda",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1992,
+     1992
+    ]
+   ],
+   "grandsPrix": 2,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/andrea-moda.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:AndreaModaMisano.jpg",
+     "author": "Masbrolla",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "langley",
+   "name": "Langley",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1950,
+     1950
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "rae",
+   "name": "Rae",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1950,
+     1950
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "olson",
+   "name": "Olson",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1950,
+     1950
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "wetteroth",
+   "name": "Wetteroth",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1950,
+     1950
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "snowberger",
+   "name": "Snowberger",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1950,
+     1950
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "adams",
+   "name": "Adams",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1950,
+     1950
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/adams.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:B._Levrett_in_Adams_Offenhauser_Palmer_Special,_1950-05-30_Indianapolis_500.jpg",
+     "author": "Tower Photograhers, Indianapolis",
+     "license": "Public domain"
+    }
+   }
+  },
+  {
+   "id": "hall",
+   "name": "Hall",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1951,
+     1951
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "turner",
+   "name": "Turner",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1953,
+     1953
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "del-roy",
+   "name": "Del Roy",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1953,
+     1953
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "emw",
+   "name": "EMW",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "seasons": [
+    [
+     1953,
+     1953
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "klenk",
+   "name": "Klenk",
+   "country": {
+    "en": "Germany",
+    "uk": "Німеччина"
+   },
+   "seasons": [
+    [
+     1954,
+     1954
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "bugatti",
+   "name": "Bugatti",
+   "country": {
+    "en": "France",
+    "uk": "Франція"
+   },
+   "seasons": [
+    [
+     1956,
+     1956
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/bugatti.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Bugatti_GP_Type_251.jpg",
+     "author": "MPW57",
+     "license": "Public domain"
+    }
+   }
+  },
+  {
+   "id": "elder",
+   "name": "Elder",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1959,
+     1959
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "sutton",
+   "name": "Sutton",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1959,
+     1959
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "tec",
+   "name": "Tec",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "seasons": [
+    [
+     1959,
+     1959
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/tec.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Maserati_TecMec.jpg",
+     "author": "Kogo",
+     "license": "CC BY-SA 3.0 de"
+    }
+   }
+  },
+  {
+   "id": "meskowski",
+   "name": "Meskowski",
+   "country": {
+    "en": "United States",
+    "uk": "США"
+   },
+   "seasons": [
+    [
+     1960,
+     1960
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/meskowski.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Henry_Ford_Museum_August_2012_22_(1960_Meskowski).jpg",
+     "author": "Michael Barera",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "ferguson",
+   "name": "Ferguson",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1961,
+     1961
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/ferguson.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Ferguson_climax_P99.jpg",
+     "author": "Ed Callow",
+     "license": "CC BY 2.0"
+    }
+   }
+  },
+  {
+   "id": "enb",
+   "name": "ENB",
+   "country": {
+    "en": "Belgium",
+    "uk": "Бельгія"
+   },
+   "seasons": [
+    [
+     1962,
+     1962
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/enb.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1961_Emeryson-Climax_at_the_2018_Historic_Grand_Prix_of_Monaco.jpg",
+     "author": "In Vitrio",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "stebro",
+   "name": "Stebro",
+   "country": {
+    "en": "Canada",
+    "uk": "Канада"
+   },
+   "seasons": [
+    [
+     1963,
+     1963
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "derrington",
+   "name": "Derrington",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1964,
+     1964
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/derrington.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Derrington_Francis-ATS,_BRM_Celebration_Day,_Bourne,_Lincolnshire,_2012.jpg",
+     "author": "In Vitrio",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "shannon",
+   "name": "Shannon",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1966,
+     1966
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "protos",
+   "name": "Protos",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1967,
+     1967
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": null
+  },
+  {
+   "id": "politoys",
+   "name": "Politoys",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1972,
+     1972
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/politoys.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:1969_British_Grand_Prix_P_Courage_Brabham_BT26_close.jpg",
+     "author": "The original uploader was 4u1e at English Wikipedia.",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "connew",
+   "name": "Connew",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1972,
+     1972
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/connew.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Connew_PC1-Cosworth.jpg",
+     "author": "In Vitrio",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "amon",
+   "name": "Amon",
+   "country": {
+    "en": "New Zealand",
+    "uk": "Нова Зеландія"
+   },
+   "seasons": [
+    [
+     1974,
+     1974
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/amon.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:ChrisAmonAF101.jpg",
+     "author": "StickboyNZ",
+     "license": "CC BY-SA 3.0"
+    }
+   }
+  },
+  {
+   "id": "lyncar",
+   "name": "Lyncar",
+   "country": {
+    "en": "United Kingdom",
+    "uk": "Велика Британія"
+   },
+   "seasons": [
+    [
+     1975,
+     1975
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/lyncar.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Lyncar_F1_Ford_Cosworht_(1977)._(55078840707).jpg",
+     "author": "Txemari. (Navarra). from Navarra, España",
+     "license": "CC BY-SA 4.0"
+    }
+   }
+  },
+  {
+   "id": "rebaque",
+   "name": "Rebaque",
+   "country": {
+    "en": "Mexico",
+    "uk": "Мексика"
+   },
+   "seasons": [
+    [
+     1979,
+     1979
+    ]
+   ],
+   "grandsPrix": 1,
+   "wins": 0,
+   "titles": 0,
+   "current": null,
+   "photo": {
+    "src": "/img/cars/rebaque.jpg",
+    "width": 480,
+    "height": 300,
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Hector_Rebaque_Lotus_78.jpg",
+     "author": "Keith Long",
+     "license": "CC BY 2.0"
+    }
+   }
+  }
+ ],
+ "avatarCredits": {
+  "albon": {
+   "page": "https://commons.wikimedia.org/wiki/File:Alex_Albon_at_the_Melbourne_Walk_during_the_2026_Australian_Grand_Prix_(028A8626)_(cropped).jpg",
+   "author": "Yu Chu Chin",
+   "license": "CC BY-SA 4.0"
+  },
+  "alonso": {
+   "page": "https://commons.wikimedia.org/wiki/File:Alonso-68_(24710447098).jpg",
+   "author": "United Autosports",
+   "license": "CC BY-SA 2.0"
+  },
+  "antonelli": {
+   "page": "https://commons.wikimedia.org/wiki/File:2026-08-23_Motorsport,_Formel_1,_Gro%C3%9Fer_Preis_der_Niederlande_2026_STP_3010_(cropped2).jpg",
+   "author": "Steffen Prößdorf",
+   "license": "CC BY-SA 4.0"
+  },
+  "arvid_lindblad": {
+   "page": "https://commons.wikimedia.org/wiki/File:Arvid_Lindblad_at_the_Red_Bull_Fan_Zone_%E2%80%93_Crown_Riverwalk,_Melbourne_(028A7869)_(cropped).jpg",
+   "author": "Yu Chu Chin",
+   "license": "CC BY-SA 4.0"
+  },
+  "bearman": {
+   "page": "https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Haas_-_Oliver_Bearman_-_Thursday_(cropped).jpg",
+   "author": "Liauzh",
+   "license": "CC BY-SA 4.0"
+  },
+  "bortoleto": {
+   "page": "https://commons.wikimedia.org/wiki/File:Gabriel_Bortoleto_at_the_Melbourne_Walk_during_the_2026_Australian_Grand_Prix_(028A8581)_cropped.jpg",
+   "author": "Yu Chu Chin",
+   "license": "CC BY-SA 4.0"
+  },
+  "bottas": {
+   "page": "https://commons.wikimedia.org/wiki/File:Valtteri_Bottas_at_the_2026_Adelaide_Motorsport_Festival_(028A7556).jpg",
+   "author": "Yu Chu Chin",
+   "license": "CC BY-SA 4.0"
+  },
+  "colapinto": {
+   "page": "https://commons.wikimedia.org/wiki/File:Franco_Colapinto_at_the_Melbourne_Walk_during_the_2026_Australian_Grand_Prix_(028A8698)_cropped.jpg",
+   "author": "Yu Chu Chin",
+   "license": "CC BY-SA 4.0"
+  },
+  "gasly": {
+   "page": "https://commons.wikimedia.org/wiki/File:Pierre_Gasly_2017_Malaysia.jpg",
+   "author": "Morio",
+   "license": "CC BY-SA 4.0"
+  },
+  "hadjar": {
+   "page": "https://commons.wikimedia.org/wiki/File:Isack_Hadjar_at_the_Melbourne_Walk_during_the_2026_Australian_Grand_Prix_(028A8753)_(cropped).jpg",
+   "author": "Yu Chu Chin",
+   "license": "CC BY-SA 4.0"
+  },
+  "hamilton": {
+   "page": "https://commons.wikimedia.org/wiki/File:Prime_Minister_Keir_Starmer_meets_Sir_Lewis_Hamilton_(54566928382)_(cropped).jpg",
+   "author": "Picture by Lauren Hurley",
+   "license": "OGL 3"
+  },
+  "hulkenberg": {
+   "page": "https://commons.wikimedia.org/wiki/File:2019_Formula_One_tests_Barcelona,_Hulkenberg_(40287128313).jpg",
+   "author": "Marc Alvarado",
+   "license": "CC BY-SA 2.0"
+  },
+  "lawson": {
+   "page": "https://commons.wikimedia.org/wiki/File:Liam_Lawson_at_the_Red_Bull_Fan_Zone_%E2%80%93_Crown_Riverwalk,_Melbourne_(028A7795).jpg",
+   "author": "Yu Chu Chin",
+   "license": "CC BY-SA 4.0"
+  },
+  "leclerc": {
+   "page": "https://commons.wikimedia.org/wiki/File:Charles_Leclerc_at_the_2026_Cannes_Film_Festival_(cropped).jpg",
+   "author": "Gabriel Hutchinson",
+   "license": "CC BY-SA 4.0"
+  },
+  "max_verstappen": {
+   "page": "https://commons.wikimedia.org/wiki/File:2024-08-25_Motorsport,_Formel_1,_Gro%C3%9Fer_Preis_der_Niederlande_2024_STP_3973_by_Stepro_(medium_crop).jpg",
+   "author": "Steffen Prößdorf",
+   "license": "CC BY-SA 4.0"
+  },
+  "norris": {
+   "page": "https://commons.wikimedia.org/wiki/File:2024-08-25_Motorsport,_Formel_1,_Gro%C3%9Fer_Preis_der_Niederlande_2024_STP_3968_by_Stepro_(cropped2).jpg",
+   "author": "Original: Steffen Prößdorf",
+   "license": "CC BY-SA 4.0"
+  },
+  "perez": {
+   "page": "https://commons.wikimedia.org/wiki/File:Sergio_P%C3%A9rez_2019_(cropped).jpg",
+   "author": "XaviYuahanda",
+   "license": "CC BY-SA 4.0"
+  },
+  "piastri": {
+   "page": "https://commons.wikimedia.org/wiki/File:2026_Chinese_GP_-_Oscar_Piastri_(cropped)_(cropped).jpg",
+   "author": "Liauzh",
+   "license": "CC BY 4.0"
+  },
+  "rafael_camara": {
+   "page": "https://commons.wikimedia.org/wiki/File:Rafael_C%C3%A2mara_in_2022.jpg",
+   "author": "KVYTICAL",
+   "license": "CC BY-SA 4.0"
+  },
+  "russell": {
+   "page": "https://commons.wikimedia.org/wiki/File:KingsLeonSilverstne040724_(28_of_112)_(53838006028)_(cropped).jpg",
+   "author": "Raph_PH",
+   "license": "CC BY 2.0"
+  },
+  "sainz": {
+   "page": "https://commons.wikimedia.org/wiki/File:Carlos_Sainz_at_the_83rd_Venice_FILM_festival-9_(cropped).jpg",
+   "author": "LucaFazPhoto",
+   "license": "CC BY-SA 4.0"
+  },
+  "stroll": {
+   "page": "https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Aston_Martin_-_Lance_Stroll_-_Fanzone_Stage_(cropped).jpg",
+   "author": "Liauzh",
+   "license": "CC BY-SA 4.0"
+  }
+ }
+}
