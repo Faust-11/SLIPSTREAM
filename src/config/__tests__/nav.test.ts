@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { NAV, SECTION_HERO, activeNavKey } from "../nav";
+import { NAV, SECTION_HERO, activeNavKey, barePathFromSegments } from "../nav";
 
 describe("NAV", () => {
   it("9 розділів у порядку меню, Гра — жовта", () => {
@@ -21,5 +21,22 @@ describe("NAV", () => {
     expect(activeNavKey(["drivers", "norris"])).toBe("drivers");
     expect(activeNavKey(["(content)", "stories"])).toBe("stories");
     expect(activeNavKey(["nope"])).toBeNull();
+  });
+});
+
+describe("barePathFromSegments", () => {
+  it("корінь і прості шляхи", () => {
+    expect(barePathFromSegments([])).toBe("/");
+    expect(barePathFromSegments(["teams"])).toBe("/teams");
+  });
+
+  it("не перекодовує вже закодовані сегменти й catch-all", () => {
+    expect(barePathFromSegments(["drivers", "p%C3%A9rez"])).toBe("/drivers/p%C3%A9rez");
+    expect(barePathFromSegments(["drivers", "a%20b"])).toBe("/drivers/a%20b");
+    expect(barePathFromSegments(["stories", "2021/abu-dhabi"])).toBe("/stories/2021/abu-dhabi");
+  });
+
+  it("пропускає route groups", () => {
+    expect(barePathFromSegments(["(content)", "stories"])).toBe("/stories");
   });
 });

@@ -28,8 +28,12 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             labels={{ open: dict.header.menu, nav: dict.header.mainNav }}
             extra={<ThemeToggle labels={dict.theme} className="mnav-theme" withText />}
           />
+          {/* До гідратації (або без JS) — та сама іконка, але посилання на розділи у футері. */}
           <a className="mnav-fallback" href="#sections">
-            {dict.header.menu} ↓
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" />
+            </svg>
+            <span className="sr-only">{dict.header.menu}</span>
           </a>
         </div>
       </header>

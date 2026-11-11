@@ -42,6 +42,14 @@ body > main {
   top: 8px;
   outline-color: var(--ink);
 }
+/* Поки відкрите мобільне меню, контент inert — посилання «до змісту» нікуди не веде. */
+body.mnav-open .skip-link {
+  display: none;
+}
+/* main — ціль skip-link (tabindex=-1), не інтерактивний елемент: рамка навколо всієї сторінки зайва. */
+main:focus {
+  outline: none;
+}
 
 /* safe area: смуга кольору шапки під вирізом екрана */
 body::before {
@@ -246,7 +254,8 @@ body::before {
   color: var(--yellow);
 }
 .mnav a::after {
-  content: "→";
+  /* Порожній alt-текст: дикторам не читати «стрілка вправо». */
+  content: "→" / "";
   /* У латинському наборі Plex немає U+2192 — без цього стрілку малює Arial (замір CDP). */
   font-family: ui-monospace, Menlo, Consolas, monospace;
   word-spacing: normal;
@@ -257,7 +266,7 @@ body::before {
   color: var(--yellow);
 }
 .mnav a[aria-current="page"]::after {
-  content: "●";
+  content: "●" / "";
   font-size: 10px;
   opacity: 1;
 }
@@ -275,25 +284,27 @@ body.mnav-open {
   overflow: hidden;
 }
 
-/* Без JS бургер нічого не робить — ховаємо; замість нього посилання на розділи у футері. */
-html:not([data-js]) .mnav-btn {
+/* Бургер працює лише після гідратації (без JS чи до завантаження бандла — не працює).
+   До того на його місці — посилання з тією ж іконкою 40×40 на розділи у футері (без зсуву). */
+html:not([data-hydrated]) .mnav-btn {
   display: none !important;
 }
 .mnav-fallback {
   display: none;
-  min-height: 40px;
+  width: 40px;
+  height: 40px;
   place-items: center;
-  font: 600 12px/1 var(--f-mono);
-  word-spacing: normal;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 0 4px;
+  flex-shrink: 0;
+  color: inherit;
+}
+.mnav-fallback svg {
+  display: block;
 }
 
-/* Поріг бургера 1140 px: меню UK ≈ 707 + бренд 211 + мова 72 + тема 32 + відступи — інакше
+/* Діапазонний синтаксис (без «дірки» 1140–1141 px при дробовій ширині; Tailwind 4 його й так вимагає).
+   Поріг бургера 1140 px: меню UK ≈ 707 + бренд 211 + мова 72 + тема 32 + відступи — інакше
    на 861–1135 px пункти переносяться й виходять за край (замір рев'ю). */
-@media (max-width: 1140px) {
+@media (width <= 1140px) {
   .nav,
   .site-head .theme-btn {
     display: none;
@@ -301,7 +312,7 @@ html:not([data-js]) .mnav-btn {
   .mnav-btn {
     display: inline-grid;
   }
-  html:not([data-js]) .mnav-fallback {
+  html:not([data-hydrated]) .mnav-fallback {
     display: inline-grid;
   }
   .site-head .wrap {
@@ -340,7 +351,7 @@ html:not([data-js]) .mnav-btn {
     padding: 0 6px;
   }
 }
-@media (min-width: 1141px) {
+@media (width > 1140px) {
   .mnav {
     display: none !important;
   }

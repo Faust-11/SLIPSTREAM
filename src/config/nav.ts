@@ -29,3 +29,11 @@ export function activeNavKey(segments: readonly string[]): NavKey | null {
   const first = segments.find((s) => !s.startsWith("("));
   return NAV.find((item) => item.href === `/${first}`)?.key ?? null;
 }
+
+/**
+ * Шлях сторінки без мови з сегментів маршруту під [lang]. Сегменти вже закодовані для URL,
+ * catch-all приходить одним рядком «a/b» (docs: use-selected-layout-segments.md) — не перекодовуємо.
+ */
+export function barePathFromSegments(segments: readonly string[]): string {
+  return `/${segments.filter((s) => !s.startsWith("(")).join("/")}`;
+}
