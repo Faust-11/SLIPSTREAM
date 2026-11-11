@@ -7,6 +7,8 @@ const isDev = process.env.NODE_ENV === "development";
 const csp = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
+  // Обробники в атрибутах (<img onerror>) заборонені навіть при 'unsafe-inline' для <script>.
+  "script-src-attr 'none'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self'",
@@ -18,12 +20,24 @@ const csp = [
   "upgrade-insecure-requests",
 ].join("; ");
 
+const PERMISSIONS_POLICY = [
+  "accelerometer", "autoplay", "bluetooth", "browsing-topics", "camera", "display-capture", "encrypted-media",
+  "geolocation", "gyroscope", "hid", "idle-detection", "local-fonts", "magnetometer", "microphone", "midi",
+  "payment", "screen-wake-lock", "serial", "usb", "window-management", "xr-spatial-tracking",
+]
+  .map((feature) => `${feature}=()`)
+  .join(", ");
+
 const securityHeaders = [
   { key: "Content-Security-Policy", value: csp },
-  { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+  // Без includeSubDomains/preload до рішення про домен (фаза 8): preload-заявку може подати будь-хто,
+  // а вилучення зі списку триває місяці; на *.vercel.app увесь TLD .app і так у preload-списку.
+  { key: "Strict-Transport-Security", value: "max-age=63072000" },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+  // Вимкнено все, що сайту не потрібне (замір: без помилок консолі в Chrome 150). Не чіпаємо
+  // publickey-credentials-get / identity-credentials-get — знадобляться для входу (фаза 9).
+  { key: "Permissions-Policy", value: PERMISSIONS_POLICY },
   // Дублює frame-ancestors для старих браузерів.
   { key: "X-Frame-Options", value: "DENY" },
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },

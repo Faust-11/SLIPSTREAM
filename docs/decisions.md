@@ -105,3 +105,13 @@
 - CSP — за планом, без nonce (`'unsafe-inline'` для script/style): nonce зробив би всі сторінки динамічними; inline-скрипти — ThemeScript, мова 404 і власні скрипти Next (`self.__next_f`, різні на кожній сторінці — хешами не закрити). Dev: + `'unsafe-eval'` (Fast Refresh), замір — 0 повідомлень CSP у dev і prod.
 - Понад план: `X-Frame-Options: DENY` (дубль `frame-ancestors` для старих браузерів), `Cross-Origin-Opener-Policy: same-origin`.
 - **Замір:** відповіді `redirects` з next.config (308 `/en/…`) не отримують заголовків з `headers()` у `next start` 16.4.5; тіла немає, цільова 200 — із заголовками. e2e фіксує поведінку; на Vercel перевірити в Task 8.
+
+## 2026-11-11 · Правки рев'ю безпеки Task 7
+- `insecure-defaults` (Trail of Bits): 6/6 перевірок, 476 файлів — 0 кандидатів (це відсутність збігів за шаблонами, не доказ відсутності).
+- Ручне рев'ю (замір): заголовки на всіх HTML/RSC/статичних/404/500 відповідях; без `x-powered-by`; 9 XSS-ін'єкцій через шлях/query — 0 спрацювань (сторінки статичні, query не відображається, у LangSwitch кодується); open redirect — не знайдено; у клієнтському бандлі немає env/секретів і source maps.
+- **HSTS** — `max-age=63072000` без `includeSubDomains; preload` до рішення про домен (фаза 8): preload-заявку може подати будь-хто, вилучення — місяцями; `*.vercel.app` і так у preload-списку (TLD `.app`).
+- **`script-src-attr 'none'`** — обробники в атрибутах заборонені при `'unsafe-inline'` для `<script>` (головний ризик HTML з RSS у фазі 4); e2e перевіряє, що `onerror` не виконується.
+- **Permissions-Policy** — 21 можливість вимкнено; `publickey-credentials-get` / `identity-credentials-get` лишаємо для входу (фаза 9).
+- **Секрет обходу Vercel** — лише cookie домену прев'ю (`e2e/vercel-bypass.setup.ts`), не `extraHTTPHeaders` (ті йшли б на сторонні хости й у trace); trace вимкнено при `BASE_URL`.
+- Без заголовків лишаються 308 з `redirects` і внутрішній trailing-slash-редирект Next (`/uk/teams/` → `/uk/teams`) — тіла немає; на Vercel перевірити в Task 8.
+- **CSP для майбутніх фаз** (рев'ю, мнение): Supabase лише на сервері — CSP без змін; превью новин — через `/_next/image` з `remotePatterns` (img-src лишається `'self'`); Vercel Toolbar на прев'ю — вимкнути або дозволити `vercel.live` лише при `VERCEL_ENV=preview`; Google-вхід — `form-action`/`frame-src` `accounts.google.com`, COOP `same-origin-allow-popups`, на динамічних сторінках входу — nonce + `'strict-dynamic'`; `report-to` — разом із першим стороннім джерелом.
