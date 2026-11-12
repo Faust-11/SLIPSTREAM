@@ -205,6 +205,15 @@ img.dh-ini {
 .driver-page .ds-table {
   max-height: none;
 }
+/* Якщо таблиця все ж прокручується вбік, рік лишається на місці — рядок не втрачає підпису. */
+.driver-page .ds-table tbody th {
+  position: sticky;
+  inset-inline-start: 0;
+  background: var(--paper);
+}
+.driver-page .ds-table tr.champ th {
+  background: var(--yellow);
+}
 .ds.stacked {
   grid-template-columns: minmax(0, 1fr);
   gap: 22px;
