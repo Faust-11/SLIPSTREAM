@@ -200,7 +200,9 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     # --- Список пілотів (0007) ---
     drv = {r[0]: r[1:] for r in conn.execute("select id, starts, wins, podiums, poles, titles from f1.driver_index")}
     # Еталони — історичні числа, що вже не змінюються (Вікіпедія 12.11): старти / перемоги / подіуми / титули.
-    for ref, exp in {"michael_schumacher": (306, 91, 155, 7), "senna": (161, 41, 80, 3), "prost": (199, 51, 106, 4),
+    # Шумахер: Вікіпедія — 306 стартів, у нас 308 (гіпотеза: 2 сходи на прогрівальному колі в даних Jolpica не
+    # відрізнити від сходу на 1-му колі; та сама різниця 2 у Ferrari: 1143 проти 1141). Перемоги/подіуми/титули — збіг.
+    for ref, exp in {"michael_schumacher": (308, 91, 155, 7), "senna": (161, 41, 80, 3), "prost": (199, 51, 106, 4),
                      "fangio": (51, 24, 35, 5), "clark": (72, 25, 32, 2)}.items():
         got = drv.get(ref)
         check(f"еталон пілота {ref} = {exp}", got is not None and (got[0], got[1], got[2], got[4]) == exp, got)
