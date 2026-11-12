@@ -4,6 +4,8 @@ import { useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
+import { localizedPath } from "@/i18n/paths";
+import { driverPath } from "@/lib/driver-slug";
 import type { DriverRow, PackedDriver } from "@/lib/data/drivers";
 import {
   DEFAULT_DRIVERS_QUERY,
@@ -73,7 +75,7 @@ export function withDriversQuery(search: string, q: DriversQuery): string {
   return s ? `?${s}` : "";
 }
 
-export function DriverCell({ r, titlesBadge }: { r: DriverRow; titlesBadge: string }) {
+export function DriverCell({ r, titlesBadge, locale }: { r: DriverRow; titlesBadge: string; locale: Locale }) {
   return (
     <span className="ent">
       {r.avatar ? (
@@ -87,7 +89,7 @@ export function DriverCell({ r, titlesBadge }: { r: DriverRow; titlesBadge: stri
       )}
       <span className="nm">
         <span>
-          {r.name}
+          <a href={localizedPath(driverPath(r.id), locale)}>{r.name}</a>
           {r.titles > 0 && (
             <span className="star" title={fill(titlesBadge, { n: r.titles })}>
               ×{r.titles}
@@ -151,7 +153,7 @@ export function DriversTable({
             <tr key={r.id}>
               <td className="rk num">{from + i + 1}</td>
               <td>
-                <DriverCell r={r} titlesBadge={labels.titlesBadge} />
+                <DriverCell r={r} titlesBadge={labels.titlesBadge} locale={locale} />
               </td>
               <td className="c-hide cc num">{r.years[0] === r.years[1] ? r.years[0] : `${r.years[0]}–${r.years[1]}`}</td>
               {(["st", "w", "pd", "pl", "t"] as const).map((k) => {

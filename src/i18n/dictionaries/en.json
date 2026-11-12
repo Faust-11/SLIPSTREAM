@@ -350,5 +350,175 @@
     "credits": "Driver portraits: authors and licences",
     "allList": "All drivers as a list",
     "allListNote": "Wins / starts, by wins"
+  },
+  "driver": {
+    "crumbs": "Drivers",
+    "stamp": {
+      "one": "{years} World Champion",
+      "many": "{n}× World Champion: {years}"
+    },
+    "instagram": "Instagram",
+    "noPhoto": "No free photo yet",
+    "numberLabel": "Car number {n}",
+    "facts": {
+      "label": "Facts",
+      "country": "Country",
+      "born": "Born",
+      "lived": "Lived",
+      "bornAge": "{date} ({age})",
+      "team": "Team",
+      "teams": "Teams",
+      "allSeasons": {
+        "one": "{n} season",
+        "few": "all {n} seasons",
+        "many": "all {n} seasons",
+        "other": "all {n} seasons"
+      },
+      "number": "Car number",
+      "numberOne": "{n} in {year}",
+      "numberRange": "{n} in {from}–{to}",
+      "debut": "Debut",
+      "last": "Last race",
+      "now": "{year} so far",
+      "nowPlace": "P{pos}"
+    },
+    "age": {
+      "one": "age {n}",
+      "few": "age {n}",
+      "many": "age {n}",
+      "other": "age {n}"
+    },
+    "totals": {
+      "label": "Career totals",
+      "starts": {
+        "one": "start",
+        "few": "starts",
+        "many": "starts",
+        "other": "starts"
+      },
+      "wins": {
+        "one": "win",
+        "few": "wins",
+        "many": "wins",
+        "other": "wins"
+      },
+      "podiums": {
+        "one": "podium",
+        "few": "podiums",
+        "many": "podiums",
+        "other": "podiums"
+      },
+      "poles": {
+        "one": "pole",
+        "few": "poles",
+        "many": "poles",
+        "other": "poles"
+      },
+      "fastestLaps": {
+        "one": "fastest lap",
+        "few": "fastest laps",
+        "many": "fastest laps",
+        "other": "fastest laps"
+      },
+      "points": {
+        "one": "point",
+        "few": "points",
+        "many": "points",
+        "other": "points"
+      },
+      "titles": {
+        "one": "title",
+        "few": "titles",
+        "many": "titles",
+        "other": "titles"
+      }
+    },
+    "points": {
+      "one": "{n} pt",
+      "few": "{n} pts",
+      "many": "{n} pts",
+      "other": "{n} pts"
+    },
+    "winsN": {
+      "one": "{n} win",
+      "few": "{n} wins",
+      "many": "{n} wins",
+      "other": "{n} wins"
+    },
+    "startsN": {
+      "one": "{n} start",
+      "few": "{n} starts",
+      "many": "{n} starts",
+      "other": "{n} starts"
+    },
+    "titlesN": {
+      "one": "{n} title",
+      "few": "{n} titles",
+      "many": "{n} titles",
+      "other": "{n} titles"
+    },
+    "seasons": {
+      "title": "Season by season",
+      "note": "Points and championship position",
+      "chartLabel": "Points and championship position by season",
+      "keyChampion": "Title season",
+      "year": "Year",
+      "team": "Team",
+      "races": "Races",
+      "wins": "Wins",
+      "podiums": "Podiums",
+      "poles": "Poles",
+      "points": "Pts",
+      "place": "Final",
+      "running": "running",
+      "excluded": "DSQ",
+      "excludedTitle": "Excluded from the final standings",
+      "noPlace": "Not classified in the standings"
+    },
+    "mates": {
+      "title": "Against teammates",
+      "races": "Races",
+      "quali": "Qualifying",
+      "keyAhead": "{name} ahead",
+      "keyBehind": "Teammate ahead",
+      "note": "Races: who placed higher in the race classification. Qualifying: final qualifying position, shown when data exists for the shared races (from 1994). Only teammates with 5 or more shared races.",
+      "sr": "{a}: {x}; {b}: {y}",
+      "showAll": "Show all {n} teammates"
+    },
+    "wins": {
+      "title": {
+        "one": "{n} win",
+        "few": "{n} wins",
+        "many": "{n} wins",
+        "other": "{n} wins"
+      },
+      "first": "First win",
+      "latest": "Latest win",
+      "fromGrid": "From P{n} on the grid",
+      "grid": "grid P{n}",
+      "byGrandPrix": "Most wins by Grand Prix",
+      "showAll": "Show all {n}",
+      "filterLabel": "Wins by team",
+      "filterAll": "All"
+    },
+    "miles": {
+      "title": "Milestones",
+      "debut": "Formula 1 debut",
+      "firstPodium": "First podium",
+      "firstPole": "First pole",
+      "firstWin": "First win",
+      "champion": "World champion",
+      "titles": {
+        "one": "{n} world title",
+        "few": "{n} world titles",
+        "many": "{n} world titles",
+        "other": "{n} world titles"
+      }
+    },
+    "credits": {
+      "portraits": "Driver portraits: authors and licences"
+    },
+    "metaDescription": "{name}: {starts}, {wins}, {titles}. Season by season, teammates and every win.",
+    "metaDescriptionShort": "{name}: {starts} in Formula 1, {years}. Seasons, teams and results."
   }
 }
