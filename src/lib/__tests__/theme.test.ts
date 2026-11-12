@@ -86,14 +86,17 @@ describe("themeScriptSource (inline-скрипт у <head>)", () => {
     return document.documentElement.getAttribute("data-theme");
   }
 
-  it("data-list-query — лише на сторінці «Команди» з параметрами списку (рев'ю: футер ховався на інших сторінках)", () => {
+  it("data-list-query — лише на «Команди» / «Пілоти» з параметрами списку (рев'ю: футер ховався на інших сторінках)", () => {
     const cases: [string, boolean][] = [
       ["/uk/teams?q=lotus", true],
       ["/teams?f=win", true],
       ["/teams?sort=a", true],
       ["/teams", false],
       ["/uk?f=1", false],
-      ["/uk/drivers?sort=x", false],
+      ["/uk/drivers?sort=st", true],
+      ["/drivers?p=2", true],
+      ["/drivers", false],
+      ["/drivers?utm_source=fb", false],
       ["/teams?utm_source=fb", false],
     ];
     for (const [url, expected] of cases) {

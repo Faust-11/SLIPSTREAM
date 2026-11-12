@@ -38,15 +38,55 @@ test("пошук, фільтр чемпіонів, літера, сортува�
   await expect(page.locator(".drv-browser .count")).toHaveText("1–25 з 36");
 });
 
-test("посилання зі станом відкриває той самий результат; сміття в адресі — типові значення", async ({ page }) => {
+test("посилання зі станом: лише переможці на S, за прізвищем ↑; сміття в адресі — типові значення", async ({ page }) => {
   await page.goto("/drivers?f=win&l=S&sort=n");
   await hydrated(page);
   await expect(page.getByRole("button", { name: "Race winners" })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator('th[aria-sort="ascending"]')).toContainText("Driver");
   const names = await rows(page).locator(".nm > span:first-child").allTextContents();
-  expect(names.length).toBeGreaterThan(3);
-  await page.goto("/drivers?f=evil&sort=<x>&p=-1&d=1985");
+  const surnames = names.map((n) => n.replace(/×\d+$/, "").trim().split(" ").at(-1)!);
+  expect(surnames.length).toBeGreaterThan(3);
+  expect(surnames.every((sn) => /^S/.test(sn.normalize("NFD")))).toBe(true);
+  expect(surnames).toEqual([...surnames].sort((a, b) => a.localeCompare(b, "en")));
+  await page.goto("/drivers?f=evil&sort=<x>&d=1985");
   await hydrated(page);
   await expect(page.locator(".drv-browser .count")).toHaveText("1–25 of 793");
+  await expect(page.locator('th[aria-sort="descending"]')).toContainText("Wins");
+  // Сторінка поза межами — остання, і адреса виправлена.
+  await page.goto("/uk/drivers?p=999");
+  await hydrated(page);
+  await expect(page.locator(".drv-browser .count")).toHaveText("776–793 з 793");
+  await expect(page).toHaveURL(/p=32$/);
+});
+
+test("пошук із пробілом і без діакритики набирається з клавіатури (code-review 12.11)", async ({ page }) => {
+  await page.goto("/drivers");
+  await hydrated(page);
+  await page.getByRole("searchbox").pressSequentially("ayrton senna", { delay: 30 });
+  await expect(page.getByRole("searchbox")).toHaveValue("ayrton senna");
+  await expect(rows(page)).toHaveCount(1);
+  await page.getByRole("searchbox").fill("");
+  await page.getByRole("searchbox").pressSequentially("hakkinen", { delay: 30 });
+  await expect(rows(page)).toHaveCount(1);
+  await expect(rows(page).first()).toContainText("Häkkinen");
+});
+
+test("зміна сторінки — фокус на лічильнику; нуль результатів — оголошення в live-регіоні", async ({ page }) => {
+  await page.goto("/uk/drivers");
+  await hydrated(page);
+  await page.getByRole("button", { name: "Сторінка 2" }).click();
+  await expect(page.locator(".drv-browser .count")).toBeFocused();
+  await page.getByRole("searchbox").fill("zzzz");
+  await expect(page.locator(".drv-browser .count")).toHaveText("Нічого не знайдено.");
+});
+
+test("автори портретів — окрема сторінка, посилання з «Пілоти»", async ({ page }) => {
+  await page.goto("/uk/drivers");
+  await page.getByRole("link", { name: /Портрети пілотів: автори й ліцензії/ }).click();
+  await expect(page).toHaveURL(/\/uk\/drivers\/credits$/);
+  const items = page.locator(".page-credits li");
+  expect(await items.count()).toBeGreaterThan(400);
+  await expect(items.first().locator("a")).toHaveAttribute("href", /^https:\/\/commons\.wikimedia\.org\//);
 });
 
 test.describe("без JavaScript", () => {

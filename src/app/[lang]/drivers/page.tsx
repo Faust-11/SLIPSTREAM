@@ -1,12 +1,12 @@
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import { DriversBrowser } from "@/components/drivers/drivers-browser";
-import { PageCredits } from "@/components/teams/page-credits";
 import { TeamsIntro } from "@/components/teams/teams-intro";
 import { fill } from "@/i18n/fill";
+import { localizedPath } from "@/i18n/paths";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { requireLocale } from "@/i18n/require-locale";
-import { getDriversCredits, getDriversIndex, packDriver } from "@/lib/data/drivers";
+import { getDriversIndex, packDriver } from "@/lib/data/drivers";
 import { getTeamsSeason } from "@/lib/data/teams";
 import { DEFAULT_DRIVERS_QUERY, selectDrivers } from "@/lib/drivers-list";
 import { plural } from "@/lib/plural";
@@ -24,11 +24,8 @@ export default async function DriversPage({ params }: Props) {
   const lang = requireLocale((await params).lang);
   const dict = await getDictionary(lang);
   const t = dict.drivers;
-  const rows = await getDriversIndex(lang);
-  const altRows = new Map((await getDriversIndex(lang === "uk" ? "en" : "uk")).map((r) => [r.id, r.name]));
-  const packed = rows.map((r) => packDriver(r, altRows.get(r.id) ?? r.latin));
-  const season = await getTeamsSeason();
-  const credits = await getDriversCredits();
+  const [rows, season] = await Promise.all([getDriversIndex(lang), getTeamsSeason()]);
+  const packed = rows.map(packDriver);
   const nf = new Intl.NumberFormat(lang);
   const count = (n: number, forms: typeof t.facts.drivers) => ({ value: n, label: plural(n, lang, forms) });
   const current = rows
@@ -101,9 +98,13 @@ export default async function DriversPage({ params }: Props) {
           </noscript>
         </div>
       </section>
-      <PageCredits
-        groups={[{ title: t.credits, items: credits.map((c) => ({ label: c.driver, href: c.page, author: c.author, license: c.license })) }]}
-      />
+      <section className="page-credits" data-surface="dark">
+        <div className="wrap">
+          <a className="credits-link" href={localizedPath("/drivers/credits", lang)}>
+            {t.credits} →
+          </a>
+        </div>
+      </section>
     </>
   );
 }

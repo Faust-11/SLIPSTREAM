@@ -7,14 +7,14 @@ export type CreditGroup = {
  * Автори й ліцензії фото сторінки — згорнуті переліки на темній поверхні одразу над футером
  * (правило: атрибуція лише внизу, без плашок на фото; CC BY / BY-SA вимагають автора й ліцензію).
  */
-export function PageCredits({ groups }: { groups: CreditGroup[] }) {
+export function PageCredits({ groups, open = false }: { groups: CreditGroup[]; open?: boolean }) {
   const shown = groups.filter((g) => g.items.length > 0);
   if (shown.length === 0) return null;
   return (
     <section className="page-credits" data-surface="dark">
       <div className="wrap">
         {shown.map((g) => (
-          <details key={g.title}>
+          <details key={g.title} open={open}>
             <summary>{g.title}</summary>
             <ul>
               {g.items.map((it) => (

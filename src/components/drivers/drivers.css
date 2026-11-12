@@ -123,6 +123,7 @@
   color: var(--paper);
 }
 .drv-browser .count {
+  scroll-margin-top: 96px;
   margin: 0 0 0 auto;
   font: 12px var(--f-mono);
   word-spacing: normal;
@@ -329,4 +330,25 @@
   .dt td.rk {
     width: 22px;
   }
+}
+
+/* Посилання зі станом таблиці (?f=ch&p=2…): до гідратації не показувати нефільтровану таблицю
+   (як у «Командах», рев'ю 11.11: CLS 0.11–0.37). Запобіжник — поява через 6 с, якщо JS зірвався. */
+html[data-list-query] .drv-browser .tscroll,
+html[data-list-query] .drv-browser .pager,
+html[data-list-query] .drv-browser .empty,
+html[data-list-query] .page-credits,
+html[data-list-query] .site-foot {
+  visibility: hidden;
+  animation: list-reveal 0s linear 6s forwards;
+}
+html[data-list-query] .drv-browser .tscroll {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.page-credits .credits-link {
+  font: 600 12px/1.4 var(--f-mono);
+  word-spacing: normal;
+  color: inherit;
 }

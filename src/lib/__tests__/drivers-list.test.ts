@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { DriverRow } from "@/lib/data/drivers";
+import { normalizeSearch } from "@/lib/teams-list";
 import {
   DEFAULT_DRIVERS_QUERY,
   driversQueryString,
@@ -10,7 +11,7 @@ import {
 } from "@/lib/drivers-list";
 
 const row = (id: string, p: Partial<DriverRow>): DriverRow => ({
-  id, name: id, latin: id, surname: id, initials: "XX", avatar: null, countryCode: "GBR", team: "McLaren",
+  id, name: id, alt: id, latin: id, surname: id, initials: "XX", avatar: null, countryCode: "GBR", team: "McLaren",
   starts: 10, wins: 0, podiums: 0, poles: 0, titles: 0, years: [2000, 2005], current: null, search: id.toLowerCase(), ...p,
 });
 const rows = [
@@ -54,6 +55,11 @@ describe("selectDrivers", () => {
     expect(selectDrivers(rows, { ...DEFAULT_DRIVERS_QUERY, q: "СЕННА" }, "uk").map((r) => r.id)).toEqual(["senna"]);
     expect(firstLetter("Österreich")).toBe("O");
     expect(selectDrivers(rows, { ...DEFAULT_DRIVERS_QUERY, l: "O" }, "uk").map((r) => r.id)).toEqual(["ostrich"]);
+  });
+  it("пошук без діакритики й з пробілом (code-review 12.11: «hakkinen», «ayrton senna»)", () => {
+    const more = [...rows, row("hakkinen", { surname: "Häkkinen", search: normalizeSearch("Міка Хаккінен Mika Häkkinen FIN McLaren") })];
+    expect(selectDrivers(more, { ...DEFAULT_DRIVERS_QUERY, q: "hakkinen" }, "en").map((r) => r.id)).toEqual(["hakkinen"]);
+    expect(selectDrivers(more, { ...DEFAULT_DRIVERS_QUERY, q: "mika häk" }, "en").map((r) => r.id)).toEqual(["hakkinen"]);
   });
   it("сортування за ім'ям ↑ і за стартами ↓", () => {
     expect(selectDrivers(rows, { ...DEFAULT_DRIVERS_QUERY, sort: "n", dir: 1 }, "en").map((r) => r.id)).toEqual(["ahrens", "norris", "ostrich", "prost", "senna"]);

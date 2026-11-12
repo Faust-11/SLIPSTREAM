@@ -80,6 +80,6 @@ export function resolveTheme(attribute: string | null | undefined, prefersDark: 
  * знімає атрибут TeamsBrowser, і на інших сторінках він ховав би футер (code-review PR #5).
  * Без збереженого вибору `data-theme` немає — діє `prefers-color-scheme`.
  */
-export const themeScriptSource = `(function(){var d=document.documentElement;d.setAttribute("data-js","");if(/(^|\\/)teams\\/?$/.test(location.pathname)&&/[?&](q|f|sort)=/.test(location.search))d.setAttribute("data-list-query","");try{var t=localStorage.getItem(${JSON.stringify(
+export const themeScriptSource = `(function(){var d=document.documentElement;d.setAttribute("data-js","");if((/(^|\\/)teams\\/?$/.test(location.pathname)&&/[?&](q|f|sort)=/.test(location.search))||(/(^|\\/)drivers\\/?$/.test(location.pathname)&&/[?&](q|f|d|l|sort|dir|p)=/.test(location.search)))d.setAttribute("data-list-query","");try{var t=localStorage.getItem(${JSON.stringify(
   THEME_STORAGE_KEY,
 )});if(t==="light"||t==="dark")d.setAttribute("data-theme",t)}catch(e){}})()`;
