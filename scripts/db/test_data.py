@@ -288,7 +288,10 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     print("INFO  типи сесій з результатами (тип, роки, рядків):", q("select s.type, min(ro.season_year), max(ro.season_year), count(*) from f1.sessions s join f1.rounds ro on ro.id = s.round_id join f1.results r on r.session_id = s.id group by s.type order by 2, 1"))
     print("INFO  пари без повних кваліфікацій (quali_races < races) / усього:", sum(1 for v in tm.values() if v[4] < v[1]), "/", len(tm), "; з них quali_races > 0:", sum(1 for v in tm.values() if 0 < v[4] < v[1]))
     print("INFO  коригування заліку пілотів (adjustment_type, eligible, к-сть):", q("select adjustment_type, is_eligible, count(*) from f1.driver_standings group by 1, 2 order by 1, 2"))
-    print("INFO  Шумахер 1997:", q("select year, position, points, excluded, champion from f1.driver_seasons where id = 'michael_schumacher' and year = 1997"))
+    ms97 = q("select position, points, excluded, champion from f1.driver_seasons where id = 'michael_schumacher' and year = 1997")
+    check("Шумахер 1997 — виключений з заліку: без місця, 78 очок збережено", ms97 == [(None, 78.0, True, False)], ms97)
+    n_excl = q("select count(*) from f1.driver_seasons where excluded")[0][0]
+    check("виключень пілотів з заліку — одне", n_excl == 1, n_excl)
     print("INFO  сезони без запису в заліку:", q("select count(*) from f1.driver_seasons where points is null")[0][0], "; приклади:", q("select id, year from f1.driver_seasons where points is null order by year desc limit 5"))
     print("INFO  номери: сезонів з > 3 номерами:", q("select count(*) from f1.driver_seasons where cardinality(numbers) > 3")[0][0], "; сезонів без номера:", q("select count(*) from f1.driver_seasons where cardinality(numbers) = 0")[0][0])
     print("INFO  без дати народження:", sum(1 for v in tot_d.values() if v[7] is None), "; найшвидші кола відомі в", known, "пілотів")
