@@ -24,6 +24,15 @@ createServer(async (req, res) => {
   if (!req.headers.apikey || req.headers["accept-profile"] !== "f1") return res.writeHead(401).end("missing apikey / profile");
   try {
     let rows = JSON.parse(await readFile(join(dir, `${m[1]}.json`), "utf8"));
+    // select= — лише названі колонки, як у PostgREST (забута колонка в запиті має проявитись і в тестах);
+    // невідома колонка — 400, як «column … does not exist».
+    const select = url.searchParams.get("select");
+    if (select && select !== "*") {
+      const cols = select.split(",");
+      const missing = rows.length ? cols.filter((c) => !(c in rows[0])) : [];
+      if (missing.length) return res.writeHead(400).end(`column ${m[1]}.${missing[0]} does not exist`);
+      rows = rows.map((r) => Object.fromEntries(cols.map((c) => [c, r[c]])));
+    }
     const refIn = /^in\.\((.*)\)$/.exec(url.searchParams.get("ref") ?? "");
     if (refIn) {
       // searchParams уже декодовано один раз (як у PostgREST) — повторний decodeURIComponent падав би на «%».

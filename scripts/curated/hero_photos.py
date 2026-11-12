@@ -86,7 +86,8 @@ def main() -> int:
             continue
         lic = ii.get("extmetadata", {}).get("LicenseShortName", {}).get("value", "")
         if lic.replace("-", " ").lower() != t["photo"]["credit"]["license"].replace("-", " ").lower():
-            problems.append(f"{t['id']}: ліцензія на Commons «{lic}» ≠ «{t['photo']['credit']['license']}» — пропущено")
+            problems.append(f"{t['id']}: ліцензія на Commons «{lic}» ≠ «{t['photo']['credit']['license']}» — банер прибрано")
+            t.pop("hero", None)  # не показувати фото з ліцензією, що розійшлась з атрибуцією
             continue
         srcset = []
         size = None
@@ -98,14 +99,17 @@ def main() -> int:
             img = src.resize((w, round(src.height * w / src.width)), Image.Resampling.LANCZOS) if src.width > w else src
             path = OUT / f"{t['id']}-hero-{w}.webp"
             if not (path == big and big.exists()):
-                img.save(path, "WEBP", quality=QUALITY, method=6)
+                tmp = path.with_suffix(".tmp.webp")  # атомарно: обрив не лишає битий WebP
+                img.save(tmp, "WEBP", quality=QUALITY, method=6)
+                tmp.replace(path)
             total += path.stat().st_size
             srcset.append(f"/img/cars/{path.name} {img.width}w")
             if w == WIDTHS[0]:
                 size = (img.width, img.height)
         assert size
+        focus = (t.get("hero") or {}).get("focusY")  # ручна точка кадрування — зберегти
         t["hero"] = {"src": f"/img/cars/{t['id']}-hero-{WIDTHS[0]}.webp", "srcSet": ", ".join(srcset),
-                     "width": size[0], "height": size[1]}
+                     "width": size[0], "height": size[1], **({"focusY": focus} if focus is not None else {})}
         print(f"{t['id']}: {size[0]}×{size[1]}", flush=True)
     TEAMS.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"\nбанерів: {sum(1 for t in teams if 'hero' in t)} з {len(teams)}; WebP разом {total / 1024 / 1024:.1f} МБ")

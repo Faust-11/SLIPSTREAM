@@ -6,7 +6,7 @@ import curatedTeamsJson from "@/data/curated/teams.json";
 import type { Locale } from "@/i18n/config";
 import { dbSelect } from "./db";
 import { once } from "./once";
-import type { Credit, CuratedDriver, CuratedTeam, SnapshotDriver, TeamIndexRow, TeamSnapshot } from "./types";
+import type { Credit, CuratedDriver, CuratedTeam, DbDriverName, SnapshotDriver, TeamIndexRow, TeamSnapshot } from "./types";
 
 // JSON-імпорт TypeScript типізує ширше (number[][] замість кортежів, number замість 480) — приводимо
 // через unknown; форму перевіряють дані з бази (loadTeams кидає помилку на розбіжність) і тести `__tests__/teams.test.ts`.
@@ -14,7 +14,6 @@ export const curatedTeams = (curatedTeamsJson as unknown as { teams: CuratedTeam
 export const curatedDrivers = (curatedDriversJson as unknown as { drivers: Record<string, CuratedDriver> }).drivers;
 
 type SiteMetaRow = { current_season: number; last_round: number; last_race_date: string };
-type DbDriverRow = { ref: string; forename: string; surname: string };
 
 const loadIndex = once(() =>
   dbSelect<TeamIndexRow>("team_index", "select=id,seasons,grands_prix,wins,titles,current_position,current_drivers"),
@@ -26,7 +25,7 @@ const loadMeta = once(() =>
 /** Пілот без кураторських даних (новачок посеред сезону) — латиниця з бази, ініціали, без фото. */
 async function fallbackDrivers(refs: string[]): Promise<Record<string, CuratedDriver>> {
   if (refs.length === 0) return {};
-  const rows = await dbSelect<DbDriverRow>("drivers", `select=ref,forename,surname&ref=in.(${refs.map(encodeURIComponent).join(",")})`);
+  const rows = await dbSelect<DbDriverName>("drivers", `select=ref,forename,surname&ref=in.(${refs.map(encodeURIComponent).join(",")})`);
   return Object.fromEntries(
     rows.map((d) => {
       const full = `${d.forename} ${d.surname}`;

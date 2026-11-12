@@ -51,8 +51,10 @@ def get(url: str) -> dict:
             with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": UA}), timeout=60) as r:
                 _last = time.time()
                 data = json.loads(r.read())
-                if key:
-                    key.write_text(json.dumps(data))
+                if key:  # атомарно: обрив не лишає битий кеш
+                    tmp = key.with_suffix(".tmp")
+                    tmp.write_text(json.dumps(data))
+                    tmp.replace(key)
                 return data
         except urllib.error.HTTPError as e:
             _last = time.time()

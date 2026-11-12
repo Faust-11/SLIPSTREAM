@@ -173,6 +173,8 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     check("номери перемог 1..N без пропусків", not gaps, gaps[:5])
     over = [k for k, v in tot.items() if v[3] > v[0] or v[4] > v[0] or v[2] > 3 * v[0]]
     check("поули й дублі ≤ Гран-прі, подіуми ≤ 3 × Гран-прі", not over, over[:5])
+    rb21 = conn.execute("select points from f1.team_seasons where id = 'red-bull' and year = 2021").fetchone()
+    check("очки не округлюються: Red Bull 2021 = 585,5", rb21 is not None and float(rb21[0]) == 585.5, rb21)
     mcl07 = conn.execute("select position, excluded from f1.team_seasons where id = 'mclaren' and year = 2007").fetchone()
     check("McLaren 2007 — виключена з заліку, без місця", mcl07 == (None, True), mcl07)
     running = conn.execute("select bool_and(in_progress), count(*) from f1.team_seasons where year = %s", (cs_year,)).fetchone()
@@ -182,6 +184,11 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     check("до 1958 Кубка не було — місць немає", pre == 0, pre)
     pair = conn.execute("select driver, races, points, race_ahead, quali_ahead from f1.team_pairing where id = 'mclaren' order by ord").fetchall()
     check("пара McLaren поточного сезону — 2 пілоти, «попереду» ≤ гонок", len(pair) == 2 and all(r[3] <= r[1] for r in pair), pair)
+    haas = conn.execute("select driver, ord, races, in_last_race from f1.team_pairing where id = 'haas' order by ord").fetchall()
+    check("Haas: пара — двоє з найбільшою кількістю гонок; Камара (1 гонка) — не в парі, але в останній гонці",
+          [r[0] for r in haas[:2]] != ["bearman", "rafael_camara"] and any(r[0] == "rafael_camara" and r[1] > 2 and r[3] for r in haas), haas)
+    over = conn.execute("select id, driver from f1.team_pairing where race_ahead > races or quali_ahead > races").fetchall()
+    check("«попереду» ніколи не більше за кількість гонок (кваліфікація — лише за цю команду)", not over, over)
     # Довідкові числа для звірки з Вікіпедією (docs/decisions.md) — друк, не перевірка.
     for k in ("mclaren", "ferrari", "williams", "brabham", "lotus", "mercedes", "red-bull", "tyrrell"):
         ch = conn.execute("select driver, years from f1.team_champions where id = %s order by years[1]", (k,)).fetchall()

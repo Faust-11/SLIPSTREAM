@@ -18,10 +18,16 @@ const FIXTURES: Record<string, unknown[]> = {
   team_pairing: teamPairing,
 };
 
-export async function dbSelect<T>(view: string): Promise<T[]> {
-  const rows = FIXTURES[view];
+/** Як PostgREST: лише колонки з select= (забута колонка — undefined і в тестах), невідома колонка — помилка. */
+export async function dbSelect<T>(view: string, query = ""): Promise<T[]> {
+  const rows = FIXTURES[view] as Record<string, unknown>[] | undefined;
   if (!rows) throw new Error(`немає фікстури для ${view}`);
-  return rows as T[];
+  const select = new URLSearchParams(query).get("select");
+  if (!select || select === "*" || rows.length === 0) return rows as T[];
+  const cols = select.split(",");
+  const missing = cols.filter((c) => !(c in rows[0]!));
+  if (missing.length) throw new Error(`База: ${view} → 400 column ${missing[0]} does not exist`);
+  return rows.map((r) => Object.fromEntries(cols.map((c) => [c, r[c]]))) as T[];
 }
 
 export const dbSelectAll = dbSelect;

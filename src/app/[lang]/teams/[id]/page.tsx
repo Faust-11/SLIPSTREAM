@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
-import { notFound } from "next/navigation";
+import { cache } from "react";
 import { SeasonChart } from "@/components/team/season-chart";
 import { PageCredits } from "@/components/teams/page-credits";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";
@@ -28,12 +28,39 @@ const dateFmt = {
   en: new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }),
 };
 
+// Метадані й сторінка беруть ті самі дані: cache() — один розрахунок на маршрут.
+const pageData = cache(async (id: string, lang: Locale) => {
+  const page = await getTeamPage(id, lang);
+  // Невідомий id сюди не доходить (dynamicParams = false — правило проєкту, без notFound()).
+  if (!page) throw new Error(`Команда ${id}: немає в curated/teams.json`);
+  return page;
+});
+
 async function load(props: Props) {
   const { lang: raw, id } = await props.params;
   const lang = requireLocale(raw);
-  const page = await getTeamPage(id, lang);
-  if (!page) notFound();
-  return { lang, page, dict: await getDictionary(lang) };
+  return { lang, page: await pageData(id, lang), dict: await getDictionary(lang) };
+}
+
+/** Відносна яскравість (WCAG) — для вибору кольору назви на темному фото. */
+function luminance(hex: string): number {
+  const [r, g, b] = [1, 3, 5].map((i) => {
+    const c = parseInt(hex.slice(i, i + 2), 16) / 255;
+    return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * r! + 0.7152 * g! + 0.0722 * b!;
+}
+const PHOTO_BG = luminance("#0e0f12");
+/** Колір команди читається на затемненому фото (≥ 3:1 для великого тексту)? Ні — назва біла (Red Bull 1,46:1). */
+function readableOnPhoto(hex: string | null): boolean {
+  return !!hex && /^#[0-9a-f]{6}$/i.test(hex) && (luminance(hex) + 0.05) / (PHOTO_BG + 0.05) >= 3;
+}
+
+/** Українська порядкова: 1-ше, 2-ге, 3-тє, 7-ме, 8-ме, інші -те (11–19 — -те). */
+function ukOrdinal(n: number): string {
+  const d = n % 10;
+  if (n % 100 >= 11 && n % 100 <= 19) return `${n}-те`;
+  return `${n}-${{ 1: "ше", 2: "ге", 3: "тє", 7: "ме", 8: "ме" }[d] ?? "те"}`;
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
@@ -69,6 +96,14 @@ function Person({ d, size = 28 }: { d: DriverView; size?: number }) {
   );
 }
 
+/** Бази команди: переїзди в одній країні — «Віші → Маньї-Кур, Франція», інакше — через «;». */
+function formatBase(base: { city: string | null; country: string; years: string | null }[]): string {
+  const sameCountry = base.length > 1 && base.every((b) => b.country === base[0]!.country && b.city);
+  if (sameCountry)
+    return `${base.map((b) => b.city + (b.years ? ` (${b.years})` : "")).join(" → ")}, ${base[0]!.country}`;
+  return base.map((b) => [b.city, b.country].filter(Boolean).join(", ") + (b.years ? ` (${b.years})` : "")).join("; ");
+}
+
 /** Рядок словника з <b>…</b> → React без dangerouslySetInnerHTML. */
 function Rich({ text }: { text: string }) {
   const parts = text.split(/(<b>.*?<\/b>)/);
@@ -102,11 +137,11 @@ export default async function TeamPageView(props: Props) {
 
   const strip = [
     { v: totals.grands_prix, f: t.totals.grandsPrix, show: true },
-    { v: totals.wins, f: t.totals.wins, show: totals.wins > 0, accent: true },
+    { v: totals.wins, f: t.totals.wins, show: totals.wins > 0 },
     { v: totals.podiums, f: t.totals.podiums, show: totals.podiums > 0 },
     { v: totals.poles, f: t.totals.poles, show: totals.poles > 0 },
     { v: totals.one_twos, f: t.totals.oneTwos, show: totals.one_twos > 0 },
-    { v: totals.constructors_titles, f: t.totals.constructors, show: totals.constructors_titles > 0, accent: true },
+    { v: totals.constructors_titles, f: t.totals.constructors, show: totals.constructors_titles > 0 },
     { v: totals.drivers_titles, f: t.totals.drivers, show: totals.drivers_titles > 0 },
   ].filter((x) => x.show);
 
@@ -132,6 +167,8 @@ export default async function TeamPageView(props: Props) {
     ...(team.photo ? { image: new URL(team.photo.src, siteUrl()).href } : {}),
   };
 
+  // Графік — лише якщо є хоча б 2 сезони з місцем (у 99 із 165 команд — ні): без порожньої області й легенди.
+  const hasChart = page.seasons.filter((s) => s.position !== null || s.excluded).length >= 2;
   const maxByDriver = page.wins.byDriver[0]?.count ?? 1;
   const maxByGp = page.wins.byGrandPrix[0]?.count ?? 1;
   const winsTitle = pl(totals.wins, t.wins.title);
@@ -148,7 +185,11 @@ export default async function TeamPageView(props: Props) {
         </div>
       </nav>
 
-      <section className={[team.photo ? "th has-photo" : "th", team.color ? "" : "no-color"].join(" ").trim()}>
+      <section
+        className={[team.photo ? "th has-photo" : "th", team.color ? "" : "no-color", team.photo && !readableOnPhoto(team.color) ? "light-title" : ""]
+          .filter(Boolean)
+          .join(" ")}
+      >
         {team.photo && (
           // Банер: широке фото (1280/640), без нього — фото картки (480). Готові WebP, як у списку.
           // eslint-disable-next-line @next/next/no-img-element
@@ -205,7 +246,7 @@ export default async function TeamPageView(props: Props) {
               <div>
                 <dt>{t.facts.base}</dt>
                 <dd>
-                  {facts.base.map((b) => [b.city, b.country].filter(Boolean).join(", ") + (b.years ? ` (${b.years})` : "")).join("; ")}
+                  {formatBase(facts.base)}
                 </dd>
               </div>
             )}
@@ -215,12 +256,12 @@ export default async function TeamPageView(props: Props) {
                 {page.debut.name} {page.debut.year}
               </dd>
             </div>
-            {current && page.pairing ? (
+            {current && page.currentDrivers.length > 0 ? (
               <>
                 <div>
                   <dt>{fill(t.facts.drivers, { year: current.year })}</dt>
                   <dd>
-                    {page.pairing.drivers.map((d) => (
+                    {page.currentDrivers.map((d) => (
                       <Person key={d.id} d={d} />
                     ))}
                   </dd>
@@ -228,11 +269,13 @@ export default async function TeamPageView(props: Props) {
                 <div>
                   <dt>{fill(t.facts.now, { year: current.year })}</dt>
                   <dd>
-                    {fill(t.facts.nowValue, {
-                      pos: current.position ?? "—",
-                      points: pl(current.points ?? 0, t.points),
-                      wins: pl(current.wins, t.winsN),
-                    })}
+                    {[
+                      current.position ? fill(t.facts.nowPlace, { pos: lang === "uk" ? ukOrdinal(current.position) : current.position }) : null,
+                      pl(current.points ?? 0, t.points),
+                      pl(current.wins, t.winsN),
+                    ]
+                      .filter(Boolean)
+                      .join(" · ")}
                   </dd>
                 </div>
               </>
@@ -252,7 +295,7 @@ export default async function TeamPageView(props: Props) {
         <div className="wrap">
           {strip.map((s, i) => (
             <div key={i}>
-              <b className={s.accent ? "num ac" : "num"}>{n(s.v)}</b>
+              <b className="num">{n(s.v)}</b>
               <span>{plural(s.v, lang, s.f)}</span>
             </div>
           ))}
@@ -267,7 +310,8 @@ export default async function TeamPageView(props: Props) {
             </h2>
             <span className="src">{t.seasons.note}</span>
           </div>
-          <div className="pos">
+          <div className={hasChart ? "pos" : "pos no-chart"}>
+            {hasChart && (
             <div className="pos-chart">
               {/* На вузькому екрані графік прокручується вбік — область доступна з клавіатури (axe scrollable-region-focusable). */}
               <div className="pos-scroll" role="region" aria-label={t.seasons.chartLabel} tabIndex={0}>
@@ -290,6 +334,7 @@ export default async function TeamPageView(props: Props) {
                 )}
               </p>
             </div>
+            )}
             <div className="notes">
               {ins.titleStreak && (
                 <p>
@@ -542,11 +587,14 @@ function Pairing({ page, t, n }: { page: TeamPage; t: Awaited<ReturnType<typeof 
               <div key={r.label} className="hb">
                 <dt className="hl">{r.label}</dt>
                 <dd>
-                  <b className="hn num">{n(r.a)}</b>
+                  <span className="sr-only">
+                    {a.name}: {n(r.a)}; {b.name}: {n(r.b)}
+                  </span>
+                  <b className="hn num" aria-hidden="true">{n(r.a)}</b>
                   <span className="hbar" aria-hidden="true">
                     <i style={{ width: `${(r.a / Math.max(r.a + r.b, 1)) * 100}%` }} />
                   </span>
-                  <b className="hn num">{n(r.b)}</b>
+                  <b className="hn num" aria-hidden="true">{n(r.b)}</b>
                 </dd>
               </div>
             ))}

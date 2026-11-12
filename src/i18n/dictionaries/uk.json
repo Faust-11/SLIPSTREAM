@@ -145,7 +145,7 @@
       "last": "Останній Гран-прі",
       "drivers": "Пілоти {year}",
       "now": "Сезон {year} зараз",
-      "nowValue": "{pos}-те місце · {points} · {wins}"
+      "nowPlace": "{pos} місце"
     },
     "totals": {
       "label": "Усього",
