@@ -348,8 +348,8 @@
   "races": 8,
   "race_ahead": 4,
   "race_behind": 4,
-  "quali_races": 8,
-  "quali_ahead": 6,
+  "quali_races": 9,
+  "quali_ahead": 7,
   "quali_behind": 2
  },
  {
@@ -381,9 +381,9 @@
   "races": 42,
   "race_ahead": 23,
   "race_behind": 19,
-  "quali_races": 41,
-  "quali_ahead": 12,
-  "quali_behind": 28
+  "quali_races": 43,
+  "quali_ahead": 13,
+  "quali_behind": 29
  },
  {
   "id": "albon",
@@ -958,8 +958,8 @@
   "races": 86,
   "race_ahead": 63,
   "race_behind": 23,
-  "quali_races": 85,
-  "quali_ahead": 74,
+  "quali_races": 89,
+  "quali_ahead": 78,
   "quali_behind": 10
  },
  {
@@ -1076,9 +1076,9 @@
   "races": 36,
   "race_ahead": 30,
   "race_behind": 6,
-  "quali_races": 36,
+  "quali_races": 37,
   "quali_ahead": 26,
-  "quali_behind": 10
+  "quali_behind": 11
  },
  {
   "id": "alonso",
@@ -1709,8 +1709,8 @@
   "races": 16,
   "race_ahead": 4,
   "race_behind": 12,
-  "quali_races": 16,
-  "quali_ahead": 6,
+  "quali_races": 17,
+  "quali_ahead": 7,
   "quali_behind": 10
  },
  {
@@ -1944,8 +1944,8 @@
   "races": 5,
   "race_ahead": 4,
   "race_behind": 1,
-  "quali_races": 3,
-  "quali_ahead": 3,
+  "quali_races": 4,
+  "quali_ahead": 4,
   "quali_behind": 0
  },
  {
@@ -2996,9 +2996,9 @@
   "races": 9,
   "race_ahead": 3,
   "race_behind": 6,
-  "quali_races": 8,
+  "quali_races": 9,
   "quali_ahead": 0,
-  "quali_behind": 8
+  "quali_behind": 9
  },
  {
   "id": "berg",
@@ -4068,9 +4068,9 @@
   "races": 18,
   "race_ahead": 8,
   "race_behind": 10,
-  "quali_races": 18,
-  "quali_ahead": 8,
-  "quali_behind": 10
+  "quali_races": 20,
+  "quali_ahead": 9,
+  "quali_behind": 11
  },
  {
   "id": "bortoleto",
@@ -4084,8 +4084,8 @@
   "races": 23,
   "race_ahead": 10,
   "race_behind": 13,
-  "quali_races": 22,
-  "quali_ahead": 11,
+  "quali_races": 23,
+  "quali_ahead": 12,
   "quali_behind": 11
  },
  {
@@ -4117,8 +4117,8 @@
   "races": 19,
   "race_ahead": 4,
   "race_behind": 15,
-  "quali_races": 19,
-  "quali_ahead": 8,
+  "quali_races": 20,
+  "quali_ahead": 9,
   "quali_behind": 11
  },
  {
@@ -4187,9 +4187,9 @@
   "races": 58,
   "race_ahead": 31,
   "race_behind": 27,
-  "quali_races": 58,
+  "quali_races": 59,
   "quali_ahead": 41,
-  "quali_behind": 17
+  "quali_behind": 18
  },
  {
   "id": "boullion",
@@ -5034,8 +5034,8 @@
   "races": 34,
   "race_ahead": 31,
   "race_behind": 3,
-  "quali_races": 34,
-  "quali_ahead": 26,
+  "quali_races": 35,
+  "quali_ahead": 27,
   "quali_behind": 8
  },
  {
@@ -5151,8 +5151,8 @@
   "races": 19,
   "race_ahead": 15,
   "race_behind": 4,
-  "quali_races": 19,
-  "quali_ahead": 10,
+  "quali_races": 20,
+  "quali_ahead": 11,
   "quali_behind": 9
  },
  {
@@ -5167,8 +5167,8 @@
   "races": 18,
   "race_ahead": 13,
   "race_behind": 5,
-  "quali_races": 18,
-  "quali_ahead": 8,
+  "quali_races": 19,
+  "quali_ahead": 9,
   "quali_behind": 10
  },
  {
@@ -6320,9 +6320,9 @@
   "races": 37,
   "race_ahead": 16,
   "race_behind": 21,
-  "quali_races": 37,
+  "quali_races": 38,
   "quali_ahead": 10,
-  "quali_behind": 27
+  "quali_behind": 28
  },
  {
   "id": "colapinto",
@@ -6336,9 +6336,9 @@
   "races": 8,
   "race_ahead": 4,
   "race_behind": 4,
-  "quali_races": 8,
+  "quali_races": 9,
   "quali_ahead": 2,
-  "quali_behind": 6
+  "quali_behind": 7
  },
  {
   "id": "collins",
@@ -6488,8 +6488,8 @@
   "races": 9,
   "race_ahead": 6,
   "race_behind": 3,
-  "quali_races": 8,
-  "quali_ahead": 8,
+  "quali_races": 9,
+  "quali_ahead": 9,
   "quali_behind": 0
  },
  {
@@ -6601,9 +6601,9 @@
   "races": 29,
   "race_ahead": 18,
   "race_behind": 11,
-  "quali_races": 29,
+  "quali_races": 30,
   "quali_ahead": 16,
-  "quali_behind": 13
+  "quali_behind": 14
  },
  {
   "id": "coulthard",
@@ -8360,8 +8360,8 @@
   "races": 36,
   "race_ahead": 6,
   "race_behind": 30,
-  "quali_races": 36,
-  "quali_ahead": 10,
+  "quali_races": 37,
+  "quali_ahead": 11,
   "quali_behind": 26
  },
  {
@@ -8652,8 +8652,8 @@
   "races": 15,
   "race_ahead": 10,
   "race_behind": 5,
-  "quali_races": 6,
-  "quali_ahead": 5,
+  "quali_races": 7,
+  "quali_ahead": 6,
   "quali_behind": 1
  },
  {
@@ -8750,9 +8750,9 @@
   "races": 10,
   "race_ahead": 5,
   "race_behind": 5,
-  "quali_races": 10,
+  "quali_races": 11,
   "quali_ahead": 5,
-  "quali_behind": 5
+  "quali_behind": 6
  },
  {
   "id": "galli",
@@ -9078,8 +9078,8 @@
   "races": 43,
   "race_ahead": 30,
   "race_behind": 13,
-  "quali_races": 43,
-  "quali_ahead": 33,
+  "quali_races": 44,
+  "quali_ahead": 34,
   "quali_behind": 10
  },
  {
@@ -9095,8 +9095,8 @@
   "races": 37,
   "race_ahead": 21,
   "race_behind": 16,
-  "quali_races": 37,
-  "quali_ahead": 27,
+  "quali_races": 38,
+  "quali_ahead": 28,
   "quali_behind": 10
  },
  {
@@ -9129,9 +9129,9 @@
   "races": 44,
   "race_ahead": 21,
   "race_behind": 23,
-  "quali_races": 44,
+  "quali_races": 45,
   "quali_ahead": 25,
-  "quali_behind": 19
+  "quali_behind": 20
  },
  {
   "id": "gasly",
@@ -10469,9 +10469,9 @@
   "races": 19,
   "race_ahead": 9,
   "race_behind": 10,
-  "quali_races": 19,
-  "quali_ahead": 11,
-  "quali_behind": 8
+  "quali_races": 21,
+  "quali_ahead": 12,
+  "quali_behind": 9
  },
  {
   "id": "grosjean",
@@ -10488,9 +10488,9 @@
   "races": 76,
   "race_ahead": 38,
   "race_behind": 38,
-  "quali_races": 76,
+  "quali_races": 77,
   "quali_ahead": 38,
-  "quali_behind": 38
+  "quali_behind": 39
  },
  {
   "id": "grosjean",
@@ -10505,8 +10505,8 @@
   "races": 37,
   "race_ahead": 24,
   "race_behind": 13,
-  "quali_races": 37,
-  "quali_ahead": 31,
+  "quali_races": 38,
+  "quali_ahead": 32,
   "quali_behind": 6
  },
  {
@@ -10838,9 +10838,9 @@
   "races": 19,
   "race_ahead": 10,
   "race_behind": 9,
-  "quali_races": 19,
-  "quali_ahead": 8,
-  "quali_behind": 11
+  "quali_races": 21,
+  "quali_ahead": 9,
+  "quali_behind": 12
  },
  {
   "id": "gutierrez",
@@ -11797,9 +11797,9 @@
   "races": 13,
   "race_ahead": 7,
   "race_behind": 6,
-  "quali_races": 13,
+  "quali_races": 14,
   "quali_ahead": 5,
-  "quali_behind": 8
+  "quali_behind": 9
  },
  {
   "id": "henry_taylor",
@@ -11979,9 +11979,9 @@
   "races": 15,
   "race_ahead": 5,
   "race_behind": 10,
-  "quali_races": 6,
+  "quali_races": 7,
   "quali_ahead": 1,
-  "quali_behind": 5
+  "quali_behind": 6
  },
  {
   "id": "herbert",
@@ -12455,9 +12455,9 @@
   "races": 18,
   "race_ahead": 10,
   "race_behind": 8,
-  "quali_races": 18,
-  "quali_ahead": 10,
-  "quali_behind": 8
+  "quali_races": 20,
+  "quali_ahead": 11,
+  "quali_behind": 9
  },
  {
   "id": "hulkenberg",
@@ -12473,8 +12473,8 @@
   "races": 58,
   "race_ahead": 25,
   "race_behind": 33,
-  "quali_races": 58,
-  "quali_ahead": 34,
+  "quali_races": 59,
+  "quali_ahead": 35,
   "quali_behind": 24
  },
  {
@@ -12571,9 +12571,9 @@
   "races": 23,
   "race_ahead": 13,
   "race_behind": 10,
-  "quali_races": 22,
+  "quali_races": 23,
   "quali_ahead": 11,
-  "quali_behind": 11
+  "quali_behind": 12
  },
  {
   "id": "hulkenberg",
@@ -14286,9 +14286,9 @@
   "races": 7,
   "race_ahead": 2,
   "race_behind": 5,
-  "quali_races": 7,
+  "quali_races": 8,
   "quali_ahead": 1,
-  "quali_behind": 6
+  "quali_behind": 7
  },
  {
   "id": "karthikeyan",
@@ -14302,9 +14302,9 @@
   "races": 19,
   "race_ahead": 4,
   "race_behind": 15,
-  "quali_races": 18,
+  "quali_races": 19,
   "quali_ahead": 3,
-  "quali_behind": 15
+  "quali_behind": 16
  },
  {
   "id": "karthikeyan",
@@ -14531,8 +14531,8 @@
   "races": 76,
   "race_ahead": 38,
   "race_behind": 38,
-  "quali_races": 76,
-  "quali_ahead": 38,
+  "quali_races": 77,
+  "quali_ahead": 39,
   "quali_behind": 38
  },
  {
@@ -14564,8 +14564,8 @@
   "races": 21,
   "race_ahead": 7,
   "race_behind": 14,
-  "quali_races": 21,
-  "quali_ahead": 15,
+  "quali_races": 22,
+  "quali_ahead": 16,
   "quali_behind": 6
  },
  {
@@ -14580,9 +14580,9 @@
   "races": 19,
   "race_ahead": 4,
   "race_behind": 15,
-  "quali_races": 19,
+  "quali_races": 20,
   "quali_ahead": 9,
-  "quali_behind": 10
+  "quali_behind": 11
  },
  {
   "id": "kevin_magnussen",
@@ -14645,8 +14645,8 @@
   "races": 29,
   "race_ahead": 11,
   "race_behind": 18,
-  "quali_races": 29,
-  "quali_ahead": 13,
+  "quali_races": 30,
+  "quali_ahead": 14,
   "quali_behind": 16
  },
  {
@@ -14744,9 +14744,9 @@
   "races": 37,
   "race_ahead": 20,
   "race_behind": 17,
-  "quali_races": 35,
+  "quali_races": 36,
   "quali_ahead": 15,
-  "quali_behind": 20
+  "quali_behind": 21
  },
  {
   "id": "kobayashi",
@@ -14911,9 +14911,9 @@
   "races": 22,
   "race_ahead": 11,
   "race_behind": 11,
-  "quali_races": 22,
+  "quali_races": 23,
   "quali_ahead": 7,
-  "quali_behind": 15
+  "quali_behind": 16
  },
  {
   "id": "kvyat",
@@ -15500,9 +15500,9 @@
   "races": 16,
   "race_ahead": 12,
   "race_behind": 4,
-  "quali_races": 16,
+  "quali_races": 17,
   "quali_ahead": 10,
-  "quali_behind": 6
+  "quali_behind": 7
  },
  {
   "id": "lawson",
@@ -15585,8 +15585,8 @@
   "races": 87,
   "race_ahead": 52,
   "race_behind": 35,
-  "quali_races": 87,
-  "quali_ahead": 55,
+  "quali_races": 89,
+  "quali_ahead": 57,
   "quali_behind": 32
  },
  {
@@ -16014,8 +16014,8 @@
   "races": 7,
   "race_ahead": 5,
   "race_behind": 2,
-  "quali_races": 7,
-  "quali_ahead": 6,
+  "quali_races": 8,
+  "quali_ahead": 7,
   "quali_behind": 1
  },
  {
@@ -16332,9 +16332,9 @@
   "races": 37,
   "race_ahead": 13,
   "race_behind": 24,
-  "quali_races": 37,
+  "quali_races": 38,
   "quali_ahead": 6,
-  "quali_behind": 31
+  "quali_behind": 32
  },
  {
   "id": "maldonado",
@@ -17247,9 +17247,9 @@
   "races": 44,
   "race_ahead": 23,
   "race_behind": 21,
-  "quali_races": 44,
+  "quali_races": 45,
   "quali_ahead": 25,
-  "quali_behind": 19
+  "quali_behind": 20
  },
  {
   "id": "massa",
@@ -17295,8 +17295,8 @@
   "races": 18,
   "race_ahead": 13,
   "race_behind": 5,
-  "quali_races": 18,
-  "quali_ahead": 12,
+  "quali_races": 19,
+  "quali_ahead": 13,
   "quali_behind": 6
  },
  {
@@ -17313,8 +17313,8 @@
   "races": 58,
   "race_ahead": 27,
   "race_behind": 31,
-  "quali_races": 58,
-  "quali_ahead": 17,
+  "quali_races": 59,
+  "quali_ahead": 18,
   "quali_behind": 41
  },
  {
@@ -18247,9 +18247,9 @@
   "races": 21,
   "race_ahead": 14,
   "race_behind": 7,
-  "quali_races": 21,
+  "quali_races": 22,
   "quali_ahead": 6,
-  "quali_behind": 15
+  "quali_behind": 16
  },
  {
   "id": "mick_schumacher",
@@ -18621,9 +18621,9 @@
   "races": 5,
   "race_ahead": 1,
   "race_behind": 4,
-  "quali_races": 3,
+  "quali_races": 4,
   "quali_ahead": 0,
-  "quali_behind": 3
+  "quali_behind": 4
  },
  {
   "id": "montermini",
@@ -18637,8 +18637,8 @@
   "races": 10,
   "race_ahead": 5,
   "race_behind": 5,
-  "quali_races": 10,
-  "quali_ahead": 5,
+  "quali_races": 11,
+  "quali_ahead": 6,
   "quali_behind": 5
  },
  {
@@ -18654,9 +18654,9 @@
   "races": 26,
   "race_ahead": 10,
   "race_behind": 16,
-  "quali_races": 26,
+  "quali_races": 27,
   "quali_ahead": 8,
-  "quali_behind": 18
+  "quali_behind": 19
  },
  {
   "id": "montoya",
@@ -19438,9 +19438,9 @@
   "races": 88,
   "race_ahead": 58,
   "race_behind": 30,
-  "quali_races": 88,
+  "quali_races": 90,
   "quali_ahead": 61,
-  "quali_behind": 27
+  "quali_behind": 29
  },
  {
   "id": "norris",
@@ -19472,9 +19472,9 @@
   "races": 37,
   "race_ahead": 17,
   "race_behind": 20,
-  "quali_races": 37,
+  "quali_races": 38,
   "quali_ahead": 20,
-  "quali_behind": 17
+  "quali_behind": 18
  },
  {
   "id": "ocon",
@@ -19506,8 +19506,8 @@
   "races": 44,
   "race_ahead": 23,
   "race_behind": 21,
-  "quali_races": 44,
-  "quali_ahead": 19,
+  "quali_races": 45,
+  "quali_ahead": 20,
   "quali_behind": 25
  },
  {
@@ -20012,8 +20012,8 @@
   "races": 5,
   "race_ahead": 3,
   "race_behind": 2,
-  "quali_races": 5,
-  "quali_ahead": 5,
+  "quali_races": 6,
+  "quali_ahead": 6,
   "quali_behind": 0
  },
  {
@@ -20575,9 +20575,9 @@
   "races": 19,
   "race_ahead": 15,
   "race_behind": 4,
-  "quali_races": 19,
+  "quali_races": 20,
   "quali_ahead": 11,
-  "quali_behind": 8
+  "quali_behind": 9
  },
  {
   "id": "perez",
@@ -20593,9 +20593,9 @@
   "races": 58,
   "race_ahead": 33,
   "race_behind": 25,
-  "quali_races": 58,
+  "quali_races": 59,
   "quali_ahead": 24,
-  "quali_behind": 34
+  "quali_behind": 35
  },
  {
   "id": "perez",
@@ -20626,9 +20626,9 @@
   "races": 18,
   "race_ahead": 5,
   "race_behind": 13,
-  "quali_races": 18,
+  "quali_races": 19,
   "quali_ahead": 10,
-  "quali_behind": 8
+  "quali_behind": 9
  },
  {
   "id": "perez",
@@ -20679,8 +20679,8 @@
   "races": 37,
   "race_ahead": 17,
   "race_behind": 20,
-  "quali_races": 35,
-  "quali_ahead": 20,
+  "quali_races": 36,
+  "quali_ahead": 21,
   "quali_behind": 15
  },
  {
@@ -21457,8 +21457,8 @@
   "races": 88,
   "race_ahead": 30,
   "race_behind": 58,
-  "quali_races": 88,
-  "quali_ahead": 27,
+  "quali_races": 90,
+  "quali_ahead": 29,
   "quali_behind": 61
  },
  {
@@ -22135,8 +22135,8 @@
   "races": 44,
   "race_ahead": 21,
   "race_behind": 23,
-  "quali_races": 44,
-  "quali_ahead": 19,
+  "quali_races": 45,
+  "quali_ahead": 20,
   "quali_behind": 25
  },
  {
@@ -22154,8 +22154,8 @@
   "races": 80,
   "race_ahead": 23,
   "race_behind": 57,
-  "quali_races": 80,
-  "quali_ahead": 23,
+  "quali_races": 81,
+  "quali_ahead": 24,
   "quali_behind": 57
  },
  {
@@ -22206,8 +22206,8 @@
   "races": 26,
   "race_ahead": 16,
   "race_behind": 10,
-  "quali_races": 26,
-  "quali_ahead": 18,
+  "quali_races": 27,
+  "quali_ahead": 19,
   "quali_behind": 8
  },
  {
@@ -22939,8 +22939,8 @@
   "races": 22,
   "race_ahead": 11,
   "race_behind": 11,
-  "quali_races": 22,
-  "quali_ahead": 15,
+  "quali_races": 23,
+  "quali_ahead": 16,
   "quali_behind": 7
  },
  {
@@ -23365,8 +23365,8 @@
   "races": 19,
   "race_ahead": 15,
   "race_behind": 4,
-  "quali_races": 18,
-  "quali_ahead": 15,
+  "quali_races": 19,
+  "quali_ahead": 16,
   "quali_behind": 3
  },
  {
@@ -23960,9 +23960,9 @@
   "races": 87,
   "race_ahead": 35,
   "race_behind": 52,
-  "quali_races": 87,
+  "quali_races": 89,
   "quali_ahead": 32,
-  "quali_behind": 55
+  "quali_behind": 57
  },
  {
   "id": "sainz",
@@ -23977,8 +23977,8 @@
   "races": 37,
   "race_ahead": 20,
   "race_behind": 17,
-  "quali_races": 37,
-  "quali_ahead": 17,
+  "quali_races": 38,
+  "quali_ahead": 18,
   "quali_behind": 20
  },
  {
@@ -24045,9 +24045,9 @@
   "races": 42,
   "race_ahead": 19,
   "race_behind": 23,
-  "quali_races": 41,
-  "quali_ahead": 28,
-  "quali_behind": 12
+  "quali_races": 43,
+  "quali_ahead": 29,
+  "quali_behind": 13
  },
  {
   "id": "sala",
@@ -24370,9 +24370,9 @@
   "races": 34,
   "race_ahead": 3,
   "race_behind": 31,
-  "quali_races": 34,
+  "quali_races": 35,
   "quali_ahead": 8,
-  "quali_behind": 26
+  "quali_behind": 27
  },
  {
   "id": "sato",
@@ -26084,9 +26084,9 @@
   "races": 86,
   "race_ahead": 23,
   "race_behind": 63,
-  "quali_races": 85,
+  "quali_races": 89,
   "quali_ahead": 10,
-  "quali_behind": 74
+  "quali_behind": 78
  },
  {
   "id": "stroll",
@@ -26674,9 +26674,9 @@
   "races": 5,
   "race_ahead": 2,
   "race_behind": 3,
-  "quali_races": 5,
+  "quali_races": 6,
   "quali_ahead": 0,
-  "quali_behind": 5
+  "quali_behind": 6
  },
  {
   "id": "suzuki",
@@ -27722,9 +27722,9 @@
   "races": 43,
   "race_ahead": 13,
   "race_behind": 30,
-  "quali_races": 43,
+  "quali_races": 44,
   "quali_ahead": 10,
-  "quali_behind": 33
+  "quali_behind": 34
  },
  {
   "id": "tsunoda",
@@ -28033,9 +28033,9 @@
   "races": 80,
   "race_ahead": 57,
   "race_behind": 23,
-  "quali_races": 80,
+  "quali_races": 81,
   "quali_ahead": 57,
-  "quali_behind": 23
+  "quali_behind": 24
  },
  {
   "id": "vettel",
@@ -28183,9 +28183,9 @@
   "races": 18,
   "race_ahead": 5,
   "race_behind": 13,
-  "quali_races": 18,
+  "quali_races": 19,
   "quali_ahead": 6,
-  "quali_behind": 12
+  "quali_behind": 13
  },
  {
   "id": "villeneuve",
@@ -28798,8 +28798,8 @@
   "races": 13,
   "race_ahead": 6,
   "race_behind": 7,
-  "quali_races": 13,
-  "quali_ahead": 8,
+  "quali_races": 14,
+  "quali_ahead": 9,
   "quali_behind": 5
  },
  {
