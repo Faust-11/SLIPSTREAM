@@ -54,8 +54,9 @@ export default async function SeasonsPage({ params }: Props) {
     return (
       <li key={c.year} className={first ? "slot pole" : "slot"} data-pos={`P${pos}`} style={c.color ? ({ "--team": c.color } as CSSProperties) : undefined}>
         <article className="car" aria-labelledby={titleId}>
-          {c.photo ? (
-            // Готові WebP (як картки команд), без next/image. Перша картка — кандидат LCP.
+          {c.photo && pos <= 4 ? (
+            // Перший екран: фото без lazy — клієнтським компонентом (інакше prefetch маршруту передзавантажує їх на інших
+            // сторінках). Перша картка — кандидат LCP.
             <SeasonPhoto
               src={c.photo.src}
               srcSet={c.photo.srcSet}
@@ -63,8 +64,23 @@ export default async function SeasonsPage({ params }: Props) {
               width={c.photo.width}
               height={c.photo.height}
               priority={first}
-              eager={pos <= 4}
+              eager
               style={c.photo.focus ? { objectPosition: c.photo.focus } : undefined}
+            />
+          ) : c.photo ? (
+            // Решта 73 фото — звичайний серверний <img loading="lazy"> (lazy не передзавантажується): 77 клієнтських
+            // компонентів давали TBT 537 мс у Lighthouse CI (12.11, performance 85).
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={c.photo.src}
+              srcSet={c.photo.srcSet}
+              sizes={SIZES}
+              width={c.photo.width}
+              height={c.photo.height}
+              alt=""
+              style={c.photo.focus ? { objectPosition: c.photo.focus } : undefined}
+              decoding="async"
+              loading="lazy"
             />
           ) : (
             <div className="media ini" aria-hidden="true">
