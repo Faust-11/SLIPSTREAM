@@ -53,7 +53,8 @@ test("таблиці сезонів і перемог — повні (McLaren: 6
   await expect(seasons).toHaveCount(61);
   await expect(page.locator(".sec:has(#s-seasons) tr", { hasText: "2007" })).toContainText("виключена");
   await page.getByText("Показати всі 206").click();
-  await expect(page.locator(".sec:has(#s-wins) tbody tr")).toHaveCount(206);
+  await expect(page.locator(".wlist li")).toHaveCount(206);
+  await expect(page.locator(".wlist li").first()).toHaveAttribute("value", "206");
 });
 
 test.describe("без JavaScript", () => {

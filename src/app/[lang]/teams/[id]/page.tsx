@@ -513,35 +513,17 @@ export default async function TeamPageView(props: Props) {
             {page.wins.list.length > 3 && (
               <details className="more">
                 <summary>{fill(t.wins.showAll, { n: n(page.wins.list.length) })}</summary>
-                <div className="tscroll">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th scope="col" className="r">
-                          {t.wins.no}
-                        </th>
-                        <th scope="col">{t.wins.date}</th>
-                        <th scope="col">{t.wins.race}</th>
-                        <th scope="col">{t.wins.driver}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {[...page.wins.list].reverse().map((w) => (
-                        <tr key={w.n}>
-                          <th scope="row" className="r num">
-                            {w.n}
-                          </th>
-                          <td className="num">{dateFmt[lang].format(new Date(`${w.date}T00:00:00Z`))}</td>
-                          <td>{w.name}</td>
-                          <td>
-                            {w.drivers.map((d) => d.name).join(", ")}
-                            {w.drivers.length > 1 && <span className="wn"> · {t.wins.shared}</span>}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                {/* Компактний перелік (а не таблиця на 5 комірок у рядку): у Ferrari 250 перемог — таблиця давала
+                    1 251 вузол DOM з 2 471, і Lighthouse CI опускав сторінку до 91 (TBT 296 мс, 12.11). */}
+                <ol className="tscroll wlist" reversed>
+                  {[...page.wins.list].reverse().map((w) => (
+                    <li key={w.n} value={w.n}>
+                      <span className="num">{dateFmt[lang].format(new Date(`${w.date}T00:00:00Z`))}</span> · {w.name} ·{" "}
+                      {w.drivers.map((d) => d.name).join(", ")}
+                      {w.drivers.length > 1 ? ` (${t.wins.shared})` : ""}
+                    </li>
+                  ))}
+                </ol>
               </details>
             )}
           </div>
