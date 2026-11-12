@@ -151,3 +151,28 @@ export type TeamPairingRow = {
   race_ahead: number;
   quali_ahead: number;
 };
+
+/* ---------- Список пілотів (фаза 3c, подання 0007) ---------- */
+
+export type DriverIndexRow = {
+  id: string;
+  forename: string;
+  surname: string;
+  code: string | null;
+  country_code: string | null;
+  nationality: string | null;
+  starts: number;
+  wins: number;
+  podiums: number;
+  poles: number;
+  titles: number;
+  title_years: number[];
+  y0: number;
+  y1: number;
+  seasons: number;
+  main_team: string | null;
+  current_team: string | null;
+  current_number: number | null;
+  current_position: number | null;
+  current_points: number | null;
+};

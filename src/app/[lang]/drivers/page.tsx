@@ -1,6 +1,109 @@
-import { sectionPage } from "@/components/site/section-page";
+import type { CSSProperties } from "react";
+import type { Metadata } from "next";
+import { DriversBrowser } from "@/components/drivers/drivers-browser";
+import { PageCredits } from "@/components/teams/page-credits";
+import { TeamsIntro } from "@/components/teams/teams-intro";
+import { fill } from "@/i18n/fill";
+import { getDictionary } from "@/i18n/get-dictionary";
+import { requireLocale } from "@/i18n/require-locale";
+import { getDriversCredits, getDriversIndex, packDriver } from "@/lib/data/drivers";
+import { getTeamsSeason } from "@/lib/data/teams";
+import { DEFAULT_DRIVERS_QUERY, selectDrivers } from "@/lib/drivers-list";
+import { plural } from "@/lib/plural";
+import { pageMetadata } from "@/lib/seo";
 
-const { generateMetadata, Page } = sectionPage("drivers");
+type Props = { params: Promise<{ lang: string }> };
 
-export { generateMetadata };
-export default Page;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const lang = requireLocale((await params).lang);
+  const dict = await getDictionary(lang);
+  return pageMetadata({ locale: lang, path: "/drivers", title: dict.nav.drivers, description: dict.meta.sections.drivers });
+}
+
+export default async function DriversPage({ params }: Props) {
+  const lang = requireLocale((await params).lang);
+  const dict = await getDictionary(lang);
+  const t = dict.drivers;
+  const rows = await getDriversIndex(lang);
+  const altRows = new Map((await getDriversIndex(lang === "uk" ? "en" : "uk")).map((r) => [r.id, r.name]));
+  const packed = rows.map((r) => packDriver(r, altRows.get(r.id) ?? r.latin));
+  const season = await getTeamsSeason();
+  const credits = await getDriversCredits();
+  const nf = new Intl.NumberFormat(lang);
+  const count = (n: number, forms: typeof t.facts.drivers) => ({ value: n, label: plural(n, lang, forms) });
+  const current = rows
+    .filter((r) => r.current)
+    .sort((a, b) => (a.current!.position ?? 99) - (b.current!.position ?? 99) || b.current!.points - a.current!.points);
+  const labels = { ...t, filters: { ...t.filters, cur: fill(t.filters.cur, { year: season }) } };
+  // Без JS — повний перелік у порядку за замовчуванням (перемоги ↓); з JS його не видно (noscript).
+  const all = selectDrivers(rows, DEFAULT_DRIVERS_QUERY, lang);
+
+  return (
+    <>
+      <TeamsIntro
+        title={dict.nav.drivers}
+        factsLabel={t.factsLabel}
+        facts={[
+          count(rows.length, t.facts.drivers),
+          count(rows.filter((r) => r.titles > 0).length, t.facts.champions),
+          count(rows.filter((r) => r.wins > 0).length, t.facts.winners),
+        ]}
+      />
+      <section className="sec drv" aria-labelledby="drv-now">
+        <div className="wrap">
+          <div className="sec-head">
+            <h2 className="display" id="drv-now">
+              {fill(t.season, { year: season })}
+            </h2>
+          </div>
+          <ol className="drv-now">
+            {current.map((r) => (
+              <li key={r.id} className="drv-card" style={{ "--team": r.current!.color } as CSSProperties}>
+                <span className="top">
+                  <span className="pos num">{r.current!.position ? `P${r.current!.position}` : "—"}</span>
+                  {r.current!.number !== null && <span>{fill(t.number, { n: r.current!.number })}</span>}
+                  <span className="pts num">{fill(plural(r.current!.points, lang, t.points), { n: nf.format(r.current!.points) })}</span>
+                </span>
+                <span className="who">
+                  {r.avatar ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img className="av" src={r.avatar} width={44} height={44} alt="" loading="lazy" decoding="async" />
+                  ) : (
+                    <span className="av av-ini" aria-hidden="true">
+                      {r.initials}
+                    </span>
+                  )}
+                  <span>
+                    <b>{r.name}</b>
+                    <small translate="no">{r.current!.team}</small>
+                  </span>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+      <section className="sec drv" aria-labelledby="drv-all">
+        <div className="wrap">
+          <div className="sec-head">
+            <h2 className="display" id="drv-all">
+              {t.all}
+            </h2>
+          </div>
+          <DriversBrowser packed={packed} locale={lang} labels={labels} />
+          <noscript>
+            {/* Без JS — увесь перелік простим текстом (перемоги ↓): ім'я, роки, перемоги / старти. */}
+            <ol className="drv-noscript">
+              {all.map((r) => (
+                <li key={r.id}>{`${r.name} (${r.years[0]}–${r.years[1]}): ${nf.format(r.wins)} / ${nf.format(r.starts)}`}</li>
+              ))}
+            </ol>
+          </noscript>
+        </div>
+      </section>
+      <PageCredits
+        groups={[{ title: t.credits, items: credits.map((c) => ({ label: c.driver, href: c.page, author: c.author, license: c.license })) }]}
+      />
+    </>
+  );
+}

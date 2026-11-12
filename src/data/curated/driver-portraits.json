@@ -1,0 +1,4000 @@
+{
+ "drivers": {
+  "adamich": {
+   "avatar": "/img/drivers/adamich-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Andrea_De_Adamich_-_Alfa_Romeo_Giulia_2000_GTAm_(1972_Monza_4_Hours).jpg",
+    "author": "Gabriela Noris",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "ahrens": {
+   "avatar": "/img/drivers/ahrens-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-82487-0008,_Internationale_Halle-Saale-Schleife.jpg",
+    "author": "Ulrich Kohls",
+    "license": "CC BY-SA 3.0 de"
+   },
+   "source": "mockup"
+  },
+  "aitken": {
+   "avatar": "/img/drivers/aitken-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:2024-04-27_Motorsport,_DTM,_Oschersleben_STP_2025_(cropped).jpg",
+    "author": "Steffen Prößdorf",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "albers": {
+   "avatar": "/img/drivers/albers-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Christijan_Albers_2006_(cropped).JPG",
+    "author": "Christijan_Albers_2006.JPG: Mathieu Felten derivative work:",
+    "license": "CC BY 2.5"
+   },
+   "source": "mockup"
+  },
+  "alboreto": {
+   "avatar": "/img/drivers/alboreto-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:SCA_0028_MICHELE_ALBORETO_-_Ferrari_F_1-87_-_1987_neg._417_10x15_R.JPG",
+    "author": "Lucianoserra.d",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "alesi": {
+   "avatar": "/img/drivers/alesi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jean_Alesi,_GIMS_2019,_Le_Grand-Saconnex_(GIMS0047).jpg",
+    "author": "Matti Blume",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "alguersuari": {
+   "avatar": "/img/drivers/alguersuari-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jaime_Alguersuari.jpg",
+    "author": "Zoubin Navi",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "alliot": {
+   "avatar": "/img/drivers/alliot-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Philippe_Alliot_en_1993_(bearb_Sp).jpg",
+    "author": "Stanoux",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "ambrosio": {
+   "avatar": "/img/drivers/ambrosio-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:DAmbrosioBerlin_(cropped).jpg",
+    "author": "F1editor22",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "amon": {
+   "avatar": "/img/drivers/amon-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:AmonChris19730706.jpg",
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de"
+   },
+   "source": "mockup"
+  },
+  "andretti": {
+   "avatar": "/img/drivers/andretti-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Michael_Andretti_(53785910028)_(cropped).jpg",
+    "author": "MIDWST.BLUR",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "angelis": {
+   "avatar": "/img/drivers/angelis-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Anefo_932-2371_Elio_de_Angelis_03.07.1982.jpg",
+    "author": "Hans van Dijk for Anefo",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "arnoux": {
+   "avatar": "/img/drivers/arnoux-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Rene_Arnoux_WSR2008_HU.png",
+    "author": "Peter Moricz",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "arundell": {
+   "avatar": "/img/drivers/arundell-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Peter_Arundell_1968_kl.JPG",
+    "author": "Raimund Kommer",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "ascari": {
+   "avatar": "/img/drivers/ascari-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ascari_last_photo_in_car.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "ashley": {
+   "avatar": "/img/drivers/ashley-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ian_Ashley.jpg",
+    "author": "Lynne Strong-Shinozaki",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "attwood": {
+   "avatar": "/img/drivers/attwood-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Richard_Attwood_1968_kl.JPG",
+    "author": "Raimund Kommer",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "ayulo": {
+   "avatar": "/img/drivers/ayulo-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Manny_Ayulo_1953.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "badoer": {
+   "avatar": "/img/drivers/badoer-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Luca_Badoer_2021_(cropped).jpg",
+    "author": "Antiuser",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "baghetti": {
+   "avatar": "/img/drivers/baghetti-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:1961_Syracuse_GP_-_Giancarlo_Baghetti_(Ferrari_156_F1).jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "baldi": {
+   "avatar": "/img/drivers/baldi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Mauro_Baldi_1982.jpg",
+    "author": "Hans van Dijk for Anefo NL-HaNA, ANEFO / neg. stroken, 1945-",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "bandini": {
+   "avatar": "/img/drivers/bandini-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Bandini1966cropped.jpg",
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de"
+   },
+   "source": "mockup"
+  },
+  "banks": {
+   "avatar": "/img/drivers/banks-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Henry_Banks_1951_(3).jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "barrichello": {
+   "avatar": "/img/drivers/barrichello-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Rubinho.jpg",
+    "author": "TV Brasil Central AO VIVO",
+    "license": "CC BY 3.0"
+   },
+   "source": "mockup"
+  },
+  "barth": {
+   "avatar": "/img/drivers/barth-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Edgar_Barth_podium_Nurburgring_1957.jpg",
+    "author": "Willy Pragher",
+    "license": "CC BY 3.0"
+   },
+   "source": "mockup"
+  },
+  "behra": {
+   "avatar": "/img/drivers/behra-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jean_Behra_-_El_Gr%C3%A1fico_1953.jpg",
+    "author": "El Gráfico",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "bell": {
+   "avatar": "/img/drivers/bell-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Derek_Bell_(2356476570).jpg",
+    "author": "Freewheeling Daredevil from Kingston, TN, USA",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "bellof": {
+   "avatar": "/img/drivers/bellof-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Stefan_Bellof_7508-cropped.jpg",
+    "author": "Rundvald",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "beltoise": {
+   "avatar": "/img/drivers/beltoise-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jean_Pierre_Beltoise_te_Zandvoort_1968.jpg",
+    "author": "Anefo",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "beretta": {
+   "avatar": "/img/drivers/beretta-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Oliver_Gavin,_Olivier_Bereta_%26_Jan_Magnussen_celebrate_their_GTS_class_win_on_the_podium_at_the_2004_Le_Mans_(50884349326).jpg",
+    "author": "Martin Lee from London, UK",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "berger": {
+   "avatar": "/img/drivers/berger-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Gerhard_Berger_1991USA_(cropped).jpg",
+    "author": "StuSeeger",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "bernoldi": {
+   "avatar": "/img/drivers/bernoldi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Enrique_Bernoldi_2007_Curitiba.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "bettenhausen": {
+   "avatar": "/img/drivers/bettenhausen-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Tony_Bettenhausen_circa_1952.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "bianchi": {
+   "avatar": "/img/drivers/bianchi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:BianciLucien_19680802.jpg",
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de"
+   },
+   "source": "mockup"
+  },
+  "bianco": {
+   "avatar": "/img/drivers/bianco-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Gino_Bianco_(1949).jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "biondetti": {
+   "avatar": "/img/drivers/biondetti-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:1938ClementeBiondetti.jpg",
+    "author": "Unknown photographer",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "bira": {
+   "avatar": "/img/drivers/bira-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Air_cadets_learn_the_basics_of_flight_at_RNAS_St_Merryn_in_Cornwall,_February_1944._A22064-croponBirabongse_Bhanudej.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "birger": {
+   "avatar": "/img/drivers/birger-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Pablo_Birger_-_El_Gr%C3%A1fico_1706.jpg",
+    "author": "El Gráfico",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "bleekemolen": {
+   "avatar": "/img/drivers/bleekemolen-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Michael_Bleekemolen_2011.jpg",
+    "author": "Oliver Pohlmann",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "blundell": {
+   "avatar": "/img/drivers/blundell-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Mark_Blundell_(5399713991).jpg",
+    "author": "United Autosports",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "bob_scott": {
+   "avatar": "/img/drivers/bob_scott-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Bob_Scott_1954.jpg",
+    "author": "Unknown",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "boesel": {
+   "avatar": "/img/drivers/boesel-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Raul_Boesel_2007_Mil_Milhas_Brasil.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "bondurant": {
+   "avatar": "/img/drivers/bondurant-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Bob_Portrait2_sm.jpg",
+    "author": "Lathe857",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "bonetto": {
+   "avatar": "/img/drivers/bonetto-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Portrait_of_Felice_Bonetto_(cropped).jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "bonnier": {
+   "avatar": "/img/drivers/bonnier-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:BonnierJo196608.jpg",
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de"
+   },
+   "source": "mockup"
+  },
+  "bonomi": {
+   "avatar": "/img/drivers/bonomi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Roberto_Bonomi_-_El_Gr%C3%A1fico_1751.jpg",
+    "author": "El Gráfico",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "borgudd": {
+   "avatar": "/img/drivers/borgudd-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Borgudd-Slim-1994.jpg",
+    "author": "Eddi Laumanns aka RX-Guru",
+    "license": "CC BY 3.0"
+   },
+   "source": "mockup"
+  },
+  "boullion": {
+   "avatar": "/img/drivers/boullion-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jean-Christophe_Boullion_2007_Mil_Milhas_Brasil.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "bourdais": {
+   "avatar": "/img/drivers/bourdais-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Sebastien_Bourdais_in_2021_(51221641988)_(cropped).jpg",
+    "author": "Zach Catanzareti Photo",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "boutsen": {
+   "avatar": "/img/drivers/boutsen-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Thierry_Boutsen_at_the_2026_Adelaide_Motorsport_Festival_(028A6498).jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "brabham": {
+   "avatar": "/img/drivers/brabham-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:David_Brabham_at_the_2026_Adelaide_Motorsport_Festival_(028A6665).jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "brambilla": {
+   "avatar": "/img/drivers/brambilla-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Vittorio_Brambilla.jpg",
+    "author": "Gillfoto",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "brendon_hartley": {
+   "avatar": "/img/drivers/brendon_hartley-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Brendon_Hartley_at_the_2025_Adelaide_Grand_Final_-_01.jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "brise": {
+   "avatar": "/img/drivers/brise-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Graham_Hill_Tony_Brise_1975_British_GP_Color_(cropped).png",
+    "author": "GBT2020",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "brundle": {
+   "avatar": "/img/drivers/brundle-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Martin_Brundle_2021_(51591210921)_(cropped).jpg",
+    "author": "United Autosports",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "bruni": {
+   "avatar": "/img/drivers/bruni-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Gianmaria_Bruni_2012_WEC_Fuji.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "bruno_senna": {
+   "avatar": "/img/drivers/bruno_senna-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Senna_by_United_Autosports_team_04.jpg",
+    "author": "United Autosports",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "bucci": {
+   "avatar": "/img/drivers/bucci-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Clemar_Bucci.jpg",
+    "author": "Subject's family",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "buemi": {
+   "avatar": "/img/drivers/buemi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ryo_Hirakawa,_Brendon_Hartley_%26_Sebastien_Buemi_take_the_podium_for_2nd_in_Hypercar_at_the_2023_Le_Mans_(53468554280)_(cropped).jpg",
+    "author": "Martin Lee from London, UK",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "bueno": {
+   "avatar": "/img/drivers/bueno-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Correio_da_Manh%C3%A3_AN_191_(cropped).jpg",
+    "author": "UnknownUnknown",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "burti": {
+   "avatar": "/img/drivers/burti-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Luciano_Burti_in_2010.jpg",
+    "author": "Daniela_and_Luciano_Burti.jpg: senna.org.br/Carina Zaratin d",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "bussinello": {
+   "avatar": "/img/drivers/bussinello-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:1965-05-09_Targa_Florio_Collesano_Alfa_Romeo_Giulia_TZ2_750112_Bussinello%2BTodaro.jpg",
+    "author": "Unknown photographer",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "button": {
+   "avatar": "/img/drivers/button-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jenson_Button_2024_WEC_Fuji.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "cabantous": {
+   "avatar": "/img/drivers/cabantous-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Yves_Giraud-Cabantous_vainqueur_du_Championnat_automobile_des_Aviateurs,_en_juin_1929_(et_madame).jpg",
+    "author": "Le Miroir des sports",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "cabianca": {
+   "avatar": "/img/drivers/cabianca-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Giulio_Cabianca_in_an_OSCA_%28cropped%29.jpg",
+    "author": "Unknown photographer",
+    "license": "Public domain"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "caffi": {
+   "avatar": "/img/drivers/caffi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Alex_Caffi_1991_(cropped).jpg",
+    "author": "StuSeeger",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "cantrell": {
+   "avatar": "/img/drivers/cantrell-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Bill_Cantrell_1951.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "capelli": {
+   "avatar": "/img/drivers/capelli-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Capelli_1991_(cropped).jpg",
+    "author": "StuSeeger",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "carini": {
+   "avatar": "/img/drivers/carini-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Piero_Carini.jpeg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "castellotti": {
+   "avatar": "/img/drivers/castellotti-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Eugenio_Castellotti.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "cecotto": {
+   "avatar": "/img/drivers/cecotto-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Johnny_Cecotto_(1978).jpg",
+    "author": "Panini",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "cesaris": {
+   "avatar": "/img/drivers/cesaris-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Andrea_De_Cesaris_1982.jpg",
+    "author": "Gel",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "cevert": {
+   "avatar": "/img/drivers/cevert-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Francois_Cevert_1973.jpg",
+    "author": "Raimund Kommer",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "chaboud": {
+   "avatar": "/img/drivers/chaboud-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Eug%C3%A8ne_Chaboud,_vainqueur_des_24_heures_du_Mans_1938.jpg",
+    "author": "Excelsior",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "chandhok": {
+   "avatar": "/img/drivers/chandhok-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Karun_Chandhok_Goodwood_Festival_of_Speed_2019_(48242680701).jpg",
+    "author": "https://www.flickr.com/photos/69527563@N05/",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "chapman": {
+   "avatar": "/img/drivers/chapman-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Colin_Chapman_(1965).jpg",
+    "author": "Joost Evers / Anefo;",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "cheever": {
+   "avatar": "/img/drivers/cheever-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Eddie_Cheever_Jr_2009_Indy_500_Second_Qual_Day.JPG",
+    "author": "Manningmbd",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "chilton": {
+   "avatar": "/img/drivers/chilton-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Max_Chilton_2.jpg",
+    "author": "Tambeau212",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "chiron": {
+   "avatar": "/img/drivers/chiron-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Louis_Chiron_1931bw.jpg",
+    "author": "Georges Devred",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "clark": {
+   "avatar": "/img/drivers/clark-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jim_Clark_in_1963_(cropped).JPG",
+    "author": "Joop van Bilsen",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "comas": {
+   "avatar": "/img/drivers/comas-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Comas_lm2005.jpg",
+    "author": "Nuvolari72",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "comotti": {
+   "avatar": "/img/drivers/comotti-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:GianfrancoComotti.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "connor": {
+   "avatar": "/img/drivers/connor-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Sports_Illustrated_May_26,_1958_cover.jpg",
+    "author": "Hy Peskin",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "coulthard": {
+   "avatar": "/img/drivers/coulthard-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:David_Coulthard_at_the_2025_Adelaide_Grand_Final_Parade_-_12.jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "courage": {
+   "avatar": "/img/drivers/courage-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Piers_Courage_1968_N%C3%BCrburgring.JPG",
+    "author": "Raimund Kommer",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "crawford": {
+   "avatar": "/img/drivers/crawford-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jim_Crawford_Brit_GP75_40082.jpg",
+    "author": "Gillfoto",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "cruz": {
+   "avatar": "/img/drivers/cruz-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Adolfo_Schwelm-Cruz_1952.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "dalmas": {
+   "avatar": "/img/drivers/dalmas-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Yannick_DALMAS.JPG",
+    "author": "Eric HOUDAS",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "daly": {
+   "avatar": "/img/drivers/daly-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Derek_Daly_1982.jpg",
+    "author": "Hans van Dijk for Anefo NL-HaNA, ANEFO / neg. stroken, 1945-",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "damon_hill": {
+   "avatar": "/img/drivers/damon_hill-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Damon_Hill_at_the_Atlassian_Williams_Racing_Fan_Zone_of_2026_(028A8241).jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "danner": {
+   "avatar": "/img/drivers/danner-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Christian_Danner_1995_Deutsche_Tourenwagen_Meisterschaft,_Donington_Park.jpg",
+    "author": "Martin Lee",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "darter": {
+   "avatar": "/img/drivers/darter-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Duane_Carter_at_Soldier_Field_circa_1946.jpg",
+    "author": "Chicago Auto Racing Association",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "davidson": {
+   "avatar": "/img/drivers/davidson-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Anthony_Davidson_Goodwood_Festival_of_Speed_2019_(48242774922).jpg",
+    "author": "Jen_ross83",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "de_vries": {
+   "avatar": "/img/drivers/de_vries-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:TGR_Nyck_de_Vries_240908.jpg",
+    "author": "NickeldimeC",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "deletraz": {
+   "avatar": "/img/drivers/deletraz-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jean-Denis_D%C3%A9l%C3%A9traz_-_Le_Mans_2012.JPG",
+    "author": "Darkness00",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "depailler": {
+   "avatar": "/img/drivers/depailler-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:PatrickDepailler-ar.jpg",
+    "author": "Harald Bischoff",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "dick_rathmann": {
+   "avatar": "/img/drivers/dick_rathmann-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Dick_Rathmann_USAC_circa_1957.jpg",
+    "author": "Trenton International Speedway",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "diniz": {
+   "avatar": "/img/drivers/diniz-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Fazenda_da_Toca_foto_kiko_ferrite_02295_-_Pedro_Paulo_Diniz_(cropped).jpg",
+    "author": "Kiko Ferrite",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "donnelly": {
+   "avatar": "/img/drivers/donnelly-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Martin_Donnelly_at_the_2026_Adelaide_Motorsport_Festival_(028A6518).jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "doohan": {
+   "avatar": "/img/drivers/doohan-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jack_Doohan_2023.jpg",
+    "author": "Byxelized",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "doornbos": {
+   "avatar": "/img/drivers/doornbos-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Robert_Doornbos_-_Red_Bull_Racing.jpg",
+    "author": "Jeroen9711 at Dutch Wikipedia",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "downing": {
+   "avatar": "/img/drivers/downing-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ken_Downing_cropped.jpg",
+    "author": "Rob Petersen",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "drogo": {
+   "avatar": "/img/drivers/drogo-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:1962_Drogo_Bizzarini_%28cropped%29.jpg",
+    "author": "Unknown photographer",
+    "license": "Public domain"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "elford": {
+   "avatar": "/img/drivers/elford-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Vic_Elford_Watkins_Glen_2010_(cropped).jpg",
+    "author": "Legends Of Motorsports",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "emerson_fittipaldi": {
+   "avatar": "/img/drivers/emerson_fittipaldi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Emerson_Fittipaldi_in_2020_(cropped).JPG",
+    "author": "Palácio do Planalto",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "enge": {
+   "avatar": "/img/drivers/enge-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Tomas_Enge_2007.jpg",
+    "author": "Christian Madden from Beverly, MA",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "ericsson": {
+   "avatar": "/img/drivers/ericsson-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Marcus_Ericsson_in_2023.jpg",
+    "author": "Frankie Fouganthin",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "ertl": {
+   "avatar": "/img/drivers/ertl-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:HaraldErtlZolder1978.jpg",
+    "author": "Eddi Laumanns aka RX-Guru",
+    "license": "CC BY 3.0"
+   },
+   "source": "mockup"
+  },
+  "etancelin": {
+   "avatar": "/img/drivers/etancelin-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Philippe_%C3%89tancelin_at_the_1933_Grand_Prix_de_la_Marne_(cropped).jpg",
+    "author": "Agence de presse Meurisse",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "fagioli": {
+   "avatar": "/img/drivers/fagioli-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Luigi_Fagioli_in_his_Maserati_at_the_1932_Targa_Florio_(cropped).jpg",
+    "author": "Agence de presse Meurisse",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "fangio": {
+   "avatar": "/img/drivers/fangio-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Fangio_in_1955_(cropped).jpg",
+    "author": "Bjørn Fjørtoft",
+    "license": "CC BY 4.0"
+   },
+   "source": "mockup"
+  },
+  "farina": {
+   "avatar": "/img/drivers/farina-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Giuseppe_Farina_-_El_Gr%C3%A1fico_1750.jpg",
+    "author": "El Gráfico",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "faulkner": {
+   "avatar": "/img/drivers/faulkner-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Walt_Faulkner_circa_1948.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "filippis": {
+   "avatar": "/img/drivers/filippis-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Maria_Teresa_de_Filippis_(cropped).jpg",
+    "author": "Bertazzini.[3]",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "firman": {
+   "avatar": "/img/drivers/firman-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ralph_Firman_2008_Super_GT.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "fisichella": {
+   "avatar": "/img/drivers/fisichella-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Giancarlo_Fisichella_2012_WEC_Fuji.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "fittipaldi": {
+   "avatar": "/img/drivers/fittipaldi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Christian_Fittipaldi_2006_Curitiba.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "flinterman": {
+   "avatar": "/img/drivers/flinterman-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Majoor_Flinterman,_Bestanddeelnr_903-5819.jpg",
+    "author": "Nationaal Archief",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "fohr": {
+   "avatar": "/img/drivers/fohr-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Myron_Fohr_(circa_1946)_(1).jpg",
+    "author": "Chicago Auto Racing Association",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "follmer": {
+   "avatar": "/img/drivers/follmer-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:George_Follmer_1973.jpg",
+    "author": "Raimund Kommer",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "foyt": {
+   "avatar": "/img/drivers/foyt-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:AJ_Foyt_at_Foyt_Wine_Vault_-_2015_-_Sarah_Stierch_2.jpg",
+    "author": "SarahStierch",
+    "license": "CC BY 4.0"
+   },
+   "source": "mockup"
+  },
+  "freeland": {
+   "avatar": "/img/drivers/freeland-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Don_Freeland_1953_(cropped).jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "frentzen": {
+   "avatar": "/img/drivers/frentzen-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Heinz-Harald_Frentzen_a_(cropped).jpg",
+    "author": "Frent1ah.jpg: The original uploader was Ger1axg at German Wi",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "frere": {
+   "avatar": "/img/drivers/frere-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:2003-04-26_Paul_Fr%C3%A8re_Cfs.JPG",
+    "author": "Claude F. SAGE",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "friesacher": {
+   "avatar": "/img/drivers/friesacher-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Patrick_Friesacher.jpg",
+    "author": "Unknown",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "gabbiani": {
+   "avatar": "/img/drivers/gabbiani-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Beppe_Gabbiani_crop.jpg",
+    "author": "Spyder Monkey, original author Emil Kirschner",
+    "license": "CC BY 2.0"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "gachot": {
+   "avatar": "/img/drivers/gachot-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Bertrand_Gachot_-_1991_US_GP.jpg",
+    "author": "Stuart Seeger",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "galli": {
+   "avatar": "/img/drivers/galli-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:1972_Targa_Florio_-_Nanni_Galli_%28cropped%29.jpg",
+    "author": "Original:  Unknown authorUnknown author / Derivative work:  Danyele",
+    "license": "Public domain"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "galvez": {
+   "avatar": "/img/drivers/galvez-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Oscar_Alfredo_G%C3%A1lvez.jpg",
+    "author": "Ex Editorial Haynes",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "ganley": {
+   "avatar": "/img/drivers/ganley-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:HowdenGanleyNZFMR2015.jpg",
+    "author": "StickboyNZ",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "garde": {
+   "avatar": "/img/drivers/garde-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Giedo_van_der_Garde.jpg",
+    "author": "Tambeau212",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "gardner": {
+   "avatar": "/img/drivers/gardner-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Frank_Gardner_Lola_T300_Brands_Hatch.jpg",
+    "author": "Martin Lee",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "geki": {
+   "avatar": "/img/drivers/geki-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Giacomo_Russo_1966.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "gendebien": {
+   "avatar": "/img/drivers/gendebien-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Olivier_Gendebien,_1960s.jpg",
+    "author": "Unknown photographer",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "gene": {
+   "avatar": "/img/drivers/gene-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Marc_Gene_2007_Montjuic.jpg",
+    "author": "Mutari, cropped/retouched by Morio",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "george_connor": {
+   "avatar": "/img/drivers/george_connor-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:George_Connor_1933.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "gerini": {
+   "avatar": "/img/drivers/gerini-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Gerino_Gerini_1954-10-06.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "gethin": {
+   "avatar": "/img/drivers/gethin-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Peter_Gethin,_Bestanddeelnr_924-6614_(cropped2).jpg",
+    "author": "Fotograaf Onbekend / Anefo, [onbekend]",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "ghinzani": {
+   "avatar": "/img/drivers/ghinzani-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:1985_European_GP_Piercarlo_Ghinzani_(cropped).jpg",
+    "author": "Original: Jerry Lewis-Evans from Salisbury, UK Derivative wo",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "giacomelli": {
+   "avatar": "/img/drivers/giacomelli-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Bruno_Giacomelli_1982.jpg",
+    "author": "User:Gel",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "ginther": {
+   "avatar": "/img/drivers/ginther-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Richie_Ginther_and_Roger_Penske,_1964_(cropped).jpg",
+    "author": "Los Angeles Times",
+    "license": "CC BY 4.0"
+   },
+   "source": "mockup"
+  },
+  "giovinazzi": {
+   "avatar": "/img/drivers/giovinazzi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Antonio_Giovinazzi_-_Ferrari_499P_-_Hybrid_during_the_pitwalk_at_the_2023_Le_Mans_(53468237574).jpg",
+    "author": "Martin Lee from London, UK",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "giunti": {
+   "avatar": "/img/drivers/giunti-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Stamp_of_Ajman_-_1971_-_Colnect_499264_-_Ignazio_Giunti_1941-1971_Italy.jpeg",
+    "author": "Post of Ajman",
+    "license": "Public domain"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "glock": {
+   "avatar": "/img/drivers/glock-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:2025-04-26_Motorsport,_DTM,_Oschersleben_STP_2988_(cropped).jpg",
+    "author": "Steffen Prößdorf",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "gonzalez": {
+   "avatar": "/img/drivers/gonzalez-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jos%C3%A9_Froil%C3%A1n_Gonz%C3%A1lez_1950.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "gounon": {
+   "avatar": "/img/drivers/gounon-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jean-Marc_Gounon_(2015).JPG",
+    "author": "LoupDragon42",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "graffenried": {
+   "avatar": "/img/drivers/graffenried-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Toulo_de_Graffenried.gif",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "grassi": {
+   "avatar": "/img/drivers/grassi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:2023-04-23_Motorsport,_ABB_FIA_Formula_E_World_Championship,_Berlin_E-Prix_2023_1DX_1765_by_Stepro.jpg",
+    "author": "Steffen Prößdorf",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "grosjean": {
+   "avatar": "/img/drivers/grosjean-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Grosjean_at_2024_Chevrolet_Detroit_Grand_Prix.jpg",
+    "author": "City of Detroit",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "grouillard": {
+   "avatar": "/img/drivers/grouillard-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Andy_Wallace_%26_Olivier_Grouillard_on_the_podium_at_the_Norwich_Union_Empire_Trophy,_Silverstone_4_Hrs_1995_(49890621322)_(cropped).jpg",
+    "author": "Martin Lee from London, UK",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "guelfi": {
+   "avatar": "/img/drivers/guelfi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Comit%C3%A9_d%27organisation_du_Grand_Prix_d%27Agadir,_1953_(Andr%C3%A9_Guelfi).jpg",
+    "author": "Régine Terrier",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "guerra": {
+   "avatar": "/img/drivers/guerra-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Miguel_Angel_Guerra_Renault_Fuego_(1989).jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "guerrero": {
+   "avatar": "/img/drivers/guerrero-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Roberto_Guerrero_2010_Indy_500_Practice_Day_7.JPG",
+    "author": "Manningmbd",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "gugelmin": {
+   "avatar": "/img/drivers/gugelmin-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Gugelmin_(cropped).jpg",
+    "author": "Readro, based on work by StuSeeger",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "gurney": {
+   "avatar": "/img/drivers/gurney-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Dan_Gurney_(1970).jpg",
+    "author": "Joost Evers / Anefo",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "gutierrez": {
+   "avatar": "/img/drivers/gutierrez-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Esteban_Guti%C3%A9rrez_en_el_Gran_Premio_de_Italia_2019_(cropped).jpg",
+    "author": "Shmj582",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "hahne": {
+   "avatar": "/img/drivers/hahne-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Hahne,_Hubert_-_1968.jpg",
+    "author": "Unknown",
+    "license": "CC BY-SA 2.0 de"
+   },
+   "source": "mockup"
+  },
+  "hailwood": {
+   "avatar": "/img/drivers/hailwood-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Mike_Hailwood.jpg",
+    "author": "Jack de Nijs for Anefo",
+    "license": "CC BY-SA 3.0 nl"
+   },
+   "source": "mockup"
+  },
+  "hakkinen": {
+   "avatar": "/img/drivers/hakkinen-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Mika_H%C3%A4kkinen_Champions_for_Charity_2016-07-27.jpg",
+    "author": "Sven Mandel",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "hall": {
+   "avatar": "/img/drivers/hall-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jim_Hall_(racer).jpg",
+    "author": "Oldwizzard",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "hanks": {
+   "avatar": "/img/drivers/hanks-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Sam_Hanks_USAC_circa_1957.jpg",
+    "author": "Trenton International Speedway",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "hans_stuck": {
+   "avatar": "/img/drivers/hans_stuck-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_102-08188,_Hans_von_Stuck.jpg",
+    "author": "UnknownUnknown",
+    "license": "CC BY-SA 3.0 de"
+   },
+   "source": "mockup"
+  },
+  "haryanto": {
+   "avatar": "/img/drivers/haryanto-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Rio_Haryanto_2016_paddock.jpg",
+    "author": "Edward Thomas",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "hawkins": {
+   "avatar": "/img/drivers/hawkins-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Hawkins%2C_Paul_1966.jpg",
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "heidfeld": {
+   "avatar": "/img/drivers/heidfeld-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Nick_Heidfeld_Goodwood_Festival_of_Speed_2019_(48242681251).jpg",
+    "author": "https://www.flickr.com/photos/69527563@N05/",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "helfrich": {
+   "avatar": "/img/drivers/helfrich-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Fotothek_df_roe-neg_0006640_013_Portrait_eines_Automobilrennfahrers_in_seinem_Wa.jpg",
+    "author": "Roger Rössing / Renate Rössing",
+    "license": "CC BY-SA 3.0 de"
+   },
+   "source": "mockup"
+  },
+  "hellings": {
+   "avatar": "/img/drivers/hellings-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Mack_Hellings_1951.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "henry_taylor": {
+   "avatar": "/img/drivers/henry_taylor-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Henry_Taylor_driving_a_Ford_Cortina_down_the_bobsleigh_run_at_Cortina_d%27Ampezzo.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "henton": {
+   "avatar": "/img/drivers/henton-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Brian_Henton_%281971%29.jpg",
+    "author": "Hans Peters for Anefo",
+    "license": "CC0"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "herbert": {
+   "avatar": "/img/drivers/herbert-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Johnny_Herbert_(31729263593).jpg",
+    "author": "David Merrett from Daventry, England",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "herrmann": {
+   "avatar": "/img/drivers/herrmann-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Hans_Herrmann_(2011).jpg",
+    "author": "Lutz H",
+    "license": "CC BY 2.0 de"
+   },
+   "source": "mockup"
+  },
+  "hill": {
+   "avatar": "/img/drivers/hill-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Graham_Hill_Bestanddeelnr_924-6564.jpg",
+    "author": "Anefo",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "hobbs": {
+   "avatar": "/img/drivers/hobbs-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:David_Hobbs.jpg",
+    "author": "Dan Smith",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "hoffmann": {
+   "avatar": "/img/drivers/hoffmann-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ingo_Hoffmann_2007_Curitiba.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "holland": {
+   "avatar": "/img/drivers/holland-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Bill_Holland_and_Linda_Darnell_1949_Indianapolis_500_(cropped).jpg",
+    "author": "Unknown",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "hoshino": {
+   "avatar": "/img/drivers/hoshino-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Kazuyoshi_Hoshino_2010_Formula_Nippon_Motegi_(May).jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "hulme": {
+   "avatar": "/img/drivers/hulme-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:HulmeDenis196508_(cropped).jpg",
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de"
+   },
+   "source": "mockup"
+  },
+  "hunt": {
+   "avatar": "/img/drivers/hunt-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:J._Hunt_in_1977_(cropped).jpg",
+    "author": "Uploader's father, digitized and altered by Mr.choppers",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "hurtubise": {
+   "avatar": "/img/drivers/hurtubise-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jim_Hurtubise.jpg",
+    "author": "Dick Ralstin",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "ian_scheckter": {
+   "avatar": "/img/drivers/ian_scheckter-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:1977_Argentine_Grand_Prix_Ian_Scheckter.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "ian_stewart": {
+   "avatar": "/img/drivers/ian_stewart-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Stewart_Ian_Gordon_Highlanders.jpg",
+    "author": "Bandicotts",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "ickx": {
+   "avatar": "/img/drivers/ickx-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jacky_Ickx_Portr%C3%A4t_Mille_Miglia_2018.jpg",
+    "author": "Alexander Migl",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "ide": {
+   "avatar": "/img/drivers/ide-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Yuji_Ide_2010_Super_GT_Fuji_400km.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "ireland": {
+   "avatar": "/img/drivers/ireland-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Innes_Ireland.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "irvine": {
+   "avatar": "/img/drivers/irvine-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Eddie_Irvine_on_the_podium_at_the_1994_Le_Mans_(cropped).jpg",
+    "author": "Original: Martin Lee from London, UK / Derivative work: Dany",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "irwin": {
+   "avatar": "/img/drivers/irwin-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Chris_Irwin_1968.JPG",
+    "author": "Raimund Kommer",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "jabouille": {
+   "avatar": "/img/drivers/jabouille-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:JeanPierreJabouille1975.jpg",
+    "author": "Eddi Laumanns aka RX-Guru",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "jack_brabham": {
+   "avatar": "/img/drivers/jack_brabham-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:BrabhamJack1966B.jpg",
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de"
+   },
+   "source": "mockup"
+  },
+  "james": {
+   "avatar": "/img/drivers/james-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Joe_James_qualifies_for_the_1951_Indy_500.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "jarier": {
+   "avatar": "/img/drivers/jarier-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jean-Pierre_Jarier_en_1976.jpg",
+    "author": "Panini",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "jerry_unser": {
+   "avatar": "/img/drivers/jerry_unser-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jerry_Unser_Jr.,_23-01-1953.png",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "johansson": {
+   "avatar": "/img/drivers/johansson-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Stefan_Johansson_at_the_2026_Adelaide_Motorsport_Festival_(028A6526).jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "jolyon_palmer": {
+   "avatar": "/img/drivers/jolyon_palmer-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jolyon_Palmer_2016_Malaysia.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "jones": {
+   "avatar": "/img/drivers/jones-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Alan_Jones_1980_(cropped_v2).jpg",
+    "author": "NL-HaNA, ANEFO / neg. stroken, 1945-1989, 2.24.01.05, item n",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "jules_bianchi": {
+   "avatar": "/img/drivers/jules_bianchi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jules_Bianchi_2012-1.JPG",
+    "author": "Henry Mineur",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "karthikeyan": {
+   "avatar": "/img/drivers/karthikeyan-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Narain_Karthikeyan_2011_Malaysia2.jpg",
+    "author": "Narain_Karthikeyan_2011_Malaysia.jpg: Morio derivative work:",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "katayama": {
+   "avatar": "/img/drivers/katayama-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ukyo_Katayama_PA166402.jpg",
+    "author": "Fukumoto",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "keegan": {
+   "avatar": "/img/drivers/keegan-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Rupert_Keegan_leaves_the_drivers_briefing_at_the_1978_Monaco_GP_(50047323536)_(cropped).jpg",
+    "author": "Original: Martin Lee from London, UK / Derivative work: Dany",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "keke_rosberg": {
+   "avatar": "/img/drivers/keke_rosberg-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Anefo_932-2378_Keke_Rosberg,_Zandvoort,_03-07-1982_-_Restoration.jpg",
+    "author": "Hans van Dijk for Anefo Minor restoration by Adam Cuerden: N",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "kevin_magnussen": {
+   "avatar": "/img/drivers/kevin_magnussen-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Kevin_Magnussen,_2019_Formula_One_Tests_Barcelona_(cropped).jpg",
+    "author": "Marc Alvarado",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "kiesa": {
+   "avatar": "/img/drivers/kiesa-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Nicolas_kiesa_lemans2006.jpg",
+    "author": "Sh0dan at English Wikipedia",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "kinnunen": {
+   "avatar": "/img/drivers/kinnunen-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Leo_Kinnunen_1966.jpg",
+    "author": "Ensio Ilmonen, Lehtikuva Oy",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "klenk": {
+   "avatar": "/img/drivers/klenk-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Hans_Klenk_y_Karl_king_ganadores_Carrera_Panamericana_1952.jpg",
+    "author": "La Carrera Panamericana",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "klien": {
+   "avatar": "/img/drivers/klien-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Christian_Klien_2.jpg",
+    "author": "Unknown",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "kling": {
+   "avatar": "/img/drivers/kling-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Karl_Kling_El_Gr%C3%A1fico.jpg",
+    "author": "El Gráfico",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "kobayashi": {
+   "avatar": "/img/drivers/kobayashi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Kamui_Kobayashi_2024_WEC_Fuji_2.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "kovalainen": {
+   "avatar": "/img/drivers/kovalainen-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Effect_20190609_091716.jpg",
+    "author": "SF-R",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "kubica": {
+   "avatar": "/img/drivers/kubica-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Robert_Kubica_at_Monza_2023.jpg",
+    "author": "bonebeast",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "kvyat": {
+   "avatar": "/img/drivers/kvyat-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Daniil_Kvyat_2024_Suzuka_A2RL_(cropped).jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "laffite": {
+   "avatar": "/img/drivers/laffite-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jacques_Laffite_2015.jpg",
+    "author": "Thesupermat",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "lagorce": {
+   "avatar": "/img/drivers/lagorce-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Franck_Lagorce_-_Mondial_de_l%27Automobile_de_Paris_2016_-_003.jpg",
+    "author": "Thesupermat",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "lammers": {
+   "avatar": "/img/drivers/lammers-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jan_Lammers_LeMans24_2017.jpg",
+    "author": "Muztiko",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "lamy": {
+   "avatar": "/img/drivers/lamy-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Pedro_Lamy_Le_Mans_Series_Interlagos_Novembro_2007.jpg",
+    "author": "Rafael Daud",
+    "license": "CC BY 3.0"
+   },
+   "source": "mockup"
+  },
+  "lang": {
+   "avatar": "/img/drivers/lang-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Hermann_Lang_El_Gr%C3%A1fico.jpg",
+    "author": "El Gráfico",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "larini": {
+   "avatar": "/img/drivers/larini-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Nicola_Larini_2006_Curitiba.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "larreta": {
+   "avatar": "/img/drivers/larreta-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jorge_Rodr%C3%ADguez_Larreta_-_El_Gr%C3%A1fico_2001.jpg",
+    "author": "El Gráfico",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "larrousse": {
+   "avatar": "/img/drivers/larrousse-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:GerardLarrousse1975.jpg",
+    "author": "Eddi Laumanns aka RX-Guru",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "latifi": {
+   "avatar": "/img/drivers/latifi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Nicholas_Latifi_at_Singapore_in_2022_(cropped).jpg",
+    "author": "TIB1245L",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "lauda": {
+   "avatar": "/img/drivers/lauda-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Lauda_at_1982_Dutch_Grand_Prix.jpg",
+    "author": "Hans van Dijk for Anefo",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "laurent": {
+   "avatar": "/img/drivers/laurent-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ecosse_and_Francorchamps_Jaguar_C-types_Zandvoort_1954_crop.jpg",
+    "author": "Joop van Bilsen",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "lehto": {
+   "avatar": "/img/drivers/lehto-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:JJ_Lehto_(3rd_placed)_on_the_podium_for_the_2004_Le_Mans_(50884348761).jpg",
+    "author": "Martin Lee from London, UK",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "lennep": {
+   "avatar": "/img/drivers/lennep-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Gijs_van_Lennep_(1971).jpg",
+    "author": "Joost Evers / Anefo",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "leoni": {
+   "avatar": "/img/drivers/leoni-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Lamberto_Leoni_(1974).jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "levrett": {
+   "avatar": "/img/drivers/levrett-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Bayliss_Levrett_in_Adams_Offenhauser_Palmer_Special,_1950_Indianapolis_500.jpg",
+    "author": "Indianapolis Motor Speedway",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "lewis": {
+   "avatar": "/img/drivers/lewis-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Photograph_of_Jackie_Lewis_in_1961.jpg",
+    "author": "Jacklewis24",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "ligier": {
+   "avatar": "/img/drivers/ligier-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:1983_Guy_Ligier.jpg",
+    "author": "Alain Mingam",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "liuzzi": {
+   "avatar": "/img/drivers/liuzzi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Vitantonio_Liuzzi_2011_Malaysia.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "lombardi": {
+   "avatar": "/img/drivers/lombardi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Lella-Garage-Reading-04.jpg",
+    "author": "Gillfoto from Juneau, Alaska, United States",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "loof": {
+   "avatar": "/img/drivers/loof-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Freiburg-_Ernst_Loof%2C_N%C3%BCrburgring_%28schlafend%29_-_LABW_-_Staatsarchiv_Freiburg_W_134_Nr._019857a.jpeg",
+    "author": "Willy Pragher",
+    "license": "CC BY 4.0"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "lotterer": {
+   "avatar": "/img/drivers/lotterer-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Andre_Lotterer_2024_WEC_Fuji_2.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "maglioli": {
+   "avatar": "/img/drivers/maglioli-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Umberto_Maglioli.jpg",
+    "author": "Unknown",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "magnussen": {
+   "avatar": "/img/drivers/magnussen-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jan_Magnussen_(37535519996)_(cropped).jpg",
+    "author": "Osajus Photography from Asheville, NC, United States",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "mairesse": {
+   "avatar": "/img/drivers/mairesse-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Willy_Mairesse.jpg",
+    "author": "Panini",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "maldonado": {
+   "avatar": "/img/drivers/maldonado-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Pastor_Maldonado_2015_Malaysia.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "mansell": {
+   "avatar": "/img/drivers/mansell-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Nigel_Mansell_-_Mexican_Grand_Prix_01_(cropped).jpeg",
+    "author": "ProtoplasmaKid",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "mantovani": {
+   "avatar": "/img/drivers/mantovani-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:SergioMantovani-AlfaRomeo.png",
+    "author": "Unknown photographer",
+    "license": "Public domain"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "mantz": {
+   "avatar": "/img/drivers/mantz-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Johnny_Mantz_USAC_circa_1957.jpg",
+    "author": "Trenton International Speedway",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "marimon": {
+   "avatar": "/img/drivers/marimon-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Onofre_Marim%C3%B3n_-_El_Gr%C3%A1fico_1708.jpg",
+    "author": "El Gráfico",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "mario_andretti": {
+   "avatar": "/img/drivers/mario_andretti-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Mario_Andretti_Goodwood_Festival_of_Speed_2021_(cropped).jpg",
+    "author": "United Autosports",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "marko": {
+   "avatar": "/img/drivers/marko-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Helmut_Marko_Austrian_GP_2016_(cropped2).jpg",
+    "author": "Heimo Ruschitz",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "markus_winkelhock": {
+   "avatar": "/img/drivers/markus_winkelhock-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Markus_winkelhock_brandshatch2014.JPG",
+    "author": "Robk23oxf",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "marques": {
+   "avatar": "/img/drivers/marques-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Tarso_Marques_2007_Curitiba.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "marr": {
+   "avatar": "/img/drivers/marr-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Leslie_Marr_with_painting_2019_(cropped).jpg",
+    "author": "Edittoo",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "martini": {
+   "avatar": "/img/drivers/martini-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Pierluigi_Martini_in_2016.jpg",
+    "author": "GTHO",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "mass": {
+   "avatar": "/img/drivers/mass-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Mass_at_1982_Dutch_Grand_Prix.jpg",
+    "author": "Hans van Dijk for Anefo / neg. stroken, 1945-1989, 2.24.01.0",
+    "license": "CC BY-SA 3.0 nl"
+   },
+   "source": "mockup"
+  },
+  "massa": {
+   "avatar": "/img/drivers/massa-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Felipe_Massa.jpg",
+    "author": "TV Brasil Central AO VIVO",
+    "license": "CC BY 3.0"
+   },
+   "source": "mockup"
+  },
+  "matta": {
+   "avatar": "/img/drivers/matta-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Cdmlb06.jpg",
+    "author": "Unknown",
+    "license": "CC BY 2.5"
+   },
+   "source": "mockup"
+  },
+  "mazepin": {
+   "avatar": "/img/drivers/mazepin-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:%D0%9D%D0%B8%D0%BA%D0%B8%D1%82%D0%B0_%D0%9C%D0%B0%D0%B7%D0%B5%D0%BF%D0%B8%D0%BD_-_%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B2%D1%8C%D1%8E_-_2019,_02.jpg",
+    "author": "Somanyhorsesru журнал",
+    "license": "CC BY 3.0"
+   },
+   "source": "mockup"
+  },
+  "mazzacane": {
+   "avatar": "/img/drivers/mazzacane-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Gaston_Mazzacane_2018_(cropped).png",
+    "author": "Mundo Sport Racing",
+    "license": "CC BY 3.0"
+   },
+   "source": "mockup"
+  },
+  "mccarthy": {
+   "avatar": "/img/drivers/mccarthy-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:2003_pq_paddocks-perry-mccarthy.jpg",
+    "author": "The original uploader was Rollie at English Wikipedia.",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "mcdowell": {
+   "avatar": "/img/drivers/mcdowell-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Johnny_McDowell_and_Jean_Marshall_1947.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "mcgrath": {
+   "avatar": "/img/drivers/mcgrath-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jack_McGrath_1951.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "mclaren": {
+   "avatar": "/img/drivers/mclaren-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:McLarenBruce.jpg",
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de"
+   },
+   "source": "mockup"
+  },
+  "mcnish": {
+   "avatar": "/img/drivers/mcnish-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Allan_McNish_-_Three_times_winner_of_Le_Mans_24_Hours_(1998,_2008_and_2013)_(48688206548).jpg",
+    "author": "David Merrett from Daventry, England",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "mcrae": {
+   "avatar": "/img/drivers/mcrae-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Graham_McRae_Levin_1970.jpg",
+    "author": "Archives New Zealand from New Zealand",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "menditeguy": {
+   "avatar": "/img/drivers/menditeguy-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Carlos_Menditeguy_-_El_Gr%C3%A1fico_1805.jpg",
+    "author": "El Gráfico",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "merhi": {
+   "avatar": "/img/drivers/merhi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Merhi_Sepang_25.jpg",
+    "author": "Thfeeder",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "merzario": {
+   "avatar": "/img/drivers/merzario-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Arturo_Merzario_en_1973.jpg",
+    "author": "Panini",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "michael_schumacher": {
+   "avatar": "/img/drivers/michael_schumacher-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Michael_Schumacher,_September_2005.jpg",
+    "author": "Original: Aécio Neves – Wellington Pedro",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "mick_schumacher": {
+   "avatar": "/img/drivers/mick_schumacher-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Mick_Schumacher_2024_WEC_Fuji.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "mieres": {
+   "avatar": "/img/drivers/mieres-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Roberto_Mieres_-_El_Gr%C3%A1fico_1770.jpg",
+    "author": "El Gráfico",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "miles": {
+   "avatar": "/img/drivers/miles-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:John_Miles_1970_N%C3%BCrburgring.jpg",
+    "author": "Raimund Kommer",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "miller": {
+   "avatar": "/img/drivers/miller-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Chet_Miller.jpg",
+    "author": "Newspaper Enterprise Association",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "mitter": {
+   "avatar": "/img/drivers/mitter-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:MitterGerhard1968.jpg",
+    "author": "Unknown",
+    "license": "CC BY-SA 2.0 de"
+   },
+   "source": "mockup"
+  },
+  "montagny": {
+   "avatar": "/img/drivers/montagny-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Franck_Montagny_Le_Mans_drivers_parade_2011_crop.jpg",
+    "author": "David Merrett from Daventry, England",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "monteiro": {
+   "avatar": "/img/drivers/monteiro-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Tiago_monteiro_spafrancorchamps2014_(cropped).JPG",
+    "author": "Robk23oxf",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "montermini": {
+   "avatar": "/img/drivers/montermini-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Andrea_Montermini_at_the_2026_Adelaide_Motorsport_Festival_(028A7639).jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "montoya": {
+   "avatar": "/img/drivers/montoya-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:DSC1509_(51683678455)(cropped).jpg",
+    "author": "Andrew-44-19",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "morbidelli": {
+   "avatar": "/img/drivers/morbidelli-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Gianni_morbidelli_spafrancorchamps2014.JPG",
+    "author": "Robk23oxf",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "moreno": {
+   "avatar": "/img/drivers/moreno-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Roberto_Moreno_2007_Desafio_Internacional_das_Estrelas.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "moser": {
+   "avatar": "/img/drivers/moser-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:SilvioMoser.jpg",
+    "author": "No machine-readable author provided. Massimo Macconi assumed",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "moss": {
+   "avatar": "/img/drivers/moss-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Stirling_Moss.jpg",
+    "author": "SAS Scandinavian Airlines",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "musso": {
+   "avatar": "/img/drivers/musso-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Luigi_Musso.jpg",
+    "author": "Spin2Win at English Wikipedia",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "nakajima": {
+   "avatar": "/img/drivers/nakajima-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Kazuki_Nakajima_2012_WEC_Fuji_(cropped).jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "nakano": {
+   "avatar": "/img/drivers/nakano-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Shinji_Nakano_2009_Japan.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "nalon": {
+   "avatar": "/img/drivers/nalon-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Duke_Nalon_1951.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "nasr": {
+   "avatar": "/img/drivers/nasr-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Piloto_Felipe_Nasr_fala_%C3%A0_imprensa_ap%C3%B3s_encontro_com_Temer_(28412246304)_(cropped).jpg",
+    "author": "Agência Brasil Fotografias",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "needell": {
+   "avatar": "/img/drivers/needell-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:TiffNeedell.jpg",
+    "author": "Brian Snelson",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "nilsson": {
+   "avatar": "/img/drivers/nilsson-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:1976-07-10_Gunnar_Nilsson_im_BMW_CSL_(cropped).jpg",
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de"
+   },
+   "source": "mockup"
+  },
+  "noda": {
+   "avatar": "/img/drivers/noda-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Hideki_Noda_2009_1000km_of_Okayama.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "ocon": {
+   "avatar": "/img/drivers/ocon-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Esteban_Ocon_2024_Suzuka_(cropped).jpg",
+    "author": "Rrtb505050",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "oliver": {
+   "avatar": "/img/drivers/oliver-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jackie_Oliver_1969_kl.JPG",
+    "author": "Raimund Kommer",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "ongais": {
+   "avatar": "/img/drivers/ongais-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ongais,_Danny_(1984).jpg",
+    "author": "Ted Van Pelt from Mechanicsburg, PA, USA",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "pace": {
+   "avatar": "/img/drivers/pace-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jos%C3%A9_Carlos_Pace%2C_sem_data.tif",
+    "author": "UnknownUnknown",
+    "license": "Public domain"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "pagani": {
+   "avatar": "/img/drivers/pagani-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Canzonissima_1972_-_Nello_Pagani.png",
+    "author": "Romolo Siena",
+    "license": "Public domain"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "palmer": {
+   "avatar": "/img/drivers/palmer-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jonathan_Palmer_Profile.jpg",
+    "author": "Richardrandle",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "panis": {
+   "avatar": "/img/drivers/panis-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Paris_-_Retromobile_2012_-_Olivier_Panis_-_Fiskens_-_006.jpg",
+    "author": "Thesupermat",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "pantano": {
+   "avatar": "/img/drivers/pantano-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Giorgio_pantano_brandshatch2014.JPG",
+    "author": "Robk23oxf",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "papis": {
+   "avatar": "/img/drivers/papis-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Max_Papis_NASCAR_Nationwide_Road_America_2011.jpg",
+    "author": "Royalbroil",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "parkes": {
+   "avatar": "/img/drivers/parkes-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Mike_Parkes_1969_kl.JPG",
+    "author": "Raimund Kommer",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "parsons": {
+   "avatar": "/img/drivers/parsons-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Johnnie_Parsons_USAC_circa_1957.jpg",
+    "author": "Trenton International Speedway",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "patrese": {
+   "avatar": "/img/drivers/patrese-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Riccardo_Patrese_in_the_paddock_before_the_1993_British_Grand_Prix_(33686653515)_(Cropped).jpg",
+    "author": "Martin Lee from London, UK",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "paul_russo": {
+   "avatar": "/img/drivers/paul_russo-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Paul_Russo_1947.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "penske": {
+   "avatar": "/img/drivers/penske-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Roger_Penske_2023_(cropped).jpg",
+    "author": "Governor Eric Holcomb",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "perkins": {
+   "avatar": "/img/drivers/perkins-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Larry_Perkins_at_the_2025_Adelaide_Grand_Final_-_01.jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "pescarolo": {
+   "avatar": "/img/drivers/pescarolo-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:PescaroloHenry1973N%C3%BCrb.jpg",
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de"
+   },
+   "source": "mockup"
+  },
+  "peterson": {
+   "avatar": "/img/drivers/peterson-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Peterson_at_1978_Dutch_Grand_Prix.jpg",
+    "author": "Suyk, Koen / Anefo / neg. stroken, 1945-1989, 2.24.01.05, it",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "petrov": {
+   "avatar": "/img/drivers/petrov-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Vitaly_Petrov_2010_Malaysia_(cropped).jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "phil_hill": {
+   "avatar": "/img/drivers/phil_hill-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Phil_Hill_1991_USA_(cropped).jpg",
+    "author": "Stuart Seeger from College Station, Texas, USA",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "pian": {
+   "avatar": "/img/drivers/pian-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Alfredo_Pian_-_El_Gr%C3%A1fico_1573.jpg",
+    "author": "El Gráfico",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "pic": {
+   "avatar": "/img/drivers/pic-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Charles_Pic_Moscow_2013.jpg",
+    "author": "Antigorky",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "pietro_fittipaldi": {
+   "avatar": "/img/drivers/pietro_fittipaldi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Pietro_Fittipaldi_Stock_Car_2021.png",
+    "author": "Stock Car",
+    "license": "CC BY 3.0"
+   },
+   "source": "mockup"
+  },
+  "pilette": {
+   "avatar": "/img/drivers/pilette-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:TeddyPilette1975.jpg",
+    "author": "Eddi Laumanns aka RX-Guru",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "piquet": {
+   "avatar": "/img/drivers/piquet-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Cerimonia_de_entrega_da_medalha_Bras%C3%ADlia_60_anos_-_16.jpg",
+    "author": "Agência Brasília",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "piquet_jr": {
+   "avatar": "/img/drivers/piquet_jr-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Nelson_Piquet_Jr._2021.jpg",
+    "author": "Stock Car Brasil",
+    "license": "CC BY 3.0"
+   },
+   "source": "mockup"
+  },
+  "pironi": {
+   "avatar": "/img/drivers/pironi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Pironi_celebrating_at_1982_Dutch_Grand_Prix_(cropped).jpg",
+    "author": "Hans van Dijk for Anefo / neg. stroken, 1945-1989, 2.24.01.0",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "pirro": {
+   "avatar": "/img/drivers/pirro-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Emanuele_Pirro_2012_WEC_Fuji_2_(cropped).jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "pizzonia": {
+   "avatar": "/img/drivers/pizzonia-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Fale_F1_Monza_2004_13.jpg",
+    "author": "Fabio Alessandro Locati",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "poele": {
+   "avatar": "/img/drivers/poele-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Eric_van_de_Poele_2008.jpg",
+    "author": "Nascar fan mx",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "pon": {
+   "avatar": "/img/drivers/pon-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ben_Pon_(1964).jpg",
+    "author": "Jack de Nijs for Anefo / Anefo",
+    "license": "CC BY-SA 3.0 nl"
+   },
+   "source": "mockup"
+  },
+  "portago": {
+   "avatar": "/img/drivers/portago-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Alfonso,_Marquess_of_Portago.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "posey": {
+   "avatar": "/img/drivers/posey-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Speed_tv_f1_panel_ims_stage_2006_(cropped).jpg",
+    "author": "Rdikeman at English Wikipedia",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "prost": {
+   "avatar": "/img/drivers/prost-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Festival_automobile_international_2015_-_Photocall_-_065_(cropped3).jpg",
+    "author": "Thesupermat",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "pryce": {
+   "avatar": "/img/drivers/pryce-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Tom_Pryce_UOP_Shadow_WMCgf.jpg",
+    "author": "Gillfoto",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "quester": {
+   "avatar": "/img/drivers/quester-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:QuesterDieter1973.jpg",
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de"
+   },
+   "source": "mockup"
+  },
+  "rahal": {
+   "avatar": "/img/drivers/rahal-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Bobby_Rahal_(2021).jpg",
+    "author": "Wolkenjaeger",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "raikkonen": {
+   "avatar": "/img/drivers/raikkonen-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:F12019_Schloss_Gabelhofen_(22)_(cropped).jpg",
+    "author": "XaviYuahanda",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "ralf_schumacher": {
+   "avatar": "/img/drivers/ralf_schumacher-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ralf_Schumacher,_2016.png",
+    "author": "9EkieraM1",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "ratzenberger": {
+   "avatar": "/img/drivers/ratzenberger-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ratzenberger_%28cropped%29.jpg",
+    "author": "Sgozzi",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "rebaque": {
+   "avatar": "/img/drivers/rebaque-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:1981_Argentine_Grand_Prix,_Rebaque.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "redman": {
+   "avatar": "/img/drivers/redman-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Brian_Redman_1969_kl.JPG",
+    "author": "Raimund Kommer",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "reg_parnell": {
+   "avatar": "/img/drivers/reg_parnell-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Autoraces_te_Zandvoort,_Bestanddeelnr_902-9002.jpg",
+    "author": "Daan Noske / Anefo",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "regazzoni": {
+   "avatar": "/img/drivers/regazzoni-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Anefo_924-6609_Clay_Reggazoni,_Catherine_Blaton,_Jacky_Ickx_Zandvoort_18_06_1971_-_Cropped.jpg",
+    "author": "Nationaal Archief, Den Haag, Rijksfotoarchief: Fotocollectie",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "resta": {
+   "avatar": "/img/drivers/resta-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Paul_di_Resta_2022_(cropped).jpg",
+    "author": "United Autosports",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "reutemann": {
+   "avatar": "/img/drivers/reutemann-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Reutemann_1981.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "reventlow": {
+   "avatar": "/img/drivers/reventlow-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Lance_Reventlow_wedding_portrait,_Calif.,_1964_(cropped).jpg",
+    "author": "Los Angeles Times",
+    "license": "CC BY 4.0"
+   },
+   "source": "mockup"
+  },
+  "revson": {
+   "avatar": "/img/drivers/revson-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Peter_Revson_1973_N%C3%BCrburgring_a_(cropped).jpg",
+    "author": "Raimund Kommer",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "ribeiro": {
+   "avatar": "/img/drivers/ribeiro-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Alex_Ribeiro.jpg",
+    "author": "WikiFourSearch",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "ricciardo": {
+   "avatar": "/img/drivers/ricciardo-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Daniel_Ricciardo_January_2024.jpg",
+    "author": "DaHuzyBru",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "rindt": {
+   "avatar": "/img/drivers/rindt-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Rindt_at_1970_Dutch_Grand_Prix_(2C).jpg",
+    "author": "Evers, Joost / Anefo / neg. stroken, 1945-1989, 2.24.01.05,",
+    "license": "CC BY-SA 3.0 nl"
+   },
+   "source": "mockup"
+  },
+  "rodriguez": {
+   "avatar": "/img/drivers/rodriguez-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Pedro_Rodr%C3%ADguez_1968_N%C3%BCrburgring-1_(cropped).jpg",
+    "author": "Raimund Kommer",
+    "license": "CC BY 3.0"
+   },
+   "source": "mockup"
+  },
+  "roig": {
+   "avatar": "/img/drivers/roig-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Alex_Soler-Roig,_Spain_1931.jpg",
+    "author": "MP Photography",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "rolt": {
+   "avatar": "/img/drivers/rolt-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Autoraces_te_Zandvoort._Tony_Rolt_met_zijn_Alfa_Romeo_onderaan_de_Hunzerug,_Bestanddeelnr_902-9012.jpg",
+    "author": "Daan Noske / Anefo",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "rooyen": {
+   "avatar": "/img/drivers/rooyen-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Photo_of_Basil_van_Rooyen.jpg",
+    "author": "Laravan",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "rosa": {
+   "avatar": "/img/drivers/rosa-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Pedro_de_la_Rosa_2010_Malaysia.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "rosberg": {
+   "avatar": "/img/drivers/rosberg-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Nico_Rosberg_obtuvo_el_segundo_lugar.jpg",
+    "author": "Joaquin.ignacio.mc",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "rosset": {
+   "avatar": "/img/drivers/rosset-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ricardo_Rosset_Donington.jpg",
+    "author": "NotNatsC",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "rossi": {
+   "avatar": "/img/drivers/rossi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Alexander_Rossi_2026_(cropped).jpg",
+    "author": "NASA/Joel Kowsky",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "rothengatter": {
+   "avatar": "/img/drivers/rothengatter-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Huub_Rothengatter_in_1977.jpg",
+    "author": "Koen Suyk / Anefo",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "ruttman": {
+   "avatar": "/img/drivers/ruttman-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Troy_Ruttman_1951.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "ryo_hirakawa": {
+   "avatar": "/img/drivers/ryo_hirakawa-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ryo_Hirakawa_2024_WEC_Fuji_3.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "said": {
+   "avatar": "/img/drivers/said-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Trainingsdag_sportwagenraces_Zandvoort_Amerikaan._Boris_%27Bob_Said_bij_zijn_Ferr%E2%80%A6,_Bestanddeelnr_906-6631_(cropped).jpg",
+    "author": "Joop van Bilsen / Anefo",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "salazar": {
+   "avatar": "/img/drivers/salazar-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Eliseo_Salazar_(1982).jpg",
+    "author": "Hans van Dijk for Anefo",
+    "license": "CC BY-SA 3.0 nl"
+   },
+   "source": "mockup"
+  },
+  "salo": {
+   "avatar": "/img/drivers/salo-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Mika_Salo_Le_Mans_2009_cropped.jpg",
+    "author": "Emil Kirschner from Le Mans",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "salvadori": {
+   "avatar": "/img/drivers/salvadori-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:1958-03-22_Sebring_Roy_Salvadori_(cropped2).jpg",
+    "author": "C5813",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "sanesi": {
+   "avatar": "/img/drivers/sanesi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Consalvo_Sanesi.jpg",
+    "author": "Indeciso42 at the Italian Wikipedia project.",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "sargeant": {
+   "avatar": "/img/drivers/sargeant-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Logan_Sargeant_NYC_(cropped).jpg",
+    "author": "JazzyJoeyD",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "sarrazin": {
+   "avatar": "/img/drivers/sarrazin-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Stephane_Sarrazin_40.jpg",
+    "author": "gillfoto",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "sato": {
+   "avatar": "/img/drivers/sato-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Takuma_Sato_(2021).jpg",
+    "author": "Wolkenjaeger",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "satoru_nakajima": {
+   "avatar": "/img/drivers/satoru_nakajima-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Satoru_Nakajima_2008_Motorsport_Japan_(cropped).jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "scarfiotti": {
+   "avatar": "/img/drivers/scarfiotti-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ludivico_Scarfiotti_1966_N%C3%BCrburgring.jpg",
+    "author": "Raimund Kommer",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "scarlatti": {
+   "avatar": "/img/drivers/scarlatti-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:1957-08-18_Pescara_GP_Maserati_250_Scarlatti.jpg",
+    "author": "Unknown photographer",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "scheckter": {
+   "avatar": "/img/drivers/scheckter-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jody_Scheckter_during_the_1979_Monaco_Grand_Prix.jpg",
+    "author": "PH1 John Lucas, U.S. Navy",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "schell": {
+   "avatar": "/img/drivers/schell-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:1957ArgentineGP05_%28cropped%29.jpg",
+    "author": "Spin2Win at English Wikipedia",
+    "license": "Public domain"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "schenken": {
+   "avatar": "/img/drivers/schenken-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Tim_Schenken_1971_Hockenheim.JPG",
+    "author": "Raimund Kommer",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "schindler": {
+   "avatar": "/img/drivers/schindler-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Bill_Schindler_at_Soldier_Field_(circa_1946).jpg",
+    "author": "Chicago Auto Racing Association",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "schlesser": {
+   "avatar": "/img/drivers/schlesser-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jean-Louis_Schlesser,_2013.JPG",
+    "author": "Máth Dávid - Mdavid89",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "schneider": {
+   "avatar": "/img/drivers/schneider-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:BerndSchneider.JPG",
+    "author": "Lutz H",
+    "license": "CC BY 2.0 de"
+   },
+   "source": "mockup"
+  },
+  "scotti": {
+   "avatar": "/img/drivers/scotti-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:1952-08-31_Maloja_Ferrari_340_0196A_Scotti.jpg",
+    "author": "Unknown photographer",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "senna": {
+   "avatar": "/img/drivers/senna-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ayrton_Senna_Pesawat_RC_Cropped.jpg",
+    "author": "File:Ayrton Senna 2.jpg: Instituto Ayrto",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "serafini": {
+   "avatar": "/img/drivers/serafini-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Serafini_1936.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "serra": {
+   "avatar": "/img/drivers/serra-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Chico_Serra_2007_Mil_Milhas_Brasil.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "shelby": {
+   "avatar": "/img/drivers/shelby-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:CarrollShelbyVIR2007.jpg",
+    "author": "Sherry Lambert Stapleton from No.. I live in Halifax VA., US",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "siffert": {
+   "avatar": "/img/drivers/siffert-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Siffert,_Joseph_1968.jpg",
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de"
+   },
+   "source": "mockup"
+  },
+  "sirotkin": {
+   "avatar": "/img/drivers/sirotkin-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Sergey_Sirotkin_Moscow.jpg",
+    "author": "A.Savin",
+    "license": "FAL"
+   },
+   "source": "mockup"
+  },
+  "sommer": {
+   "avatar": "/img/drivers/sommer-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Raymond_Sommer_1932.jpg",
+    "author": "Agence de presse Meurisse",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "speed": {
+   "avatar": "/img/drivers/speed-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Scott_Speed_at_the_2025_Adelaide_Grand_Final_-_04.jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "spence": {
+   "avatar": "/img/drivers/spence-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Mike_Spence_(cropped).jpg",
+    "author": "Dainofly",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "stacey": {
+   "avatar": "/img/drivers/stacey-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Alan_Stacey_1960.jpg",
+    "author": "UnknownUnknown",
+    "license": "CC BY-SA 3.0 de"
+   },
+   "source": "mockup"
+  },
+  "stevens": {
+   "avatar": "/img/drivers/stevens-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Will_Stevens_2017.jpg",
+    "author": "ThumperGT",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "stevenson": {
+   "avatar": "/img/drivers/stevenson-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Chuck_Stevenson_1952cr.jpg",
+    "author": "Associated Press",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "stewart": {
+   "avatar": "/img/drivers/stewart-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jackie_Stewart_at_the_2014_WEC_Silverstone_round.jpg",
+    "author": "David Merrett from Daventry, England",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "stommelen": {
+   "avatar": "/img/drivers/stommelen-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Stommelen,_Rolf_am_1972-07-07.jpg",
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de"
+   },
+   "source": "mockup"
+  },
+  "streiff": {
+   "avatar": "/img/drivers/streiff-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Festival_automobile_international_2014_-_Photocall_-_019.jpg",
+    "author": "Thesupermat",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "stuck": {
+   "avatar": "/img/drivers/stuck-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:HansJoachimStuck2008.jpg",
+    "author": "Freewheeling Daredevil",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "sullivan": {
+   "avatar": "/img/drivers/sullivan-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:DannySullivanAt2015indy500.JPG",
+    "author": "Doctorindy",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "surer": {
+   "avatar": "/img/drivers/surer-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Marc_Surer_1982.jpg",
+    "author": "Hans van Dijk for Anefo , NL-HaNA, ANEFO / neg. stroken, 194",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "surtees": {
+   "avatar": "/img/drivers/surtees-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:John_Surtees.JPG",
+    "author": "Unknown",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "sutil": {
+   "avatar": "/img/drivers/sutil-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Adrian_Sutil.jpg",
+    "author": "Nic Redhead",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "suzuki": {
+   "avatar": "/img/drivers/suzuki-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Suzuki_Sepang_25.png",
+    "author": "Thfeeder",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "swaters": {
+   "avatar": "/img/drivers/swaters-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jacques_Swaters_1980.jpg",
+    "author": "Unknown photographer",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "takagi": {
+   "avatar": "/img/drivers/takagi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Toranosuke_Takagi_2008_Super_GT.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "takahashi": {
+   "avatar": "/img/drivers/takahashi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Kunimitsu_Takahashi_1963.jpg",
+    "author": "Jack de Nijs for Anefo",
+    "license": "CC BY-SA 3.0 nl"
+   },
+   "source": "mockup"
+  },
+  "tambay": {
+   "avatar": "/img/drivers/tambay-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Zandvoort_circuit_De_striptekenaar_Graton_in_de_pits,_NL-HlmNHA_54005237_-_Patrick_Tambay_(cropped).JPG",
+    "author": "Original: Boer, Cees de (1918-1985) Derivative work: Danyele",
+    "license": "CC0"
+   },
+   "source": "mockup"
+  },
+  "tarquini": {
+   "avatar": "/img/drivers/tarquini-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Gabriele_tarquini_spafrancorchamps2014.JPG",
+    "author": "Robk23oxf",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "taruffi": {
+   "avatar": "/img/drivers/taruffi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Piero_Taruffi.jpg",
+    "author": "Indeciso42 at the Italian Wikipedia project.",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "taylor": {
+   "avatar": "/img/drivers/taylor-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:John_Taylor_1966.jpg",
+    "author": "Raimund Kommer",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "teague": {
+   "avatar": "/img/drivers/teague-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Marshall_Teague_USAC_circa_1957.jpg",
+    "author": "Trenton International Speedway",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "tolan": {
+   "avatar": "/img/drivers/tolan-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Johnnie_Tolan_1950_(cropped).jpg",
+    "author": "Unknown",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "tomaso": {
+   "avatar": "/img/drivers/tomaso-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Alejandro_detomaso.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "trintignant": {
+   "avatar": "/img/drivers/trintignant-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Maurice_Trintignant_-_El_Gr%C3%A1fico_1801.jpg",
+    "author": "El Gráfico",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "trips": {
+   "avatar": "/img/drivers/trips-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Wolfgang_von_Trips_in_1957.JPG",
+    "author": "Spin2Win at English Wikipedia",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "trulli": {
+   "avatar": "/img/drivers/trulli-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:12._Internationale_Sportnacht_Davos_2014_(15246044859)_(cropped).jpg",
+    "author": "12. Internationale Sportnacht Davos from Davos, Schweiz",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "tsunoda": {
+   "avatar": "/img/drivers/tsunoda-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Yuki_Tsunoda_at_the_Melbourne_Walk_during_the_2026_Australian_Grand_Prix_(028A8096).jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "tuero": {
+   "avatar": "/img/drivers/tuero-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Esteban_Tuero_2017_(cropped).jpg",
+    "author": "Agustinvivo",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "unser": {
+   "avatar": "/img/drivers/unser-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Bobby_Unser_-_2015_Indianapolis_500_-_Sarah_Stierch.jpg",
+    "author": "SarahStierch",
+    "license": "CC BY 4.0"
+   },
+   "source": "mockup"
+  },
+  "vaccarella": {
+   "avatar": "/img/drivers/vaccarella-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Vaccarella,_Nino_1972-07-07.jpg",
+    "author": "Spurzem, Fotograf: Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de"
+   },
+   "source": "mockup"
+  },
+  "vandoorne": {
+   "avatar": "/img/drivers/vandoorne-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:2023-04-23_Motorsport,_ABB_FIA_Formula_E_World_Championship,_Berlin_E-Prix_2023_1DX_1774_by_Stepro_(cropped).jpg",
+    "author": "Steffen Prößdorf",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "vergne": {
+   "avatar": "/img/drivers/vergne-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jean-Eric_Vergne_2024_WEC_Fuji.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "verstappen": {
+   "avatar": "/img/drivers/verstappen-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jos_Verstappen,_2006.jpg",
+    "author": "Chris Bloom",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "vettel": {
+   "avatar": "/img/drivers/vettel-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_at_the_2026_Italian_Grand_Prix_(cropped).jpg",
+    "author": "Andrea Diodato",
+    "license": "CC BY 4.0"
+   },
+   "source": "mockup"
+  },
+  "villeneuve": {
+   "avatar": "/img/drivers/villeneuve-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jacques_Villeneuve_at_Mont-Tremblant_2010_01.jpg",
+    "author": "Legends Of Motorsports",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "villoresi": {
+   "avatar": "/img/drivers/villoresi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Luis_Villoresi_-_El_Gr%C3%A1fico_1442.jpg",
+    "author": "El Gráfico",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "villota": {
+   "avatar": "/img/drivers/villota-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Emilio_de_Villota_(cropped).jpg",
+    "author": "Algafu",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "vukovich": {
+   "avatar": "/img/drivers/vukovich-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Bill_Vukovich_1951.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "walter": {
+   "avatar": "/img/drivers/walter-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Schauinsland_Heini_Walter,_Genf_(Schweiz);_Porsche;_Portrait_-_W134Nr.073227_-_Willy_Pragher_(cropped).jpg",
+    "author": "Willy Pragher",
+    "license": "CC BY 3.0 de"
+   },
+   "source": "mockup"
+  },
+  "ward": {
+   "avatar": "/img/drivers/ward-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Rodger_Ward_1950.jpg",
+    "author": "Unknown",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "warwick": {
+   "avatar": "/img/drivers/warwick-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Derek_Warwick_Silverstone_2014.JPG",
+    "author": "Officially_Mr_X (talk) (Uploads)",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "watson": {
+   "avatar": "/img/drivers/watson-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:John_Watson_(2346102684).jpg",
+    "author": "Chris Bloom from Durban, South Africa",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "webber": {
+   "avatar": "/img/drivers/webber-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Mark_Webber_at_the_Melbourne_Walk_during_the_2026_Australian_Grand_Prix_(028A8720).jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "wehrlein": {
+   "avatar": "/img/drivers/wehrlein-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:2024-05-10_Motorsport,_ABB_FIA_Formula_E_World_Championship,_Berlin_E-Prix_2024_STP_2554_by_Stepro.jpg",
+    "author": "Steffen Prößdorf",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "wendlinger": {
+   "avatar": "/img/drivers/wendlinger-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:GTS_class_winners_(10th_overall)_-_Karl_Wendlinger_-_Chrysler_Viper_GTS-R_-_on_the_podium_at_the_1999_Le_Mans_(51897678180)_(cropped).jpg",
+    "author": "Original: Martin Lee from London, UK / Derivative work: Dany",
+    "license": "CC BY-SA 2.0"
+   },
+   "source": "mockup"
+  },
+  "whitehead": {
+   "avatar": "/img/drivers/whitehead-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Peter_Whitehead%2C_winner_Grand_Prix_Czechoslovakia_%28Brno_1949%29.jpg",
+    "author": "neznámý (unknown)",
+    "license": "Public domain"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "widdows": {
+   "avatar": "/img/drivers/widdows-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Robin_Widdows_1970_N%C3%BCrburgring.JPG",
+    "author": "Raimund Kommer",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "wilds": {
+   "avatar": "/img/drivers/wilds-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Racing_driver_Mike_Wilds.jpg",
+    "author": "Chris Valentine",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "wikidata-p18",
+   "checked": true,
+   "note": "переглянуто 12.11: портрет (обличчя)"
+  },
+  "williams": {
+   "avatar": "/img/drivers/williams-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Jonathan_Williams_1966.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "wilson": {
+   "avatar": "/img/drivers/wilson-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Justin_Wilson_2013.jpg",
+    "author": "User:Wolkenjaeger",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  },
+  "wilson_fittipaldi": {
+   "avatar": "/img/drivers/wilson_fittipaldi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Wilson_Fittipaldi_J%C3%BAnior_2017.jpg",
+    "author": "TV Unicamp",
+    "license": "CC BY 3.0"
+   },
+   "source": "mockup"
+  },
+  "wisell": {
+   "avatar": "/img/drivers/wisell-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Reine_Wisell_1970_N%C3%BCrburgring.JPG",
+    "author": "Raimund Kommer",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "wunderink": {
+   "avatar": "/img/drivers/wunderink-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Roelof_Wunderink_(1972).jpg",
+    "author": "Rob Croes for Anefo",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "wurz": {
+   "avatar": "/img/drivers/wurz-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Alexander_Wurz_-_2016_24_Hours_of_Le_Mans_-_Pit_Walk_(cropped).jpg",
+    "author": "David Merrett",
+    "license": "CC BY 2.0"
+   },
+   "source": "mockup"
+  },
+  "yamamoto": {
+   "avatar": "/img/drivers/yamamoto-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Sakon_Yamamoto_20220818.jpg",
+    "author": "文部科学省",
+    "license": "CC BY 4.0"
+   },
+   "source": "mockup"
+  },
+  "yoong": {
+   "avatar": "/img/drivers/yoong-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:AlexYoong_0028_(cropped).jpg",
+    "author": "photo taken by Jeff Ooi.",
+    "license": "CC BY 2.5"
+   },
+   "source": "mockup"
+  },
+  "zanardi": {
+   "avatar": "/img/drivers/zanardi-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Alex_Zanardi_(cropped).JPG",
+    "author": "Brunhild Media",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "zhou": {
+   "avatar": "/img/drivers/zhou-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Zhou_Guanyu_at_the_Melbourne_Walk_during_the_2026_Australian_Grand_Prix_(028A7999).jpg",
+    "author": "Yu Chu Chin",
+    "license": "CC BY-SA 4.0"
+   },
+   "source": "mockup"
+  },
+  "zonta": {
+   "avatar": "/img/drivers/zonta-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:Ricardo_Zonta_2007_Curitiba.jpg",
+    "author": "Morio",
+    "license": "CC BY-SA 3.0"
+   },
+   "source": "mockup"
+  },
+  "zunino": {
+   "avatar": "/img/drivers/zunino-96.webp",
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:1980_Argentine_Grand_Prix_Zunino.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   },
+   "source": "mockup"
+  }
+ },
+ "rejected": [
+  "abecassis",
+  "adams",
+  "agabashian",
+  "allison",
+  "andersson",
+  "andre_pilette",
+  "ashdown",
+  "ball",
+  "barbazza",
+  "baumgartner",
+  "beaufort",
+  "bechem",
+  "belso",
+  "beuttler",
+  "binder",
+  "brack",
+  "brudes",
+  "bryan",
+  "bucknum",
+  "chiesa",
+  "collins",
+  "corrado_fabi",
+  "donohue",
+  "estefano",
+  "evans",
+  "fabi",
+  "fairman",
+  "fischer",
+  "gamble",
+  "gartner",
+  "gavin",
+  "gilles_villeneuve",
+  "gregory",
+  "guy_mairesse",
+  "hasemi",
+  "hawthorn",
+  "inoue",
+  "jo_schlesser",
+  "kelly",
+  "kessel",
+  "klodwig",
+  "koinigg",
+  "landi",
+  "larrauri",
+  "lavaggi",
+  "leclere",
+  "legat",
+  "lof",
+  "love",
+  "loyer",
+  "lunger",
+  "maggs",
+  "manfred_winkelhock",
+  "migault",
+  "modena",
+  "munaron",
+  "nannini",
+  "naspetti",
+  "opel",
+  "perdisa",
+  "pietsch",
+  "pirocchi",
+  "purley",
+  "raphanel",
+  "rathmann",
+  "rees",
+  "rhodes",
+  "ricardo_rodriguez",
+  "riess",
+  "rol",
+  "rosier",
+  "sachs",
+  "schiattarella",
+  "schiller",
+  "schuppan",
+  "seidel",
+  "serrurier",
+  "sharp",
+  "solana",
+  "sparken",
+  "starrabba",
+  "stohr",
+  "thackwell",
+  "thiele",
+  "tingle",
+  "toshio_suzuki",
+  "walker",
+  "wallard",
+  "wharton",
+  "williamson",
+  "zorzi"
+ ]
+}
