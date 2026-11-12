@@ -93,7 +93,7 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     # ---------- Task 3: похідні дані команд ----------
     idx = index(conn)
     curated = json.loads((REPO / "src/data/curated/teams.json").read_text(encoding="utf-8"))["teams"]
-    check("165 команд у f1.team_index (усі кураторські)", len(idx) == 165 and set(idx) == {t["id"] for t in curated},
+    check("166 команд у f1.team_index (усі кураторські)", len(idx) == 166 and set(idx) == {t["id"] for t in curated},
           sorted(set(t["id"] for t in curated) ^ set(idx)))
 
     reference = {  # фаза 3a, docs/audits/phase3a-data.md
@@ -113,11 +113,11 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     check("Lotus окремо від Lotus Racing: роки Lotus 1958–1994", lotus["seasons"] == [[1958, 1994]], lotus["seasons"])
     check("Lotus Racing: 2010–2011, без перемог", racing["seasons"] == [[2010, 2011]] and racing["w"] == 0, racing)
 
-    # Паритет зі знімком фази 3a (для всіх, крім розділеного Lotus).
+    # Паритет зі знімком фази 3a (для всіх, крім розділених Lotus і ATS).
     snap = {t["id"]: t for t in json.loads((REPO / "src/data/snapshot/teams.json").read_text(encoding="utf-8"))["teams"]}
     diffs = []
     for team_id, s in snap.items():
-        if team_id == "lotus":
+        if team_id in ("lotus", "ats"):
             continue
         d = idx[team_id]
         exp = {
@@ -128,9 +128,17 @@ with psycopg.connect(DSN, autocommit=True) as conn:
         got = {k: d[k] for k in exp}
         if got != exp:
             diffs.append((team_id, {k: (exp[k], got[k]) for k in exp if exp[k] != got[k]}))
-    check(f"паритет зі знімком 3a: {len(snap) - 1} команд", not diffs, diffs[:10])
+    check(f"паритет зі знімком 3a: {len(snap) - 2} команд", not diffs, diffs[:10])
     check("Lotus: перемоги й Кубки як у знімку (Lotus Racing не перемагала)", (lotus["w"], lotus["t"]) == (snap["lotus"]["wins"], snap["lotus"]["titles"]))
     check("Lotus + Lotus Racing = Гран-прі знімка", lotus["gp"] + racing["gp"] == snap["lotus"]["grandsPrix"], (lotus["gp"], racing["gp"]))
+    # ATS (рішення користувача 12.11): 1963 — італійська A.T.S., 1978–84 — німецька; разом = знімок 3a.
+    ats, ats_it = idx["ats"], idx["ats-italy"]
+    check("ATS розділено: італійська 1963, німецька 1978–1984", ats_it["seasons"] == [[1963, 1963]] and ats["seasons"] == [[1978, 1984]],
+          (ats_it["seasons"], ats["seasons"]))
+    check("ATS + A.T.S. = Гран-прі знімка", ats["gp"] + ats_it["gp"] == snap["ats"]["grandsPrix"], (ats["gp"], ats_it["gp"]))
+    larr = conn.execute("select position, excluded from f1.team_seasons where id = 'larrousse' and year = 1990").fetchone()
+    excl = any(e["year"] == 1990 for t in curated if t["id"] == "larrousse" for e in t.get("exclusions", []))
+    check("виправлення джерела: Larrousse 1990 виключена, якщо є в curated exclusions", (larr == (None, True)) == excl, (larr, excl))
 
     # Сезон у процесі, титул не вирішено: без двох останніх гонок 2026 Mercedes має 8 Кубків.
     with conn.transaction():

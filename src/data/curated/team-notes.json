@@ -3,6 +3,25 @@
  "notes": {
   "alfa-romeo": [
    {
+    "year": 1963,
+    "text": {
+     "uk": "Гонки 1963 і 1965 років (Гран-прі ПАР) — це Alfa Special, приватна машина південноафриканського гонщика Пітера де Клерка з двигуном Alfa Romeo, а не заводська команда.",
+     "en": "The 1963 and 1965 races (South African Grand Prix) were the Alfa Special, a private car built by South African driver Peter de Klerk around an Alfa Romeo engine, not the works team."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_in_Formula_One",
+      "title": ""
+     },
+     {
+      "url": "https://www.formulaonehistory.com/teams/alfa-special/",
+      "title": ""
+     }
+    ],
+    "checked": false,
+    "decision": "користувач 12.11: разом + пояснення"
+   },
+   {
     "year": 1979,
     "text": {
      "uk": "Після сезону 1951 заводська команда Alfa Romeo пішла з Гран-прі, не ставши будувати нову машину. Як конструктор вона повернулася 1979 року через свій гоночний підрозділ Autodelta і знову пішла після сезону 1985.",
@@ -23,6 +42,25 @@
      }
     ],
     "checked": false
+   },
+   {
+    "year": 2019,
+    "text": {
+     "uk": "У 2019–2023 роках під назвою Alfa Romeo виступала команда Sauber за спонсорською угодою: власник і керівництво лишалися ті самі, що й у Sauber.",
+     "en": "From 2019 to 2023 the Sauber team raced under the Alfa Romeo name through a sponsorship deal; ownership and management stayed with Sauber."
+    },
+    "sources": [
+     {
+      "url": "https://www.autosport.com/f1/news/141278/sauber-f1-team-renamed-alfa-romeo-racing",
+      "title": ""
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_in_Formula_One",
+      "title": ""
+     }
+    ],
+    "checked": false,
+    "decision": "користувач 12.11: разом + пояснення"
    }
   ],
   "alpine": [
@@ -84,6 +122,25 @@
    }
   ],
   "aston-martin": [
+   {
+    "year": 1960,
+    "text": {
+     "uk": "Заводська команда Aston Martin провела п'ять гонок у 1959–1960 роках і 1960-го пішла з Формули-1. Нинішня Aston Martin (з 2021 року) — колишня Racing Point; з командою 1950-х її пов'язує лише марка.",
+     "en": "The Aston Martin works team started five races in 1959–60 and left Formula One in 1960. Today's Aston Martin (since 2021) is the former Racing Point; it shares only the brand with the 1950s team."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Aston_Martin_in_Formula_One",
+      "title": ""
+     },
+     {
+      "url": "https://www.formula1.com/en/latest/article/racing-point-set-to-become-aston-martin-racing-for-2021.2YwShWhMbZr2NK1M4Q1nMn",
+      "title": ""
+     }
+    ],
+    "checked": false,
+    "decision": "користувач 12.11: разом + пояснення"
+   },
    {
     "year": 2021,
     "text": {
@@ -327,9 +384,66 @@
      }
     ],
     "checked": false
+   },
+   {
+    "year": 1985,
+    "text": {
+     "uk": "Машини Lola 1985–1986 років виставляла команда американця Карла Хааса, імпортера Lola в США; збудувала їх компанія FORCE.",
+     "en": "The 1985–86 Lola cars were entered by the team of Carl Haas, Lola's US importer; they were built by FORCE."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Lola_Cars",
+      "title": ""
+     },
+     {
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/first-haas-f1-team",
+      "title": ""
+     }
+    ],
+    "checked": false,
+    "decision": "користувач 12.11: разом + пояснення"
+   },
+   {
+    "year": 1991,
+    "text": {
+     "uk": "Сезон 1991 року тут — машини команди Larrousse на шасі Lola, які в заліку того року здебільшого записані під конструктором Lola.",
+     "en": "The 1991 season here is the Larrousse team's Lola-chassis cars, which that year were mostly classified under the Lola constructor name."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Larrousse",
+      "title": ""
+     },
+     {
+      "url": "https://api.jolpi.ca/ergast/f1/1991/constructors/lola/results.json",
+      "title": ""
+     }
+    ],
+    "checked": false,
+    "decision": "користувач 12.11: разом + пояснення"
    }
   ],
   "march": [
+   {
+    "year": 1981,
+    "text": {
+     "uk": "Наприкінці 1977 року March продала своє майно у Формулі-1. Машини March 1981–1982 років збудували для команди RAM Racing, і цей проєкт вели окремо від March Engineering.",
+     "en": "March sold its Formula One assets at the end of 1977. The 1981–82 March cars were built for the RAM Racing team, a project run separately from March Engineering."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/March_Engineering",
+      "title": ""
+     },
+     {
+      "url": "https://www.oldracingcars.com/march/811/",
+      "title": ""
+     }
+    ],
+    "checked": false,
+    "decision": "користувач 12.11: разом + пояснення"
+   },
    {
     "year": 1987,
     "text": {
@@ -676,6 +790,29 @@
    }
   ],
   "williams": [
+   {
+    "year": 1975,
+    "text": {
+     "uk": "Сезони 1975–1976 — машини Williams попередньої компанії Френка Вільямса, Frank Williams Racing Cars, яку 1976 року перебрав Вальтер Вольф. Нинішню Williams Grand Prix Engineering Вільямс заснував разом із Патріком Гедом 1977 року.",
+     "en": "The 1975–76 seasons are Williams cars of Frank Williams' earlier company, Frank Williams Racing Cars, which Walter Wolf took over in 1976. Frank Williams founded today's Williams Grand Prix Engineering with Patrick Head in 1977."
+    },
+    "sources": [
+     {
+      "url": "https://www.formula1.com/en/latest/article/f1-williams-40-anniversary-facts-stats-video-moments.4gCUxY8VnOgkAGqe8A8646",
+      "title": ""
+     },
+     {
+      "url": "https://www.formulaonehistory.com/teams/frank-williams-racing-cars/",
+      "title": ""
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Frank_Williams_Racing_Cars",
+      "title": ""
+     }
+    ],
+    "checked": false,
+    "decision": "користувач 12.11: разом + пояснення"
+   },
    {
     "year": 1978,
     "text": {

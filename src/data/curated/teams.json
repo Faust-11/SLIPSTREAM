@@ -1747,12 +1747,12 @@
   {
    "id": "ats",
    "name": "ATS",
-   "fullName": "ATS",
+   "fullName": "ATS (Auto Technisches Spezialzubehör)",
    "aliases": [],
-   "countryCode": "ITA",
+   "countryCode": "DEU",
    "country": {
-    "en": "Italy",
-    "uk": "Італія"
+    "en": "Germany",
+    "uk": "Німеччина"
    },
    "refs": [
     "ats"
@@ -1774,7 +1774,37 @@
     "srcSet": "/img/cars/ats-hero-1280.webp 531w, /img/cars/ats-hero-800.webp 531w, /img/cars/ats-hero-480.webp 480w",
     "width": 531,
     "height": 375
+   },
+   "refYears": {
+    "ats": [
+     1970,
+     9999
+    ]
    }
+  },
+  {
+   "id": "ats-italy",
+   "name": "A.T.S.",
+   "fullName": "Automobili Turismo e Sport",
+   "aliases": [
+    "АТС"
+   ],
+   "countryCode": "ITA",
+   "country": {
+    "en": "Italy",
+    "uk": "Італія"
+   },
+   "refs": [
+    "ats"
+   ],
+   "refYears": {
+    "ats": [
+     0,
+     1969
+    ]
+   },
+   "color": null,
+   "photo": null
   },
   {
    "id": "footwork",

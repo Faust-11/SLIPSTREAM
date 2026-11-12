@@ -63,6 +63,10 @@ export type CuratedTeam = {
   country: L10n;
   /** Конструктори Jolpica цієї команди (f1.team_families). */
   refs: string[];
+  /** Роки, коли ref належить цій команді (типово — усі): ATS 1963 і 1978–84 — різні команди. */
+  refYears?: Record<string, [number, number]>;
+  /** Виправлення джерела: сезони, де команду виключено з Кубка конструкторів, а Jolpica цього не має. */
+  exclusions?: { year: number; sources: { url: string; quote?: string }[] }[];
   /** Колір команди поточного сезону (смуга під фото); null — команда не виступає. */
   color: string | null;
   photo: TeamSnapshot["photo"];
