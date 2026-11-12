@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { expectNoA11yViolations } from "./axe";
+import { NEXT_CHUNKS } from "./next-chunks";
 
 const SECTIONS = ["/seasons", "/calendar", "/news", "/drivers", "/teams", "/circuits", "/stories", "/newbie", "/game"];
 
@@ -208,8 +209,7 @@ test.describe("мобільне меню", () => {
   });
 
   test("до гідратації (бандл не завантажився) — замість бургера посилання на розділи", async ({ page }) => {
-    // ** — і з query (на Vercel до чанків додається ?dpl=…).
-    await page.route(/\/_next\/static\/chunks\/.+\.js(\?.*)?$/, (route) => route.abort());
+    await page.route(NEXT_CHUNKS, (route) => route.abort());
     await page.goto("/uk");
     await expect(page.locator(".mnav-btn")).toBeHidden();
     const fallback = page.getByRole("link", { name: "Меню", exact: true });
