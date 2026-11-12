@@ -4,10 +4,10 @@
 --   * одна гонка пілота — один рядок (v_driver_round): у 1950-х пілот міг їхати двома машинами в одній гонці —
 --     береться краща класифікація; команда, номер і місце на старті — з того самого (кращого) результату;
 --   * очки за кар'єру — сума підсумкових очок чемпіонатів (зараховані, як у таблиці сезонів);
---   * найшвидші кола — дані Jolpica лише з 2004 року (замір API 12.11): fastest_laps_known = уся кар'єра пілота
---     не раніше першого сезону з такими даними; інакше число неповне й на сайті не показується;
+--   * найшвидші кола — повні дані Jolpica лише з 2004 року (замір API і дампу 12.11): fastest_laps_known = уся
+--     кар'єра пілота не раніше першого сезону з повними даними; інакше число неповне й на сайті не показується;
 --   * напарники — пілоти тієї самої команди (родини), з якими обидва стартували в одній гонці; «попереду» —
---     вище в протоколі гонки (як у f1.team_pairing); кваліфікація — найдальша частина (Q3 > Q2 > Q1), далі місце;
+--     вище в протоколі гонки (як у f1.team_pairing); кваліфікація — з 1994 року (дані Jolpica), див. quali нижче;
 --     у подання потрапляють пари від 5 спільних гонок (рішення користувача 12.11).
 -- Службові подання v_* — не публічні (0004: select лише явно), публічні — матеріалізовані нижче.
 
@@ -100,7 +100,14 @@ grant select on f1.driver_wins to anon, authenticated;
 drop materialized view if exists f1.driver_totals;
 create materialized view f1.driver_totals as
 with dr as (select * from f1.v_driver_round),
-fl_from as (select min(season_year) as year from dr where fastest_lap),
+-- Перший сезон, з якого найшвидші кола є майже в кожній гонці (≥ 90 %): у дампі є поодинокі записи з 1958 року,
+-- повні — з 2004 (замір db.yml 12.11: Шумахер 21 замість 77, Сенна 0 замість 19).
+fl_season as (
+  select season_year, count(*) filter (where fl)::numeric / count(*) as share
+  from (select season_year, round_id, bool_or(fastest_lap) as fl from dr group by season_year, round_id) x
+  group by season_year
+),
+fl_from as (select coalesce(max(season_year) + 1, 0) as year from fl_season where share < 0.9),
 agg as (
   select driver_id, count(*) filter (where fastest_lap) as fastest_laps, min(season_year) as y0
   from dr group by driver_id
@@ -152,14 +159,16 @@ drop materialized view if exists f1.driver_teammates;
 create materialized view f1.driver_teammates as
 with dr as (select * from f1.v_driver_round),
 quali as (
+  -- Підсумок кваліфікації етапу: з 2006 — найдальша частина (Q3 > Q2 > Q1) і місце в ній; 1994–2005 — єдина
+  -- класифікація (QA — за сумою двох спроб, 2005; QB — за найкращим часом). До 1994 даних немає.
   select distinct on (ro.id, r.driver_id) ro.id as round_id, r.driver_id, tf.family_id,
-         substr(s.type, 2)::int as part, r.position
+         case s.type when 'Q3' then 3 when 'Q2' then 2 when 'Q1' then 1 else 0 end as part, r.position
   from f1.results r
-  join f1.sessions s on s.id = r.session_id and s.type in ('Q1', 'Q2', 'Q3') and not s.is_cancelled
+  join f1.sessions s on s.id = r.session_id and s.type in ('Q1', 'Q2', 'Q3', 'QA', 'QB') and not s.is_cancelled
   join f1.rounds ro on ro.id = s.round_id
   join f1.teams t on t.id = r.team_id
   join f1.team_families tf on tf.ref = t.ref and ro.season_year between tf.from_year and tf.to_year
-  order by ro.id, r.driver_id, s.type desc
+  order by ro.id, r.driver_id, case s.type when 'Q3' then 5 when 'Q2' then 4 when 'Q1' then 3 when 'QA' then 2 else 1 end desc
 ),
 pairs as (
   select a.driver_id, b.driver_id as mate_id, a.family_id, a.season_year,
