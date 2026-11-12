@@ -347,6 +347,8 @@
     "prev": "Previous page",
     "next": "Next page",
     "page": "Page {n}",
-    "credits": "Driver portraits: authors and licences"
+    "credits": "Driver portraits: authors and licences",
+    "allList": "All drivers as a list",
+    "allListNote": "Wins / starts, by wins"
   }
 }
