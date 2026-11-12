@@ -380,7 +380,8 @@ export default async function DriverPageView(props: Props) {
                 )}
               </div>
             )}
-            <div className="tscroll ds-table" role="region" aria-label={t.seasons.title} tabIndex={0}>
+            {/* Назва області — наявний заголовок розділу (а не копія рядка): настанова «Responsive tables». */}
+            <div className="tscroll ds-table" role="region" aria-labelledby="s-seasons" tabIndex={0}>
               <table>
                 <thead>
                   <tr>
