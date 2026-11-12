@@ -241,3 +241,27 @@ export type DriverTeammateRow = {
   quali_ahead: number;
   quali_behind: number;
 };
+
+/* ---------- Список сезонів (фаза 3e, подання 0010) ---------- */
+
+export type SeasonIndexRow = {
+  year: number;
+  /** Гонок з результатами. */
+  races: number;
+  /** Етапів у календарі (без скасованих). */
+  rounds: number;
+  in_progress: boolean;
+  /** Чемпіон, а в поточному сезоні — лідер заліку; null — заліку ще немає. */
+  driver: string | null;
+  forename: string | null;
+  surname: string | null;
+  points: number | null;
+  /** Титул математично вирішено. */
+  driver_decided: boolean;
+  /** Команди чемпіона в сезоні, від більшої кількості гонок. */
+  teams: { id: string; races: number }[];
+  wins: number;
+  /** Володар (лідер) Кубка конструкторів; null — до 1958. */
+  cup_team: string | null;
+  cup_decided: boolean;
+};

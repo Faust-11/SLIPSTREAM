@@ -4,6 +4,7 @@ import driverSeasons from "../../../../e2e/fixtures/db/driver_seasons.json";
 import driverTeammates from "../../../../e2e/fixtures/db/driver_teammates.json";
 import driverTotals from "../../../../e2e/fixtures/db/driver_totals.json";
 import driverWins from "../../../../e2e/fixtures/db/driver_wins.json";
+import seasonIndex from "../../../../e2e/fixtures/db/season_index.json";
 import siteMeta from "../../../../e2e/fixtures/db/site_meta.json";
 import teamChampions from "../../../../e2e/fixtures/db/team_champions.json";
 import teamIndex from "../../../../e2e/fixtures/db/team_index.json";
@@ -22,6 +23,7 @@ const FIXTURES: Record<string, unknown[]> = {
   team_champions: teamChampions,
   team_pairing: teamPairing,
   driver_index: driverIndex,
+  season_index: seasonIndex,
   driver_totals: driverTotals,
   driver_seasons: driverSeasons,
   driver_wins: driverWins,

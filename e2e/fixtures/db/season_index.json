@@ -1,0 +1,1546 @@
+[
+ {
+  "year": 1950,
+  "races": 7,
+  "rounds": 7,
+  "in_progress": false,
+  "driver": "farina",
+  "forename": "Nino",
+  "surname": "Farina",
+  "points": 30.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "alfa-romeo",
+    "races": 6
+   }
+  ],
+  "wins": 3,
+  "cup_team": null,
+  "cup_decided": false
+ },
+ {
+  "year": 1951,
+  "races": 8,
+  "rounds": 8,
+  "in_progress": false,
+  "driver": "fangio",
+  "forename": "Juan",
+  "surname": "Fangio",
+  "points": 31.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "alfa-romeo",
+    "races": 7
+   }
+  ],
+  "wins": 3,
+  "cup_team": null,
+  "cup_decided": false
+ },
+ {
+  "year": 1952,
+  "races": 8,
+  "rounds": 8,
+  "in_progress": false,
+  "driver": "ascari",
+  "forename": "Alberto",
+  "surname": "Ascari",
+  "points": 36.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "ferrari",
+    "races": 7
+   }
+  ],
+  "wins": 6,
+  "cup_team": null,
+  "cup_decided": false
+ },
+ {
+  "year": 1953,
+  "races": 9,
+  "rounds": 9,
+  "in_progress": false,
+  "driver": "ascari",
+  "forename": "Alberto",
+  "surname": "Ascari",
+  "points": 34.5,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "ferrari",
+    "races": 8
+   }
+  ],
+  "wins": 5,
+  "cup_team": null,
+  "cup_decided": false
+ },
+ {
+  "year": 1954,
+  "races": 9,
+  "rounds": 9,
+  "in_progress": false,
+  "driver": "fangio",
+  "forename": "Juan",
+  "surname": "Fangio",
+  "points": 42.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mercedes",
+    "races": 6
+   },
+   {
+    "id": "maserati",
+    "races": 2
+   }
+  ],
+  "wins": 6,
+  "cup_team": null,
+  "cup_decided": false
+ },
+ {
+  "year": 1955,
+  "races": 7,
+  "rounds": 7,
+  "in_progress": false,
+  "driver": "fangio",
+  "forename": "Juan",
+  "surname": "Fangio",
+  "points": 40.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mercedes",
+    "races": 6
+   }
+  ],
+  "wins": 4,
+  "cup_team": null,
+  "cup_decided": false
+ },
+ {
+  "year": 1956,
+  "races": 8,
+  "rounds": 8,
+  "in_progress": false,
+  "driver": "fangio",
+  "forename": "Juan",
+  "surname": "Fangio",
+  "points": 30.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "ferrari",
+    "races": 7
+   }
+  ],
+  "wins": 3,
+  "cup_team": null,
+  "cup_decided": false
+ },
+ {
+  "year": 1957,
+  "races": 8,
+  "rounds": 8,
+  "in_progress": false,
+  "driver": "fangio",
+  "forename": "Juan",
+  "surname": "Fangio",
+  "points": 40.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "maserati",
+    "races": 7
+   }
+  ],
+  "wins": 4,
+  "cup_team": null,
+  "cup_decided": false
+ },
+ {
+  "year": 1958,
+  "races": 11,
+  "rounds": 11,
+  "in_progress": false,
+  "driver": "hawthorn",
+  "forename": "Mike",
+  "surname": "Hawthorn",
+  "points": 42.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "ferrari",
+    "races": 10
+   }
+  ],
+  "wins": 1,
+  "cup_team": "vanwall",
+  "cup_decided": true
+ },
+ {
+  "year": 1959,
+  "races": 9,
+  "rounds": 9,
+  "in_progress": false,
+  "driver": "jack_brabham",
+  "forename": "Jack",
+  "surname": "Brabham",
+  "points": 31.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "cooper",
+    "races": 8
+   }
+  ],
+  "wins": 2,
+  "cup_team": "cooper",
+  "cup_decided": true
+ },
+ {
+  "year": 1960,
+  "races": 10,
+  "rounds": 10,
+  "in_progress": false,
+  "driver": "jack_brabham",
+  "forename": "Jack",
+  "surname": "Brabham",
+  "points": 43.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "cooper",
+    "races": 8
+   }
+  ],
+  "wins": 5,
+  "cup_team": "cooper",
+  "cup_decided": true
+ },
+ {
+  "year": 1961,
+  "races": 8,
+  "rounds": 8,
+  "in_progress": false,
+  "driver": "phil_hill",
+  "forename": "Phil",
+  "surname": "Hill",
+  "points": 34.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "ferrari",
+    "races": 7
+   }
+  ],
+  "wins": 2,
+  "cup_team": "ferrari",
+  "cup_decided": true
+ },
+ {
+  "year": 1962,
+  "races": 9,
+  "rounds": 9,
+  "in_progress": false,
+  "driver": "hill",
+  "forename": "Graham",
+  "surname": "Hill",
+  "points": 42.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "brm",
+    "races": 9
+   }
+  ],
+  "wins": 4,
+  "cup_team": "brm",
+  "cup_decided": true
+ },
+ {
+  "year": 1963,
+  "races": 10,
+  "rounds": 10,
+  "in_progress": false,
+  "driver": "clark",
+  "forename": "Jim",
+  "surname": "Clark",
+  "points": 54.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "lotus",
+    "races": 10
+   }
+  ],
+  "wins": 7,
+  "cup_team": "lotus",
+  "cup_decided": true
+ },
+ {
+  "year": 1964,
+  "races": 10,
+  "rounds": 10,
+  "in_progress": false,
+  "driver": "surtees",
+  "forename": "John",
+  "surname": "Surtees",
+  "points": 40.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "ferrari",
+    "races": 10
+   }
+  ],
+  "wins": 2,
+  "cup_team": "ferrari",
+  "cup_decided": true
+ },
+ {
+  "year": 1965,
+  "races": 10,
+  "rounds": 10,
+  "in_progress": false,
+  "driver": "clark",
+  "forename": "Jim",
+  "surname": "Clark",
+  "points": 54.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "lotus",
+    "races": 9
+   }
+  ],
+  "wins": 6,
+  "cup_team": "lotus",
+  "cup_decided": true
+ },
+ {
+  "year": 1966,
+  "races": 9,
+  "rounds": 9,
+  "in_progress": false,
+  "driver": "jack_brabham",
+  "forename": "Jack",
+  "surname": "Brabham",
+  "points": 42.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "brabham",
+    "races": 9
+   }
+  ],
+  "wins": 4,
+  "cup_team": "brabham",
+  "cup_decided": true
+ },
+ {
+  "year": 1967,
+  "races": 11,
+  "rounds": 11,
+  "in_progress": false,
+  "driver": "hulme",
+  "forename": "Denny",
+  "surname": "Hulme",
+  "points": 51.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "brabham",
+    "races": 11
+   }
+  ],
+  "wins": 2,
+  "cup_team": "brabham",
+  "cup_decided": true
+ },
+ {
+  "year": 1968,
+  "races": 12,
+  "rounds": 12,
+  "in_progress": false,
+  "driver": "hill",
+  "forename": "Graham",
+  "surname": "Hill",
+  "points": 48.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "lotus",
+    "races": 12
+   }
+  ],
+  "wins": 3,
+  "cup_team": "lotus",
+  "cup_decided": true
+ },
+ {
+  "year": 1969,
+  "races": 11,
+  "rounds": 11,
+  "in_progress": false,
+  "driver": "stewart",
+  "forename": "Jackie",
+  "surname": "Stewart",
+  "points": 63.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "matra",
+    "races": 11
+   }
+  ],
+  "wins": 6,
+  "cup_team": "matra",
+  "cup_decided": true
+ },
+ {
+  "year": 1970,
+  "races": 13,
+  "rounds": 13,
+  "in_progress": false,
+  "driver": "rindt",
+  "forename": "Jochen",
+  "surname": "Rindt",
+  "points": 45.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "lotus",
+    "races": 9
+   }
+  ],
+  "wins": 5,
+  "cup_team": "lotus",
+  "cup_decided": true
+ },
+ {
+  "year": 1971,
+  "races": 11,
+  "rounds": 11,
+  "in_progress": false,
+  "driver": "stewart",
+  "forename": "Jackie",
+  "surname": "Stewart",
+  "points": 62.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "tyrrell",
+    "races": 11
+   }
+  ],
+  "wins": 6,
+  "cup_team": "tyrrell",
+  "cup_decided": true
+ },
+ {
+  "year": 1972,
+  "races": 12,
+  "rounds": 12,
+  "in_progress": false,
+  "driver": "emerson_fittipaldi",
+  "forename": "Emerson",
+  "surname": "Fittipaldi",
+  "points": 61.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "lotus",
+    "races": 12
+   }
+  ],
+  "wins": 5,
+  "cup_team": "lotus",
+  "cup_decided": true
+ },
+ {
+  "year": 1973,
+  "races": 15,
+  "rounds": 15,
+  "in_progress": false,
+  "driver": "stewart",
+  "forename": "Jackie",
+  "surname": "Stewart",
+  "points": 71.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "tyrrell",
+    "races": 14
+   }
+  ],
+  "wins": 5,
+  "cup_team": "lotus",
+  "cup_decided": true
+ },
+ {
+  "year": 1974,
+  "races": 15,
+  "rounds": 15,
+  "in_progress": false,
+  "driver": "emerson_fittipaldi",
+  "forename": "Emerson",
+  "surname": "Fittipaldi",
+  "points": 55.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mclaren",
+    "races": 15
+   }
+  ],
+  "wins": 3,
+  "cup_team": "mclaren",
+  "cup_decided": true
+ },
+ {
+  "year": 1975,
+  "races": 14,
+  "rounds": 14,
+  "in_progress": false,
+  "driver": "lauda",
+  "forename": "Niki",
+  "surname": "Lauda",
+  "points": 64.5,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "ferrari",
+    "races": 14
+   }
+  ],
+  "wins": 5,
+  "cup_team": "ferrari",
+  "cup_decided": true
+ },
+ {
+  "year": 1976,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "hunt",
+  "forename": "James",
+  "surname": "Hunt",
+  "points": 69.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mclaren",
+    "races": 16
+   }
+  ],
+  "wins": 6,
+  "cup_team": "ferrari",
+  "cup_decided": true
+ },
+ {
+  "year": 1977,
+  "races": 17,
+  "rounds": 17,
+  "in_progress": false,
+  "driver": "lauda",
+  "forename": "Niki",
+  "surname": "Lauda",
+  "points": 70.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "ferrari",
+    "races": 15
+   }
+  ],
+  "wins": 3,
+  "cup_team": "ferrari",
+  "cup_decided": true
+ },
+ {
+  "year": 1978,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "mario_andretti",
+  "forename": "Mario",
+  "surname": "Andretti",
+  "points": 64.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "lotus",
+    "races": 16
+   }
+  ],
+  "wins": 6,
+  "cup_team": "lotus",
+  "cup_decided": true
+ },
+ {
+  "year": 1979,
+  "races": 15,
+  "rounds": 15,
+  "in_progress": false,
+  "driver": "scheckter",
+  "forename": "Jody",
+  "surname": "Scheckter",
+  "points": 51.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "ferrari",
+    "races": 15
+   }
+  ],
+  "wins": 3,
+  "cup_team": "ferrari",
+  "cup_decided": true
+ },
+ {
+  "year": 1980,
+  "races": 14,
+  "rounds": 14,
+  "in_progress": false,
+  "driver": "jones",
+  "forename": "Alan",
+  "surname": "Jones",
+  "points": 67.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "williams",
+    "races": 14
+   }
+  ],
+  "wins": 5,
+  "cup_team": "williams",
+  "cup_decided": true
+ },
+ {
+  "year": 1981,
+  "races": 15,
+  "rounds": 15,
+  "in_progress": false,
+  "driver": "piquet",
+  "forename": "Nelson",
+  "surname": "Piquet",
+  "points": 50.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "brabham",
+    "races": 15
+   }
+  ],
+  "wins": 3,
+  "cup_team": "williams",
+  "cup_decided": true
+ },
+ {
+  "year": 1982,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "keke_rosberg",
+  "forename": "Keke",
+  "surname": "Rosberg",
+  "points": 44.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "williams",
+    "races": 15
+   }
+  ],
+  "wins": 1,
+  "cup_team": "ferrari",
+  "cup_decided": true
+ },
+ {
+  "year": 1983,
+  "races": 15,
+  "rounds": 15,
+  "in_progress": false,
+  "driver": "piquet",
+  "forename": "Nelson",
+  "surname": "Piquet",
+  "points": 59.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "brabham",
+    "races": 15
+   }
+  ],
+  "wins": 3,
+  "cup_team": "ferrari",
+  "cup_decided": true
+ },
+ {
+  "year": 1984,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "lauda",
+  "forename": "Niki",
+  "surname": "Lauda",
+  "points": 72.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mclaren",
+    "races": 16
+   }
+  ],
+  "wins": 5,
+  "cup_team": "mclaren",
+  "cup_decided": true
+ },
+ {
+  "year": 1985,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "prost",
+  "forename": "Alain",
+  "surname": "Prost",
+  "points": 73.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mclaren",
+    "races": 16
+   }
+  ],
+  "wins": 5,
+  "cup_team": "mclaren",
+  "cup_decided": true
+ },
+ {
+  "year": 1986,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "prost",
+  "forename": "Alain",
+  "surname": "Prost",
+  "points": 72.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mclaren",
+    "races": 16
+   }
+  ],
+  "wins": 4,
+  "cup_team": "williams",
+  "cup_decided": true
+ },
+ {
+  "year": 1987,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "piquet",
+  "forename": "Nelson",
+  "surname": "Piquet",
+  "points": 73.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "williams",
+    "races": 15
+   }
+  ],
+  "wins": 3,
+  "cup_team": "williams",
+  "cup_decided": true
+ },
+ {
+  "year": 1988,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "senna",
+  "forename": "Ayrton",
+  "surname": "Senna",
+  "points": 90.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mclaren",
+    "races": 16
+   }
+  ],
+  "wins": 8,
+  "cup_team": "mclaren",
+  "cup_decided": true
+ },
+ {
+  "year": 1989,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "prost",
+  "forename": "Alain",
+  "surname": "Prost",
+  "points": 76.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mclaren",
+    "races": 15
+   }
+  ],
+  "wins": 4,
+  "cup_team": "mclaren",
+  "cup_decided": true
+ },
+ {
+  "year": 1990,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "senna",
+  "forename": "Ayrton",
+  "surname": "Senna",
+  "points": 78.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mclaren",
+    "races": 16
+   }
+  ],
+  "wins": 6,
+  "cup_team": "mclaren",
+  "cup_decided": true
+ },
+ {
+  "year": 1991,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "senna",
+  "forename": "Ayrton",
+  "surname": "Senna",
+  "points": 96.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mclaren",
+    "races": 16
+   }
+  ],
+  "wins": 7,
+  "cup_team": "mclaren",
+  "cup_decided": true
+ },
+ {
+  "year": 1992,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "mansell",
+  "forename": "Nigel",
+  "surname": "Mansell",
+  "points": 108.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "williams",
+    "races": 16
+   }
+  ],
+  "wins": 9,
+  "cup_team": "williams",
+  "cup_decided": true
+ },
+ {
+  "year": 1993,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "prost",
+  "forename": "Alain",
+  "surname": "Prost",
+  "points": 99.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "williams",
+    "races": 16
+   }
+  ],
+  "wins": 7,
+  "cup_team": "williams",
+  "cup_decided": true
+ },
+ {
+  "year": 1994,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "michael_schumacher",
+  "forename": "Michael",
+  "surname": "Schumacher",
+  "points": 92.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "benetton",
+    "races": 14
+   }
+  ],
+  "wins": 8,
+  "cup_team": "williams",
+  "cup_decided": true
+ },
+ {
+  "year": 1995,
+  "races": 17,
+  "rounds": 17,
+  "in_progress": false,
+  "driver": "michael_schumacher",
+  "forename": "Michael",
+  "surname": "Schumacher",
+  "points": 102.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "benetton",
+    "races": 17
+   }
+  ],
+  "wins": 9,
+  "cup_team": "benetton",
+  "cup_decided": true
+ },
+ {
+  "year": 1996,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "damon_hill",
+  "forename": "Damon",
+  "surname": "Hill",
+  "points": 97.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "williams",
+    "races": 16
+   }
+  ],
+  "wins": 8,
+  "cup_team": "williams",
+  "cup_decided": true
+ },
+ {
+  "year": 1997,
+  "races": 17,
+  "rounds": 17,
+  "in_progress": false,
+  "driver": "villeneuve",
+  "forename": "Jacques",
+  "surname": "Villeneuve",
+  "points": 81.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "williams",
+    "races": 17
+   }
+  ],
+  "wins": 7,
+  "cup_team": "williams",
+  "cup_decided": true
+ },
+ {
+  "year": 1998,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "hakkinen",
+  "forename": "Mika",
+  "surname": "Häkkinen",
+  "points": 100.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mclaren",
+    "races": 16
+   }
+  ],
+  "wins": 8,
+  "cup_team": "mclaren",
+  "cup_decided": true
+ },
+ {
+  "year": 1999,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "hakkinen",
+  "forename": "Mika",
+  "surname": "Häkkinen",
+  "points": 76.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mclaren",
+    "races": 16
+   }
+  ],
+  "wins": 5,
+  "cup_team": "ferrari",
+  "cup_decided": true
+ },
+ {
+  "year": 2000,
+  "races": 17,
+  "rounds": 17,
+  "in_progress": false,
+  "driver": "michael_schumacher",
+  "forename": "Michael",
+  "surname": "Schumacher",
+  "points": 108.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "ferrari",
+    "races": 17
+   }
+  ],
+  "wins": 9,
+  "cup_team": "ferrari",
+  "cup_decided": true
+ },
+ {
+  "year": 2001,
+  "races": 17,
+  "rounds": 17,
+  "in_progress": false,
+  "driver": "michael_schumacher",
+  "forename": "Michael",
+  "surname": "Schumacher",
+  "points": 123.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "ferrari",
+    "races": 17
+   }
+  ],
+  "wins": 9,
+  "cup_team": "ferrari",
+  "cup_decided": true
+ },
+ {
+  "year": 2002,
+  "races": 17,
+  "rounds": 17,
+  "in_progress": false,
+  "driver": "michael_schumacher",
+  "forename": "Michael",
+  "surname": "Schumacher",
+  "points": 144.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "ferrari",
+    "races": 17
+   }
+  ],
+  "wins": 11,
+  "cup_team": "ferrari",
+  "cup_decided": true
+ },
+ {
+  "year": 2003,
+  "races": 16,
+  "rounds": 16,
+  "in_progress": false,
+  "driver": "michael_schumacher",
+  "forename": "Michael",
+  "surname": "Schumacher",
+  "points": 93.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "ferrari",
+    "races": 16
+   }
+  ],
+  "wins": 6,
+  "cup_team": "ferrari",
+  "cup_decided": true
+ },
+ {
+  "year": 2004,
+  "races": 18,
+  "rounds": 18,
+  "in_progress": false,
+  "driver": "michael_schumacher",
+  "forename": "Michael",
+  "surname": "Schumacher",
+  "points": 148.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "ferrari",
+    "races": 18
+   }
+  ],
+  "wins": 13,
+  "cup_team": "ferrari",
+  "cup_decided": true
+ },
+ {
+  "year": 2005,
+  "races": 19,
+  "rounds": 19,
+  "in_progress": false,
+  "driver": "alonso",
+  "forename": "Fernando",
+  "surname": "Alonso",
+  "points": 133.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "renault",
+    "races": 18
+   }
+  ],
+  "wins": 7,
+  "cup_team": "renault",
+  "cup_decided": true
+ },
+ {
+  "year": 2006,
+  "races": 18,
+  "rounds": 18,
+  "in_progress": false,
+  "driver": "alonso",
+  "forename": "Fernando",
+  "surname": "Alonso",
+  "points": 134.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "renault",
+    "races": 18
+   }
+  ],
+  "wins": 7,
+  "cup_team": "renault",
+  "cup_decided": true
+ },
+ {
+  "year": 2007,
+  "races": 17,
+  "rounds": 17,
+  "in_progress": false,
+  "driver": "raikkonen",
+  "forename": "Kimi",
+  "surname": "Räikkönen",
+  "points": 110.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "ferrari",
+    "races": 17
+   }
+  ],
+  "wins": 6,
+  "cup_team": "ferrari",
+  "cup_decided": true
+ },
+ {
+  "year": 2008,
+  "races": 18,
+  "rounds": 18,
+  "in_progress": false,
+  "driver": "hamilton",
+  "forename": "Lewis",
+  "surname": "Hamilton",
+  "points": 98.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mclaren",
+    "races": 18
+   }
+  ],
+  "wins": 5,
+  "cup_team": "ferrari",
+  "cup_decided": true
+ },
+ {
+  "year": 2009,
+  "races": 17,
+  "rounds": 17,
+  "in_progress": false,
+  "driver": "button",
+  "forename": "Jenson",
+  "surname": "Button",
+  "points": 95.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "brawn",
+    "races": 17
+   }
+  ],
+  "wins": 6,
+  "cup_team": "brawn",
+  "cup_decided": true
+ },
+ {
+  "year": 2010,
+  "races": 19,
+  "rounds": 19,
+  "in_progress": false,
+  "driver": "vettel",
+  "forename": "Sebastian",
+  "surname": "Vettel",
+  "points": 256.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "red-bull",
+    "races": 19
+   }
+  ],
+  "wins": 5,
+  "cup_team": "red-bull",
+  "cup_decided": true
+ },
+ {
+  "year": 2011,
+  "races": 19,
+  "rounds": 19,
+  "in_progress": false,
+  "driver": "vettel",
+  "forename": "Sebastian",
+  "surname": "Vettel",
+  "points": 392.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "red-bull",
+    "races": 19
+   }
+  ],
+  "wins": 11,
+  "cup_team": "red-bull",
+  "cup_decided": true
+ },
+ {
+  "year": 2012,
+  "races": 20,
+  "rounds": 20,
+  "in_progress": false,
+  "driver": "vettel",
+  "forename": "Sebastian",
+  "surname": "Vettel",
+  "points": 281.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "red-bull",
+    "races": 20
+   }
+  ],
+  "wins": 5,
+  "cup_team": "red-bull",
+  "cup_decided": true
+ },
+ {
+  "year": 2013,
+  "races": 19,
+  "rounds": 19,
+  "in_progress": false,
+  "driver": "vettel",
+  "forename": "Sebastian",
+  "surname": "Vettel",
+  "points": 397.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "red-bull",
+    "races": 19
+   }
+  ],
+  "wins": 13,
+  "cup_team": "red-bull",
+  "cup_decided": true
+ },
+ {
+  "year": 2014,
+  "races": 19,
+  "rounds": 19,
+  "in_progress": false,
+  "driver": "hamilton",
+  "forename": "Lewis",
+  "surname": "Hamilton",
+  "points": 384.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mercedes",
+    "races": 19
+   }
+  ],
+  "wins": 11,
+  "cup_team": "mercedes",
+  "cup_decided": true
+ },
+ {
+  "year": 2015,
+  "races": 19,
+  "rounds": 19,
+  "in_progress": false,
+  "driver": "hamilton",
+  "forename": "Lewis",
+  "surname": "Hamilton",
+  "points": 381.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mercedes",
+    "races": 19
+   }
+  ],
+  "wins": 10,
+  "cup_team": "mercedes",
+  "cup_decided": true
+ },
+ {
+  "year": 2016,
+  "races": 21,
+  "rounds": 21,
+  "in_progress": false,
+  "driver": "rosberg",
+  "forename": "Nico",
+  "surname": "Rosberg",
+  "points": 385.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mercedes",
+    "races": 21
+   }
+  ],
+  "wins": 9,
+  "cup_team": "mercedes",
+  "cup_decided": true
+ },
+ {
+  "year": 2017,
+  "races": 20,
+  "rounds": 20,
+  "in_progress": false,
+  "driver": "hamilton",
+  "forename": "Lewis",
+  "surname": "Hamilton",
+  "points": 363.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mercedes",
+    "races": 20
+   }
+  ],
+  "wins": 9,
+  "cup_team": "mercedes",
+  "cup_decided": true
+ },
+ {
+  "year": 2018,
+  "races": 21,
+  "rounds": 21,
+  "in_progress": false,
+  "driver": "hamilton",
+  "forename": "Lewis",
+  "surname": "Hamilton",
+  "points": 408.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mercedes",
+    "races": 21
+   }
+  ],
+  "wins": 11,
+  "cup_team": "mercedes",
+  "cup_decided": true
+ },
+ {
+  "year": 2019,
+  "races": 21,
+  "rounds": 21,
+  "in_progress": false,
+  "driver": "hamilton",
+  "forename": "Lewis",
+  "surname": "Hamilton",
+  "points": 413.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mercedes",
+    "races": 21
+   }
+  ],
+  "wins": 11,
+  "cup_team": "mercedes",
+  "cup_decided": true
+ },
+ {
+  "year": 2020,
+  "races": 17,
+  "rounds": 17,
+  "in_progress": false,
+  "driver": "hamilton",
+  "forename": "Lewis",
+  "surname": "Hamilton",
+  "points": 347.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mercedes",
+    "races": 16
+   }
+  ],
+  "wins": 11,
+  "cup_team": "mercedes",
+  "cup_decided": true
+ },
+ {
+  "year": 2021,
+  "races": 22,
+  "rounds": 22,
+  "in_progress": false,
+  "driver": "max_verstappen",
+  "forename": "Max",
+  "surname": "Verstappen",
+  "points": 395.5,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "red-bull",
+    "races": 22
+   }
+  ],
+  "wins": 10,
+  "cup_team": "mercedes",
+  "cup_decided": true
+ },
+ {
+  "year": 2022,
+  "races": 22,
+  "rounds": 22,
+  "in_progress": false,
+  "driver": "max_verstappen",
+  "forename": "Max",
+  "surname": "Verstappen",
+  "points": 454.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "red-bull",
+    "races": 22
+   }
+  ],
+  "wins": 15,
+  "cup_team": "red-bull",
+  "cup_decided": true
+ },
+ {
+  "year": 2023,
+  "races": 22,
+  "rounds": 22,
+  "in_progress": false,
+  "driver": "max_verstappen",
+  "forename": "Max",
+  "surname": "Verstappen",
+  "points": 575.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "red-bull",
+    "races": 22
+   }
+  ],
+  "wins": 19,
+  "cup_team": "red-bull",
+  "cup_decided": true
+ },
+ {
+  "year": 2024,
+  "races": 24,
+  "rounds": 24,
+  "in_progress": false,
+  "driver": "max_verstappen",
+  "forename": "Max",
+  "surname": "Verstappen",
+  "points": 437.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "red-bull",
+    "races": 24
+   }
+  ],
+  "wins": 9,
+  "cup_team": "mclaren",
+  "cup_decided": true
+ },
+ {
+  "year": 2025,
+  "races": 24,
+  "rounds": 24,
+  "in_progress": false,
+  "driver": "norris",
+  "forename": "Lando",
+  "surname": "Norris",
+  "points": 423.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mclaren",
+    "races": 24
+   }
+  ],
+  "wins": 7,
+  "cup_team": "mclaren",
+  "cup_decided": true
+ },
+ {
+  "year": 2026,
+  "races": 20,
+  "rounds": 23,
+  "in_progress": true,
+  "driver": "antonelli",
+  "forename": "Andrea Kimi",
+  "surname": "Antonelli",
+  "points": 390.0,
+  "driver_decided": true,
+  "teams": [
+   {
+    "id": "mercedes",
+    "races": 20
+   }
+  ],
+  "wins": 9,
+  "cup_team": "mercedes",
+  "cup_decided": true
+ }
+]
