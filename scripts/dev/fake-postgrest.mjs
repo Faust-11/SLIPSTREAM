@@ -25,7 +25,8 @@ createServer(async (req, res) => {
     let rows = JSON.parse(await readFile(join(dir, `${m[1]}.json`), "utf8"));
     const refIn = /^in\.\((.*)\)$/.exec(url.searchParams.get("ref") ?? "");
     if (refIn) {
-      const refs = new Set(refIn[1].split(",").map(decodeURIComponent));
+      // searchParams уже декодовано один раз (як у PostgREST) — повторний decodeURIComponent падав би на «%».
+      const refs = new Set(refIn[1].split(","));
       rows = rows.filter((r) => refs.has(r.ref));
     }
     res.writeHead(200, { "content-type": "application/json" }).end(JSON.stringify(rows));
