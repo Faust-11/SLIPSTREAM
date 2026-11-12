@@ -3,6 +3,7 @@ import "server-only";
 import driverNamesJson from "@/data/curated/driver-names.json";
 import driverPortraitsJson from "@/data/curated/driver-portraits.json";
 import type { Locale } from "@/i18n/config";
+import { normalizeSearch } from "@/lib/teams-list";
 import { dbSelectAll } from "./db";
 import { once } from "./once";
 import { curatedDrivers, curatedTeams } from "./teams";
@@ -44,6 +45,8 @@ export function driverPortrait(id: string): { avatar: string; credit: Credit } |
 export type DriverRow = {
   id: string;
   name: string;
+  /** Ім'я іншою мовою — для пошуку обома мовами. */
+  alt: string;
   /** Латиниця — для пошуку й сортування за прізвищем незалежно від мови. */
   latin: string;
   surname: string;
@@ -73,6 +76,7 @@ export async function getDriversIndex(locale: Locale): Promise<DriverRow[]> {
     return {
       id: r.id,
       name,
+      alt: other,
       latin: `${r.forename} ${r.surname}`,
       surname: r.surname,
       initials: `${r.forename[0] ?? ""}${r.surname[0] ?? ""}`.toUpperCase(),
@@ -94,7 +98,7 @@ export async function getDriversIndex(locale: Locale): Promise<DriverRow[]> {
             number: r.current_number,
           }
         : null,
-      search: [name, other, `${r.forename} ${r.surname}`, r.country_code ?? "", team ?? ""].join(" ").toLowerCase(),
+      search: normalizeSearch([name, other, `${r.forename} ${r.surname}`, r.country_code ?? "", team ?? ""].join(" ")),
     };
   });
 }
@@ -112,17 +116,17 @@ export async function getDriversCredits(): Promise<{ driver: string; page: strin
 /**
  * Компактний рядок для клієнта (таблиця на ~800 пілотів): масив замість об'єкта з довгими ключами —
  * у RSC-пейлоаді сторінки 759 КБ → у рази менше (замір 12.11). Розгортає `expandDriver` у браузері.
- * [id, ім'я, ім'я іншою мовою, латиниця, прізвище, є портрет, код країни, команда, старти, перемоги, подіуми,
+ * [id, ім'я, ім'я іншою мовою, латиниця, прізвище, шлях портрета або "", код країни, команда, старти, перемоги, подіуми,
  *  поули, титули, рік від, рік до, поточний сезон: [місце, очки, команда, колір, номер] | 0]
  */
 export type PackedDriver = [
-  string, string, string, string, string, 0 | 1, string, string, number, number, number, number, number, number, number,
+  string, string, string, string, string, string, string, string, number, number, number, number, number, number, number,
   0 | [number | null, number, string | null, string, number | null],
 ];
 
-export function packDriver(r: DriverRow, alt: string): PackedDriver {
+export function packDriver(r: DriverRow): PackedDriver {
   return [
-    r.id, r.name, alt, r.latin, r.surname, r.avatar ? 1 : 0, r.countryCode ?? "", r.team ?? "",
+    r.id, r.name, r.alt, r.latin, r.surname, r.avatar ?? "", r.countryCode ?? "", r.team ?? "",
     r.starts, r.wins, r.podiums, r.poles, r.titles, r.years[0], r.years[1],
     r.current ? [r.current.position, r.current.points, r.current.team, r.current.color, r.current.number] : 0,
   ];

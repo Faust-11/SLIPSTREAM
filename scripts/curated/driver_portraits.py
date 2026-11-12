@@ -59,7 +59,11 @@ def commons_info(files: list[str]) -> dict[str, dict]:
 
 
 def is_free(lic: str) -> bool:
-    return any(lic.replace("-", " ").lower().startswith(f.replace("-", " ").lower()) for f in FREE)
+    """Вільна ліцензія Commons; «NC» (некомерційна) і «ND» (без похідних — ми обрізаємо) — ні."""
+    norm = lic.replace("-", " ").lower()
+    if any(tok in norm.split() for tok in ("nc", "nd")):
+        return False
+    return any(norm.startswith(f.replace("-", " ").lower()) for f in FREE)
 
 
 def save(img: Image.Image, ref: str) -> str:
@@ -74,7 +78,7 @@ def save(img: Image.Image, ref: str) -> str:
 def square_top(img: Image.Image) -> Image.Image:
     w, h = img.size
     s = min(w, h)
-    top = 0 if h > w else 0
+    top = 0
     left = (w - s) // 2
     if h > w:  # портрет: квадрат з верхньої частини (обличчя), трохи нижче краю
         top = min(int(h * 0.05), h - s)
@@ -111,15 +115,18 @@ def main() -> int:
         if not src.exists():
             report["rejected"].append(f"{ref}: немає файлу макета")
             continue
+        if c["license"].replace("-", " ").lower() != i["license"].replace("-", " ").lower():
+            # Атрибуція макета розходиться з Commons — беремо ліцензію Commons (джерело істини) і повідомляємо.
+            report["rejected"].append(f"{ref}: ліцензія в макеті «{c['license']}», на Commons «{i['license']}» — взято Commons")
         result[ref] = {"avatar": save(Image.open(src), ref),
                        "credit": {"page": c["page"], "author": c["author"], "license": i["license"]}, "source": "mockup"}
         report["mockup"] += 1
     # 2. Відсутні — Wikidata P18.
     missing = [r["id"] for r in index if r["id"] not in curated and r["id"] not in result]
     titles = {}
+    wiki = {r["id"]: r.get("wikipedia_en") or "" for r in index}  # з дампу (0007) — без запитів до Jolpica (500/год)
     for ref in missing:
-        rows = tf.get(f"https://api.jolpi.ca/ergast/f1/drivers/{urllib.parse.quote(ref)}.json")["MRData"]["DriverTable"]["Drivers"]
-        url = rows[0].get("url", "") if rows else ""
+        url = wiki.get(ref, "")
         if "wikipedia.org/wiki/" in url:
             titles[ref] = urllib.parse.unquote(url.split("/wiki/", 1)[1].split("#")[0]).replace("_", " ")
     final = {}

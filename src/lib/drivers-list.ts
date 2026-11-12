@@ -1,5 +1,6 @@
 // Логіка таблиці пілотів — чиста (без React): розбір адреси, фільтри, сортування, сторінки. Тести — __tests__/drivers-list.test.ts.
 import type { DriverRow, PackedDriver } from "@/lib/data/drivers";
+import { normalizeSearch } from "@/lib/teams-list";
 
 export const DRIVER_FILTERS = ["all", "cur", "ch", "win"] as const;
 export type DriverFilter = (typeof DRIVER_FILTERS)[number];
@@ -67,7 +68,8 @@ export function firstLetter(surname: string): string {
 const KEY: Record<Exclude<DriverSort, "n">, keyof DriverRow> = { st: "starts", w: "wins", pd: "podiums", pl: "poles", t: "titles" };
 
 export function selectDrivers(rows: DriverRow[], q: DriversQuery, locale: "uk" | "en"): DriverRow[] {
-  const s = q.q.trim().toLowerCase();
+  // Без діакритики й апострофів (hakkinen → Häkkinen, «пєр» ~ «п'єр»), як у «Командах».
+  const s = normalizeSearch(q.q);
   const collator = new Intl.Collator(locale);
   const out = rows.filter(
     (r) =>
@@ -90,16 +92,16 @@ export function paginate<T>(rows: T[], page: number, size = DRIVERS_PAGE_SIZE): 
   return { items: rows.slice((p - 1) * size, p * size), page: p, pages };
 }
 
-/** Компактний рядок (packDriver на сервері) → DriverRow у браузері; портрет — /img/drivers/<id>-96.webp. */
+/** Компактний рядок (packDriver на сервері) → DriverRow у браузері. */
 export function expandDriver(p: PackedDriver): DriverRow {
-  const [id, name, alt, latin, surname, hasAvatar, cc, team, starts, wins, podiums, poles, titles, y0, y1, cur] = p;
-  const [fore = "", ...rest] = latin.split(" ");
+  const [id, name, alt, latin, surname, avatar, cc, team, starts, wins, podiums, poles, titles, y0, y1, cur] = p;
+  // Ініціали — як на сервері (drivers.ts): перша літера імені + перша літера прізвища з бази.
   return {
-    id, name, latin, surname,
-    initials: `${fore[0] ?? ""}${(rest.at(-1) ?? surname)[0] ?? ""}`.toUpperCase(),
-    avatar: hasAvatar ? `/img/drivers/${id}-96.webp` : null,
+    id, name, alt, latin, surname,
+    initials: `${latin[0] ?? ""}${surname[0] ?? ""}`.toUpperCase(),
+    avatar: avatar || null,
     countryCode: cc || null, team: team || null, starts, wins, podiums, poles, titles, years: [y0, y1],
     current: cur ? { position: cur[0], points: cur[1], team: cur[2], color: cur[3], number: cur[4] } : null,
-    search: [name, alt, latin, cc, team].join(" ").toLowerCase(),
+    search: normalizeSearch([name, alt, latin, cc, team].join(" ")),
   };
 }

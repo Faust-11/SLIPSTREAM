@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
 import type { DriverRow, PackedDriver } from "@/lib/data/drivers";
@@ -9,6 +9,7 @@ import {
   DEFAULT_DRIVERS_QUERY,
   DRIVER_DECADES,
   DRIVER_FILTERS,
+  DRIVERS_PAGE_SIZE,
   driversQueryString,
   expandDriver,
   firstLetter,
@@ -175,28 +176,53 @@ export function DriversBrowser({ packed, locale, labels }: Props) {
   const [synced, setSynced] = useState(false);
   const selected = useMemo(() => selectDrivers(rows, query, locale), [rows, query, locale]);
   const { items, page, pages } = paginate(selected, query.p);
+  // Номер сторінки поза межами (?p=999) — показуємо найближчу, і в адресу пишемо її (рев'ю 12.11).
+  const effectiveP = page;
+  // Після зміни сторінки фокус і прокрутка — на лічильник над таблицею (кнопка «‹» могла стати disabled і забрати фокус).
+  const top = useRef<HTMLParagraphElement>(null);
+  const goPage = (p: number) => {
+    set({ p });
+    requestAnimationFrame(() => {
+      top.current?.focus({ preventScroll: true });
+      top.current?.scrollIntoView({ block: "start" });
+    });
+  };
   const letters = useMemo(() => new Set(rows.map((r) => firstLetter(r.surname))), [rows]);
 
+  // Остання адреса, яку записали ми самі: її «луну» з useSearchParams ігноруємо, щоб застаріла адреса
+  // не перезаписала новіший стан під час швидкого набору (code-review 12.11).
+  const written = useRef<string | null>(null);
   const set = (patch: Partial<DriversQuery>) => {
-    // Будь-яка зміна, крім сторінки, повертає на першу сторінку.
+    // Будь-яка зміна, крім сторінки, повертає на першу сторінку. Порівняння — за станом, а не за адресою
+    // (адреса обрізає пробіли, і пробіл у пошуку губився: «ayrton senna» не набирався).
     const next = { ...query, ...patch, p: patch.p ?? 1 };
-    if (driversQueryString(next) !== driversQueryString(query)) setQuery(next);
+    if (JSON.stringify(next) !== JSON.stringify(query)) setQuery(next);
   };
   const onParams = useCallback((q: DriversQuery) => {
-    setQuery((prev) => (driversQueryString(prev) === driversQueryString(q) ? prev : q));
+    const incoming = driversQueryString(q);
+    if (written.current !== null && incoming === written.current) {
+      setSynced(true);
+      return;
+    }
+    setQuery((prev) => (driversQueryString(prev) === incoming ? prev : q));
     setSynced(true);
   }, []);
   useEffect(() => {
+    if (synced) document.documentElement.removeAttribute("data-list-query");
+  }, [synced]);
+  useEffect(() => {
     if (!synced) return;
-    const next = withDriversQuery(window.location.search, query);
+    const shown = { ...query, p: effectiveP };
+    written.current = driversQueryString(shown);
+    const next = withDriversQuery(window.location.search, shown);
     if (next !== (window.location.search === "?" ? "" : window.location.search)) {
       window.history.replaceState(null, "", `${window.location.pathname}${next}${window.location.hash}`);
     }
-  }, [query, synced]);
+  }, [query, synced, effectiveP]);
 
   const onSort = (k: DriverSort) =>
     set({ sort: k, dir: k === query.sort ? ((query.dir * -1) as 1 | -1) : k === "n" ? 1 : -1 });
-  const from = (page - 1) * 25;
+  const from = (page - 1) * DRIVERS_PAGE_SIZE;
   const nums: number[] = [];
   for (let i = 1; i <= pages; i++) if (i === 1 || i === pages || Math.abs(i - page) <= 2) nums.push(i);
 
@@ -235,8 +261,9 @@ export function DriversBrowser({ packed, locale, labels }: Props) {
             </option>
           ))}
         </select>
-        <p className="count" role="status">
-          {selected.length ? fill(labels.count, { from: from + 1, to: from + items.length, n: selected.length }) : ""}
+        {/* Ціль фокуса після зміни сторінки: диктор прочитає «26–50 з 793». */}
+        <p className="count" role="status" ref={top} tabIndex={-1}>
+          {selected.length ? fill(labels.count, { from: from + 1, to: from + items.length, n: selected.length }) : labels.empty}
         </p>
       </div>
       <div className="letters" role="group" aria-label={labels.letters}>
@@ -261,7 +288,7 @@ export function DriversBrowser({ packed, locale, labels }: Props) {
       )}
       {pages > 1 && (
         <nav className="pager" aria-label={labels.pages}>
-          <button type="button" disabled={page === 1} aria-label={labels.prev} onClick={() => set({ p: page - 1 })}>
+          <button type="button" disabled={page === 1} aria-label={labels.prev} onClick={() => goPage(page - 1)}>
             ‹
           </button>
           {nums.map((n, i) => (
@@ -271,13 +298,13 @@ export function DriversBrowser({ packed, locale, labels }: Props) {
                 type="button"
                 aria-current={n === page ? "page" : undefined}
                 aria-label={fill(labels.page, { n })}
-                onClick={() => set({ p: n })}
+                onClick={() => goPage(n)}
               >
                 {n}
               </button>
             </span>
           ))}
-          <button type="button" disabled={page === pages} aria-label={labels.next} onClick={() => set({ p: page + 1 })}>
+          <button type="button" disabled={page === pages} aria-label={labels.next} onClick={() => goPage(page + 1)}>
             ›
           </button>
         </nav>
