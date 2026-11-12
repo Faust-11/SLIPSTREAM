@@ -50,8 +50,12 @@ test("«Показати ще» до кінця: 165 карток, кнопка 
   const more = page.getByRole("button", { name: /Показати ще/ });
   await expect(more).toHaveText("Показати ще 24 з 141");
   for (let shown = 24; shown < 165; shown += 24) {
-    await more.click();
-    await expect(visibleCards(page)).toHaveCount(Math.min(shown + 24, 165));
+    // Клік інколи не доходить (замір 12.11: і на main — 1 з 4 прогонів падав на випадковому кроці). Повторюємо
+    // лише якщо карток досі стільки ж — подвійний клік дав би більше карток і тест упав би.
+    await expect(async () => {
+      if ((await visibleCards(page).count()) === shown) await more.click({ timeout: 2_000 });
+      await expect(visibleCards(page)).toHaveCount(Math.min(shown + 24, 165), { timeout: 1_500 });
+    }).toPass({ timeout: 10_000 });
     await expect(visibleCards(page).nth(shown)).toBeFocused();
   }
   await expect(more).toHaveCount(0);

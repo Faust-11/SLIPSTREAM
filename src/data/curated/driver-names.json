@@ -556,6 +556,16 @@
     "checked": false
    }
   },
+  "ryo_hirakawa": {
+   "en": "Ryo Hirakawa",
+   "uk": "Ryo Hirakawa",
+   "wikidata": "Q9325154",
+   "manual": {
+    "uk": "Рьо Хіракава",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "scarfiotti": {
    "en": "Ludovico Scarfiotti",
    "uk": "Лудовіко Скарфіотті",
@@ -630,6 +640,11 @@
    "en": "Jarno Trulli",
    "uk": "Ярно Труллі",
    "wikidata": "Q171350"
+  },
+  "tsunoda": {
+   "en": "Yuki Tsunoda",
+   "uk": "Юкі Цунода",
+   "wikidata": "Q59209579"
   },
   "vettel": {
    "en": "Sebastian Vettel",

@@ -20,6 +20,7 @@
 ### Пілоти
 
 - Elio de Angelis → **Еліо де Анджеліс**
+- Ryo Hirakawa → **Рьо Хіракава**
 - René Arnoux → **Рене Арну**
 - Giancarlo Baghetti → **Джанкарло Багетті**
 - Lorenzo Bandini → **Лоренцо Бандіні**

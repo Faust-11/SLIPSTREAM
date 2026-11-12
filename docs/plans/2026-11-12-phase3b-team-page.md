@@ -41,23 +41,23 @@
 
 ### Task 1: SQL — похідні дані сторінки команди (міграція 0005)
 - Produces: матеріалізовані подання `f1.team_totals` (Гран-прі, перемоги, подіуми, поули, дублі, Кубки, титули пілотів, дебют, останній Гран-прі), `f1.team_seasons` (рік, назви заявок, перемоги, очки, місце, виключення), `f1.team_wins` (рік, етап, Гран-прі, дата, пілот), `f1.team_champions` (пілот, роки), `f1.team_pairing` (поточний сезон: пари пілотів, очки, гонки й кваліфікації «хто попереду»); select для anon явно (правило 0004); додати в `refresh_derived()`; `rls_smoke.py` — нові подання в `PUBLIC_VIEWS`.
-- [ ] Step 1: міграція + еталони в `scripts/db/test_data.py` (McLaren: 1 017 Гран-прі? — перерахувати правилом стартів; 206 перемог; 10 Кубків; 13 титулів пілотів — звірити з Вікіпедією/Jolpica, розбіжності — у `docs/decisions.md`).
-- [ ] Step 2: `db.yml` зелений; розмір подань (МБ) — замір, бюджет бази не більше +5 МБ.
-- [ ] Step 3: фікстури `e2e/fixtures/db/*.json` — з артефакту `db-fixture`.
+- [x] Step 1: міграція + еталони в `scripts/db/test_data.py` (McLaren: 1 017 Гран-прі? — перерахувати правилом стартів; 206 перемог; 10 Кубків; 13 титулів пілотів — звірити з Вікіпедією/Jolpica, розбіжності — у `docs/decisions.md`).
+- [x] Step 2: `db.yml` зелений; розмір подань (МБ) — замір, бюджет бази не більше +5 МБ.
+- [x] Step 3: фікстури `e2e/fixtures/db/*.json` — з артефакту `db-fixture`.
 
 ### Task 2: Шар даних `src/lib/data/team-page.ts`
 - Produces: `getTeamPage(id, locale)` і `getTeamIds()`; один запит на подання на процес (`once`), групування за командою; unit-тести на фікстурі (McLaren, команда без фото, команда до 1958).
 
 ### Task 2b: Кураторські факти й тексти
-- [ ] `scripts/curated/team_facts.py`: Wikidata SPARQL (лише id команд із `teams.json` через відповідність Вікіпедії з `f1.teams.wikipedia_en`) → `src/data/curated/team-facts.json` (founder, base, instagram + джерело кожного); звіт: скільки заповнено, де розбіжності з Вікіпедією.
-- [ ] `src/data/curated/team-notes.json`: редакційні тексти (рік, UK, EN, джерела, статус); тест — кожен текст має ≥ 1 джерело й обидві мови; список «незвичних сезонів» з SQL — без тексту лише свідомо.
+- [x] `scripts/curated/team_facts.py`: Wikidata SPARQL (лише id команд із `teams.json` через відповідність Вікіпедії з `f1.teams.wikipedia_en`) → `src/data/curated/team-facts.json` (founder, base, instagram + джерело кожного); звіт: скільки заповнено, де розбіжності з Вікіпедією.
+- [x] `src/data/curated/team-notes.json`: редакційні тексти (рік, UK, EN, джерела, статус); тест — кожен текст має ≥ 1 джерело й обидві мови; список «незвичних сезонів» з SQL — без тексту лише свідомо.
 
 ### Task 3: Сторінка `/[lang]/teams/[id]`
 - Produces: банер, факти, смуга підсумків, «Сезон за сезоном» (SVG + таблиця в `<details>`), чемпіони, перемоги, пара поточного сезону, автори фото; метадані (title, description, canonical, hreflang, Open Graph), JSON-LD `SportsTeam`; 404 для невідомого id; картки списку — посилання.
-- [ ] Широкі фото банера: скрипт `scripts/curated/hero_photos.py` (Commons API → 1280/640 px WebP, перевірка ліцензії з `credit`), без нових npm-залежностей.
+- [x] Широкі фото банера: скрипт `scripts/curated/hero_photos.py` (Commons API → 1280/640 px WebP, перевірка ліцензії з `credit`), без нових npm-залежностей.
 
 ### Task 4: Повні перевірки (один пакет)
-- [ ] `npm run lint && npm run typecheck && npm run test && npm run build && npm run e2e` (нові e2e: еталонні числа на сторінці, 404, посилання зі списку, без JS, axe 2 теми × 2 ширини, CLS, розмір HTML Ferrari).
-- [ ] UX-прохід 320 / 390 / 768 / 1024 / 1280 / 1440 px, світла й темна тема; скіли `impeccable`, `web-design-guidelines`, `dataviz`, `seo-schema`, `seo-images`.
-- [ ] Незалежний рев'юер (код + SQL), `/code-review high`, Lighthouse CI.
+- [x] `npm run lint && npm run typecheck && npm run test && npm run build && npm run e2e` (нові e2e: еталонні числа на сторінці, 404, посилання зі списку, без JS, axe 2 теми × 2 ширини, CLS, розмір HTML Ferrari).
+- [x] UX-прохід 320 / 390 / 768 / 1024 / 1280 / 1440 px, світла й темна тема; скіли `impeccable`, `web-design-guidelines`, `dataviz`, `seo-schema`, `seo-images`.
+- [x] Незалежний рев'юер (код + SQL), `/code-review high`, Lighthouse CI.
 - [ ] PR → CI зелений → злиття лише за згодою → `data-sync` з main (застосує 0005) → e2e проти продакшну.
