@@ -1,6 +1,8 @@
 type Bar = {
   year: number;
   points: number | null;
+  /** Очки з розрядами й десятковим знаком мови сторінки («34,5»). */
+  pointsText: string | null;
   /** «P2», «DSQ» або «—». */
   place: string;
   /** Колір команди сезону; null — нейтральний. */
@@ -53,9 +55,9 @@ export function SeasonBars({ bars, label }: { bars: Bar[]; label: string }) {
             <text className="sb-p" x={cx.toFixed(1)} y={(y - (compact ? 8 : 26)).toFixed(1)} textAnchor="middle" fontSize={dense ? 9 : compact ? 11 : 15}>
               {b.place}
             </text>
-            {!compact && b.points !== null && (
+            {!compact && b.pointsText !== null && (
               <text className="sb-v" x={cx.toFixed(1)} y={(y - 8).toFixed(1)} textAnchor="middle">
-                {b.points}
+                {b.pointsText}
               </text>
             )}
             <text className="sb-y" x={cx.toFixed(1)} y={BASE + 20} textAnchor="middle" fontSize={dense ? 9 : compact ? 10 : 12}>

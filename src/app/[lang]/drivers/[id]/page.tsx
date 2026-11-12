@@ -62,9 +62,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       totals.wins > 0
         ? fill(t.metaDescription, {
             name: page.name,
-            starts,
-            wins: fill(plural(totals.wins, lang, t.winsN), { n: n(totals.wins) }),
-            titles: fill(plural(totals.titles, lang, t.titlesN), { n: n(totals.titles) }),
+            // «0 титулів» не пишемо: лише те, що є.
+            facts: [starts, fill(plural(totals.wins, lang, t.winsN), { n: n(totals.wins) })]
+              .concat(totals.titles > 0 ? [fill(plural(totals.titles, lang, t.titlesN), { n: n(totals.titles) })] : [])
+              .join(", "),
           })
         : fill(t.metaDescriptionShort, { name: page.name, starts, years: first === last ? first : `${first}–${last}` }),
   });
@@ -122,6 +123,7 @@ export default async function DriverPageView(props: Props) {
     return {
       year: s.year,
       points: s.points,
+      pointsText: s.points !== null ? n(s.points) : null,
       place: place(s),
       color: main.color,
       champion: s.champion,
@@ -150,7 +152,7 @@ export default async function DriverPageView(props: Props) {
     "@type": "Person",
     name: page.name,
     ...(page.name !== page.latin ? { alternateName: page.latin } : {}),
-    jobTitle: lang === "uk" ? "Пілот Формули-1" : "Formula One driver",
+    jobTitle: t.jobTitle,
     url: new URL(path(`/drivers/${page.slug}`), siteUrl()).href,
     ...(page.born ? { birthDate: page.born } : {}),
     ...(page.died ? { deathDate: page.died } : {}),
@@ -222,7 +224,8 @@ export default async function DriverPageView(props: Props) {
       <section className={page.portrait ? "dh" : "dh no-photo"}>
         <div className="wrap">
           {page.portrait ? (
-            <figure className="dh-photo">
+            // Вузьке джерело (портрет < 420 px) не розтягуємо — ширина не більша за сам файл.
+            <figure className="dh-photo" style={{ maxWidth: Math.max(...page.portrait.srcSet.split(", ").map((x) => parseInt(x.split(" ")[1]!, 10))) }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={page.portrait.src}
@@ -355,7 +358,8 @@ export default async function DriverPageView(props: Props) {
             </h2>
             <span className="src">{t.seasons.note}</span>
           </div>
-          <div className={hasChart ? "ds" : "ds no-chart"}>
+          {/* Довга кар'єра (понад 12 сезонів) — графік на всю ширину над таблицею: у вузькій колонці підписи були б 6–7 px. */}
+          <div className={hasChart ? (bars.length > 12 ? "ds stacked" : "ds") : "ds no-chart"}>
             {hasChart && (
               <div>
                 {/* На вузькому екрані графік прокручується вбік — область доступна з клавіатури (axe scrollable-region-focusable). */}
@@ -446,7 +450,7 @@ export default async function DriverPageView(props: Props) {
             <ul className="mates">{matesTop.map(mateRow)}</ul>
             {matesRest.length > 0 && (
               <details className="more">
-                <summary>{fill(t.mates.showAll, { n: page.teammates.length })}</summary>
+                <summary>{fill(t.mates.showAll, { n: matesRest.length })}</summary>
                 <ul className="mates">{matesRest.map(mateRow)}</ul>
               </details>
             )}
@@ -506,7 +510,8 @@ export default async function DriverPageView(props: Props) {
                 </div>
               )}
             </div>
-            {page.wins.list.length > 3 && (
+            {/* Перелік — щойно в ньому є перемоги, яких немає серед виділених (у пілота з 3 перемогами середня інакше зникала б). */}
+            {page.wins.list.length > page.wins.featured.length && (
               <details className="more">
                 <summary>{fill(t.wins.showAll, { n: n(page.wins.list.length) })}</summary>
                 <WinsList
@@ -518,7 +523,7 @@ export default async function DriverPageView(props: Props) {
                       w.team.id,
                     ])}
                   teams={page.wins.byTeam.map(({ id, name, count }) => ({ id, name, count }))}
-                  labels={{ filterLabel: t.wins.filterLabel, all: t.wins.filterAll }}
+                  labels={{ filterLabel: t.wins.filterLabel, all: t.wins.filterAll, listLabel: t.wins.listLabel }}
                 />
               </details>
             )}

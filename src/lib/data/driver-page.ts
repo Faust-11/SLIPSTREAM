@@ -99,14 +99,15 @@ export function yearRanges(years: number[]): string {
 
 export type Stint = { team: string; from: number; to: number };
 
-/** Періоди за командами: основна команда сезону (найбільше гонок) у сусідніх сезонах зливається в один період. */
+/** Періоди за командами: та сама команда в сусідніх сезонах (без перерви) зливається в один період. */
 export function teamStints(seasons: Pick<DriverSeasonRow, "year" | "teams">[]): Stint[] {
   const out: Stint[] = [];
   for (const s of [...seasons].sort((a, b) => a.year - b.year)) {
     // У сезоні з двома командами — обидві, у порядку першої гонки (Феттель 2007: BMW Sauber, потім Toro Rosso).
     for (const t of s.teams) {
       const last = out[out.length - 1];
-      if (last && last.team === t.id) last.to = s.year;
+      // Перерва в рік і більше — новий період (Брандл: Brabham 1989 і 1991, не «1989–1991»).
+      if (last && last.team === t.id && s.year - last.to <= 1) last.to = s.year;
       else out.push({ team: t.id, from: s.year, to: s.year });
     }
   }
@@ -156,10 +157,10 @@ export type TeamRef = { id: string; name: string; color: string | null };
 export type MateView = { id: string; slug: string; name: string; initials: string; avatar: string | null };
 export type DriverWin = { n: number; year: number; round: number; name: string; date: string; team: TeamRef; grid: number | null };
 export type Milestone =
-  | { kind: "debut" | "firstPole"; year: number; gp: string }
-  | { kind: "firstPodium"; year: number; gp: string; position: number }
-  | { kind: "firstWin"; year: number; gp: string; grid: number | null }
-  | { kind: "titles"; year: number; years: number[] };
+  | { kind: "debut" | "firstPole"; year: number; round: number; gp: string }
+  | { kind: "firstPodium"; year: number; round: number; gp: string; position: number }
+  | { kind: "firstWin"; year: number; round: number; gp: string; grid: number | null }
+  | { kind: "titles"; year: number; round: number; years: number[] };
 
 export type DriverPage = {
   id: string;
@@ -328,17 +329,21 @@ export async function getDriverPage(slug: string, locale: Locale, today = new Da
     }))
     .sort((a, b) => a.from - b.from || b.races - a.races || collator.compare(a.mate.name, b.mate.name));
 
-  const milestones: Milestone[] = [{ kind: "debut", year: totals.debut.year, gp: gpName(totals.debut.name, locale) }];
-  if (totals.first_podium)
-    milestones.push({
-      kind: "firstPodium",
-      year: totals.first_podium.year,
-      gp: gpName(totals.first_podium.name, locale),
-      position: totals.first_podium.position!,
-    });
-  if (totals.first_pole) milestones.push({ kind: "firstPole", year: totals.first_pole.year, gp: gpName(totals.first_pole.name, locale) });
-  if (list[0]) milestones.push({ kind: "firstWin", year: list[0].year, gp: list[0].name, grid: list[0].grid });
-  if (row.titles > 0) milestones.push({ kind: "titles", year: row.title_years[0]!, years: row.title_years });
+  const milestones: Milestone[] = [
+    { kind: "debut", year: totals.debut.year, round: totals.debut.round, gp: gpName(totals.debut.name, locale) },
+  ];
+  // Перший подіум, що був перемогою, окремо не показуємо — це та сама гонка, що й «перша перемога» (Ферстаппен, Іспанія 2016).
+  const fp = totals.first_podium;
+  if (fp && !(list[0] && list[0].year === fp.year && list[0].round === fp.round))
+    milestones.push({ kind: "firstPodium", year: fp.year, round: fp.round, gp: gpName(fp.name, locale), position: fp.position! });
+  if (totals.first_pole)
+    milestones.push({ kind: "firstPole", year: totals.first_pole.year, round: totals.first_pole.round, gp: gpName(totals.first_pole.name, locale) });
+  if (list[0]) milestones.push({ kind: "firstWin", year: list[0].year, round: list[0].round, gp: list[0].name, grid: list[0].grid });
+  // Титул — наприкінці свого сезону (після гонок того року).
+  if (row.titles > 0) milestones.push({ kind: "titles", year: row.title_years[0]!, round: 999, years: row.title_years });
+  // За часом: дебют — перший за означенням; у межах однієї гонки — поул, подіум, перемога.
+  const ORDER = { debut: 0, firstPole: 1, firstPodium: 2, firstWin: 3, titles: 4 };
+  milestones.sort((a, b) => a.year - b.year || a.round - b.round || ORDER[a.kind] - ORDER[b.kind]);
 
   const credits: DriverPage["credits"] = [];
   if (portraitSrc) credits.push({ label: `${row.forename} ${row.surname}`, href: portraitSrc.credit.page, ...pick(portraitSrc.credit) });

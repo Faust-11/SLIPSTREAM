@@ -86,7 +86,9 @@ def main() -> int:
                 if dob[ref] is None:
                     report["dob_missing"].append(f"{ref}: у базі немає, Wikidata {born[:1]}")
                 elif born and born[0] and born[0] != dob[ref]:
+                    # Інша дата народження — ознака, що стаття веде на тезку: факти не беремо (лише ручні).
                     report["dob_diff"].append(f"{ref}: база {dob[ref]}, Wikidata {born[0]}")
+                    entry = {}
         if "manual" in old.get(ref, {}):
             entry["manual"] = old[ref]["manual"]
         if entry:

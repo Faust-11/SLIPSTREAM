@@ -7,7 +7,7 @@ type Props = {
   wins: [n: number, text: string, team: string][];
   /** Команди з перемогами (≥ 2 — показуємо фільтр). */
   teams: { id: string; name: string; count: number }[];
-  labels: { filterLabel: string; all: string };
+  labels: { filterLabel: string; all: string; listLabel: string };
 };
 
 /** Повний перелік перемог з фільтром за командою. Без JS — увесь перелік (кнопки приховані стилем). */
@@ -29,7 +29,11 @@ export function WinsList({ wins, teams, labels }: Props) {
         </div>
       )}
       {/* Номер перемоги — у value: після фільтра нумерація лишається наскрізною (17-та перемога — 17-та). */}
-      <ol className="tscroll wlist" reversed aria-live="polite">
+      {/* Оголошуємо лише кількість після фільтра, а не весь перелік; прокручувана область доступна з клавіатури. */}
+      <p className="sr-only" role="status">
+        {team ? `${teams.find((t) => t.id === team)?.name}: ${shown.length}` : ""}
+      </p>
+      <ol className="tscroll wlist" reversed tabIndex={0} aria-label={labels.listLabel}>
         {shown.map(([n, text]) => (
           <li key={n} value={n}>
             {text}

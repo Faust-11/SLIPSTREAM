@@ -358,7 +358,6 @@
       "many": "{n}× World Champion: {years}"
     },
     "instagram": "Instagram",
-    "noPhoto": "No free photo yet",
     "numberLabel": "Car number {n}",
     "facts": {
       "label": "Facts",
@@ -483,7 +482,7 @@
       "keyBehind": "Teammate ahead",
       "note": "Races: who placed higher in the race classification. Qualifying: final qualifying position, shown when data exists for the shared races (from 1994). Only teammates with 5 or more shared races.",
       "sr": "{a}: {x}; {b}: {y}",
-      "showAll": "Show all {n} teammates"
+      "showAll": "Show {n} more"
     },
     "wins": {
       "title": {
@@ -499,7 +498,8 @@
       "byGrandPrix": "Most wins by Grand Prix",
       "showAll": "Show all {n}",
       "filterLabel": "Wins by team",
-      "filterAll": "All"
+      "filterAll": "All",
+      "listLabel": "All wins"
     },
     "miles": {
       "title": "Milestones",
@@ -518,7 +518,8 @@
     "credits": {
       "portraits": "Driver portraits: authors and licences"
     },
-    "metaDescription": "{name}: {starts}, {wins}, {titles}. Season by season, teammates and every win.",
-    "metaDescriptionShort": "{name}: {starts} in Formula 1, {years}. Seasons, teams and results."
+    "metaDescription": "{name}: {facts}. Season by season, teammates and every win.",
+    "metaDescriptionShort": "{name}: {starts} in Formula 1, {years}. Seasons, teams and results.",
+    "jobTitle": "Formula One driver"
   }
 }
