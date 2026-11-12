@@ -7448,9 +7448,9 @@
   "grands_prix": 16,
   "wins": 0,
   "podiums": 1,
-  "position": 6,
+  "position": null,
   "points": 11.0,
-  "excluded": false,
+  "excluded": true,
   "champion": false,
   "in_progress": false,
   "season_races": 16
