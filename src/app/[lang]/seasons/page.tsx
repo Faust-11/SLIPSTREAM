@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { DecadeSpy } from "@/components/seasons/decade-spy";
+import { SeasonPhoto } from "@/components/seasons/season-photo";
 import { PageCredits } from "@/components/teams/page-credits";
 import { fill } from "@/i18n/fill";
 import { getDictionary } from "@/i18n/get-dictionary";
@@ -18,12 +19,11 @@ const SIZES = "(width <= 600px) calc(50vw - 29px), 280px";
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const lang = requireLocale((await params).lang);
   const dict = await getDictionary(lang);
-  const { facts } = await getSeasonsIndex(lang);
   return pageMetadata({
     locale: lang,
     path: "/seasons",
     title: dict.nav.seasons,
-    description: fill(dict.seasonsPage.metaDescription, { n: facts.seasons }),
+    description: dict.seasonsPage.metaDescription,
   });
 }
 
@@ -56,18 +56,15 @@ export default async function SeasonsPage({ params }: Props) {
         <article className="car" aria-labelledby={titleId}>
           {c.photo ? (
             // Готові WebP (як картки команд), без next/image. Перша картка — кандидат LCP.
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <SeasonPhoto
               src={c.photo.src}
               srcSet={c.photo.srcSet}
               sizes={SIZES}
               width={c.photo.width}
               height={c.photo.height}
-              alt={c.driver ? fill(t.photoAlt, { name: c.driver.name, year: c.year }) : ""}
-              style={{ objectPosition: c.photo.focus }}
-              decoding="async"
-              fetchPriority={first ? "high" : undefined}
-              loading={pos <= 4 ? "eager" : "lazy"}
+              priority={first}
+              eager={pos <= 4}
+              style={c.photo.focus ? { objectPosition: c.photo.focus } : undefined}
             />
           ) : (
             <div className="media ini" aria-hidden="true">
@@ -80,7 +77,8 @@ export default async function SeasonsPage({ params }: Props) {
             {c.driver ? <a href={path(`/drivers/${c.driver.slug}`)}>{c.driver.name}</a> : "—"}
           </h3>
           {c.inProgress && <p className="live">{t.running}</p>}
-          <ul className="info">
+          <ul className="info" role="list">
+            {c.inProgress && c.driver && <li className="lead">{c.decided ? t.champion : t.leader}</li>}
             {c.teams.length > 0 && (
               <li className="tm" translate="no">
                 {c.teams.map((tm, i) => (
@@ -93,9 +91,11 @@ export default async function SeasonsPage({ params }: Props) {
             )}
             <li className="st">
               {c.inProgress
-                ? pl(c.wins, t.winsRunning, { done: c.races, total: c.rounds })
+                ? `${pl(c.wins, t.winsN)} · ${pl(c.rounds, t.roundsOf, { done: c.races })}`
                 : pl(c.wins, t.wins, { races: pl(c.races, t.races) })}
             </li>
+            {/* Без Кубка: до 1958 його не було; пізніше — заліку команд ще немає (перша гонка сезону) — рядок не показуємо. */}
+            {(c.cup || c.year < 1958) && (
             <li className="cup">
               {c.cup ? (
                 <CupText tpl={c.inProgress ? (c.cup.decided ? t.cupDecided : t.cupLeader) : t.cup} name={c.cup.team.name} href={path(`/teams/${c.cup.team.id}`)} />
@@ -103,6 +103,7 @@ export default async function SeasonsPage({ params }: Props) {
                 t.noCup
               )}
             </li>
+            )}
           </ul>
         </article>
       </li>
@@ -164,7 +165,7 @@ export default async function SeasonsPage({ params }: Props) {
                 </p>
                 <p className="who">{d.names.join(", ")}</p>
               </div>
-              <ol className="grid">
+              <ol className="grid" role="list">
                 {d.cards.map((c) => card(c, ++position))}
               </ol>
             </section>

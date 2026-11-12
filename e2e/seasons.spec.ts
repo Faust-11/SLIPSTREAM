@@ -24,7 +24,7 @@ test("/uk/seasons: вступ, десятиліття, картки заверш
   await expect(c1988).toContainText("Кубок: McLaren");
   await expect(page.getByRole("article", { name: /1950/ })).toContainText("Кубка конструкторів ще не було");
   // 1997: Шумахера виключено з заліку — чемпіон Вільньов.
-  await expect(page.getByRole("article", { name: /1997/ })).toContainText("Вільньов");
+  await expect(page.getByRole("article", { name: /1997/ })).toContainText("Жак Вільнев");
   expect(errors).toEqual([]);
 });
 
@@ -44,7 +44,20 @@ test("перша картка — поточний сезон: «Сезон тр
   expect(years.at(-1)).toBe(1950);
   const first = page.locator(".slot").first();
   await expect(first).toHaveClass(/pole/);
-  await expect(first.locator("img")).toHaveAttribute("fetchpriority", "high");
+  // Фото першої картки (якщо воно є: на початку сезону лідера може ще не бути) — кандидат LCP.
+  if ((await first.locator("img").count()) > 0) await expect(first.locator("img")).toHaveAttribute("fetchpriority", "high");
+  // Поточний сезон: поки лишились етапи — позначка, «X з Y етапів» і підпис лідера; інакше — звичайна картка.
+  const running = (await first.locator(".live").count()) > 0;
+  if (running) {
+    await expect(first.locator(".live")).toHaveText("Сезон триває");
+    await expect(first.locator(".st")).toHaveText(/^\d+ перемог[аи]? · \d+ з \d+ етап(у|ів)$/);
+    await expect(first.locator(".lead")).toHaveText(/Лідер заліку|Титул оформлено достроково/);
+    await expect(page.locator("#d2020 .dec-side")).toContainText("триває");
+  } else {
+    await expect(first.locator(".st")).toHaveText(/перемог[аи]? з \d+ гон/);
+    await expect(first.locator(".lead")).toHaveCount(0);
+  }
+  await expect(page.locator(".slot .live")).toHaveCount(running ? 1 : 0);
 });
 
 test("посилання картки: пілот, команда, Кубок — на існуючі сторінки; чипи — якорі на десятиліття", async ({ page, request }) => {
@@ -73,7 +86,7 @@ test.describe("без JavaScript", () => {
     await page.goto("/uk/seasons");
     expect(await page.locator(".slot").count()).toBeGreaterThanOrEqual(77);
     await expect(page.locator('.sn-chips a[href="#d1950"]')).toBeVisible();
-    await expect(page.getByRole("article", { name: /1976/ })).toContainText("Джеймс Гант");
+    await expect(page.getByRole("article", { name: /1976/ })).toContainText("Джеймс Хант");
   });
 });
 
@@ -83,17 +96,36 @@ test("метадані: canonical, hreflang, JSON-LD ItemList", async ({ page })
   await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", /\/seasons$/);
   const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').textContent()) ?? "{}");
   expect(ld["@type"]).toBe("ItemList");
-  expect(ld.itemListElement.length).toBe(ld.numberOfItems);
+  expect(ld.numberOfItems).toBe(await page.locator(".slot").count());
+  expect(ld.itemListElement.at(-1)).toMatchObject({ position: ld.numberOfItems, name: expect.stringContaining("1950") });
 });
 
 for (const theme of ["light", "dark"] as const)
-  for (const width of [320, 390, 768, 1280])
-    test(`без порушень axe і горизонтальної прокрутки: ${theme}, ${width} px`, async ({ page }) => {
+  for (const width of [320, 390, 600, 768, 900, 1280])
+    test(`без порушень axe; ніщо не виходить за екран: ${theme}, ${width} px`, async ({ page }) => {
       await page.emulateMedia({ colorScheme: theme });
       await page.setViewportSize({ width, height: 900 });
       await page.goto("/uk/seasons");
       await expectNoA11yViolations(page);
       expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+      // Доріжка обрізає переповнення (overflow-x: clip), тож scrollWidth його не покаже — міряємо самі картки й рамки;
+      // зміщена картка наприкінці десятиліття не накриває наступне.
+      const bad = await page.evaluate(() => {
+        const vw = document.documentElement.clientWidth;
+        const out: string[] = [];
+        for (const el of document.querySelectorAll<HTMLElement>(".slot")) {
+          const b = el.getBoundingClientRect();
+          if (b.left < 0 || b.right > vw) out.push(`${el.dataset.pos} поза екраном`);
+        }
+        const decades = [...document.querySelectorAll<HTMLElement>(".decade")];
+        decades.forEach((d, i) => {
+          const next = decades[i + 1];
+          const last = d.querySelector<HTMLElement>(".slot:last-child");
+          if (next && last && last.getBoundingClientRect().bottom > next.getBoundingClientRect().top) out.push(`${d.id}: остання картка накриває ${next.id}`);
+        });
+        return out;
+      });
+      expect(bad).toEqual([]);
     });
 
 test("CLS < 0.1 (390 px); розмір HTML ≤ 100 КБ gzip", async ({ page, request }) => {
