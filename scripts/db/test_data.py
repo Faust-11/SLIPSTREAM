@@ -197,6 +197,20 @@ with psycopg.connect(DSN, autocommit=True) as conn:
           [r[0] for r in haas[:2]] != ["bearman", "rafael_camara"] and any(r[0] == "rafael_camara" and r[1] > 2 and r[3] for r in haas), haas)
     over = conn.execute("select id, driver from f1.team_pairing where race_ahead > races or quali_ahead > races").fetchall()
     check("«попереду» ніколи не більше за кількість гонок (кваліфікація — лише за цю команду)", not over, over)
+    # --- Список пілотів (0007) ---
+    drv = {r[0]: r[1:] for r in conn.execute("select id, starts, wins, podiums, poles, titles from f1.driver_index")}
+    # Еталони — історичні числа, що вже не змінюються (Вікіпедія 12.11): старти / перемоги / подіуми / титули.
+    for ref, exp in {"michael_schumacher": (306, 91, 155, 7), "senna": (161, 41, 80, 3), "prost": (199, 51, 106, 4),
+                     "fangio": (51, 24, 35, 5), "clark": (72, 25, 32, 2)}.items():
+        got = drv.get(ref)
+        check(f"еталон пілота {ref} = {exp}", got is not None and (got[0], got[1], got[2], got[4]) == exp, got)
+    champs = sum(1 for v in drv.values() if v[4] > 0)
+    titles_sum = sum(v[4] for v in drv.values())
+    check("титулів пілотів у списку = титулів у командах", titles_sum == n_dt, (titles_sum, n_dt))
+    winners = sum(1 for v in drv.values() if v[1] > 0)
+    print(f"INFO  пілотів зі стартом: {len(drv)}; чемпіонів: {champs}; переможців гонок: {winners}")
+    for ref in ("hamilton", "max_verstappen", "michael_schumacher", "senna", "fangio", "antonelli"):
+        print("INFO  pilot", ref, conn.execute("select starts, wins, podiums, poles, titles, title_years, y0, y1, main_team, current_team, current_number, current_position, current_points from f1.driver_index where id = %s", (ref,)).fetchone())
     # Довідкові числа для звірки з Вікіпедією (docs/decisions.md) — друк, не перевірка.
     for k in ("mclaren", "ferrari", "williams", "brabham", "lotus", "mercedes", "red-bull", "tyrrell"):
         ch = conn.execute("select driver, years from f1.team_champions where id = %s order by years[1]", (k,)).fetchall()
