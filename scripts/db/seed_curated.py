@@ -29,17 +29,24 @@ def main() -> int:
         print("DATABASE_URL не задано", file=sys.stderr)
         return 2
     teams = json.loads(CURATED.read_text(encoding="utf-8"))["teams"]
-    pairs = [(ref, t["id"]) for t in teams for ref in t["refs"]]
+    # ref Jolpica → команда, з роками (refYears): одна ref може належати різним командам у різні роки
+    # (ATS: 1963 — італійська, 1978–84 — німецька; міграція 0006).
+    pairs = [(ref, t["id"], *t.get("refYears", {}).get(ref, [0, 9999])) for t in teams for ref in t["refs"]]
+    exclusions = [(t["id"], e["year"]) for t in teams for e in t.get("exclusions", [])]
     with psycopg.connect(dsn) as conn, conn.transaction():
         conn.execute("delete from f1.team_families")
+        conn.execute("delete from f1.team_season_exclusions")
         with conn.cursor() as cur:
-            cur.executemany("insert into f1.team_families(ref, family_id) values (%s, %s)", pairs)
+            cur.executemany("insert into f1.team_families(ref, family_id, from_year, to_year) values (%s, %s, %s, %s)", pairs)
+            if exclusions:
+                cur.executemany("insert into f1.team_season_exclusions(family_id, season_year) values (%s, %s)", exclusions)
         unmapped = conn.execute(
             """
             select distinct t.ref from f1.results r
             join f1.sessions s on s.id = r.session_id and s.type = 'R'
+            join f1.rounds ro on ro.id = s.round_id
             join f1.teams t on t.id = r.team_id
-            left join f1.team_families tf on tf.ref = t.ref
+            left join f1.team_families tf on tf.ref = t.ref and ro.season_year between tf.from_year and tf.to_year
             where tf.ref is null and f1.result_started(r.detail, r.position, r.laps_completed, r.grid)
             order by 1
             """

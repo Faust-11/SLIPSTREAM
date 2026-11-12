@@ -73,9 +73,9 @@ describe("межові команди", () => {
     expect(await getTeamPage("nope", "uk")).toBeNull();
   });
 
-  it("сторінки для всіх 165 команд; кожна має підсумки в базі", async () => {
+  it("сторінки для всіх 166 команд; кожна має підсумки в базі", async () => {
     const ids = getTeamIds();
-    expect(ids).toHaveLength(165);
+    expect(ids).toHaveLength(166);
     const totals = new Set(teamTotals.map((t) => t.id));
     expect(ids.filter((id) => !totals.has(id))).toEqual([]);
   });
