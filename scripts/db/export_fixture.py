@@ -34,6 +34,8 @@ QUERIES = {
                     "from f1.driver_index order by id",
     "team_pairing": "select id, driver, forename, surname, ord, races, points, in_last_race, race_ahead, quali_ahead "
                     "from f1.team_pairing order by id, ord",
+    "season_index": "select year, races, rounds, in_progress, driver, forename, surname, points, driver_decided, teams, wins, "
+                    "cup_team, cup_decided from f1.season_index order by year",
     # Сторінка пілота (0008).
     "driver_totals": "select id, date_of_birth::text as date_of_birth, permanent_number, points, fastest_laps, fastest_laps_known, "
                      "debut, last_race, first_podium, first_pole from f1.driver_totals order by id",
