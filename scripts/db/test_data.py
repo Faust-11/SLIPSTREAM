@@ -128,7 +128,13 @@ with psycopg.connect(DSN, autocommit=True) as conn:
         got = {k: d[k] for k in exp}
         if got != exp:
             diffs.append((team_id, {k: (exp[k], got[k]) for k in exp if exp[k] != got[k]}))
-    check(f"паритет зі знімком 3a: {len(snap) - 2} команд", not diffs, diffs[:10])
+    # Правило старту 0009 (status = 30 «не стартував» — не старт): у 7 команд єдина машина гонки не стартувала —
+    # на один Гран-прі менше, ніж у знімку 3a (замір db.yml 12.11). Решта — без змін.
+    dns_only = {"williams": 883, "minardi": 340, "osella": 131, "ensign": 99, "lola": 84, "simtek": 20, "scarab": 2}
+    diffs = [d for d in diffs if not (d[0] in dns_only and set(d[1]) == {"gp"} and d[1]["gp"][1] == dns_only[d[0]]
+                                      and d[1]["gp"][0] == dns_only[d[0]] + 1)]
+    check(f"паритет зі знімком 3a: {len(snap) - 2} команд (7 — мінус один Гран-прі без старту)", not diffs, diffs[:10])
+    check("…і ці 7 справді змінились", all(idx[k]["gp"] == v for k, v in dns_only.items()), {k: idx[k]["gp"] for k in dns_only})
     check("Lotus: перемоги й Кубки як у знімку (Lotus Racing не перемагала)", (lotus["w"], lotus["t"]) == (snap["lotus"]["wins"], snap["lotus"]["titles"]))
     check("Lotus + Lotus Racing = Гран-прі знімка", lotus["gp"] + racing["gp"] == snap["lotus"]["grandsPrix"], (lotus["gp"], racing["gp"]))
     # ATS (рішення користувача 12.11): 1963 — італійська A.T.S., 1978–84 — німецька; разом = знімок 3a.
@@ -200,9 +206,11 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     # --- Список пілотів (0007) ---
     drv = {r[0]: r[1:] for r in conn.execute("select id, starts, wins, podiums, poles, titles from f1.driver_index")}
     # Еталони — історичні числа, що вже не змінюються (Вікіпедія 12.11): старти / перемоги / подіуми / титули.
-    # Шумахер: Вікіпедія — 306 стартів, у нас 308 (гіпотеза: 2 сходи на прогрівальному колі в даних Jolpica не
-    # відрізнити від сходу на 1-му колі; та сама різниця 2 у Ferrari: 1143 проти 1141). Перемоги/подіуми/титули — збіг.
-    for ref, exp in {"michael_schumacher": (308, 91, 155, 7), "senna": (161, 41, 80, 3), "prost": (199, 51, 106, 4),
+    # Після 0009 (заявка «не стартував» — не старт). Залишкові розбіжності з Вікіпедією — гонки з повторним стартом,
+    # яких дані не розрізняють: Шумахер 307 проти 306 (Велика Британія 1999 — аварія на першому старті, у даних «схід»);
+    # Прост 198 проти 199 (Австралія 1989 — знявся після першого старту, у даних «Withdrew» → не старт).
+    # Перемоги/подіуми/титули — збіг.
+    for ref, exp in {"michael_schumacher": (307, 91, 155, 7), "senna": (161, 41, 80, 3), "prost": (198, 51, 106, 4),
                      "fangio": (51, 24, 35, 5), "clark": (72, 25, 32, 2)}.items():
         got = drv.get(ref)
         check(f"еталон пілота {ref} = {exp}", got is not None and (got[0], got[1], got[2], got[4]) == exp, got)
@@ -323,7 +331,10 @@ with psycopg.connect(DSN, autocommit=True) as conn:
         where r.status = 30 and f1.result_started(r.detail, r.position, r.laps_completed, r.grid) group by 1 order by 2 desc, 1 limit 70"""))
     print("INFO  START еталони після зміни:", {k: (idx[k]["gp"], idx[k]["w"], idx[k]["t"]) for k in reference},
           {k: drv.get(k) for k in ("michael_schumacher", "senna", "prost", "fangio", "clark", "hamilton")})
-    print("INFO  START пілотів зі стартом:", len(drv), "; команд:", len(idx))
+    print("INFO  START пілотів зі стартом:", len(drv), "; команд:", len(idx), "; пілоти, чий єдиний «старт» був заявкою без старту:",
+          q("""select d.ref, d.forename, d.surname from f1.drivers d where exists (select 1 from f1.results r join f1.sessions s on s.id = r.session_id and s.type = 'R'
+               where r.driver_id = d.id and r.status = 30 and f1.result_started(r.detail, r.position, r.laps_completed, r.grid))
+               and not exists (select 1 from f1.driver_index i where i.id = d.ref)"""))
     # Довідкові числа для звірки з Вікіпедією (docs/decisions.md) — друк, не перевірка.
     for k in ("mclaren", "ferrari", "williams", "brabham", "lotus", "mercedes", "red-bull", "tyrrell"):
         ch = conn.execute("select driver, years from f1.team_champions where id = %s order by years[1]", (k,)).fetchall()
