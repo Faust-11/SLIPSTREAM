@@ -3491,28 +3491,6 @@
   "first_pole": null
  },
  {
-  "id": "chapman",
-  "date_of_birth": "1928-05-19",
-  "permanent_number": null,
-  "points": 0.0,
-  "fastest_laps": 0,
-  "fastest_laps_known": false,
-  "debut": {
-   "date": "1956-07-01",
-   "name": "French Grand Prix",
-   "year": 1956,
-   "round": 5
-  },
-  "last_race": {
-   "date": "1956-07-01",
-   "name": "French Grand Prix",
-   "year": 1956,
-   "round": 5
-  },
-  "first_podium": null,
-  "first_pole": null
- },
- {
   "id": "charlton",
   "date_of_birth": "1936-10-27",
   "permanent_number": null,
@@ -4705,10 +4683,10 @@
    "round": 10
   },
   "last_race": {
-   "date": "1975-08-17",
-   "name": "Austrian Grand Prix",
+   "date": "1975-08-03",
+   "name": "German Grand Prix",
    "year": 1975,
-   "round": 12
+   "round": 11
   },
   "first_podium": {
    "name": "Canadian Grand Prix",
@@ -9063,28 +9041,6 @@
   "first_pole": null
  },
  {
-  "id": "jover",
-  "date_of_birth": "1903-11-23",
-  "permanent_number": null,
-  "points": 0.0,
-  "fastest_laps": 0,
-  "fastest_laps_known": false,
-  "debut": {
-   "date": "1951-10-28",
-   "name": "Spanish Grand Prix",
-   "year": 1951,
-   "round": 8
-  },
-  "last_race": {
-   "date": "1951-10-28",
-   "name": "Spanish Grand Prix",
-   "year": 1951,
-   "round": 8
-  },
-  "first_podium": null,
-  "first_pole": null
- },
- {
   "id": "jules_bianchi",
   "date_of_birth": "1989-08-03",
   "permanent_number": 17,
@@ -11148,10 +11104,10 @@
    "round": 4
   },
   "last_race": {
-   "date": "1954-08-01",
-   "name": "German Grand Prix",
+   "date": "1954-07-17",
+   "name": "British Grand Prix",
    "year": 1954,
-   "round": 6
+   "round": 5
   },
   "first_podium": {
    "name": "Belgian Grand Prix",
@@ -11515,10 +11471,10 @@
    "round": 1
   },
   "last_race": {
-   "date": "2021-12-12",
-   "name": "Abu Dhabi Grand Prix",
+   "date": "2021-12-05",
+   "name": "Saudi Arabian Grand Prix",
    "year": 2021,
-   "round": 22
+   "round": 21
   },
   "first_podium": null,
   "first_pole": null
@@ -11705,10 +11661,10 @@
    "round": 1
   },
   "last_race": {
-   "date": "2002-10-13",
-   "name": "Japanese Grand Prix",
+   "date": "2002-09-29",
+   "name": "United States Grand Prix",
    "year": 2002,
-   "round": 17
+   "round": 16
   },
   "first_podium": null,
   "first_pole": null
@@ -11939,9 +11895,9 @@
    "round": 5
   },
   "last_race": {
-   "date": "1960-06-19",
-   "name": "Belgian Grand Prix",
-   "year": 1960,
+   "date": "1959-07-18",
+   "name": "British Grand Prix",
+   "year": 1959,
    "round": 5
   },
   "first_podium": null,
@@ -13653,28 +13609,6 @@
   }
  },
  {
-  "id": "pian",
-  "date_of_birth": "1912-10-21",
-  "permanent_number": null,
-  "points": 0.0,
-  "fastest_laps": 0,
-  "fastest_laps_known": false,
-  "debut": {
-   "date": "1950-05-21",
-   "name": "Monaco Grand Prix",
-   "year": 1950,
-   "round": 2
-  },
-  "last_race": {
-   "date": "1950-05-21",
-   "name": "Monaco Grand Prix",
-   "year": 1950,
-   "round": 2
-  },
-  "first_podium": null,
-  "first_pole": null
- },
- {
   "id": "piastri",
   "date_of_birth": "2001-04-06",
   "permanent_number": 81,
@@ -13975,10 +13909,10 @@
    "round": 1
   },
   "last_race": {
-   "date": "1982-08-08",
-   "name": "German Grand Prix",
+   "date": "1982-07-25",
+   "name": "French Grand Prix",
    "year": 1982,
-   "round": 12
+   "round": 11
   },
   "first_podium": {
    "name": "Belgian Grand Prix",
@@ -18567,10 +18501,10 @@
   "fastest_laps": 0,
   "fastest_laps_known": false,
   "debut": {
-   "date": "1950-05-21",
-   "name": "Monaco Grand Prix",
+   "date": "1950-07-02",
+   "name": "French Grand Prix",
    "year": 1950,
-   "round": 2
+   "round": 6
   },
   "last_race": {
    "date": "1954-07-17",

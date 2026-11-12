@@ -29,6 +29,8 @@ const dateFmt = {
   uk: new Intl.DateTimeFormat("uk", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }),
   en: new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }),
 };
+/** До цього сезону приватні команди могли виставляти чуже шасі (з 1981 — лише власне, Договір згоди). */
+const CUSTOMER_CARS_UNTIL = 1981;
 /** Скільки напарників показуємо одразу; решта — у згорнутому переліку (у пілотів 1950–70-х їх до 27). */
 const MATES_SHOWN = 8;
 
@@ -469,6 +471,8 @@ export default async function DriverPageView(props: Props) {
                 {t.mates.keyBehind}
               </span>
               <span>{t.mates.note}</span>
+              {/* Рішення 12.11: дані Jolpica знають конструктора, а не заявника — чесне пояснення замість приховування блоку. */}
+              {page.teammates.some((m) => m.from < CUSTOMER_CARS_UNTIL) && <span>{t.mates.customerNote}</span>}
             </p>
           </div>
         </section>

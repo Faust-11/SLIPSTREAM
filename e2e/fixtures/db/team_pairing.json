@@ -225,7 +225,7 @@
   "points": 38.0,
   "in_last_race": true,
   "race_ahead": 4,
-  "quali_ahead": 6
+  "quali_ahead": 7
  },
  {
   "id": "racing-bulls",
@@ -237,7 +237,7 @@
   "points": 75.0,
   "in_last_race": true,
   "race_ahead": 12,
-  "quali_ahead": 11
+  "quali_ahead": 10
  },
  {
   "id": "racing-bulls",

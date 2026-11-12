@@ -8,7 +8,8 @@
 розбіжності йдуть у звіт, на сайті показується дата з бази).
 Запис пілота: {"wikidata": "Q…", "instagram"?, "died"?, "alive"?}. «alive» = елемент знайдено, людина (P31 = Q5),
 дати смерті немає — лише тоді сайт показує вік. Немає елемента — запису немає (вік не показуємо).
-Ручні правки — поле "manual" (instagram / died; null — свідомо «немає»): скрипт його зберігає, на сайті воно має перевагу.
+Ручні правки — поле "manual" (instagram / died; null — свідомо «немає»; born — дата народження замість дати бази,
+з джерелами bornSources; bornChecked — дату перевірено вручну): скрипт його зберігає, на сайті воно має перевагу.
 """
 from __future__ import annotations
 
@@ -86,9 +87,11 @@ def main() -> int:
                 if dob[ref] is None:
                     report["dob_missing"].append(f"{ref}: у базі немає, Wikidata {born[:1]}")
                 elif born and born[0] and born[0] != dob[ref]:
-                    # Інша дата народження — ознака, що стаття веде на тезку: факти не беремо (лише ручні).
                     report["dob_diff"].append(f"{ref}: база {dob[ref]}, Wikidata {born[0]}")
-                    entry = {}
+                    # Інша дата народження — ознака, що стаття веде на тезку: факти не беремо, доки особу не
+                    # перевірено вручну (manual.bornChecked — дату звірено з незалежними джерелами, це та сама людина).
+                    if not old.get(ref, {}).get("manual", {}).get("bornChecked"):
+                        entry = {}
         if "manual" in old.get(ref, {}):
             entry["manual"] = old[ref]["manual"]
         if entry:

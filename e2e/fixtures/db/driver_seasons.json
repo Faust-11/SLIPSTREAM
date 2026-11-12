@@ -2121,13 +2121,13 @@
   "teams": [
    {
     "id": "mclaren",
-    "races": 19
+    "races": 18
    }
   ],
   "numbers": [
    14
   ],
-  "races": 19,
+  "races": 18,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -4244,13 +4244,13 @@
   "teams": [
    {
     "id": "minardi",
-    "races": 17
+    "races": 16
    }
   ],
   "numbers": [
    24
   ],
-  "races": 17,
+  "races": 16,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -5158,13 +5158,13 @@
   "teams": [
    {
     "id": "stewart",
-    "races": 16
+    "races": 15
    }
   ],
   "numbers": [
    18
   ],
-  "races": 16,
+  "races": 15,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -5246,13 +5246,13 @@
   "teams": [
    {
     "id": "ferrari",
-    "races": 17
+    "races": 15
    }
   ],
   "numbers": [
    2
   ],
-  "races": 17,
+  "races": 15,
   "wins": 4,
   "podiums": 10,
   "poles": 3,
@@ -11676,13 +11676,13 @@
   "teams": [
    {
     "id": "bar",
-    "races": 16
+    "races": 15
    }
   ],
   "numbers": [
    17
   ],
-  "races": 16,
+  "races": 15,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -11940,13 +11940,13 @@
   "teams": [
    {
     "id": "mclaren",
-    "races": 19
+    "races": 18
    }
   ],
   "numbers": [
    22
   ],
-  "races": 19,
+  "races": 18,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -13471,28 +13471,6 @@
   "poles": 0,
   "points": 0.0,
   "position": 28,
-  "excluded": false,
-  "champion": false,
-  "in_progress": false
- },
- {
-  "id": "chapman",
-  "year": 1956,
-  "teams": [
-   {
-    "id": "vanwall",
-    "races": 1
-   }
-  ],
-  "numbers": [
-   26
-  ],
-  "races": 1,
-  "wins": 0,
-  "podiums": 0,
-  "poles": 0,
-  "points": 0.0,
-  "position": null,
   "excluded": false,
   "champion": false,
   "in_progress": false
@@ -16062,7 +16040,7 @@
   "teams": [
    {
     "id": "scarab",
-    "races": 3
+    "races": 2
    },
    {
     "id": "cooper",
@@ -16071,11 +16049,10 @@
   ],
   "numbers": [
    30,
-   26,
    3,
    23
   ],
-  "races": 4,
+  "races": 3,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -16432,13 +16409,13 @@
   "teams": [
    {
     "id": "arrows",
-    "races": 17
+    "races": 16
    }
   ],
   "numbers": [
    1
   ],
-  "races": 17,
+  "races": 16,
   "wins": 0,
   "podiums": 1,
   "poles": 0,
@@ -17874,13 +17851,13 @@
    },
    {
     "id": "march",
-    "races": 3
+    "races": 2
    }
   ],
   "numbers": [
    28
   ],
-  "races": 12,
+  "races": 11,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -19369,28 +19346,6 @@
    20
   ],
   "races": 2,
-  "wins": 0,
-  "podiums": 0,
-  "poles": 0,
-  "points": 0.0,
-  "position": null,
-  "excluded": false,
-  "champion": false,
-  "in_progress": false
- },
- {
-  "id": "fairman",
-  "year": 1955,
-  "teams": [
-   {
-    "id": "connaught",
-    "races": 1
-   }
-  ],
-  "numbers": [
-   34
-  ],
-  "races": 1,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -21566,13 +21521,13 @@
   "teams": [
    {
     "id": "sauber",
-    "races": 16
+    "races": 15
    }
   ],
   "numbers": [
    10
   ],
-  "races": 16,
+  "races": 15,
   "wins": 0,
   "podiums": 1,
   "poles": 0,
@@ -23862,19 +23817,14 @@
    {
     "id": "ferrari",
     "races": 3
-   },
-   {
-    "id": "scarab",
-    "races": 1
    }
   ],
   "numbers": [
    34,
    3,
-   28,
    18
   ],
-  "races": 4,
+  "races": 3,
   "wins": 0,
   "podiums": 1,
   "poles": 0,
@@ -24211,13 +24161,13 @@
   "teams": [
    {
     "id": "toyota",
-    "races": 15
+    "races": 14
    }
   ],
   "numbers": [
    10
   ],
-  "races": 15,
+  "races": 14,
   "wins": 0,
   "podiums": 2,
   "poles": 0,
@@ -24233,13 +24183,13 @@
   "teams": [
    {
     "id": "virgin",
-    "races": 19
+    "races": 18
    }
   ],
   "numbers": [
    24
   ],
-  "races": 19,
+  "races": 18,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -24255,13 +24205,13 @@
   "teams": [
    {
     "id": "virgin",
-    "races": 19
+    "races": 18
    }
   ],
   "numbers": [
    24
   ],
-  "races": 19,
+  "races": 18,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -24819,7 +24769,7 @@
   "teams": [
    {
     "id": "maserati",
-    "races": 6
+    "races": 5
    }
   ],
   "numbers": [
@@ -24829,7 +24779,7 @@
    18,
    14
   ],
-  "races": 6,
+  "races": 5,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -25915,13 +25865,13 @@
   "teams": [
    {
     "id": "ensign",
-    "races": 9
+    "races": 8
    }
   ],
   "numbers": [
    14
   ],
-  "races": 9,
+  "races": 8,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -26003,13 +25953,13 @@
   "teams": [
    {
     "id": "leyton-house",
-    "races": 12
+    "races": 11
    }
   ],
   "numbers": [
    15
   ],
-  "races": 12,
+  "races": 11,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -26840,13 +26790,13 @@
   "teams": [
    {
     "id": "mclaren",
-    "races": 16
+    "races": 15
    }
   ],
   "numbers": [
    8
   ],
-  "races": 16,
+  "races": 15,
   "wins": 0,
   "podiums": 2,
   "poles": 0,
@@ -26972,13 +26922,13 @@
   "teams": [
    {
     "id": "mclaren",
-    "races": 17
+    "races": 16
    }
   ],
   "numbers": [
    3
   ],
-  "races": 17,
+  "races": 16,
   "wins": 2,
   "podiums": 3,
   "poles": 0,
@@ -28934,14 +28884,14 @@
   "teams": [
    {
     "id": "lotus",
-    "races": 3
+    "races": 2
    }
   ],
   "numbers": [
    15,
    6
   ],
-  "races": 3,
+  "races": 2,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -29268,13 +29218,13 @@
   "teams": [
    {
     "id": "stewart",
-    "races": 16
+    "races": 15
    }
   ],
   "numbers": [
    17
   ],
-  "races": 16,
+  "races": 15,
   "wins": 1,
   "podiums": 1,
   "poles": 0,
@@ -30678,13 +30628,13 @@
   "teams": [
    {
     "id": "sauber",
-    "races": 19
+    "races": 18
    }
   ],
   "numbers": [
    11
   ],
-  "races": 19,
+  "races": 18,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -30722,13 +30672,13 @@
   "teams": [
    {
     "id": "force-india",
-    "races": 19
+    "races": 18
    }
   ],
   "numbers": [
    27
   ],
-  "races": 19,
+  "races": 18,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -30832,13 +30782,13 @@
   "teams": [
    {
     "id": "racing-point",
-    "races": 3
+    "races": 2
    }
   ],
   "numbers": [
    27
   ],
-  "races": 3,
+  "races": 2,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -33178,13 +33128,13 @@
   "teams": [
    {
     "id": "shadow",
-    "races": 14
+    "races": 13
    }
   ],
   "numbers": [
    17
   ],
-  "races": 14,
+  "races": 13,
   "wins": 0,
   "podiums": 0,
   "poles": 2,
@@ -33352,13 +33302,13 @@
   "teams": [
    {
     "id": "osella",
-    "races": 13
+    "races": 12
    }
   ],
   "numbers": [
    31
   ],
-  "races": 13,
+  "races": 12,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -33913,13 +33863,13 @@
   "teams": [
    {
     "id": "renault",
-    "races": 21
+    "races": 20
    }
   ],
   "numbers": [
    30
   ],
-  "races": 21,
+  "races": 20,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -34139,13 +34089,13 @@
   "teams": [
    {
     "id": "lola",
-    "races": 4
+    "races": 3
    }
   ],
   "numbers": [
    33
   ],
-  "races": 4,
+  "races": 3,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -34210,28 +34160,6 @@
   ],
   "numbers": [
    18
-  ],
-  "races": 1,
-  "wins": 0,
-  "podiums": 0,
-  "poles": 0,
-  "points": 0.0,
-  "position": null,
-  "excluded": false,
-  "champion": false,
-  "in_progress": false
- },
- {
-  "id": "jover",
-  "year": 1951,
-  "teams": [
-   {
-    "id": "maserati",
-    "races": 1
-   }
-  ],
-  "numbers": [
-   46
   ],
   "races": 1,
   "wins": 0,
@@ -35446,13 +35374,13 @@
   "teams": [
    {
     "id": "red-bull",
-    "races": 14
+    "races": 13
    }
   ],
   "numbers": [
    15
   ],
-  "races": 14,
+  "races": 13,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -35696,13 +35624,13 @@
   "teams": [
    {
     "id": "caterham",
-    "races": 16
+    "races": 15
    }
   ],
   "numbers": [
    10
   ],
-  "races": 16,
+  "races": 15,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -35806,13 +35734,13 @@
   "teams": [
    {
     "id": "lotus-racing",
-    "races": 19
+    "races": 18
    }
   ],
   "numbers": [
    19
   ],
-  "races": 19,
+  "races": 18,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -36136,7 +36064,7 @@
   "teams": [
    {
     "id": "red-bull",
-    "races": 4
+    "races": 3
    },
    {
     "id": "toro-rosso",
@@ -36146,7 +36074,7 @@
   "numbers": [
    26
   ],
-  "races": 21,
+  "races": 20,
   "wins": 0,
   "podiums": 1,
   "poles": 0,
@@ -36272,13 +36200,13 @@
   "teams": [
    {
     "id": "williams",
-    "races": 11
+    "races": 10
    }
   ],
   "numbers": [
    21
   ],
-  "races": 11,
+  "races": 10,
   "wins": 0,
   "podiums": 1,
   "poles": 0,
@@ -37800,13 +37728,13 @@
   "teams": [
    {
     "id": "ferrari",
-    "races": 22
+    "races": 21
    }
   ],
   "numbers": [
    16
   ],
-  "races": 22,
+  "races": 21,
   "wins": 0,
   "podiums": 1,
   "poles": 2,
@@ -38998,18 +38926,13 @@
    {
     "id": "march",
     "races": 10
-   },
-   {
-    "id": "williams",
-    "races": 1
    }
   ],
   "numbers": [
    10,
-   29,
-   20
+   29
   ],
-  "races": 11,
+  "races": 10,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -40542,13 +40465,13 @@
   "teams": [
    {
     "id": "williams",
-    "races": 16
+    "races": 15
    }
   ],
   "numbers": [
    5
   ],
-  "races": 16,
+  "races": 15,
   "wins": 2,
   "podiums": 3,
   "poles": 1,
@@ -41075,17 +40998,16 @@
   "teams": [
    {
     "id": "maserati",
-    "races": 5
+    "races": 4
    }
   ],
   "numbers": [
    4,
    28,
    12,
-   33,
-   6
+   33
   ],
-  "races": 5,
+  "races": 4,
   "wins": 0,
   "podiums": 1,
   "poles": 0,
@@ -42792,13 +42714,13 @@
   "teams": [
    {
     "id": "haas",
-    "races": 22
+    "races": 21
    }
   ],
   "numbers": [
    9
   ],
-  "races": 22,
+  "races": 21,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -43543,13 +43465,13 @@
   "teams": [
    {
     "id": "toyota",
-    "races": 17
+    "races": 16
    }
   ],
   "numbers": [
    25
   ],
-  "races": 17,
+  "races": 16,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -44097,13 +44019,13 @@
   "teams": [
    {
     "id": "ferrari",
-    "races": 16
+    "races": 15
    }
   ],
   "numbers": [
    1
   ],
-  "races": 16,
+  "races": 15,
   "wins": 3,
   "podiums": 8,
   "poles": 4,
@@ -44604,28 +44526,6 @@
   ],
   "numbers": [
    50
-  ],
-  "races": 1,
-  "wins": 0,
-  "podiums": 0,
-  "poles": 0,
-  "points": 0.0,
-  "position": null,
-  "excluded": false,
-  "champion": false,
-  "in_progress": false
- },
- {
-  "id": "mike_taylor",
-  "year": 1960,
-  "teams": [
-   {
-    "id": "lotus",
-    "races": 1
-   }
-  ],
-  "numbers": [
-   20
   ],
   "races": 1,
   "wins": 0,
@@ -45889,7 +45789,7 @@
    },
    {
     "id": "lotus",
-    "races": 5
+    "races": 4
    }
   ],
   "numbers": [
@@ -45899,7 +45799,7 @@
    12,
    5
   ],
-  "races": 6,
+  "races": 5,
   "wins": 2,
   "podiums": 3,
   "poles": 4,
@@ -46520,13 +46420,13 @@
   "teams": [
    {
     "id": "sauber",
-    "races": 19
+    "races": 18
    }
   ],
   "numbers": [
    12
   ],
-  "races": 19,
+  "races": 18,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -48291,13 +48191,13 @@
   "teams": [
    {
     "id": "prost",
-    "races": 16
+    "races": 15
    }
   ],
   "numbers": [
    11
   ],
-  "races": 16,
+  "races": 15,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -48802,13 +48702,13 @@
   "teams": [
    {
     "id": "arrows",
-    "races": 15
+    "races": 14
    }
   ],
   "numbers": [
    29
   ],
-  "races": 15,
+  "races": 14,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -50431,13 +50331,13 @@
   "teams": [
    {
     "id": "caterham",
-    "races": 20
+    "races": 19
    }
   ],
   "numbers": [
    21
   ],
-  "races": 20,
+  "races": 19,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -50640,28 +50540,6 @@
   "poles": 0,
   "points": 1.0,
   "position": 19,
-  "excluded": false,
-  "champion": false,
-  "in_progress": false
- },
- {
-  "id": "pian",
-  "year": 1950,
-  "teams": [
-   {
-    "id": "maserati",
-    "races": 1
-   }
-  ],
-  "numbers": [
-   4
-  ],
-  "races": 1,
-  "wins": 0,
-  "podiums": 0,
-  "poles": 0,
-  "points": 0.0,
-  "position": null,
   "excluded": false,
   "champion": false,
   "in_progress": false
@@ -51048,14 +50926,13 @@
   "teams": [
    {
     "id": "lotus",
-    "races": 2
+    "races": 1
    }
   ],
   "numbers": [
-   34,
    26
   ],
-  "races": 2,
+  "races": 1,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -51543,13 +51420,13 @@
   "teams": [
    {
     "id": "ferrari",
-    "races": 11
+    "races": 10
    }
   ],
   "numbers": [
    28
   ],
-  "races": 11,
+  "races": 10,
   "wins": 2,
   "podiums": 6,
   "poles": 2,
@@ -52303,13 +52180,13 @@
   "teams": [
    {
     "id": "ferrari",
-    "races": 15
+    "races": 14
    }
   ],
   "numbers": [
    27
   ],
-  "races": 15,
+  "races": 14,
   "wins": 0,
   "podiums": 5,
   "poles": 0,
@@ -56084,13 +55961,13 @@
   "teams": [
    {
     "id": "arrows",
-    "races": 17
+    "races": 16
    }
   ],
   "numbers": [
    18
   ],
-  "races": 17,
+  "races": 16,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -56194,13 +56071,13 @@
   "teams": [
    {
     "id": "sauber",
-    "races": 14
+    "races": 13
    }
   ],
   "numbers": [
    22
   ],
-  "races": 14,
+  "races": 13,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -56754,13 +56631,13 @@
   "teams": [
    {
     "id": "tyrrell",
-    "races": 11
+    "races": 10
    }
   ],
   "numbers": [
    20
   ],
-  "races": 11,
+  "races": 10,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -57620,13 +57497,13 @@
   "teams": [
    {
     "id": "mclaren",
-    "races": 17
+    "races": 16
    }
   ],
   "numbers": [
    55
   ],
-  "races": 17,
+  "races": 16,
   "wins": 0,
   "podiums": 1,
   "poles": 0,
@@ -57977,13 +57854,13 @@
   "teams": [
    {
     "id": "arrows",
-    "races": 16
+    "races": 15
    }
   ],
   "numbers": [
    17
   ],
-  "races": 16,
+  "races": 15,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -66060,7 +65937,7 @@
   "teams": [
    {
     "id": "minardi",
-    "races": 7
+    "races": 6
    },
    {
     "id": "prost",
@@ -66071,7 +65948,7 @@
    21,
    14
   ],
-  "races": 14,
+  "races": 13,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -66109,13 +65986,13 @@
   "teams": [
    {
     "id": "prost",
-    "races": 16
+    "races": 15
    }
   ],
   "numbers": [
    19
   ],
-  "races": 16,
+  "races": 15,
   "wins": 0,
   "podiums": 1,
   "poles": 0,
@@ -66357,13 +66234,13 @@
   "teams": [
    {
     "id": "lotus-racing",
-    "races": 19
+    "races": 18
    }
   ],
   "numbers": [
    18
   ],
-  "races": 19,
+  "races": 18,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -67093,13 +66970,13 @@
   "teams": [
    {
     "id": "simtek",
-    "races": 5
+    "races": 4
    }
   ],
   "numbers": [
    12
   ],
-  "races": 5,
+  "races": 4,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -67450,13 +67327,13 @@
   "teams": [
    {
     "id": "ferrari",
-    "races": 21
+    "races": 20
    }
   ],
   "numbers": [
    5
   ],
-  "races": 21,
+  "races": 20,
   "wins": 0,
   "podiums": 7,
   "poles": 0,
@@ -69324,14 +69201,13 @@
   "teams": [
    {
     "id": "minardi",
-    "races": 17
+    "races": 16
    }
   ],
   "numbers": [
-   23,
-   22
+   23
   ],
-  "races": 17,
+  "races": 16,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -69956,15 +69832,14 @@
   "teams": [
    {
     "id": "ferrari",
-    "races": 3
+    "races": 2
    }
   ],
   "numbers": [
-   28,
    14,
    8
   ],
-  "races": 3,
+  "races": 2,
   "wins": 0,
   "podiums": 1,
   "poles": 0,
@@ -70724,14 +70599,13 @@
   "teams": [
    {
     "id": "minardi",
-    "races": 12
+    "races": 11
    }
   ],
   "numbers": [
-   22,
-   23
+   22
   ],
-  "races": 12,
+  "races": 11,
   "wins": 0,
   "podiums": 0,
   "poles": 0,
@@ -70791,13 +70665,13 @@
   "teams": [
    {
     "id": "lotus",
-    "races": 12
+    "races": 11
    }
   ],
   "numbers": [
    11
   ],
-  "races": 12,
+  "races": 11,
   "wins": 0,
   "podiums": 0,
   "poles": 0,

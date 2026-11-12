@@ -4,9 +4,9 @@ import { getDriversCredits, getDriversIndex } from "../drivers";
 vi.mock("@/lib/data/db", () => import("@/lib/data/__tests__/db-fixture"));
 
 describe("getDriversIndex", () => {
-  it("793 пілоти зі стартом, 36 чемпіонів, 116 переможців гонок (макет: 795/36/116; правило стартів — як у командах)", async () => {
+  it("790 пілотів зі стартом, 36 чемпіонів, 116 переможців гонок (макет: 795/36/116; правило стартів — як у командах)", async () => {
     const rows = await getDriversIndex("uk");
-    expect(rows).toHaveLength(793);
+    expect(rows).toHaveLength(790);
     expect(rows.filter((r) => r.titles > 0)).toHaveLength(36);
     expect(rows.filter((r) => r.wins > 0)).toHaveLength(116);
   });

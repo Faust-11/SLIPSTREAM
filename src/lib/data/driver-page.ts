@@ -21,7 +21,13 @@ import type {
 
 /* ---------- кураторські дані ---------- */
 
-type FactsEntry = { instagram?: string; died?: string; alive?: boolean; manual?: { instagram?: string | null; died?: string | null } };
+type FactsEntry = {
+  instagram?: string;
+  died?: string;
+  alive?: boolean;
+  /** born — дата народження замість дати бази (перевірено за незалежними джерелами, bornSources у JSON). */
+  manual?: { instagram?: string | null; died?: string | null; born?: string };
+};
 const facts = (driverFactsJson as unknown as { drivers: Record<string, FactsEntry> }).drivers;
 /** Фактичні ширини файлів `<id>-420.webp` і (якщо є) `<id>-640.webp`; кадр 4:5 (scripts/curated/driver_hero.py). */
 const heroes = (driverHeroesJson as unknown as { drivers: Record<string, number[]> }).drivers;
@@ -272,6 +278,7 @@ export async function getDriverPage(slug: string, locale: Locale, today = new Da
   const f = facts[id] ?? {};
   const died = f.manual?.died !== undefined ? f.manual.died : (f.died ?? null);
   const instagram = f.manual?.instagram !== undefined ? f.manual.instagram : (f.instagram ?? null);
+  const born = f.manual?.born ?? totals.date_of_birth;
   const active = row.current_team !== null;
   const alive = !died && (active || f.alive === true);
 
@@ -377,9 +384,9 @@ export async function getDriverPage(slug: string, locale: Locale, today = new Da
     carNumber: active ? row.current_number : null,
     color: row.current_team ? (teamsById.get(row.current_team)?.color ?? null) : null,
     country: countryName(row.country_code, locale),
-    born: totals.date_of_birth,
+    born,
     died,
-    age: alive && totals.date_of_birth && ageAt(totals.date_of_birth, today) <= MAX_AGE ? ageAt(totals.date_of_birth, today) : null,
+    age: alive && born && ageAt(born, today) <= MAX_AGE ? ageAt(born, today) : null,
     instagram,
     stints: teamStints(seasonRows).map((s) => ({ ...s, name: teamRef(s.team).name })),
     numbers: numberPeriods(seasonRows),
