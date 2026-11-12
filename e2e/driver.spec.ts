@@ -142,6 +142,8 @@ test("метадані: canonical, hreflang, JSON-LD Person", async ({ page }) =
 for (const theme of ["light", "dark"] as const)
   for (const width of [390, 1280])
     test(`без порушень axe: ${theme}, ${width} px — Гамілтон, Сенна, Фанхіо, пілот з одним стартом`, async ({ page }) => {
+      // Чотири сторінки з axe поспіль: проти продакшну на завантаженій машині 30 с не вистачало (12.11 — тайм-аут, не порушення).
+      test.setTimeout(90_000);
       await page.emulateMedia({ colorScheme: theme });
       await page.setViewportSize({ width, height: 900 });
       for (const id of ["hamilton", "senna", "fangio", "ader"]) {
