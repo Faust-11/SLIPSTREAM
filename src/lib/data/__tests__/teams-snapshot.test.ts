@@ -1,7 +1,11 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { teamsSnapshot as data } from "../teams";
+import snapshot from "@/data/snapshot/teams.json";
+import type { TeamsSnapshot } from "../types";
+
+// Знімок фази 3a — лише фікстура тестів (дані сайту — з бази); JSON-імпорт типізується ширше — через unknown.
+const data = snapshot as unknown as TeamsSnapshot;
 const publicFile = (src: string) => join(process.cwd(), "public", src);
 
 // Вільні ліцензії, що реально трапляються в даних (замір 11.11). Нове значення — лише свідомим доповненням.
