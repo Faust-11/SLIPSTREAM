@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { dbSelect } from "../db";
+import { dbSelect, dbSelectAll } from "../db";
 
 const ENV = { SUPABASE_URL: "https://example.supabase.co", SUPABASE_ANON_KEY: "anon-key" };
 
@@ -45,5 +45,44 @@ describe("dbSelect (PostgREST Supabase, схема f1)", () => {
 
   it("назва подання — лише [a-z_]: без ін'єкцій у шлях", async () => {
     await expect(dbSelect("team_index/../x", "select=id")).rejects.toThrow(/подання/);
+  });
+
+  describe("dbSelectAll — сторінками, без мовчазного обрізання", () => {
+    // Сервер, що віддає не більше maxRows за запит (як max-rows Supabase), з Content-Range.
+    const server = (total: number, maxRows: number) =>
+      vi.fn(async (url: string) => {
+        const q = new URL(url).searchParams;
+        const offset = Number(q.get("offset"));
+        const limit = Math.min(Number(q.get("limit")), maxRows);
+        const rows = Array.from({ length: Math.max(0, Math.min(limit, total - offset)) }, (_, i) => ({ n: offset + i }));
+        return new Response(JSON.stringify(rows), {
+          status: 200,
+          headers: { "content-range": rows.length ? `${offset}-${offset + rows.length - 1}/${total}` : `*/${total}` },
+        });
+      });
+
+    it("1154 рядки при max-rows 1000 — два запити, усі рядки по порядку", async () => {
+      const fetchMock = server(1154, 1000);
+      vi.stubGlobal("fetch", fetchMock);
+      const rows = await dbSelectAll<{ n: number }>("team_wins", "select=n&order=id,n");
+      expect(rows.map((r) => r.n)).toEqual(Array.from({ length: 1154 }, (_, i) => i));
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+      const headers = new Headers((fetchMock.mock.calls[0] as unknown as [string, RequestInit])[1].headers);
+      expect(headers.get("prefer")).toBe("count=exact");
+    });
+
+    it("max-rows менший за сторінку (500) — все одно збирає всі 1154", async () => {
+      vi.stubGlobal("fetch", server(1154, 500));
+      expect(await dbSelectAll("team_wins", "select=n&order=n")).toHaveLength(1154);
+    });
+
+    it("без order= — помилка (сторінки без порядку нестабільні)", async () => {
+      await expect(dbSelectAll("team_wins", "select=n")).rejects.toThrow(/order=/);
+    });
+
+    it("немає Content-Range — помилка, а не мовчки перша сторінка", async () => {
+      vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify([{ n: 0 }]), { status: 200 })));
+      await expect(dbSelectAll("team_wins", "select=n&order=n")).rejects.toThrow(/Content-Range/);
+    });
   });
 });
