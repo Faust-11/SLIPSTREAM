@@ -55,7 +55,8 @@ def structure(label: str, sql: str) -> None:
 
 
 # Нові об'єкти не мають ставати публічними мовчки (0004): ці перевірки ловлять пропуск у майбутній міграції.
-PUBLIC_VIEWS = ("team_index", "site_meta")   # подання без RLS, які anon читає навмисно
+# Подання без RLS, які anon читає навмисно (0002 — список команд, 0005 — сторінка команди).
+PUBLIC_VIEWS = ("team_index", "site_meta", "team_seasons", "team_champions", "team_wins", "team_totals", "team_pairing")
 PUBLIC_FUNCTIONS = ("result_started",)        # чиста функція з 0002, використовується в team_index
 structure("RLS увімкнено на кожній таблиці f1", """
     select c.relname from pg_class c join pg_namespace n on n.oid = c.relnamespace
@@ -77,6 +78,8 @@ for role in ("anon", "authenticated"):
     check(f"{role} reads f1.teams", role, "select id from f1.teams limit 1")
     check(f"{role} reads f1.team_index", role, "select id from f1.team_index limit 1")
     check(f"{role} reads f1.site_meta", role, "select current_season from f1.site_meta")
+    check(f"{role} reads f1.team_totals", role, "select id from f1.team_totals limit 1")
+    check(f"{role} cannot read f1.v_team_race (службове)", role, "select 1 from f1.v_team_race limit 1", expect_ok=False)
     check(f"{role} cannot refresh derived data", role, "select f1.refresh_derived()", expect_ok=False)
     check(f"{role} cannot write f1.team_families", role, "delete from f1.team_families", expect_ok=False)
     check(f"{role} cannot insert f1.teams", role, "insert into f1.teams(ref, name) values ('rls-x', 'x')", expect_ok=False)
