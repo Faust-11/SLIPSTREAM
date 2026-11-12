@@ -25,15 +25,15 @@ export default async function DriversPage({ params }: Props) {
   const dict = await getDictionary(lang);
   const t = dict.drivers;
   const [rows, season] = await Promise.all([getDriversIndex(lang), getTeamsSeason()]);
-  const packed = rows.map(packDriver);
+  // У типовому порядку (перемоги ↓): клієнт показує першу сторінку без сортування (TBT, Lighthouse 12.11).
+  const all = selectDrivers(rows, DEFAULT_DRIVERS_QUERY, lang);
+  const packed = all.map(packDriver);
   const nf = new Intl.NumberFormat(lang);
   const count = (n: number, forms: typeof t.facts.drivers) => ({ value: n, label: plural(n, lang, forms) });
   const current = rows
     .filter((r) => r.current)
     .sort((a, b) => (a.current!.position ?? 99) - (b.current!.position ?? 99) || b.current!.points - a.current!.points);
   const labels = { ...t, filters: { ...t.filters, cur: fill(t.filters.cur, { year: season }) } };
-  // Без JS — повний перелік у порядку за замовчуванням (перемоги ↓); з JS його не видно (noscript).
-  const all = selectDrivers(rows, DEFAULT_DRIVERS_QUERY, lang);
 
   return (
     <>
