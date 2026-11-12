@@ -341,6 +341,37 @@ with psycopg.connect(DSN, autocommit=True) as conn:
           q("""select d.ref, d.forename, d.surname from f1.drivers d where exists (select 1 from f1.results r join f1.sessions s on s.id = r.session_id and s.type = 'R'
                where r.driver_id = d.id and r.status = 30 and f1.result_started(r.detail, r.position, r.laps_completed, r.grid))
                and not exists (select 1 from f1.driver_index i where i.id = d.ref)"""))
+    # --- Список сезонів (0010) ---
+    si = {r[0]: r[1:] for r in q("select year, races, rounds, in_progress, driver, surname, points, driver_decided, teams, wins, cup_team, cup_decided from f1.season_index")}
+    check(f"season_index: сезони 1950–{cs_year} без пропусків", sorted(si) == list(range(1950, cs_year + 1)), sorted(set(range(1950, cs_year + 1)) ^ set(si)))
+    # Чемпіони світу 1950–2025 (загальновідомий перелік; прізвища — як у базі).
+    CH = ("Farina Fangio Ascari Ascari Fangio Fangio Fangio Fangio Hawthorn Brabham Brabham Hill Hill Clark Surtees Clark Brabham Hulme "
+          "Hill Stewart Rindt Stewart Fittipaldi Stewart Fittipaldi Lauda Hunt Lauda Andretti Scheckter Jones Piquet Rosberg Piquet Lauda "
+          "Prost Prost Piquet Senna Prost Senna Senna Mansell Prost Schumacher Schumacher Hill Villeneuve Häkkinen Häkkinen Schumacher "
+          "Schumacher Schumacher Schumacher Schumacher Alonso Alonso Räikkönen Hamilton Button Vettel Vettel Vettel Vettel Hamilton Hamilton "
+          "Rosberg Hamilton Hamilton Hamilton Hamilton Verstappen Verstappen Verstappen Verstappen Norris").split()
+    bad = [(y, CH[y - 1950], si[y][4]) for y in range(1950, 2026) if si[y][4] != CH[y - 1950]]
+    check("чемпіони світу 1950–2025 — повний перелік", len(CH) == 76 and not bad, bad[:8])
+    bad = [y for y in range(1950, 2026) if not si[y][6] or si[y][2]]
+    check("завершені сезони: титул вирішено, сезон не «триває»", not bad, bad[:8])
+    # Кубок конструкторів 1958–2025.
+    CUP = ("vanwall cooper cooper ferrari brm lotus ferrari lotus brabham brabham lotus matra lotus tyrrell lotus lotus mclaren ferrari "
+           "ferrari ferrari lotus ferrari williams williams ferrari ferrari mclaren mclaren williams williams mclaren mclaren mclaren mclaren "
+           "williams williams williams benetton williams williams mclaren ferrari ferrari ferrari ferrari ferrari ferrari renault renault "
+           "ferrari ferrari brawn red-bull red-bull red-bull red-bull mercedes mercedes mercedes mercedes mercedes mercedes mercedes mercedes "
+           "red-bull red-bull mclaren mclaren").split()
+    bad = [(y, CUP[y - 1958], si[y][9]) for y in range(1958, 2026) if si[y][9] != CUP[y - 1958]]
+    check("Кубки конструкторів 1958–2025 — повний перелік", len(CUP) == 68 and not bad, bad[:8])
+    check("до 1958 Кубка немає", all(si[y][9] is None for y in range(1950, 1958)), [y for y in range(1950, 1958) if si[y][9]])
+    exp = {1950: (7, 3), 1958: (11, 1), 1976: (16, 6), 1988: (16, 8), 2004: (18, 13), 2021: (22, 10), 2023: (22, 19)}
+    got = {y: (si[y][0], si[y][8]) for y in exp}
+    check("гонок у сезоні й перемог чемпіона: 1950, 1958, 1976, 1988, 2004, 2021, 2023", got == exp, got)
+    cur = si[cs_year]
+    check("поточний сезон: лідер є, гонок ≤ етапів календаря, «триває» = лишились етапи", cur[3] is not None and cur[0] <= cur[1] and cur[2] == (left > 0), cur)
+    multi = [(y, v[4], v[7]) for y, v in si.items() if len(v[7]) > 1]
+    print("INFO  SEASON чемпіони з кількома командами за сезон:", multi)
+    print("INFO  SEASON поточний:", cs_year, cur, "; без команди чемпіона:", [y for y, v in si.items() if not v[7]])
+    print("INFO  SEASON гонок ≠ етапів календаря:", [(y, v[0], v[1]) for y, v in si.items() if v[0] != v[1]])
     # Довідкові числа для звірки з Вікіпедією (docs/decisions.md) — друк, не перевірка.
     for k in ("mclaren", "ferrari", "williams", "brabham", "lotus", "mercedes", "red-bull", "tyrrell"):
         ch = conn.execute("select driver, years from f1.team_champions where id = %s order by years[1]", (k,)).fetchall()

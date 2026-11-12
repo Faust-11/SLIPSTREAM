@@ -57,7 +57,7 @@ def structure(label: str, sql: str) -> None:
 # Нові об'єкти не мають ставати публічними мовчки (0004): ці перевірки ловлять пропуск у майбутній міграції.
 # Подання без RLS, які anon читає навмисно (0002 — список команд, 0005 — сторінка команди).
 PUBLIC_VIEWS = ("team_index", "site_meta", "team_seasons", "team_champions", "team_wins", "team_totals", "team_pairing", "driver_index",
-                "driver_seasons", "driver_wins", "driver_totals", "driver_teammates")
+                "driver_seasons", "driver_wins", "driver_totals", "driver_teammates", "season_index")
 PUBLIC_FUNCTIONS = ("result_started",)        # чиста функція з 0002, використовується в team_index
 structure("RLS увімкнено на кожній таблиці f1", """
     select c.relname from pg_class c join pg_namespace n on n.oid = c.relnamespace
