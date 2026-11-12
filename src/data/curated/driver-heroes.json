@@ -1,0 +1,480 @@
+{
+ "drivers": {
+  "adamich": [
+   420,
+   640
+  ],
+  "ahrens": [
+   420,
+   561
+  ],
+  "aitken": [
+   420,
+   640
+  ],
+  "albon": [
+   420,
+   640
+  ],
+  "alboreto": [
+   420
+  ],
+  "alesi": [
+   420,
+   640
+  ],
+  "alguersuari": [
+   420,
+   533
+  ],
+  "alliot": [
+   420,
+   640
+  ],
+  "alonso": [
+   420,
+   640
+  ],
+  "ambrosio": [
+   420,
+   640
+  ],
+  "amon": [
+   372
+  ],
+  "andretti": [
+   420,
+   640
+  ],
+  "angelis": [
+   420,
+   640
+  ],
+  "antonelli": [
+   420,
+   640
+  ],
+  "arnoux": [
+   308
+  ],
+  "arundell": [
+   332
+  ],
+  "arvid_lindblad": [
+   420,
+   640
+  ],
+  "ascari": [
+   420,
+   586
+  ],
+  "ashley": [
+   420,
+   546
+  ],
+  "attwood": [
+   343
+  ],
+  "ayulo": [
+   420,
+   640
+  ],
+  "badoer": [
+   420,
+   640
+  ],
+  "baghetti": [
+   420,
+   640
+  ],
+  "baldi": [
+   420,
+   640
+  ],
+  "banks": [
+   420,
+   640
+  ],
+  "barrichello": [
+   420,
+   576
+  ],
+  "barth": [
+   420,
+   640
+  ],
+  "bearman": [
+   420,
+   640
+  ],
+  "behra": [
+   420,
+   640
+  ],
+  "bell": [
+   420,
+   640
+  ],
+  "bellof": [
+   420,
+   640
+  ],
+  "beltoise": [
+   420,
+   640
+  ],
+  "beretta": [
+   420,
+   640
+  ],
+  "berger": [
+   420,
+   640
+  ],
+  "bernoldi": [
+   420,
+   640
+  ],
+  "bettenhausen": [
+   420
+  ],
+  "bianchi": [
+   420,
+   633
+  ],
+  "bianco": [
+   376
+  ],
+  "biondetti": [
+   380
+  ],
+  "bira": [
+   371
+  ],
+  "birger": [
+   420,
+   640
+  ],
+  "bleekemolen": [
+   420,
+   640
+  ],
+  "blundell": [
+   420,
+   640
+  ],
+  "bob_scott": [
+   420,
+   593
+  ],
+  "boesel": [
+   420,
+   597
+  ],
+  "bonetto": [
+   324
+  ],
+  "bonnier": [
+   420,
+   640
+  ],
+  "bonomi": [
+   420,
+   640
+  ],
+  "borgudd": [
+   420,
+   640
+  ],
+  "bortoleto": [
+   420,
+   640
+  ],
+  "bottas": [
+   420,
+   640
+  ],
+  "boullion": [
+   420,
+   640
+  ],
+  "bourdais": [
+   420,
+   640
+  ],
+  "boutsen": [
+   420,
+   640
+  ],
+  "brabham": [
+   420,
+   640
+  ],
+  "brambilla": [
+   420,
+   600
+  ],
+  "brendon_hartley": [
+   420,
+   640
+  ],
+  "brise": [
+   306
+  ],
+  "brundle": [
+   420,
+   640
+  ],
+  "bruni": [
+   420,
+   640
+  ],
+  "bruno_senna": [
+   420,
+   640
+  ],
+  "bucci": [
+   420,
+   578
+  ],
+  "buemi": [
+   420,
+   640
+  ],
+  "bueno": [
+   420
+  ],
+  "burti": [
+   323
+  ],
+  "bussinello": [
+   420,
+   564
+  ],
+  "button": [
+   420,
+   640
+  ],
+  "cabantous": [
+   420
+  ],
+  "caffi": [
+   420,
+   640
+  ],
+  "cantrell": [
+   420,
+   640
+  ],
+  "capelli": [
+   420,
+   574
+  ],
+  "cecotto": [
+   354
+  ],
+  "cevert": [
+   420,
+   540
+  ],
+  "chaboud": [
+   343
+  ],
+  "chandhok": [
+   420,
+   640
+  ],
+  "chapman": [
+   420,
+   640
+  ],
+  "cheever": [
+   420,
+   640
+  ],
+  "chilton": [
+   420,
+   640
+  ],
+  "chiron": [
+   420,
+   640
+  ],
+  "clark": [
+   420,
+   600
+  ],
+  "colapinto": [
+   420,
+   640
+  ],
+  "comas": [
+   417
+  ],
+  "connor": [
+   420,
+   640
+  ],
+  "coulthard": [
+   420,
+   640
+  ],
+  "courage": [
+   372
+  ],
+  "crawford": [
+   420,
+   640
+  ],
+  "cruz": [
+   420,
+   590
+  ],
+  "dalmas": [
+   420,
+   640
+  ],
+  "daly": [
+   420,
+   640
+  ],
+  "damon_hill": [
+   420,
+   640
+  ],
+  "danner": [
+   420,
+   640
+  ],
+  "darter": [
+   420,
+   640
+  ],
+  "davidson": [
+   420,
+   640
+  ],
+  "de_vries": [
+   420,
+   640
+  ],
+  "deletraz": [
+   420,
+   625
+  ],
+  "depailler": [
+   420,
+   640
+  ],
+  "dick_rathmann": [
+   420,
+   640
+  ],
+  "diniz": [
+   420,
+   640
+  ],
+  "donnelly": [
+   420,
+   640
+  ],
+  "doohan": [
+   420,
+   535
+  ],
+  "doornbos": [
+   420,
+   640
+  ],
+  "downing": [
+   420
+  ],
+  "elford": [
+   420,
+   640
+  ],
+  "emerson_fittipaldi": [
+   420,
+   640
+  ],
+  "enge": [
+   420
+  ],
+  "ericsson": [
+   420,
+   640
+  ],
+  "ertl": [
+   420
+  ],
+  "etancelin": [
+   420,
+   640
+  ],
+  "fagioli": [
+   420,
+   640
+  ],
+  "fangio": [
+   420,
+   640
+  ],
+  "farina": [
+   420,
+   640
+  ],
+  "faulkner": [
+   420
+  ],
+  "firman": [
+   420,
+   640
+  ],
+  "fisichella": [
+   420,
+   640
+  ],
+  "fittipaldi": [
+   420,
+   640
+  ],
+  "flinterman": [
+   420,
+   640
+  ],
+  "fohr": [
+   420,
+   640
+  ],
+  "follmer": [
+   404
+  ],
+  "foyt": [
+   420,
+   640
+  ],
+  "freeland": [
+   420,
+   640
+  ],
+  "frentzen": [
+   420,
+   569
+  ],
+  "frere": [
+   305
+  ],
+  "friesacher": [
+   420,
+   640
+  ],
+  "hamilton": [
+   420,
+   640
+  ],
+  "norris": [
+   420,
+   640
+  ]
+ }
+}

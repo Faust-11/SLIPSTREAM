@@ -176,3 +176,69 @@ export type DriverIndexRow = {
   current_position: number | null;
   current_points: number | null;
 };
+
+/* ---------- Сторінка пілота (фаза 3d, подання 0008) ---------- */
+
+/** Гонка у віхах пілота: рік, номер етапу, назва Гран-прі (англійською, як у базі). */
+export type DriverRaceRef = { year: number; round: number; name: string; date?: string; position?: number };
+
+export type DriverTotalsRow = {
+  id: string;
+  date_of_birth: string | null;
+  permanent_number: number | null;
+  /** Сума підсумкових (зарахованих) очок чемпіонатів. */
+  points: number;
+  fastest_laps: number;
+  /** Дані про найшвидші кола повні для всієї кар'єри (у Jolpica — з 2004); інакше число не показуємо. */
+  fastest_laps_known: boolean;
+  debut: DriverRaceRef;
+  last_race: DriverRaceRef;
+  first_podium: DriverRaceRef | null;
+  first_pole: DriverRaceRef | null;
+};
+
+export type DriverSeasonRow = {
+  id: string;
+  year: number;
+  /** Команди сезону в порядку першої гонки за них. */
+  teams: { id: string; races: number }[];
+  numbers: number[];
+  races: number;
+  wins: number;
+  podiums: number;
+  poles: number;
+  points: number | null;
+  /** null — без місця в заліку (без очок у старих сезонах, дискваліфікація). */
+  position: number | null;
+  excluded: boolean;
+  champion: boolean;
+  in_progress: boolean;
+};
+
+export type DriverWinRow = {
+  id: string;
+  n: number;
+  year: number;
+  round: number;
+  name: string;
+  date: string;
+  team: string;
+  grid: number | null;
+};
+
+export type DriverTeammateRow = {
+  id: string;
+  team: string;
+  mate: string;
+  forename: string;
+  surname: string;
+  years: number[];
+  /** Спільні гонки (обидва стартували за цю команду); у поданні — лише пари від 5. */
+  races: number;
+  race_ahead: number;
+  race_behind: number;
+  /** Спільні гонки з даними кваліфікації (з 1994). */
+  quali_races: number;
+  quali_ahead: number;
+  quali_behind: number;
+};

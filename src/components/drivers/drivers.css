@@ -352,3 +352,26 @@ html[data-list-query] .drv-browser .tscroll {
   word-spacing: normal;
   color: inherit;
 }
+
+/* Імена — посилання на сторінку пілота (фаза 3d). */
+.drv-card b a,
+.dt .nm a,
+.drv-noscript a {
+  color: inherit;
+  text-decoration: none;
+}
+.drv-card b a:hover,
+.dt .nm a:hover,
+.drv-noscript a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+/* Ціль картки — уся картка. */
+.drv-card {
+  position: relative;
+}
+.drv-card b a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}

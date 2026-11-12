@@ -3,6 +3,7 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";
 import { requireLocale } from "@/i18n/require-locale";
 import { getDriversIndex } from "@/lib/data/drivers";
+import { driverPath } from "@/lib/driver-slug";
 import { DEFAULT_DRIVERS_QUERY, selectDrivers } from "@/lib/drivers-list";
 import { pageMetadata } from "@/lib/seo";
 
@@ -41,7 +42,10 @@ export default async function DriversAllPage({ params }: Props) {
           </div>
           <ol className="drv-noscript">
             {rows.map((r) => (
-              <li key={r.id}>{`${r.name} (${r.years[0]}–${r.years[1]}): ${nf.format(r.wins)} / ${nf.format(r.starts)}`}</li>
+              <li key={r.id}>
+                <a href={localizedPath(driverPath(r.id), lang)}>{r.name}</a>
+                {` (${r.years[0]}–${r.years[1]}): ${nf.format(r.wins)} / ${nf.format(r.starts)}`}
+              </li>
             ))}
           </ol>
         </div>

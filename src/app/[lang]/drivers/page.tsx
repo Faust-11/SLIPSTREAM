@@ -8,6 +8,7 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import { requireLocale } from "@/i18n/require-locale";
 import { getDriversIndex, packDriver } from "@/lib/data/drivers";
 import { getTeamsSeason } from "@/lib/data/teams";
+import { driverPath } from "@/lib/driver-slug";
 import { DEFAULT_DRIVERS_QUERY, selectDrivers } from "@/lib/drivers-list";
 import { plural } from "@/lib/plural";
 import { pageMetadata } from "@/lib/seo";
@@ -70,7 +71,9 @@ export default async function DriversPage({ params }: Props) {
                     </span>
                   )}
                   <span>
-                    <b>{r.name}</b>
+                    <b>
+                      <a href={localizedPath(driverPath(r.id), lang)}>{r.name}</a>
+                    </b>
                     <small translate="no">{r.current!.team}</small>
                   </span>
                 </span>

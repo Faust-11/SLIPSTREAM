@@ -1,0 +1,3194 @@
+{
+ "source": "Wikidata (P2003, P570) через статті Вікіпедії з f1.drivers.wikipedia_en",
+ "drivers": {
+  "Cannoc": {
+   "wikidata": "Q172525",
+   "died": "1999-10-18"
+  },
+  "abecassis": {
+   "wikidata": "Q173276",
+   "died": "1991-12-18"
+  },
+  "acheson": {
+   "wikidata": "Q173261",
+   "alive": true
+  },
+  "adamich": {
+   "wikidata": "Q173250",
+   "died": "2025-11-05"
+  },
+  "adams": {
+   "wikidata": "Q171444",
+   "alive": true
+  },
+  "ader": {
+   "wikidata": "Q165393",
+   "died": "1982-11-25"
+  },
+  "adolff": {
+   "wikidata": "Q61033",
+   "died": "2012-01-24"
+  },
+  "agabashian": {
+   "wikidata": "Q171959",
+   "died": "1989-10-13"
+  },
+  "ahrens": {
+   "wikidata": "Q60395",
+   "alive": true
+  },
+  "aitken": {
+   "wikidata": "Q15292751",
+   "instagram": "jaitkenracer",
+   "alive": true
+  },
+  "alan_brown": {
+   "wikidata": "Q172236",
+   "died": "2004-01-20"
+  },
+  "albers": {
+   "wikidata": "Q171414",
+   "alive": true
+  },
+  "albon": {
+   "wikidata": "Q16149172",
+   "instagram": "alex_albon",
+   "alive": true
+  },
+  "alboreto": {
+   "wikidata": "Q172983",
+   "died": "2001-04-25"
+  },
+  "alesi": {
+   "wikidata": "Q172777",
+   "alive": true
+  },
+  "alguersuari": {
+   "wikidata": "Q171355",
+   "instagram": "squire.music",
+   "alive": true
+  },
+  "alliot": {
+   "wikidata": "Q173305",
+   "alive": true
+  },
+  "allison": {
+   "wikidata": "Q171723",
+   "died": "2005-04-07"
+  },
+  "alonso": {
+   "wikidata": "Q10514",
+   "instagram": "fernandoalo_oficial",
+   "alive": true
+  },
+  "ambrosio": {
+   "wikidata": "Q171996",
+   "instagram": "jeromedambrosio",
+   "alive": true
+  },
+  "amick": {
+   "wikidata": "Q173439",
+   "died": "1995-05-16"
+  },
+  "amon": {
+   "wikidata": "Q171469",
+   "died": "2016-08-03"
+  },
+  "anderson": {
+   "wikidata": "Q173430",
+   "died": "1967-08-14"
+  },
+  "andersson": {
+   "wikidata": "Q172242",
+   "alive": true
+  },
+  "andre_pilette": {
+   "wikidata": "Q172119",
+   "died": "1993-12-27"
+  },
+  "andretti": {
+   "wikidata": "Q171519",
+   "alive": true
+  },
+  "andrews": {
+   "wikidata": "Q173433",
+   "died": "1957-05-15"
+  },
+  "angelis": {
+   "wikidata": "Q173115",
+   "died": "1986-05-15"
+  },
+  "antonelli": {
+   "wikidata": "Q112073790",
+   "instagram": "kimi.antonelli",
+   "alive": true
+  },
+  "apicella": {
+   "wikidata": "Q172245",
+   "instagram": "stilo_apicella",
+   "alive": true
+  },
+  "armi": {
+   "wikidata": "Q173463",
+   "died": "1992-11-28"
+  },
+  "arnoux": {
+   "wikidata": "Q173279",
+   "alive": true
+  },
+  "arundell": {
+   "wikidata": "Q173456",
+   "died": "2009-06-16"
+  },
+  "arvid_lindblad": {
+   "wikidata": "Q117035650",
+   "alive": true
+  },
+  "ascari": {
+   "wikidata": "Q2086",
+   "died": "1955-05-26"
+  },
+  "ashdown": {
+   "wikidata": "Q173410",
+   "alive": true
+  },
+  "ashley": {
+   "wikidata": "Q173469",
+   "alive": true
+  },
+  "ashmore": {
+   "wikidata": "Q172826",
+   "died": "2021-08-25"
+  },
+  "aston": {
+   "wikidata": "Q172641",
+   "died": "1974-03-04"
+  },
+  "attwood": {
+   "wikidata": "Q172194",
+   "alive": true
+  },
+  "ayulo": {
+   "wikidata": "Q173076",
+   "died": "1955-05-16"
+  },
+  "badoer": {
+   "wikidata": "Q172749",
+   "alive": true
+  },
+  "baghetti": {
+   "wikidata": "Q171478",
+   "died": "1995-11-27"
+  },
+  "baldi": {
+   "wikidata": "Q171521",
+   "alive": true
+  },
+  "ball": {
+   "wikidata": "Q172121",
+   "died": "1954-02-27"
+  },
+  "balsa": {
+   "wikidata": "Q172381",
+   "died": "1984-08-11"
+  },
+  "bandini": {
+   "wikidata": "Q173006",
+   "died": "1967-05-10"
+  },
+  "banks": {
+   "wikidata": "Q172431",
+   "died": "1994-12-18"
+  },
+  "barbazza": {
+   "wikidata": "Q172968",
+   "alive": true
+  },
+  "barber": {
+   "wikidata": "Q172094",
+   "alive": true
+  },
+  "barilla": {
+   "wikidata": "Q171613",
+   "alive": true
+  },
+  "barrichello": {
+   "wikidata": "Q169846",
+   "alive": true
+  },
+  "barth": {
+   "wikidata": "Q61286",
+   "died": "1965-05-20"
+  },
+  "bassi": {
+   "wikidata": "Q172332",
+   "alive": true
+  },
+  "bauer": {
+   "wikidata": "Q63840",
+   "died": "1958-06-03"
+  },
+  "baumgartner": {
+   "wikidata": "Q172002",
+   "alive": true
+  },
+  "bayol": {
+   "wikidata": "Q172036",
+   "died": "1995-05-25"
+  },
+  "bearman": {
+   "wikidata": "Q107023292",
+   "instagram": "olliebearman",
+   "alive": true
+  },
+  "beaufort": {
+   "wikidata": "Q171963",
+   "died": "1964-08-02"
+  },
+  "beauman": {
+   "wikidata": "Q172830",
+   "died": "1955-07-09"
+  },
+  "bechem": {
+   "wikidata": "Q61488",
+   "died": "2011-05-03"
+  },
+  "behra": {
+   "wikidata": "Q172250",
+   "died": "1959-08-01"
+  },
+  "bell": {
+   "wikidata": "Q165814",
+   "alive": true
+  },
+  "bellof": {
+   "wikidata": "Q57435",
+   "died": "1985-09-01"
+  },
+  "belso": {
+   "wikidata": "Q173098",
+   "died": "2020-01-11"
+  },
+  "beltoise": {
+   "wikidata": "Q171526",
+   "died": "2015-01-05"
+  },
+  "beretta": {
+   "wikidata": "Q163175",
+   "alive": true
+  },
+  "berg": {
+   "wikidata": "Q173452",
+   "instagram": "allenbergracing",
+   "alive": true
+  },
+  "berger": {
+   "wikidata": "Q78502",
+   "alive": true
+  },
+  "bernard": {
+   "wikidata": "Q171546",
+   "alive": true
+  },
+  "bernoldi": {
+   "wikidata": "Q172961",
+   "alive": true
+  },
+  "bettenhausen": {
+   "wikidata": "Q172098",
+   "died": "1961-05-12"
+  },
+  "beuttler": {
+   "wikidata": "Q171734",
+   "died": "1988-12-29"
+  },
+  "bianchi": {
+   "wikidata": "Q171893",
+   "died": "1969-03-30"
+  },
+  "bianco": {
+   "wikidata": "Q172337",
+   "died": "1984-05-08"
+  },
+  "binder": {
+   "wikidata": "Q78593",
+   "alive": true
+  },
+  "biondetti": {
+   "wikidata": "Q172489",
+   "died": "1955-02-24"
+  },
+  "bira": {
+   "wikidata": "Q173204",
+   "died": "1985-12-23"
+  },
+  "birger": {
+   "wikidata": "Q172418",
+   "died": "1966-03-09"
+  },
+  "bisch": {
+   "wikidata": "Q173590",
+   "died": "1958-07-04"
+  },
+  "blanchard": {
+   "wikidata": "Q172384",
+   "died": "1960-01-31"
+  },
+  "bleekemolen": {
+   "wikidata": "Q172024",
+   "instagram": "michael_bleekemolen",
+   "alive": true
+  },
+  "blokdyk": {
+   "wikidata": "Q172515",
+   "died": "1995-03-19"
+  },
+  "blundell": {
+   "wikidata": "Q171553",
+   "instagram": "mark_blundell_f1",
+   "alive": true
+  },
+  "bob_scott": {
+   "wikidata": "Q172580",
+   "died": "1954-07-05"
+  },
+  "boesel": {
+   "wikidata": "Q171727",
+   "alive": true
+  },
+  "bondurant": {
+   "wikidata": "Q172496",
+   "died": "2021-11-12"
+  },
+  "bonetto": {
+   "wikidata": "Q171897",
+   "died": "1953-11-21"
+  },
+  "bonnier": {
+   "wikidata": "Q172239",
+   "died": "1972-06-11"
+  },
+  "bonomi": {
+   "wikidata": "Q172206",
+   "died": "1992-01-10"
+  },
+  "borgudd": {
+   "wikidata": "Q172264",
+   "died": "2023-02-23"
+  },
+  "bortoleto": {
+   "wikidata": "Q106641273",
+   "instagram": "gabrielbortoleto_",
+   "alive": true
+  },
+  "botha": {
+   "wikidata": "Q172646",
+   "died": "2006-10-01"
+  },
+  "bottas": {
+   "wikidata": "Q138745",
+   "instagram": "valtteribottas",
+   "alive": true
+  },
+  "boullion": {
+   "wikidata": "Q173315",
+   "alive": true
+  },
+  "bourdais": {
+   "wikidata": "Q171307",
+   "alive": true
+  },
+  "boutsen": {
+   "wikidata": "Q172761",
+   "instagram": "boutsenvds",
+   "alive": true
+  },
+  "boyd": {
+   "wikidata": "Q172481",
+   "died": "2003-10-26"
+  },
+  "brabham": {
+   "wikidata": "Q173001",
+   "alive": true
+  },
+  "brack": {
+   "wikidata": "Q172649",
+   "alive": true
+  },
+  "brambilla": {
+   "wikidata": "Q171533",
+   "died": "2001-05-26"
+  },
+  "branca": {
+   "wikidata": "Q172214",
+   "died": "1985-05-10"
+  },
+  "brandon": {
+   "wikidata": "Q172414",
+   "died": "1982-08-08"
+  },
+  "branson": {
+   "wikidata": "Q172420",
+   "died": "1966-11-12"
+  },
+  "brendon_hartley": {
+   "wikidata": "Q361113",
+   "instagram": "brendon_hartley",
+   "alive": true
+  },
+  "bridger": {
+   "wikidata": "Q172793",
+   "died": "1991-07-30"
+  },
+  "brise": {
+   "wikidata": "Q171490",
+   "died": "1975-11-29"
+  },
+  "bristow": {
+   "wikidata": "Q172103",
+   "died": "1960-06-19"
+  },
+  "broeker": {
+   "wikidata": "Q172828",
+   "died": "1980-11-04"
+  },
+  "brown": {
+   "wikidata": "Q172543",
+   "alive": true
+  },
+  "brudes": {
+   "wikidata": "Q61910",
+   "died": "1986-11-05"
+  },
+  "brundle": {
+   "wikidata": "Q172854",
+   "alive": true
+  },
+  "bruni": {
+   "wikidata": "Q173190",
+   "alive": true
+  },
+  "bruno_senna": {
+   "wikidata": "Q82864",
+   "instagram": "bsennaofficial",
+   "alive": true
+  },
+  "bryan": {
+   "wikidata": "Q172278",
+   "died": "1960-06-19"
+  },
+  "bucci": {
+   "wikidata": "Q173281",
+   "died": "2011-01-12"
+  },
+  "bucknum": {
+   "wikidata": "Q172034",
+   "died": "1992-04-23"
+  },
+  "bueb": {
+   "wikidata": "Q172127",
+   "died": "1959-08-01"
+  },
+  "buemi": {
+   "wikidata": "Q171310",
+   "instagram": "sebastien_buemi",
+   "alive": true
+  },
+  "bueno": {
+   "wikidata": "Q172053",
+   "died": "2011-02-08"
+  },
+  "burgess": {
+   "wikidata": "Q172043",
+   "died": "2012-05-19"
+  },
+  "burti": {
+   "wikidata": "Q171429",
+   "alive": true
+  },
+  "bussinello": {
+   "wikidata": "Q172499",
+   "died": "1999-08-24"
+  },
+  "button": {
+   "wikidata": "Q10510",
+   "instagram": "jensonbutton_22",
+   "alive": true
+  },
+  "byrne": {
+   "wikidata": "Q172167",
+   "alive": true
+  },
+  "cabantous": {
+   "wikidata": "Q171565",
+   "died": "1973-03-30"
+  },
+  "cabianca": {
+   "wikidata": "Q711156",
+   "died": "1961-06-15"
+  },
+  "cabral": {
+   "wikidata": "Q173420",
+   "died": "2020-08-17"
+  },
+  "caffi": {
+   "wikidata": "Q172972",
+   "alive": true
+  },
+  "campbell-jones": {
+   "wikidata": "Q173644",
+   "died": "2020-03-24"
+  },
+  "campos": {
+   "wikidata": "Q171456",
+   "died": "2021-01-27"
+  },
+  "cantoni": {
+   "wikidata": "Q172210",
+   "died": "1997-06-06"
+  },
+  "cantrell": {
+   "wikidata": "Q172546",
+   "died": "1996-01-22"
+  },
+  "capelli": {
+   "wikidata": "Q171455",
+   "alive": true
+  },
+  "carini": {
+   "wikidata": "Q119004",
+   "died": "1957-05-30"
+  },
+  "castellotti": {
+   "wikidata": "Q171933",
+   "died": "1957-03-14"
+  },
+  "cecotto": {
+   "wikidata": "Q173107",
+   "alive": true
+  },
+  "cesaris": {
+   "wikidata": "Q173153",
+   "died": "2014-10-05"
+  },
+  "cevert": {
+   "wikidata": "Q172773",
+   "died": "1973-10-06"
+  },
+  "chaboud": {
+   "wikidata": "Q171970",
+   "died": "1983-12-28"
+  },
+  "chamberlain": {
+   "wikidata": "Q172813",
+   "died": "2001-08-01"
+  },
+  "chandhok": {
+   "wikidata": "Q172905",
+   "alive": true
+  },
+  "chapman": {
+   "wikidata": "Q173007",
+   "died": "1982-12-16"
+  },
+  "charlton": {
+   "wikidata": "Q460768",
+   "died": "2013-02-24"
+  },
+  "charrington": {
+   "wikidata": "Q172369",
+   "died": "2007-04-03"
+  },
+  "cheesbourg": {
+   "wikidata": "Q172554",
+   "died": "1995-11-06"
+  },
+  "cheever": {
+   "wikidata": "Q173205",
+   "alive": true
+  },
+  "chiesa": {
+   "wikidata": "Q122373",
+   "alive": true
+  },
+  "chilton": {
+   "wikidata": "Q613590",
+   "instagram": "maxchilton",
+   "alive": true
+  },
+  "chimeri": {
+   "wikidata": "Q172609",
+   "died": "1960-02-27"
+  },
+  "chiron": {
+   "wikidata": "Q173226",
+   "died": "1979-06-22"
+  },
+  "chitwood": {
+   "wikidata": "Q172340",
+   "died": "1988-01-03"
+  },
+  "christie": {
+   "wikidata": "Q172611",
+   "died": "2009-06-01"
+  },
+  "claes": {
+   "wikidata": "Q171889",
+   "died": "1956-02-03"
+  },
+  "clark": {
+   "wikidata": "Q3137",
+   "died": "1968-04-07"
+  },
+  "colapinto": {
+   "wikidata": "Q88463514",
+   "instagram": "francolapinto",
+   "alive": true
+  },
+  "collins": {
+   "wikidata": "Q171483",
+   "died": "1958-08-03"
+  },
+  "collomb": {
+   "wikidata": "Q172805",
+   "died": "2011-09-18"
+  },
+  "comas": {
+   "wikidata": "Q172966",
+   "alive": true
+  },
+  "comotti": {
+   "wikidata": "Q173528",
+   "died": "1963-05-10"
+  },
+  "connor": {
+   "wikidata": "Q961162",
+   "died": "1958-05-30"
+  },
+  "cordts": {
+   "wikidata": "Q172514",
+   "died": "2026-10-24"
+  },
+  "corrado_fabi": {
+   "wikidata": "Q171616",
+   "alive": true
+  },
+  "coulthard": {
+   "wikidata": "Q172832",
+   "instagram": "davidcoulthardf1",
+   "alive": true
+  },
+  "courage": {
+   "wikidata": "Q171621",
+   "died": "1970-06-21"
+  },
+  "craft": {
+   "wikidata": "Q172309",
+   "died": "2021-02-20"
+  },
+  "crawford": {
+   "wikidata": "Q172348",
+   "died": "2002-08-06"
+  },
+  "creus": {
+   "wikidata": "Q172220",
+   "died": "1996-02-19"
+  },
+  "crockett": {
+   "wikidata": "Q172578",
+   "died": "1955-03-20"
+  },
+  "cross": {
+   "wikidata": "Q172437",
+   "died": "2005-04-15"
+  },
+  "crossley": {
+   "wikidata": "Q172225",
+   "died": "2002-01-07"
+  },
+  "cruz": {
+   "wikidata": "Q144508",
+   "died": "2012-02-10"
+  },
+  "daigh": {
+   "wikidata": "Q172276",
+   "died": "2008-04-29"
+  },
+  "dalmas": {
+   "wikidata": "Q173291",
+   "alive": true
+  },
+  "daly": {
+   "wikidata": "Q171635",
+   "instagram": "derekdalyspeaker",
+   "alive": true
+  },
+  "damon_hill": {
+   "wikidata": "Q10505",
+   "instagram": "96f1champ",
+   "alive": true
+  },
+  "danner": {
+   "wikidata": "Q57551",
+   "alive": true
+  },
+  "daponte": {
+   "wikidata": "Q173593",
+   "died": "1963-03-09"
+  },
+  "darter": {
+   "wikidata": "Q172312",
+   "died": "1993-03-07"
+  },
+  "davidson": {
+   "wikidata": "Q171319",
+   "alive": true
+  },
+  "davis": {
+   "wikidata": "Q172819",
+   "died": "2012-12-23"
+  },
+  "daywalt": {
+   "wikidata": "Q172651",
+   "died": "1966-04-04"
+  },
+  "de_vries": {
+   "wikidata": "Q771382",
+   "instagram": "nyckdevries",
+   "alive": true
+  },
+  "deletraz": {
+   "wikidata": "Q123904",
+   "instagram": "jdd_ch",
+   "alive": true
+  },
+  "dempsey_wilson": {
+   "wikidata": "Q173711",
+   "died": "1971-04-23"
+  },
+  "depailler": {
+   "wikidata": "Q171611",
+   "died": "1980-08-01"
+  },
+  "dick_rathmann": {
+   "wikidata": "Q172596",
+   "died": "2000-02-01"
+  },
+  "diniz": {
+   "wikidata": "Q172999",
+   "alive": true
+  },
+  "dinsmore": {
+   "wikidata": "Q172602",
+   "died": "1985-10-12"
+  },
+  "donnelly": {
+   "wikidata": "Q171528",
+   "alive": true
+  },
+  "donohue": {
+   "wikidata": "Q171732",
+   "died": "1975-08-19"
+  },
+  "doohan": {
+   "wikidata": "Q81453998",
+   "instagram": "jackdoohan",
+   "alive": true
+  },
+  "doornbos": {
+   "wikidata": "Q173102",
+   "instagram": "robertdoornbos",
+   "alive": true
+  },
+  "downing": {
+   "wikidata": "Q172344",
+   "died": "2004-05-03"
+  },
+  "drake": {
+   "wikidata": "Q172612",
+   "died": "1990-04-18"
+  },
+  "driver": {
+   "wikidata": "Q172501",
+   "alive": true
+  },
+  "drogo": {
+   "wikidata": "Q172823",
+   "died": "1973-04-28"
+  },
+  "dumfries": {
+   "wikidata": "Q171722",
+   "died": "2021-03-22"
+  },
+  "duncan": {
+   "wikidata": "Q172576",
+   "died": "1998-08-01"
+  },
+  "duncan_hamilton": {
+   "wikidata": "Q171991",
+   "died": "1994-05-13"
+  },
+  "edmunds": {
+   "wikidata": "Q173588",
+   "died": "2020-08-12"
+  },
+  "edwards": {
+   "wikidata": "Q171975",
+   "died": "2026-06-19"
+  },
+  "elford": {
+   "wikidata": "Q173244",
+   "died": "2022-03-13"
+  },
+  "elisian": {
+   "wikidata": "Q172598",
+   "died": "1959-08-30"
+  },
+  "emerson_fittipaldi": {
+   "wikidata": "Q172849",
+   "instagram": "emersonfittipaldioficial",
+   "alive": true
+  },
+  "emery": {
+   "wikidata": "Q172551",
+   "died": "1993-02-03"
+  },
+  "enge": {
+   "wikidata": "Q173319",
+   "instagram": "tomasengeracing",
+   "alive": true
+  },
+  "ericsson": {
+   "wikidata": "Q975207",
+   "instagram": "ericsson_marcus",
+   "alive": true
+  },
+  "ertl": {
+   "wikidata": "Q78548",
+   "died": "1982-04-07"
+  },
+  "estefano": {
+   "wikidata": "Q172090",
+   "died": "1973-10-21"
+  },
+  "etancelin": {
+   "wikidata": "Q171994",
+   "died": "1981-10-13"
+  },
+  "evans": {
+   "wikidata": "Q171886",
+   "alive": true
+  },
+  "fabi": {
+   "wikidata": "Q171610",
+   "alive": true
+  },
+  "fabre": {
+   "wikidata": "Q171884",
+   "alive": true
+  },
+  "fagioli": {
+   "wikidata": "Q173038",
+   "died": "1952-06-20"
+  },
+  "fairman": {
+   "wikidata": "Q172644",
+   "died": "2002-02-07"
+  },
+  "fangio": {
+   "wikidata": "Q2069",
+   "died": "1995-07-17"
+  },
+  "farina": {
+   "wikidata": "Q2040",
+   "died": "1966-06-30"
+  },
+  "faulkner": {
+   "wikidata": "Q173418",
+   "died": "1956-04-22"
+  },
+  "filippis": {
+   "wikidata": "Q171572",
+   "died": "2016-01-08"
+  },
+  "firman": {
+   "wikidata": "Q171581",
+   "alive": true
+  },
+  "fischer": {
+   "wikidata": "Q171968",
+   "died": "1976-12-30"
+  },
+  "fisher": {
+   "wikidata": "Q172357",
+   "alive": true
+  },
+  "fisichella": {
+   "wikidata": "Q172712",
+   "alive": true
+  },
+  "fitch": {
+   "wikidata": "Q172492",
+   "died": "2012-10-31"
+  },
+  "fittipaldi": {
+   "wikidata": "Q172954",
+   "instagram": "fittigram",
+   "alive": true
+  },
+  "fitzau": {
+   "wikidata": "Q61918",
+   "died": "1982-03-18"
+  },
+  "flaherty": {
+   "wikidata": "Q172630",
+   "died": "2002-04-09"
+  },
+  "flinterman": {
+   "wikidata": "Q172796",
+   "died": "1992-12-26"
+  },
+  "flockhart": {
+   "wikidata": "Q172479",
+   "died": "1962-04-12"
+  },
+  "fohr": {
+   "wikidata": "Q172588",
+   "died": "1994-01-14"
+  },
+  "foitek": {
+   "wikidata": "Q171725",
+   "alive": true
+  },
+  "follmer": {
+   "wikidata": "Q172096",
+   "alive": true
+  },
+  "fonder": {
+   "wikidata": "Q173635",
+   "died": "1958-06-14"
+  },
+  "fontana": {
+   "wikidata": "Q173311",
+   "instagram": "norbertofontana",
+   "alive": true
+  },
+  "forberg": {
+   "wikidata": "Q173717",
+   "died": "2000-01-17"
+  },
+  "force": {
+   "wikidata": "Q173666",
+   "died": "1983-08-21"
+  },
+  "forini": {
+   "wikidata": "Q172073",
+   "alive": true
+  },
+  "foyt": {
+   "wikidata": "Q173228",
+   "alive": true
+  },
+  "freeland": {
+   "wikidata": "Q172547",
+   "died": "2007-11-02"
+  },
+  "frentzen": {
+   "wikidata": "Q76720",
+   "alive": true
+  },
+  "frere": {
+   "wikidata": "Q173328",
+   "died": "2008-02-23"
+  },
+  "friesacher": {
+   "wikidata": "Q84167",
+   "alive": true
+  },
+  "fry": {
+   "wikidata": "Q172329",
+   "died": "1950-07-29"
+  },
+  "gabbiani": {
+   "wikidata": "Q171988",
+   "instagram": "beppegabbiani",
+   "alive": true
+  },
+  "gachot": {
+   "wikidata": "Q172989",
+   "alive": true
+  },
+  "gaillard": {
+   "wikidata": "Q172204",
+   "alive": true
+  },
+  "galli": {
+   "wikidata": "Q173349",
+   "died": "2019-10-12"
+  },
+  "galvez": {
+   "wikidata": "Q172084",
+   "died": "1989-12-16"
+  },
+  "gamble": {
+   "wikidata": "Q172799",
+   "died": "2024-03-19"
+  },
+  "ganley": {
+   "wikidata": "Q171733",
+   "alive": true
+  },
+  "garde": {
+   "wikidata": "Q453177",
+   "instagram": "gvandergarde",
+   "alive": true
+  },
+  "gardner": {
+   "wikidata": "Q172539",
+   "died": "2009-08-29"
+  },
+  "garrett": {
+   "wikidata": "Q172594",
+   "died": "1999-02-15"
+  },
+  "gartner": {
+   "wikidata": "Q78581",
+   "died": "1986-06-01"
+  },
+  "gasly": {
+   "wikidata": "Q11816647",
+   "instagram": "pierregasly",
+   "alive": true
+  },
+  "gavin": {
+   "wikidata": "Q171767",
+   "died": "2006-05-29"
+  },
+  "gaze": {
+   "wikidata": "Q172607",
+   "died": "2013-07-29"
+  },
+  "geki": {
+   "wikidata": "Q173342",
+   "died": "1967-06-18"
+  },
+  "gendebien": {
+   "wikidata": "Q172142",
+   "died": "1998-10-02"
+  },
+  "gene": {
+   "wikidata": "Q172780",
+   "instagram": "marcgene_official",
+   "alive": true
+  },
+  "george": {
+   "wikidata": "Q172552",
+   "died": "1976-05-31"
+  },
+  "george_amick": {
+   "wikidata": "Q173434",
+   "died": "1959-04-04"
+  },
+  "george_connor": {
+   "wikidata": "Q172571",
+   "died": "2001-03-28"
+  },
+  "gerard": {
+   "wikidata": "Q172325",
+   "died": "1990-01-26"
+  },
+  "gerini": {
+   "wikidata": "Q139349",
+   "died": "2013-04-17"
+  },
+  "gethin": {
+   "wikidata": "Q171511",
+   "died": "2011-12-05"
+  },
+  "ghinzani": {
+   "wikidata": "Q172994",
+   "instagram": "teamghinzani",
+   "alive": true
+  },
+  "giacomelli": {
+   "wikidata": "Q173112",
+   "alive": true
+  },
+  "gilles_villeneuve": {
+   "wikidata": "Q172845",
+   "died": "1982-05-08"
+  },
+  "ginther": {
+   "wikidata": "Q171460",
+   "died": "1989-09-20"
+  },
+  "giovinazzi": {
+   "wikidata": "Q7084843",
+   "instagram": "antogiovinazzi99",
+   "alive": true
+  },
+  "giunti": {
+   "wikidata": "Q172027",
+   "died": "1971-01-10"
+  },
+  "glock": {
+   "wikidata": "Q76719",
+   "alive": true
+  },
+  "godia": {
+   "wikidata": "Q171922",
+   "died": "1990-11-28"
+  },
+  "goethals": {
+   "wikidata": "Q172790",
+   "died": "2003-02-26"
+  },
+  "gonzalez": {
+   "wikidata": "Q171447",
+   "died": "2013-06-15"
+  },
+  "gordini": {
+   "wikidata": "Q172467",
+   "died": "1995-01-28"
+  },
+  "gould": {
+   "wikidata": "Q172504",
+   "died": "1968-11-04"
+  },
+  "gounon": {
+   "wikidata": "Q173308",
+   "alive": true
+  },
+  "graffenried": {
+   "wikidata": "Q115778",
+   "died": "2007-01-22"
+  },
+  "graham_whitehead": {
+   "wikidata": "Q172376",
+   "died": "1981-01-15"
+  },
+  "grassi": {
+   "wikidata": "Q172783",
+   "instagram": "lucasdigrassi",
+   "alive": true
+  },
+  "greene": {
+   "wikidata": "Q172815",
+   "died": "2021-03-08"
+  },
+  "gregory": {
+   "wikidata": "Q173421",
+   "died": "1985-11-08"
+  },
+  "griffith": {
+   "wikidata": "Q173694",
+   "died": "1996-01-23"
+  },
+  "grignard": {
+   "wikidata": "Q172359",
+   "died": "1977-12-07"
+  },
+  "grim": {
+   "wikidata": "Q173654",
+   "died": "1995-06-14"
+  },
+  "grosjean": {
+   "wikidata": "Q82742",
+   "instagram": "grosjeanromain",
+   "alive": true
+  },
+  "grouillard": {
+   "wikidata": "Q173307",
+   "alive": true
+  },
+  "guelfi": {
+   "wikidata": "Q172450",
+   "died": "2016-06-24"
+  },
+  "guerra": {
+   "wikidata": "Q172131",
+   "alive": true
+  },
+  "guerrero": {
+   "wikidata": "Q126940",
+   "alive": true
+  },
+  "gugelmin": {
+   "wikidata": "Q171471",
+   "alive": true
+  },
+  "gurney": {
+   "wikidata": "Q171466",
+   "died": "2018-01-14"
+  },
+  "gutierrez": {
+   "wikidata": "Q18915",
+   "instagram": "estebangtz",
+   "alive": true
+  },
+  "guy_mairesse": {
+   "wikidata": "Q171964",
+   "died": "1954-04-24"
+  },
+  "hadjar": {
+   "wikidata": "Q105071364",
+   "instagram": "isackhadjar",
+   "alive": true
+  },
+  "hahne": {
+   "wikidata": "Q61858",
+   "died": "2019-04-24"
+  },
+  "hailwood": {
+   "wikidata": "Q173147",
+   "died": "1981-03-23"
+  },
+  "hakkinen": {
+   "wikidata": "Q172842",
+   "alive": true
+  },
+  "halford": {
+   "wikidata": "Q172443",
+   "died": "2001-12-02"
+  },
+  "hall": {
+   "wikidata": "Q172282",
+   "alive": true
+  },
+  "hamilton": {
+   "wikidata": "Q9673",
+   "instagram": "lewishamilton",
+   "alive": true
+  },
+  "hampshire": {
+   "wikidata": "Q172063",
+   "died": "1990-08-25"
+  },
+  "hanks": {
+   "wikidata": "Q172291",
+   "died": "1994-06-27"
+  },
+  "hans_stuck": {
+   "wikidata": "Q61541",
+   "died": "1978-02-09"
+  },
+  "hansgen": {
+   "wikidata": "Q172412",
+   "died": "1966-04-07"
+  },
+  "harris": {
+   "wikidata": "Q172606",
+   "died": "2021-11-08"
+  },
+  "harrison": {
+   "wikidata": "Q172023",
+   "died": "1981-01-21"
+  },
+  "hart": {
+   "wikidata": "Q173455",
+   "died": "2014-01-05"
+  },
+  "hartley": {
+   "wikidata": "Q173697",
+   "died": "1993-03-13"
+  },
+  "haryanto": {
+   "wikidata": "Q981543",
+   "instagram": "rharyantoracing",
+   "alive": true
+  },
+  "hasemi": {
+   "wikidata": "Q172106",
+   "alive": true
+  },
+  "hawkins": {
+   "wikidata": "Q172342",
+   "died": "1969-05-26"
+  },
+  "hawthorn": {
+   "wikidata": "Q2104",
+   "died": "1959-01-22"
+  },
+  "hayje": {
+   "wikidata": "Q172051",
+   "alive": true
+  },
+  "heeks": {
+   "wikidata": "Q61486",
+   "died": "1996-08-13"
+  },
+  "heidfeld": {
+   "wikidata": "Q75810",
+   "alive": true
+  },
+  "helfrich": {
+   "wikidata": "Q61295",
+   "died": "1978-04-29"
+  },
+  "hellings": {
+   "wikidata": "Q173584",
+   "died": "1951-11-11"
+  },
+  "henry_taylor": {
+   "wikidata": "Q172405",
+   "died": "2013-10-24"
+  },
+  "henton": {
+   "wikidata": "Q171757",
+   "alive": true
+  },
+  "herbert": {
+   "wikidata": "Q172751",
+   "instagram": "johnnyherbertf1",
+   "alive": true
+  },
+  "herman": {
+   "wikidata": "Q173719",
+   "died": "1960-06-18"
+  },
+  "herrmann": {
+   "wikidata": "Q65915",
+   "died": "2026-01-09"
+  },
+  "hesnault": {
+   "wikidata": "Q172232",
+   "alive": true
+  },
+  "hill": {
+   "wikidata": "Q3128",
+   "died": "1975-11-29"
+  },
+  "hirt": {
+   "wikidata": "Q172120",
+   "died": "1992-06-28"
+  },
+  "hobbs": {
+   "wikidata": "Q173466",
+   "alive": true
+  },
+  "hoffmann": {
+   "wikidata": "Q171754",
+   "alive": true
+  },
+  "holland": {
+   "wikidata": "Q173073",
+   "died": "1984-05-20"
+  },
+  "holmes": {
+   "wikidata": "Q173652",
+   "died": "1995-03-01"
+  },
+  "homeier": {
+   "wikidata": "Q173687",
+   "died": "2001-05-05"
+  },
+  "hoshino": {
+   "wikidata": "Q171739",
+   "alive": true
+  },
+  "hoyt": {
+   "wikidata": "Q172519",
+   "died": "1955-07-10"
+  },
+  "hulkenberg": {
+   "wikidata": "Q76547",
+   "instagram": "hulkhulkenberg",
+   "alive": true
+  },
+  "hulme": {
+   "wikidata": "Q3166",
+   "died": "1992-10-04"
+  },
+  "hunt": {
+   "wikidata": "Q140393",
+   "died": "1993-06-15"
+  },
+  "hurtubise": {
+   "wikidata": "Q172585",
+   "died": "1989-01-06"
+  },
+  "hutchison": {
+   "wikidata": "Q172318",
+   "alive": true
+  },
+  "ian_scheckter": {
+   "wikidata": "Q172733",
+   "alive": true
+  },
+  "ian_stewart": {
+   "wikidata": "Q172808",
+   "died": "2017-03-19"
+  },
+  "ickx": {
+   "wikidata": "Q173123",
+   "alive": true
+  },
+  "ide": {
+   "wikidata": "Q173199",
+   "instagram": "yuji_ide_official",
+   "alive": true
+  },
+  "inoue": {
+   "wikidata": "Q172985",
+   "alive": true
+  },
+  "ireland": {
+   "wikidata": "Q173336",
+   "died": "1993-10-22"
+  },
+  "irvine": {
+   "wikidata": "Q171397",
+   "alive": true
+  },
+  "irwin": {
+   "wikidata": "Q515506",
+   "alive": true
+  },
+  "jabouille": {
+   "wikidata": "Q171462",
+   "died": "2023-02-02"
+  },
+  "jack_brabham": {
+   "wikidata": "Q2125",
+   "died": "2014-05-19"
+  },
+  "jackson": {
+   "wikidata": "Q173640",
+   "died": "1984-11-24"
+  },
+  "james": {
+   "wikidata": "Q173716",
+   "died": "1952-11-05"
+  },
+  "jarier": {
+   "wikidata": "Q171683",
+   "alive": true
+  },
+  "jean": {
+   "wikidata": "Q172074",
+   "alive": true
+  },
+  "jerry_unser": {
+   "wikidata": "Q172441",
+   "died": "1959-05-17"
+  },
+  "jimmy_stewart": {
+   "wikidata": "Q172249",
+   "died": "2008-01-03"
+  },
+  "jo_schlesser": {
+   "wikidata": "Q171786",
+   "died": "1968-07-07"
+  },
+  "johansson": {
+   "wikidata": "Q171474",
+   "instagram": "stefanjohanssonofficial",
+   "alive": true
+  },
+  "john_barber": {
+   "wikidata": "Q173968",
+   "died": "2015-02-04"
+  },
+  "john_james": {
+   "wikidata": "Q172821",
+   "died": "2002-01-27"
+  },
+  "johnson": {
+   "wikidata": "Q173677",
+   "died": "1974-06-30"
+  },
+  "johnstone": {
+   "wikidata": "Q173693",
+   "died": "2022-03-03"
+  },
+  "jolyon_palmer": {
+   "wikidata": "Q714365",
+   "instagram": "jolyon_palmer",
+   "alive": true
+  },
+  "jones": {
+   "wikidata": "Q172753",
+   "died": "2026-11-05"
+  },
+  "jover": {
+   "wikidata": "Q290404",
+   "died": "1960-06-28"
+  },
+  "jules_bianchi": {
+   "wikidata": "Q281294",
+   "died": "2015-07-17"
+  },
+  "karch": {
+   "wikidata": "Q62697",
+   "died": "2009-01-28"
+  },
+  "karthikeyan": {
+   "wikidata": "Q82936",
+   "alive": true
+  },
+  "katayama": {
+   "wikidata": "Q171543",
+   "alive": true
+  },
+  "keegan": {
+   "wikidata": "Q171783",
+   "died": "2024-09-23"
+  },
+  "keizan": {
+   "wikidata": "Q172327",
+   "died": "2016-05-21"
+  },
+  "keke_rosberg": {
+   "wikidata": "Q171381",
+   "alive": true
+  },
+  "keller": {
+   "wikidata": "Q670418",
+   "died": "1961-11-19"
+  },
+  "kelly": {
+   "wikidata": "Q172217",
+   "died": "1993-11-28"
+  },
+  "kessel": {
+   "wikidata": "Q173286",
+   "died": "2010-05-15"
+  },
+  "kevin_magnussen": {
+   "wikidata": "Q1740212",
+   "instagram": "kevinmagnussen",
+   "alive": true
+  },
+  "kiesa": {
+   "wikidata": "Q173097",
+   "alive": true
+  },
+  "kinnunen": {
+   "wikidata": "Q173325",
+   "died": "2017-07-26"
+  },
+  "kladis": {
+   "wikidata": "Q172566",
+   "died": "2009-04-26"
+  },
+  "klenk": {
+   "wikidata": "Q62235",
+   "died": "2009-03-24"
+  },
+  "klerk": {
+   "wikidata": "Q172487",
+   "died": "2015-07-11"
+  },
+  "klien": {
+   "wikidata": "Q84178",
+   "alive": true
+  },
+  "kling": {
+   "wikidata": "Q63713",
+   "died": "2003-03-18"
+  },
+  "klodwig": {
+   "wikidata": "Q61459",
+   "died": "1973-04-15"
+  },
+  "kobayashi": {
+   "wikidata": "Q82798",
+   "instagram": "kamuikobayashi",
+   "alive": true
+  },
+  "koinigg": {
+   "wikidata": "Q78543",
+   "died": "1974-10-06"
+  },
+  "kovalainen": {
+   "wikidata": "Q82891",
+   "instagram": "heikkikovalainen",
+   "alive": true
+  },
+  "krause": {
+   "wikidata": "Q61842",
+   "died": "1987-04-11"
+  },
+  "kubica": {
+   "wikidata": "Q160359",
+   "instagram": "robertkubica_real",
+   "alive": true
+  },
+  "kvyat": {
+   "wikidata": "Q979668",
+   "instagram": "danydk1",
+   "alive": true
+  },
+  "la_caze": {
+   "wikidata": "Q172447",
+   "died": "2015-07-01"
+  },
+  "laffite": {
+   "wikidata": "Q171434",
+   "alive": true
+  },
+  "lagorce": {
+   "wikidata": "Q173288",
+   "alive": true
+  },
+  "lammers": {
+   "wikidata": "Q171457",
+   "alive": true
+  },
+  "lamy": {
+   "wikidata": "Q171555",
+   "alive": true
+  },
+  "landi": {
+   "wikidata": "Q172078",
+   "died": "1989-06-07"
+  },
+  "lang": {
+   "wikidata": "Q60409",
+   "died": "1987-10-19"
+  },
+  "larini": {
+   "wikidata": "Q172970",
+   "instagram": "nicola.larini",
+   "alive": true
+  },
+  "larrauri": {
+   "wikidata": "Q171620",
+   "instagram": "oscar.larrauri",
+   "alive": true
+  },
+  "larreta": {
+   "wikidata": "Q172789",
+   "died": "1977-03-11"
+  },
+  "larrousse": {
+   "wikidata": "Q171768",
+   "alive": true
+  },
+  "larson": {
+   "wikidata": "Q172643",
+   "died": "1966-06-11"
+  },
+  "latifi": {
+   "wikidata": "Q8898994",
+   "instagram": "nicholaslatifi",
+   "alive": true
+  },
+  "lauda": {
+   "wikidata": "Q78489",
+   "died": "2019-05-20"
+  },
+  "laurent": {
+   "wikidata": "Q146857",
+   "died": "1997-02-06"
+  },
+  "lavaggi": {
+   "wikidata": "Q171467",
+   "alive": true
+  },
+  "lawrence": {
+   "wikidata": "Q172364",
+   "died": "2011-08-13"
+  },
+  "lawson": {
+   "wikidata": "Q59180330",
+   "instagram": "liamlawson30",
+   "alive": true
+  },
+  "leclerc": {
+   "wikidata": "Q17541912",
+   "instagram": "charles_leclerc",
+   "alive": true
+  },
+  "leclere": {
+   "wikidata": "Q171971",
+   "alive": true
+  },
+  "lederle": {
+   "wikidata": "Q172279",
+   "died": "2019-05-17"
+  },
+  "legat": {
+   "wikidata": "Q172281",
+   "died": "1960-02-23"
+  },
+  "lehto": {
+   "wikidata": "Q172979",
+   "alive": true
+  },
+  "lennep": {
+   "wikidata": "Q120308",
+   "alive": true
+  },
+  "leoni": {
+   "wikidata": "Q171967",
+   "alive": true
+  },
+  "leslie_johnson": {
+   "wikidata": "Q172208",
+   "died": "1959-06-08"
+  },
+  "leston": {
+   "wikidata": "Q172795",
+   "died": "2012-05-13"
+  },
+  "levegh": {
+   "wikidata": "Q171742",
+   "died": "1955-06-11"
+  },
+  "levrett": {
+   "wikidata": "Q173675",
+   "died": "2002-03-13"
+  },
+  "lewis": {
+   "wikidata": "Q172433",
+   "alive": true
+  },
+  "lewis-evans": {
+   "wikidata": "Q171961",
+   "died": "1958-10-25"
+  },
+  "ligier": {
+   "wikidata": "Q172174",
+   "died": "2015-08-23"
+  },
+  "linden": {
+   "wikidata": "Q172574",
+   "died": "1987-02-10"
+  },
+  "lippi": {
+   "wikidata": "Q45223",
+   "died": "2011-10-31"
+  },
+  "liuzzi": {
+   "wikidata": "Q171294",
+   "alive": true
+  },
+  "lof": {
+   "wikidata": "Q172371",
+   "died": "1990-05-24"
+  },
+  "lombardi": {
+   "wikidata": "Q171569",
+   "died": "1992-03-03"
+  },
+  "loof": {
+   "wikidata": "Q62700",
+   "died": "1956-03-03"
+  },
+  "lotterer": {
+   "wikidata": "Q61395",
+   "instagram": "andre_lotterer",
+   "alive": true
+  },
+  "louveau": {
+   "wikidata": "Q172123",
+   "died": "1991-01-07"
+  },
+  "love": {
+   "wikidata": "Q172192",
+   "died": "2005-04-25"
+  },
+  "lovely": {
+   "wikidata": "Q172196",
+   "died": "2011-05-15"
+  },
+  "loyer": {
+   "wikidata": "Q172829",
+   "died": "1988-03-24"
+  },
+  "lunger": {
+   "wikidata": "Q171738",
+   "alive": true
+  },
+  "macdowel": {
+   "wikidata": "Q173599",
+   "died": "2016-01-18"
+  },
+  "mackay-fraser": {
+   "wikidata": "Q172434",
+   "died": "1957-07-14"
+  },
+  "mackey": {
+   "wikidata": "Q173668",
+   "died": "1951-07-29"
+  },
+  "macklin": {
+   "wikidata": "Q172199",
+   "died": "2002-08-29"
+  },
+  "magee": {
+   "wikidata": "Q172315",
+   "alive": true
+  },
+  "maggs": {
+   "wikidata": "Q171830",
+   "died": "2009-06-02"
+  },
+  "magill": {
+   "wikidata": "Q173657",
+   "died": "2006-08-31"
+  },
+  "maglioli": {
+   "wikidata": "Q113327",
+   "died": "1999-02-07"
+  },
+  "magnussen": {
+   "wikidata": "Q173092",
+   "instagram": "janmagnussen23",
+   "alive": true
+  },
+  "mairesse": {
+   "wikidata": "Q171881",
+   "died": "1969-09-02"
+  },
+  "maldonado": {
+   "wikidata": "Q82845",
+   "instagram": "pastormaldo",
+   "alive": true
+  },
+  "manfred_winkelhock": {
+   "wikidata": "Q57733",
+   "died": "1985-08-12"
+  },
+  "mansell": {
+   "wikidata": "Q10501",
+   "alive": true
+  },
+  "mantovani": {
+   "wikidata": "Q172124",
+   "died": "2001-02-23"
+  },
+  "mantz": {
+   "wikidata": "Q173664",
+   "died": "1972-10-25"
+  },
+  "manzon": {
+   "wikidata": "Q171512",
+   "died": "2015-01-19"
+  },
+  "marimon": {
+   "wikidata": "Q171624",
+   "died": "1954-07-31"
+  },
+  "mario_andretti": {
+   "wikidata": "Q171312",
+   "alive": true
+  },
+  "marko": {
+   "wikidata": "Q78545",
+   "alive": true
+  },
+  "markus_winkelhock": {
+   "wikidata": "Q75841",
+   "alive": true
+  },
+  "marques": {
+   "wikidata": "Q171439",
+   "instagram": "tarsomarquesoficial",
+   "alive": true
+  },
+  "marr": {
+   "wikidata": "Q172117",
+   "died": "2021-05-04"
+  },
+  "marsh": {
+   "wikidata": "Q172660",
+   "died": "2009-05-07"
+  },
+  "martin": {
+   "wikidata": "Q171890",
+   "died": "2006-10-12"
+  },
+  "martini": {
+   "wikidata": "Q171541",
+   "alive": true
+  },
+  "mass": {
+   "wikidata": "Q57459",
+   "died": "2025-05-04"
+  },
+  "massa": {
+   "wikidata": "Q82652",
+   "instagram": "massafelipe19",
+   "alive": true
+  },
+  "matta": {
+   "wikidata": "Q172995",
+   "instagram": "cristiano_da_matta",
+   "alive": true
+  },
+  "max_verstappen": {
+   "wikidata": "Q2239218",
+   "instagram": "maxverstappen1",
+   "alive": true
+  },
+  "may": {
+   "wikidata": "Q173561",
+   "alive": true
+  },
+  "mayer": {
+   "wikidata": "Q172268",
+   "died": "1964-02-28"
+  },
+  "mazepin": {
+   "wikidata": "Q22008968",
+   "instagram": "nikita_mazepin",
+   "alive": true
+  },
+  "mazet": {
+   "wikidata": "Q172257",
+   "alive": true
+  },
+  "mazzacane": {
+   "wikidata": "Q172017",
+   "instagram": "gastonmazzacane",
+   "alive": true
+  },
+  "mcalpine": {
+   "wikidata": "Q172259",
+   "died": "2023-04-08"
+  },
+  "mcdowell": {
+   "wikidata": "Q173647",
+   "died": "1952-06-08"
+  },
+  "mcgrath": {
+   "wikidata": "Q172215",
+   "died": "1955-11-06"
+  },
+  "mclaren": {
+   "wikidata": "Q173081",
+   "died": "1970-06-02"
+  },
+  "mcnish": {
+   "wikidata": "Q173002",
+   "alive": true
+  },
+  "mcrae": {
+   "wikidata": "Q172535",
+   "died": "2021-08-04"
+  },
+  "mcwithey": {
+   "wikidata": "Q173649",
+   "died": "2009-02-01"
+  },
+  "menditeguy": {
+   "wikidata": "Q172111",
+   "died": "1973-04-27"
+  },
+  "merhi": {
+   "wikidata": "Q977386",
+   "instagram": "robertomerhi",
+   "alive": true
+  },
+  "merzario": {
+   "wikidata": "Q171518",
+   "instagram": "arturo_merzario_official",
+   "alive": true
+  },
+  "michael_schumacher": {
+   "wikidata": "Q9671",
+   "instagram": "michaelschumacher",
+   "alive": true
+  },
+  "mick_schumacher": {
+   "wikidata": "Q18119599",
+   "instagram": "mickschumacher",
+   "alive": true
+  },
+  "mieres": {
+   "wikidata": "Q171777",
+   "died": "2012-01-26"
+  },
+  "migault": {
+   "wikidata": "Q172235",
+   "died": "2012-01-29"
+  },
+  "mike_taylor": {
+   "wikidata": "Q172604",
+   "died": "2017-04-04"
+  },
+  "miles": {
+   "wikidata": "Q172189",
+   "died": "2018-04-08"
+  },
+  "milhoux": {
+   "wikidata": "Q172814",
+   "alive": true
+  },
+  "miller": {
+   "wikidata": "Q173645",
+   "died": "1953-05-15"
+  },
+  "mitter": {
+   "wikidata": "Q60883",
+   "died": "1969-08-01"
+  },
+  "modena": {
+   "wikidata": "Q171459",
+   "alive": true
+  },
+  "montagny": {
+   "wikidata": "Q173162",
+   "alive": true
+  },
+  "monteiro": {
+   "wikidata": "Q172001",
+   "alive": true
+  },
+  "montermini": {
+   "wikidata": "Q172973",
+   "instagram": "andrea.montermini",
+   "alive": true
+  },
+  "montoya": {
+   "wikidata": "Q172744",
+   "instagram": "jpmonty2",
+   "alive": true
+  },
+  "morbidelli": {
+   "wikidata": "Q171559",
+   "alive": true
+  },
+  "moreno": {
+   "wikidata": "Q171427",
+   "alive": true
+  },
+  "morgan": {
+   "wikidata": "Q172338",
+   "died": "2018-11-06"
+  },
+  "moser": {
+   "wikidata": "Q173283",
+   "died": "1974-05-26"
+  },
+  "moss": {
+   "wikidata": "Q172728",
+   "died": "2020-04-12"
+  },
+  "munaron": {
+   "wikidata": "Q172785",
+   "died": "2009-11-22"
+  },
+  "murray": {
+   "wikidata": "Q171879",
+   "died": "1973-04-05"
+  },
+  "musso": {
+   "wikidata": "Q171484",
+   "died": "1958-07-06"
+  },
+  "nakajima": {
+   "wikidata": "Q171302",
+   "alive": true
+  },
+  "nakano": {
+   "wikidata": "Q171430",
+   "instagram": "shinjinakano",
+   "alive": true
+  },
+  "nalon": {
+   "wikidata": "Q113496",
+   "died": "2001-02-26"
+  },
+  "nannini": {
+   "wikidata": "Q173087",
+   "alive": true
+  },
+  "naspetti": {
+   "wikidata": "Q171508",
+   "alive": true
+  },
+  "nasr": {
+   "wikidata": "Q777319",
+   "instagram": "felipenasr",
+   "alive": true
+  },
+  "natili": {
+   "wikidata": "Q172624",
+   "died": "2017-09-19"
+  },
+  "nazaruk": {
+   "wikidata": "Q172300",
+   "died": "1955-05-01"
+  },
+  "needell": {
+   "wikidata": "Q172265",
+   "alive": true
+  },
+  "neve": {
+   "wikidata": "Q172187",
+   "died": "2017-03-13"
+  },
+  "nicholson": {
+   "wikidata": "Q171986",
+   "died": "2017-09-20"
+  },
+  "niday": {
+   "wikidata": "Q172583",
+   "died": "1988-02-14"
+  },
+  "niedermayr": {
+   "wikidata": "Q61287",
+   "died": "1985-04-03"
+  },
+  "niemann": {
+   "wikidata": "Q172518",
+   "alive": true
+  },
+  "nilsson": {
+   "wikidata": "Q171445",
+   "died": "1978-10-20"
+  },
+  "noda": {
+   "wikidata": "Q172967",
+   "alive": true
+  },
+  "norris": {
+   "wikidata": "Q22007193",
+   "instagram": "landonorris",
+   "alive": true
+  },
+  "nuckey": {
+   "wikidata": "Q172810",
+   "died": "2000-06-29"
+  },
+  "obrien": {
+   "wikidata": "Q172352",
+   "died": "1987-02-10"
+  },
+  "ocon": {
+   "wikidata": "Q15074165",
+   "instagram": "estebanocon",
+   "alive": true
+  },
+  "oliver": {
+   "wikidata": "Q171720",
+   "alive": true
+  },
+  "ongais": {
+   "wikidata": "Q172322",
+   "died": "2022-02-26"
+  },
+  "opel": {
+   "wikidata": "Q171562",
+   "alive": true
+  },
+  "orey": {
+   "wikidata": "Q172335",
+   "died": "2020-08-31"
+  },
+  "oscar_gonzalez": {
+   "wikidata": "Q173597",
+   "died": "2006-11-05"
+  },
+  "pace": {
+   "wikidata": "Q171443",
+   "died": "1977-03-18"
+  },
+  "pagani": {
+   "wikidata": "Q172460",
+   "died": "2003-10-19"
+  },
+  "paletti": {
+   "wikidata": "Q173258",
+   "died": "1982-06-13"
+  },
+  "palm": {
+   "wikidata": "Q172386",
+   "alive": true
+  },
+  "palmer": {
+   "wikidata": "Q171515",
+   "alive": true
+  },
+  "panis": {
+   "wikidata": "Q172018",
+   "instagram": "olivepanis",
+   "alive": true
+  },
+  "pantano": {
+   "wikidata": "Q61917",
+   "alive": true
+  },
+  "papis": {
+   "wikidata": "Q173289",
+   "alive": true
+  },
+  "parker": {
+   "wikidata": "Q172449",
+   "died": "1981-10-15"
+  },
+  "parkes": {
+   "wikidata": "Q172141",
+   "died": "1977-08-28"
+  },
+  "parnell": {
+   "wikidata": "Q172802",
+   "died": "2017-04-05"
+  },
+  "parsons": {
+   "wikidata": "Q366770",
+   "died": "1984-09-08"
+  },
+  "patrese": {
+   "wikidata": "Q172759",
+   "alive": true
+  },
+  "paul_russo": {
+   "wikidata": "Q172655",
+   "died": "1976-02-13"
+  },
+  "pease": {
+   "wikidata": "Q172469",
+   "died": "2014-05-04"
+  },
+  "penske": {
+   "wikidata": "Q172155",
+   "alive": true
+  },
+  "perdisa": {
+   "wikidata": "Q172138",
+   "died": "1998-05-10"
+  },
+  "perez": {
+   "wikidata": "Q82805",
+   "instagram": "schecoperez",
+   "alive": true
+  },
+  "perkins": {
+   "wikidata": "Q172072",
+   "alive": true
+  },
+  "pescarolo": {
+   "wikidata": "Q171593",
+   "alive": true
+  },
+  "pesenti_rossi": {
+   "wikidata": "Q172545",
+   "died": "2026-02-21"
+  },
+  "peter_walker": {
+   "wikidata": "Q171891",
+   "died": "1984-03-01"
+  },
+  "peters": {
+   "wikidata": "Q61853",
+   "died": "2001-04-24"
+  },
+  "peterson": {
+   "wikidata": "Q173280",
+   "died": "1978-09-11"
+  },
+  "petrov": {
+   "wikidata": "Q82901",
+   "alive": true
+  },
+  "phil_hill": {
+   "wikidata": "Q3112",
+   "died": "2008-08-28"
+  },
+  "pian": {
+   "wikidata": "Q555795",
+   "died": "1990-07-25"
+  },
+  "piastri": {
+   "wikidata": "Q28741262",
+   "instagram": "oscarpiastri",
+   "alive": true
+  },
+  "pic": {
+   "wikidata": "Q82965",
+   "alive": true
+  },
+  "pieterse": {
+   "wikidata": "Q172139",
+   "died": "2017-11-01"
+  },
+  "pietro_fittipaldi": {
+   "wikidata": "Q10349696",
+   "instagram": "pifitti",
+   "alive": true
+  },
+  "pietsch": {
+   "wikidata": "Q60886",
+   "died": "2012-05-31"
+  },
+  "pilette": {
+   "wikidata": "Q172136",
+   "alive": true
+  },
+  "piotti": {
+   "wikidata": "Q172564",
+   "died": "1971-04-19"
+  },
+  "piquet": {
+   "wikidata": "Q171346",
+   "alive": true
+  },
+  "piquet_jr": {
+   "wikidata": "Q172838",
+   "instagram": "piquetjr",
+   "alive": true
+  },
+  "pirocchi": {
+   "wikidata": "Q172627",
+   "died": "2002-07-29"
+  },
+  "pironi": {
+   "wikidata": "Q171432",
+   "died": "1987-08-23"
+  },
+  "pirro": {
+   "wikidata": "Q171524",
+   "alive": true
+  },
+  "pizzonia": {
+   "wikidata": "Q172734",
+   "instagram": "antoniopizzonia",
+   "alive": true
+  },
+  "poele": {
+   "wikidata": "Q171737",
+   "alive": true
+  },
+  "pollet": {
+   "wikidata": "Q172355",
+   "died": "1997-08-16"
+  },
+  "pon": {
+   "wikidata": "Q172658",
+   "died": "2019-09-30"
+  },
+  "poore": {
+   "wikidata": "Q172297",
+   "died": "1987-02-12"
+  },
+  "portago": {
+   "wikidata": "Q172101",
+   "died": "1957-05-12"
+  },
+  "posey": {
+   "wikidata": "Q172311",
+   "alive": true
+  },
+  "pozzi": {
+   "wikidata": "Q172538",
+   "died": "2001-02-28"
+  },
+  "pretorius": {
+   "wikidata": "Q172045",
+   "died": "2009-03-30"
+  },
+  "prophet": {
+   "wikidata": "Q172513",
+   "died": "1981-03-29"
+  },
+  "prost": {
+   "wikidata": "Q10494",
+   "instagram": "a.prost",
+   "alive": true
+  },
+  "pryce": {
+   "wikidata": "Q172835",
+   "died": "1977-03-05"
+  },
+  "purley": {
+   "wikidata": "Q171743",
+   "died": "1985-07-02"
+  },
+  "quester": {
+   "wikidata": "Q78551",
+   "alive": true
+  },
+  "raby": {
+   "wikidata": "Q172274",
+   "died": "1967-11-07"
+  },
+  "rafael_camara": {
+   "wikidata": "Q114284706",
+   "instagram": "rafaccamara88",
+   "alive": true
+  },
+  "rahal": {
+   "wikidata": "Q172255",
+   "alive": true
+  },
+  "raikkonen": {
+   "wikidata": "Q11192",
+   "instagram": "kimimatiasraikkonen",
+   "alive": true
+  },
+  "ralf_schumacher": {
+   "wikidata": "Q75825",
+   "instagram": "ralfschumacher_rsc",
+   "alive": true
+  },
+  "ramos": {
+   "wikidata": "Q171770",
+   "died": "2026-05-04"
+  },
+  "raphanel": {
+   "wikidata": "Q171761",
+   "alive": true
+  },
+  "rathmann": {
+   "wikidata": "Q172510",
+   "died": "2011-11-23"
+  },
+  "ratzenberger": {
+   "wikidata": "Q78495",
+   "died": "1994-04-30"
+  },
+  "rebaque": {
+   "wikidata": "Q171539",
+   "alive": true
+  },
+  "redman": {
+   "wikidata": "Q171746",
+   "alive": true
+  },
+  "reece": {
+   "wikidata": "Q173715",
+   "died": "1958-09-28"
+  },
+  "rees": {
+   "wikidata": "Q172273",
+   "died": "2024-09-06"
+  },
+  "reg_parnell": {
+   "wikidata": "Q172057",
+   "died": "1964-01-07"
+  },
+  "regazzoni": {
+   "wikidata": "Q173284",
+   "died": "2006-12-15"
+  },
+  "resta": {
+   "wikidata": "Q82768",
+   "alive": true
+  },
+  "reutemann": {
+   "wikidata": "Q173238",
+   "died": "2021-07-07"
+  },
+  "reventlow": {
+   "wikidata": "Q172592",
+   "died": "1972-07-24"
+  },
+  "revson": {
+   "wikidata": "Q171535",
+   "died": "1974-03-22"
+  },
+  "rhodes": {
+   "wikidata": "Q173566",
+   "alive": true
+  },
+  "ribeiro": {
+   "wikidata": "Q172893",
+   "alive": true
+  },
+  "ricardo_rodriguez": {
+   "wikidata": "Q171766",
+   "died": "1962-11-01"
+  },
+  "ricciardo": {
+   "wikidata": "Q82816",
+   "instagram": "danielricciardo",
+   "alive": true
+  },
+  "riess": {
+   "wikidata": "Q60925",
+   "died": "1991-05-15"
+  },
+  "rigsby": {
+   "wikidata": "Q173709",
+   "died": "1952-08-31"
+  },
+  "rindt": {
+   "wikidata": "Q3234",
+   "died": "1970-09-05"
+  },
+  "riseley_prichard": {
+   "wikidata": "Q172801",
+   "died": "1993-07-08"
+  },
+  "robarts": {
+   "wikidata": "Q172182",
+   "alive": true
+  },
+  "rodriguez": {
+   "wikidata": "Q171452",
+   "died": "1971-07-11"
+  },
+  "roig": {
+   "wikidata": "Q172246",
+   "alive": true
+  },
+  "rol": {
+   "wikidata": "Q172069",
+   "died": "1977-06-18"
+  },
+  "rolt": {
+   "wikidata": "Q172202",
+   "died": "2008-02-06"
+  },
+  "roos": {
+   "wikidata": "Q172531",
+   "died": "2016-03-31"
+  },
+  "rooyen": {
+   "wikidata": "Q172816",
+   "died": "2023-09-14"
+  },
+  "rosa": {
+   "wikidata": "Q82924",
+   "instagram": "pedrodelarosa_official",
+   "alive": true
+  },
+  "rosberg": {
+   "wikidata": "Q75820",
+   "instagram": "nicorosberg",
+   "alive": true
+  },
+  "rose": {
+   "wikidata": "Q172305",
+   "died": "1981-01-01"
+  },
+  "rosier": {
+   "wikidata": "Q173078",
+   "died": "1956-10-29"
+  },
+  "rosset": {
+   "wikidata": "Q171431",
+   "alive": true
+  },
+  "rossi": {
+   "wikidata": "Q559962",
+   "alive": true
+  },
+  "rothengatter": {
+   "wikidata": "Q171716",
+   "alive": true
+  },
+  "ruby": {
+   "wikidata": "Q172293",
+   "died": "2009-03-23"
+  },
+  "russell": {
+   "wikidata": "Q17319645",
+   "instagram": "georgerussell63",
+   "alive": true
+  },
+  "russo": {
+   "wikidata": "Q173682",
+   "died": "2012-10-14"
+  },
+  "ruttman": {
+   "wikidata": "Q172165",
+   "died": "1997-05-19"
+  },
+  "ryan": {
+   "wikidata": "Q172806",
+   "died": "1962-07-02"
+  },
+  "sachs": {
+   "wikidata": "Q172472",
+   "died": "1964-05-30"
+  },
+  "said": {
+   "wikidata": "Q172794",
+   "died": "2002-03-24"
+  },
+  "sainz": {
+   "wikidata": "Q544856",
+   "instagram": "carlossainz55",
+   "alive": true
+  },
+  "sala": {
+   "wikidata": "Q173379",
+   "alive": true
+  },
+  "salazar": {
+   "wikidata": "Q173254",
+   "alive": true
+  },
+  "salo": {
+   "wikidata": "Q173094",
+   "instagram": "mikasaloofficial",
+   "alive": true
+  },
+  "salvadori": {
+   "wikidata": "Q171717",
+   "died": "2012-06-03"
+  },
+  "sanesi": {
+   "wikidata": "Q172065",
+   "died": "1998-07-28"
+  },
+  "sargeant": {
+   "wikidata": "Q28037494",
+   "instagram": "logansargeant",
+   "alive": true
+  },
+  "sarrazin": {
+   "wikidata": "Q173317",
+   "alive": true
+  },
+  "sato": {
+   "wikidata": "Q171297",
+   "instagram": "takumasato_official",
+   "alive": true
+  },
+  "satoru_nakajima": {
+   "wikidata": "Q173221",
+   "alive": true
+  },
+  "scarborough": {
+   "wikidata": "Q172639",
+   "died": "1953-05-30"
+  },
+  "scarfiotti": {
+   "wikidata": "Q171568",
+   "died": "1968-06-08"
+  },
+  "scarlatti": {
+   "wikidata": "Q172029",
+   "died": "1990-07-26"
+  },
+  "scheckter": {
+   "wikidata": "Q172775",
+   "alive": true
+  },
+  "schell": {
+   "wikidata": "Q171561",
+   "died": "1960-05-13"
+  },
+  "schenken": {
+   "wikidata": "Q171499",
+   "alive": true
+  },
+  "scherrer": {
+   "wikidata": "Q116272",
+   "died": "1986-07-05"
+  },
+  "schiattarella": {
+   "wikidata": "Q172990",
+   "instagram": "ds_performance_driving",
+   "alive": true
+  },
+  "schiller": {
+   "wikidata": "Q116638",
+   "died": "2007-03-26"
+  },
+  "schindler": {
+   "wikidata": "Q173679",
+   "died": "1952-09-20"
+  },
+  "schlesser": {
+   "wikidata": "Q171479",
+   "alive": true
+  },
+  "schneider": {
+   "wikidata": "Q61866",
+   "instagram": "bernd_schneider",
+   "alive": true
+  },
+  "schoeller": {
+   "wikidata": "Q116276",
+   "died": "1978-03-07"
+  },
+  "schroeder": {
+   "wikidata": "Q173681",
+   "died": "2011-12-03"
+  },
+  "schuppan": {
+   "wikidata": "Q172076",
+   "alive": true
+  },
+  "scott_Brown": {
+   "wikidata": "Q555776",
+   "died": "1958-05-19"
+  },
+  "scotti": {
+   "wikidata": "Q172603",
+   "died": "1976-02-14"
+  },
+  "seidel": {
+   "wikidata": "Q61495",
+   "died": "1987-03-01"
+  },
+  "senna": {
+   "wikidata": "Q10490",
+   "died": "1994-05-01"
+  },
+  "serafini": {
+   "wikidata": "Q172185",
+   "died": "2000-07-05"
+  },
+  "serra": {
+   "wikidata": "Q171507",
+   "alive": true
+  },
+  "serrurier": {
+   "wikidata": "Q172212",
+   "died": "2006-06-04"
+  },
+  "settember": {
+   "wikidata": "Q172361",
+   "died": "2014-05-04"
+  },
+  "sharp": {
+   "wikidata": "Q171960",
+   "died": "1993-05-07"
+  },
+  "shawe_taylor": {
+   "wikidata": "Q172205",
+   "died": "1999-05-01"
+  },
+  "shelby": {
+   "wikidata": "Q354043",
+   "died": "2012-05-10"
+  },
+  "shelly": {
+   "wikidata": "Q173592",
+   "died": "1998-10-04"
+  },
+  "siffert": {
+   "wikidata": "Q171531",
+   "died": "1971-10-24"
+  },
+  "simon": {
+   "wikidata": "Q172463",
+   "died": "2012-07-11"
+  },
+  "sirotkin": {
+   "wikidata": "Q544206",
+   "instagram": "sergeysirotkin_official",
+   "alive": true
+  },
+  "solana": {
+   "wikidata": "Q172143",
+   "died": "1969-07-27"
+  },
+  "sommer": {
+   "wikidata": "Q171878",
+   "died": "1950-09-10"
+  },
+  "sparken": {
+   "wikidata": "Q172570",
+   "died": "2012-09-21"
+  },
+  "speed": {
+   "wikidata": "Q171410",
+   "instagram": "scott_speed",
+   "alive": true
+  },
+  "spence": {
+   "wikidata": "Q171729",
+   "died": "1968-05-07"
+  },
+  "stacey": {
+   "wikidata": "Q171980",
+   "died": "1960-06-19"
+  },
+  "starrabba": {
+   "wikidata": "Q172818",
+   "alive": true
+  },
+  "stevens": {
+   "wikidata": "Q538467",
+   "alive": true
+  },
+  "stevenson": {
+   "wikidata": "Q172647",
+   "died": "1995-08-21"
+  },
+  "stewart": {
+   "wikidata": "Q3188",
+   "alive": true
+  },
+  "stohr": {
+   "wikidata": "Q172147",
+   "alive": true
+  },
+  "stommelen": {
+   "wikidata": "Q57925",
+   "died": "1983-04-24"
+  },
+  "streiff": {
+   "wikidata": "Q173084",
+   "instagram": "philippestreiff",
+   "died": "2022-12-23"
+  },
+  "stroll": {
+   "wikidata": "Q16238921",
+   "instagram": "lance_stroll",
+   "alive": true
+  },
+  "stuck": {
+   "wikidata": "Q58654",
+   "instagram": "strietzelstuck",
+   "alive": true
+  },
+  "sullivan": {
+   "wikidata": "Q173105",
+   "alive": true
+  },
+  "surer": {
+   "wikidata": "Q171505",
+   "alive": true
+  },
+  "surtees": {
+   "wikidata": "Q3153",
+   "died": "2017-03-10"
+  },
+  "sutil": {
+   "wikidata": "Q49235",
+   "alive": true
+  },
+  "sutton": {
+   "wikidata": "Q173674",
+   "died": "2006-12-04"
+  },
+  "suzuki": {
+   "wikidata": "Q173197",
+   "alive": true
+  },
+  "swaters": {
+   "wikidata": "Q172508",
+   "died": "2010-12-10"
+  },
+  "sweikert": {
+   "wikidata": "Q172134",
+   "died": "1956-06-17"
+  },
+  "takagi": {
+   "wikidata": "Q173160",
+   "alive": true
+  },
+  "takahara": {
+   "wikidata": "Q171978",
+   "alive": true
+  },
+  "takahashi": {
+   "wikidata": "Q172252",
+   "died": "2022-03-16"
+  },
+  "tambay": {
+   "wikidata": "Q173020",
+   "died": "2022-12-04"
+  },
+  "tarquini": {
+   "wikidata": "Q173299",
+   "instagram": "gabritarquini",
+   "alive": true
+  },
+  "taruffi": {
+   "wikidata": "Q171578",
+   "died": "1988-01-12"
+  },
+  "taylor": {
+   "wikidata": "Q171774",
+   "died": "1966-09-08"
+  },
+  "teague": {
+   "wikidata": "Q173569",
+   "died": "1959-02-11"
+  },
+  "templeman": {
+   "wikidata": "Q173700",
+   "died": "1962-08-24"
+  },
+  "terra": {
+   "wikidata": "Q115677",
+   "died": "1982-12-29"
+  },
+  "thackwell": {
+   "wikidata": "Q171752",
+   "alive": true
+  },
+  "thiele": {
+   "wikidata": "Q173247",
+   "died": "1986-07-15"
+  },
+  "thompson": {
+   "wikidata": "Q172439",
+   "died": "2015-08-22"
+  },
+  "thomson": {
+   "wikidata": "Q172454",
+   "died": "1960-09-24"
+  },
+  "thorne": {
+   "wikidata": "Q172410",
+   "died": "1993-07-13"
+  },
+  "tingelstad": {
+   "wikidata": "Q173642",
+   "died": "1981-07-30"
+  },
+  "tingle": {
+   "wikidata": "Q172493",
+   "died": "2008-12-19"
+  },
+  "titterington": {
+   "wikidata": "Q172825",
+   "died": "2002-04-13"
+  },
+  "tolan": {
+   "wikidata": "Q172591",
+   "died": "1986-06-06"
+  },
+  "tomaso": {
+   "wikidata": "Q172234",
+   "died": "2003-05-21"
+  },
+  "tornaco": {
+   "wikidata": "Q173382",
+   "died": "1953-09-18"
+  },
+  "toshio_suzuki": {
+   "wikidata": "Q171744",
+   "alive": true
+  },
+  "trintignant": {
+   "wikidata": "Q171438",
+   "died": "2005-02-13"
+  },
+  "trips": {
+   "wikidata": "Q57451",
+   "died": "1961-09-10"
+  },
+  "trulli": {
+   "wikidata": "Q171350",
+   "alive": true
+  },
+  "tsunoda": {
+   "wikidata": "Q59209579",
+   "instagram": "yukitsunoda0511",
+   "alive": true
+  },
+  "tuero": {
+   "wikidata": "Q173298",
+   "alive": true
+  },
+  "tunmer": {
+   "wikidata": "Q172307",
+   "died": "1999-06-22"
+  },
+  "turner": {
+   "wikidata": "Q173686",
+   "died": "2004-09-12"
+  },
+  "ulmen": {
+   "wikidata": "Q61832",
+   "died": "1976-11-04"
+  },
+  "unser": {
+   "wikidata": "Q172100",
+   "died": "2021-05-02"
+  },
+  "uria": {
+   "wikidata": "Q173195",
+   "died": "1988-12-04"
+  },
+  "vaccarella": {
+   "wikidata": "Q173443",
+   "died": "2021-09-23"
+  },
+  "vandoorne": {
+   "wikidata": "Q1344577",
+   "instagram": "svandoorne",
+   "alive": true
+  },
+  "veith": {
+   "wikidata": "Q172562",
+   "died": "2006-03-29"
+  },
+  "vergne": {
+   "wikidata": "Q82829",
+   "instagram": "jeanericvergne",
+   "alive": true
+  },
+  "verstappen": {
+   "wikidata": "Q173145",
+   "alive": true
+  },
+  "vettel": {
+   "wikidata": "Q42311",
+   "instagram": "sebastianvettel",
+   "alive": true
+  },
+  "vic_wilson": {
+   "wikidata": "Q172486",
+   "died": "2001-01-14"
+  },
+  "villeneuve": {
+   "wikidata": "Q172843",
+   "alive": true
+  },
+  "villoresi": {
+   "wikidata": "Q171514",
+   "died": "1997-08-24"
+  },
+  "villota": {
+   "wikidata": "Q173206",
+   "alive": true
+  },
+  "volonterio": {
+   "wikidata": "Q115693",
+   "died": "2003-03-10"
+  },
+  "vonlanthen": {
+   "wikidata": "Q115685",
+   "alive": true
+  },
+  "vukovich": {
+   "wikidata": "Q171619",
+   "died": "1955-05-30"
+  },
+  "wacker": {
+   "wikidata": "Q172374",
+   "died": "1998-06-16"
+  },
+  "walker": {
+   "wikidata": "Q172091",
+   "died": "2024-05-24"
+  },
+  "wallard": {
+   "wikidata": "Q453022",
+   "died": "1963-11-29"
+  },
+  "walt_brown": {
+   "wikidata": "Q172561",
+   "died": "1951-07-29"
+  },
+  "walter": {
+   "wikidata": "Q115666",
+   "died": "2009-05-12"
+  },
+  "ward": {
+   "wikidata": "Q172475",
+   "died": "2004-07-05"
+  },
+  "warwick": {
+   "wikidata": "Q171442",
+   "alive": true
+  },
+  "watson": {
+   "wikidata": "Q171422",
+   "alive": true
+  },
+  "webb": {
+   "wikidata": "Q172636",
+   "died": "1990-01-27"
+  },
+  "webber": {
+   "wikidata": "Q82667",
+   "instagram": "aussiegrit",
+   "alive": true
+  },
+  "wehrlein": {
+   "wikidata": "Q85762",
+   "instagram": "pascal_wehrlein",
+   "alive": true
+  },
+  "weiler": {
+   "wikidata": "Q173669",
+   "died": "2005-10-13"
+  },
+  "wendlinger": {
+   "wikidata": "Q84161",
+   "alive": true
+  },
+  "weyant": {
+   "wikidata": "Q172629",
+   "died": "2017-01-24"
+  },
+  "wharton": {
+   "wikidata": "Q172452",
+   "died": "1957-01-12"
+  },
+  "whitehead": {
+   "wikidata": "Q173049",
+   "died": "1958-09-21"
+  },
+  "whitehouse": {
+   "wikidata": "Q172559",
+   "died": "1957-07-14"
+  },
+  "widdows": {
+   "wikidata": "Q172427",
+   "alive": true
+  },
+  "wietzes": {
+   "wikidata": "Q172285",
+   "died": "2020-06-11"
+  },
+  "wilds": {
+   "wikidata": "Q172049",
+   "alive": true
+  },
+  "williams": {
+   "wikidata": "Q172506",
+   "died": "2014-08-31"
+  },
+  "williamson": {
+   "wikidata": "Q171501",
+   "died": "1973-07-29"
+  },
+  "wilson": {
+   "wikidata": "Q171577",
+   "died": "2015-08-24"
+  },
+  "wilson_fittipaldi": {
+   "wikidata": "Q173296",
+   "died": "2024-02-23"
+  },
+  "wisell": {
+   "wikidata": "Q172262",
+   "died": "2022-03-20"
+  },
+  "wunderink": {
+   "wikidata": "Q172224",
+   "alive": true
+  },
+  "wurz": {
+   "wikidata": "Q78499",
+   "instagram": "wurz_alex",
+   "alive": true
+  },
+  "yamamoto": {
+   "wikidata": "Q171394",
+   "instagram": "sakon_yamamoto",
+   "alive": true
+  },
+  "yoong": {
+   "wikidata": "Q172006",
+   "alive": true
+  },
+  "zanardi": {
+   "wikidata": "Q173188",
+   "died": "2026-05-01"
+  },
+  "zhou": {
+   "wikidata": "Q17327107",
+   "instagram": "zhouguanyu24",
+   "alive": true
+  },
+  "zonta": {
+   "wikidata": "Q172004",
+   "alive": true
+  },
+  "zorzi": {
+   "wikidata": "Q172231",
+   "died": "2015-05-15"
+  },
+  "zunino": {
+   "wikidata": "Q172229",
+   "alive": true
+  }
+ }
+}

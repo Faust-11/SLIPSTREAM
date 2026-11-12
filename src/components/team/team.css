@@ -623,3 +623,13 @@ details.more[open] summary {
     grid-template-columns: minmax(0, 150px) minmax(0, 1fr) 30px;
   }
 }
+
+/* Пілот — посилання на його сторінку (фаза 3d): колір тексту успадковується, підкреслення — на наведення. */
+a.ent {
+  color: inherit;
+  text-decoration: none;
+}
+a.ent:hover > span:last-child {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

@@ -11,6 +11,8 @@ import { requireLocale } from "@/i18n/require-locale";
 import { getTeamIds, getTeamPage, type DriverView, type TeamPage } from "@/lib/data/team-page";
 import { curatedDrivers } from "@/lib/data/teams";
 import type { TeamSeasonRow } from "@/lib/data/types";
+import { driverPath } from "@/lib/driver-slug";
+import { ukOrdinal } from "@/lib/ordinal";
 import { plural } from "@/lib/plural";
 import { pageMetadata, siteUrl } from "@/lib/seo";
 
@@ -56,13 +58,6 @@ function readableOnPhoto(hex: string | null): boolean {
   return !!hex && /^#[0-9a-f]{6}$/i.test(hex) && (luminance(hex) + 0.05) / (PHOTO_BG + 0.05) >= 3;
 }
 
-/** Українська порядкова: 1-ше, 2-ге, 3-тє, 7-ме, 8-ме, інші -те (11–19 — -те). */
-function ukOrdinal(n: number): string {
-  const d = n % 10;
-  if (n % 100 >= 11 && n % 100 <= 19) return `${n}-те`;
-  return `${n}-${{ 1: "ше", 2: "ге", 3: "тє", 7: "ме", 8: "ме" }[d] ?? "те"}`;
-}
-
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const { lang, page, dict } = await load(props);
   const t = dict.team;
@@ -80,9 +75,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   });
 }
 
-function Person({ d, size = 28 }: { d: DriverView; size?: number }) {
+/** Пілот з аватаром — посилання на його сторінку (є в кожного пілота зі стартом, а в поданнях команди інших немає). */
+function Person({ d, lang, size = 28 }: { d: DriverView; lang: Locale; size?: number }) {
   return (
-    <span className="ent">
+    <a className="ent" href={localizedPath(driverPath(d.id), lang)}>
       {d.avatar ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img className="av" src={d.avatar} width={size} height={size} alt="" loading="lazy" decoding="async" />
@@ -92,7 +88,7 @@ function Person({ d, size = 28 }: { d: DriverView; size?: number }) {
         </span>
       )}
       <span>{d.name}</span>
-    </span>
+    </a>
   );
 }
 
@@ -262,7 +258,7 @@ export default async function TeamPageView(props: Props) {
                   <dt>{fill(t.facts.drivers, { year: current.year })}</dt>
                   <dd>
                     {page.currentDrivers.map((d) => (
-                      <Person key={d.id} d={d} />
+                      <Person key={d.id} d={d} lang={lang} />
                     ))}
                   </dd>
                 </div>
@@ -447,7 +443,7 @@ export default async function TeamPageView(props: Props) {
             <ul className="champs">
               {page.champions.map((c) => (
                 <li key={c.driver.id} className="ch">
-                  <Person d={c.driver} size={64} />
+                  <Person d={c.driver} lang={lang} size={64} />
                   <span className="ch-y num">{c.years.join(", ")}</span>
                 </li>
               ))}
@@ -474,7 +470,7 @@ export default async function TeamPageView(props: Props) {
                     <span className="wy num">{f.win.year}</span>
                     <b>{f.win.name}</b>
                     {f.win.drivers.map((d) => (
-                      <Person key={d.id} d={d} size={24} />
+                      <Person key={d.id} d={d} lang={lang} size={24} />
                     ))}
                   </li>
                 ))}
@@ -486,7 +482,7 @@ export default async function TeamPageView(props: Props) {
                 <ol className="bars">
                   {page.wins.byDriver.slice(0, 12).map((b) => (
                     <li key={b.driver.id}>
-                      <Person d={b.driver} size={24} />
+                      <Person d={b.driver} lang={lang} size={24} />
                       <span className="bar" aria-hidden="true">
                         <i style={{ width: `${(b.count / maxByDriver) * 100}%` }} />
                       </span>
@@ -530,7 +526,7 @@ export default async function TeamPageView(props: Props) {
         </section>
       )}
 
-      {current && page.pairing && <Pairing page={page} t={t} n={n} />}
+      {current && page.pairing && <Pairing page={page} t={t} n={n} lang={lang} />}
 
       <PageCredits
         groups={[
@@ -544,7 +540,7 @@ export default async function TeamPageView(props: Props) {
 
 type PairDriver = NonNullable<TeamPage["pairing"]>["drivers"][number];
 
-function Pairing({ page, t, n }: { page: TeamPage; t: Awaited<ReturnType<typeof getDictionary>>["team"]; n: (v: number) => string }) {
+function Pairing({ page, t, n, lang }: { page: TeamPage; t: Awaited<ReturnType<typeof getDictionary>>["team"]; n: (v: number) => string; lang: Locale }) {
   const [a, b] = page.pairing!.drivers as [PairDriver, PairDriver];
   const rows = [
     { label: t.pairing.pointsLabel, a: a.points, b: b.points },
@@ -562,7 +558,7 @@ function Pairing({ page, t, n }: { page: TeamPage; t: Awaited<ReturnType<typeof 
         </div>
         <div className="duo">
           <div className="dc">
-            <Person d={a} size={84} />
+            <Person d={a} lang={lang} size={84} />
           </div>
           <dl className="hbars">
             {rows.map((r) => (
@@ -582,7 +578,7 @@ function Pairing({ page, t, n }: { page: TeamPage; t: Awaited<ReturnType<typeof 
             ))}
           </dl>
           <div className="dc rt">
-            <Person d={b} size={84} />
+            <Person d={b} lang={lang} size={84} />
           </div>
         </div>
       </div>
