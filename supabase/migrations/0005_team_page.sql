@@ -3,7 +3,8 @@
 -- Гран-прі — лише зі стартом (f1.result_started); перемоги — за гонками; Кубок / титул поточного сезону —
 -- лише коли математично вирішено.
 -- Додатково:
---   * подіуми — фініші машин на 1–3 місці (обидві машини рахуються окремо, як у статистиці конструкторів);
+--   * подіуми — фініші машин на 1–3 місці (обидві машини окремо; спільна машина 1950-х — один подіум, як у Вікіпедії:
+--     Ferrari 861 рядків → 844 машини, замір 12.11);
 --   * поули — гонки, де машина команди стартувала першою (grid = 1);
 --   * дублі — гонки, де команда посіла 1-ше і 2-ге місця;
 --   * титул пілота зараховується команді, за яку чемпіон того сезону стартував у найбільшій кількості гонок
@@ -86,7 +87,7 @@ with races as (
          array_agg(distinct team_name order by team_name) as entries,
          count(distinct round_id) filter (where started and session_type = 'R') as grands_prix,
          count(distinct round_id) filter (where started and session_type = 'R' and is_classified and position = 1) as wins,
-         count(*) filter (where started and session_type = 'R' and is_classified and position <= 3) as podiums
+         count(distinct (round_id, position)) filter (where started and session_type = 'R' and is_classified and position <= 3) as podiums
   from f1.v_team_race group by family_id, season_year
 ),
 standing as (
@@ -149,7 +150,7 @@ agg as (
   select family_id,
          count(distinct round_id) as grands_prix,
          count(distinct round_id) filter (where is_classified and position = 1) as wins,
-         count(*) filter (where is_classified and position <= 3) as podiums
+         count(distinct (round_id, position)) filter (where is_classified and position <= 3) as podiums
   from race group by family_id
 ),
 per_round as (
