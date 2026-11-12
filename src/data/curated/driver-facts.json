@@ -21,6 +21,19 @@
    "wikidata": "Q171444",
    "alive": true
   },
+  "ader": {
+   "wikidata": "Q165393",
+   "died": "1982-11-25",
+   "manual": {
+    "born": "1912-12-15",
+    "bornSources": [
+     "https://www.oldracingcars.com/driver/Walt_Ader",
+     "https://historicracing.com/driver.cfm?otd=1629",
+     "https://njsports.com/walt-ader/"
+    ],
+    "bornChecked": "2026-11-12"
+   }
+  },
   "adolff": {
    "wikidata": "Q61033",
    "died": "2012-01-24"
@@ -63,6 +76,18 @@
    "wikidata": "Q171355",
    "instagram": "squire.music",
    "alive": true
+  },
+  "alliot": {
+   "wikidata": "Q173305",
+   "alive": true,
+   "manual": {
+    "bornSources": [
+     "https://www.mclaren.com/racing/heritage/formula-1/drivers/philippe-alliot/",
+     "https://www.oldracingcars.com/driver/Philippe_Alliot"
+    ],
+    "bornNote": "джерела розходяться: 1954 (McLaren, Вікіпедія) / 1953 (OldRacingCars, DriverDB) — лишаємо дату бази (1954)",
+    "bornChecked": "2026-11-12"
+   }
   },
   "allison": {
    "wikidata": "Q171723",
@@ -306,6 +331,18 @@
    "wikidata": "Q78593",
    "alive": true
   },
+  "biondetti": {
+   "wikidata": "Q172489",
+   "died": "1955-02-24",
+   "manual": {
+    "born": "1898-10-18",
+    "bornSources": [
+     "https://www.oldracingcars.com/driver/Clemente_Biondetti",
+     "https://opengauquelin.org/person/biondetti-clemente-1898-10-18"
+    ],
+    "bornChecked": "2026-11-12"
+   }
+  },
   "bira": {
    "wikidata": "Q173204",
    "died": "1985-12-23"
@@ -507,6 +544,19 @@
    "wikidata": "Q172167",
    "alive": true
   },
+  "cabantous": {
+   "wikidata": "Q171565",
+   "died": "1973-03-30",
+   "manual": {
+    "born": "1903-10-08",
+    "bornSources": [
+     "https://deces.matchid.io/deces/api/v1/search?lastName=Giraud&deathDate=1973&firstName=Marius",
+     "https://www.oldracingcars.com/driver/Yves_Giraud-Cabantous"
+    ],
+    "bornNote": "INSEE: Yves Aristide Marius Giraud, Paris 14e",
+    "bornChecked": "2026-11-12"
+   }
+  },
   "cabianca": {
    "wikidata": "Q711156",
    "died": "1961-06-15"
@@ -570,10 +620,6 @@
   "chandhok": {
    "wikidata": "Q172905",
    "alive": true
-  },
-  "chapman": {
-   "wikidata": "Q173007",
-   "died": "1982-12-16"
   },
   "charlton": {
    "wikidata": "Q460768",
@@ -887,6 +933,19 @@
    "wikidata": "Q2040",
    "died": "1966-06-30"
   },
+  "faulkner": {
+   "wikidata": "Q173418",
+   "died": "1956-04-22",
+   "manual": {
+    "born": "1918-02-16",
+    "bornSources": [
+     "https://www.oldracingcars.com/driver/Walt_Faulkner",
+     "https://www.driverdb.com/drivers/walt-faulkner"
+    ],
+    "bornNote": "рік 1918 — усі джерела, крім одного; день: 16 у довідниках, 6 — у Вікіпедії (California Death Index, не перевірено)",
+    "bornChecked": "2026-11-12"
+   }
+  },
   "filippis": {
    "wikidata": "Q171572",
    "died": "2016-01-08"
@@ -1023,6 +1082,18 @@
    "instagram": "gvandergarde",
    "alive": true
   },
+  "gardner": {
+   "wikidata": "Q172539",
+   "died": "2009-08-29",
+   "manual": {
+    "bornSources": [
+     "https://www.motorsportmagazine.com/archive/article/march-2008/84/lunch-frank-gardner",
+     "https://www.grandprix.com/ns/ns21775.html"
+    ],
+    "bornNote": "джерела розходяться: 1931 (довідники, інтерв'ю Motor Sport 2008) / 1930 (некрологи 2009) — лишаємо дату бази (1930)",
+    "bornChecked": "2026-11-12"
+   }
+  },
   "garrett": {
    "wikidata": "Q172594",
    "died": "1999-02-15"
@@ -1126,6 +1197,20 @@
   "gordini": {
    "wikidata": "Q172467",
    "died": "1995-01-28"
+  },
+  "gould": {
+   "wikidata": "Q172504",
+   "died": "1968-11-04",
+   "manual": {
+    "born": "1921-09-20",
+    "bornSources": [
+     "https://historicracing.com/driver.cfm?otd=3250",
+     "https://www.driverdb.com/drivers/horace-gould",
+     "https://www.f1forgottendrivers.com/drivers/horace-gould/"
+    ],
+    "bornNote": "низька впевненість: OldRacingCars — 1918",
+    "bornChecked": "2026-11-12"
+   }
   },
   "gounon": {
    "wikidata": "Q173308",
@@ -1482,10 +1567,6 @@
    "wikidata": "Q172753",
    "died": "2026-11-05"
   },
-  "jover": {
-   "wikidata": "Q290404",
-   "died": "1960-06-28"
-  },
   "jules_bianchi": {
    "wikidata": "Q281294",
    "died": "2015-07-17"
@@ -1839,6 +1920,18 @@
    "wikidata": "Q171512",
    "died": "2015-01-19"
   },
+  "marimon": {
+   "wikidata": "Q171624",
+   "died": "1954-07-31",
+   "manual": {
+    "bornSources": [
+     "https://www.driverdb.com/drivers/onofre-marimon",
+     "https://es.wikipedia.org/wiki/Onofre_Marim%C3%B3n"
+    ],
+    "bornNote": "дата бази підтверджена (19.12.1923, середа); OldRacingCars — 23.12",
+    "bornChecked": "2026-11-12"
+   }
+  },
   "mario_andretti": {
    "wikidata": "Q171312",
    "alive": true
@@ -2009,6 +2102,19 @@
    "wikidata": "Q172973",
    "instagram": "andrea.montermini",
    "alive": true
+  },
+  "montoya": {
+   "wikidata": "Q172744",
+   "instagram": "jpmonty2",
+   "alive": true,
+   "manual": {
+    "bornSources": [
+     "https://oldracingcars.com/driver/Juan-Pablo_Montoya",
+     "https://encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/montoya-juan-pablo-1975"
+    ],
+    "bornNote": "дата бази підтверджена; Wikidata (1970) помилкова",
+    "bornChecked": "2026-11-12"
+   }
   },
   "morbidelli": {
    "wikidata": "Q171559",
@@ -2252,10 +2358,6 @@
    "wikidata": "Q3112",
    "died": "2008-08-28"
   },
-  "pian": {
-   "wikidata": "Q555795",
-   "died": "1990-07-25"
-  },
   "piastri": {
    "wikidata": "Q28741262",
    "instagram": "oscarpiastri",
@@ -2315,6 +2417,19 @@
   "poele": {
    "wikidata": "Q171737",
    "alive": true
+  },
+  "pollet": {
+   "wikidata": "Q172355",
+   "died": "1997-08-16",
+   "manual": {
+    "born": "1922-07-28",
+    "bornSources": [
+     "https://deces.matchid.io/deces/api/v1/search?lastName=Pollet&firstName=Jacques&deathDate=1997",
+     "https://www.f1forgottendrivers.com/drivers/jacques-pollet/"
+    ],
+    "bornNote": "INSEE: Jacques Victor Marie-Joseph Pollet, Roubaix; довідники — 2 липня",
+    "bornChecked": "2026-11-12"
+   }
   },
   "pon": {
    "wikidata": "Q172658",
@@ -2480,6 +2595,18 @@
   "rodriguez": {
    "wikidata": "Q171452",
    "died": "1971-07-11"
+  },
+  "roig": {
+   "wikidata": "Q172246",
+   "alive": true,
+   "manual": {
+    "bornSources": [
+     "https://www.oldracingcars.com/driver/Alex_Soler-Roig",
+     "https://historicracing.com/driver.cfm?otd=7671"
+    ],
+    "bornNote": "дата бази підтверджена; 1931 — лише каталонська Вікіпедія",
+    "bornChecked": "2026-11-12"
+   }
   },
   "rol": {
    "wikidata": "Q172069",
@@ -2847,6 +2974,18 @@
   "taylor": {
    "wikidata": "Q171774",
    "died": "1966-09-08"
+  },
+  "teague": {
+   "wikidata": "Q173569",
+   "died": "1959-02-11",
+   "manual": {
+    "bornSources": [
+     "http://www.mshf.com/hall-of-fame/inductees/marshall-teague.html",
+     "https://www.oldracingcars.com/driver/Marshall_Teague"
+    ],
+    "bornNote": "дата бази підтверджена (Motorsports Hall of Fame of America)",
+    "bornChecked": "2026-11-12"
+   }
   },
   "templeman": {
    "wikidata": "Q173700",

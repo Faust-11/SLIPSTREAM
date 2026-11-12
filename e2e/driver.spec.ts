@@ -96,6 +96,7 @@ test("посилання на пілотів: список, картки сез�
 });
 
 test("жодного мертвого посилання на пілота: McLaren, Ferrari, перша сторінка таблиці, Гамілтон", async ({ page, request }) => {
+  test.setTimeout(120_000);
   const hrefs = new Set<string>();
   for (const url of ["/uk/teams/mclaren", "/teams/ferrari", "/uk/drivers", "/uk/drivers/hamilton", "/drivers/fangio"]) {
     await page.goto(url);
@@ -103,8 +104,14 @@ test("жодного мертвого посилання на пілота: McLa
       hrefs.add(h);
   }
   expect(hrefs.size).toBeGreaterThan(40);
+  // Пакетами по 8: послідовно ~130 запитів проти продакшну не вкладались у 30 с (12.11 — тайм-аут тесту, не сайту).
   const dead: string[] = [];
-  for (const h of hrefs) if ((await request.get(h)).status() !== 200) dead.push(h);
+  const list = [...hrefs];
+  for (let i = 0; i < list.length; i += 8) {
+    const part = list.slice(i, i + 8);
+    const codes = await Promise.all(part.map(async (h) => (await request.get(h)).status()));
+    codes.forEach((c, k) => c !== 200 && dead.push(`${part[k]} → ${c}`));
+  }
   expect(dead).toEqual([]);
 });
 

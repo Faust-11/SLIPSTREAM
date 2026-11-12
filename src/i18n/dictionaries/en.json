@@ -482,7 +482,8 @@
       "keyBehind": "Teammate ahead",
       "note": "Races: who placed higher in the race classification. Qualifying: final qualifying position, shown when data exists for the shared races (from 1994). Only teammates with 5 or more shared races.",
       "sr": "{a}: {x}; {b}: {y}",
-      "showAll": "Show {n} more"
+      "showAll": "Show {n} more",
+      "customerNote": "Until 1981 private teams could enter another constructor's chassis. The data cannot tell them from the works team, so teammates here include drivers of privately entered cars of the same make."
     },
     "wins": {
       "title": {

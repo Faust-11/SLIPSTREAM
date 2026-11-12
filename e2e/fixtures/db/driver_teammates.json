@@ -641,8 +641,8 @@
   "years": [
    1991
   ],
-  "races": 15,
-  "race_ahead": 8,
+  "races": 14,
+  "race_ahead": 7,
   "race_behind": 7,
   "quali_races": 0,
   "quali_ahead": 0,
@@ -1007,8 +1007,8 @@
    2015,
    2016
   ],
-  "races": 38,
-  "race_ahead": 18,
+  "races": 37,
+  "race_ahead": 17,
   "race_behind": 20,
   "quali_races": 35,
   "quali_ahead": 23,
@@ -1040,9 +1040,9 @@
    2017,
    2018
   ],
-  "races": 40,
+  "races": 39,
   "race_ahead": 22,
-  "race_behind": 18,
+  "race_behind": 17,
   "quali_races": 40,
   "quali_ahead": 37,
   "quali_behind": 3
@@ -1139,8 +1139,8 @@
   "years": [
    2011
   ],
-  "races": 19,
-  "race_ahead": 9,
+  "races": 18,
+  "race_ahead": 8,
   "race_behind": 10,
   "quali_races": 19,
   "quali_ahead": 5,
@@ -1845,8 +1845,8 @@
    1951,
    1952
   ],
-  "races": 7,
-  "race_ahead": 6,
+  "races": 6,
+  "race_ahead": 5,
   "race_behind": 1,
   "quali_races": 0,
   "quali_ahead": 0,
@@ -1989,9 +1989,9 @@
   "years": [
    1995
   ],
-  "races": 8,
+  "races": 7,
   "race_ahead": 4,
-  "race_behind": 4,
+  "race_behind": 3,
   "quali_races": 8,
   "quali_ahead": 3,
   "quali_behind": 5
@@ -2240,9 +2240,9 @@
    2004,
    2005
   ],
-  "races": 104,
+  "races": 102,
   "race_ahead": 28,
-  "race_behind": 76,
+  "race_behind": 74,
   "quali_races": 60,
   "quali_ahead": 19,
   "quali_behind": 41
@@ -2324,8 +2324,8 @@
   "years": [
    1999
   ],
-  "races": 16,
-  "race_ahead": 9,
+  "races": 15,
+  "race_ahead": 8,
   "race_behind": 7,
   "quali_races": 3,
   "quali_ahead": 3,
@@ -2357,9 +2357,9 @@
   "years": [
    1998
   ],
-  "races": 9,
+  "races": 8,
   "race_ahead": 6,
-  "race_behind": 3,
+  "race_behind": 2,
   "quali_races": 4,
   "quali_ahead": 3,
   "quali_behind": 1
@@ -2593,8 +2593,8 @@
    1957,
    1958
   ],
-  "races": 13,
-  "race_ahead": 11,
+  "races": 12,
+  "race_ahead": 10,
   "race_behind": 2,
   "quali_races": 0,
   "quali_ahead": 0,
@@ -3432,8 +3432,8 @@
    1953,
    1954
   ],
-  "races": 6,
-  "race_ahead": 5,
+  "races": 5,
+  "race_ahead": 4,
   "race_behind": 1,
   "quali_races": 0,
   "quali_ahead": 0,
@@ -3512,8 +3512,8 @@
   "years": [
    1995
   ],
-  "races": 14,
-  "race_ahead": 8,
+  "races": 13,
+  "race_ahead": 7,
   "race_behind": 6,
   "quali_races": 14,
   "quali_ahead": 2,
@@ -5047,9 +5047,9 @@
   "years": [
    2003
   ],
-  "races": 15,
+  "races": 14,
   "race_ahead": 9,
-  "race_behind": 6,
+  "race_behind": 5,
   "quali_races": 15,
   "quali_ahead": 8,
   "quali_behind": 7
@@ -5114,9 +5114,9 @@
    2015,
    2016
   ],
-  "races": 38,
+  "races": 37,
   "race_ahead": 20,
-  "race_behind": 18,
+  "race_behind": 17,
   "quali_races": 35,
   "quali_ahead": 12,
   "quali_behind": 23
@@ -5361,8 +5361,8 @@
    1990,
    1991
   ],
-  "races": 26,
-  "race_ahead": 13,
+  "races": 25,
+  "race_ahead": 12,
   "race_behind": 13,
   "quali_races": 0,
   "quali_ahead": 0,
@@ -6209,8 +6209,8 @@
    1960,
    1961
   ],
-  "races": 11,
-  "race_ahead": 5,
+  "races": 10,
+  "race_ahead": 4,
   "race_behind": 6,
   "quali_races": 0,
   "quali_ahead": 0,
@@ -6563,8 +6563,8 @@
    2000,
    2001
   ],
-  "races": 99,
-  "race_ahead": 44,
+  "races": 98,
+  "race_ahead": 43,
   "race_behind": 55,
   "quali_races": 32,
   "quali_ahead": 10,
@@ -6598,8 +6598,8 @@
    2005,
    2006
   ],
-  "races": 29,
-  "race_ahead": 18,
+  "races": 28,
+  "race_ahead": 17,
   "race_behind": 11,
   "quali_races": 30,
   "quali_ahead": 16,
@@ -6779,9 +6779,9 @@
   "years": [
    1997
   ],
-  "races": 17,
+  "races": 16,
   "race_ahead": 10,
-  "race_behind": 7,
+  "race_behind": 6,
   "quali_races": 10,
   "quali_ahead": 9,
   "quali_behind": 1
@@ -7059,8 +7059,8 @@
   "years": [
    1997
   ],
-  "races": 17,
-  "race_ahead": 7,
+  "races": 16,
+  "race_ahead": 6,
   "race_behind": 10,
   "quali_races": 10,
   "quali_ahead": 1,
@@ -7075,8 +7075,8 @@
   "years": [
    1998
   ],
-  "races": 16,
-  "race_ahead": 6,
+  "races": 15,
+  "race_ahead": 5,
   "race_behind": 10,
   "quali_races": 7,
   "quali_ahead": 2,
@@ -7402,8 +7402,8 @@
   "years": [
    2014
   ],
-  "races": 15,
-  "race_ahead": 6,
+  "races": 14,
+  "race_ahead": 5,
   "race_behind": 9,
   "quali_races": 15,
   "quali_ahead": 4,
@@ -7435,8 +7435,8 @@
    2015,
    2016
   ],
-  "races": 40,
-  "race_ahead": 21,
+  "races": 39,
+  "race_ahead": 20,
   "race_behind": 19,
   "quali_races": 39,
   "quali_ahead": 22,
@@ -7854,8 +7854,8 @@
    1957,
    1958
   ],
-  "races": 7,
-  "race_ahead": 7,
+  "races": 6,
+  "race_ahead": 6,
   "race_behind": 0,
   "quali_races": 0,
   "quali_ahead": 0,
@@ -8633,9 +8633,9 @@
    2002,
    2003
   ],
-  "races": 17,
+  "races": 16,
   "race_ahead": 5,
-  "race_behind": 12,
+  "race_behind": 11,
   "quali_races": 16,
   "quali_ahead": 7,
   "quali_behind": 9
@@ -9742,9 +9742,9 @@
    2008,
    2009
   ],
-  "races": 33,
+  "races": 32,
   "race_ahead": 18,
-  "race_behind": 15,
+  "race_behind": 14,
   "quali_races": 33,
   "quali_ahead": 8,
   "quali_behind": 25
@@ -9758,9 +9758,9 @@
   "years": [
    2011
   ],
-  "races": 19,
+  "races": 18,
   "race_ahead": 10,
-  "race_behind": 9,
+  "race_behind": 8,
   "quali_races": 19,
   "quali_ahead": 14,
   "quali_behind": 5
@@ -9774,9 +9774,9 @@
   "years": [
    2010
   ],
-  "races": 19,
+  "races": 18,
   "race_ahead": 11,
-  "race_behind": 8,
+  "race_behind": 7,
   "quali_races": 19,
   "quali_ahead": 17,
   "quali_behind": 2
@@ -10068,9 +10068,9 @@
    1957,
    1958
   ],
-  "races": 13,
+  "races": 12,
   "race_ahead": 2,
-  "race_behind": 11,
+  "race_behind": 10,
   "quali_races": 0,
   "quali_ahead": 0,
   "quali_behind": 0
@@ -10085,9 +10085,9 @@
    1957,
    1958
   ],
-  "races": 7,
+  "races": 6,
   "race_ahead": 0,
-  "race_behind": 7,
+  "race_behind": 6,
   "quali_races": 0,
   "quali_ahead": 0,
   "quali_behind": 0
@@ -10130,24 +10130,6 @@
  {
   "id": "gould",
   "team": "maserati",
-  "mate": "menditeguy",
-  "forename": "Carlos",
-  "surname": "Menditeguy",
-  "years": [
-   1955,
-   1957,
-   1958
-  ],
-  "races": 5,
-  "race_ahead": 0,
-  "race_behind": 5,
-  "quali_races": 0,
-  "quali_ahead": 0,
-  "quali_behind": 0
- },
- {
-  "id": "gould",
-  "team": "maserati",
   "mate": "rosier",
   "forename": "Louis",
   "surname": "Rosier",
@@ -10173,9 +10155,9 @@
    1957,
    1958
   ],
-  "races": 8,
+  "races": 7,
   "race_ahead": 0,
-  "race_behind": 8,
+  "race_behind": 7,
   "quali_races": 0,
   "quali_ahead": 0,
   "quali_behind": 0
@@ -10310,8 +10292,8 @@
   "years": [
    2010
   ],
-  "races": 19,
-  "race_ahead": 8,
+  "races": 18,
+  "race_ahead": 7,
   "race_behind": 11,
   "quali_races": 19,
   "quali_ahead": 2,
@@ -10616,9 +10598,9 @@
    1990,
    1991
   ],
-  "races": 26,
+  "races": 25,
   "race_ahead": 13,
-  "race_behind": 13,
+  "race_behind": 12,
   "quali_races": 0,
   "quali_ahead": 0,
   "quali_behind": 0
@@ -10851,8 +10833,8 @@
   "years": [
    2013
   ],
-  "races": 19,
-  "race_ahead": 5,
+  "races": 18,
+  "race_ahead": 4,
   "race_behind": 14,
   "quali_races": 19,
   "quali_ahead": 1,
@@ -11062,9 +11044,9 @@
   "years": [
    1995
   ],
-  "races": 14,
+  "races": 13,
   "race_ahead": 6,
-  "race_behind": 8,
+  "race_behind": 7,
   "quali_races": 14,
   "quali_ahead": 12,
   "quali_behind": 2
@@ -11099,9 +11081,9 @@
    2000,
    2001
   ],
-  "races": 99,
+  "races": 98,
   "race_ahead": 55,
-  "race_behind": 44,
+  "race_behind": 43,
   "quali_races": 32,
   "quali_ahead": 22,
   "quali_behind": 10
@@ -11730,8 +11712,8 @@
    2002,
    2003
   ],
-  "races": 17,
-  "race_ahead": 12,
+  "races": 16,
+  "race_ahead": 11,
   "race_behind": 5,
   "quali_races": 16,
   "quali_ahead": 9,
@@ -11944,8 +11926,8 @@
    1993,
    1994
   ],
-  "races": 19,
-  "race_ahead": 14,
+  "races": 18,
+  "race_ahead": 13,
   "race_behind": 5,
   "quali_races": 7,
   "quali_ahead": 5,
@@ -12024,9 +12006,9 @@
   "years": [
    1999
   ],
-  "races": 16,
+  "races": 15,
   "race_ahead": 7,
-  "race_behind": 9,
+  "race_behind": 8,
   "quali_races": 3,
   "quali_ahead": 0,
   "quali_behind": 3
@@ -12470,9 +12452,9 @@
    2015,
    2016
   ],
-  "races": 58,
+  "races": 57,
   "race_ahead": 25,
-  "race_behind": 33,
+  "race_behind": 32,
   "quali_races": 59,
   "quali_ahead": 35,
   "quali_behind": 24
@@ -12584,9 +12566,9 @@
   "years": [
    2013
   ],
-  "races": 19,
+  "races": 18,
   "race_ahead": 14,
-  "race_behind": 5,
+  "race_behind": 4,
   "quali_races": 19,
   "quali_ahead": 18,
   "quali_behind": 1
@@ -13301,8 +13283,8 @@
    1960,
    1961
   ],
-  "races": 10,
-  "race_ahead": 5,
+  "races": 9,
+  "race_ahead": 4,
   "race_behind": 5,
   "quali_races": 0,
   "quali_ahead": 0,
@@ -13386,8 +13368,8 @@
    1998,
    1999
   ],
-  "races": 59,
-  "race_ahead": 16,
+  "races": 58,
+  "race_ahead": 15,
   "race_behind": 43,
   "quali_races": 27,
   "quali_ahead": 2,
@@ -14039,9 +14021,9 @@
    1975,
    1976
   ],
-  "races": 38,
+  "races": 37,
   "race_ahead": 13,
-  "race_behind": 25,
+  "race_behind": 24,
   "quali_races": 0,
   "quali_ahead": 0,
   "quali_behind": 0
@@ -14153,9 +14135,9 @@
   "years": [
    2016
   ],
-  "races": 21,
+  "races": 20,
   "race_ahead": 9,
-  "race_behind": 12,
+  "race_behind": 11,
   "quali_races": 19,
   "quali_ahead": 8,
   "quali_behind": 11
@@ -14363,8 +14345,8 @@
   "years": [
    1997
   ],
-  "races": 7,
-  "race_ahead": 2,
+  "races": 6,
+  "race_ahead": 1,
   "race_behind": 5,
   "quali_races": 7,
   "quali_ahead": 1,
@@ -14509,8 +14491,8 @@
   "years": [
    1985
   ],
-  "races": 16,
-  "race_ahead": 6,
+  "races": 15,
+  "race_ahead": 5,
   "race_behind": 10,
   "quali_races": 0,
   "quali_ahead": 0,
@@ -14593,8 +14575,8 @@
   "years": [
    2016
   ],
-  "races": 21,
-  "race_ahead": 12,
+  "races": 20,
+  "race_ahead": 11,
   "race_behind": 9,
   "quali_races": 19,
   "quali_ahead": 11,
@@ -14642,9 +14624,9 @@
    2005,
    2006
   ],
-  "races": 29,
+  "races": 28,
   "race_ahead": 11,
-  "race_behind": 18,
+  "race_behind": 17,
   "quali_races": 30,
   "quali_ahead": 14,
   "quali_behind": 16
@@ -14708,9 +14690,9 @@
   "years": [
    2014
   ],
-  "races": 15,
+  "races": 14,
   "race_ahead": 9,
-  "race_behind": 6,
+  "race_behind": 5,
   "quali_races": 15,
   "quali_ahead": 11,
   "quali_behind": 4
@@ -14758,8 +14740,8 @@
    2010,
    2011
   ],
-  "races": 15,
-  "race_ahead": 9,
+  "races": 14,
+  "race_ahead": 8,
   "race_behind": 6,
   "quali_races": 15,
   "quali_ahead": 8,
@@ -14774,8 +14756,8 @@
   "years": [
    2012
   ],
-  "races": 20,
-  "race_ahead": 10,
+  "races": 19,
+  "race_ahead": 9,
   "race_behind": 10,
   "quali_races": 20,
   "quali_ahead": 13,
@@ -14791,9 +14773,9 @@
    2010,
    2011
   ],
-  "races": 37,
-  "race_ahead": 25,
-  "race_behind": 12,
+  "races": 35,
+  "race_ahead": 24,
+  "race_behind": 11,
   "quali_races": 37,
   "quali_ahead": 24,
   "quali_behind": 13
@@ -14908,9 +14890,9 @@
    2015,
    2016
   ],
-  "races": 22,
+  "races": 21,
   "race_ahead": 11,
-  "race_behind": 11,
+  "race_behind": 10,
   "quali_races": 23,
   "quali_ahead": 7,
   "quali_behind": 16
@@ -15167,8 +15149,8 @@
   "years": [
    1995
   ],
-  "races": 8,
-  "race_ahead": 4,
+  "races": 7,
+  "race_ahead": 3,
   "race_behind": 4,
   "quali_races": 8,
   "quali_ahead": 5,
@@ -15582,9 +15564,9 @@
    2023,
    2024
   ],
-  "races": 87,
+  "races": 86,
   "race_ahead": 52,
-  "race_behind": 35,
+  "race_behind": 34,
   "quali_races": 89,
   "quali_ahead": 57,
   "quali_behind": 32
@@ -16477,9 +16459,9 @@
   "years": [
    1985
   ],
-  "races": 16,
+  "races": 15,
   "race_ahead": 10,
-  "race_behind": 6,
+  "race_behind": 5,
   "quali_races": 0,
   "quali_ahead": 0,
   "quali_behind": 0
@@ -16662,9 +16644,9 @@
    1953,
    1954
   ],
-  "races": 6,
+  "races": 5,
   "race_ahead": 1,
-  "race_behind": 5,
+  "race_behind": 4,
   "quali_races": 0,
   "quali_ahead": 0,
   "quali_behind": 0
@@ -16716,39 +16698,6 @@
   "races": 8,
   "race_ahead": 4,
   "race_behind": 4,
-  "quali_races": 0,
-  "quali_ahead": 0,
-  "quali_behind": 0
- },
- {
-  "id": "marimon",
-  "team": "maserati",
-  "mate": "mieres",
-  "forename": "Roberto",
-  "surname": "Mieres",
-  "years": [
-   1954
-  ],
-  "races": 5,
-  "race_ahead": 4,
-  "race_behind": 1,
-  "quali_races": 0,
-  "quali_ahead": 0,
-  "quali_behind": 0
- },
- {
-  "id": "marimon",
-  "team": "maserati",
-  "mate": "schell",
-  "forename": "Harry",
-  "surname": "Schell",
-  "years": [
-   1951,
-   1954
-  ],
-  "races": 5,
-  "race_ahead": 2,
-  "race_behind": 3,
   "quali_races": 0,
   "quali_ahead": 0,
   "quali_behind": 0
@@ -17108,8 +17057,8 @@
    1979,
    1980
   ],
-  "races": 24,
-  "race_ahead": 12,
+  "races": 23,
+  "race_ahead": 11,
   "race_behind": 12,
   "quali_races": 0,
   "quali_ahead": 0,
@@ -17495,9 +17444,9 @@
   "years": [
    2021
   ],
-  "races": 22,
+  "races": 21,
   "race_ahead": 6,
-  "race_behind": 16,
+  "race_behind": 15,
   "quali_races": 21,
   "quali_ahead": 1,
   "quali_behind": 20
@@ -17904,9 +17853,9 @@
   "years": [
    2002
   ],
-  "races": 17,
+  "races": 16,
   "race_ahead": 6,
-  "race_behind": 11,
+  "race_behind": 10,
   "quali_races": 2,
   "quali_ahead": 0,
   "quali_behind": 2
@@ -17943,24 +17892,6 @@
   "races": 5,
   "race_ahead": 0,
   "race_behind": 5,
-  "quali_races": 0,
-  "quali_ahead": 0,
-  "quali_behind": 0
- },
- {
-  "id": "menditeguy",
-  "team": "maserati",
-  "mate": "gould",
-  "forename": "Horace",
-  "surname": "Gould",
-  "years": [
-   1955,
-   1957,
-   1958
-  ],
-  "races": 5,
-  "race_ahead": 5,
-  "race_behind": 0,
   "quali_races": 0,
   "quali_ahead": 0,
   "quali_behind": 0
@@ -18175,8 +18106,8 @@
    2004,
    2005
   ],
-  "races": 104,
-  "race_ahead": 76,
+  "races": 102,
+  "race_ahead": 74,
   "race_behind": 28,
   "quali_races": 60,
   "quali_ahead": 41,
@@ -18194,9 +18125,9 @@
    1998,
    1999
   ],
-  "races": 59,
+  "races": 58,
   "race_ahead": 43,
-  "race_behind": 16,
+  "race_behind": 15,
   "quali_races": 27,
   "quali_ahead": 25,
   "quali_behind": 2
@@ -18260,8 +18191,8 @@
   "years": [
    2021
   ],
-  "races": 22,
-  "race_ahead": 16,
+  "races": 21,
+  "race_ahead": 15,
   "race_behind": 6,
   "quali_races": 21,
   "quali_ahead": 20,
@@ -18312,22 +18243,6 @@
   "races": 6,
   "race_ahead": 3,
   "race_behind": 3,
-  "quali_races": 0,
-  "quali_ahead": 0,
-  "quali_behind": 0
- },
- {
-  "id": "mieres",
-  "team": "maserati",
-  "mate": "marimon",
-  "forename": "Onofre",
-  "surname": "Marimón",
-  "years": [
-   1954
-  ],
-  "races": 5,
-  "race_ahead": 1,
-  "race_behind": 4,
   "quali_races": 0,
   "quali_ahead": 0,
   "quali_behind": 0
@@ -18901,9 +18816,9 @@
    1960,
    1961
   ],
-  "races": 11,
+  "races": 10,
   "race_ahead": 6,
-  "race_behind": 5,
+  "race_behind": 4,
   "quali_races": 0,
   "quali_ahead": 0,
   "quali_behind": 0
@@ -18918,9 +18833,9 @@
    1960,
    1961
   ],
-  "races": 10,
+  "races": 9,
   "race_ahead": 5,
-  "race_behind": 5,
+  "race_behind": 4,
   "quali_races": 0,
   "quali_ahead": 0,
   "quali_behind": 0
@@ -19383,9 +19298,9 @@
    2015,
    2016
   ],
-  "races": 40,
+  "races": 39,
   "race_ahead": 19,
-  "race_behind": 21,
+  "race_behind": 20,
   "quali_races": 39,
   "quali_ahead": 17,
   "quali_behind": 22
@@ -19469,8 +19384,8 @@
    2019,
    2020
   ],
-  "races": 37,
-  "race_ahead": 17,
+  "races": 36,
+  "race_ahead": 16,
   "race_behind": 20,
   "quali_races": 38,
   "quali_ahead": 20,
@@ -20042,9 +19957,9 @@
    1998,
    1999
   ],
-  "races": 32,
-  "race_ahead": 16,
-  "race_behind": 16,
+  "races": 30,
+  "race_ahead": 15,
+  "race_behind": 15,
   "quali_races": 10,
   "quali_ahead": 5,
   "quali_behind": 5
@@ -20273,9 +20188,9 @@
    1979,
    1980
   ],
-  "races": 24,
+  "races": 23,
   "race_ahead": 12,
-  "race_behind": 12,
+  "race_behind": 11,
   "quali_races": 0,
   "quali_ahead": 0,
   "quali_behind": 0
@@ -20590,8 +20505,8 @@
    2015,
    2016
   ],
-  "races": 58,
-  "race_ahead": 33,
+  "races": 57,
+  "race_ahead": 32,
   "race_behind": 25,
   "quali_races": 59,
   "quali_ahead": 24,
@@ -21215,9 +21130,9 @@
   "years": [
    2012
   ],
-  "races": 20,
+  "races": 19,
   "race_ahead": 10,
-  "race_behind": 10,
+  "race_behind": 9,
   "quali_races": 20,
   "quali_ahead": 7,
   "quali_behind": 13
@@ -21898,9 +21813,9 @@
   "years": [
    1991
   ],
-  "races": 15,
+  "races": 14,
   "race_ahead": 7,
-  "race_behind": 8,
+  "race_behind": 7,
   "quali_races": 0,
   "quali_ahead": 0,
   "quali_behind": 0
@@ -22064,8 +21979,8 @@
    1975,
    1976
   ],
-  "races": 38,
-  "race_ahead": 25,
+  "races": 37,
+  "race_ahead": 24,
   "race_behind": 13,
   "quali_races": 0,
   "quali_ahead": 0,
@@ -22151,8 +22066,8 @@
    2017,
    2018
   ],
-  "races": 80,
-  "race_ahead": 23,
+  "races": 79,
+  "race_ahead": 22,
   "race_behind": 57,
   "quali_races": 81,
   "quali_ahead": 24,
@@ -22936,8 +22851,8 @@
    2015,
    2016
   ],
-  "races": 22,
-  "race_ahead": 11,
+  "races": 21,
+  "race_ahead": 10,
   "race_behind": 11,
   "quali_races": 23,
   "quali_ahead": 16,
@@ -23346,9 +23261,9 @@
   "years": [
    2000
   ],
-  "races": 17,
+  "races": 16,
   "race_ahead": 7,
-  "race_behind": 10,
+  "race_behind": 9,
   "quali_races": 4,
   "quali_ahead": 3,
   "quali_behind": 1
@@ -23413,9 +23328,9 @@
    2010,
    2011
   ],
-  "races": 15,
+  "races": 14,
   "race_ahead": 6,
-  "race_behind": 9,
+  "race_behind": 8,
   "quali_races": 15,
   "quali_ahead": 7,
   "quali_behind": 8
@@ -23838,9 +23753,9 @@
   "years": [
    1998
   ],
-  "races": 11,
+  "races": 10,
   "race_ahead": 5,
-  "race_behind": 6,
+  "race_behind": 5,
   "quali_races": 6,
   "quali_ahead": 0,
   "quali_behind": 6
@@ -23957,8 +23872,8 @@
    2023,
    2024
   ],
-  "races": 87,
-  "race_ahead": 35,
+  "races": 86,
+  "race_ahead": 34,
   "race_behind": 52,
   "quali_races": 89,
   "quali_ahead": 32,
@@ -23974,9 +23889,9 @@
    2019,
    2020
   ],
-  "races": 37,
+  "races": 36,
   "race_ahead": 20,
-  "race_behind": 17,
+  "race_behind": 16,
   "quali_races": 38,
   "quali_ahead": 18,
   "quali_behind": 20
@@ -24091,9 +24006,9 @@
   "years": [
    1998
   ],
-  "races": 16,
+  "races": 15,
   "race_ahead": 10,
-  "race_behind": 6,
+  "race_behind": 5,
   "quali_races": 7,
   "quali_ahead": 5,
   "quali_behind": 2
@@ -24139,8 +24054,8 @@
   "years": [
    2002
   ],
-  "races": 17,
-  "race_ahead": 11,
+  "races": 16,
+  "race_ahead": 10,
   "race_behind": 6,
   "quali_races": 2,
   "quali_ahead": 2,
@@ -24755,8 +24670,8 @@
    1957,
    1958
   ],
-  "races": 8,
-  "race_ahead": 8,
+  "races": 7,
+  "race_ahead": 7,
   "race_behind": 0,
   "quali_races": 0,
   "quali_ahead": 0,
@@ -24774,23 +24689,6 @@
    1954
   ],
   "races": 6,
-  "race_ahead": 3,
-  "race_behind": 2,
-  "quali_races": 0,
-  "quali_ahead": 0,
-  "quali_behind": 0
- },
- {
-  "id": "schell",
-  "team": "maserati",
-  "mate": "marimon",
-  "forename": "Onofre",
-  "surname": "Marimón",
-  "years": [
-   1951,
-   1954
-  ],
-  "races": 5,
   "race_ahead": 3,
   "race_behind": 2,
   "quali_races": 0,
@@ -26736,8 +26634,8 @@
   "years": [
    1998
   ],
-  "races": 11,
-  "race_ahead": 6,
+  "races": 10,
+  "race_ahead": 5,
   "race_behind": 5,
   "quali_races": 6,
   "quali_ahead": 6,
@@ -27569,9 +27467,9 @@
    2010,
    2011
   ],
-  "races": 37,
-  "race_ahead": 12,
-  "race_behind": 25,
+  "races": 35,
+  "race_ahead": 11,
+  "race_behind": 24,
   "quali_races": 37,
   "quali_ahead": 13,
   "quali_behind": 24
@@ -27585,9 +27483,9 @@
   "years": [
    1997
   ],
-  "races": 7,
+  "races": 6,
   "race_ahead": 5,
-  "race_behind": 2,
+  "race_behind": 1,
   "quali_races": 7,
   "quali_ahead": 6,
   "quali_behind": 1
@@ -27618,9 +27516,9 @@
    1998,
    1999
   ],
-  "races": 32,
-  "race_ahead": 16,
-  "race_behind": 16,
+  "races": 30,
+  "race_ahead": 15,
+  "race_behind": 15,
   "quali_races": 10,
   "quali_ahead": 5,
   "quali_behind": 5
@@ -27668,8 +27566,8 @@
    2008,
    2009
   ],
-  "races": 33,
-  "race_ahead": 15,
+  "races": 32,
+  "race_ahead": 14,
   "race_behind": 18,
   "quali_races": 33,
   "quali_ahead": 25,
@@ -27816,8 +27714,8 @@
    2017,
    2018
   ],
-  "races": 40,
-  "race_ahead": 18,
+  "races": 39,
+  "race_ahead": 17,
   "race_behind": 22,
   "quali_races": 40,
   "quali_ahead": 3,
@@ -27881,8 +27779,8 @@
   "years": [
    2000
   ],
-  "races": 17,
-  "race_ahead": 10,
+  "races": 16,
+  "race_ahead": 9,
   "race_behind": 7,
   "quali_races": 4,
   "quali_ahead": 1,
@@ -27961,8 +27859,8 @@
   "years": [
    1998
   ],
-  "races": 9,
-  "race_ahead": 3,
+  "races": 8,
+  "race_ahead": 2,
   "race_behind": 6,
   "quali_races": 4,
   "quali_ahead": 1,
@@ -28030,9 +27928,9 @@
    2017,
    2018
   ],
-  "races": 80,
+  "races": 79,
   "race_ahead": 57,
-  "race_behind": 23,
+  "race_behind": 22,
   "quali_races": 81,
   "quali_ahead": 57,
   "quali_behind": 24
@@ -28114,8 +28012,8 @@
   "years": [
    2003
   ],
-  "races": 15,
-  "race_ahead": 6,
+  "races": 14,
+  "race_ahead": 5,
   "race_behind": 9,
   "quali_races": 15,
   "quali_ahead": 7,
@@ -28317,23 +28215,6 @@
   ],
   "races": 6,
   "race_ahead": 5,
-  "race_behind": 1,
-  "quali_races": 0,
-  "quali_ahead": 0,
-  "quali_behind": 0
- },
- {
-  "id": "villoresi",
-  "team": "ferrari",
-  "mate": "whitehead",
-  "forename": "Peter",
-  "surname": "Whitehead",
-  "years": [
-   1950,
-   1951
-  ],
-  "races": 5,
-  "race_ahead": 4,
   "race_behind": 1,
   "quali_races": 0,
   "quali_ahead": 0,
@@ -28742,8 +28623,8 @@
   "years": [
    2002
   ],
-  "races": 12,
-  "race_ahead": 10,
+  "races": 11,
+  "race_ahead": 9,
   "race_behind": 2,
   "quali_races": 2,
   "quali_ahead": 2,
@@ -28942,26 +28823,9 @@
    1951,
    1952
   ],
-  "races": 7,
+  "races": 6,
   "race_ahead": 1,
-  "race_behind": 6,
-  "quali_races": 0,
-  "quali_ahead": 0,
-  "quali_behind": 0
- },
- {
-  "id": "whitehead",
-  "team": "ferrari",
-  "mate": "villoresi",
-  "forename": "Luigi",
-  "surname": "Villoresi",
-  "years": [
-   1950,
-   1951
-  ],
-  "races": 5,
-  "race_ahead": 1,
-  "race_behind": 4,
+  "race_behind": 5,
   "quali_races": 0,
   "quali_ahead": 0,
   "quali_behind": 0
@@ -29188,9 +29052,9 @@
   "years": [
    2002
   ],
-  "races": 12,
+  "races": 11,
   "race_ahead": 2,
-  "race_behind": 10,
+  "race_behind": 9,
   "quali_races": 2,
   "quali_ahead": 0,
   "quali_behind": 2
@@ -29205,9 +29069,9 @@
    1993,
    1994
   ],
-  "races": 19,
+  "races": 18,
   "race_ahead": 5,
-  "race_behind": 14,
+  "race_behind": 13,
   "quali_races": 7,
   "quali_ahead": 2,
   "quali_behind": 5

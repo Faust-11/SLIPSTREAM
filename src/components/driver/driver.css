@@ -306,7 +306,7 @@ img.dh-ini {
 .mates-key {
   margin-top: 16px;
 }
-.mates-key > span:last-child {
+.mates-key > span:nth-child(n + 3) {
   flex-basis: 100%;
   max-width: 90ch;
 }

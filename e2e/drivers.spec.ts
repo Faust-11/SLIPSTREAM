@@ -12,12 +12,12 @@ test("/uk/drivers: підсумки, сезон, таблиця (25 рядків
   const res = await page.goto("/uk/drivers");
   expect(res?.status()).toBe(200);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Пілоти");
-  await expect(page.locator(".facts li")).toHaveText(["793 пілоти", "36 чемпіонів світу", "116 переможців гонок"]);
+  await expect(page.locator(".facts li")).toHaveText(["790 пілотів", "36 чемпіонів світу", "116 переможців гонок"]);
   await expect(page.locator(".drv-now .drv-card").first()).toContainText("P1");
   await hydrated(page);
   await expect(rows(page)).toHaveCount(25);
   await expect(rows(page).first()).toContainText("Льюїс Гамілтон");
-  await expect(page.locator(".drv-browser .count")).toHaveText("1–25 з 793");
+  await expect(page.locator(".drv-browser .count")).toHaveText("1–25 з 790");
   expect(errors).toEqual([]);
 });
 
@@ -50,12 +50,12 @@ test("посилання зі станом: лише переможці на S, 
   expect(surnames).toEqual([...surnames].sort((a, b) => a.localeCompare(b, "en")));
   await page.goto("/drivers?f=evil&sort=<x>&d=1985");
   await hydrated(page);
-  await expect(page.locator(".drv-browser .count")).toHaveText("1–25 of 793");
+  await expect(page.locator(".drv-browser .count")).toHaveText("1–25 of 790");
   await expect(page.locator('th[aria-sort="descending"]')).toContainText("Wins");
   // Сторінка поза межами — остання, і адреса виправлена.
   await page.goto("/uk/drivers?p=999");
   await hydrated(page);
-  await expect(page.locator(".drv-browser .count")).toHaveText("776–793 з 793");
+  await expect(page.locator(".drv-browser .count")).toHaveText("776–790 з 790");
   await expect(page).toHaveURL(/p=32$/);
 });
 
@@ -91,12 +91,12 @@ test("автори портретів — окрема сторінка, пос�
 
 test.describe("без JavaScript", () => {
   test.use({ javaScriptEnabled: false });
-  test("таблиця з інструментами прихована; посилання на повний перелік — 793 пункти", async ({ page }) => {
+  test("таблиця з інструментами прихована; посилання на повний перелік — 790 пунктів", async ({ page }) => {
     await page.goto("/uk/drivers");
     await expect(page.locator(".drv-browser")).toBeHidden();
     await page.getByRole("link", { name: /Усі пілоти списком/ }).click();
     await expect(page).toHaveURL(/\/uk\/drivers\/all$/);
-    await expect(page.locator(".drv-noscript li")).toHaveCount(793);
+    await expect(page.locator(".drv-noscript li")).toHaveCount(790);
   });
 });
 
