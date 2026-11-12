@@ -287,11 +287,14 @@ def main() -> None:
             year, rnd = (int(x) for x in args.round.split(":"))
             cur.execute("select season_year, number, id from f1.rounds where season_year = %s and number = %s", (year, rnd))
         else:
-            # Finished rounds (date passed) of the latest season — dump lag is at most a few rounds.
+            # Finished rounds (date passed) of the season of the latest finished round — not max(seasons): once the dump
+            # carries next year's calendar, the remaining rounds of the current season must still be topped up.
+            today = dt.datetime.now(dt.timezone.utc).date()
             cur.execute("""select season_year, number, id from f1.rounds
-                           where season_year = (select max(year) from f1.seasons)
+                           where season_year = (select max(season_year) from f1.rounds
+                                                where number is not null and not is_cancelled and date < %s)
                              and number is not null and not is_cancelled and date < %s
-                           order by number""", (dt.datetime.now(dt.timezone.utc).date(),))
+                           order by number""", (today, today))
         rounds = cur.fetchall()
         total = {}
         for year, rnd, round_id in rounds:
@@ -304,7 +307,9 @@ def main() -> None:
             log("nothing to top up")
         # Похідні дані (міграція 0002) — у тій самій транзакції.
         cur.execute("select to_regprocedure('f1.refresh_derived()') is not null")
-        if total and cur.fetchone()[0]:
+        if os.environ.get("F1_DEFER_REFRESH") == "1":
+            log("derived data: refresh deferred to check_live.py --publish")
+        elif total and cur.fetchone()[0]:
             cur.execute("select f1.refresh_derived()")
             log("derived data refreshed")
         if args.dry_run:

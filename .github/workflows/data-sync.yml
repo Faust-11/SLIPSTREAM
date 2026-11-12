@@ -1,7 +1,7 @@
 name: Data sync
 
 # Бойова база (Supabase, схема f1): міграції → дамп Jolpica (якщо новий) → кураторські дані → доливка гонок
-# після дампу з API → перевірка → перезбірка сайту (deploy hook Vercel). Секрети — у GitHub (вставляє власник):
+# після дампу з API → перевірка й публікація подань → перезбірка сайту (deploy hook Vercel). Секрети — у GitHub (вставляє власник):
 #   DATABASE_URL        — Supabase → Connect → Session pooler (роль postgres);
 #   VERCEL_DEPLOY_HOOK  — Vercel → Settings → Git → Deploy Hooks (гілка main).
 on:
@@ -19,10 +19,16 @@ permissions:
 
 jobs:
   sync:
+    # Лише main: ручний запуск з іншої гілки застосував би до бою її незлиті міграції (журнал їх запам'ятає,
+    # і виправлена до злиття версія вже не накотиться).
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-26.04
     timeout-minutes: 20
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      # Завантажувачі не оновлюють подання сайту (team_index, site_meta) — це робить check_live.py --publish
+      # після всіх кроків і перевірок, в одній транзакції. Збій посередині лишає сайту дані минулої вдалої синхронізації.
+      F1_DEFER_REFRESH: "1"
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -37,12 +43,13 @@ jobs:
         run: python scripts/db/apply_migrations.py
       - name: Дамп Jolpica (лише новий)
         run: python scripts/jolpica/load_dump.py --download --skip-if-loaded
+      # Невіднесених конструкторів перевіряє check_live.py — після доливки, яка теж може додати нового учасника.
       - name: Кураторські дані (команди)
-        run: python scripts/db/seed_curated.py --strict
+        run: python scripts/db/seed_curated.py
       - name: Доливка гонок після дампу (API Jolpica)
         run: python scripts/jolpica/topup_api.py
-      - name: Перевірка даних
-        run: python scripts/db/check_live.py
+      - name: Перевірка й публікація даних (FAIL — подання не оновлюються)
+        run: python scripts/db/check_live.py --publish
       # Перевірка прав саме на бою: 11.11 вона знайшла читання f1.schema_migrations для anon, якого CI не бачив (0003).
       - name: Права доступу на бою (тестові зміни відкочуються)
         run: python scripts/db/rls_smoke.py

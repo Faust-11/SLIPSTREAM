@@ -44,7 +44,8 @@ def main() -> int:
             order by 1
             """
         ).fetchall()
-        conn.execute("select f1.refresh_derived()")
+        if os.environ.get("F1_DEFER_REFRESH") != "1":  # бойова синхронізація: оновлює check_live.py --publish
+            conn.execute("select f1.refresh_derived()")
     print(f"team_families: {len(pairs)} refs → {len(teams)} команд")
     if unmapped:
         print("УВАГА: конструктори зі стартами без команди: " + ", ".join(r[0] for r in unmapped))
