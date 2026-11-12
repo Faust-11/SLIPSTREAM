@@ -108,7 +108,11 @@ fl_season as (
   from (select season_year, round_id, bool_or(fastest_lap) as fl from dr group by season_year, round_id) x
   group by season_year
 ),
-fl_from as (select coalesce(max(season_year) + 1, 0) as year from fl_season where share < 0.9),
+-- Поточний сезон не враховуємо: одна гонка без даних серед перших етапів сховала б число в усіх пілотів.
+fl_from as (
+  select coalesce(max(season_year) + 1, 0) as year
+  from fl_season where share < 0.9 and season_year < (select year from f1.v_current_season)
+),
 agg as (
   select driver_id, count(*) filter (where fastest_lap) as fastest_laps, min(season_year) as y0
   from dr group by driver_id

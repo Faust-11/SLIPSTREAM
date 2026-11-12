@@ -199,8 +199,12 @@
   stroke-width: 2;
 }
 /* Таблиця сезонів — повністю (у макеті так само); горизонтальна прокрутка лише коли не вміщується. */
-.ds-table {
+.driver-page .ds-table {
   max-height: none;
+}
+.ds.stacked {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
 }
 /* Смуга підсумків: очки бувають довгими («5 279,5») — ширина плитки за вмістом, а не рівними частками. */
 @media (width > 600px) {
@@ -213,8 +217,11 @@
     padding-right: 20px;
   }
 }
-.driver-page .ds-teams .tl + .tl {
-  margin-left: 12px;
+/* Дві команди за сезон — кожна окремим рядком: цілі ≥ 24 px і не впритул (WCAG 2.5.8, axe target-size на 390 px). */
+.driver-page .ds-teams .tl {
+  display: flex;
+  width: fit-content;
+  min-height: 24px;
 }
 .driver-page abbr[title] {
   text-decoration: underline dotted;

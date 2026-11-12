@@ -251,7 +251,7 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     fl_cov = q("""select ro.season_year, count(distinct ro.id) filter (where r.fastest_lap_rank = 1), count(distinct ro.id)
                   from f1.results r join f1.sessions s on s.id = r.session_id and s.type = 'R' join f1.rounds ro on ro.id = s.round_id
                   group by 1 order by 1""")
-    fl_year = max([y for y, a, b in fl_cov if a < 0.9 * b], default=0) + 1
+    fl_year = max([y for y, a, b in fl_cov if a < 0.9 * b and y < cs_year], default=0) + 1
     print("INFO  найшвидші кола — сезони з неповними даними (рік, гонок з колом, гонок):", [(y, a, b) for y, a, b in fl_cov if 0 < a < b], "; перший повний:", fl_year)
     known = sum(1 for v in tot_d.values() if v[2])
     check("найшвидші кола: дані з 2004; Гамілтон і Норріс — відомі, Шумахер і Сенна — ні",

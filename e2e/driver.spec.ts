@@ -32,7 +32,8 @@ test("/drivers/senna англійською: розряди й підписи EN
 
 test("Гамілтон: найшвидші кола є (кар'єра з 2007), вік, Instagram, напарники з кваліфікаціями, фільтр перемог", async ({ page }) => {
   await page.goto("/uk/drivers/hamilton");
-  await expect(page.locator(".ts")).toContainText("найшвидших кіл");
+  // Форма слова залежить від числа (70 кіл, 71 коло) — перевіряємо основу.
+  await expect(page.locator(".ts")).toContainText(/найшвидш/);
   await expect(page.locator(".dh-facts")).toContainText("7 січня 1985 р. (");
   await expect(page.getByRole("link", { name: /Instagram/ })).toHaveAttribute("href", "https://www.instagram.com/lewishamilton/");
   const alonso = page.locator(".mt", { hasText: "Фернандо Алонсо" });
@@ -138,6 +139,8 @@ for (const theme of ["light", "dark"] as const)
       await page.setViewportSize({ width, height: 900 });
       for (const id of ["hamilton", "senna", "fangio", "ader"]) {
         await page.goto(`/uk/drivers/${id}`);
+        // Згорнуті переліки (усі перемоги, решта напарників) — теж під перевірку.
+        await page.locator("details.more").evaluateAll((ds) => ds.forEach((d) => ((d as HTMLDetailsElement).open = true)));
         await expectNoA11yViolations(page);
         expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth), id).toBeLessThanOrEqual(0);
       }

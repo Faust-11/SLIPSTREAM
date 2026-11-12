@@ -55,6 +55,19 @@ describe("чисті функції", () => {
     ]);
   });
 
+  it("teamStints: та сама команда після перерви — новий період (Брандл: Brabham 1989 і 1991)", async () => {
+    expect(teamStints([{ year: 1989, teams: [{ id: "a", races: 1 }] }, { year: 1991, teams: [{ id: "a", races: 1 }] }])).toEqual([
+      { team: "a", from: 1989, to: 1989 },
+      { team: "a", from: 1991, to: 1991 },
+    ]);
+    const p = (await getDriverPage("brundle", "en", TODAY))!;
+    const brabham = p.stints.filter((s) => s.name === "Brabham").map((s) => [s.from, s.to]);
+    expect(brabham).toEqual([
+      [1989, 1989],
+      [1991, 1991],
+    ]);
+  });
+
   it("numberPeriods: від останнього сезону назад, не більше двох періодів; сезон з кількома номерами обриває", () => {
     const s = (year: number, ...numbers: number[]) => ({ year, numbers });
     expect(numberPeriods([s(2019, 4), s(2020, 4), s(2025, 4), s(2026, 1)])).toEqual([
@@ -144,7 +157,7 @@ describe("getDriverPage — Гамілтон (еталони: Вікіпедія
   it("віхи: дебют, подіум (Австралія 2007, P3), поул і перемога (Канада 2007), 7 титулів", async () => {
     const p = (await getDriverPage("hamilton", "en", TODAY))!;
     expect(p.milestones.map((m) => m.kind)).toEqual(["debut", "firstPodium", "firstPole", "firstWin", "titles"]);
-    expect(p.milestones[1]).toEqual({ kind: "firstPodium", year: 2007, gp: "Australian Grand Prix", position: 3 });
+    expect(p.milestones[1]).toEqual({ kind: "firstPodium", year: 2007, round: 1, gp: "Australian Grand Prix", position: 3 });
     expect(p.milestones[4]).toMatchObject({ year: 2008, years: [2008, 2014, 2015, 2017, 2018, 2019, 2020] });
   });
 });
@@ -183,6 +196,34 @@ describe("getDriverPage — межові пілоти", () => {
     ]);
     expect(p.totals.fastestLaps).not.toBeNull();
     expect(p.portrait).not.toBeNull();
+  });
+
+  it("три перемоги: виділених дві (перша й остання), тож повний перелік показує всі три — Фізікелла", async () => {
+    const p = (await getDriverPage("fisichella", "en", TODAY))!;
+    expect(p.wins.list).toHaveLength(3);
+    // Сторінка показує повний перелік, коли перемог більше, ніж виділених.
+    expect(p.wins.list.length).toBeGreaterThan(p.wins.featured.length);
+  });
+
+  it("віхи — за часом; перший подіум, що був перемогою, окремо не показуємо (Ферстаппен: Іспанія 2016)", async () => {
+    const p = (await getDriverPage("max-verstappen", "en", TODAY))!;
+    expect(p.milestones.map((m) => [m.kind, m.year])).toEqual([
+      ["debut", 2015],
+      ["firstWin", 2016],
+      ["firstPole", 2019],
+      ["titles", 2021],
+    ]);
+    for (const slug of await getDriverSlugs()) {
+      const ms = (await getDriverPage(slug, "en", TODAY))!.milestones;
+      expect(ms[0]!.kind, slug).toBe("debut");
+      expect(ms.map((m) => m.year * 1000 + m.round), slug).toEqual([...ms.map((m) => m.year * 1000 + m.round)].sort((a, b) => a - b));
+    }
+  });
+
+  it("кваліфікації пари — лише коли дані є для ≥ 90 % спільних гонок: Шумахер — Баррікелло (60 зі 104) без рядка", async () => {
+    const p = (await getDriverPage("michael-schumacher", "en", TODAY))!;
+    expect(p.teammates.find((m) => m.mate.id === "barrichello")!.quali).toBeNull();
+    expect(p.teammates.find((m) => m.mate.id === "rosberg")!.quali).not.toBeNull();
   });
 
   it("пілот з одним стартом: без перемог, напарників і графіка; сторінка збирається", async () => {
