@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Широкі фото банера сторінки команди (1280 і 640 px WebP) з тих самих файлів Commons, що й у картках.
+"""Широкі фото банера сторінки команди (1280, 800 і 480 px WebP) з тих самих файлів Commons, що й у картках.
 
     python3 scripts/curated/hero_photos.py [--cache DIR] [--only mclaren,ferrari]
 
 Для кожної команди з photo.credit.page (сторінка файлу Commons) у src/data/curated/teams.json:
-imageinfo (Commons API, пакетами по 50, з перевіркою ліцензії — та сама, що в credit) → мініатюри 1280 і 640 px
-від Wikimedia → public/img/cars/<id>-hero-1280.webp / -640.webp → поле "hero" команди в teams.json.
+imageinfo (Commons API, пакетами по 50, з перевіркою ліцензії — та сама, що в credit) → мініатюра 1280 px (менші — локально)
+від Wikimedia → public/img/cars/<id>-hero-1280.webp / -800 / -480.webp → поле "hero" команди в teams.json.
 Нове фото (команда без фото) додається не тут, а в адмінці (фаза 7): поле photo + credit, потім цей скрипт.
 Потрібен Pillow (pip install pillow); нових npm-залежностей немає.
 """
@@ -27,9 +27,10 @@ TEAMS = REPO / "src/data/curated/teams.json"
 OUT = REPO / "public/img/cars"
 COMMONS = "https://commons.wikimedia.org/w/api.php"
 # Wikimedia віддає мініатюри лише стандартних ширин (mediawiki.org «Common thumbnail sizes»: …, 960, 1280, 1920):
-# нестандартна (640) — HTTP 429. Тому з Commons — лише 1280, 640 — зменшуємо самі.
+# нестандартна (640) — HTTP 429. Тому з Commons — лише 1280, менші — зменшуємо самі.
 SOURCE_WIDTH = 1280
-WIDTHS = (1280, 640)
+# 800 — для телефонів (412 × 1,75 = 721 px у Lighthouse брав 1280: Ferrari 98 КБ, LCP 2,4 с), 480 — малі екрани.
+WIDTHS = (1280, 800, 480)
 QUALITY = 72
 
 
