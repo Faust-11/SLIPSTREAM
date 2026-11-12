@@ -3,7 +3,7 @@
 
     TEST_DATABASE_URL=… python3 scripts/db/export_fixture.py e2e/fixtures/db
 
-Пише team_index.json і site_meta.json у форматі відповіді PostgREST (масив об'єктів).
+Пише team_index, site_meta і подання сторінки команди (team_*) у форматі відповіді PostgREST (масив об'єктів).
 У CI (db.yml) — артефакт; у репозиторії фікстура оновлюється вручну, коли потрібні свіжі дані.
 """
 from __future__ import annotations
@@ -21,6 +21,16 @@ out.mkdir(parents=True, exist_ok=True)
 QUERIES = {
     "team_index": "select id, seasons, grands_prix, wins, titles, current_position, current_drivers from f1.team_index order by id",
     "site_meta": "select current_season, last_round, last_race_date::text as last_race_date from f1.site_meta",
+    # Сторінка команди (0005); дати — текстом, як їх віддає PostgREST.
+    "team_totals": "select id, grands_prix, wins, podiums, poles, one_twos, constructors_titles, drivers_titles, "
+                   "debut_year, debut_name, debut_date::text as debut_date, last_year, last_name, last_date::text as last_date "
+                   "from f1.team_totals order by id",
+    "team_seasons": "select id, year, entries, grands_prix, wins, podiums, position, points, excluded, champion, in_progress "
+                    "from f1.team_seasons order by id, year",
+    "team_wins": "select id, n, year, round, name, date::text as date, drivers from f1.team_wins order by id, n",
+    "team_champions": "select id, driver, forename, surname, years from f1.team_champions order by id, years[1]",
+    "team_pairing": "select id, driver, forename, surname, ord, races, points, race_ahead, quali_ahead "
+                    "from f1.team_pairing order by id, ord",
 }
 with psycopg.connect(DSN) as conn:
     for name, sql in QUERIES.items():

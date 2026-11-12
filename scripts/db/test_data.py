@@ -149,6 +149,41 @@ with psycopg.connect(DSN, autocommit=True) as conn:
 
     meta = conn.execute("select current_season, last_round, last_race_date from f1.site_meta").fetchall()
     check("site_meta: один рядок, сезон 2026, останній етап ≥ 20", len(meta) == 1 and meta[0][0] == 2026 and meta[0][1] >= 20, meta)
+
+    # --- Сторінка команди (0005): узгодженість зі списком і інваріанти історії ---
+    tot = {r[0]: r[1:] for r in conn.execute(
+        "select id, grands_prix, wins, podiums, poles, one_twos, constructors_titles, drivers_titles from f1.team_totals")}
+    check("team_totals — усі команди списку", set(tot) == set(idx), sorted(set(tot) ^ set(idx))[:10])
+    mism = [(k, idx[k]["gp"], idx[k]["w"], idx[k]["t"], tot[k][:2], tot[k][5]) for k in idx if k in tot
+            and (tot[k][0], tot[k][1], tot[k][5]) != (idx[k]["gp"], idx[k]["w"], idx[k]["t"])]
+    check("Гран-прі, перемоги, Кубки = список команд (для всіх)", not mism, mism[:10])
+    cs_year = meta[0][0]
+    n_titles = conn.execute("select count(*) from f1.team_seasons where champion").fetchone()[0]
+    decided_now = conn.execute("select count(*) from f1.team_seasons where champion and year = %s", (cs_year,)).fetchone()[0]
+    check(f"Кубків конструкторів = сезонів 1958–{cs_year - 1} (+ вирішений поточний)", n_titles == cs_year - 1958 + decided_now,
+          (n_titles, decided_now))
+    n_dt = conn.execute("select coalesce(sum(cardinality(years)), 0) from f1.team_champions").fetchone()[0]
+    dup = conn.execute("select y, count(*) from (select unnest(years) y from f1.team_champions) x group by y having count(*) > 1").fetchall()
+    check(f"титулів пілотів ≥ сезонів 1950–{cs_year - 1}, по одному на сезон", n_dt >= cs_year - 1950 and not dup, (n_dt, dup))
+    races = conn.execute("""select count(distinct ro.id) from f1.rounds ro join f1.sessions s on s.round_id = ro.id and s.type = 'R'
+                            join f1.results r on r.session_id = s.id and r.position = 1 and r.is_classified""").fetchone()[0]
+    wins_sum = conn.execute("select count(*) from f1.team_wins").fetchone()[0]
+    check("перемог у team_wins = гонок з переможцем (спільні машини — одна перемога)", wins_sum == races, (wins_sum, races))
+    gaps = conn.execute("select id from f1.team_wins group by id having max(n) <> count(*) or min(n) <> 1").fetchall()
+    check("номери перемог 1..N без пропусків", not gaps, gaps[:5])
+    over = [k for k, v in tot.items() if v[3] > v[0] or v[4] > v[0] or v[2] > 3 * v[0]]
+    check("поули й дублі ≤ Гран-прі, подіуми ≤ 3 × Гран-прі", not over, over[:5])
+    mcl07 = conn.execute("select position, excluded from f1.team_seasons where id = 'mclaren' and year = 2007").fetchone()
+    check("McLaren 2007 — виключена з заліку, без місця", mcl07 == (None, True), mcl07)
+    pre = conn.execute("select count(*) from f1.team_seasons where year < 1958 and position is not null").fetchone()[0]
+    check("до 1958 Кубка не було — місць немає", pre == 0, pre)
+    pair = conn.execute("select driver, races, points, race_ahead, quali_ahead from f1.team_pairing where id = 'mclaren' order by ord").fetchall()
+    check("пара McLaren поточного сезону — 2 пілоти, «попереду» ≤ гонок", len(pair) == 2 and all(r[3] <= r[1] for r in pair), pair)
+    # Довідкові числа для звірки з Вікіпедією (docs/decisions.md) — друк, не перевірка.
+    for k in ("mclaren", "ferrari", "williams", "brabham", "lotus", "mercedes", "red-bull", "tyrrell"):
+        ch = conn.execute("select driver, years from f1.team_champions where id = %s order by years[1]", (k,)).fetchall()
+        print(f"INFO  {k}: GP/W/pod/pole/1-2/КК/ТП = {tot.get(k)}; чемпіони {[(d, y) for d, y in ch]}")
+    print("INFO  McLaren пара:", pair)
     print(f"Lotus: {lotus['gp']} Гран-прі; Lotus Racing: {racing['gp']}; site_meta {meta}")
 
 sys.exit(1 if failed else 0)
