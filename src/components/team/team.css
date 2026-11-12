@@ -1,0 +1,604 @@
+/* Сторінка команди — за макетом «Команда: McLaren»; токени — globals.css, .av / .page-credits — teams.css.
+   Колір команди — єдиний акцент (--team ставить сторінка). */
+
+.team-page {
+  --on-team: #101114;
+}
+
+/* ---------- хлібні крихти ---------- */
+.crumbs {
+  border-bottom: var(--b) solid var(--rule);
+}
+.crumbs .wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  font: 600 12.5px/1.3 var(--f-mono);
+  word-spacing: normal;
+  letter-spacing: 0.04em;
+}
+.crumbs a {
+  text-decoration: none;
+}
+.crumbs a:hover {
+  color: var(--red-text);
+  text-decoration: underline;
+}
+.crumbs .sep {
+  color: var(--ink-soft);
+}
+
+/* ---------- банер ---------- */
+.th {
+  position: relative;
+  background: var(--team);
+  color: var(--on-team);
+  border-bottom: 8px solid var(--team);
+}
+.th.has-photo {
+  background: #0e0f12;
+  color: #f3f4f1;
+}
+.th img {
+  display: block;
+  width: 100%;
+  height: clamp(260px, 30vw, 380px);
+  object-fit: cover;
+}
+.th.has-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(10 11 14 / 0.88) 0%, rgb(10 11 14 / 0.5) 45%, rgb(10 11 14 / 0.05) 80%);
+}
+.th .wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+  min-height: clamp(220px, 24vw, 300px);
+  padding-block: 28px;
+}
+.th.has-photo .wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  min-height: 0;
+}
+.th h1 {
+  font-size: clamp(44px, 9vw, 120px);
+  overflow-wrap: anywhere;
+}
+.th.has-photo h1 {
+  color: var(--team);
+}
+.th p {
+  margin: 0;
+  max-width: 52ch;
+  font-size: clamp(15px, 1.7vw, 19px);
+}
+.th-stamp {
+  align-self: flex-start;
+  padding: 7px 11px;
+  background: var(--yellow);
+  color: var(--on-yellow);
+  font: 600 12px/1.2 var(--f-mono);
+  word-spacing: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.th-ig {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  min-height: 24px;
+  padding: 9px 14px;
+  background: #f3f4f1;
+  color: #16181d;
+  font-weight: 600;
+  font-size: 14.5px;
+  text-decoration: none;
+}
+.th-ig small {
+  font: 500 12px var(--f-mono);
+  word-spacing: normal;
+  opacity: 0.75;
+}
+.th-ig:hover {
+  text-decoration: underline;
+}
+
+/* ---------- факти ---------- */
+.tf {
+  border-bottom: var(--b) solid var(--rule);
+}
+.tf dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.tf dl > div {
+  min-width: 0;
+  padding: 14px 16px 14px 0;
+  border-bottom: 1px solid var(--hair);
+}
+.tf dt {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+.tf dd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  align-items: center;
+  margin: 3px 0 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ---------- підсумки ---------- */
+.ts {
+  border-bottom: var(--b) solid var(--rule);
+}
+.ts .wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+.ts .wrap > div {
+  min-width: 0;
+  padding: 18px 12px 18px 14px;
+  border-left: 2px solid var(--rule);
+}
+.ts .wrap > div:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.ts b {
+  display: block;
+  font: 400 clamp(22px, 2.6vw, 34px) / 1.05 var(--f-display);
+  word-spacing: -0.35em;
+  white-space: nowrap;
+}
+.ts b.ac {
+  color: var(--team-text, var(--ink));
+}
+.ts span {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* ---------- секції ---------- */
+.team-page .sec {
+  border-bottom: var(--b) solid var(--rule);
+}
+.team-page .sec-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 8px 16px;
+  padding-block: 34px 18px;
+}
+.team-page .sec-head h2 {
+  font-size: clamp(24px, 3vw, 36px);
+}
+.team-page .src {
+  font: 11px/1.4 var(--f-mono);
+  word-spacing: normal;
+  color: var(--ink-soft);
+}
+.team-page .sec > .wrap {
+  padding-bottom: 38px;
+}
+h3.lab {
+  margin: 0 0 10px;
+  font: 600 12px/1.3 var(--f-mono);
+  word-spacing: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ---------- графік сезонів ---------- */
+.pos {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+}
+.pos-chart {
+  min-width: 0;
+}
+.pos-scroll {
+  overflow-x: auto;
+}
+.sc {
+  display: block;
+  width: 100%;
+  min-width: 680px;
+  height: auto;
+}
+.sc text {
+  font: 11px var(--f-mono);
+  fill: var(--ink-soft);
+}
+.sc-gl {
+  stroke: var(--grid);
+}
+.sc-ln {
+  fill: none;
+  stroke: var(--team);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+.sc-dot {
+  fill: var(--team);
+  stroke: var(--paper);
+  stroke-width: 1.5;
+}
+.sc-win {
+  fill: var(--yellow);
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+.sc-ex {
+  fill: var(--paper);
+  stroke: var(--red);
+  stroke-width: 2.5;
+}
+.pkey {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.pkey span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.pkey i {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--team);
+}
+.pkey i.win {
+  background: var(--yellow);
+  box-shadow: inset 0 0 0 2px var(--ink);
+}
+.pkey i.ex {
+  background: var(--paper);
+  box-shadow: inset 0 0 0 2.5px var(--red);
+}
+.notes p {
+  max-width: 44ch;
+  margin: 0 0 12px;
+  font-size: 15.5px;
+}
+.notes b {
+  color: var(--red-text);
+}
+.note-src {
+  font: 12px var(--f-mono);
+  word-spacing: normal;
+  color: var(--ink-soft);
+}
+.note-src a {
+  margin-inline: 2px;
+}
+
+/* ---------- таблиці ---------- */
+details.more {
+  margin-top: 18px;
+}
+details.more summary {
+  display: inline-block;
+  padding: 12px 16px;
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  list-style: none;
+  font: 600 12px/1.3 var(--f-mono);
+  word-spacing: normal;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+details.more summary::-webkit-details-marker {
+  display: none;
+}
+details.more[open] summary {
+  margin-bottom: 14px;
+}
+.tscroll {
+  max-height: 460px;
+  overflow: auto;
+  border-top: 2px solid var(--rule);
+}
+.team-page table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.team-page th[scope="col"] {
+  position: sticky;
+  top: 0;
+  padding: 10px 6px 8px;
+  background: var(--paper);
+  border-bottom: 2px solid var(--rule);
+  text-align: left;
+  white-space: nowrap;
+  font: 600 10.5px/1.3 var(--f-mono);
+  word-spacing: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.team-page td,
+.team-page th[scope="row"] {
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--hair);
+  text-align: left;
+  font-weight: 400;
+}
+.team-page .r {
+  text-align: right;
+}
+.team-page th.yr,
+.team-page td.ps {
+  font: 13px var(--f-display);
+  word-spacing: -0.35em;
+  white-space: nowrap;
+}
+.team-page tr.champ > * {
+  background: var(--yellow);
+  color: var(--on-yellow);
+}
+.live {
+  margin-left: 6px;
+  padding: 2px 5px;
+  background: var(--red);
+  color: #fff;
+  font: 10px var(--f-mono);
+  word-spacing: normal;
+  vertical-align: middle;
+}
+.wn {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+/* ---------- люди ---------- */
+.ent {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  font-weight: 600;
+}
+.ent > span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- чемпіони ---------- */
+.champs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ch {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  background: var(--paper-2);
+  border-left: 6px solid var(--team);
+}
+.ch .ent {
+  font-size: 16px;
+}
+.ch-y {
+  font: 12px var(--f-mono);
+  word-spacing: normal;
+  color: var(--ink-soft);
+}
+
+/* ---------- перемоги ---------- */
+.wfeat {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+}
+.wfeat li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  padding: 14px;
+  background: var(--paper-2);
+  border-left: 6px solid var(--team);
+}
+.wfeat .wl {
+  font: 600 11px/1.3 var(--f-mono);
+  word-spacing: normal;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--red-text);
+}
+.wfeat .wy {
+  font: 20px var(--f-display);
+  word-spacing: -0.35em;
+}
+.wfeat b {
+  font-size: 15px;
+  line-height: 1.25;
+}
+.wfeat .ent {
+  margin-top: 4px;
+  font-size: 13.5px;
+}
+.wtop {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+.bars {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.bars li {
+  display: grid;
+  grid-template-columns: minmax(0, 210px) minmax(0, 1fr) 34px;
+  gap: 10px;
+  align-items: center;
+  padding: 4px 0;
+}
+.bars .gp {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 600;
+}
+.bars .bar {
+  height: 10px;
+  background: var(--paper-2);
+}
+.bars .bar i,
+.hbar i {
+  display: block;
+  height: 100%;
+  background: var(--team);
+}
+.bars b {
+  text-align: right;
+  font: 14px var(--f-display);
+  word-spacing: -0.35em;
+}
+
+/* ---------- пара сезону ---------- */
+.duo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+}
+.dc {
+  padding: 16px;
+  background: var(--card);
+  color: var(--on-card);
+  border-bottom: 6px solid var(--team);
+}
+.dc .ent {
+  font-size: 19px;
+}
+.dc.rt .ent {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  width: 100%;
+  text-align: right;
+}
+.hbars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+}
+.hb dt {
+  margin-bottom: 2px;
+  text-align: center;
+  font: 11px var(--f-mono);
+  word-spacing: normal;
+  color: var(--ink-soft);
+}
+.hb dd {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 36px;
+  gap: 10px;
+  align-items: center;
+  margin: 0;
+}
+.hn {
+  text-align: center;
+  font: 15px var(--f-display);
+  word-spacing: -0.35em;
+}
+.hbar {
+  display: block;
+  height: 14px;
+  background: var(--ink-soft);
+}
+
+/* ---------- адаптивність ---------- */
+@media (width <= 1100px) {
+  .pos,
+  .wtop {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+  .champs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .duo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .duo .hbars {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+@media (width <= 860px) {
+  .tf dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .wfeat {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (width <= 600px) {
+  .th.has-photo img {
+    height: 380px;
+  }
+  .tf dl,
+  .champs,
+  .duo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .duo .hbars {
+    grid-row: auto;
+  }
+  .dc.rt .ent {
+    flex-direction: row;
+    text-align: left;
+  }
+  .ts .wrap {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ts .wrap > div,
+  .ts .wrap > div:first-child {
+    padding: 12px 10px 12px 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--hair);
+  }
+  .ts .wrap > div:nth-child(even) {
+    padding-left: 12px;
+    border-left: 2px solid var(--rule);
+  }
+  .bars li {
+    grid-template-columns: minmax(0, 150px) minmax(0, 1fr) 30px;
+  }
+}

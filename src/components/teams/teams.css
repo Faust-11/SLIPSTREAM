@@ -155,6 +155,7 @@ html:has(.teams-tools) {
   gap: 16px;
 }
 .tc {
+  position: relative;
   display: grid;
   grid-template-rows: auto auto auto auto 1fr auto;
   gap: 8px;
@@ -329,6 +330,28 @@ html:has(.teams-tools) {
   word-spacing: normal;
   color: var(--ink-soft);
   box-shadow: inset 0 0 0 1.5px var(--hair);
+}
+
+/* Картка — посилання на сторінку команди: ціль — уся картка (::after назви), фокус — рамка картки. */
+.tc-name a {
+  color: inherit;
+  text-decoration: none;
+}
+.tc-name a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.tc:hover .tc-name a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.tc:has(.tc-name a:focus-visible) {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.tc-name a:focus-visible {
+  outline: none;
 }
 
 /* ---------- стани ---------- */

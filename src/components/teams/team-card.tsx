@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
+import { localizedPath } from "@/i18n/paths";
 import type { TeamCard as TeamCardData } from "@/lib/data/teams";
 import { seasonStripGradient, seasonsText } from "@/lib/season-strip";
 
@@ -71,7 +72,8 @@ export function TeamCard({ card, labels, locale, season, index }: Props) {
         )}
       </div>
       <h2 id={titleId} className="tc-name" translate="no">
-        {card.name}
+        {/* Уся картка клікабельна (::after посилання), але в доступному дереві — одне посилання з назвою. */}
+        <a href={localizedPath(`/teams/${card.id}`, locale)}>{card.name}</a>
       </h2>
       <p className="tc-loc">{card.country}</p>
       <div className="tc-yr">
