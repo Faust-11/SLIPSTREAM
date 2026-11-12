@@ -126,6 +126,13 @@ for (const theme of ["light", "dark"] as const)
         return out;
       });
       expect(bad).toEqual([]);
+      // Позначка «Сезон триває» не накриває рік картки (на телефоні вона під іменем).
+      const overlap = await page.evaluate(() => {
+        const live = document.querySelector(".slot .live")?.getBoundingClientRect();
+        const yr = document.querySelector(".slot .yr")?.getBoundingClientRect();
+        return !!live && !!yr && live.left < yr.right && yr.left < live.right && live.top < yr.bottom && yr.top < live.bottom;
+      });
+      expect(overlap).toBe(false);
     });
 
 test("CLS < 0.1 (390 px); розмір HTML ≤ 100 КБ gzip", async ({ page, request }) => {

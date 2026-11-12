@@ -376,8 +376,12 @@ html:has(.sn-chips) {
   .pole .car h3 .yr {
     font-size: 18px;
   }
+  /* Вузька картка: позначка поверх фото накривала рік (скриншоти 320 / 390 px) — ставимо її рядком під іменем. */
   .seasons-page .car .live {
-    padding: 4px 6px;
+    position: static;
+    align-self: flex-start;
+    margin: 6px 10px 0;
+    padding: 3px 6px;
     font-size: 9px;
     letter-spacing: 0.03em;
   }
