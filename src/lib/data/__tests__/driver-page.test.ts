@@ -72,8 +72,10 @@ describe("чисті функції", () => {
     const s = (year: number, ...numbers: number[]) => ({ year, numbers });
     expect(numberPeriods([s(2019, 4), s(2020, 4), s(2025, 4), s(2026, 1)])).toEqual([
       { n: 1, from: 2026, to: 2026 },
-      { n: 4, from: 2019, to: 2025 },
+      { n: 4, from: 2025, to: 2025 },
     ]);
+    // Перерва в кар'єрі рве період: Алонсо не виступав у 2019–2020.
+    expect(numberPeriods([s(2017, 14), s(2018, 14), s(2021, 14), s(2022, 14)], 1)).toEqual([{ n: 14, from: 2021, to: 2022 }]);
     expect(numberPeriods([s(2012, 4), s(2013, 10), s(2014, 44), s(2015, 44)])).toEqual([
       { n: 44, from: 2014, to: 2015 },
       { n: 10, from: 2013, to: 2013 },

@@ -138,7 +138,7 @@ export default async function DriverPageView(props: Props) {
   const numbers = page.numbers
     .map((p) => (p.from === p.to ? fill(t.facts.numberOne, { n: p.n, year: p.from }) : fill(t.facts.numberRange, { n: p.n, from: p.from, to: p.to })))
     .join(", ");
-  const carNumber = current ? (page.numbers[0]?.n ?? null) : null;
+  const carNumber = page.carNumber;
 
   const maxByGp = page.wins.byGrandPrix[0]?.count ?? 1;
   const matesTop =
@@ -225,7 +225,7 @@ export default async function DriverPageView(props: Props) {
         <div className="wrap">
           {page.portrait ? (
             // Вузьке джерело (портрет < 420 px) не розтягуємо — ширина не більша за сам файл.
-            <figure className="dh-photo" style={{ maxWidth: Math.max(...page.portrait.srcSet.split(", ").map((x) => parseInt(x.split(" ")[1]!, 10))) }}>
+            <figure className="dh-photo" style={{ maxWidth: page.portrait.maxWidth }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={page.portrait.src}
@@ -243,6 +243,10 @@ export default async function DriverPageView(props: Props) {
                 </span>
               )}
             </figure>
+          ) : page.avatar ? (
+            // Великого портрета немає (вузьке джерело або ще не зібрано) — малий, той самий, що в списку.
+            // eslint-disable-next-line @next/next/no-img-element
+            <img className="dh-ini" src={page.avatar} width={96} height={96} alt={page.name} decoding="async" />
           ) : (
             <div className="dh-ini" aria-hidden="true">
               {page.initials}
@@ -382,7 +386,7 @@ export default async function DriverPageView(props: Props) {
                   <tr>
                     <th scope="col">{t.seasons.year}</th>
                     <th scope="col">{t.seasons.team}</th>
-                    <th scope="col" className="r">
+                    <th scope="col" className="r c-xs">
                       {t.seasons.races}
                     </th>
                     <th scope="col" className="r">
@@ -413,7 +417,7 @@ export default async function DriverPageView(props: Props) {
                           <TeamLink key={tm.id} team={tm} lang={lang} dot />
                         ))}
                       </td>
-                      <td className="r num">{n(s.races)}</td>
+                      <td className="r num c-xs">{n(s.races)}</td>
                       <td className="r num">{n(s.wins)}</td>
                       <td className="r num c-hide">{n(s.podiums)}</td>
                       <td className="r num c-hide">{n(s.poles)}</td>

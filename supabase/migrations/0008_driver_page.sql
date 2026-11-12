@@ -40,8 +40,9 @@ with last as (
   select season_year, max(round_number * 100 + session_number) as k from f1.driver_standings group by season_year
 )
 select ds.season_year, ds.driver_id, ds.position, ds.points, coalesce(ds.is_eligible, true) as eligible,
-       -- 101 — пілота виключено з підсумкового заліку (замір 12.11: лише Шумахер 1997), 102 — команду (McLaren 2007).
-       coalesce(ds.adjustment_type in (101, 102), false) as excluded
+       -- 101 — пілота виключено з підсумкового заліку (замір 12.11: лише Шумахер 1997). 102 — виключення команди
+       -- (McLaren 2007) — пілотів не стосується.
+       coalesce(ds.adjustment_type = 101, false) as excluded
 from f1.driver_standings ds join last on last.season_year = ds.season_year
  and ds.round_number * 100 + ds.session_number = last.k;
 
@@ -178,28 +179,35 @@ quali as (
 pairs as (
   select a.driver_id, b.driver_id as mate_id, a.family_id, a.season_year,
          coalesce(a.order_position, 999) < coalesce(b.order_position, 999) as ahead,
-         coalesce(a.order_position, 999) > coalesce(b.order_position, 999) as behind,
-         (qa.round_id is not null and qb.round_id is not null) as has_q,
-         coalesce(qa.part > qb.part or (qa.part = qb.part and qa.position < qb.position), false) as q_ahead,
-         coalesce(qb.part > qa.part or (qa.part = qb.part and qb.position < qa.position), false) as q_behind
+         coalesce(a.order_position, 999) > coalesce(b.order_position, 999) as behind
   from dr a
   join dr b on b.round_id = a.round_id and b.family_id = a.family_id and b.driver_id <> a.driver_id
-  left join quali qa on qa.round_id = a.round_id and qa.driver_id = a.driver_id and qa.family_id = a.family_id
-  left join quali qb on qb.round_id = b.round_id and qb.driver_id = b.driver_id and qb.family_id = b.family_id
+),
+race_agg as (
+  select driver_id, mate_id, family_id, array_agg(distinct season_year::int) as years, count(*) as races,
+         count(*) filter (where ahead) as race_ahead, count(*) filter (where behind) as race_behind
+  from pairs group by driver_id, mate_id, family_id
+  having count(*) >= 5
+),
+-- Кваліфікації — за всіма етапами, де обидва мають результат кваліфікації за цю команду (як у f1.team_pairing):
+-- етап, де один з пари не стартував у гонці, у кваліфікаційному рахунку лишається.
+quali_agg as (
+  select qa.driver_id, qb.driver_id as mate_id, qa.family_id, count(*) as quali_races,
+         count(*) filter (where qa.part > qb.part or (qa.part = qb.part and qa.position < qb.position)) as quali_ahead,
+         count(*) filter (where qb.part > qa.part or (qa.part = qb.part and qb.position < qa.position)) as quali_behind
+  from quali qa
+  join quali qb on qb.round_id = qa.round_id and qb.family_id = qa.family_id and qb.driver_id <> qa.driver_id
+  group by qa.driver_id, qb.driver_id, qa.family_id
 )
-select d.ref as id, p.family_id as team, m.ref as mate, m.forename, m.surname,
-       array_agg(distinct p.season_year::int) as years,
-       count(*)::int as races,
-       (count(*) filter (where p.ahead))::int as race_ahead,
-       (count(*) filter (where p.behind))::int as race_behind,
-       (count(*) filter (where p.has_q))::int as quali_races,
-       (count(*) filter (where p.has_q and p.q_ahead))::int as quali_ahead,
-       (count(*) filter (where p.has_q and p.q_behind))::int as quali_behind
-from pairs p
-join f1.drivers d on d.id = p.driver_id
-join f1.drivers m on m.id = p.mate_id
-group by d.ref, p.family_id, m.ref, m.forename, m.surname
-having count(*) >= 5;
+select d.ref as id, r.family_id as team, m.ref as mate, m.forename, m.surname, r.years,
+       r.races::int as races, r.race_ahead::int as race_ahead, r.race_behind::int as race_behind,
+       coalesce(q.quali_races, 0)::int as quali_races,
+       coalesce(q.quali_ahead, 0)::int as quali_ahead,
+       coalesce(q.quali_behind, 0)::int as quali_behind
+from race_agg r
+join f1.drivers d on d.id = r.driver_id
+join f1.drivers m on m.id = r.mate_id
+left join quali_agg q on q.driver_id = r.driver_id and q.mate_id = r.mate_id and q.family_id = r.family_id;
 create unique index if not exists driver_teammates_pk on f1.driver_teammates(id, team, mate);
 grant select on f1.driver_teammates to anon, authenticated;
 
