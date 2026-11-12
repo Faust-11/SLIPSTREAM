@@ -48,7 +48,8 @@ jobs:
       - name: Фейкова база (фікстура e2e/fixtures/db)
         run: |
           node scripts/dev/fake-postgrest.mjs > /tmp/fake-postgrest.log 2>&1 &
-          for i in $(seq 1 30); do curl -sf -o /dev/null -H "apikey: x" -H "accept-profile: f1" http://127.0.0.1:54321/rest/v1/site_meta && break; sleep 1; done
+          for i in $(seq 1 30); do curl -sf -o /dev/null -H "apikey: x" -H "accept-profile: f1" http://127.0.0.1:54321/rest/v1/site_meta && exit 0; sleep 1; done
+          cat /tmp/fake-postgrest.log; exit 1
       - run: npm run build
 
       - name: Версія Playwright
