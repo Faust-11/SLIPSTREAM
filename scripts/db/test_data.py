@@ -326,6 +326,12 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     check("жодна гонка пілота не тримається лише на заявці «не стартував»", dns == 0, dns)
     mar = q("select i.starts, t.last_race->>'name', (t.last_race->>'year')::int from f1.driver_index i join f1.driver_totals t on t.id = i.id where i.id = 'marimon'")
     check("Марімон: 11 стартів (Вікіпедія), остання гонка — Гран-прі Великої Британії 1954", mar == [(11, "British Grand Prix", 1954)], mar)
+    # Поули не залежать від старту (v_pole): числа — як до 0009.
+    pol = {r[0]: r[1] for r in q("select id, poles from f1.driver_index where id in ('michael_schumacher', 'leclerc', 'jarier', 'pironi', 'senna', 'hamilton')")}
+    check("поули без старту збережено: Шумахер 68, Сенна 65; Жар'є 3, Піроні 4", (pol["michael_schumacher"], pol["senna"], pol["jarier"], pol["pironi"]) == (68, 65, 3, 4), pol)
+    check("поули команд — як до 0009: McLaren 181, Ferrari 255", (tot["mclaren"][3], tot["ferrari"][3]) == (181, 255), (tot["mclaren"][3], tot["ferrari"][3]))
+    fpole = q("select count(*) from f1.driver_totals t join f1.driver_index i on i.id = t.id where (i.poles > 0) <> (t.first_pole is not null)")[0][0]
+    check("перший поул є рівно в тих, у кого є поули", fpole == 0, fpole)
     print("INFO  START заявки status=30, які раніше рахувались стартом — за пілотами (топ):", q("""select d.ref, count(*) from f1.results r
         join f1.sessions s on s.id = r.session_id and s.type = 'R' join f1.drivers d on d.id = r.driver_id
         where r.status = 30 and f1.result_started(r.detail, r.position, r.laps_completed, r.grid) group by 1 order by 2 desc, 1 limit 70"""))
