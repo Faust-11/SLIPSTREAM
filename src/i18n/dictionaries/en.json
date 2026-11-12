@@ -145,7 +145,7 @@
       "last": "Last Grand Prix",
       "drivers": "{year} drivers",
       "now": "{year} so far",
-      "nowValue": "P{pos} · {points} · {wins}"
+      "nowPlace": "P{pos}"
     },
     "totals": {
       "label": "All-time",

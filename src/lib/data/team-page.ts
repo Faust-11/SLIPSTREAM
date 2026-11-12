@@ -1,6 +1,5 @@
 // Сторінка команди: числа — з подань бази (0005), наш контент — src/data/curated. Лише на сервері.
 import "server-only";
-import curatedDriversJson from "@/data/curated/drivers.json";
 import driverNamesJson from "@/data/curated/driver-names.json";
 import grandsPrixJson from "@/data/curated/grands-prix.json";
 import teamFactsJson from "@/data/curated/team-facts.json";
@@ -8,9 +7,8 @@ import teamNotesJson from "@/data/curated/team-notes.json";
 import type { Locale } from "@/i18n/config";
 import { dbSelectAll } from "./db";
 import { once } from "./once";
-import { curatedTeams } from "./teams";
+import { curatedDrivers, curatedTeams } from "./teams";
 import type {
-  CuratedDriver,
   CuratedTeam,
   DbDriverName,
   L10n,
@@ -35,7 +33,6 @@ type FactsEntry = {
 };
 type NoteEntry = { year: number; text: L10n; sources: { url: string; title?: string }[] };
 
-const curatedDrivers = (curatedDriversJson as unknown as { drivers: Record<string, CuratedDriver> }).drivers;
 const driverNames = (driverNamesJson as unknown as { drivers: Record<string, L10n & { manual?: { uk: string } }> }).drivers;
 const gpNames = (grandsPrixJson as { names: Record<string, string> }).names;
 const facts = (teamFactsJson as unknown as { teams: Record<string, FactsEntry> }).teams;
@@ -116,7 +113,7 @@ const loadPairing = once(async () =>
   grouped(
     await dbSelectAll<TeamPairingRow>(
       "team_pairing",
-      "select=id,driver,forename,surname,ord,races,points,race_ahead,quali_ahead&order=id,ord",
+      "select=id,driver,forename,surname,ord,races,points,in_last_race,race_ahead,quali_ahead&order=id,ord",
     ),
   ),
 );
@@ -183,9 +180,18 @@ export type TeamPage = {
     /** Перша, 100-та/200-та… (найбільша кругла < останньої), остання. */
     featured: { kind: "first" | "milestone" | "latest"; win: TeamWin }[];
   };
-  pairing: null | { drivers: (DriverView & Omit<TeamPairingRow, "id" | "driver" | "forename" | "surname">)[] };
+  /** Склад останньої гонки поточного сезону (як у списку команд). */
+  currentDrivers: DriverView[];
+  /** Основна пара сезону (найбільше гонок) — порівняння «хто попереду». */
+  pairing: null | { drivers: (DriverView & Omit<TeamPairingRow, "id" | "driver" | "forename" | "surname" | "in_last_race">)[] };
   currentSeason: number;
 };
+
+let maxYear: number | undefined;
+function seasonYearMax(by: Map<string, TeamSeasonRow[]>): number {
+  if (maxYear === undefined) for (const rows of by.values()) for (const r of rows) maxYear = Math.max(maxYear ?? 0, r.year);
+  return maxYear!;
+}
 
 export function getTeamIds(): string[] {
   return curatedTeams.map((t) => t.id);
@@ -204,7 +210,7 @@ export async function getTeamPage(id: string, locale: Locale): Promise<TeamPage 
   const totals = totalsBy.get(id)?.[0];
   if (!totals) throw new Error(`Команда ${id} є в curated/teams.json, але не в f1.team_totals`);
   const seasonsAsc = seasonsBy.get(id) ?? [];
-  const currentSeason = Math.max(...[...seasonsBy.values()].flat().map((s) => s.year));
+  const currentSeason = seasonYearMax(seasonsBy);
 
   const list: TeamWin[] = (winsBy.get(id) ?? []).map((w) => ({
     n: w.n,
@@ -252,10 +258,13 @@ export async function getTeamPage(id: string, locale: Locale): Promise<TeamPage 
         .sort((a, b) => b.count - a.count || collator.compare(a.name, b.name)),
       featured,
     },
+    currentDrivers: pairRows
+      .filter((r) => r.in_last_race)
+      .map((r) => driverView({ ref: r.driver, forename: r.forename, surname: r.surname }, locale)),
     pairing:
-      pairRows.length >= 2
+      pairRows.filter((r) => r.ord <= 2).length === 2
         ? {
-            drivers: pairRows.map((r) => ({
+            drivers: pairRows.filter((r) => r.ord <= 2).map((r) => ({
               ...driverView({ ref: r.driver, forename: r.forename, surname: r.surname }, locale),
               ord: r.ord,
               races: r.races,

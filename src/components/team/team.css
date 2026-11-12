@@ -75,6 +75,13 @@
 .th.has-photo h1 {
   color: var(--team);
 }
+/* Темний колір команди на затемненому фото не читається (< 3:1) — назва світла, колір лишається в смузі. */
+.th.light-title.has-photo h1 {
+  color: #f3f4f1;
+}
+.pos.no-chart {
+  grid-template-columns: minmax(0, 1fr);
+}
 /* Історична команда (немає кольору): назва — світла на темному тлі; смуга під банером — нейтральна. */
 .th.no-color,
 .th.no-color.has-photo h1 {
@@ -171,9 +178,6 @@
   font: 400 clamp(22px, 2.6vw, 34px) / 1.05 var(--f-display);
   word-spacing: -0.35em;
   white-space: nowrap;
-}
-.ts b.ac {
-  color: var(--team-text, var(--ink));
 }
 .ts span {
   font-size: 13px;

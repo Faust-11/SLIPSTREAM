@@ -138,9 +138,12 @@ export type TeamPairingRow = {
   driver: string;
   forename: string;
   surname: string;
+  /** 1–2 — основна пара сезону (найбільше гонок), далі — заміни. */
   ord: number;
   races: number;
   points: number;
+  /** Їхав в останній гонці команди (рядок «Пілоти {рік}» — як у списку команд). */
+  in_last_race: boolean;
   race_ahead: number;
   quali_ahead: number;
 };

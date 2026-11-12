@@ -29,7 +29,7 @@ QUERIES = {
                     "from f1.team_seasons order by id, year",
     "team_wins": "select id, n, year, round, name, date::text as date, drivers from f1.team_wins order by id, n",
     "team_champions": "select id, driver, forename, surname, years from f1.team_champions order by id, years[1]",
-    "team_pairing": "select id, driver, forename, surname, ord, races, points, race_ahead, quali_ahead "
+    "team_pairing": "select id, driver, forename, surname, ord, races, points, in_last_race, race_ahead, quali_ahead "
                     "from f1.team_pairing order by id, ord",
 }
 with psycopg.connect(DSN) as conn:

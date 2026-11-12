@@ -107,7 +107,8 @@ standing as (
 select r.family_id as id, r.season_year::int as year, r.entries,
        r.grands_prix::int, r.wins::int, r.podiums::int,
        case when s.eligible and not s.excluded then s.position end::int as position,
-       round(s.points)::int as points,
+       -- Очки — як є (бувають половинні: Red Bull 2021 — 585,5); float8, щоб JSON віддавав число.
+       s.points::float8 as points,
        coalesce(s.excluded, false) as excluded,
        coalesce(s.eligible and s.position = 1 and s.decided, false) as champion,
        -- Сезон ще триває (лишились етапи) — незалежно від того, чи Кубок уже вирішено.
@@ -196,41 +197,53 @@ left join dtitles dt on dt.id = a.family_id;
 create unique index if not exists team_totals_pk on f1.team_totals(id);
 grant select on f1.team_totals to anon, authenticated;
 
--- 5. Пара пілотів поточного сезону (склад останньої гонки, як у team_index): очки, гонки, хто попереду.
+-- 5. Пілоти поточного сезону в команді: гонки, очки, чи були в останній гонці (рядок «Пілоти {рік}» — як у списку
+--    команд), порівняння «хто попереду» — лише між двома основними (найбільше гонок; рівність — пізніший етап):
+--    разова заміна (Haas 2026: Камара, 1 гонка) не стає «парою». Кваліфікація — лише коли обидва їхали за цю команду.
 create materialized view f1.team_pairing as
 with cs as (select year from f1.v_current_season),
-crew as (
-  select ti.id as family_id, d.id as driver_id, d.ref, d.forename, d.surname, x.ord
-  from f1.team_index ti
-  cross join lateral jsonb_array_elements_text(ti.current_drivers) with ordinality as x(ref, ord)
-  join f1.drivers d on d.ref = x.ref
-),
 season as (
   select v.* from f1.v_team_race v, cs where v.season_year = cs.year
 ),
 race as (select * from season where session_type = 'R' and started),
+last_round as (select family_id, max(round_number) as n from race group by family_id),
+drivers as (
+  select r.family_id, r.driver_id, count(distinct r.round_id) as races, max(r.round_number) as last_n
+  from race r group by r.family_id, r.driver_id
+),
+ranked as (
+  select d.*, row_number() over (partition by d.family_id order by d.races desc, d.last_n desc, d.driver_id) as ord
+  from drivers d
+),
 quali as (
-  -- Місце в кваліфікації: найдальша частина (Q3 > Q2 > Q1), потім місце в ній.
-  select distinct on (ro.id, r.driver_id) ro.id as round_id, r.driver_id,
+  -- Місце в кваліфікації: найдальша частина (Q3 > Q2 > Q1), потім місце в ній; з командою (родиною) машини.
+  select distinct on (ro.id, r.driver_id) ro.id as round_id, r.driver_id, tf.family_id,
          substr(s.type, 2)::int as part, r.position
   from f1.results r
   join f1.sessions s on s.id = r.session_id and s.type in ('Q1', 'Q2', 'Q3')
-  join f1.rounds ro on ro.id = s.round_id, cs
+  join f1.rounds ro on ro.id = s.round_id
+  join f1.teams t on t.id = r.team_id
+  join f1.team_families tf on tf.ref = t.ref, cs
   where ro.season_year = cs.year
   order by ro.id, r.driver_id, s.type desc
-)
-select c.family_id as id, c.ref as driver, c.forename, c.surname, c.ord::int as ord,
-       (select count(distinct round_id) from race r where r.family_id = c.family_id and r.driver_id = c.driver_id)::int as races,
-       (select coalesce(round(sum(points)), 0) from season s where s.family_id = c.family_id and s.driver_id = c.driver_id)::int as points,
-       (select count(*) from race a join race b on b.round_id = a.round_id and b.family_id = a.family_id
-         join crew c2 on c2.family_id = c.family_id and c2.driver_id = b.driver_id and c2.driver_id <> c.driver_id
-        where a.family_id = c.family_id and a.driver_id = c.driver_id
-          and coalesce(a.position, 999) < coalesce(b.position, 999))::int as race_ahead,
-       (select count(*) from quali a join quali b on b.round_id = a.round_id
-         join crew c2 on c2.family_id = c.family_id and c2.driver_id = b.driver_id and c2.driver_id <> c.driver_id
-        where a.driver_id = c.driver_id
-          and (a.part > b.part or (a.part = b.part and a.position < b.position)))::int as quali_ahead
-from crew c;
+),
+pair as (select * from ranked where ord <= 2)
+select k.family_id as id, d.ref as driver, d.forename, d.surname, k.ord::int as ord, k.races::int as races,
+       (select coalesce(sum(points), 0) from season s where s.family_id = k.family_id and s.driver_id = k.driver_id)::float8 as points,
+       (k.last_n = lr.n) as in_last_race,
+       coalesce((select count(*) from race a
+                 join race b on b.round_id = a.round_id and b.family_id = a.family_id
+                 join pair o on o.family_id = k.family_id and o.driver_id = b.driver_id and o.driver_id <> k.driver_id
+                 where k.ord <= 2 and a.family_id = k.family_id and a.driver_id = k.driver_id
+                   and coalesce(a.position, 999) < coalesce(b.position, 999)), 0)::int as race_ahead,
+       coalesce((select count(*) from quali a
+                 join quali b on b.round_id = a.round_id and b.family_id = a.family_id
+                 join pair o on o.family_id = k.family_id and o.driver_id = b.driver_id and o.driver_id <> k.driver_id
+                 where k.ord <= 2 and a.family_id = k.family_id and a.driver_id = k.driver_id
+                   and (a.part > b.part or (a.part = b.part and a.position < b.position))), 0)::int as quali_ahead
+from ranked k
+join f1.drivers d on d.id = k.driver_id
+join last_round lr on lr.family_id = k.family_id;
 create unique index if not exists team_pairing_pk on f1.team_pairing(id, driver);
 grant select on f1.team_pairing to anon, authenticated;
 
