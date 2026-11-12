@@ -1,0 +1,404 @@
+# Перевірка даних сторінки команди (12.11.2026)
+
+Усе нижче вже на сторінках, крім розділу 1 (рішення). Позначка в даних — `checked: false`; після перевірки — `true` або виправлення.
+
+## 1. Рішення: команди, у яких дані змішують різні організації (не опубліковано)
+
+- **williams 1975** — The 1975–1976 entries belong to Frank Williams Racing Cars, Frank Williams' earlier team, which Walter Wolf took over in 1976 and which became Walter Wolf Racing. Today's Williams (Williams Grand Prix Engineering) is a separate company founded in 1977. _(Джерела: https://www.formula1.com/en/latest/article/f1-williams-40-anniversary-facts-stats-video-moments.4gCUxY8VnOgkAGqe8A8646, https://www.formulaonehistory.com/teams/frank-williams-racing-cars/)_
+- **march 1981** — At the end of 1977 March's works F1 assets were sold to ATS. The 1981–1982 'March' entries were cars built for RAM Racing, an effort kept at arm's length from March Engineering, with designer Robin Herd as the main link. _(Джерела: https://en.wikipedia.org/wiki/March_Engineering, https://www.oldracingcars.com/march/811/)_
+- **aston-martin 1960** — Aston Martin's own works team started five World Championship races in 1959–60 and left Formula One during 1960 to concentrate on sports car racing. _(Джерела: https://en.wikipedia.org/wiki/Aston_Martin_in_Formula_One, https://www.formula1.com/en/latest/article/racing-point-set-to-become-aston-martin-racing-for-2021.2YwShWhMbZr2NK1M4Q1nMn)_
+- **alfa-romeo 1963** — The 1963 and 1965 entries (South African Grand Prix) were the Alfa Special, a privately built car by South African driver Peter de Klerk with an Alfa Romeo Giulietta engine, not a factory Alfa Romeo. _(Джерела: https://en.wikipedia.org/wiki/Alfa_Romeo_in_Formula_One, https://www.formulaonehistory.com/teams/alfa-special/)_
+- **alfa-romeo 2019** — From 2019 to 2023 the Sauber team raced under the Alfa Romeo name as part of a sponsorship deal. Ownership and management stayed with Sauber, so these seasons are not the historic Alfa Romeo works team. _(Джерела: https://www.autosport.com/f1/news/141278/sauber-f1-team-renamed-alfa-romeo-racing, https://en.wikipedia.org/wiki/Alfa_Romeo_in_Formula_One)_
+- **ats 1963** — The 1963 ATS was the Italian company Automobili Turismo e Sport, while the 1978–84 ATS was a German team run by wheel maker Günter Schmid (Auto Technisches Spezialzubehör). They are different organisations sharing an abbreviation. _(Джерела: https://en.wikipedia.org/wiki/Automobili_Turismo_e_Sport, https://www.f1technical.net/f1db/teams/12, https://www.grandprix.com/gpe/con-atechn.html)_
+- **lola 1985** — The 1985–86 'Lola' was the Haas team of Carl Haas, Lola's US importer. The cars were built by FORCE and carried the Lola name with minimal involvement from Lola Cars. _(Джерела: https://en.wikipedia.org/wiki/Lola_Cars, https://www.motorsportmagazine.com/articles/single-seaters/f1/first-haas-f1-team)_
+- **lola 1991** — In our data Larrousse's 1991 cars are listed as 'Larrousse' for the first two races and as 'Lola' for the rest, although all were Lola chassis. The Lola-built Larrousse cars of 1987–90 are listed under Larrousse. _(Джерела: https://en.wikipedia.org/wiki/Larrousse, https://api.jolpi.ca/ergast/f1/1991/constructors/lola/results.json)_
+- **moore 1959** — The 1959 Moore-chassis car was entered by John Zink Co.; Lou Moore had died in 1956. Sources do not confirm whether this chassis came from Moore's workshop, so the data may combine different builders under 'Moore'. _(Джерела: https://cms.ims.com/events/indy500/history/historical-stats/race-stats/race-results/1959, https://en.wikipedia.org/wiki/Lou_Moore)_
+- **larrousse 1990** — за Вікіпедією, очки Кубка конструкторів 1990 анульовано (неправдива декларація шасі); у Jolpica — 6-те місце, 11 очок. Лишити як у Jolpica чи позначити?
+
+## 2. Транслітерація (українського написання в джерелах немає)
+
+### Пілоти
+
+- Elio de Angelis → **Еліо де Анджеліс**
+- René Arnoux → **Рене Арну**
+- Giancarlo Baghetti → **Джанкарло Багетті**
+- Lorenzo Bandini → **Лоренцо Бандіні**
+- Jean-Pierre Beltoise → **Жан-П'єр Бельтуаз**
+- Vittorio Brambilla → **Вітторіо Брамбілла**
+- Tony Brooks → **Тоні Брукс**
+- Jimmy Bryan → **Джиммі Браян**
+- Patrick Depailler → **Патрік Депайє**
+- Pat Flaherty → **Пет Флаерті**
+- Peter Gethin → **Пітер Гетін**
+- Richie Ginther → **Річі Гінтер**
+- Dan Gurney → **Ден Герні**
+- Sam Hanks → **Сем Генкс**
+- Jean-Pierre Jabouille → **Жан-П'єр Жабуй**
+- Jacques Laffite → **Жак Лаффіт**
+- Jochen Mass → **Йохен Масс**
+- Alessandro Nannini → **Алессандро Нанніні**
+- Gunnar Nilsson → **Гуннар Нільссон**
+- Johnnie Parsons → **Джонні Парсонс**
+- Jim Rathmann → **Джим Ратманн**
+- Clay Regazzoni → **Клей Регаццоні**
+- Carlos Reutemann → **Карлос Ройтеман**
+- Peter Revson → **Пітер Ревсон**
+- Pedro Rodríguez → **Педро Родрігес**
+- Troy Ruttman → **Трой Раттман**
+- Jo Siffert → **Йо Сіфферт**
+- Bob Sweikert → **Боб Свайкерт**
+- Patrick Tambay → **Патрік Тамбе**
+- Bill Vukovich → **Білл Вукович**
+- Lee Wallard → **Лі Воллард**
+- Rodger Ward → **Роджер Ворд**
+- John Watson → **Джон Вотсон**
+
+### Засновники й міста
+
+- brabham: Jack Brabham → **Джек Бребем**
+- brabham: Ron Tauranac → **Рон Торанак**
+- benetton (база): Witney → **Вітні**
+- tyrrell (база): Ockham → **Окем**
+- brm (база): Bourne, Lincolnshire → **Борн (Лінкольншир)**
+- cooper: Charles Cooper → **Чарльз Купер**
+- cooper: John Cooper → **Джон Купер**
+- ligier: Guy Ligier → **Гі Ліжьє**
+- vanwall: Tony Vandervell → **Тоні Вендервелл**
+- kurtis-kraft: Frank Kurtis → **Френк Куртіс**
+- march: Max Mosley → **Макс Мослі**
+- march: Alan Rees → **Алан Різ**
+- march: Graham Coaker → **Грем Коукер**
+- march: Robin Herd → **Робін Герд**
+- march (база): Bicester → **Бістер**
+- wolf: Walter Wolf → **Вальтер Вольф**
+- watson: A. J. Watson → **Ей Джей Вотсон**
+- lotus-f1 (база): Enstone → **Енстоун**
+- epperly: Quin Epperly → **Квін Епперлі**
+- shadow: Don Nichols → **Дон Ніколс**
+- hesketh: Alexander Hesketh, 3rd Baron Hesketh (Lord Hesketh) → **Александр Гескет, 3-й барон Гескет (лорд Гескет)**
+- hesketh: Anthony 'Bubbles' Horsley → **Ентоні «Баблз» Горслі**
+- hesketh (база): Towcester (Easton Neston estate), Northamptonshire → **Тоустер (маєток Істон-Нестон), Нортгемптоншир**
+- stewart: Jackie Stewart → **Джекі Стюарт**
+- stewart: Paul Stewart → **Пол Стюарт**
+- eagle: Dan Gurney → **Ден Герні**
+- kuzma: Eddie Kuzma → **Едді Кузма**
+- sauber: Peter Sauber → **Петер Заубер**
+- minardi: Gian Carlo Minardi → **Джан Карло Мінарді**
+- arrows: Franco Ambrosio → **Франко Амброзіо**
+- arrows: Jackie Oliver → **Джекі Олівер**
+- arrows: Dave Wass → **Дейв Васс**
+- arrows: Tony Southgate → **Тоні Саутгейт**
+- aston-martin (база): Newport Pagnell → **Ньюпорт-Пагнелл**
+- osella: Enzo Osella → **Енцо Озелла**
+- surtees (база): Edenbridge → **Еденбридж**
+- bar: Craig Pollock → **Крейг Поллок**
+- bar (база): Brackley → **Бреклі**
+- larrousse: Gérard Larrousse → **Жерар Ларрусс**
+- larrousse: Didier Calmels → **Дідьє Кальмель**
+- fittipaldi: Wilson Fittipaldi Júnior → **Вілсон Фіттіпальді-молодший**
+- fittipaldi: Emerson Fittipaldi → **Емерсон Фіттіпальді**
+- ensign: Mo Nunn → **Мо Нанн**
+- ats: Günter Schmid → **Гюнтер Шмід**
+- ats (база): Bicester, Oxfordshire → **Бістер**
+- lola: Eric Broadley → **Ерік Бродлі**
+- dallara: Giampaolo Dallara → **Джампаоло Даллара**
+- toleman: Ted Toleman → **Тед Толмен**
+- toleman: Alex Hawkridge → **Алекс Гокрідж**
+- hrt: Adrián Campos → **Адріан Кампос**
+- hrt: José Ramón Carabante → **Хосе Рамон Карабанте**
+- caterham (база): Leafield → **Ліфілд**
+- zakspeed: Erich Zakowski → **Еріх Заковскі**
+- ags: Henri Julien → **Анрі Жюльєн**
+- manor-marussia: John Booth → **Джон Бут**
+- manor-marussia (база): Dinnington → **Діннінгтон**
+- theodore (база): Chasetown → **Чейстаун**
+- gordini: Amédée Gordini → **Амеде Гордіні**
+- ram: Mike Ralph → **Майк Ральф**
+- ram: John Macdonald → **Джон Макдональд**
+- leyton-house: Akira Akagi → **Акіра Акаґі**
+- spirit: Gordon Coppuck → **Гордон Коппак**
+- spirit: John Wickham → **Джон Вікгем**
+- forti: Guido Forti → **Гвідо Форті**
+- forti: Paolo Guerci → **Паоло Гуерчі**
+- pacific: Keith Wiggins → **Кіт Віггінс**
+- simtek: Nick Wirth → **Нік Вірт**
+- fondmetal: Gabriele Rumi → **Габріеле Румі**
+- connaught: Rodney Clarke → **Родні Кларк**
+- connaught: Mike Oliver → **Майк Олівер**
+- connaught (база): Send → **Сенд**
+- onyx: Mike Earle → **Майк Ерл**
+- onyx: Greg Field → **Грег Філд**
+- parnelli: Vel Miletich → **Вел Мілетич**
+- euro-brun: Walter Brun → **Вальтер Брун**
+- euro-brun: Giampaolo Pavanello → **Джампаоло Паванелло**
+- hwm: John Heath → **Джон Гіт**
+- hwm (база): Walton-on-Thames → **Волтон-он-Темз**
+- talbot: Antonio Lago → **Антоніо Лаго**
+- brp: Alfred Moss → **Альфред Мосс**
+- brp: Ken Gregory → **Кен Грегорі**
+- coloni: Enzo Coloni → **Енцо Колоні**
+- de-tomaso: Alejandro de Tomaso → **Алехандро де Томазо**
+- tecno: Luciano Pederzani → **Лучано Педерцані**
+- tecno: Gianfranco Pederzani → **Джанфранко Педерцані**
+- embassy-hill (база): Hanworth (West London) → **Генворт**
+- merzario: Arturo Merzario → **Артуро Мерцаріо**
+- merzario: Guglielmo Bellasi → **Гульєльмо Белласі**
+- lesovsky: Lujie Lesovsky → **Луджі Лесовскі**
+- era: Humphrey Cook → **Гамфрі Кук**
+- era: Raymond Mays → **Реймонд Мейс**
+- era: Peter Berthon → **Пітер Бертон**
+- era (база): Dunstable → **Данстабл**
+- stevens: Myron Stevens → **Майрон Стівенс**
+- veritas: Ernst Loof → **Ернст Лоф**
+- veritas: Georg Meier → **Георг Маєр**
+- veritas: Lorenz Dietrich → **Лоренц Дітріх**
+- trojan: Peter Agg → **Пітер Агг**
+- boro: Bob Hoogenboom → **Боб Гогенбом**
+- boro: Rody Hoogenboom → **Роді Гогенбом**
+- boro (база): Bovenkerk → **Бовенкерк**
+- alta: Geoffrey Taylor → **Джеффрі Тейлор**
+- alta (база): Surbiton (Tolworth) → **Сербітон (Толворт)**
+- lds: Doug Serrurier → **Даг Серрюр'є**
+- lds (база): Alberton → **Альбертон**
+- scirocco: Hugh Powell → **Г'ю Павелл**
+- martini: Renato Martini → **Ренато Мартіні**
+- martini: Bill Knight → **Білл Найт**
+- schroeder: Gordon Schroeder → **Гордон Шредер**
+- bromme: Louis (Lou) Bromme → **Луїс (Лу) Бромме**
+- bromme: Bruce Bromme → **Брюс Бромме**
+- trevis: Floyd Trevis → **Флойд Тревіс**
+- frazer-nash: Archibald Frazer-Nash → **Арчибальд Фрейзер-Неш**
+- frazer-nash (база): Isleworth, Middlesex → **Айлворт**
+- afm: Alexander von Falkenhausen → **Александр фон Фалькенгаузен**
+- emeryson: Paul Emery → **Пол Емері**
+- jbw: Brian Naylor → **Браян Нейлор**
+- jbw: Fred Wilkinson → **Фред Вілкінсон**
+- deidt: Emil Diedt → **Еміль Дідт**
+- moore: Lou Moore → **Лу Мур**
+- pawl: Johnny Pawl → **Джонні Пол**
+- dunn: Harold Dunn → **Гарольд Данн**
+- scarab: Lance Reventlow → **Ленс Ревентлов**
+- gilby: Syd Greene → **Сід Грін**
+- gilby (база): Ongar, Essex → **Онгар**
+- token: Tony Vlassopulos → **Тоні Влассопулос**
+- token: Ken Grob → **Кен Гроб**
+- token (база): Walton-on-Thames → **Волтон-он-Темс**
+- lec: David Purley → **Девід Перлі**
+- nichels: Ray Nichels → **Рей Нікелс**
+- marchese: Carl Marchese → **Карл Маркезе**
+- ewing: Wayne Ewing → **Вейн Юїнг**
+- sherman: Roy Sherman → **Рой Шерман**
+- aston-butterworth: Bill Aston → **Білл Астон**
+- aston-butterworth: Archie Butterworth → **Арчі Баттерворт**
+- pankratz: Bob Pankratz → **Боб Панкрац**
+- kojima: Matsuhisa Kojima → **Мацухіса Кодзіма**
+- andrea-moda: Andrea Sassetti → **Андреа Сассетті**
+- rae: Johnny Rae → **Джонні Рей**
+- wetteroth: Louis "Curly" Wetteroth → **Луїс «Керлі» Веттерот**
+- snowberger: Russ Snowberger → **Расс Сноубергер**
+- adams: Clyde Adams → **Клайд Адамс**
+- del-roy: Frank DelRoy → **Френк Делрой**
+- klenk: Hans Klenk → **Ганс Кленк**
+- elder: Edgar Elder → **Едгар Елдер**
+- tec: Valerio Colotti → **Валеріо Колотті**
+- meskowski: Wally Meskowski → **Воллі Месковскі**
+- ferguson: Harry Ferguson → **Гаррі Фергюсон**
+- enb: Jacques Swaters → **Жак Сватерс**
+- enb: Johnny Claes → **Джонні Клаес**
+- stebro: John Stevens → **Джон Стівенс**
+- stebro: Peter Broeker → **Пітер Брокер**
+- derrington: Alf Francis → **Альф Френсіс**
+- derrington: Vic Derrington → **Вік Деррінгтон**
+- shannon: Aiden Jones → **Ейден Джонс**
+- protos: Frank Costin → **Френк Костін**
+- connew: Peter Connew → **Пітер Коннью**
+- connew (база): Chadwell Heath → **Чадвелл-Гіт**
+- lyncar: Martin Slater → **Мартін Слейтер**
+- rebaque: Héctor Rebaque → **Ектор Ребаке**
+- lotus-racing (база): Hingham, Norfolk → **Гінгем (Норфолк)**
+
+## 3. Факти з одного джерела
+
+- brabham — засновник: Джек Бребем, Рон Торанак — https://en.wikipedia.org/wiki/Brabham
+- benetton — база: Вітні, Велика Британія — https://en.wikipedia.org/wiki/Benetton_Formula
+- tyrrell — база: Окем, Велика Британія — https://en.wikipedia.org/wiki/Tyrrell_Racing
+- brm — засновник: Реймонд Мейс, Пітер Бертон — https://en.wikipedia.org/wiki/British_Racing_Motors
+- brm — база: Борн (Лінкольншир), Велика Британія — https://en.wikipedia.org/wiki/British_Racing_Motors
+- cooper — засновник: Чарльз Купер, Джон Купер — https://en.wikipedia.org/wiki/Cooper_Car_Company
+- ligier — засновник: Гі Ліжьє — https://en.wikipedia.org/wiki/Ligier
+- maserati — база: Модена, Італія — https://en.wikipedia.org/wiki/Maserati
+- matra — база: Роморантен-Лантене, Франція; Велізі-Віллакубле, Франція — https://en.wikipedia.org/wiki/Equipe_Matra_Sports
+- vanwall — засновник: Тоні Вендервелл — https://en.wikipedia.org/wiki/Vanwall
+- brawn — база: Бреклі, Велика Британія — https://en.wikipedia.org/wiki/Brawn_GP
+- kurtis-kraft — засновник: Френк Куртіс — https://en.wikipedia.org/wiki/Kurtis_Kraft
+- march — засновник: Макс Мослі, Алан Різ, Грем Коукер, Робін Герд — https://en.wikipedia.org/wiki/March_Engineering
+- wolf — засновник: Вальтер Вольф — https://en.wikipedia.org/wiki/Walter_Wolf_Racing
+- watson — засновник: Ей Джей Вотсон — https://en.wikipedia.org/wiki/A._J._Watson
+- watson — база: Глендейл (Каліфорнія), США — https://www.indianapolismotorspeedway.com/news-multimedia/news/2014/05/12/remembering-aj-watson
+- lotus-f1 — база: Енстоун, Велика Британія — https://en.wikipedia.org/wiki/Lotus_F1
+- alpine — база: Енстоун, Велика Британія — https://en.wikipedia.org/wiki/Alpine_F1_Team
+- shadow — засновник: Дон Ніколс — https://en.wikipedia.org/wiki/Shadow_Racing_Cars
+- bmw-sauber — засновник: Петер Заубер — https://en.wikipedia.org/wiki/BMW_in_Formula_One
+- stewart — засновник: Джекі Стюарт, Пол Стюарт — https://en.wikipedia.org/wiki/Stewart_Grand_Prix
+- eagle — засновник: Ден Герні — https://en.wikipedia.org/wiki/All_American_Racers
+- kuzma — засновник: Едді Кузма — https://en.wikipedia.org/wiki/Eddie_Kuzma
+- sauber — засновник: Петер Заубер — https://en.wikipedia.org/wiki/Sauber_Motorsport
+- sauber — база: Бістер, Велика Британія — https://en.wikipedia.org/wiki/Sauber_Motorsport
+- minardi — засновник: Джан Карло Мінарді — https://en.wikipedia.org/wiki/Minardi
+- arrows — засновник: Франко Амброзіо, Алан Різ, Джекі Олівер, Дейв Васс, Тоні Саутгейт — https://en.wikipedia.org/wiki/Arrows_Grand_Prix_International
+- aston-martin — база: Ньюпорт-Пагнелл, Велика Британія — https://en.wikipedia.org/wiki/Aston_Martin_in_Formula_One
+- toyota — база: Кельн, Німеччина — https://en.wikipedia.org/wiki/Toyota_in_Formula_One
+- osella — засновник: Енцо Озелла — https://en.wikipedia.org/wiki/Osella
+- bar — засновник: Крейг Поллок — https://en.wikipedia.org/wiki/British_American_Racing
+- bar — база: Бреклі, Велика Британія — https://en.wikipedia.org/wiki/British_American_Racing
+- larrousse — засновник: Жерар Ларрусс, Дідьє Кальмель — https://en.wikipedia.org/wiki/Larrousse
+- fittipaldi — засновник: Вілсон Фіттіпальді-молодший, Емерсон Фіттіпальді — https://en.wikipedia.org/wiki/Fittipaldi_Automotive
+- ensign — засновник: Мо Нанн — https://en.wikipedia.org/wiki/Ensign_Racing
+- ats — засновник: Гюнтер Шмід — https://en.wikipedia.org/wiki/ATS_Wheels
+- footwork — засновник: Франко Амброзіо, Алан Різ, Джекі Олівер, Дейв Васс, Тоні Саутгейт — https://en.wikipedia.org/wiki/Footwork_Arrows
+- lola — засновник: Ерік Бродлі — https://en.wikipedia.org/wiki/MasterCard_Lola
+- jaguar — база: Мілтон-Кінз, Велика Британія — https://en.wikipedia.org/wiki/Jaguar_Racing_(Formula_One)
+- dallara — засновник: Джампаоло Даллара — https://en.wikipedia.org/wiki/Dallara
+- dallara — база: Варано-де-Мелегарі, Італія — https://en.wikipedia.org/wiki/Dallara
+- toleman — засновник: Тед Толмен, Алекс Гокрідж — https://en.wikipedia.org/wiki/Toleman
+- toleman — база: Вітні, Велика Британія — https://en.wikipedia.org/wiki/Toleman
+- hrt — засновник: Адріан Кампос, Хосе Рамон Карабанте — https://en.wikipedia.org/wiki/HRT_Formula_1_Team
+- caterham — база: Ліфілд, Велика Британія — https://en.wikipedia.org/wiki/Caterham_F1
+- zakspeed — засновник: Еріх Заковскі — https://en.wikipedia.org/wiki/Zakspeed
+- ags — засновник: Анрі Жюльєн — https://en.wikipedia.org/wiki/Automobiles_Gonfaronnaises_Sportives
+- super-aguri — база: Ліфілд, Велика Британія — https://en.wikipedia.org/wiki/Super_Aguri_F1
+- virgin — засновник: Manor Motorsport, Wirth Research — https://en.wikipedia.org/wiki/Virgin_Racing
+- virgin — база: Діннінгтон, Велика Британія — https://en.wikipedia.org/wiki/Virgin_Racing
+- theodore — база: Вокінг, Велика Британія; Нортгемптон, Велика Британія; Чейстаун, Велика Британія — https://www.f1technical.net/f1db/teams/3
+- ram — засновник: Майк Ральф, Джон Макдональд — https://en.wikipedia.org/wiki/RAM_Racing
+- leyton-house — засновник: Акіра Акаґі — https://en.wikipedia.org/wiki/Leyton_House_Racing
+- leyton-house — база: Бістер, Велика Британія — https://en.wikipedia.org/wiki/Leyton_House_Racing
+- spirit — засновник: Гордон Коппак, Джон Вікгем — https://en.wikipedia.org/wiki/Spirit_Racing
+- forti — засновник: Гвідо Форті, Паоло Гуерчі — https://en.wikipedia.org/wiki/Forti
+- pacific — засновник: Кіт Віггінс — https://en.wikipedia.org/wiki/Pacific_Racing
+- simtek — засновник: Макс Мослі, Нік Вірт — https://en.wikipedia.org/wiki/Simtek
+- rial — засновник: Гюнтер Шмід — https://en.wikipedia.org/wiki/Rial_Racing
+- fondmetal — засновник: Габріеле Румі — https://en.wikipedia.org/wiki/Fondmetal
+- connaught — засновник: Родні Кларк, Майк Олівер — https://en.wikipedia.org/wiki/Connaught_Engineering
+- connaught — база: Сенд, Велика Британія — https://en.wikipedia.org/wiki/Connaught_Engineering
+- onyx — засновник: Майк Ерл, Грег Філд — https://en.wikipedia.org/wiki/Onyx_Grand_Prix
+- parnelli — засновник: Парнеллі Джонс, Вел Мілетич — https://en.wikipedia.org/wiki/Vel's_Parnelli_Jones_Racing
+- hwm — засновник: Джон Гіт — https://en.wikipedia.org/wiki/Hersham_and_Walton_Motors
+- hwm — база: Волтон-он-Темз, Велика Британія — https://en.wikipedia.org/wiki/Hersham_and_Walton_Motors
+- talbot — засновник: Антоніо Лаго — https://en.wikipedia.org/wiki/Talbot-Lago
+- talbot — база: Сюрен, Франція — https://en.wikipedia.org/wiki/Talbot-Lago
+- brp — засновник: Альфред Мосс, Кен Грегорі — https://en.wikipedia.org/wiki/British_Racing_Partnership
+- de-tomaso — засновник: Алехандро де Томазо — https://en.wikipedia.org/wiki/De_Tomaso
+- de-tomaso — база: Модена, Італія — https://en.wikipedia.org/wiki/De_Tomaso
+- tecno — засновник: Лучано Педерцані, Джанфранко Педерцані — https://en.wikipedia.org/wiki/Tecno_(motorsport)
+- tecno — база: Болонья, Італія — https://en.wikipedia.org/wiki/Tecno_(motorsport)
+- embassy-hill — база: Генворт, Велика Британія — https://en.wikipedia.org/wiki/Embassy_Hill
+- merzario — засновник: Артуро Мерцаріо, Гульєльмо Белласі — https://en.wikipedia.org/wiki/Merzario
+- merzario — база: Комо, Італія — https://www.f1technical.net/f1db/teams/81
+- era — засновник: Гамфрі Кук, Реймонд Мейс, Пітер Бертон — https://en.wikipedia.org/wiki/English_Racing_Automobiles
+- era — база: Данстабл, Велика Британія — https://en.wikipedia.org/wiki/English_Racing_Automobiles
+- veritas — засновник: Ернст Лоф, Георг Маєр, Лоренц Дітріх — https://en.wikipedia.org/wiki/Veritas_(automobile)
+- boro — засновник: Боб Гогенбом, Роді Гогенбом — https://en.wikipedia.org/wiki/Boro_(Formula_One)
+- boro — база: Бовенкерк, Нідерланди — https://en.wikipedia.org/wiki/Boro_(Formula_One)
+- alta — засновник: Джеффрі Тейлор — https://en.wikipedia.org/wiki/Alta_Car_and_Engineering_Company
+- lds — засновник: Даг Серрюр'є — https://en.wikipedia.org/wiki/LDS_(automobile)
+- scirocco — засновник: Г'ю Павелл — https://en.wikipedia.org/wiki/Scirocco-Powell
+- scirocco — база: Лондон, Велика Британія — https://forix.com/8w/scirocco.html
+- martini — засновник: Ренато Мартіні, Білл Найт — https://en.wikipedia.org/wiki/Automobiles_Martini
+- schroeder — засновник: Гордон Шредер — https://en.wikipedia.org/wiki/Gordon_Schroeder
+- bromme — засновник: Луїс (Лу) Бромме, Брюс Бромме — https://www.flyinglap.com.br/bromme
+- trevis — засновник: Флойд Тревіс — https://en.wikipedia.org/wiki/Floyd_Trevis
+- trevis — база: Янгстаун, США — https://en.wikipedia.org/wiki/Floyd_Trevis
+- osca — засновник: Ернесто Мазераті, Етторе Мазераті, Біндо Мазераті — https://en.wikipedia.org/wiki/O.S.C.A.
+- osca — база: Сан-Лаццаро-ді-Савена, Італія — https://en.wikipedia.org/wiki/O.S.C.A.
+- afm — засновник: Александр фон Фалькенгаузен — https://en.wikipedia.org/wiki/Alex_von_Falkenhausen_Motorenbau
+- emeryson — засновник: Пол Емері — https://en.wikipedia.org/wiki/Emeryson
+- jbw — база: Стокпорт, Велика Британія — https://www.f1technical.net/f1db/teams/54
+- deidt — засновник: Еміль Дідт — https://en.wikipedia.org/wiki/Emil_Diedt
+- moore — засновник: Лу Мур — https://en.wikipedia.org/wiki/Lou_Moore
+- pawl — засновник: Джонні Пол — https://www.flyinglap.com.br/pawl
+- pawl — база: Краун-Пойнт, США — https://historicracing.com/driver.cfm?otd=7508
+- dunn — засновник: Гарольд Данн — https://en.wikipedia.org/wiki/Dunn_Engineering
+- dunn — база: Детройт, США — https://en.wikipedia.org/wiki/Dunn_Engineering
+- scarab — засновник: Ленс Ревентлов — https://en.wikipedia.org/wiki/Scarab_(constructor)
+- scarab — база: Веніс (Лос-Анджелес), США — https://thegentlemanracer.com/2022/11/americas-first-formula-1-car/
+- gilby — засновник: Сід Грін — https://en.wikipedia.org/wiki/Gilby_Engineering
+- gilby — база: Онгар, Велика Британія — https://www.f1technical.net/f1db/teams/48
+- token — засновник: Тоні Влассопулос, Кен Гроб — https://en.wikipedia.org/wiki/Token_Racing
+- token — база: Волтон-он-Темс, Велика Британія — https://www.autosport.com/f1/news/tony-vlassopulos-obituary-f1-team-boss-and-ron-dennis-backer-dies-aged-89-4975932/4975932/
+- lec — база: Богнор Регіс, Велика Британія — https://en.wikipedia.org/wiki/LEC_Refrigeration_Racing
+- nichels — засновник: Рей Нікелс — https://en.wikipedia.org/wiki/Nichels
+- nichels — база: Гаммонд (Індіана), США — https://au.motorsport.com/vintage/news/memories-of-raymond-r-nichels/1290575/
+- sherman — засновник: Рой Шерман — https://en.wikipedia.org/wiki/Roy_Sherman
+- aston-butterworth — засновник: Білл Астон, Арчі Баттерворт — https://en.wikipedia.org/wiki/Aston_Butterworth
+- bmw — база: Мюнхен, ФРН — https://www.f1technical.net/f1db/teams/17
+- bellasi — засновник: Гульєльмо Белласі — https://en.wikipedia.org/wiki/Bellasi
+- bellasi — база: Новара, Італія — https://www.formulaonehistory.com/teams/bellasi/
+- kojima — засновник: Мацухіса Кодзіма — https://en.wikipedia.org/wiki/Kojima_Engineering
+- kojima — база: Кіото, Японія — https://japanesenostalgiccar.com/motorsport-kojima-engineering-ke007/
+- andrea-moda — засновник: Андреа Сассетті — https://en.wikipedia.org/wiki/Andrea_Moda_Formula
+- rae — засновник: Джонні Рей — https://en.wikipedia.org/wiki/Johnny_Rae_(motorsport)
+- snowberger — засновник: Расс Сноубергер — https://en.wikipedia.org/wiki/Russ_Snowberger
+- adams — засновник: Клайд Адамс — https://en.wikipedia.org/wiki/Adams_(constructor)
+- del-roy — засновник: Френк Делрой — https://en.wikipedia.org/wiki/Frank_DelRoy
+- emw — база: Айзенах, НДР — https://en.wikipedia.org/wiki/Eisenacher_Motorenwerk
+- klenk — засновник: Ганс Кленк — https://en.wikipedia.org/wiki/Klenk
+- klenk — база: Штутгарт, ФРН — https://www.f1technical.net/f1db/teams/58
+- bugatti — база: Мольсайм, Франція — https://www.motorsportmagazine.com/archive/article/october-1997/80/bugatti-final-fatal-flop
+- elder — засновник: Едгар Елдер — https://en.wikipedia.org/wiki/Edgar_Elder
+- tec — засновник: Валеріо Колотті — https://en.wikipedia.org/wiki/Tec-Mec
+- tec — база: Модена, Італія — https://primotipo.com/2024/03/11/tec-mec-f415-maserati/
+- meskowski — база: Індіанаполіс, США — https://www.thehenryford.org/collections/explore/artifact/358826
+- ferguson — засновник: Гаррі Фергюсон — https://en.wikipedia.org/wiki/Ferguson_Research
+- ferguson — база: Ковентрі, Велика Британія — https://en.wikipedia.org/wiki/Ferguson_Research
+- stebro — засновник: Джон Стівенс, Пітер Брокер — https://en.wikipedia.org/wiki/Stebro
+- stebro — база: Монреаль, Канада — https://en.wikipedia.org/wiki/Stebro
+- derrington — засновник: Альф Френсіс, Вік Деррінгтон — https://en.wikipedia.org/wiki/Derrington-Francis
+- shannon — засновник: Пол Емері, Ейден Джонс — https://en.wikipedia.org/wiki/Shannon_Racing_Cars
+- protos — засновник: Френк Костін — https://en.wikipedia.org/wiki/Protos_(constructor)
+- connew — засновник: Пітер Коннью — https://en.wikipedia.org/wiki/Connew
+- connew — база: Чадвелл-Гіт, Велика Британія — https://en.wikipedia.org/wiki/Connew
+- amon — база: Редінг, Велика Британія — https://www.oldracingcars.com/amon/af1/
+- lyncar — засновник: Мартін Слейтер — https://en.wikipedia.org/wiki/Lyncar
+- lyncar — база: Слау, Велика Британія — https://www.totalkitcar.com/?p=24472
+- rebaque — засновник: Ектор Ребаке — https://en.wikipedia.org/wiki/Rebaque
+- lotus-racing — засновник: Тоні Фернандес — https://en.wikipedia.org/wiki/Team_Lotus_(2010–2011)
+- lotus-racing — база: Гінгем (Норфолк), Велика Британія — https://en.wikipedia.org/wiki/Team_Lotus_(2010–2011)
+
+## 4. Редакційні тексти (опубліковано, по 2+ джерела)
+
+- **alfa-romeo 1979** — Після сезону 1951 заводська команда Alfa Romeo пішла з Гран-прі, не ставши будувати нову машину. Як конструктор вона повернулася 1979 року через свій гоночний підрозділ Autodelta і знову пішла після сезону 1985.
+- **alpine 2021** — Alpine — це перейменована з 2021 року команда Renault F1 Team. Її історія починається з Toleman (1981), згодом команда виступала як Benetton, Renault і Lotus.
+- **arrows 1997** — У 1991–1996 роках команда виступала під назвою Footwork — після великих інвестицій японського підприємця Ватару Охаші. У березні 1996 року контроль над нею отримав Том Волкіншоу, і з 1997-го вона знову виступала як Arrows.
+- **arrows 2002** — У середині сезону 2002 року в Arrows закінчилися гроші, і команда пропустила останні етапи чемпіонату. Наприкінці року її ліквідували, а заявку на 2003 рік FIA відхилила.
+- **aston-martin 2021** — Команда Aston Martin з 2021 року — це перейменована Racing Point (раніше Force India, а від 1991 року — Jordan), власник якої Лоуренс Строл вклав кошти в автовиробника. Організаційно вона не пов'язана із заводською командою 1959–1960 років.
+- **audi 2026** — Audi прийшла у Formula 1, викупивши команду Sauber (повне поглинання завершено в січні 2025 року). У 1993–2025 роках ця команда виступала як Sauber, BMW Sauber, Alfa Romeo та Kick Sauber.
+- **brm 1956** — У 1952–1953 роках гонки чемпіонату світу проводили за правилами Формули-2, тож V16 від BRM був непридатний, а нова 2,5-літрова P25 під регламент 1954 року була готова до гонок лише у вересні 1955-го. Тому наступний старт BRM у чемпіонаті припав на 1956 рік.
+- **cadillac 2026** — Cadillac — повністю нова команда, а не перейменована: у березні 2025 року FIA та Formula 1 схвалили заявку General Motors і TWG Motorsports, і з 2026-го на старті стало одинадцять команд.
+- **de-tomaso 1970** — Після нечисленних виступів у 1961–1963 роках De Tomaso повернулася 1970-го лише як виробник шасі 505/38 (конструктор Джан Паоло Даллара), на якому виступала команда Frank Williams Racing Cars. Після цього сезону співпраця припинилася.
+- **emeryson 1961** — Emeryson — невелика майстерня британського конструктора Пола Емері, який 1956 року один раз стартував у чемпіонаті на власній машині. Марка повернулася 1961 року з новими 1,5-літровими машинами, а наприкінці того ж року Емері продав компанію американцеві Г'ю Павеллу.
+- **ewing 1950** — Ewing потрапив до статистики лише завдяки «Індіанаполіс 500», яка у 1950–1960 роках входила до чемпіонату світу серед пілотів, але не давала очок конструкторам. Машини з шасі Ewing стартували там у 1950 і 1960 роках.
+- **honda 1968** — Після останньої гонки 1968 року Honda офіційно пішла з Формули-1. Того сезону на Гран-прі Франції за кермом Honda RA302 загинув Жо Шлессер; компанія також посилалася на труднощі з продажем дорожніх авто у США.
+- **honda 2006** — Honda повернулася як конструктор, ставши єдиним власником команди BAR, якій постачала двигуни з 2000 року; з 2006-го команда виступала як Honda Racing F1 Team.
+- **honda 2008** — У грудні 2008 року Honda оголосила про негайний вихід з Формули-1 через економічну ситуацію. Команду врятував викуп менеджментом на чолі з Россом Броном: 2009 року вона виступала як Brawn GP, а згодом стала Mercedes.
+- **lola 1962** — Lola Cars переважно будувала шасі для інших команд, а не виставляла власну заводську команду, тож окремі відрізки на графіку — це різні колективи: Bowmaker (1962–1963), Embassy Hill (1974–1975), Larrousse (1991) і Scuderia Italia (1993).
+- **lola 1967** — У 1967 і 1968 роках Lola з'являється лише на Гран-прі Німеччини: там стартували машини Lola-BMW, створені на базі шасі Formula 2.
+- **march 1987** — March повернулася до Ф-1 1987 року за підтримки компанії Leyton House з Іваном Капеллі за кермом. Після того як 1989 року Leyton House викупила команду, у 1990–1991 роках вона виступала як Leyton House — у наших даних ці сезони записані окремо.
+- **march 1992** — 1992 року колишня команда Leyton House перейшла до нового консорціуму власників і знову взяла назву March, хоча вже не була пов'язана з групою March. Через брак фінансування на початку 1993 року команда припинила існування.
+- **mclaren 2007** — У 2007 році McLaren виключили з Кубка конструкторів і анулювали всі очки команди після рішення FIA у справі про конфіденційні технічні дані Ferrari. Очки пілотів залишилися в заліку.
+- **mercedes 1955** — Наприкінці 1955 року Mercedes-Benz пішов з автоспорту, зокрема з Формули-1, після трагедії на перегонах «24 години Ле-Мана» того ж сезону. Власною командою марка повернулася до чемпіонату лише 2010 року.
+- **mercedes 2010** — Mercedes повернувся як конструктор, коли в листопаді 2009 року Daimler разом з Aabar Investments викупили 75,1% команди Brawn GP — чинного чемпіона 2009 року. Сама Brawn GP була колишньою заводською командою Honda, що веде історію від BAR і Tyrrell.
+- **moore 1950** — Moore потрапив до статистики лише завдяки «Індіанаполіс 500», яка у 1950–1960 роках входила до чемпіонату світу серед пілотів, але не давала очок конструкторам. 1950 року машину виставила команда Лу Мура.
+- **racing-bulls 2024** — Це не нова команда: її заснували як Minardi (1985–2005), після купівлі Red Bull вона виступала як Toro Rosso (2006–2019) та AlphaTauri (2020–2023), 2024 року — як RB, а з 2025-го — як Racing Bulls. Попередні сезони в наших даних записані під давнішими назвами.
+- **racing-point 2019** — Racing Point — колишня Force India: у серпні 2018 року її активи викупив консорціум на чолі з Лоуренсом Стролом. Під назвою Racing Point команда виступала у 2019–2020 роках, а з 2021-го стала Aston Martin.
+- **racing-point 2020** — У 2020 році Racing Point позбавили 15 очок у Кубку конструкторів і оштрафували на 400 000 євро: стюарди задовольнили протест Renault щодо задніх гальмівних повітроводів, які, за їхнім висновком, спроєктувала Mercedes, а не сама команда. Очки пілотів не зняли.
+- **red-bull 2005** — Red Bull Racing — колишня команда Jaguar Racing, яку Red Bull купив у Ford у листопаді 2004 року. Своєю чергою Jaguar Racing виник 2000 року з команди Stewart Grand Prix (1997–1999).
+- **renault 2002** — Наприкінці 1985 року Renault закрила заводську команду, але згодом повернулася до Ф-1 як постачальник двигунів. На початку 2000 року компанія купила Benetton і з 2002-го виставляла команду під власною назвою.
+- **renault 2016** — Перед сезоном 2010 Renault продала більшість команди з Енстоуна компанії Genii Capital: вона ще виступала як Renault (2011 року — як Lotus Renault GP), а з 2012-го — як Lotus. У грудні 2015 року Renault викупила команду назад; після 2020 року її перейменували на Alpine.
+- **renault 2019** — Після протесту Racing Point обидві машини Renault дискваліфікували з результатів Гран-прі Японії 2019 року: стюарди визнали автоматичну систему регулювання балансу гальм забороненою допомогою пілоту, і команда втратила дев'ять очок.
+- **sauber 2006** — Наприкінці 2005 року BMW викупила контрольний пакет Sauber, тому в 2006–2009 роках команда значиться як BMW Sauber.
+- **sauber 2010** — Після виходу BMW з Formula 1 наприкінці 2009 року засновник Петер Заубер викупив команду назад, і з 2010 року вона знову виступає як Sauber.
+- **sauber 2019** — У 2019–2023 роках команда виступала під назвою Alfa Romeo за спонсорською угодою, не змінюючи власників. У 2024–2025 роках вона повернулася до назви Sauber (Kick Sauber), а з 2026 року стала Audi.
+- **trevis 1951** — Trevis — машини американського конструктора Флойда Тревіса, що брали участь у чемпіонаті світу лише в гонці «Індіанаполіс 500», яка входила до чемпіонату в 1950–1960 роках; пропущені сезони — роки, коли машин Trevis не було на старті. Очки в «Індіанаполісі» рахувалися лише пілотам, а не в Кубку конструкторів (з 1958 року).
+- **williams 1978** — Френк Вільямс і Патрік Гед заснували Williams Grand Prix Engineering 1977 року; того сезону команда виступала на клієнтському шасі March 761 (у наших даних ці результати записані за March). Перше власне шасі, FW06, вийшло на старт 1978 року.
+- **williams 1995** — На Гран-прі Бразилії 1995 року машини Williams і Benetton виключили з результатів через невідповідне паливо. Після апеляції пілотам повернули місця, але командам не нарахували очок у Кубку конструкторів за цю гонку — Williams втратила очки за друге місце Девіда Култгарда.
