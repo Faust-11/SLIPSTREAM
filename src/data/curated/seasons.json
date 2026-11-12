@@ -1,15 +1,15 @@
 {
- "source": "макет «Сезони» (12.11.2026), ліцензії звірено з Commons",
+ "source": "макет «Сезони» (12.11.2026); автор і ліцензія — з Commons",
  "seasons": {
   "1950": {
    "driver": "Nino Farina",
    "color": "#9b1b1b",
+   "driverRef": "farina",
    "photo": {
-    "src": "/img/seasons/1950-560.webp",
-    "srcSet": "/img/seasons/1950-560.webp 560w, /img/seasons/1950-320.webp 320w",
-    "width": 560,
-    "height": 285,
-    "focus": "50% 35%"
+    "src": "/img/seasons/1950-full.webp",
+    "srcSet": "/img/seasons/1950-full.webp 489w, /img/seasons/1950-small.webp 280w",
+    "width": 489,
+    "height": 489
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:1950_Italian_Grand_Prix_-_Farina_(Alfa_Romeo)_ahead_Ascari_(Ferrari)_at_Porfido_bends.jpg",
@@ -20,12 +20,12 @@
   "1951": {
    "driver": "Juan Manuel Fangio",
    "color": "#9b1b1b",
+   "driverRef": "fangio",
    "photo": {
-    "src": "/img/seasons/1951-560.webp",
-    "srcSet": "/img/seasons/1951-560.webp 560w, /img/seasons/1951-320.webp 320w",
+    "src": "/img/seasons/1951-full.webp",
+    "srcSet": "/img/seasons/1951-full.webp 560w, /img/seasons/1951-small.webp 280w",
     "width": 560,
-    "height": 453,
-    "focus": "50% 30%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:1951_Fangio_Nuvolari.jpg",
@@ -36,12 +36,12 @@
   "1952": {
    "driver": "Alberto Ascari",
    "color": "#e8002d",
+   "driverRef": "ascari",
    "photo": {
-    "src": "/img/seasons/1952-560.webp",
-    "srcSet": "/img/seasons/1952-560.webp 560w, /img/seasons/1952-320.webp 320w",
+    "src": "/img/seasons/1952-full.webp",
+    "srcSet": "/img/seasons/1952-full.webp 560w, /img/seasons/1952-small.webp 280w",
     "width": 560,
-    "height": 478,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:1952-09-07_GP_Italia_Monza_Ferrari_500_F2_Villoresi_Ascari.jpg",
@@ -52,12 +52,12 @@
   "1953": {
    "driver": "Alberto Ascari",
    "color": "#e8002d",
+   "driverRef": "ascari",
    "photo": {
-    "src": "/img/seasons/1953-560.webp",
-    "srcSet": "/img/seasons/1953-560.webp 346w, /img/seasons/1953-320.webp 320w",
-    "width": 346,
-    "height": 560,
-    "focus": "50% 8%"
+    "src": "/img/seasons/1953-full.webp",
+    "srcSet": "/img/seasons/1953-full.webp 560w, /img/seasons/1953-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:1953-06-29_Monza_Alberto_Ascari_(cropped).png",
@@ -68,12 +68,12 @@
   "1954": {
    "driver": "Juan Manuel Fangio",
    "color": "#27d9c2",
+   "driverRef": "fangio",
    "photo": {
-    "src": "/img/seasons/1954-560.webp",
-    "srcSet": "/img/seasons/1954-560.webp 560w, /img/seasons/1954-320.webp 320w",
+    "src": "/img/seasons/1954-full.webp",
+    "srcSet": "/img/seasons/1954-full.webp 560w, /img/seasons/1954-small.webp 280w",
     "width": 560,
-    "height": 363,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Gro%C3%9Fer_Preis_von_Europa_-1954_N%C3%BCrburgring,_Juan_Manuel_Fangio,_Mercedes_(3)x.JPG",
@@ -84,44 +84,44 @@
   "1955": {
    "driver": "Juan Manuel Fangio",
    "color": "#27d9c2",
+   "driverRef": "fangio",
    "photo": {
-    "src": "/img/seasons/1955-560.webp",
-    "srcSet": "/img/seasons/1955-560.webp 560w, /img/seasons/1955-320.webp 320w",
+    "src": "/img/seasons/1955-full.webp",
+    "srcSet": "/img/seasons/1955-full.webp 560w, /img/seasons/1955-small.webp 280w",
     "width": 560,
-    "height": 437,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Juan_Manuel_Fangio_and_Alfred_Neubauer_1955_Dutch_GP.jpg",
-    "author": "Joop van Bilsen",
+    "author": "Joop van Bilsen for Anefo",
     "license": "CC0"
    }
   },
   "1956": {
    "driver": "Juan Manuel Fangio",
    "color": "#e8002d",
+   "driverRef": "fangio",
    "photo": {
-    "src": "/img/seasons/1956-560.webp",
-    "srcSet": "/img/seasons/1956-560.webp 560w, /img/seasons/1956-320.webp 320w",
+    "src": "/img/seasons/1956-full.webp",
+    "srcSet": "/img/seasons/1956-full.webp 560w, /img/seasons/1956-small.webp 280w",
     "width": 560,
-    "height": 459,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:1956-08-12_Kristianstad_Ferrari_750_0470M_Lohmander_Kvarnstr%C3%B6m_Bonnier_Fangio.jpg",
-    "author": "Фанхіо серед пілотів, 1956, Unknown photographer",
+    "author": "Unknown photographer",
     "license": "Public domain"
    }
   },
   "1957": {
    "driver": "Juan Manuel Fangio",
    "color": "#9b1b1b",
+   "driverRef": "fangio",
    "photo": {
-    "src": "/img/seasons/1957-560.webp",
-    "srcSet": "/img/seasons/1957-560.webp 335w, /img/seasons/1957-320.webp 320w",
-    "width": 335,
-    "height": 560,
-    "focus": "50% 0%"
+    "src": "/img/seasons/1957-full.webp",
+    "srcSet": "/img/seasons/1957-full.webp 560w, /img/seasons/1957-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Juan_Manuel_Fangio_Nurburgring_1957.jpg",
@@ -132,76 +132,76 @@
   "1958": {
    "driver": "Mike Hawthorn",
    "color": "#e8002d",
+   "driverRef": "hawthorn",
    "photo": {
-    "src": "/img/seasons/1958-560.webp",
-    "srcSet": "/img/seasons/1958-560.webp 560w, /img/seasons/1958-320.webp 320w",
+    "src": "/img/seasons/1958-full.webp",
+    "srcSet": "/img/seasons/1958-full.webp 560w, /img/seasons/1958-small.webp 280w",
     "width": 560,
-    "height": 335,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Mike_Hawthorn_1958_Argentine_GP.jpg",
-    "author": "Unknown",
+    "author": "Unknown author",
     "license": "Public domain"
    }
   },
   "1959": {
    "driver": "Jack Brabham",
    "color": "#0b5e2e",
+   "driverRef": "jack_brabham",
    "photo": {
-    "src": "/img/seasons/1959-560.webp",
-    "srcSet": "/img/seasons/1959-560.webp 560w, /img/seasons/1959-320.webp 320w",
+    "src": "/img/seasons/1959-full.webp",
+    "srcSet": "/img/seasons/1959-full.webp 560w, /img/seasons/1959-small.webp 280w",
     "width": 560,
-    "height": 371,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Jack_Brabham%27s_1959_Cooper-Coventry-Climax_T51_F1_car_(14478678410).jpg",
-    "author": "болід Брабема 1959 року в музеї, Ben Sutherland from Crystal Pa",
+    "author": "Ben Sutherland from Crystal Palace, London, UK",
     "license": "CC BY 2.0"
    }
   },
   "1960": {
    "driver": "Jack Brabham",
    "color": "#0b5e2e",
+   "driverRef": "jack_brabham",
    "photo": {
-    "src": "/img/seasons/1960-560.webp",
-    "srcSet": "/img/seasons/1960-560.webp 560w, /img/seasons/1960-320.webp 320w",
+    "src": "/img/seasons/1960-full.webp",
+    "srcSet": "/img/seasons/1960-full.webp 560w, /img/seasons/1960-small.webp 280w",
     "width": 560,
-    "height": 369,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Autoraces_op_het_circuit_van_Zandvoort._Jack_Brabham_uit_Australie_onderaan_de_H,_Bestanddeelnr_911-3161_restored.jpg",
-    "author": "Harry Pot",
+    "author": "Harry Pot / Anefo",
     "license": "CC0"
    }
   },
   "1961": {
    "driver": "Phil Hill",
    "color": "#e8002d",
+   "driverRef": "phil_hill",
    "photo": {
-    "src": "/img/seasons/1961-560.webp",
-    "srcSet": "/img/seasons/1961-560.webp 560w, /img/seasons/1961-320.webp 320w",
+    "src": "/img/seasons/1961-full.webp",
+    "srcSet": "/img/seasons/1961-full.webp 560w, /img/seasons/1961-small.webp 280w",
     "width": 560,
-    "height": 408,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:1960-05-08_Targa_Florio_Ferrari_250_TRI-60_0780TR_Hill.jpg",
-    "author": "Філ Гілл у Ferrari, 1960, Unknown photographer",
+    "author": "Unknown photographer",
     "license": "Public domain"
    }
   },
   "1962": {
    "driver": "Graham Hill",
    "color": "#0b5e2e",
+   "driverRef": "hill",
    "photo": {
-    "src": "/img/seasons/1962-560.webp",
-    "srcSet": "/img/seasons/1962-560.webp 560w, /img/seasons/1962-320.webp 320w",
+    "src": "/img/seasons/1962-full.webp",
+    "srcSet": "/img/seasons/1962-full.webp 560w, /img/seasons/1962-small.webp 280w",
     "width": 560,
-    "height": 348,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Graham_Hill_1962_Dutch_GP_Color_1.png",
@@ -212,12 +212,12 @@
   "1963": {
    "driver": "Jim Clark",
    "color": "#0b5e2e",
+   "driverRef": "clark",
    "photo": {
-    "src": "/img/seasons/1963-560.webp",
-    "srcSet": "/img/seasons/1963-560.webp 560w, /img/seasons/1963-320.webp 320w",
+    "src": "/img/seasons/1963-full.webp",
+    "srcSet": "/img/seasons/1963-full.webp 560w, /img/seasons/1963-small.webp 280w",
     "width": 560,
-    "height": 420,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Jim_Clark_wining_Netherlands_GP_1963.jpg",
@@ -228,12 +228,12 @@
   "1964": {
    "driver": "John Surtees",
    "color": "#e8002d",
+   "driverRef": "surtees",
    "photo": {
-    "src": "/img/seasons/1964-560.webp",
-    "srcSet": "/img/seasons/1964-560.webp 560w, /img/seasons/1964-320.webp 320w",
+    "src": "/img/seasons/1964-full.webp",
+    "srcSet": "/img/seasons/1964-full.webp 560w, /img/seasons/1964-small.webp 280w",
     "width": 560,
-    "height": 369,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Surtees_at_1964_Dutch_Grand_Prix.jpg",
@@ -244,12 +244,12 @@
   "1965": {
    "driver": "Jim Clark",
    "color": "#0b5e2e",
+   "driverRef": "clark",
    "photo": {
-    "src": "/img/seasons/1965-560.webp",
-    "srcSet": "/img/seasons/1965-560.webp 420w, /img/seasons/1965-320.webp 320w",
-    "width": 420,
-    "height": 560,
-    "focus": "50% 25%"
+    "src": "/img/seasons/1965-full.webp",
+    "srcSet": "/img/seasons/1965-full.webp 560w, /img/seasons/1965-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Jim_Clark_1965.jpg",
@@ -260,12 +260,12 @@
   "1966": {
    "driver": "Jack Brabham",
    "color": "#1c4d9c",
+   "driverRef": "jack_brabham",
    "photo": {
-    "src": "/img/seasons/1966-560.webp",
-    "srcSet": "/img/seasons/1966-560.webp 397w, /img/seasons/1966-320.webp 320w",
-    "width": 397,
-    "height": 560,
-    "focus": "50% 20%"
+    "src": "/img/seasons/1966-full.webp",
+    "srcSet": "/img/seasons/1966-full.webp 560w, /img/seasons/1966-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:BrabhamJack1966B.jpg",
@@ -276,76 +276,76 @@
   "1967": {
    "driver": "Denny Hulme",
    "color": "#1c4d9c",
+   "driverRef": "hulme",
    "photo": {
-    "src": "/img/seasons/1967-560.webp",
-    "srcSet": "/img/seasons/1967-560.webp 560w, /img/seasons/1967-320.webp 320w",
+    "src": "/img/seasons/1967-full.webp",
+    "srcSet": "/img/seasons/1967-full.webp 560w, /img/seasons/1967-small.webp 280w",
     "width": 560,
-    "height": 369,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Hulme_at_1967_Dutch_Grand_Prix.jpg",
-    "author": "Eric Koch",
+    "author": "Eric Koch for Anefo",
     "license": "CC BY-SA 3.0 nl"
    }
   },
   "1968": {
    "driver": "Graham Hill",
    "color": "#0b5e2e",
+   "driverRef": "hill",
    "photo": {
-    "src": "/img/seasons/1968-560.webp",
-    "srcSet": "/img/seasons/1968-560.webp 560w, /img/seasons/1968-320.webp 320w",
+    "src": "/img/seasons/1968-full.webp",
+    "srcSet": "/img/seasons/1968-full.webp 560w, /img/seasons/1968-small.webp 280w",
     "width": 560,
-    "height": 371,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:G._Hill_at_1968_Dutch_Grand_Prix_(3).jpg",
-    "author": "Evers, Joost",
+    "author": "Evers, Joost / Anefo",
     "license": "CC BY-SA 3.0 nl"
    }
   },
   "1969": {
    "driver": "Jackie Stewart",
    "color": "#1c3f94",
+   "driverRef": "stewart",
    "photo": {
-    "src": "/img/seasons/1969-560.webp",
-    "srcSet": "/img/seasons/1969-560.webp 560w, /img/seasons/1969-320.webp 320w",
+    "src": "/img/seasons/1969-full.webp",
+    "srcSet": "/img/seasons/1969-full.webp 560w, /img/seasons/1969-small.webp 280w",
     "width": 560,
-    "height": 370,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Stewart_at_1969_Dutch_Grand_Prix_(6).jpg",
-    "author": "Evers, Joost",
+    "author": "Evers, Joost / Anefo",
     "license": "CC BY-SA 3.0 nl"
    }
   },
   "1970": {
    "driver": "Jochen Rindt",
    "color": "#0b5e2e",
+   "driverRef": "rindt",
    "photo": {
-    "src": "/img/seasons/1970-560.webp",
-    "srcSet": "/img/seasons/1970-560.webp 419w, /img/seasons/1970-320.webp 320w",
-    "width": 419,
-    "height": 560,
-    "focus": "50% 10%"
+    "src": "/img/seasons/1970-full.webp",
+    "srcSet": "/img/seasons/1970-full.webp 560w, /img/seasons/1970-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Rindt_at_1970_Dutch_Grand_Prix_(2C).jpg",
-    "author": "Evers, Joost",
+    "author": "Evers, Joost / Anefo",
     "license": "CC BY-SA 3.0 nl"
    }
   },
   "1971": {
    "driver": "Jackie Stewart",
    "color": "#1c3f94",
+   "driverRef": "stewart",
    "photo": {
-    "src": "/img/seasons/1971-560.webp",
-    "srcSet": "/img/seasons/1971-560.webp 560w, /img/seasons/1971-320.webp 320w",
+    "src": "/img/seasons/1971-full.webp",
+    "srcSet": "/img/seasons/1971-full.webp 560w, /img/seasons/1971-small.webp 280w",
     "width": 560,
-    "height": 382,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Jackie_Stewart_Tyrrell_003_Brands_Hatch_1971.jpg",
@@ -356,12 +356,12 @@
   "1972": {
    "driver": "Emerson Fittipaldi",
    "color": "#0b5e2e",
+   "driverRef": "emerson_fittipaldi",
    "photo": {
-    "src": "/img/seasons/1972-560.webp",
-    "srcSet": "/img/seasons/1972-560.webp 560w, /img/seasons/1972-320.webp 320w",
-    "width": 560,
-    "height": 256,
-    "focus": "50% 35%"
+    "src": "/img/seasons/1972-full.webp",
+    "srcSet": "/img/seasons/1972-full.webp 439w, /img/seasons/1972-small.webp 280w",
+    "width": 439,
+    "height": 439
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Emerson_Fittipaldi_1972_Austrian_GP.jpg",
@@ -372,12 +372,12 @@
   "1973": {
    "driver": "Jackie Stewart",
    "color": "#1c3f94",
+   "driverRef": "stewart",
    "photo": {
-    "src": "/img/seasons/1973-560.webp",
-    "srcSet": "/img/seasons/1973-560.webp 373w, /img/seasons/1973-320.webp 320w",
-    "width": 373,
-    "height": 560,
-    "focus": "50% 25%"
+    "src": "/img/seasons/1973-full.webp",
+    "srcSet": "/img/seasons/1973-full.webp 560w, /img/seasons/1973-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Stewart,_Jackie_(Foto_Spurzem_1973).jpg",
@@ -388,12 +388,12 @@
   "1974": {
    "driver": "Emerson Fittipaldi",
    "color": "#ff8000",
+   "driverRef": "emerson_fittipaldi",
    "photo": {
-    "src": "/img/seasons/1974-560.webp",
-    "srcSet": "/img/seasons/1974-560.webp 560w, /img/seasons/1974-320.webp 320w",
+    "src": "/img/seasons/1974-full.webp",
+    "srcSet": "/img/seasons/1974-full.webp 560w, /img/seasons/1974-small.webp 280w",
     "width": 560,
-    "height": 375,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Emerson_Fittipaldi_1974_Watkins_Glen.jpg",
@@ -404,44 +404,44 @@
   "1975": {
    "driver": "Niki Lauda",
    "color": "#e8002d",
+   "driverRef": "lauda",
    "photo": {
-    "src": "/img/seasons/1975-560.webp",
-    "srcSet": "/img/seasons/1975-560.webp 560w, /img/seasons/1975-320.webp 320w",
+    "src": "/img/seasons/1975-full.webp",
+    "srcSet": "/img/seasons/1975-full.webp 560w, /img/seasons/1975-small.webp 280w",
     "width": 560,
-    "height": 377,
-    "focus": "50% 25%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Niki_Lauda,_1975_British_Grand_Prix.jpg",
-    "author": "Gillfoto from Juneau, Alaska,",
+    "author": "Gillfoto from Juneau, Alaska, United States",
     "license": "CC BY-SA 3.0"
    }
   },
   "1976": {
    "driver": "James Hunt",
    "color": "#ff8000",
+   "driverRef": "hunt",
    "photo": {
-    "src": "/img/seasons/1976-560.webp",
-    "srcSet": "/img/seasons/1976-560.webp 560w, /img/seasons/1976-320.webp 320w",
+    "src": "/img/seasons/1976-full.webp",
+    "srcSet": "/img/seasons/1976-full.webp 560w, /img/seasons/1976-small.webp 280w",
     "width": 560,
-    "height": 495,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:James_Hunt_-_Dutch_GP_1976_crop.jpg",
-    "author": "photographer: Rob Croes",
+    "author": "photographer: Rob Croes; cropped by Z105space",
     "license": "CC BY-SA 3.0"
    }
   },
   "1977": {
    "driver": "Niki Lauda",
    "color": "#e8002d",
+   "driverRef": "lauda",
    "photo": {
-    "src": "/img/seasons/1977-560.webp",
-    "srcSet": "/img/seasons/1977-560.webp 560w, /img/seasons/1977-320.webp 320w",
+    "src": "/img/seasons/1977-full.webp",
+    "srcSet": "/img/seasons/1977-full.webp 560w, /img/seasons/1977-small.webp 280w",
     "width": 560,
-    "height": 350,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Lauda_car_monaco_gp_1977.jpg",
@@ -452,28 +452,28 @@
   "1978": {
    "driver": "Mario Andretti",
    "color": "#0b5e2e",
+   "driverRef": "mario_andretti",
    "photo": {
-    "src": "/img/seasons/1978-560.webp",
-    "srcSet": "/img/seasons/1978-560.webp 430w, /img/seasons/1978-320.webp 320w",
-    "width": 430,
-    "height": 560,
-    "focus": "50% 20%"
+    "src": "/img/seasons/1978-full.webp",
+    "srcSet": "/img/seasons/1978-full.webp 560w, /img/seasons/1978-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Mario_Andretti_celebrating_at_1978_Dutch_Grand_Prix_(cropped).jpg",
-    "author": "Suyk, Koen",
+    "author": "Suyk, Koen / Anefo",
     "license": "CC BY-SA 3.0 nl"
    }
   },
   "1979": {
    "driver": "Jody Scheckter",
    "color": "#e8002d",
+   "driverRef": "scheckter",
    "photo": {
-    "src": "/img/seasons/1979-560.webp",
-    "srcSet": "/img/seasons/1979-560.webp 393w, /img/seasons/1979-320.webp 320w",
-    "width": 393,
-    "height": 560,
-    "focus": "50% 10%"
+    "src": "/img/seasons/1979-full.webp",
+    "srcSet": "/img/seasons/1979-full.webp 560w, /img/seasons/1979-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Jody_Scheckter_during_the_1979_Monaco_Grand_Prix.jpg",
@@ -484,28 +484,28 @@
   "1980": {
    "driver": "Alan Jones",
    "color": "#1868db",
+   "driverRef": "jones",
    "photo": {
-    "src": "/img/seasons/1980-560.webp",
-    "srcSet": "/img/seasons/1980-560.webp 420w, /img/seasons/1980-320.webp 320w",
-    "width": 420,
-    "height": 560,
-    "focus": "50% 25%"
+    "src": "/img/seasons/1980-full.webp",
+    "srcSet": "/img/seasons/1980-full.webp 560w, /img/seasons/1980-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Alan_Jones_1980_(cropped).jpg",
-    "author": "Unknown",
+    "author": "Anefo (Nationaal Archief) / derivative work: Danyele",
     "license": "CC0"
    }
   },
   "1981": {
    "driver": "Nelson Piquet",
    "color": "#1c4d9c",
+   "driverRef": "piquet",
    "photo": {
-    "src": "/img/seasons/1981-560.webp",
-    "srcSet": "/img/seasons/1981-560.webp 560w, /img/seasons/1981-320.webp 320w",
+    "src": "/img/seasons/1981-full.webp",
+    "srcSet": "/img/seasons/1981-full.webp 560w, /img/seasons/1981-small.webp 280w",
     "width": 560,
-    "height": 331,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:1981_Argentine_Grand_Prix,_Piquet_(6).jpg",
@@ -516,28 +516,28 @@
   "1982": {
    "driver": "Keke Rosberg",
    "color": "#1868db",
+   "driverRef": "keke_rosberg",
    "photo": {
-    "src": "/img/seasons/1982-560.webp",
-    "srcSet": "/img/seasons/1982-560.webp 371w, /img/seasons/1982-320.webp 320w",
-    "width": 371,
-    "height": 560,
-    "focus": "50% 20%"
+    "src": "/img/seasons/1982-full.webp",
+    "srcSet": "/img/seasons/1982-full.webp 560w, /img/seasons/1982-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Anefo_932-2378_Keke_Rosberg,_Zandvoort,_03-07-1982_-_Restoration.jpg",
-    "author": "Hans van Dijk",
+    "author": "Hans van Dijk for Anefo",
     "license": "CC0"
    }
   },
   "1983": {
    "driver": "Nelson Piquet",
    "color": "#1c4d9c",
+   "driverRef": "piquet",
    "photo": {
-    "src": "/img/seasons/1983-560.webp",
-    "srcSet": "/img/seasons/1983-560.webp 478w, /img/seasons/1983-320.webp 320w",
-    "width": 478,
-    "height": 560,
-    "focus": "50% 0%"
+    "src": "/img/seasons/1983-full.webp",
+    "srcSet": "/img/seasons/1983-full.webp 560w, /img/seasons/1983-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Piquet_a_Monza_1983.JPG",
@@ -548,28 +548,28 @@
   "1984": {
    "driver": "Niki Lauda",
    "color": "#ff8000",
+   "driverRef": "lauda",
    "photo": {
-    "src": "/img/seasons/1984-560.webp",
-    "srcSet": "/img/seasons/1984-560.webp 357w, /img/seasons/1984-320.webp 320w",
-    "width": 357,
-    "height": 560,
-    "focus": "50% 25%"
+    "src": "/img/seasons/1984-full.webp",
+    "srcSet": "/img/seasons/1984-full.webp 560w, /img/seasons/1984-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Anefo_933-1302_Niki_Lauda_29.10.1984.jpg",
-    "author": "Anefo",
+    "author": "Anefo / Croes, R.C.",
     "license": "CC0"
    }
   },
   "1985": {
    "driver": "Alain Prost",
    "color": "#ff8000",
+   "driverRef": "prost",
    "photo": {
-    "src": "/img/seasons/1985-560.webp",
-    "srcSet": "/img/seasons/1985-560.webp 560w, /img/seasons/1985-320.webp 320w",
+    "src": "/img/seasons/1985-full.webp",
+    "srcSet": "/img/seasons/1985-full.webp 560w, /img/seasons/1985-small.webp 280w",
     "width": 560,
-    "height": 358,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:ProstAlain_McLarenMP4-2B_1985.jpg",
@@ -580,28 +580,28 @@
   "1986": {
    "driver": "Alain Prost",
    "color": "#ff8000",
+   "driverRef": "prost",
    "photo": {
-    "src": "/img/seasons/1986-560.webp",
-    "srcSet": "/img/seasons/1986-560.webp 459w, /img/seasons/1986-320.webp 320w",
-    "width": 459,
-    "height": 560,
-    "focus": "50% 15%"
+    "src": "/img/seasons/1986-full.webp",
+    "srcSet": "/img/seasons/1986-full.webp 560w, /img/seasons/1986-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Alain_Prost_in_1985_(cropped).jpg",
-    "author": "Прост, 1985, Fotopersbureau de Boer",
+    "author": "Fotopersbureau de Boer",
     "license": "CC0"
    }
   },
   "1987": {
    "driver": "Nelson Piquet",
    "color": "#1868db",
+   "driverRef": "piquet",
    "photo": {
-    "src": "/img/seasons/1987-560.webp",
-    "srcSet": "/img/seasons/1987-560.webp 560w, /img/seasons/1987-320.webp 320w",
+    "src": "/img/seasons/1987-full.webp",
+    "srcSet": "/img/seasons/1987-full.webp 560w, /img/seasons/1987-small.webp 280w",
     "width": 560,
-    "height": 420,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Honda_RACING_Gallery_1987_Williams_FW11B_Nelson_Piquet.jpg",
@@ -612,12 +612,12 @@
   "1988": {
    "driver": "Ayrton Senna",
    "color": "#ff8000",
+   "driverRef": "senna",
    "photo": {
-    "src": "/img/seasons/1988-560.webp",
-    "srcSet": "/img/seasons/1988-560.webp 560w, /img/seasons/1988-320.webp 320w",
+    "src": "/img/seasons/1988-full.webp",
+    "srcSet": "/img/seasons/1988-full.webp 560w, /img/seasons/1988-small.webp 280w",
     "width": 560,
-    "height": 362,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Ayrton_Senna_in_1988.jpg",
@@ -628,44 +628,44 @@
   "1989": {
    "driver": "Alain Prost",
    "color": "#ff8000",
+   "driverRef": "prost",
    "photo": {
-    "src": "/img/seasons/1989-560.webp",
-    "srcSet": "/img/seasons/1989-560.webp 560w, /img/seasons/1989-320.webp 320w",
+    "src": "/img/seasons/1989-full.webp",
+    "srcSet": "/img/seasons/1989-full.webp 560w, /img/seasons/1989-small.webp 280w",
     "width": 560,
-    "height": 386,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Alain_Prost_1989_Belgian_GP.jpg",
-    "author": "madagascarica from Verneuil Gr",
+    "author": "madagascarica from Verneuil Grand, France",
     "license": "CC BY 2.0"
    }
   },
   "1990": {
    "driver": "Ayrton Senna",
    "color": "#ff8000",
+   "driverRef": "senna",
    "photo": {
-    "src": "/img/seasons/1990-560.webp",
-    "srcSet": "/img/seasons/1990-560.webp 560w, /img/seasons/1990-320.webp 320w",
+    "src": "/img/seasons/1990-full.webp",
+    "srcSet": "/img/seasons/1990-full.webp 560w, /img/seasons/1990-small.webp 280w",
     "width": 560,
-    "height": 454,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:McLaren_MP4-5B_2009_Japan.jpg",
-    "author": "болід Сенни 1990 року на виставці, Morio",
+    "author": "Morio",
     "license": "CC BY-SA 3.0"
    }
   },
   "1991": {
    "driver": "Ayrton Senna",
    "color": "#ff8000",
+   "driverRef": "senna",
    "photo": {
-    "src": "/img/seasons/1991-560.webp",
-    "srcSet": "/img/seasons/1991-560.webp 560w, /img/seasons/1991-320.webp 320w",
+    "src": "/img/seasons/1991-full.webp",
+    "srcSet": "/img/seasons/1991-full.webp 560w, /img/seasons/1991-small.webp 280w",
     "width": 560,
-    "height": 371,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Ayrton_Senna_during_the_race_in_Spa-Francorchamps_on_25_August_1991.jpg",
@@ -676,12 +676,12 @@
   "1992": {
    "driver": "Nigel Mansell",
    "color": "#1868db",
+   "driverRef": "mansell",
    "photo": {
-    "src": "/img/seasons/1992-560.webp",
-    "srcSet": "/img/seasons/1992-560.webp 560w, /img/seasons/1992-320.webp 320w",
+    "src": "/img/seasons/1992-full.webp",
+    "srcSet": "/img/seasons/1992-full.webp 560w, /img/seasons/1992-small.webp 280w",
     "width": 560,
-    "height": 373,
-    "focus": "62% 55%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:F1_Hockenheimring_1992_Nigel_Mansell_005.jpg",
@@ -692,12 +692,12 @@
   "1993": {
    "driver": "Alain Prost",
    "color": "#1868db",
+   "driverRef": "prost",
    "photo": {
-    "src": "/img/seasons/1993-560.webp",
-    "srcSet": "/img/seasons/1993-560.webp 560w, /img/seasons/1993-320.webp 320w",
+    "src": "/img/seasons/1993-full.webp",
+    "srcSet": "/img/seasons/1993-full.webp 560w, /img/seasons/1993-small.webp 280w",
     "width": 560,
-    "height": 373,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Alain_Prost_1993_Silverstone.jpg",
@@ -708,12 +708,12 @@
   "1994": {
    "driver": "Michael Schumacher",
    "color": "#1e9e5a",
+   "driverRef": "michael_schumacher",
    "photo": {
-    "src": "/img/seasons/1994-560.webp",
-    "srcSet": "/img/seasons/1994-560.webp 560w, /img/seasons/1994-320.webp 320w",
+    "src": "/img/seasons/1994-full.webp",
+    "srcSet": "/img/seasons/1994-full.webp 560w, /img/seasons/1994-small.webp 280w",
     "width": 560,
-    "height": 391,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Michael_Schumacher_1994_Silverstone.jpg",
@@ -724,28 +724,28 @@
   "1995": {
    "driver": "Michael Schumacher",
    "color": "#1e9e5a",
+   "driverRef": "michael_schumacher",
    "photo": {
-    "src": "/img/seasons/1995-560.webp",
-    "srcSet": "/img/seasons/1995-560.webp 560w, /img/seasons/1995-320.webp 320w",
-    "width": 560,
-    "height": 238,
-    "focus": "50% 35%"
+    "src": "/img/seasons/1995-full.webp",
+    "srcSet": "/img/seasons/1995-full.webp 408w, /img/seasons/1995-small.webp 280w",
+    "width": 408,
+    "height": 408
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Michael_Schumacher_1995_Britain.jpg",
-    "author": "Fox 1 from Beta Quadrant, Engl",
+    "author": "Fox 1 from Beta Quadrant, England",
     "license": "CC BY-SA 2.0"
    }
   },
   "1996": {
    "driver": "Damon Hill",
    "color": "#1868db",
+   "driverRef": "damon_hill",
    "photo": {
-    "src": "/img/seasons/1996-560.webp",
-    "srcSet": "/img/seasons/1996-560.webp 560w, /img/seasons/1996-320.webp 320w",
+    "src": "/img/seasons/1996-full.webp",
+    "srcSet": "/img/seasons/1996-full.webp 560w, /img/seasons/1996-small.webp 280w",
     "width": 560,
-    "height": 372,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Damon_Hill_-_Imola_1996_(2).jpg",
@@ -756,12 +756,12 @@
   "1997": {
    "driver": "Jacques Villeneuve",
    "color": "#1868db",
+   "driverRef": "villeneuve",
    "photo": {
-    "src": "/img/seasons/1997-560.webp",
-    "srcSet": "/img/seasons/1997-560.webp 420w, /img/seasons/1997-320.webp 320w",
-    "width": 420,
-    "height": 560,
-    "focus": "50% 35%"
+    "src": "/img/seasons/1997-full.webp",
+    "srcSet": "/img/seasons/1997-full.webp 560w, /img/seasons/1997-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Williams_FW19_of_Jacques_Villeneuve,_1997.jpg",
@@ -772,12 +772,12 @@
   "1998": {
    "driver": "Mika Häkkinen",
    "color": "#ff8000",
+   "driverRef": "hakkinen",
    "photo": {
-    "src": "/img/seasons/1998-560.webp",
-    "srcSet": "/img/seasons/1998-560.webp 560w, /img/seasons/1998-320.webp 320w",
+    "src": "/img/seasons/1998-full.webp",
+    "srcSet": "/img/seasons/1998-full.webp 560w, /img/seasons/1998-small.webp 280w",
     "width": 560,
-    "height": 395,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Mika_H%C3%A4kkinen_at_Silverstone,_August_1998.jpg",
@@ -788,60 +788,60 @@
   "1999": {
    "driver": "Mika Häkkinen",
    "color": "#ff8000",
+   "driverRef": "hakkinen",
    "photo": {
-    "src": "/img/seasons/1999-560.webp",
-    "srcSet": "/img/seasons/1999-560.webp 560w, /img/seasons/1999-320.webp 320w",
+    "src": "/img/seasons/1999-full.webp",
+    "srcSet": "/img/seasons/1999-full.webp 560w, /img/seasons/1999-small.webp 280w",
     "width": 560,
-    "height": 372,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Mika_Hakkinen_1999_Canada.jpg",
-    "author": "Paul Lannuier from Sussex, NJ,",
+    "author": "Paul Lannuier from Sussex, NJ, USA",
     "license": "CC BY-SA 2.0"
    }
   },
   "2000": {
    "driver": "Michael Schumacher",
    "color": "#e8002d",
+   "driverRef": "michael_schumacher",
    "photo": {
-    "src": "/img/seasons/2000-560.webp",
-    "srcSet": "/img/seasons/2000-560.webp 560w, /img/seasons/2000-320.webp 320w",
+    "src": "/img/seasons/2000-full.webp",
+    "srcSet": "/img/seasons/2000-full.webp 560w, /img/seasons/2000-small.webp 280w",
     "width": 560,
-    "height": 373,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Ferrari_F1-2000_and_Japanese_GP_2000_winner%27s_trophy_Michael_Schumacher_Private_Collection.jpg",
-    "author": "болід і кубок Шумахера 2000 року, Morio",
+    "author": "Morio",
     "license": "CC BY-SA 4.0"
    }
   },
   "2001": {
    "driver": "Michael Schumacher",
    "color": "#e8002d",
+   "driverRef": "michael_schumacher",
    "photo": {
-    "src": "/img/seasons/2001-560.webp",
-    "srcSet": "/img/seasons/2001-560.webp 560w, /img/seasons/2001-320.webp 320w",
-    "width": 560,
-    "height": 288,
-    "focus": "50% 35%"
+    "src": "/img/seasons/2001-full.webp",
+    "srcSet": "/img/seasons/2001-full.webp 495w, /img/seasons/2001-small.webp 280w",
+    "width": 495,
+    "height": 495
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Michael_Schumacher,_Ferrari_F2001_(8968595731)_(cropped).jpg",
-    "author": "Unknown",
+    "author": "Original: Peter Wright from United Kingdom / Derivative work: Danyele",
     "license": "CC BY-SA 2.0"
    }
   },
   "2002": {
    "driver": "Michael Schumacher",
    "color": "#e8002d",
+   "driverRef": "michael_schumacher",
    "photo": {
-    "src": "/img/seasons/2002-560.webp",
-    "srcSet": "/img/seasons/2002-560.webp 373w, /img/seasons/2002-320.webp 320w",
-    "width": 373,
-    "height": 560,
-    "focus": "50% 20%"
+    "src": "/img/seasons/2002-full.webp",
+    "srcSet": "/img/seasons/2002-full.webp 560w, /img/seasons/2002-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Michael_Schumacher_2002.jpg",
@@ -852,12 +852,12 @@
   "2003": {
    "driver": "Michael Schumacher",
    "color": "#e8002d",
+   "driverRef": "michael_schumacher",
    "photo": {
-    "src": "/img/seasons/2003-560.webp",
-    "srcSet": "/img/seasons/2003-560.webp 560w, /img/seasons/2003-320.webp 320w",
+    "src": "/img/seasons/2003-full.webp",
+    "srcSet": "/img/seasons/2003-full.webp 560w, /img/seasons/2003-small.webp 280w",
     "width": 560,
-    "height": 396,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Michael_Schumacher_2003_Silverstone.jpg",
@@ -868,12 +868,12 @@
   "2004": {
    "driver": "Michael Schumacher",
    "color": "#e8002d",
+   "driverRef": "michael_schumacher",
    "photo": {
-    "src": "/img/seasons/2004-560.webp",
-    "srcSet": "/img/seasons/2004-560.webp 560w, /img/seasons/2004-320.webp 320w",
+    "src": "/img/seasons/2004-full.webp",
+    "srcSet": "/img/seasons/2004-full.webp 560w, /img/seasons/2004-small.webp 280w",
     "width": 560,
-    "height": 373,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Michael_Schumacher_Ferrari_2004.jpg",
@@ -884,12 +884,12 @@
   "2005": {
    "driver": "Fernando Alonso",
    "color": "#ffd200",
+   "driverRef": "alonso",
    "photo": {
-    "src": "/img/seasons/2005-560.webp",
-    "srcSet": "/img/seasons/2005-560.webp 560w, /img/seasons/2005-320.webp 320w",
+    "src": "/img/seasons/2005-full.webp",
+    "srcSet": "/img/seasons/2005-full.webp 560w, /img/seasons/2005-small.webp 280w",
     "width": 560,
-    "height": 380,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Fernando_Alonso_2005_Britain.jpg",
@@ -900,12 +900,12 @@
   "2006": {
    "driver": "Fernando Alonso",
    "color": "#ffd200",
+   "driverRef": "alonso",
    "photo": {
-    "src": "/img/seasons/2006-560.webp",
-    "srcSet": "/img/seasons/2006-560.webp 560w, /img/seasons/2006-320.webp 320w",
+    "src": "/img/seasons/2006-full.webp",
+    "srcSet": "/img/seasons/2006-full.webp 560w, /img/seasons/2006-small.webp 280w",
     "width": 560,
-    "height": 373,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Fernando_Alonso_2006_Canada.jpg",
@@ -916,28 +916,28 @@
   "2007": {
    "driver": "Kimi Räikkönen",
    "color": "#e8002d",
+   "driverRef": "raikkonen",
    "photo": {
-    "src": "/img/seasons/2007-560.webp",
-    "srcSet": "/img/seasons/2007-560.webp 560w, /img/seasons/2007-320.webp 320w",
+    "src": "/img/seasons/2007-full.webp",
+    "srcSet": "/img/seasons/2007-full.webp 560w, /img/seasons/2007-small.webp 280w",
     "width": 560,
-    "height": 364,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Kimi_Raikkonen_2007_USA.jpg",
-    "author": "Jeff Wunrow from Minneapolis,",
+    "author": "Jeff Wunrow from Minneapolis, MN, USA",
     "license": "CC BY 2.0"
    }
   },
   "2008": {
    "driver": "Lewis Hamilton",
    "color": "#ff8000",
+   "driverRef": "hamilton",
    "photo": {
-    "src": "/img/seasons/2008-560.webp",
-    "srcSet": "/img/seasons/2008-560.webp 560w, /img/seasons/2008-320.webp 320w",
+    "src": "/img/seasons/2008-full.webp",
+    "srcSet": "/img/seasons/2008-full.webp 560w, /img/seasons/2008-small.webp 280w",
     "width": 560,
-    "height": 373,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_2008_2_amk.jpg",
@@ -948,12 +948,12 @@
   "2009": {
    "driver": "Jenson Button",
    "color": "#d8f000",
+   "driverRef": "button",
    "photo": {
-    "src": "/img/seasons/2009-560.webp",
-    "srcSet": "/img/seasons/2009-560.webp 401w, /img/seasons/2009-320.webp 320w",
-    "width": 401,
-    "height": 560,
-    "focus": "50% 25%"
+    "src": "/img/seasons/2009-full.webp",
+    "srcSet": "/img/seasons/2009-full.webp 560w, /img/seasons/2009-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Jenson_Button_2009.jpg",
@@ -964,12 +964,12 @@
   "2010": {
    "driver": "Sebastian Vettel",
    "color": "#1b2b6b",
+   "driverRef": "vettel",
    "photo": {
-    "src": "/img/seasons/2010-560.webp",
-    "srcSet": "/img/seasons/2010-560.webp 560w, /img/seasons/2010-320.webp 320w",
+    "src": "/img/seasons/2010-full.webp",
+    "srcSet": "/img/seasons/2010-full.webp 560w, /img/seasons/2010-small.webp 280w",
     "width": 560,
-    "height": 373,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2010_Australia.jpg",
@@ -980,12 +980,12 @@
   "2011": {
    "driver": "Sebastian Vettel",
    "color": "#1b2b6b",
+   "driverRef": "vettel",
    "photo": {
-    "src": "/img/seasons/2011-560.webp",
-    "srcSet": "/img/seasons/2011-560.webp 560w, /img/seasons/2011-320.webp 320w",
+    "src": "/img/seasons/2011-full.webp",
+    "srcSet": "/img/seasons/2011-full.webp 560w, /img/seasons/2011-small.webp 280w",
     "width": 560,
-    "height": 348,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2011_Malaysia_FP3.jpg",
@@ -996,12 +996,12 @@
   "2012": {
    "driver": "Sebastian Vettel",
    "color": "#1b2b6b",
+   "driverRef": "vettel",
    "photo": {
-    "src": "/img/seasons/2012-560.webp",
-    "srcSet": "/img/seasons/2012-560.webp 560w, /img/seasons/2012-320.webp 320w",
+    "src": "/img/seasons/2012-full.webp",
+    "srcSet": "/img/seasons/2012-full.webp 560w, /img/seasons/2012-small.webp 280w",
     "width": 560,
-    "height": 372,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2012_Bahrain_3.jpg",
@@ -1012,12 +1012,12 @@
   "2013": {
    "driver": "Sebastian Vettel",
    "color": "#1b2b6b",
+   "driverRef": "vettel",
    "photo": {
-    "src": "/img/seasons/2013-560.webp",
-    "srcSet": "/img/seasons/2013-560.webp 560w, /img/seasons/2013-320.webp 320w",
+    "src": "/img/seasons/2013-full.webp",
+    "srcSet": "/img/seasons/2013-full.webp 560w, /img/seasons/2013-small.webp 280w",
     "width": 560,
-    "height": 351,
-    "focus": "82% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_(2013_Suzuka%27s_winner).jpg",
@@ -1028,28 +1028,28 @@
   "2014": {
    "driver": "Lewis Hamilton",
    "color": "#27d9c2",
+   "driverRef": "hamilton",
    "photo": {
-    "src": "/img/seasons/2014-560.webp",
-    "srcSet": "/img/seasons/2014-560.webp 401w, /img/seasons/2014-320.webp 320w",
-    "width": 401,
-    "height": 560,
-    "focus": "50% 25%"
+    "src": "/img/seasons/2014-full.webp",
+    "srcSet": "/img/seasons/2014-full.webp 560w, /img/seasons/2014-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_October_2014.jpg",
-    "author": "Stefan Brending",
+    "author": "Stefan Brending (2eight)",
     "license": "CC BY-SA 3.0 de"
    }
   },
   "2015": {
    "driver": "Lewis Hamilton",
    "color": "#27d9c2",
+   "driverRef": "hamilton",
    "photo": {
-    "src": "/img/seasons/2015-560.webp",
-    "srcSet": "/img/seasons/2015-560.webp 433w, /img/seasons/2015-320.webp 320w",
-    "width": 433,
-    "height": 560,
-    "focus": "50% 10%"
+    "src": "/img/seasons/2015-full.webp",
+    "srcSet": "/img/seasons/2015-full.webp 560w, /img/seasons/2015-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_(2015_Monaco_GP_Podium).jpg",
@@ -1060,12 +1060,12 @@
   "2016": {
    "driver": "Nico Rosberg",
    "color": "#27d9c2",
+   "driverRef": "rosberg",
    "photo": {
-    "src": "/img/seasons/2016-560.webp",
-    "srcSet": "/img/seasons/2016-560.webp 373w, /img/seasons/2016-320.webp 320w",
-    "width": 373,
-    "height": 560,
-    "focus": "50% 15%"
+    "src": "/img/seasons/2016-full.webp",
+    "srcSet": "/img/seasons/2016-full.webp 560w, /img/seasons/2016-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Nico_Rosberg_2016_Malaysia_1.jpg",
@@ -1076,12 +1076,12 @@
   "2017": {
    "driver": "Lewis Hamilton",
    "color": "#27d9c2",
+   "driverRef": "hamilton",
    "photo": {
-    "src": "/img/seasons/2017-560.webp",
-    "srcSet": "/img/seasons/2017-560.webp 373w, /img/seasons/2017-320.webp 320w",
-    "width": 373,
-    "height": 560,
-    "focus": "50% 15%"
+    "src": "/img/seasons/2017-full.webp",
+    "srcSet": "/img/seasons/2017-full.webp 560w, /img/seasons/2017-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_2017_Malaysia.jpg",
@@ -1092,12 +1092,12 @@
   "2018": {
    "driver": "Lewis Hamilton",
    "color": "#27d9c2",
+   "driverRef": "hamilton",
    "photo": {
-    "src": "/img/seasons/2018-560.webp",
-    "srcSet": "/img/seasons/2018-560.webp 419w, /img/seasons/2018-320.webp 320w",
-    "width": 419,
-    "height": 560,
-    "focus": "50% 15%"
+    "src": "/img/seasons/2018-full.webp",
+    "srcSet": "/img/seasons/2018-full.webp 560w, /img/seasons/2018-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_Silverstone_2018_(cropped).jpg",
@@ -1108,12 +1108,12 @@
   "2019": {
    "driver": "Lewis Hamilton",
    "color": "#27d9c2",
+   "driverRef": "hamilton",
    "photo": {
-    "src": "/img/seasons/2019-560.webp",
-    "srcSet": "/img/seasons/2019-560.webp 469w, /img/seasons/2019-320.webp 320w",
-    "width": 469,
-    "height": 560,
-    "focus": "50% 35%"
+    "src": "/img/seasons/2019-full.webp",
+    "srcSet": "/img/seasons/2019-full.webp 560w, /img/seasons/2019-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Lewis_Hamilton,_2019_Canadian_Grand_Prix_(cropped).jpg",
@@ -1124,12 +1124,12 @@
   "2020": {
    "driver": "Lewis Hamilton",
    "color": "#27d9c2",
+   "driverRef": "hamilton",
    "photo": {
-    "src": "/img/seasons/2020-560.webp",
-    "srcSet": "/img/seasons/2020-560.webp 560w, /img/seasons/2020-320.webp 320w",
+    "src": "/img/seasons/2020-full.webp",
+    "srcSet": "/img/seasons/2020-full.webp 560w, /img/seasons/2020-small.webp 280w",
     "width": 560,
-    "height": 373,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_2020_Tuscan_Grand_Prix_-_race_day.jpg",
@@ -1140,12 +1140,12 @@
   "2021": {
    "driver": "Max Verstappen",
    "color": "#1b2b6b",
+   "driverRef": "max_verstappen",
    "photo": {
-    "src": "/img/seasons/2021-560.webp",
-    "srcSet": "/img/seasons/2021-560.webp 560w, /img/seasons/2021-320.webp 320w",
-    "width": 560,
-    "height": 225,
-    "focus": "50% 35%"
+    "src": "/img/seasons/2021-full.webp",
+    "srcSet": "/img/seasons/2021-full.webp 386w, /img/seasons/2021-small.webp 280w",
+    "width": 386,
+    "height": 386
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Max_Verstappen_(Austin_2021).jpg",
@@ -1156,12 +1156,12 @@
   "2022": {
    "driver": "Max Verstappen",
    "color": "#1b2b6b",
+   "driverRef": "max_verstappen",
    "photo": {
-    "src": "/img/seasons/2022-560.webp",
-    "srcSet": "/img/seasons/2022-560.webp 560w, /img/seasons/2022-320.webp 320w",
-    "width": 560,
-    "height": 324,
-    "focus": "50% 35%"
+    "src": "/img/seasons/2022-full.webp",
+    "srcSet": "/img/seasons/2022-full.webp 556w, /img/seasons/2022-small.webp 280w",
+    "width": 556,
+    "height": 556
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Max_Verstappen_2022.jpg",
@@ -1172,12 +1172,12 @@
   "2023": {
    "driver": "Max Verstappen",
    "color": "#1b2b6b",
+   "driverRef": "max_verstappen",
    "photo": {
-    "src": "/img/seasons/2023-560.webp",
-    "srcSet": "/img/seasons/2023-560.webp 407w, /img/seasons/2023-320.webp 320w",
-    "width": 407,
-    "height": 560,
-    "focus": "50% 78%"
+    "src": "/img/seasons/2023-full.webp",
+    "srcSet": "/img/seasons/2023-full.webp 560w, /img/seasons/2023-small.webp 280w",
+    "width": 560,
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Max_Verstappen_(cropped).jpg",
@@ -1188,12 +1188,12 @@
   "2024": {
    "driver": "Max Verstappen",
    "color": "#1b2b6b",
+   "driverRef": "max_verstappen",
    "photo": {
-    "src": "/img/seasons/2024-560.webp",
-    "srcSet": "/img/seasons/2024-560.webp 560w, /img/seasons/2024-320.webp 320w",
+    "src": "/img/seasons/2024-full.webp",
+    "srcSet": "/img/seasons/2024-full.webp 560w, /img/seasons/2024-small.webp 280w",
     "width": 560,
-    "height": 373,
-    "focus": "50% 35%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:Max_Verstappen_2024_Chinese_GP.jpg",
@@ -1204,12 +1204,12 @@
   "2025": {
    "driver": "Lando Norris",
    "color": "#ff8000",
+   "driverRef": "norris",
    "photo": {
-    "src": "/img/seasons/2025-560.webp",
-    "srcSet": "/img/seasons/2025-560.webp 560w, /img/seasons/2025-320.webp 320w",
-    "width": 560,
-    "height": 315,
-    "focus": "50% 35%"
+    "src": "/img/seasons/2025-full.webp",
+    "srcSet": "/img/seasons/2025-full.webp 540w, /img/seasons/2025-small.webp 280w",
+    "width": 540,
+    "height": 540
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:2025_Singapore_GP_-_McLaren_-_Lando_Norris_-_FP2.jpg",
@@ -1220,12 +1220,12 @@
   "2026": {
    "driver": "Kimi Antonelli",
    "color": "#27d9c2",
+   "driverRef": "antonelli",
    "photo": {
-    "src": "/img/seasons/2026-560.webp",
-    "srcSet": "/img/seasons/2026-560.webp 560w, /img/seasons/2026-320.webp 320w",
+    "src": "/img/seasons/2026-full.webp",
+    "srcSet": "/img/seasons/2026-full.webp 560w, /img/seasons/2026-small.webp 280w",
     "width": 560,
-    "height": 396,
-    "focus": "28% 0%"
+    "height": 560
    },
    "credit": {
     "page": "https://commons.wikimedia.org/wiki/File:2026_Chinese_GP_-_Mercedes_-_Kimi_Antonelli_-_Post_Race_Celebration.jpg",

@@ -560,10 +560,10 @@
       "many": "{n} champions",
       "other": "{n} champions"
     },
-    "decadeRunning": "{year} running",
-    "running": "Season running",
+    "decadeRunning": "{year} in progress",
+    "running": "Season in progress",
     "leader": "Championship leader",
-    "champion": "World champion",
+    "champion": "Title already clinched",
     "wins": {
       "one": "{n} win from {races}",
       "few": "{n} wins from {races}",
@@ -576,18 +576,23 @@
       "many": "{n} races",
       "other": "{n} races"
     },
-    "winsRunning": {
-      "one": "{n} win · {done} of {total} rounds",
-      "few": "{n} wins · {done} of {total} rounds",
-      "many": "{n} wins · {done} of {total} rounds",
-      "other": "{n} wins · {done} of {total} rounds"
-    },
     "cup": "Constructors: {team}",
     "cupDecided": "Constructors: {team} · decided",
     "cupLeader": "Constructors: {team} leading",
     "noCup": "No constructors’ title yet",
-    "photoAlt": "{name}, {year}",
     "credits": "Season photos: authors and licences",
-    "metaDescription": "All {n} Formula 1 seasons since 1950: world champions, their teams, wins and constructors’ champions."
+    "metaDescription": "Every Formula 1 season since 1950: world champions, their teams, wins and constructors’ champions.",
+    "winsN": {
+      "one": "{n} win",
+      "few": "{n} wins",
+      "many": "{n} wins",
+      "other": "{n} wins"
+    },
+    "roundsOf": {
+      "one": "{done} of {n} rounds",
+      "few": "{done} of {n} rounds",
+      "many": "{done} of {n} rounds",
+      "other": "{done} of {n} rounds"
+    }
   }
 }

@@ -8,15 +8,17 @@ import { dbSelectAll } from "./db";
 import { splitName } from "./driver-page";
 import { driverName, driverPortrait } from "./drivers";
 import { once } from "./once";
-import { curatedTeams } from "./teams";
+import { curatedDrivers, curatedTeams } from "./teams";
 import type { Credit, SeasonIndexRow } from "./types";
 
 type CuratedSeason = {
-  /** Пілот на фото (латиницею) — фото показуємо, лише якщо це чемпіон / лідер сезону. */
+  /** Пілот на фото (латиницею) і його id у базі — фото показуємо, лише якщо це чемпіон / лідер сезону. */
   driver: string;
+  driverRef?: string;
   /** Колір команди чемпіона того сезону (історичні лівреї). */
   color: string;
-  photo?: { src: string; srcSet: string; width: number; height: number; focus: string };
+  /** Квадрат, уже кадрований навколо точки з макета (scripts/curated/season_photos.py). */
+  photo?: { src: string; srcSet: string; width: number; height: number };
   credit?: Credit;
 };
 const curated = (seasonsJson as unknown as { seasons: Record<string, CuratedSeason> }).seasons;
@@ -46,7 +48,8 @@ export type SeasonCard = {
   decided: boolean;
   /** null — до 1958 Кубка конструкторів не було. */
   cup: null | { team: SeasonTeam; decided: boolean };
-  photo: null | { src: string; srcSet: string; width: number; height: number; focus: string; credit: Credit; label: string };
+  /** focus — лише для портрета-заміни (4:5 у квадратній картці); кураторське фото вже квадратне. */
+  photo: null | { src: string; srcSet: string; width: number; height: number; focus?: string; credit: Credit; label: string };
 };
 export type SeasonDecade = {
   decade: number;
@@ -87,7 +90,7 @@ export async function getSeasonsIndex(locale: Locale): Promise<SeasonsIndex> {
     const c = curated[String(r.year)];
     const name = r.driver ? driverName(r.driver, r.forename!, r.surname!, locale) : null;
     // Кураторське фото — лише якщо на ньому чемпіон / лідер (у поточному сезоні лідер може змінитись).
-    const own = !!(c && r.surname && c.driver.toLowerCase().endsWith(r.surname.toLowerCase()));
+    const own = !!(c && r.driver && c.driverRef === r.driver);
     let photo: SeasonCard["photo"] = null;
     if (own && c!.photo && c!.credit) {
       photo = { ...c!.photo, credit: c!.credit, label: `${r.year}: ${r.forename} ${r.surname}` };
@@ -110,7 +113,12 @@ export async function getSeasonsIndex(locale: Locale): Promise<SeasonsIndex> {
     return {
       year: r.year,
       driver: r.driver
-        ? { id: r.driver, slug: driverSlug(r.driver), name: name!, initials: `${r.forename![0] ?? ""}${r.surname![0] ?? ""}`.toUpperCase() }
+        ? {
+            id: r.driver,
+            slug: driverSlug(r.driver),
+            name: name!,
+            initials: curatedDrivers[r.driver]?.initials ?? `${r.forename![0] ?? ""}${r.surname![0] ?? ""}`.toUpperCase(),
+          }
         : null,
       teams: ids.map(team),
       color: own ? c!.color : ((ids[0] && teamsById.get(ids[0])?.color) ?? null),
@@ -141,13 +149,12 @@ export async function getSeasonsIndex(locale: Locale): Promise<SeasonsIndex> {
   const decades = [...byDecade.entries()]
     .sort((a, b) => b[0] - a[0])
     .map(([decade, rs]): SeasonDecade => {
-      const names: string[] = [];
-      const seen = new Set<string>();
-      for (const r of rs)
-        if (r.driver && !seen.has(r.driver)) {
-          seen.add(r.driver);
-          names.push(surnameOf(r));
-        }
+      // Прізвища; якщо в десятилітті два різні чемпіони з одним прізвищем (Філ і Грем Гілл, 1960-ті) — повні імена.
+      const firstRows = rs.filter((r, i) => r.driver && rs.findIndex((x) => x.driver === r.driver) === i);
+      const surnames = firstRows.map(surnameOf);
+      const names = firstRows.map((r, i) =>
+        surnames.indexOf(surnames[i]!) !== surnames.lastIndexOf(surnames[i]!) ? driverName(r.driver!, r.forename!, r.surname!, locale) : surnames[i]!,
+      );
       return {
         decade,
         seasons: rs.length,

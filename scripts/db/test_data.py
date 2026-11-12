@@ -352,6 +352,12 @@ with psycopg.connect(DSN, autocommit=True) as conn:
           "Rosberg Hamilton Hamilton Hamilton Hamilton Verstappen Verstappen Verstappen Verstappen Norris").split()
     bad = [(y, CH[y - 1950], si[y][4]) for y in range(1950, 2026) if si[y][4] != CH[y - 1950]]
     check("чемпіони світу 1950–2025 — повний перелік", len(CH) == 76 and not bad, bad[:8])
+    # Однофамільці: прізвища замало — перевіряємо й ім'я (Філ / Грем / Деймон Гілл, Кеке / Ніко Росберг).
+    fore = {r[0]: r[1] for r in q("select year, forename from f1.season_index where year in (1961, 1962, 1968, 1996, 1982, 2016)")}
+    check("однофамільці-чемпіони: Phil 1961, Graham 1962 і 1968, Damon 1996, Keke 1982, Nico 2016",
+          fore == {1961: "Phil", 1962: "Graham", 1968: "Graham", 1996: "Damon", 1982: "Keke", 2016: "Nico"}, fore)
+    bad = [y for y in range(1958, 2026) if not si[y][10]] + [y for y in range(1950, 2026) if not si[y][7]]
+    check("завершені сезони: Кубок вирішено, команда чемпіона є", not bad, bad[:8])
     bad = [y for y in range(1950, 2026) if not si[y][6] or si[y][2]]
     check("завершені сезони: титул вирішено, сезон не «триває»", not bad, bad[:8])
     # Кубок конструкторів 1958–2025.
