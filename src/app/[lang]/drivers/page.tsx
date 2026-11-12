@@ -26,8 +26,7 @@ export default async function DriversPage({ params }: Props) {
   const t = dict.drivers;
   const [rows, season] = await Promise.all([getDriversIndex(lang), getTeamsSeason()]);
   // У типовому порядку (перемоги ↓): клієнт показує першу сторінку без сортування (TBT, Lighthouse 12.11).
-  const all = selectDrivers(rows, DEFAULT_DRIVERS_QUERY, lang);
-  const packed = all.map(packDriver);
+  const packed = selectDrivers(rows, DEFAULT_DRIVERS_QUERY, lang).map(packDriver);
   const nf = new Intl.NumberFormat(lang);
   const count = (n: number, forms: typeof t.facts.drivers) => ({ value: n, label: plural(n, lang, forms) });
   const current = rows
@@ -89,12 +88,10 @@ export default async function DriversPage({ params }: Props) {
           </div>
           <DriversBrowser packed={packed} locale={lang} labels={labels} />
           <noscript>
-            {/* Без JS — увесь перелік простим текстом (перемоги ↓): ім'я, роки, перемоги / старти. */}
-            <ol className="drv-noscript">
-              {all.map((r) => (
-                <li key={r.id}>{`${r.name} (${r.years[0]}–${r.years[1]}): ${nf.format(r.wins)} / ${nf.format(r.starts)}`}</li>
-              ))}
-            </ol>
+            {/* Без JS таблиця не працює — повний перелік на окремій сторінці (без даних React тут). */}
+            <p className="drv-noscript-link">
+              <a href={localizedPath("/drivers/all", lang)}>{t.allList} →</a>
+            </p>
           </noscript>
         </div>
       </section>

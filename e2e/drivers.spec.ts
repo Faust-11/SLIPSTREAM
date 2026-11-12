@@ -91,9 +91,11 @@ test("автори портретів — окрема сторінка, пос�
 
 test.describe("без JavaScript", () => {
   test.use({ javaScriptEnabled: false });
-  test("таблиця з інструментами прихована, повний перелік — 793 пункти", async ({ page }) => {
+  test("таблиця з інструментами прихована; посилання на повний перелік — 793 пункти", async ({ page }) => {
     await page.goto("/uk/drivers");
     await expect(page.locator(".drv-browser")).toBeHidden();
+    await page.getByRole("link", { name: /Усі пілоти списком/ }).click();
+    await expect(page).toHaveURL(/\/uk\/drivers\/all$/);
     await expect(page.locator(".drv-noscript li")).toHaveCount(793);
   });
 });
