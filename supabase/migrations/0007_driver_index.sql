@@ -49,7 +49,7 @@ cur_standing as (
   cross join cs
   where ds.season_year = cs.year
 )
-select d.ref as id, d.forename, d.surname, d.code, d.country_code, d.nationality,
+select d.ref as id, d.forename, d.surname, d.code, d.country_code, d.nationality, d.wikipedia_en,
        a.starts::int, a.wins::int, a.podiums::int, a.poles::int,
        coalesce(cardinality(t.years), 0)::int as titles, coalesce(t.years, '{}') as title_years,
        a.y0::int, a.y1::int, a.seasons::int,

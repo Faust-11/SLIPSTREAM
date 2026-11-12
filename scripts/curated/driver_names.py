@@ -23,10 +23,18 @@ REPO = Path(__file__).resolve().parents[2]
 FIX = REPO / "e2e/fixtures/db"
 OUT = REPO / "src/data/curated/driver-names.json"
 JOLPICA = "https://api.jolpi.ca/ergast/f1/drivers/{}.json"
+WIKI: dict[str, str] = {}
 
 
 def needed() -> dict[str, str]:
     names: dict[str, str] = {}
+    # Усі пілоти списку (0007) — разом із ними посилання на Вікіпедію з дампу (без запитів до API Jolpica).
+    idx = FIX / "driver_index.json"
+    if idx.exists():
+        for r in json.loads(idx.read_text(encoding="utf-8")):
+            names[r["id"]] = f"{r['forename']} {r['surname']}"
+            if r.get("wikipedia_en"):
+                WIKI[r["id"]] = r["wikipedia_en"]
     for w in json.loads((FIX / "team_wins.json").read_text(encoding="utf-8")):
         for d in w["drivers"]:
             names[d["ref"]] = f"{d['forename']} {d['surname']}"
@@ -45,8 +53,11 @@ def main() -> int:
     refs = needed()
     titles: dict[str, str] = {}
     for i, ref in enumerate(refs, 1):
-        rows = tf.get(JOLPICA.format(urllib.parse.quote(ref)))["MRData"]["DriverTable"]["Drivers"]
-        url = rows[0].get("url", "") if rows else ""
+        if ref in WIKI:
+            url = WIKI[ref]
+        else:
+            rows = tf.get(JOLPICA.format(urllib.parse.quote(ref)))["MRData"]["DriverTable"]["Drivers"]
+            url = rows[0].get("url", "") if rows else ""
         if "wikipedia.org/wiki/" in url:
             titles[ref] = urllib.parse.unquote(url.split("/wiki/", 1)[1].split("#")[0]).replace("_", " ")
         print(f"[{i}/{len(refs)}] {ref} → {titles.get(ref)}", flush=True)
