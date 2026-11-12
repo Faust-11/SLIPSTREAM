@@ -279,6 +279,14 @@ def main() -> None:
     if not dsn:
         sys.exit("Set DATABASE_URL (Supabase → Connect → Session pooler / direct connection string).")
 
+    if args.download and args.skip_if_loaded:
+        # Спершу хеш з метаданих API: дамп оновлюється ~щотижня, а синхронізація — двічі на тиждень,
+        # тож без цього кожен другий прогін качав би весь архів лише заради «already loaded».
+        sha = json.loads(http_get(API))["delayed_dumps"]["csv"]["file_hash"]
+        with psycopg.connect(dsn) as conn:
+            if conn.execute("select 1 from f1.data_loads where file_sha256 = %s", (sha,)).fetchone():
+                log(f"dump {sha[:12]}… already loaded — nothing to do")
+                return
     if args.download:
         data, meta = download_dump()
         sha, uploaded_at = meta["file_hash"], meta["uploaded_at"]
@@ -317,7 +325,9 @@ def main() -> None:
         )
         # Похідні дані (міграція 0002) — у тій самій транзакції.
         cur.execute("select to_regprocedure('f1.refresh_derived()') is not null")
-        if cur.fetchone()[0]:
+        if os.environ.get("F1_DEFER_REFRESH") == "1":
+            log("derived data: refresh deferred to check_live.py --publish")
+        elif cur.fetchone()[0]:
             cur.execute("select f1.refresh_derived()")
             log("derived data refreshed")
         if args.dry_run:

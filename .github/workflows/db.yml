@@ -79,6 +79,20 @@ jobs:
         run: python scripts/db/test_data.py
       - name: Фікстура для сайту (unit/e2e) — артефакт
         run: python scripts/db/export_fixture.py db-fixture
+      # Бойовий порядок data-sync.yml: завантажувачі не оновлюють подання, check_live --publish — лише після перевірки.
+      # Сценарій збою: новий дамп очистив доливку, а доливка не відпрацювала → публікація має відкотитись.
+      - name: Публікація лише перевірених даних (як на бою)
+        env:
+          F1_DEFER_REFRESH: "1"
+        run: |
+          snap() { python -c "import os, psycopg; print(psycopg.connect(os.environ['DATABASE_URL']).execute(\"select md5(string_agg(t::text, '|' order by id)) || (select last_round::text from f1.site_meta) from f1.team_index t\").fetchone()[0])"; }
+          published=$(snap)
+          python scripts/jolpica/load_dump.py --zip dump_csv.zip
+          if python scripts/db/check_live.py --publish; then echo "очікували FAIL: доливку очищено"; exit 1; fi
+          test "$(snap)" = "$published" || { echo "подання змінились попри ROLLBACK"; exit 1; }
+          python scripts/jolpica/topup_api.py
+          python scripts/db/check_live.py --publish
+          test "$(snap)" = "$published" || { echo "після доливки подання мають збігтися з опублікованими"; exit 1; }
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: db-fixture
