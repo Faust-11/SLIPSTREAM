@@ -522,5 +522,72 @@
     "metaDescription": "{name}: {facts}. Season by season, teammates and every win.",
     "metaDescriptionShort": "{name}: {starts} in Formula 1, {years}. Seasons, teams and results.",
     "jobTitle": "Formula One driver"
+  },
+  "seasonsPage": {
+    "intro": "Every championship since 1950, lined up like a starting grid. The latest season sits on pole; each row behind it goes further back in time.",
+    "factsLabel": "Seasons in numbers",
+    "facts": {
+      "seasons": {
+        "one": "season",
+        "few": "seasons",
+        "many": "seasons",
+        "other": "seasons"
+      },
+      "champions": {
+        "one": "champion",
+        "few": "champions",
+        "many": "champions",
+        "other": "champions"
+      },
+      "titles": {
+        "one": "title: {names}",
+        "few": "titles: {names}",
+        "many": "titles: {names}",
+        "other": "titles: {names}"
+      }
+    },
+    "decades": "Decades",
+    "decade": "{d}s",
+    "decadeSeasons": {
+      "one": "{n} season",
+      "few": "{n} seasons",
+      "many": "{n} seasons",
+      "other": "{n} seasons"
+    },
+    "decadeChampions": {
+      "one": "{n} champion",
+      "few": "{n} champions",
+      "many": "{n} champions",
+      "other": "{n} champions"
+    },
+    "decadeRunning": "{year} running",
+    "running": "Season running",
+    "leader": "Championship leader",
+    "champion": "World champion",
+    "wins": {
+      "one": "{n} win from {races}",
+      "few": "{n} wins from {races}",
+      "many": "{n} wins from {races}",
+      "other": "{n} wins from {races}"
+    },
+    "races": {
+      "one": "{n} race",
+      "few": "{n} races",
+      "many": "{n} races",
+      "other": "{n} races"
+    },
+    "winsRunning": {
+      "one": "{n} win · {done} of {total} rounds",
+      "few": "{n} wins · {done} of {total} rounds",
+      "many": "{n} wins · {done} of {total} rounds",
+      "other": "{n} wins · {done} of {total} rounds"
+    },
+    "cup": "Constructors: {team}",
+    "cupDecided": "Constructors: {team} · decided",
+    "cupLeader": "Constructors: {team} leading",
+    "noCup": "No constructors’ title yet",
+    "photoAlt": "{name}, {year}",
+    "credits": "Season photos: authors and licences",
+    "metaDescription": "All {n} Formula 1 seasons since 1950: world champions, their teams, wins and constructors’ champions."
   }
 }
