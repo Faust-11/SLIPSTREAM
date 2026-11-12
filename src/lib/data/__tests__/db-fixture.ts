@@ -1,4 +1,5 @@
 // Відповіді бази для unit-тестів — та сама фікстура, що для e2e (e2e/fixtures/db, вивантажена з CI-бази).
+import driverIndex from "../../../../e2e/fixtures/db/driver_index.json";
 import siteMeta from "../../../../e2e/fixtures/db/site_meta.json";
 import teamChampions from "../../../../e2e/fixtures/db/team_champions.json";
 import teamIndex from "../../../../e2e/fixtures/db/team_index.json";
@@ -16,6 +17,7 @@ const FIXTURES: Record<string, unknown[]> = {
   team_wins: teamWins,
   team_champions: teamChampions,
   team_pairing: teamPairing,
+  driver_index: driverIndex,
 };
 
 /** Як PostgREST: лише колонки з select= (забута колонка — undefined і в тестах), невідома колонка — помилка. */

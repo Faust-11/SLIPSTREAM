@@ -281,5 +281,72 @@
       "drivers": "Driver portraits: authors and licences"
     },
     "metaDescription": "{team}: {gp} Grands Prix, {wins}, {titles}. Season by season, world champions and every win."
+  },
+  "drivers": {
+    "intro": "Everyone who has started a Grand Prix since 1950. This season's grid comes first, then the full list with search and sorting.",
+    "factsLabel": "Drivers in numbers",
+    "facts": {
+      "drivers": {
+        "one": "driver",
+        "few": "drivers",
+        "many": "drivers",
+        "other": "drivers"
+      },
+      "champions": {
+        "one": "world champion",
+        "few": "world champions",
+        "many": "world champions",
+        "other": "world champions"
+      },
+      "winners": {
+        "one": "race winner",
+        "few": "race winners",
+        "many": "race winners",
+        "other": "race winners"
+      }
+    },
+    "season": "{year} season",
+    "seasonNote": "Drivers' standings after round {round}",
+    "all": "All drivers",
+    "points": {
+      "one": "{n} pt",
+      "few": "{n} pts",
+      "many": "{n} pts",
+      "other": "{n} pts"
+    },
+    "number": "No. {n}",
+    "position": "Position {pos}",
+    "search": "Search drivers",
+    "searchPlaceholder": "Search: Senna, GBR, Ferrari…",
+    "filtersLabel": "Show",
+    "filters": {
+      "all": "All",
+      "cur": "{year} season",
+      "ch": "Champions",
+      "win": "Race winners"
+    },
+    "decade": "Decade",
+    "decadeAll": "All decades",
+    "decadeN": "{d}s",
+    "letters": "First letter of surname",
+    "lettersAll": "All",
+    "cols": {
+      "n": "Driver",
+      "yrs": "Years",
+      "st": "Starts",
+      "w": "Wins",
+      "pd": "Podiums",
+      "pl": "Poles",
+      "t": "Titles"
+    },
+    "titlesBadge": "World titles: {n}",
+    "count": "{from}–{to} of {n}",
+    "empty": "Nothing found.",
+    "reset": "Reset search and filters",
+    "pages": "Pages",
+    "prev": "Previous page",
+    "next": "Next page",
+    "page": "Page {n}",
+    "credits": "Driver portraits: authors and licences"
   }
 }

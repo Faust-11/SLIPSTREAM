@@ -1,6 +1,111 @@
 {
  "source": "Wikidata (підписи uk) через статті Вікіпедії з API Jolpica",
  "drivers": {
+  "Cannoc": {
+   "en": "John Cannon",
+   "uk": "John Cannon",
+   "wikidata": "Q172525",
+   "manual": {
+    "uk": "Джон Кеннон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "abecassis": {
+   "en": "George Abecassis",
+   "uk": "George Abecassis",
+   "wikidata": "Q173276",
+   "manual": {
+    "uk": "Джордж Абекассіс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "acheson": {
+   "en": "Kenny Acheson",
+   "uk": "Kenny Acheson",
+   "wikidata": "Q173261",
+   "manual": {
+    "uk": "Кенні Ачесон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "adamich": {
+   "en": "Andrea de Adamich",
+   "uk": "Andrea de Adamich",
+   "wikidata": "Q173250",
+   "manual": {
+    "uk": "Андреа де Адаміч",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "adams": {
+   "en": "Philippe Adams",
+   "uk": "Філіпп Адамс",
+   "wikidata": "Q171444"
+  },
+  "ader": {
+   "en": "Walt Ader",
+   "uk": "Walt Ader",
+   "wikidata": "Q165393",
+   "manual": {
+    "uk": "Волт Ейдер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "adolff": {
+   "en": "Kurt Adolff",
+   "uk": "Kurt Adolff",
+   "wikidata": "Q61033",
+   "manual": {
+    "uk": "Курт Адольфф",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "agabashian": {
+   "en": "Fred Agabashian",
+   "uk": "Fred Agabashian",
+   "wikidata": "Q171959",
+   "manual": {
+    "uk": "Фред Агабашян",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ahrens": {
+   "en": "Kurt Ahrens",
+   "uk": "Kurt Ahrens",
+   "wikidata": "Q60395",
+   "manual": {
+    "uk": "Курт Аренс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "aitken": {
+   "en": "Jack Aitken",
+   "uk": "Джек Ейткен",
+   "wikidata": "Q15292751"
+  },
+  "alan_brown": {
+   "en": "Alan Brown",
+   "uk": "Alan Brown",
+   "wikidata": "Q172236",
+   "manual": {
+    "uk": "Алан Браун",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "albers": {
+   "en": "Christijan Albers",
+   "uk": "Крістіян Алберс",
+   "wikidata": "Q171414"
+  },
   "alboreto": {
    "en": "Michele Alboreto",
    "uk": "Мікеле Альборето",
@@ -11,6 +116,97 @@
    "uk": "Жан Алезі",
    "wikidata": "Q172777"
   },
+  "alguersuari": {
+   "en": "Jaime Alguersuari",
+   "uk": "Хайме Альгерсуарі",
+   "wikidata": "Q171355"
+  },
+  "alliot": {
+   "en": "Philippe Alliot",
+   "uk": "Philippe Alliot",
+   "wikidata": "Q173305",
+   "manual": {
+    "uk": "Філіпп Альйо",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "allison": {
+   "en": "Cliff Allison",
+   "uk": "Cliff Allison",
+   "wikidata": "Q171723",
+   "manual": {
+    "uk": "Кліфф Еллісон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ambrosio": {
+   "en": "Jérôme d'Ambrosio",
+   "uk": "Jérôme d'Ambrosio",
+   "wikidata": "Q171996",
+   "manual": {
+    "uk": "Жером д'Амброзіо",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "amick": {
+   "en": "Red Amick",
+   "uk": "Red Amick",
+   "wikidata": "Q173439",
+   "manual": {
+    "uk": "Ред Емік",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "amon": {
+   "en": "Chris Amon",
+   "uk": "Кріс Еймон",
+   "wikidata": "Q171469"
+  },
+  "anderson": {
+   "en": "Bob Anderson",
+   "uk": "Bob Anderson",
+   "wikidata": "Q173430",
+   "manual": {
+    "uk": "Боб Андерсон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "andersson": {
+   "en": "Conny Andersson",
+   "uk": "Конні Андерссон",
+   "wikidata": "Q172242"
+  },
+  "andre_pilette": {
+   "en": "André Pilette",
+   "uk": "André Pilette",
+   "wikidata": "Q172119",
+   "manual": {
+    "uk": "Андре Пілетт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "andretti": {
+   "en": "Michael Andretti",
+   "uk": "Майкл Андретті",
+   "wikidata": "Q171519"
+  },
+  "andrews": {
+   "en": "Keith Andrews",
+   "uk": "Keith Andrews",
+   "wikidata": "Q173433",
+   "manual": {
+    "uk": "Кіт Ендрюс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "angelis": {
    "en": "Elio de Angelis",
    "uk": "Elio de Angelis",
@@ -20,6 +216,36 @@
     "source": "transliteration",
     "checked": true,
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
+   }
+  },
+  "apicella": {
+   "en": "Marco Apicella",
+   "uk": "Marco Apicella",
+   "wikidata": "Q172245",
+   "manual": {
+    "uk": "Марко Апічелла",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "armi": {
+   "en": "Frank Armi",
+   "uk": "Frank Armi",
+   "wikidata": "Q173463",
+   "manual": {
+    "uk": "Френк Армі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "arnold": {
+   "en": "Chuck Arnold",
+   "uk": "Chuck Arnold",
+   "wikidata": "Q110833073",
+   "manual": {
+    "uk": "Чак Арнольд",
+    "source": "transliteration",
+    "checked": false
    }
   },
   "arnoux": {
@@ -33,10 +259,86 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "arundell": {
+   "en": "Peter Arundell",
+   "uk": "Peter Arundell",
+   "wikidata": "Q173456",
+   "manual": {
+    "uk": "Пітер Арунделл",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "ascari": {
    "en": "Alberto Ascari",
    "uk": "Альберто Аскарі",
    "wikidata": "Q2086"
+  },
+  "ashdown": {
+   "en": "Peter Ashdown",
+   "uk": "Peter Ashdown",
+   "wikidata": "Q173410",
+   "manual": {
+    "uk": "Пітер Ешдаун",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ashley": {
+   "en": "Ian Ashley",
+   "uk": "Ian Ashley",
+   "wikidata": "Q173469",
+   "manual": {
+    "uk": "Ієн Ешлі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ashmore": {
+   "en": "Gerry Ashmore",
+   "uk": "Gerry Ashmore",
+   "wikidata": "Q172826",
+   "manual": {
+    "uk": "Джеррі Ешмор",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "aston": {
+   "en": "Bill Aston",
+   "uk": "Bill Aston",
+   "wikidata": "Q172641",
+   "manual": {
+    "uk": "Білл Астон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "attwood": {
+   "en": "Richard Attwood",
+   "uk": "Річард Еттвуд",
+   "wikidata": "Q172194"
+  },
+  "ayulo": {
+   "en": "Manny Ayulo",
+   "uk": "Manny Ayulo",
+   "wikidata": "Q173076",
+   "manual": {
+    "uk": "Менні Аюло",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "badoer": {
+   "en": "Luca Badoer",
+   "uk": "Luca Badoer",
+   "wikidata": "Q172749",
+   "manual": {
+    "uk": "Лука Бадоер",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "baghetti": {
    "en": "Giancarlo Baghetti",
@@ -47,6 +349,46 @@
     "source": "transliteration",
     "checked": true,
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
+   }
+  },
+  "bailey": {
+   "en": "Julian Bailey",
+   "uk": "Julian Bailey",
+   "wikidata": "Q62123453",
+   "manual": {
+    "uk": "Джуліан Бейлі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "baldi": {
+   "en": "Mauro Baldi",
+   "uk": "Mauro Baldi",
+   "wikidata": "Q171521",
+   "manual": {
+    "uk": "Мауро Бальді",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ball": {
+   "en": "Bobby Ball",
+   "uk": "Bobby Ball",
+   "wikidata": "Q172121",
+   "manual": {
+    "uk": "Боббі Болл",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "balsa": {
+   "en": "Marcel Balsa",
+   "uk": "Marcel Balsa",
+   "wikidata": "Q172381",
+   "manual": {
+    "uk": "Марсель Бальса",
+    "source": "transliteration",
+    "checked": false
    }
   },
   "bandini": {
@@ -60,10 +402,172 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "banks": {
+   "en": "Henry Banks",
+   "uk": "Henry Banks",
+   "wikidata": "Q172431",
+   "manual": {
+    "uk": "Генрі Бенкс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "barbazza": {
+   "en": "Fabrizio Barbazza",
+   "uk": "Fabrizio Barbazza",
+   "wikidata": "Q172968",
+   "manual": {
+    "uk": "Фабриціо Барбацца",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "barber": {
+   "en": "Skip Barber",
+   "uk": "Skip Barber",
+   "wikidata": "Q172094",
+   "manual": {
+    "uk": "Скіп Барбер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "barilla": {
+   "en": "Paolo Barilla",
+   "uk": "Paolo Barilla",
+   "wikidata": "Q171613",
+   "manual": {
+    "uk": "Паоло Барілла",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "barrichello": {
    "en": "Rubens Barrichello",
    "uk": "Рубенс Барікелло",
    "wikidata": "Q169846"
+  },
+  "barth": {
+   "en": "Edgar Barth",
+   "uk": "Едґар Барт",
+   "wikidata": "Q61286"
+  },
+  "bassi": {
+   "en": "Giorgio Bassi",
+   "uk": "Giorgio Bassi",
+   "wikidata": "Q172332",
+   "manual": {
+    "uk": "Джорджо Бассі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "bauer": {
+   "en": "Erwin Bauer",
+   "uk": "Erwin Bauer",
+   "wikidata": "Q63840",
+   "manual": {
+    "uk": "Ервін Бауер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "baumgartner": {
+   "en": "Zsolt Baumgartner",
+   "uk": "Zsolt Baumgartner",
+   "wikidata": "Q172002",
+   "manual": {
+    "uk": "Жолт Баумгартнер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "bayol": {
+   "en": "Élie Bayol",
+   "uk": "Élie Bayol",
+   "wikidata": "Q172036",
+   "manual": {
+    "uk": "Елі Байоль",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "beaufort": {
+   "en": "Carel Godin de Beaufort",
+   "uk": "Carel Godin de Beaufort",
+   "wikidata": "Q171963",
+   "manual": {
+    "uk": "Карел Годен де Бофор",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "beauman": {
+   "en": "Don Beauman",
+   "uk": "Don Beauman",
+   "wikidata": "Q172830",
+   "manual": {
+    "uk": "Дон Боумен",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "bechem": {
+   "en": "Günther Bechem",
+   "uk": "Günther Bechem",
+   "wikidata": "Q61488",
+   "manual": {
+    "uk": "Гюнтер Бехем",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "behra": {
+   "en": "Jean Behra",
+   "uk": "Жан Бехра",
+   "wikidata": "Q172250"
+  },
+  "bell": {
+   "en": "Derek Bell",
+   "uk": "Derek Bell",
+   "wikidata": "Q165814",
+   "manual": {
+    "uk": "Дерек Белл",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "bellof": {
+   "en": "Stefan Bellof",
+   "uk": "Stefan Bellof",
+   "wikidata": "Q57435",
+   "manual": {
+    "uk": "Штефан Беллоф",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "belmondo": {
+   "en": "Paul Belmondo",
+   "uk": "Paul Belmondo",
+   "wikidata": "Q141492303",
+   "manual": {
+    "uk": "Поль Бельмондо",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "belso": {
+   "en": "Tom Belsø",
+   "uk": "Tom Belsø",
+   "wikidata": "Q173098",
+   "manual": {
+    "uk": "Том Бельсе",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
   },
   "beltoise": {
    "en": "Jean-Pierre Beltoise",
@@ -76,20 +580,284 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "beretta": {
+   "en": "Olivier Beretta",
+   "uk": "Олів'є Беретта",
+   "wikidata": "Q163175"
+  },
+  "berg": {
+   "en": "Allen Berg",
+   "uk": "Allen Berg",
+   "wikidata": "Q173452",
+   "manual": {
+    "uk": "Аллен Берг",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "berger": {
    "en": "Gerhard Berger",
    "uk": "Герхард Бергер",
    "wikidata": "Q78502"
+  },
+  "bernard": {
+   "en": "Éric Bernard",
+   "uk": "Ерік Бернар",
+   "wikidata": "Q171546"
+  },
+  "bernoldi": {
+   "en": "Enrique Bernoldi",
+   "uk": "Enrique Bernoldi",
+   "wikidata": "Q172961",
+   "manual": {
+    "uk": "Енріке Бернольді",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "bettenhausen": {
+   "en": "Tony Bettenhausen",
+   "uk": "Tony Bettenhausen",
+   "wikidata": "Q172098",
+   "manual": {
+    "uk": "Тоні Беттенгаузен",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "beuttler": {
+   "en": "Mike Beuttler",
+   "uk": "Mike Beuttler",
+   "wikidata": "Q171734",
+   "manual": {
+    "uk": "Майк Бойтлер",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "bianchi": {
+   "en": "Lucien Bianchi",
+   "uk": "Lucien Bianchi",
+   "wikidata": "Q171893",
+   "manual": {
+    "uk": "Люсьєн Б'янкі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "bianco": {
+   "en": "Gino Bianco",
+   "uk": "Gino Bianco",
+   "wikidata": "Q172337",
+   "manual": {
+    "uk": "Джино Б'янко",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "binder": {
+   "en": "Hans Binder",
+   "uk": "Hans Binder",
+   "wikidata": "Q78593",
+   "manual": {
+    "uk": "Ганс Біндер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "biondetti": {
+   "en": "Clemente Biondetti",
+   "uk": "Clemente Biondetti",
+   "wikidata": "Q172489",
+   "manual": {
+    "uk": "Клементе Біондетті",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "bira": {
+   "en": "Prince Bira",
+   "uk": "Принц Біра",
+   "wikidata": "Q173204"
+  },
+  "birger": {
+   "en": "Pablo Birger",
+   "uk": "Pablo Birger",
+   "wikidata": "Q172418",
+   "manual": {
+    "uk": "Пабло Біргер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "bisch": {
+   "en": "Art Bisch",
+   "uk": "Art Bisch",
+   "wikidata": "Q173590",
+   "manual": {
+    "uk": "Арт Біш",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "blanchard": {
+   "en": "Harry Blanchard",
+   "uk": "Harry Blanchard",
+   "wikidata": "Q172384",
+   "manual": {
+    "uk": "Гаррі Бланчард",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "bleekemolen": {
+   "en": "Michael Bleekemolen",
+   "uk": "Michael Bleekemolen",
+   "wikidata": "Q172024",
+   "manual": {
+    "uk": "Міхаел Блекемолен",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "blokdyk": {
+   "en": "Trevor Blokdyk",
+   "uk": "Trevor Blokdyk",
+   "wikidata": "Q172515",
+   "manual": {
+    "uk": "Тревор Блокдейк",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "blundell": {
+   "en": "Mark Blundell",
+   "uk": "Марк Бланделл",
+   "wikidata": "Q171553"
+  },
+  "bob_scott": {
+   "en": "Bob Scott",
+   "uk": "Bob Scott",
+   "wikidata": "Q172580",
+   "manual": {
+    "uk": "Боб Скотт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "boesel": {
+   "en": "Raul Boesel",
+   "uk": "Raul Boesel",
+   "wikidata": "Q171727",
+   "manual": {
+    "uk": "Раул Безел",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "bondurant": {
+   "en": "Bob Bondurant",
+   "uk": "Bob Bondurant",
+   "wikidata": "Q172496",
+   "manual": {
+    "uk": "Боб Бондюрант",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "bonetto": {
+   "en": "Felice Bonetto",
+   "uk": "Felice Bonetto",
+   "wikidata": "Q171897",
+   "manual": {
+    "uk": "Феліче Бонетто",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "bonnier": {
    "en": "Jo Bonnier",
    "uk": "Йо Бонніер",
    "wikidata": "Q172239"
   },
+  "bonomi": {
+   "en": "Roberto Bonomi",
+   "uk": "Roberto Bonomi",
+   "wikidata": "Q172206",
+   "manual": {
+    "uk": "Роберто Бономі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "borgudd": {
+   "en": "Slim Borgudd",
+   "uk": "Slim Borgudd",
+   "wikidata": "Q172264",
+   "manual": {
+    "uk": "Слім Боргудд",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "botha": {
+   "en": "Luki Botha",
+   "uk": "Luki Botha",
+   "wikidata": "Q172646",
+   "manual": {
+    "uk": "Лукі Бота",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "boullion": {
+   "en": "Jean-Christophe Boullion",
+   "uk": "Jean-Christophe Boullion",
+   "wikidata": "Q173315",
+   "manual": {
+    "uk": "Жан-Крістоф Бульйон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "bourdais": {
+   "en": "Sébastien Bourdais",
+   "uk": "Себастьєн Бурде",
+   "wikidata": "Q171307"
+  },
   "boutsen": {
    "en": "Thierry Boutsen",
    "uk": "Тьєрі Бутсен",
    "wikidata": "Q172761"
+  },
+  "boyd": {
+   "en": "Johnny Boyd",
+   "uk": "Johnny Boyd",
+   "wikidata": "Q172481",
+   "manual": {
+    "uk": "Джонні Бойд",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "brabham": {
+   "en": "David Brabham",
+   "uk": "Девід Бребем",
+   "wikidata": "Q173001"
+  },
+  "brack": {
+   "en": "Bill Brack",
+   "uk": "Bill Brack",
+   "wikidata": "Q172649",
+   "manual": {
+    "uk": "Білл Брек",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "brambilla": {
    "en": "Vittorio Brambilla",
@@ -100,6 +868,88 @@
     "source": "transliteration",
     "checked": true,
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
+   }
+  },
+  "branca": {
+   "en": "Toni Branca",
+   "uk": "Toni Branca",
+   "wikidata": "Q172214",
+   "manual": {
+    "uk": "Тоні Бранка",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "brandon": {
+   "en": "Eric Brandon",
+   "uk": "Eric Brandon",
+   "wikidata": "Q172414",
+   "manual": {
+    "uk": "Ерік Брендон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "branson": {
+   "en": "Don Branson",
+   "uk": "Don Branson",
+   "wikidata": "Q172420",
+   "manual": {
+    "uk": "Дон Бренсон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "brendon_hartley": {
+   "en": "Brendon Hartley",
+   "uk": "Brendon Hartley",
+   "wikidata": "Q361113",
+   "manual": {
+    "uk": "Брендон Гартлі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "bridger": {
+   "en": "Tom Bridger",
+   "uk": "Tom Bridger",
+   "wikidata": "Q172793",
+   "manual": {
+    "uk": "Том Бріджер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "brise": {
+   "en": "Tony Brise",
+   "uk": "Tony Brise",
+   "wikidata": "Q171490",
+   "manual": {
+    "uk": "Тоні Брайз",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "bristow": {
+   "en": "Chris Bristow",
+   "uk": "Chris Bristow",
+   "wikidata": "Q172103",
+   "manual": {
+    "uk": "Кріс Брістоу",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "broeker": {
+   "en": "Peter Broeker",
+   "uk": "Peter Broeker",
+   "wikidata": "Q172828",
+   "manual": {
+    "uk": "Пітер Брокер",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
    }
   },
   "brooks": {
@@ -113,6 +963,51 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "brown": {
+   "en": "Warwick Brown",
+   "uk": "Warwick Brown",
+   "wikidata": "Q172543",
+   "manual": {
+    "uk": "Ворік Браун",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "brudes": {
+   "en": "Adolf Brudes",
+   "uk": "Adolf Brudes",
+   "wikidata": "Q61910",
+   "manual": {
+    "uk": "Адольф Брудес",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "brundle": {
+   "en": "Martin Brundle",
+   "uk": "Мартін Брандл",
+   "wikidata": "Q172854"
+  },
+  "bruni": {
+   "en": "Gianmaria Bruni",
+   "uk": "Gianmaria Bruni",
+   "wikidata": "Q173190",
+   "manual": {
+    "uk": "Джанмарія Бруні",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "bruno_senna": {
+   "en": "Bruno Senna",
+   "uk": "Bruno Senna",
+   "wikidata": "Q82864",
+   "manual": {
+    "uk": "Бруно Сенна",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "bryan": {
    "en": "Jimmy Bryan",
    "uk": "Jimmy Bryan",
@@ -124,15 +1019,356 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "bucci": {
+   "en": "Clemar Bucci",
+   "uk": "Clemar Bucci",
+   "wikidata": "Q173281",
+   "manual": {
+    "uk": "Клемар Буччі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "bucknum": {
+   "en": "Ronnie Bucknum",
+   "uk": "Ronnie Bucknum",
+   "wikidata": "Q172034",
+   "manual": {
+    "uk": "Ронні Бакнем",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "bueb": {
+   "en": "Ivor Bueb",
+   "uk": "Ivor Bueb",
+   "wikidata": "Q172127",
+   "manual": {
+    "uk": "Айвор Б'юб",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "buemi": {
+   "en": "Sébastien Buemi",
+   "uk": "Себастьєн Буемі",
+   "wikidata": "Q171310"
+  },
+  "bueno": {
+   "en": "Luiz Bueno",
+   "uk": "Luiz Bueno",
+   "wikidata": "Q172053",
+   "manual": {
+    "uk": "Луїс Буено",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "burgess": {
+   "en": "Ian Burgess",
+   "uk": "Ian Burgess",
+   "wikidata": "Q172043",
+   "manual": {
+    "uk": "Ієн Берджесс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "burti": {
+   "en": "Luciano Burti",
+   "uk": "Luciano Burti",
+   "wikidata": "Q171429",
+   "manual": {
+    "uk": "Лусіано Бурті",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "bussinello": {
+   "en": "Roberto Bussinello",
+   "uk": "Roberto Bussinello",
+   "wikidata": "Q172499",
+   "manual": {
+    "uk": "Роберто Буссінелло",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "button": {
    "en": "Jenson Button",
    "uk": "Дженсон Баттон",
    "wikidata": "Q10510"
   },
+  "byrne": {
+   "en": "Tommy Byrne",
+   "uk": "Tommy Byrne",
+   "wikidata": "Q172167",
+   "manual": {
+    "uk": "Томмі Бірн",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "cabantous": {
+   "en": "Yves Cabantous",
+   "uk": "Yves Cabantous",
+   "wikidata": "Q171565",
+   "manual": {
+    "uk": "Ів Кабанту",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "cabianca": {
+   "en": "Giulio Cabianca",
+   "uk": "Giulio Cabianca",
+   "wikidata": "Q711156",
+   "manual": {
+    "uk": "Джуліо Каб'янка",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "cabral": {
+   "en": "Mário de Araújo Cabral",
+   "uk": "Mário de Araújo Cabral",
+   "wikidata": "Q173420",
+   "manual": {
+    "uk": "Маріу де Араужу Кабрал",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "caffi": {
+   "en": "Alex Caffi",
+   "uk": "Alex Caffi",
+   "wikidata": "Q172972",
+   "manual": {
+    "uk": "Алекс Каффі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "campbell-jones": {
+   "en": "John Campbell-Jones",
+   "uk": "John Campbell-Jones",
+   "wikidata": "Q173644",
+   "manual": {
+    "uk": "Джон Кемпбелл-Джонс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "campos": {
+   "en": "Adrián Campos",
+   "uk": "Adrián Campos",
+   "wikidata": "Q171456",
+   "manual": {
+    "uk": "Адріан Кампос",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "cantoni": {
+   "en": "Eitel Cantoni",
+   "uk": "Eitel Cantoni",
+   "wikidata": "Q172210",
+   "manual": {
+    "uk": "Ейтель Кантоні",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "cantrell": {
+   "en": "Bill Cantrell",
+   "uk": "Bill Cantrell",
+   "wikidata": "Q172546",
+   "manual": {
+    "uk": "Білл Кантрелл",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "capelli": {
+   "en": "Ivan Capelli",
+   "uk": "Ivan Capelli",
+   "wikidata": "Q171455",
+   "manual": {
+    "uk": "Іван Капеллі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "carini": {
+   "en": "Piero Carini",
+   "uk": "Piero Carini",
+   "wikidata": "Q119004",
+   "manual": {
+    "uk": "П'єро Каріні",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "castellotti": {
+   "en": "Eugenio Castellotti",
+   "uk": "Еудженіо Кастеллотті",
+   "wikidata": "Q171933"
+  },
+  "cecotto": {
+   "en": "Johnny Cecotto",
+   "uk": "Johnny Cecotto",
+   "wikidata": "Q173107",
+   "manual": {
+    "uk": "Джонні Чекотто",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "cesaris": {
+   "en": "Andrea de Cesaris",
+   "uk": "Андреа де Чезаріс",
+   "wikidata": "Q173153"
+  },
   "cevert": {
    "en": "François Cevert",
    "uk": "Франсуа Север",
    "wikidata": "Q172773"
+  },
+  "chaboud": {
+   "en": "Eugène Chaboud",
+   "uk": "Eugène Chaboud",
+   "wikidata": "Q171970",
+   "manual": {
+    "uk": "Ежен Шабу",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "chamberlain": {
+   "en": "Jay Chamberlain",
+   "uk": "Jay Chamberlain",
+   "wikidata": "Q172813",
+   "manual": {
+    "uk": "Джей Чемберлен",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "chandhok": {
+   "en": "Karun Chandhok",
+   "uk": "Karun Chandhok",
+   "wikidata": "Q172905",
+   "manual": {
+    "uk": "Карун Чандхок",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "chapman": {
+   "en": "Colin Chapman",
+   "uk": "Колін Чапмен",
+   "wikidata": "Q173007"
+  },
+  "charlton": {
+   "en": "Dave Charlton",
+   "uk": "Dave Charlton",
+   "wikidata": "Q460768",
+   "manual": {
+    "uk": "Дейв Чарлтон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "charrington": {
+   "en": "Robin Montgomerie-Charrington",
+   "uk": "Robin Montgomerie-Charrington",
+   "wikidata": "Q172369",
+   "manual": {
+    "uk": "Робін Монтгомері-Чаррінгтон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "cheesbourg": {
+   "en": "Bill Cheesbourg",
+   "uk": "Bill Cheesbourg",
+   "wikidata": "Q172554",
+   "manual": {
+    "uk": "Білл Чізбург",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "cheever": {
+   "en": "Eddie Cheever",
+   "uk": "Eddie Cheever",
+   "wikidata": "Q173205",
+   "manual": {
+    "uk": "Едді Чівер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "chiesa": {
+   "en": "Andrea Chiesa",
+   "uk": "Andrea Chiesa",
+   "wikidata": "Q122373",
+   "manual": {
+    "uk": "Андреа К'єза",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "chilton": {
+   "en": "Max Chilton",
+   "uk": "Макс Чилтон",
+   "wikidata": "Q613590"
+  },
+  "chimeri": {
+   "en": "Ettore Chimeri",
+   "uk": "Ettore Chimeri",
+   "wikidata": "Q172609",
+   "manual": {
+    "uk": "Етторе Кімері",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "chiron": {
+   "en": "Louis Chiron",
+   "uk": "Луї Широн",
+   "wikidata": "Q173226"
+  },
+  "chitwood": {
+   "en": "Joie Chitwood",
+   "uk": "Joie Chitwood",
+   "wikidata": "Q172340",
+   "manual": {
+    "uk": "Джої Читвуд",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "christie": {
+   "en": "Bob Christie",
+   "uk": "Bob Christie",
+   "wikidata": "Q172611",
+   "manual": {
+    "uk": "Боб Крісті",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "claes": {
+   "en": "Johnny Claes",
+   "uk": "Johnny Claes",
+   "wikidata": "Q171889",
+   "manual": {
+    "uk": "Джонні Клас",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "clark": {
    "en": "Jim Clark",
@@ -144,15 +1380,287 @@
    "uk": "Пітер Коллінз",
    "wikidata": "Q171483"
   },
+  "collomb": {
+   "en": "Bernard Collomb",
+   "uk": "Bernard Collomb",
+   "wikidata": "Q172805",
+   "manual": {
+    "uk": "Бернар Коломб",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "comas": {
+   "en": "Érik Comas",
+   "uk": "Ерік Кома",
+   "wikidata": "Q172966"
+  },
+  "comotti": {
+   "en": "Franco Comotti",
+   "uk": "Franco Comotti",
+   "wikidata": "Q173528",
+   "manual": {
+    "uk": "Франко Комотті",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "connor": {
+   "en": "Pat O'Connor",
+   "uk": "Pat O'Connor",
+   "wikidata": "Q961162",
+   "manual": {
+    "uk": "Пет О'Коннор",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "constantine": {
+   "en": "George Constantine",
+   "uk": "George Constantine",
+   "wikidata": "Q54371669",
+   "manual": {
+    "uk": "Джордж Константайн",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "cordts": {
+   "en": "John Cordts",
+   "uk": "John Cordts",
+   "wikidata": "Q172514",
+   "manual": {
+    "uk": "Джон Кордтс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "corrado_fabi": {
+   "en": "Corrado Fabi",
+   "uk": "Corrado Fabi",
+   "wikidata": "Q171616",
+   "manual": {
+    "uk": "Коррадо Фабі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "coulthard": {
    "en": "David Coulthard",
    "uk": "Девід Култхард",
    "wikidata": "Q172832"
   },
+  "courage": {
+   "en": "Piers Courage",
+   "uk": "Piers Courage",
+   "wikidata": "Q171621",
+   "manual": {
+    "uk": "Пірс Каредж",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "craft": {
+   "en": "Chris Craft",
+   "uk": "Кріс Крафт",
+   "wikidata": "Q172309"
+  },
+  "crawford": {
+   "en": "Jim Crawford",
+   "uk": "Jim Crawford",
+   "wikidata": "Q172348",
+   "manual": {
+    "uk": "Джим Кроуфорд",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "creus": {
+   "en": "Antonio Creus",
+   "uk": "Antonio Creus",
+   "wikidata": "Q172220",
+   "manual": {
+    "uk": "Антоніо Креус",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "crockett": {
+   "en": "Larry Crockett",
+   "uk": "Larry Crockett",
+   "wikidata": "Q172578",
+   "manual": {
+    "uk": "Ларрі Крокетт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "crook": {
+   "en": "Tony Crook",
+   "uk": "Tony Crook",
+   "wikidata": "Q30708623",
+   "manual": {
+    "uk": "Тоні Крук",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "cross": {
+   "en": "Art Cross",
+   "uk": "Art Cross",
+   "wikidata": "Q172437",
+   "manual": {
+    "uk": "Арт Кросс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "crossley": {
+   "en": "Geoff Crossley",
+   "uk": "Geoff Crossley",
+   "wikidata": "Q172225",
+   "manual": {
+    "uk": "Джефф Кросслі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "cruz": {
+   "en": "Adolfo Cruz",
+   "uk": "Adolfo Cruz",
+   "wikidata": "Q144508",
+   "manual": {
+    "uk": "Адольфо Крус",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "daigh": {
+   "en": "Chuck Daigh",
+   "uk": "Chuck Daigh",
+   "wikidata": "Q172276",
+   "manual": {
+    "uk": "Чак Дей",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "dalmas": {
+   "en": "Yannick Dalmas",
+   "uk": "Yannick Dalmas",
+   "wikidata": "Q173291",
+   "manual": {
+    "uk": "Яннік Дальма",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "daly": {
+   "en": "Derek Daly",
+   "uk": "Derek Daly",
+   "wikidata": "Q171635",
+   "manual": {
+    "uk": "Дерек Дейлі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "damon_hill": {
    "en": "Damon Hill",
    "uk": "Деймон Гілл",
    "wikidata": "Q10505"
+  },
+  "danner": {
+   "en": "Christian Danner",
+   "uk": "Christian Danner",
+   "wikidata": "Q57551",
+   "manual": {
+    "uk": "Крістіан Даннер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "daponte": {
+   "en": "Jorge Daponte",
+   "uk": "Jorge Daponte",
+   "wikidata": "Q173593",
+   "manual": {
+    "uk": "Хорхе Дапонте",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "darter": {
+   "en": "Duane Carter",
+   "uk": "Duane Carter",
+   "wikidata": "Q172312",
+   "manual": {
+    "uk": "Дуейн Картер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "davidson": {
+   "en": "Anthony Davidson",
+   "uk": "Ентоні Девідсон",
+   "wikidata": "Q171319"
+  },
+  "davies": {
+   "en": "Jimmy Davies",
+   "uk": "Jimmy Davies",
+   "wikidata": "Q16168010",
+   "manual": {
+    "uk": "Джиммі Девіс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "davis": {
+   "en": "Colin Davis",
+   "uk": "Colin Davis",
+   "wikidata": "Q172819",
+   "manual": {
+    "uk": "Колін Девіс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "daywalt": {
+   "en": "Jimmy Daywalt",
+   "uk": "Jimmy Daywalt",
+   "wikidata": "Q172651",
+   "manual": {
+    "uk": "Джиммі Дейволт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "de_vries": {
+   "en": "Nyck de Vries",
+   "uk": "Нік де Вріс",
+   "wikidata": "Q771382"
+  },
+  "deletraz": {
+   "en": "Jean-Denis Délétraz",
+   "uk": "Jean-Denis Délétraz",
+   "wikidata": "Q123904",
+   "manual": {
+    "uk": "Жан-Дені Делетра",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "dempsey_wilson": {
+   "en": "Dempsey Wilson",
+   "uk": "Dempsey Wilson",
+   "wikidata": "Q173711",
+   "manual": {
+    "uk": "Демпсі Вілсон",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "depailler": {
    "en": "Patrick Depailler",
@@ -165,15 +1673,302 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "dick_rathmann": {
+   "en": "Dick Rathmann",
+   "uk": "Dick Rathmann",
+   "wikidata": "Q172596",
+   "manual": {
+    "uk": "Дік Ратманн",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "diniz": {
+   "en": "Pedro Diniz",
+   "uk": "Pedro Diniz",
+   "wikidata": "Q172999",
+   "manual": {
+    "uk": "Педро Дініс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "dinsmore": {
+   "en": "Duke Dinsmore",
+   "uk": "Duke Dinsmore",
+   "wikidata": "Q172602",
+   "manual": {
+    "uk": "Дюк Дінсмор",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "donnelly": {
+   "en": "Martin Donnelly",
+   "uk": "Martin Donnelly",
+   "wikidata": "Q171528",
+   "manual": {
+    "uk": "Мартін Доннеллі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "donohue": {
+   "en": "Mark Donohue",
+   "uk": "Mark Donohue",
+   "wikidata": "Q171732",
+   "manual": {
+    "uk": "Марк Донох'ю",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "doohan": {
+   "en": "Jack Doohan",
+   "uk": "Джек Дуен",
+   "wikidata": "Q81453998"
+  },
+  "doornbos": {
+   "en": "Robert Doornbos",
+   "uk": "Роберт Дорнбос",
+   "wikidata": "Q173102"
+  },
+  "downing": {
+   "en": "Ken Downing",
+   "uk": "Ken Downing",
+   "wikidata": "Q172344",
+   "manual": {
+    "uk": "Кен Даунінг",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "drake": {
+   "en": "Bob Drake",
+   "uk": "Bob Drake",
+   "wikidata": "Q172612",
+   "manual": {
+    "uk": "Боб Дрейк",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "driver": {
+   "en": "Paddy Driver",
+   "uk": "Paddy Driver",
+   "wikidata": "Q172501",
+   "manual": {
+    "uk": "Педді Драйвер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "drogo": {
+   "en": "Piero Drogo",
+   "uk": "Piero Drogo",
+   "wikidata": "Q172823",
+   "manual": {
+    "uk": "П'єро Дрого",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "dumfries": {
+   "en": "Johnny Dumfries",
+   "uk": "Johnny Dumfries",
+   "wikidata": "Q171722",
+   "manual": {
+    "uk": "Джонні Дамфріс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "duncan": {
+   "en": "Len Duncan",
+   "uk": "Len Duncan",
+   "wikidata": "Q172576",
+   "manual": {
+    "uk": "Лен Дункан",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "duncan_hamilton": {
+   "en": "Duncan Hamilton",
+   "uk": "Duncan Hamilton",
+   "wikidata": "Q171991",
+   "manual": {
+    "uk": "Данкан Гамільтон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "eaton": {
+   "en": "George Eaton",
+   "uk": "George Eaton",
+   "wikidata": "Q28151129",
+   "manual": {
+    "uk": "Джордж Ітон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "edmunds": {
+   "en": "Don Edmunds",
+   "uk": "Don Edmunds",
+   "wikidata": "Q173588",
+   "manual": {
+    "uk": "Дон Едмундс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "edwards": {
+   "en": "Guy Edwards",
+   "uk": "Guy Edwards",
+   "wikidata": "Q171975",
+   "manual": {
+    "uk": "Гай Едвардс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "elford": {
+   "en": "Vic Elford",
+   "uk": "Vic Elford",
+   "wikidata": "Q173244",
+   "manual": {
+    "uk": "Вік Елфорд",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "elisian": {
+   "en": "Ed Elisian",
+   "uk": "Ed Elisian",
+   "wikidata": "Q172598",
+   "manual": {
+    "uk": "Ед Елізіан",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
   "emerson_fittipaldi": {
    "en": "Emerson Fittipaldi",
    "uk": "Емерсон Фіттіпальді",
    "wikidata": "Q172849"
   },
+  "emery": {
+   "en": "Paul Emery",
+   "uk": "Paul Emery",
+   "wikidata": "Q172551",
+   "manual": {
+    "uk": "Пол Емері",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "enge": {
+   "en": "Tomáš Enge",
+   "uk": "Tomáš Enge",
+   "wikidata": "Q173319",
+   "manual": {
+    "uk": "Томаш Енге",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "england": {
+   "en": "Paul England",
+   "uk": "Paul England",
+   "wikidata": "Q133496596",
+   "manual": {
+    "uk": "Пол Інгленд",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ericsson": {
+   "en": "Marcus Ericsson",
+   "uk": "Маркус Ерікссон",
+   "wikidata": "Q975207"
+  },
+  "ertl": {
+   "en": "Harald Ertl",
+   "uk": "Harald Ertl",
+   "wikidata": "Q78548",
+   "manual": {
+    "uk": "Гаральд Ертль",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "estefano": {
+   "en": "Nasif Estéfano",
+   "uk": "Nasif Estéfano",
+   "wikidata": "Q172090",
+   "manual": {
+    "uk": "Насіф Естефано",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "etancelin": {
+   "en": "Philippe Étancelin",
+   "uk": "Philippe Étancelin",
+   "wikidata": "Q171994",
+   "manual": {
+    "uk": "Філіпп Етанселен",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "evans": {
+   "en": "Bob Evans",
+   "uk": "Bob Evans",
+   "wikidata": "Q171886",
+   "manual": {
+    "uk": "Боб Еванс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "fabi": {
+   "en": "Teo Fabi",
+   "uk": "Teo Fabi",
+   "wikidata": "Q171610",
+   "manual": {
+    "uk": "Тео Фабі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "fabre": {
+   "en": "Pascal Fabre",
+   "uk": "Pascal Fabre",
+   "wikidata": "Q171884",
+   "manual": {
+    "uk": "Паскаль Фабр",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "fagioli": {
    "en": "Luigi Fagioli",
    "uk": "Луїджі Фаджолі",
    "wikidata": "Q173038"
+  },
+  "fairman": {
+   "en": "Jack Fairman",
+   "uk": "Jack Fairman",
+   "wikidata": "Q172644",
+   "manual": {
+    "uk": "Джек Фермен",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "fangio": {
    "en": "Juan Fangio",
@@ -185,10 +1980,80 @@
    "uk": "Джузеппе Фаріна",
    "wikidata": "Q2040"
   },
+  "faulkner": {
+   "en": "Walt Faulkner",
+   "uk": "Walt Faulkner",
+   "wikidata": "Q173418",
+   "manual": {
+    "uk": "Волт Фолкнер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "filippis": {
+   "en": "Maria de Filippis",
+   "uk": "Марія-Тереза де Філіппіс",
+   "wikidata": "Q171572"
+  },
+  "firman": {
+   "en": "Ralph Firman",
+   "uk": "Ralph Firman",
+   "wikidata": "Q171581",
+   "manual": {
+    "uk": "Ральф Фірман",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "fischer": {
+   "en": "Rudi Fischer",
+   "uk": "Rudi Fischer",
+   "wikidata": "Q171968",
+   "manual": {
+    "uk": "Руді Фішер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "fisher": {
+   "en": "Mike Fisher",
+   "uk": "Mike Fisher",
+   "wikidata": "Q172357",
+   "manual": {
+    "uk": "Майк Фішер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "fisichella": {
    "en": "Giancarlo Fisichella",
    "uk": "Джанкарло Фізікелла",
    "wikidata": "Q172712"
+  },
+  "fitch": {
+   "en": "John Fitch",
+   "uk": "John Fitch",
+   "wikidata": "Q172492",
+   "manual": {
+    "uk": "Джон Фітч",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "fittipaldi": {
+   "en": "Christian Fittipaldi",
+   "uk": "Крістіан Фіттіпальді",
+   "wikidata": "Q172954"
+  },
+  "fitzau": {
+   "en": "Theo Fitzau",
+   "uk": "Theo Fitzau",
+   "wikidata": "Q61918",
+   "manual": {
+    "uk": "Тео Фітцау",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "flaherty": {
    "en": "Pat Flaherty",
@@ -201,10 +2066,351 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "flinterman": {
+   "en": "Jan Flinterman",
+   "uk": "Jan Flinterman",
+   "wikidata": "Q172796",
+   "manual": {
+    "uk": "Ян Флінтерман",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "flockhart": {
+   "en": "Ron Flockhart",
+   "uk": "Ron Flockhart",
+   "wikidata": "Q172479",
+   "manual": {
+    "uk": "Рон Флокгарт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "fohr": {
+   "en": "Myron Fohr",
+   "uk": "Myron Fohr",
+   "wikidata": "Q172588",
+   "manual": {
+    "uk": "Майрон Фор",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "foitek": {
+   "en": "Gregor Foitek",
+   "uk": "Gregor Foitek",
+   "wikidata": "Q171725",
+   "manual": {
+    "uk": "Грегор Фойтек",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "follmer": {
+   "en": "George Follmer",
+   "uk": "George Follmer",
+   "wikidata": "Q172096",
+   "manual": {
+    "uk": "Джордж Фоллмер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "fonder": {
+   "en": "George Fonder",
+   "uk": "George Fonder",
+   "wikidata": "Q173635",
+   "manual": {
+    "uk": "Джордж Фондер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "fontana": {
+   "en": "Norberto Fontana",
+   "uk": "Norberto Fontana",
+   "wikidata": "Q173311",
+   "manual": {
+    "uk": "Норберто Фонтана",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "forberg": {
+   "en": "Carl Forberg",
+   "uk": "Carl Forberg",
+   "wikidata": "Q173717",
+   "manual": {
+    "uk": "Карл Форберг",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "force": {
+   "en": "Gene Force",
+   "uk": "Gene Force",
+   "wikidata": "Q173666",
+   "manual": {
+    "uk": "Джин Форс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "forini": {
+   "en": "Franco Forini",
+   "uk": "Franco Forini",
+   "wikidata": "Q172073",
+   "manual": {
+    "uk": "Франко Форіні",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "foyt": {
+   "en": "Anthony Foyt",
+   "uk": "Anthony Foyt",
+   "wikidata": "Q173228",
+   "manual": {
+    "uk": "Ентоні Фойт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "freeland": {
+   "en": "Don Freeland",
+   "uk": "Don Freeland",
+   "wikidata": "Q172547",
+   "manual": {
+    "uk": "Дон Фріланд",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "frentzen": {
    "en": "Heinz-Harald Frentzen",
    "uk": "Гайнц-Гаральд Френтцен",
    "wikidata": "Q76720"
+  },
+  "frere": {
+   "en": "Paul Frère",
+   "uk": "Поль Фрер",
+   "wikidata": "Q173328"
+  },
+  "friesacher": {
+   "en": "Patrick Friesacher",
+   "uk": "Патрік Фрізахер",
+   "wikidata": "Q84167"
+  },
+  "fry": {
+   "en": "Joe Fry",
+   "uk": "Joe Fry",
+   "wikidata": "Q172329",
+   "manual": {
+    "uk": "Джо Фрай",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "gabbiani": {
+   "en": "Beppe Gabbiani",
+   "uk": "Beppe Gabbiani",
+   "wikidata": "Q171988",
+   "manual": {
+    "uk": "Беппе Габбіані",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "gachot": {
+   "en": "Bertrand Gachot",
+   "uk": "Бертран Гашо",
+   "wikidata": "Q172989"
+  },
+  "gaillard": {
+   "en": "Patrick Gaillard",
+   "uk": "Patrick Gaillard",
+   "wikidata": "Q172204",
+   "manual": {
+    "uk": "Патрік Гайяр",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "galli": {
+   "en": "Nanni Galli",
+   "uk": "Nanni Galli",
+   "wikidata": "Q173349",
+   "manual": {
+    "uk": "Нанні Галлі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "galvez": {
+   "en": "Oscar Gálvez",
+   "uk": "Oscar Gálvez",
+   "wikidata": "Q172084",
+   "manual": {
+    "uk": "Оскар Гальвес",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "gamble": {
+   "en": "Fred Gamble",
+   "uk": "Fred Gamble",
+   "wikidata": "Q172799",
+   "manual": {
+    "uk": "Фред Гембл",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ganley": {
+   "en": "Howden Ganley",
+   "uk": "Howden Ganley",
+   "wikidata": "Q171733",
+   "manual": {
+    "uk": "Гауден Генлі",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "garde": {
+   "en": "Giedo van der Garde",
+   "uk": "Гідо ван дер Гарде",
+   "wikidata": "Q453177"
+  },
+  "gardner": {
+   "en": "Frank Gardner",
+   "uk": "Френк Ґарднер",
+   "wikidata": "Q172539"
+  },
+  "garrett": {
+   "en": "Billy Garrett",
+   "uk": "Billy Garrett",
+   "wikidata": "Q172594",
+   "manual": {
+    "uk": "Біллі Гаррет",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "gartner": {
+   "en": "Jo Gartner",
+   "uk": "Jo Gartner",
+   "wikidata": "Q78581",
+   "manual": {
+    "uk": "Йо Гартнер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "gavin": {
+   "en": "Johnny Servoz-Gavin",
+   "uk": "Johnny Servoz-Gavin",
+   "wikidata": "Q171767",
+   "manual": {
+    "uk": "Джонні Серво-Гавен",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "gaze": {
+   "en": "Tony Gaze",
+   "uk": "Tony Gaze",
+   "wikidata": "Q172607",
+   "manual": {
+    "uk": "Тоні Гейз",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "geki": {
+   "en": "Giacomo Russo",
+   "uk": "Джекі",
+   "wikidata": "Q173342"
+  },
+  "gendebien": {
+   "en": "Olivier Gendebien",
+   "uk": "Olivier Gendebien",
+   "wikidata": "Q172142",
+   "manual": {
+    "uk": "Олів'є Жандеб'єн",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "gene": {
+   "en": "Marc Gené",
+   "uk": "Marc Gené",
+   "wikidata": "Q172780",
+   "manual": {
+    "uk": "Марк Жене",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "george": {
+   "en": "Elmer George",
+   "uk": "Elmer George",
+   "wikidata": "Q172552",
+   "manual": {
+    "uk": "Елмер Джордж",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "george_amick": {
+   "en": "George Amick",
+   "uk": "George Amick",
+   "wikidata": "Q173434",
+   "manual": {
+    "uk": "Джордж Амік",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "george_connor": {
+   "en": "George Connor",
+   "uk": "George Connor",
+   "wikidata": "Q172571",
+   "manual": {
+    "uk": "Джордж Коннор",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "georges_berger": {
+   "en": "Georges Berger",
+   "uk": "Georges Berger",
+   "wikidata": "Q3102274",
+   "manual": {
+    "uk": "Жорж Берже",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "gerard": {
+   "en": "Bob Gerard",
+   "uk": "Bob Gerard",
+   "wikidata": "Q172325",
+   "manual": {
+    "uk": "Боб Джерард",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "gerini": {
+   "en": "Gerino Gerini",
+   "uk": "Gerino Gerini",
+   "wikidata": "Q139349",
+   "manual": {
+    "uk": "Джеріно Джеріні",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "gethin": {
    "en": "Peter Gethin",
@@ -215,6 +2421,31 @@
     "source": "transliteration",
     "checked": true,
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
+   }
+  },
+  "ghinzani": {
+   "en": "Piercarlo Ghinzani",
+   "uk": "П'єркарло Ґіндзані",
+   "wikidata": "Q172994"
+  },
+  "giacomelli": {
+   "en": "Bruno Giacomelli",
+   "uk": "Bruno Giacomelli",
+   "wikidata": "Q173112",
+   "manual": {
+    "uk": "Бруно Джакомеллі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "gibson": {
+   "en": "Dick Gibson",
+   "uk": "Dick Gibson",
+   "wikidata": "Q2650277",
+   "manual": {
+    "uk": "Дік Гібсон",
+    "source": "transliteration",
+    "checked": false
    }
   },
   "gilles_villeneuve": {
@@ -233,10 +2464,232 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "giovinazzi": {
+   "en": "Antonio Giovinazzi",
+   "uk": "Антоніо Джовінацці",
+   "wikidata": "Q7084843"
+  },
+  "giunti": {
+   "en": "Ignazio Giunti",
+   "uk": "Ignazio Giunti",
+   "wikidata": "Q172027",
+   "manual": {
+    "uk": "Іньяціо Джунті",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "glock": {
+   "en": "Timo Glock",
+   "uk": "Тімо Глок",
+   "wikidata": "Q76719"
+  },
+  "godia": {
+   "en": "Paco Godia",
+   "uk": "Paco Godia",
+   "wikidata": "Q171922",
+   "manual": {
+    "uk": "Пако Годія",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "goethals": {
+   "en": "Christian Goethals",
+   "uk": "Christian Goethals",
+   "wikidata": "Q172790",
+   "manual": {
+    "uk": "Крістіан Гуталс",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "goldsmith": {
+   "en": "Paul Goldsmith",
+   "uk": "Paul Goldsmith",
+   "wikidata": "Q131192921",
+   "manual": {
+    "uk": "Пол Голдсміт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "gonzalez": {
    "en": "José Froilán González",
    "uk": "Хосе Фройлан Гонсалес",
    "wikidata": "Q171447"
+  },
+  "gordini": {
+   "en": "Aldo Gordini",
+   "uk": "Aldo Gordini",
+   "wikidata": "Q172467",
+   "manual": {
+    "uk": "Альдо Гордіні",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "gould": {
+   "en": "Horace Gould",
+   "uk": "Horace Gould",
+   "wikidata": "Q172504",
+   "manual": {
+    "uk": "Горас Гулд",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "gounon": {
+   "en": "Jean-Marc Gounon",
+   "uk": "Jean-Marc Gounon",
+   "wikidata": "Q173308",
+   "manual": {
+    "uk": "Жан-Марк Гунон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "graffenried": {
+   "en": "Toulo de Graffenried",
+   "uk": "Туло де Граффенрід",
+   "wikidata": "Q115778"
+  },
+  "graham_whitehead": {
+   "en": "Graham Whitehead",
+   "uk": "Graham Whitehead",
+   "wikidata": "Q172376",
+   "manual": {
+    "uk": "Грем Вайтгед",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "grassi": {
+   "en": "Lucas di Grassi",
+   "uk": "Lucas di Grassi",
+   "wikidata": "Q172783",
+   "manual": {
+    "uk": "Лукас ді Грассі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "green": {
+   "en": "Cecil Green",
+   "uk": "Cecil Green",
+   "wikidata": "Q141966202",
+   "manual": {
+    "uk": "Сесіл Грін",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "greene": {
+   "en": "Keith Greene",
+   "uk": "Keith Greene",
+   "wikidata": "Q172815",
+   "manual": {
+    "uk": "Кіт Грін",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "gregory": {
+   "en": "Masten Gregory",
+   "uk": "Masten Gregory",
+   "wikidata": "Q173421",
+   "manual": {
+    "uk": "Мастен Грегорі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "griffith": {
+   "en": "Cliff Griffith",
+   "uk": "Cliff Griffith",
+   "wikidata": "Q173694",
+   "manual": {
+    "uk": "Кліфф Гріффіт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "grignard": {
+   "en": "Georges Grignard",
+   "uk": "Georges Grignard",
+   "wikidata": "Q172359",
+   "manual": {
+    "uk": "Жорж Гріньяр",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "grim": {
+   "en": "Bobby Grim",
+   "uk": "Bobby Grim",
+   "wikidata": "Q173654",
+   "manual": {
+    "uk": "Боббі Грім",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "grosjean": {
+   "en": "Romain Grosjean",
+   "uk": "Роман Грожан",
+   "wikidata": "Q82742"
+  },
+  "grouillard": {
+   "en": "Olivier Grouillard",
+   "uk": "Olivier Grouillard",
+   "wikidata": "Q173307",
+   "manual": {
+    "uk": "Олів'є Груяр",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "guelfi": {
+   "en": "André Guelfi",
+   "uk": "André Guelfi",
+   "wikidata": "Q172450",
+   "manual": {
+    "uk": "Андре Гельфі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "guerra": {
+   "en": "Miguel Ángel Guerra",
+   "uk": "Miguel Ángel Guerra",
+   "wikidata": "Q172131",
+   "manual": {
+    "uk": "Мігель Анхель Герра",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "guerrero": {
+   "en": "Roberto Guerrero",
+   "uk": "Roberto Guerrero",
+   "wikidata": "Q126940",
+   "manual": {
+    "uk": "Роберто Герреро",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "gugelmin": {
+   "en": "Maurício Gugelmin",
+   "uk": "Maurício Gugelmin",
+   "wikidata": "Q171471",
+   "manual": {
+    "uk": "Маурісіо Гужелмін",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
   },
   "gurney": {
    "en": "Dan Gurney",
@@ -249,10 +2702,70 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "gutierrez": {
+   "en": "Esteban Gutiérrez",
+   "uk": "Естебан Гутьєррес",
+   "wikidata": "Q18915"
+  },
+  "guy_mairesse": {
+   "en": "Guy Mairesse",
+   "uk": "Guy Mairesse",
+   "wikidata": "Q171964",
+   "manual": {
+    "uk": "Гі Мересс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "hahne": {
+   "en": "Hubert Hahne",
+   "uk": "Hubert Hahne",
+   "wikidata": "Q61858",
+   "manual": {
+    "uk": "Губерт Гане",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "hailwood": {
+   "en": "Mike Hailwood",
+   "uk": "Майк Гейлвуд",
+   "wikidata": "Q173147"
+  },
   "hakkinen": {
    "en": "Mika Häkkinen",
    "uk": "Міка Хаккінен",
    "wikidata": "Q172842"
+  },
+  "halford": {
+   "en": "Bruce Halford",
+   "uk": "Bruce Halford",
+   "wikidata": "Q172443",
+   "manual": {
+    "uk": "Брюс Галфорд",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "hall": {
+   "en": "Jim Hall",
+   "uk": "Jim Hall",
+   "wikidata": "Q172282",
+   "manual": {
+    "uk": "Джим Голл",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "hampshire": {
+   "en": "David Hampshire",
+   "uk": "David Hampshire",
+   "wikidata": "Q172063",
+   "manual": {
+    "uk": "Девід Гемпшир",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "hanks": {
    "en": "Sam Hanks",
@@ -265,20 +2778,272 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "hans_stuck": {
+   "en": "Hans von Stuck",
+   "uk": "Ганс Штук",
+   "wikidata": "Q61541"
+  },
+  "hansgen": {
+   "en": "Walt Hansgen",
+   "uk": "Walt Hansgen",
+   "wikidata": "Q172412",
+   "manual": {
+    "uk": "Волт Гансген",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "harris": {
+   "en": "Mike Harris",
+   "uk": "Mike Harris",
+   "wikidata": "Q172606",
+   "manual": {
+    "uk": "Майк Гарріс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "harrison": {
+   "en": "Cuth Harrison",
+   "uk": "Cuth Harrison",
+   "wikidata": "Q172023",
+   "manual": {
+    "uk": "Кат Гаррісон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "hart": {
+   "en": "Brian Hart",
+   "uk": "Brian Hart",
+   "wikidata": "Q173455",
+   "manual": {
+    "uk": "Браян Гарт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "hartley": {
+   "en": "Gene Hartley",
+   "uk": "Gene Hartley",
+   "wikidata": "Q173697",
+   "manual": {
+    "uk": "Джин Гартлі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "haryanto": {
+   "en": "Rio Haryanto",
+   "uk": "Ріо Харьянто",
+   "wikidata": "Q981543"
+  },
+  "hasemi": {
+   "en": "Masahiro Hasemi",
+   "uk": "Masahiro Hasemi",
+   "wikidata": "Q172106",
+   "manual": {
+    "uk": "Масахіро Хасемі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "hawkins": {
+   "en": "Paul Hawkins",
+   "uk": "Paul Hawkins",
+   "wikidata": "Q172342",
+   "manual": {
+    "uk": "Пол Гокінс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "hawthorn": {
    "en": "Mike Hawthorn",
    "uk": "Майк Готорн",
    "wikidata": "Q2104"
+  },
+  "hayje": {
+   "en": "Boy Hayje",
+   "uk": "Boy Hayje",
+   "wikidata": "Q172051",
+   "manual": {
+    "uk": "Бой Гайє",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "heeks": {
+   "en": "Willi Heeks",
+   "uk": "Willi Heeks",
+   "wikidata": "Q61486",
+   "manual": {
+    "uk": "Віллі Гекс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "heidfeld": {
+   "en": "Nick Heidfeld",
+   "uk": "Нік Гайдфельд",
+   "wikidata": "Q75810"
+  },
+  "helfrich": {
+   "en": "Theo Helfrich",
+   "uk": "Theo Helfrich",
+   "wikidata": "Q61295",
+   "manual": {
+    "uk": "Тео Гельфріх",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "hellings": {
+   "en": "Mack Hellings",
+   "uk": "Mack Hellings",
+   "wikidata": "Q173584",
+   "manual": {
+    "uk": "Мак Геллінгс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "henry_taylor": {
+   "en": "Henry Taylor",
+   "uk": "Henry Taylor",
+   "wikidata": "Q172405",
+   "manual": {
+    "uk": "Генрі Тейлор",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "henton": {
+   "en": "Brian Henton",
+   "uk": "Brian Henton",
+   "wikidata": "Q171757",
+   "manual": {
+    "uk": "Браян Гентон",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "herbert": {
    "en": "Johnny Herbert",
    "uk": "Джонні Герберт",
    "wikidata": "Q172751"
   },
+  "herman": {
+   "en": "Al Herman",
+   "uk": "Al Herman",
+   "wikidata": "Q173719",
+   "manual": {
+    "uk": "Ел Герман",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "herrmann": {
+   "en": "Hans Herrmann",
+   "uk": "Ганс Геррманн",
+   "wikidata": "Q65915"
+  },
+  "hesnault": {
+   "en": "François Hesnault",
+   "uk": "François Hesnault",
+   "wikidata": "Q172232",
+   "manual": {
+    "uk": "Франсуа Ено",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "hill": {
    "en": "Graham Hill",
    "uk": "Ґрем Гілл",
    "wikidata": "Q3128"
+  },
+  "hirt": {
+   "en": "Peter Hirt",
+   "uk": "Peter Hirt",
+   "wikidata": "Q172120",
+   "manual": {
+    "uk": "Петер Гірт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "hobbs": {
+   "en": "David Hobbs",
+   "uk": "David Hobbs",
+   "wikidata": "Q173466",
+   "manual": {
+    "uk": "Девід Гоббс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "hoffmann": {
+   "en": "Ingo Hoffmann",
+   "uk": "Ingo Hoffmann",
+   "wikidata": "Q171754",
+   "manual": {
+    "uk": "Інго Гоффманн",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "holland": {
+   "en": "Bill Holland",
+   "uk": "Bill Holland",
+   "wikidata": "Q173073",
+   "manual": {
+    "uk": "Білл Голланд",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "holmes": {
+   "en": "Jackie Holmes",
+   "uk": "Jackie Holmes",
+   "wikidata": "Q173652",
+   "manual": {
+    "uk": "Джекі Голмс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "homeier": {
+   "en": "Bill Homeier",
+   "uk": "Bill Homeier",
+   "wikidata": "Q173687",
+   "manual": {
+    "uk": "Білл Гомаєр",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "hoshino": {
+   "en": "Kazuyoshi Hoshino",
+   "uk": "Kazuyoshi Hoshino",
+   "wikidata": "Q171739",
+   "manual": {
+    "uk": "Кадзуйосі Хосіно",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "hoyt": {
+   "en": "Jerry Hoyt",
+   "uk": "Jerry Hoyt",
+   "wikidata": "Q172519",
+   "manual": {
+    "uk": "Джеррі Гойт",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "hulme": {
    "en": "Denny Hulme",
@@ -290,10 +3055,81 @@
    "uk": "Джеймс Хант",
    "wikidata": "Q140393"
   },
+  "hurtubise": {
+   "en": "Jim Hurtubise",
+   "uk": "Jim Hurtubise",
+   "wikidata": "Q172585",
+   "manual": {
+    "uk": "Джим Гертубайз",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "hutchison": {
+   "en": "Gus Hutchison",
+   "uk": "Gus Hutchison",
+   "wikidata": "Q172318",
+   "manual": {
+    "uk": "Гас Гатчісон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ian_scheckter": {
+   "en": "Ian Scheckter",
+   "uk": "Ian Scheckter",
+   "wikidata": "Q172733",
+   "manual": {
+    "uk": "Ієн Шектер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ian_stewart": {
+   "en": "Ian Stewart",
+   "uk": "Ian Stewart",
+   "wikidata": "Q172808",
+   "manual": {
+    "uk": "Ієн Стюарт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "ickx": {
    "en": "Jacky Ickx",
    "uk": "Жакі Ікс",
    "wikidata": "Q173123"
+  },
+  "ide": {
+   "en": "Yuji Ide",
+   "uk": "Yuji Ide",
+   "wikidata": "Q173199",
+   "manual": {
+    "uk": "Юдзі Іде",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "iglesias": {
+   "en": "Jesús Iglesias",
+   "uk": "Jesús Iglesias",
+   "wikidata": "Q140430133",
+   "manual": {
+    "uk": "Хесус Іглесіас",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "inoue": {
+   "en": "Taki Inoue",
+   "uk": "Taki Inoue",
+   "wikidata": "Q172985",
+   "manual": {
+    "uk": "Такі Іноуе",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "ireland": {
    "en": "Innes Ireland",
@@ -304,6 +3140,16 @@
    "en": "Eddie Irvine",
    "uk": "Едді Ірвайн",
    "wikidata": "Q171397"
+  },
+  "irwin": {
+   "en": "Chris Irwin",
+   "uk": "Chris Irwin",
+   "wikidata": "Q515506",
+   "manual": {
+    "uk": "Кріс Ірвін",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "jabouille": {
    "en": "Jean-Pierre Jabouille",
@@ -321,25 +3167,352 @@
    "uk": "Джек Бребем",
    "wikidata": "Q2125"
   },
+  "jackson": {
+   "en": "Jimmy Jackson",
+   "uk": "Jimmy Jackson",
+   "wikidata": "Q173640",
+   "manual": {
+    "uk": "Джиммі Джексон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "james": {
+   "en": "Joe James",
+   "uk": "Joe James",
+   "wikidata": "Q173716",
+   "manual": {
+    "uk": "Джо Джеймс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "jarier": {
+   "en": "Jean-Pierre Jarier",
+   "uk": "Jean-Pierre Jarier",
+   "wikidata": "Q171683",
+   "manual": {
+    "uk": "Жан-П'єр Жар'є",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "jean": {
+   "en": "Max Jean",
+   "uk": "Max Jean",
+   "wikidata": "Q172074",
+   "manual": {
+    "uk": "Макс Жан",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "jerry_unser": {
+   "en": "Jerry Unser",
+   "uk": "Jerry Unser",
+   "wikidata": "Q172441",
+   "manual": {
+    "uk": "Джеррі Ансер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "jimmy_stewart": {
+   "en": "Jimmy Stewart",
+   "uk": "Jimmy Stewart",
+   "wikidata": "Q172249",
+   "manual": {
+    "uk": "Джиммі Стюарт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "jo_schlesser": {
+   "en": "Jo Schlesser",
+   "uk": "Jo Schlesser",
+   "wikidata": "Q171786",
+   "manual": {
+    "uk": "Жо Шлессер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "johansson": {
+   "en": "Stefan Johansson",
+   "uk": "Stefan Johansson",
+   "wikidata": "Q171474",
+   "manual": {
+    "uk": "Стефан Юханссон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "john_barber": {
+   "en": "John Barber",
+   "uk": "John Barber",
+   "wikidata": "Q173968",
+   "manual": {
+    "uk": "Джон Барбер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "john_james": {
+   "en": "John James",
+   "uk": "John James",
+   "wikidata": "Q172821",
+   "manual": {
+    "uk": "Джон Джеймс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "johnson": {
+   "en": "Eddie Johnson",
+   "uk": "Eddie Johnson",
+   "wikidata": "Q173677",
+   "manual": {
+    "uk": "Едді Джонсон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "johnstone": {
+   "en": "Bruce Johnstone",
+   "uk": "Bruce Johnstone",
+   "wikidata": "Q173693",
+   "manual": {
+    "uk": "Брюс Джонстон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "jolyon_palmer": {
+   "en": "Jolyon Palmer",
+   "uk": "Jolyon Palmer",
+   "wikidata": "Q714365",
+   "manual": {
+    "uk": "Джоліон Палмер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "jones": {
    "en": "Alan Jones",
    "uk": "Алан Джонс",
    "wikidata": "Q172753"
+  },
+  "jover": {
+   "en": "Juan Jover",
+   "uk": "Juan Jover",
+   "wikidata": "Q290404",
+   "manual": {
+    "uk": "Хуан Ховер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "jules_bianchi": {
+   "en": "Jules Bianchi",
+   "uk": "Жуль Б'янкі",
+   "wikidata": "Q281294"
+  },
+  "karch": {
+   "en": "Oswald Karch",
+   "uk": "Oswald Karch",
+   "wikidata": "Q62697",
+   "manual": {
+    "uk": "Освальд Карх",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "karthikeyan": {
+   "en": "Narain Karthikeyan",
+   "uk": "Нараїн Картікеян",
+   "wikidata": "Q82936"
+  },
+  "katayama": {
+   "en": "Ukyo Katayama",
+   "uk": "Укіо Катаяма",
+   "wikidata": "Q171543"
+  },
+  "keegan": {
+   "en": "Rupert Keegan",
+   "uk": "Rupert Keegan",
+   "wikidata": "Q171783",
+   "manual": {
+    "uk": "Руперт Кіган",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "keizan": {
+   "en": "Eddie Keizan",
+   "uk": "Eddie Keizan",
+   "wikidata": "Q172327",
+   "manual": {
+    "uk": "Едді Кейзан",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
   },
   "keke_rosberg": {
    "en": "Keke Rosberg",
    "uk": "Кеке Росберг",
    "wikidata": "Q171381"
   },
+  "keller": {
+   "en": "Al Keller",
+   "uk": "Al Keller",
+   "wikidata": "Q670418",
+   "manual": {
+    "uk": "Ел Келлер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "kelly": {
+   "en": "Joe Kelly",
+   "uk": "Joe Kelly",
+   "wikidata": "Q172217",
+   "manual": {
+    "uk": "Джо Келлі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "kessel": {
+   "en": "Loris Kessel",
+   "uk": "Loris Kessel",
+   "wikidata": "Q173286",
+   "manual": {
+    "uk": "Лоріс Кессель",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "kevin_magnussen": {
+   "en": "Kevin Magnussen",
+   "uk": "Кевін Магнуссен",
+   "wikidata": "Q1740212"
+  },
+  "kiesa": {
+   "en": "Nicolas Kiesa",
+   "uk": "Nicolas Kiesa",
+   "wikidata": "Q173097",
+   "manual": {
+    "uk": "Ніколас Кіеза",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "kinnunen": {
+   "en": "Leo Kinnunen",
+   "uk": "Лео Кіннунен",
+   "wikidata": "Q173325"
+  },
+  "kladis": {
+   "en": "Danny Kladis",
+   "uk": "Danny Kladis",
+   "wikidata": "Q172566",
+   "manual": {
+    "uk": "Денні Кладіс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "klenk": {
+   "en": "Hans Klenk",
+   "uk": "Hans Klenk",
+   "wikidata": "Q62235",
+   "manual": {
+    "uk": "Ганс Кленк",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "klerk": {
+   "en": "Peter de Klerk",
+   "uk": "Peter de Klerk",
+   "wikidata": "Q172487",
+   "manual": {
+    "uk": "Пітер де Клерк",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "klien": {
+   "en": "Christian Klien",
+   "uk": "Крістіан Клін",
+   "wikidata": "Q84178"
+  },
+  "kling": {
+   "en": "Karl Kling",
+   "uk": "Карл Клінг",
+   "wikidata": "Q63713"
+  },
+  "klodwig": {
+   "en": "Ernst Klodwig",
+   "uk": "Ernst Klodwig",
+   "wikidata": "Q61459",
+   "manual": {
+    "uk": "Ернст Клодвіг",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "kobayashi": {
+   "en": "Kamui Kobayashi",
+   "uk": "Камуї Кобаясі",
+   "wikidata": "Q82798"
+  },
+  "koinigg": {
+   "en": "Helmuth Koinigg",
+   "uk": "Helmuth Koinigg",
+   "wikidata": "Q78543",
+   "manual": {
+    "uk": "Гельмут Койнігг",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "kovalainen": {
    "en": "Heikki Kovalainen",
    "uk": "Хейккі Ковалайнен",
    "wikidata": "Q82891"
   },
+  "krause": {
+   "en": "Rudolf Krause",
+   "uk": "Rudolf Krause",
+   "wikidata": "Q61842",
+   "manual": {
+    "uk": "Рудольф Краузе",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "kubica": {
    "en": "Robert Kubica",
    "uk": "Роберт Кубіца",
    "wikidata": "Q160359"
+  },
+  "kvyat": {
+   "en": "Daniil Kvyat",
+   "uk": "Данило Квят",
+   "wikidata": "Q979668"
+  },
+  "la_caze": {
+   "en": "Robert La Caze",
+   "uk": "Robert La Caze",
+   "wikidata": "Q172447",
+   "manual": {
+    "uk": "Робер Ла Каз",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "laffite": {
    "en": "Jacques Laffite",
@@ -352,25 +3525,577 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "lagorce": {
+   "en": "Franck Lagorce",
+   "uk": "Franck Lagorce",
+   "wikidata": "Q173288",
+   "manual": {
+    "uk": "Франк Лагорс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "lammers": {
+   "en": "Jan Lammers",
+   "uk": "Jan Lammers",
+   "wikidata": "Q171457",
+   "manual": {
+    "uk": "Ян Ламмерс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "lamy": {
+   "en": "Pedro Lamy",
+   "uk": "Педро Ламі",
+   "wikidata": "Q171555"
+  },
+  "landi": {
+   "en": "Chico Landi",
+   "uk": "Chico Landi",
+   "wikidata": "Q172078",
+   "manual": {
+    "uk": "Шіку Ланді",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "lang": {
+   "en": "Hermann Lang",
+   "uk": "Герман Ланг",
+   "wikidata": "Q60409"
+  },
+  "larini": {
+   "en": "Nicola Larini",
+   "uk": "Нікола Ларіні",
+   "wikidata": "Q172970"
+  },
+  "larrauri": {
+   "en": "Oscar Larrauri",
+   "uk": "Oscar Larrauri",
+   "wikidata": "Q171620",
+   "manual": {
+    "uk": "Оскар Ларраурі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "larreta": {
+   "en": "Alberto Rodriguez Larreta",
+   "uk": "Alberto Rodriguez Larreta",
+   "wikidata": "Q172789",
+   "manual": {
+    "uk": "Альберто Родрігес Ларрета",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "larrousse": {
+   "en": "Gérard Larrousse",
+   "uk": "Gérard Larrousse",
+   "wikidata": "Q171768",
+   "manual": {
+    "uk": "Жерар Ларрусс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "larson": {
+   "en": "Jud Larson",
+   "uk": "Jud Larson",
+   "wikidata": "Q172643",
+   "manual": {
+    "uk": "Джад Ларсон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "latifi": {
+   "en": "Nicholas Latifi",
+   "uk": "Ніколас Латіфі",
+   "wikidata": "Q8898994"
+  },
   "lauda": {
    "en": "Niki Lauda",
    "uk": "Нікі Лауда",
    "wikidata": "Q78489"
+  },
+  "laurent": {
+   "en": "Roger Laurent",
+   "uk": "Roger Laurent",
+   "wikidata": "Q146857",
+   "manual": {
+    "uk": "Роже Лоран",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "lavaggi": {
+   "en": "Giovanni Lavaggi",
+   "uk": "Giovanni Lavaggi",
+   "wikidata": "Q171467",
+   "manual": {
+    "uk": "Джованні Лаваджі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "lawrence": {
+   "en": "Chris Lawrence",
+   "uk": "Chris Lawrence",
+   "wikidata": "Q172364",
+   "manual": {
+    "uk": "Кріс Лоуренс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "leclere": {
+   "en": "Michel Leclère",
+   "uk": "Michel Leclère",
+   "wikidata": "Q171971",
+   "manual": {
+    "uk": "Мішель Леклер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "lederle": {
+   "en": "Neville Lederle",
+   "uk": "Neville Lederle",
+   "wikidata": "Q172279",
+   "manual": {
+    "uk": "Невілл Ледерле",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "lees": {
+   "en": "Geoff Lees",
+   "uk": "Geoff Lees",
+   "wikidata": "Q30708908",
+   "manual": {
+    "uk": "Джефф Ліс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "legat": {
+   "en": "Arthur Legat",
+   "uk": "Arthur Legat",
+   "wikidata": "Q172281",
+   "manual": {
+    "uk": "Артур Легат",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "lehto": {
+   "en": "Jyrki Järvilehto",
+   "uk": "Юркі Ярвілехто",
+   "wikidata": "Q172979"
+  },
+  "lennep": {
+   "en": "Gijs van Lennep",
+   "uk": "Gijs van Lennep",
+   "wikidata": "Q120308",
+   "manual": {
+    "uk": "Гейс ван Леннеп",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "leoni": {
+   "en": "Lamberto Leoni",
+   "uk": "Lamberto Leoni",
+   "wikidata": "Q171967",
+   "manual": {
+    "uk": "Ламберто Леоні",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "leslie_johnson": {
+   "en": "Leslie Johnson",
+   "uk": "Leslie Johnson",
+   "wikidata": "Q172208",
+   "manual": {
+    "uk": "Леслі Джонсон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "leston": {
+   "en": "Les Leston",
+   "uk": "Les Leston",
+   "wikidata": "Q172795",
+   "manual": {
+    "uk": "Лес Лестон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "levegh": {
+   "en": "Pierre Levegh",
+   "uk": "П'єр Левег",
+   "wikidata": "Q171742"
+  },
+  "levrett": {
+   "en": "Bayliss Levrett",
+   "uk": "Bayliss Levrett",
+   "wikidata": "Q173675",
+   "manual": {
+    "uk": "Бейліс Леврет",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "lewis": {
+   "en": "Jackie Lewis",
+   "uk": "Jackie Lewis",
+   "wikidata": "Q172433",
+   "manual": {
+    "uk": "Джекі Льюїс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "lewis-evans": {
+   "en": "Stuart Lewis-Evans",
+   "uk": "Stuart Lewis-Evans",
+   "wikidata": "Q171961",
+   "manual": {
+    "uk": "Стюарт Льюїс-Еванс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ligier": {
+   "en": "Guy Ligier",
+   "uk": "Ґі Ліж'є",
+   "wikidata": "Q172174"
+  },
+  "linden": {
+   "en": "Andy Linden",
+   "uk": "Andy Linden",
+   "wikidata": "Q172574",
+   "manual": {
+    "uk": "Енді Лінден",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "lippi": {
+   "en": "Roberto Lippi",
+   "uk": "Roberto Lippi",
+   "wikidata": "Q45223",
+   "manual": {
+    "uk": "Роберто Ліппі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "liuzzi": {
+   "en": "Vitantonio Liuzzi",
+   "uk": "Вітантоніо Ліуцці",
+   "wikidata": "Q171294"
+  },
+  "lof": {
+   "en": "Dries van der Lof",
+   "uk": "Dries van der Lof",
+   "wikidata": "Q172371",
+   "manual": {
+    "uk": "Дріс ван дер Лоф",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "lombardi": {
+   "en": "Lella Lombardi",
+   "uk": "Лелла Ломбарді",
+   "wikidata": "Q171569"
+  },
+  "loof": {
+   "en": "Ernst Loof",
+   "uk": "Ernst Loof",
+   "wikidata": "Q62700",
+   "manual": {
+    "uk": "Ернст Лоф",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "lotterer": {
+   "en": "André Lotterer",
+   "uk": "André Lotterer",
+   "wikidata": "Q61395",
+   "manual": {
+    "uk": "Андре Лоттерер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "louveau": {
+   "en": "Henri Louveau",
+   "uk": "Henri Louveau",
+   "wikidata": "Q172123",
+   "manual": {
+    "uk": "Анрі Луво",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "love": {
+   "en": "John Love",
+   "uk": "John Love",
+   "wikidata": "Q172192",
+   "manual": {
+    "uk": "Джон Лав",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "lovely": {
+   "en": "Pete Lovely",
+   "uk": "Pete Lovely",
+   "wikidata": "Q172196",
+   "manual": {
+    "uk": "Піт Лавлі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "loyer": {
+   "en": "Roger Loyer",
+   "uk": "Roger Loyer",
+   "wikidata": "Q172829",
+   "manual": {
+    "uk": "Роже Луає",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "lucas": {
+   "en": "Jean Lucas",
+   "uk": "Jean Lucas",
+   "wikidata": "Q2376242",
+   "manual": {
+    "uk": "Жан Люка",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "lunger": {
+   "en": "Brett Lunger",
+   "uk": "Brett Lunger",
+   "wikidata": "Q171738",
+   "manual": {
+    "uk": "Бретт Лангер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "macdowel": {
+   "en": "Mike MacDowel",
+   "uk": "Mike MacDowel",
+   "wikidata": "Q173599",
+   "manual": {
+    "uk": "Майк Макдауел",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "mackay-fraser": {
+   "en": "Herbert MacKay-Fraser",
+   "uk": "Herbert MacKay-Fraser",
+   "wikidata": "Q172434",
+   "manual": {
+    "uk": "Герберт Маккей-Фрейзер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "mackey": {
+   "en": "Bill Mackey",
+   "uk": "Bill Mackey",
+   "wikidata": "Q173668",
+   "manual": {
+    "uk": "Білл Маккі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "macklin": {
+   "en": "Lance Macklin",
+   "uk": "Ленс Маклін",
+   "wikidata": "Q172199"
+  },
+  "magee": {
+   "en": "Damien Magee",
+   "uk": "Damien Magee",
+   "wikidata": "Q172315",
+   "manual": {
+    "uk": "Деміен Магі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "maggs": {
+   "en": "Tony Maggs",
+   "uk": "Tony Maggs",
+   "wikidata": "Q171830",
+   "manual": {
+    "uk": "Тоні Меггс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "magill": {
+   "en": "Mike Magill",
+   "uk": "Mike Magill",
+   "wikidata": "Q173657",
+   "manual": {
+    "uk": "Майк Магілл",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "maglioli": {
+   "en": "Umberto Maglioli",
+   "uk": "Умберто Мальйолі",
+   "wikidata": "Q113327"
+  },
+  "magnussen": {
+   "en": "Jan Magnussen",
+   "uk": "Jan Magnussen",
+   "wikidata": "Q173092",
+   "manual": {
+    "uk": "Ян Магнуссен",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "mairesse": {
+   "en": "Willy Mairesse",
+   "uk": "Willy Mairesse",
+   "wikidata": "Q171881",
+   "manual": {
+    "uk": "Віллі Мересс",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "maldonado": {
    "en": "Pastor Maldonado",
    "uk": "Пастор Мальдонадо",
    "wikidata": "Q82845"
   },
+  "manfred_winkelhock": {
+   "en": "Manfred Winkelhock",
+   "uk": "Manfred Winkelhock",
+   "wikidata": "Q57733",
+   "manual": {
+    "uk": "Манфред Вінкельгок",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "mansell": {
    "en": "Nigel Mansell",
    "uk": "Найджел Менселл",
    "wikidata": "Q10501"
   },
+  "mantovani": {
+   "en": "Sergio Mantovani",
+   "uk": "Серхіо Мантовані",
+   "wikidata": "Q172124"
+  },
+  "mantz": {
+   "en": "Johnny Mantz",
+   "uk": "Johnny Mantz",
+   "wikidata": "Q173664",
+   "manual": {
+    "uk": "Джонні Манц",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "manzon": {
+   "en": "Robert Manzon",
+   "uk": "Robert Manzon",
+   "wikidata": "Q171512",
+   "manual": {
+    "uk": "Робер Манзон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "marimon": {
+   "en": "Onofre Marimón",
+   "uk": "Онофре Марімон",
+   "wikidata": "Q171624"
+  },
   "mario_andretti": {
    "en": "Mario Andretti",
    "uk": "Маріо Андретті",
    "wikidata": "Q171312"
+  },
+  "marko": {
+   "en": "Helmut Marko",
+   "uk": "Гельмут Марко",
+   "wikidata": "Q78545"
+  },
+  "markus_winkelhock": {
+   "en": "Markus Winkelhock",
+   "uk": "Маркус Вінкельгок",
+   "wikidata": "Q75841"
+  },
+  "marques": {
+   "en": "Tarso Marques",
+   "uk": "Tarso Marques",
+   "wikidata": "Q171439",
+   "manual": {
+    "uk": "Тарсо Маркес",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "marr": {
+   "en": "Leslie Marr",
+   "uk": "Leslie Marr",
+   "wikidata": "Q172117",
+   "manual": {
+    "uk": "Леслі Марр",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "marsh": {
+   "en": "Tony Marsh",
+   "uk": "Tony Marsh",
+   "wikidata": "Q172660",
+   "manual": {
+    "uk": "Тоні Марш",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "martin": {
+   "en": "Eugène Martin",
+   "uk": "Eugène Martin",
+   "wikidata": "Q171890",
+   "manual": {
+    "uk": "Ежен Мартен",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "martini": {
+   "en": "Pierluigi Martini",
+   "uk": "П'єрлуїджи Мартіні",
+   "wikidata": "Q171541"
   },
   "mass": {
    "en": "Jochen Mass",
@@ -388,30 +4113,371 @@
    "uk": "Феліпе Масса",
    "wikidata": "Q82652"
   },
+  "matta": {
+   "en": "Cristiano da Matta",
+   "uk": "Cristiano da Matta",
+   "wikidata": "Q172995",
+   "manual": {
+    "uk": "Крістіано да Матта",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "may": {
+   "en": "Michael May",
+   "uk": "Michael May",
+   "wikidata": "Q173561",
+   "manual": {
+    "uk": "Міхаель Май",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "mayer": {
+   "en": "Timmy Mayer",
+   "uk": "Timmy Mayer",
+   "wikidata": "Q172268",
+   "manual": {
+    "uk": "Тіммі Маєр",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "mazepin": {
+   "en": "Nikita Mazepin",
+   "uk": "Мазепін Микита Дмитрович",
+   "wikidata": "Q22008968"
+  },
+  "mazet": {
+   "en": "François Mazet",
+   "uk": "François Mazet",
+   "wikidata": "Q172257",
+   "manual": {
+    "uk": "Франсуа Мазе",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "mazzacane": {
+   "en": "Gastón Mazzacane",
+   "uk": "Gastón Mazzacane",
+   "wikidata": "Q172017",
+   "manual": {
+    "uk": "Гастон Маццакане",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "mcalpine": {
+   "en": "Kenneth McAlpine",
+   "uk": "Kenneth McAlpine",
+   "wikidata": "Q172259",
+   "manual": {
+    "uk": "Кеннет Макалпайн",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "mccoy": {
+   "en": "Ernie McCoy",
+   "uk": "Ernie McCoy",
+   "wikidata": "Q107026846",
+   "manual": {
+    "uk": "Ерні Маккой",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "mcdowell": {
+   "en": "Johnny McDowell",
+   "uk": "Johnny McDowell",
+   "wikidata": "Q173647",
+   "manual": {
+    "uk": "Джонні Макдауелл",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "mcgrath": {
+   "en": "Jack McGrath",
+   "uk": "Jack McGrath",
+   "wikidata": "Q172215",
+   "manual": {
+    "uk": "Джек Макграт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "mclaren": {
    "en": "Bruce McLaren",
    "uk": "Брюс Макларен",
    "wikidata": "Q173081"
+  },
+  "mcnish": {
+   "en": "Allan McNish",
+   "uk": "Allan McNish",
+   "wikidata": "Q173002",
+   "manual": {
+    "uk": "Аллан Макніш",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "mcrae": {
+   "en": "Graham McRae",
+   "uk": "Graham McRae",
+   "wikidata": "Q172535",
+   "manual": {
+    "uk": "Грем Макрей",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "mcwithey": {
+   "en": "Jim McWithey",
+   "uk": "Jim McWithey",
+   "wikidata": "Q173649",
+   "manual": {
+    "uk": "Джим Маквіті",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "menditeguy": {
+   "en": "Carlos Menditeguy",
+   "uk": "Carlos Menditeguy",
+   "wikidata": "Q172111",
+   "manual": {
+    "uk": "Карлос Мендітегі",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "merhi": {
+   "en": "Roberto Merhi",
+   "uk": "Roberto Merhi",
+   "wikidata": "Q977386",
+   "manual": {
+    "uk": "Роберто Мері",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "merzario": {
+   "en": "Arturo Merzario",
+   "uk": "Arturo Merzario",
+   "wikidata": "Q171518",
+   "manual": {
+    "uk": "Артуро Мерцаріо",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "michael_schumacher": {
    "en": "Michael Schumacher",
    "uk": "Міхаель Шумахер",
    "wikidata": "Q9671"
   },
+  "mick_schumacher": {
+   "en": "Mick Schumacher",
+   "uk": "Мік Шумахер",
+   "wikidata": "Q18119599"
+  },
+  "mieres": {
+   "en": "Roberto Mieres",
+   "uk": "Роберто М'єрес",
+   "wikidata": "Q171777"
+  },
+  "migault": {
+   "en": "François Migault",
+   "uk": "François Migault",
+   "wikidata": "Q172235",
+   "manual": {
+    "uk": "Франсуа Міго",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "mike_taylor": {
+   "en": "Mike Taylor",
+   "uk": "Mike Taylor",
+   "wikidata": "Q172604",
+   "manual": {
+    "uk": "Майк Тейлор",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "miles": {
+   "en": "John Miles",
+   "uk": "John Miles",
+   "wikidata": "Q172189",
+   "manual": {
+    "uk": "Джон Майлз",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "milhoux": {
+   "en": "André Milhoux",
+   "uk": "André Milhoux",
+   "wikidata": "Q172814",
+   "manual": {
+    "uk": "Андре Мілу",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "miller": {
+   "en": "Chet Miller",
+   "uk": "Chet Miller",
+   "wikidata": "Q173645",
+   "manual": {
+    "uk": "Чет Міллер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "mitter": {
+   "en": "Gerhard Mitter",
+   "uk": "Gerhard Mitter",
+   "wikidata": "Q60883",
+   "manual": {
+    "uk": "Герхард Міттер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "modena": {
+   "en": "Stefano Modena",
+   "uk": "Stefano Modena",
+   "wikidata": "Q171459",
+   "manual": {
+    "uk": "Стефано Модена",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "montagny": {
+   "en": "Franck Montagny",
+   "uk": "Franck Montagny",
+   "wikidata": "Q173162",
+   "manual": {
+    "uk": "Франк Монтаньї",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "monteiro": {
+   "en": "Tiago Monteiro",
+   "uk": "Тьягу Монтейру",
+   "wikidata": "Q172001"
+  },
+  "montermini": {
+   "en": "Andrea Montermini",
+   "uk": "Andrea Montermini",
+   "wikidata": "Q172973",
+   "manual": {
+    "uk": "Андреа Монтерміні",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "montoya": {
    "en": "Juan Pablo Montoya",
    "uk": "Хуан-Пабло Монтойя",
    "wikidata": "Q172744"
+  },
+  "morbidelli": {
+   "en": "Gianni Morbidelli",
+   "uk": "Джанні Морбіделлі",
+   "wikidata": "Q171559"
+  },
+  "moreno": {
+   "en": "Roberto Moreno",
+   "uk": "Роберту Морену",
+   "wikidata": "Q171427"
+  },
+  "morgan": {
+   "en": "Dave Morgan",
+   "uk": "Dave Morgan",
+   "wikidata": "Q172338",
+   "manual": {
+    "uk": "Дейв Морган",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "moser": {
+   "en": "Silvio Moser",
+   "uk": "Silvio Moser",
+   "wikidata": "Q173283",
+   "manual": {
+    "uk": "Сільвіо Мозер",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "moss": {
    "en": "Stirling Moss",
    "uk": "Стірлінг Мосс",
    "wikidata": "Q172728"
   },
+  "munaron": {
+   "en": "Gino Munaron",
+   "uk": "Gino Munaron",
+   "wikidata": "Q172785",
+   "manual": {
+    "uk": "Джино Мунарон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "murray": {
+   "en": "David Murray",
+   "uk": "David Murray",
+   "wikidata": "Q171879",
+   "manual": {
+    "uk": "Девід Маррей",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "musso": {
    "en": "Luigi Musso",
    "uk": "Луїджі Муссо",
    "wikidata": "Q171484"
+  },
+  "nakajima": {
+   "en": "Kazuki Nakajima",
+   "uk": "Накаджіма Кадзукі",
+   "wikidata": "Q171302"
+  },
+  "nakano": {
+   "en": "Shinji Nakano",
+   "uk": "Shinji Nakano",
+   "wikidata": "Q171430",
+   "manual": {
+    "uk": "Сіндзі Накано",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "nalon": {
+   "en": "Duke Nalon",
+   "uk": "Duke Nalon",
+   "wikidata": "Q113496",
+   "manual": {
+    "uk": "Дюк Нейлон",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
   },
   "nannini": {
    "en": "Alessandro Nannini",
@@ -422,6 +4488,118 @@
     "source": "transliteration",
     "checked": true,
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
+   }
+  },
+  "naspetti": {
+   "en": "Emanuele Naspetti",
+   "uk": "Emanuele Naspetti",
+   "wikidata": "Q171508",
+   "manual": {
+    "uk": "Емануеле Наспетті",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "nasr": {
+   "en": "Felipe Nasr",
+   "uk": "Felipe Nasr",
+   "wikidata": "Q777319",
+   "manual": {
+    "uk": "Феліпе Наср",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "natili": {
+   "en": "Massimo Natili",
+   "uk": "Massimo Natili",
+   "wikidata": "Q172624",
+   "manual": {
+    "uk": "Массімо Натілі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "naylor": {
+   "en": "Brian Naylor",
+   "uk": "Brian Naylor",
+   "wikidata": "Q11962262",
+   "manual": {
+    "uk": "Браян Нейлор",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "nazaruk": {
+   "en": "Mike Nazaruk",
+   "uk": "Mike Nazaruk",
+   "wikidata": "Q172300",
+   "manual": {
+    "uk": "Майк Назарук",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "needell": {
+   "en": "Tiff Needell",
+   "uk": "Tiff Needell",
+   "wikidata": "Q172265",
+   "manual": {
+    "uk": "Тіфф Нідел",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "neve": {
+   "en": "Patrick Nève",
+   "uk": "Patrick Nève",
+   "wikidata": "Q172187",
+   "manual": {
+    "uk": "Патрік Нев",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "nicholson": {
+   "en": "John Nicholson",
+   "uk": "John Nicholson",
+   "wikidata": "Q171986",
+   "manual": {
+    "uk": "Джон Ніколсон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "niday": {
+   "en": "Cal Niday",
+   "uk": "Cal Niday",
+   "wikidata": "Q172583",
+   "manual": {
+    "uk": "Кел Найдей",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "niedermayr": {
+   "en": "Helmut Niedermayr",
+   "uk": "Helmut Niedermayr",
+   "wikidata": "Q61287",
+   "manual": {
+    "uk": "Гельмут Нідермайр",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "niemann": {
+   "en": "Brausch Niemann",
+   "uk": "Brausch Niemann",
+   "wikidata": "Q172518",
+   "manual": {
+    "uk": "Брауш Німан",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
    }
   },
   "nilsson": {
@@ -435,20 +4613,182 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "noda": {
+   "en": "Hideki Noda",
+   "uk": "Hideki Noda",
+   "wikidata": "Q172967",
+   "manual": {
+    "uk": "Хідекі Нода",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "nuckey": {
+   "en": "Rodney Nuckey",
+   "uk": "Rodney Nuckey",
+   "wikidata": "Q172810",
+   "manual": {
+    "uk": "Родні Накі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "obrien": {
+   "en": "Robert O'Brien",
+   "uk": "Robert O'Brien",
+   "wikidata": "Q172352",
+   "manual": {
+    "uk": "Роберт О'Браєн",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "ocon": {
    "en": "Esteban Ocon",
    "uk": "Естебан Окон",
    "wikidata": "Q15074165"
+  },
+  "oliver": {
+   "en": "Jackie Oliver",
+   "uk": "Джекі Олівер",
+   "wikidata": "Q171720"
+  },
+  "ongais": {
+   "en": "Danny Ongais",
+   "uk": "Danny Ongais",
+   "wikidata": "Q172322",
+   "manual": {
+    "uk": "Денні Онгайс",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "opel": {
+   "en": "Rikky von Opel",
+   "uk": "Ріккі фон Опель",
+   "wikidata": "Q171562"
+  },
+  "orey": {
+   "en": "Fritz d'Orey",
+   "uk": "Fritz d'Orey",
+   "wikidata": "Q172335",
+   "manual": {
+    "uk": "Фріц д'Орей",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "oscar_gonzalez": {
+   "en": "Óscar González",
+   "uk": "Óscar González",
+   "wikidata": "Q173597",
+   "manual": {
+    "uk": "Оскар Гонсалес",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "owen": {
+   "en": "Arthur Owen",
+   "uk": "Arthur Owen",
+   "wikidata": "Q93023360",
+   "manual": {
+    "uk": "Артур Оуен",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "pace": {
    "en": "Carlos Pace",
    "uk": "Жозе Карлус Пачі",
    "wikidata": "Q171443"
   },
+  "pagani": {
+   "en": "Nello Pagani",
+   "uk": "Нелло Пагані",
+   "wikidata": "Q172460"
+  },
+  "paletti": {
+   "en": "Riccardo Paletti",
+   "uk": "Riccardo Paletti",
+   "wikidata": "Q173258",
+   "manual": {
+    "uk": "Ріккардо Палетті",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "palm": {
+   "en": "Torsten Palm",
+   "uk": "Торстен Пальм",
+   "wikidata": "Q172386"
+  },
+  "palmer": {
+   "en": "Jonathan Palmer",
+   "uk": "Jonathan Palmer",
+   "wikidata": "Q171515",
+   "manual": {
+    "uk": "Джонатан Палмер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "panis": {
    "en": "Olivier Panis",
    "uk": "Олів'є Паніс",
    "wikidata": "Q172018"
+  },
+  "pantano": {
+   "en": "Giorgio Pantano",
+   "uk": "Giorgio Pantano",
+   "wikidata": "Q61917",
+   "manual": {
+    "uk": "Джорджо Пантано",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "papis": {
+   "en": "Massimiliano Papis",
+   "uk": "Massimiliano Papis",
+   "wikidata": "Q173289",
+   "manual": {
+    "uk": "Массіміліано Папіс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "parker": {
+   "en": "Philip Fotheringham-Parker",
+   "uk": "Philip Fotheringham-Parker",
+   "wikidata": "Q172449",
+   "manual": {
+    "uk": "Філіп Фотерінгем-Паркер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "parkes": {
+   "en": "Mike Parkes",
+   "uk": "Mike Parkes",
+   "wikidata": "Q172141",
+   "manual": {
+    "uk": "Майк Паркс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "parnell": {
+   "en": "Tim Parnell",
+   "uk": "Tim Parnell",
+   "wikidata": "Q172802",
+   "manual": {
+    "uk": "Тім Парнелл",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "parsons": {
    "en": "Johnnie Parsons",
@@ -466,30 +4806,361 @@
    "uk": "Ріккардо Патрезе",
    "wikidata": "Q172759"
   },
+  "paul_russo": {
+   "en": "Paul Russo",
+   "uk": "Paul Russo",
+   "wikidata": "Q172655",
+   "manual": {
+    "uk": "Пол Руссо",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "pease": {
+   "en": "Al Pease",
+   "uk": "Al Pease",
+   "wikidata": "Q172469",
+   "manual": {
+    "uk": "Ел Піз",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "penske": {
+   "en": "Roger Penske",
+   "uk": "Роджер Пенске",
+   "wikidata": "Q172155"
+  },
+  "perdisa": {
+   "en": "Cesare Perdisa",
+   "uk": "Cesare Perdisa",
+   "wikidata": "Q172138",
+   "manual": {
+    "uk": "Чезаре Пердіза",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "perkins": {
+   "en": "Larry Perkins",
+   "uk": "Larry Perkins",
+   "wikidata": "Q172072",
+   "manual": {
+    "uk": "Ларрі Перкінс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "pescarolo": {
+   "en": "Henri Pescarolo",
+   "uk": "Henri Pescarolo",
+   "wikidata": "Q171593",
+   "manual": {
+    "uk": "Анрі Пескароло",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "pesenti_rossi": {
+   "en": "Alessandro Pesenti-Rossi",
+   "uk": "Alessandro Pesenti-Rossi",
+   "wikidata": "Q172545",
+   "manual": {
+    "uk": "Алессандро Пезенті-Россі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "peter_walker": {
+   "en": "Peter Walker",
+   "uk": "Peter Walker",
+   "wikidata": "Q171891",
+   "manual": {
+    "uk": "Пітер Вокер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "peters": {
+   "en": "Josef Peters",
+   "uk": "Josef Peters",
+   "wikidata": "Q61853",
+   "manual": {
+    "uk": "Йозеф Петерс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "peterson": {
    "en": "Ronnie Peterson",
    "uk": "Ронні Петерсон",
    "wikidata": "Q173280"
+  },
+  "petrov": {
+   "en": "Vitaly Petrov",
+   "uk": "Петров Віталій Олександрович",
+   "wikidata": "Q82901"
   },
   "phil_hill": {
    "en": "Phil Hill",
    "uk": "Філ Гілл",
    "wikidata": "Q3112"
   },
+  "pian": {
+   "en": "Alfredo Pián",
+   "uk": "Alfredo Pián",
+   "wikidata": "Q555795",
+   "manual": {
+    "uk": "Альфредо Піан",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "pic": {
+   "en": "Charles Pic",
+   "uk": "Шарль Пік",
+   "wikidata": "Q82965"
+  },
+  "picard": {
+   "en": "François Picard",
+   "uk": "François Picard",
+   "wikidata": "Q3085553",
+   "manual": {
+    "uk": "Франсуа Пікар",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "pieterse": {
+   "en": "Ernie Pieterse",
+   "uk": "Ernie Pieterse",
+   "wikidata": "Q172139",
+   "manual": {
+    "uk": "Ерні Пітерсе",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "pietro_fittipaldi": {
+   "en": "Pietro Fittipaldi",
+   "uk": "П'єтро Фіттіпальді",
+   "wikidata": "Q10349696"
+  },
+  "pietsch": {
+   "en": "Paul Pietsch",
+   "uk": "Paul Pietsch",
+   "wikidata": "Q60886",
+   "manual": {
+    "uk": "Пауль Піч",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "pilette": {
+   "en": "Teddy Pilette",
+   "uk": "Teddy Pilette",
+   "wikidata": "Q172136",
+   "manual": {
+    "uk": "Тедді Пілетт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "piotti": {
+   "en": "Luigi Piotti",
+   "uk": "Luigi Piotti",
+   "wikidata": "Q172564",
+   "manual": {
+    "uk": "Луїджі Піотті",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "piper": {
+   "en": "David Piper",
+   "uk": "David Piper",
+   "wikidata": "Q92784043",
+   "manual": {
+    "uk": "Девід Пайпер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "piquet": {
    "en": "Nelson Piquet",
    "uk": "Нельсон Соуту Піке",
    "wikidata": "Q171346"
+  },
+  "piquet_jr": {
+   "en": "Nelson Piquet Jr.",
+   "uk": "Нельсон Анжело Піке",
+   "wikidata": "Q172838"
+  },
+  "pirocchi": {
+   "en": "Renato Pirocchi",
+   "uk": "Renato Pirocchi",
+   "wikidata": "Q172627",
+   "manual": {
+    "uk": "Ренато Піроккі",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "pironi": {
    "en": "Didier Pironi",
    "uk": "Дідьє Піроні",
    "wikidata": "Q171432"
   },
+  "pirro": {
+   "en": "Emanuele Pirro",
+   "uk": "Emanuele Pirro",
+   "wikidata": "Q171524",
+   "manual": {
+    "uk": "Емануеле Пірро",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "pizzonia": {
+   "en": "Antônio Pizzonia",
+   "uk": "Antônio Pizzonia",
+   "wikidata": "Q172734",
+   "manual": {
+    "uk": "Антоніо Піццонія",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "poele": {
+   "en": "Eric van de Poele",
+   "uk": "Ерік ван де Пуле",
+   "wikidata": "Q171737"
+  },
+  "pollet": {
+   "en": "Jacques Pollet",
+   "uk": "Jacques Pollet",
+   "wikidata": "Q172355",
+   "manual": {
+    "uk": "Жак Полле",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "pon": {
+   "en": "Ben Pon",
+   "uk": "Ben Pon",
+   "wikidata": "Q172658",
+   "manual": {
+    "uk": "Бен Пон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "poore": {
+   "en": "Dennis Poore",
+   "uk": "Dennis Poore",
+   "wikidata": "Q172297",
+   "manual": {
+    "uk": "Денніс Пур",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "portago": {
+   "en": "Alfonso de Portago",
+   "uk": "Альфонсо де Портаґо",
+   "wikidata": "Q172101"
+  },
+  "posey": {
+   "en": "Sam Posey",
+   "uk": "Sam Posey",
+   "wikidata": "Q172311",
+   "manual": {
+    "uk": "Сем Поузі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "pozzi": {
+   "en": "Charles Pozzi",
+   "uk": "Charles Pozzi",
+   "wikidata": "Q172538",
+   "manual": {
+    "uk": "Шарль Поцці",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "pretorius": {
+   "en": "Jackie Pretorius",
+   "uk": "Джекі Преторіус",
+   "wikidata": "Q172045"
+  },
+  "prophet": {
+   "en": "David Prophet",
+   "uk": "David Prophet",
+   "wikidata": "Q172513",
+   "manual": {
+    "uk": "Девід Профет",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "prost": {
    "en": "Alain Prost",
    "uk": "Ален Прост",
    "wikidata": "Q10494"
+  },
+  "pryce": {
+   "en": "Tom Pryce",
+   "uk": "Tom Pryce",
+   "wikidata": "Q172835",
+   "manual": {
+    "uk": "Том Прайс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "purley": {
+   "en": "David Purley",
+   "uk": "David Purley",
+   "wikidata": "Q171743",
+   "manual": {
+    "uk": "Девід Перлі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "quester": {
+   "en": "Dieter Quester",
+   "uk": "Dieter Quester",
+   "wikidata": "Q78551",
+   "manual": {
+    "uk": "Дітер Квестер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "raby": {
+   "en": "Ian Raby",
+   "uk": "Ian Raby",
+   "wikidata": "Q172274",
+   "manual": {
+    "uk": "Ієн Рейбі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "rahal": {
+   "en": "Bobby Rahal",
+   "uk": "Bobby Rahal",
+   "wikidata": "Q172255",
+   "manual": {
+    "uk": "Боббі Рейгол",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
   },
   "raikkonen": {
    "en": "Kimi Räikkönen",
@@ -501,6 +5172,26 @@
    "uk": "Ральф Шумахер",
    "wikidata": "Q75825"
   },
+  "ramos": {
+   "en": "Hernando da Silva Ramos",
+   "uk": "Hernando da Silva Ramos",
+   "wikidata": "Q171770",
+   "manual": {
+    "uk": "Ернандо да Сілва Рамос",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "raphanel": {
+   "en": "Pierre-Henri Raphanel",
+   "uk": "Pierre-Henri Raphanel",
+   "wikidata": "Q171761",
+   "manual": {
+    "uk": "П'єр-Анрі Рафанель",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "rathmann": {
    "en": "Jim Rathmann",
    "uk": "Jim Rathmann",
@@ -510,6 +5201,66 @@
     "source": "transliteration",
     "checked": true,
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
+   }
+  },
+  "ratzenberger": {
+   "en": "Roland Ratzenberger",
+   "uk": "Роланд Ратценбергер",
+   "wikidata": "Q78495"
+  },
+  "ray_crawford": {
+   "en": "Ray Crawford",
+   "uk": "Ray Crawford",
+   "wikidata": "Q15841828",
+   "manual": {
+    "uk": "Рей Кроуфорд",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "rebaque": {
+   "en": "Hector Rebaque",
+   "uk": "Hector Rebaque",
+   "wikidata": "Q171539",
+   "manual": {
+    "uk": "Ектор Ребаке",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "redman": {
+   "en": "Brian Redman",
+   "uk": "Brian Redman",
+   "wikidata": "Q171746",
+   "manual": {
+    "uk": "Браян Редмен",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "reece": {
+   "en": "Jimmy Reece",
+   "uk": "Jimmy Reece",
+   "wikidata": "Q173715",
+   "manual": {
+    "uk": "Джиммі Ріс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "rees": {
+   "en": "Alan Rees",
+   "uk": "Алан Різ",
+   "wikidata": "Q172273"
+  },
+  "reg_parnell": {
+   "en": "Reg Parnell",
+   "uk": "Reg Parnell",
+   "wikidata": "Q172057",
+   "manual": {
+    "uk": "Редж Парнелл",
+    "source": "transliteration",
+    "checked": false
    }
   },
   "regazzoni": {
@@ -523,6 +5274,11 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "resta": {
+   "en": "Paul di Resta",
+   "uk": "Пол ді Реста",
+   "wikidata": "Q82768"
+  },
   "reutemann": {
    "en": "Carlos Reutemann",
    "uk": "Carlos Reutemann",
@@ -532,6 +5288,16 @@
     "source": "transliteration",
     "checked": true,
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
+   }
+  },
+  "reventlow": {
+   "en": "Lance Reventlow",
+   "uk": "Lance Reventlow",
+   "wikidata": "Q172592",
+   "manual": {
+    "uk": "Ланс Ревентлоу",
+    "source": "transliteration",
+    "checked": false
    }
   },
   "revson": {
@@ -545,15 +5311,85 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "rhodes": {
+   "en": "John Rhodes",
+   "uk": "John Rhodes",
+   "wikidata": "Q173566",
+   "manual": {
+    "uk": "Джон Родс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ribeiro": {
+   "en": "Alex Ribeiro",
+   "uk": "Alex Ribeiro",
+   "wikidata": "Q172893",
+   "manual": {
+    "uk": "Алекс Рібейру",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ricardo_rodriguez": {
+   "en": "Ricardo Rodríguez",
+   "uk": "Ricardo Rodríguez",
+   "wikidata": "Q171766",
+   "manual": {
+    "uk": "Рікардо Родрігес",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "ricciardo": {
    "en": "Daniel Ricciardo",
    "uk": "Даніель Ріккардо",
    "wikidata": "Q82816"
   },
+  "riess": {
+   "en": "Fritz Riess",
+   "uk": "Fritz Riess",
+   "wikidata": "Q60925",
+   "manual": {
+    "uk": "Фріц Рісс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "rigsby": {
+   "en": "Jim Rigsby",
+   "uk": "Jim Rigsby",
+   "wikidata": "Q173709",
+   "manual": {
+    "uk": "Джим Рігсбі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "rindt": {
    "en": "Jochen Rindt",
    "uk": "Йохен Ріндт",
    "wikidata": "Q3234"
+  },
+  "riseley_prichard": {
+   "en": "John Riseley-Prichard",
+   "uk": "John Riseley-Prichard",
+   "wikidata": "Q172801",
+   "manual": {
+    "uk": "Джон Райслі-Прічард",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "robarts": {
+   "en": "Richard Robarts",
+   "uk": "Richard Robarts",
+   "wikidata": "Q172182",
+   "manual": {
+    "uk": "Річард Робартс",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "rodriguez": {
    "en": "Pedro Rodríguez",
@@ -566,10 +5402,122 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "roig": {
+   "en": "Alex Soler-Roig",
+   "uk": "Alex Soler-Roig",
+   "wikidata": "Q172246",
+   "manual": {
+    "uk": "Алекс Солер-Ройг",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "rol": {
+   "en": "Franco Rol",
+   "uk": "Franco Rol",
+   "wikidata": "Q172069",
+   "manual": {
+    "uk": "Франко Роль",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "rolt": {
+   "en": "Tony Rolt",
+   "uk": "Tony Rolt",
+   "wikidata": "Q172202",
+   "manual": {
+    "uk": "Тоні Ролт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "roos": {
+   "en": "Bertil Roos",
+   "uk": "Бертіль Рос",
+   "wikidata": "Q172531"
+  },
+  "rooyen": {
+   "en": "Basil van Rooyen",
+   "uk": "Basil van Rooyen",
+   "wikidata": "Q172816",
+   "manual": {
+    "uk": "Базіл ван Роєн",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "rosa": {
+   "en": "Pedro de la Rosa",
+   "uk": "Педро де ла Роса",
+   "wikidata": "Q82924"
+  },
   "rosberg": {
    "en": "Nico Rosberg",
    "uk": "Ніко Росберг",
    "wikidata": "Q75820"
+  },
+  "rose": {
+   "en": "Mauri Rose",
+   "uk": "Mauri Rose",
+   "wikidata": "Q172305",
+   "manual": {
+    "uk": "Морі Роуз",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "rosier": {
+   "en": "Louis Rosier",
+   "uk": "Луї Розьє",
+   "wikidata": "Q173078"
+  },
+  "rosset": {
+   "en": "Ricardo Rosset",
+   "uk": "Ricardo Rosset",
+   "wikidata": "Q171431",
+   "manual": {
+    "uk": "Рікардо Россет",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "rossi": {
+   "en": "Alexander Rossi",
+   "uk": "Александер Россі",
+   "wikidata": "Q559962"
+  },
+  "rothengatter": {
+   "en": "Huub Rothengatter",
+   "uk": "Huub Rothengatter",
+   "wikidata": "Q171716",
+   "manual": {
+    "uk": "Гюб Ротенгаттер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ruby": {
+   "en": "Lloyd Ruby",
+   "uk": "Lloyd Ruby",
+   "wikidata": "Q172293",
+   "manual": {
+    "uk": "Ллойд Рубі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "russo": {
+   "en": "Eddie Russo",
+   "uk": "Eddie Russo",
+   "wikidata": "Q173682",
+   "manual": {
+    "uk": "Едді Руссо",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "ruttman": {
    "en": "Troy Ruttman",
@@ -580,6 +5528,16 @@
     "source": "transliteration",
     "checked": true,
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
+   }
+  },
+  "ryan": {
+   "en": "Peter Ryan",
+   "uk": "Peter Ryan",
+   "wikidata": "Q172806",
+   "manual": {
+    "uk": "Пітер Райан",
+    "source": "transliteration",
+    "checked": false
    }
   },
   "ryo_hirakawa": {
@@ -593,20 +5551,347 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "sachs": {
+   "en": "Eddie Sachs",
+   "uk": "Eddie Sachs",
+   "wikidata": "Q172472",
+   "manual": {
+    "uk": "Едді Сакс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "said": {
+   "en": "Bob Said",
+   "uk": "Bob Said",
+   "wikidata": "Q172794",
+   "manual": {
+    "uk": "Боб Саїд",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "sala": {
+   "en": "Luis Pérez-Sala",
+   "uk": "Luis Pérez-Sala",
+   "wikidata": "Q173379",
+   "manual": {
+    "uk": "Луїс Перес-Сала",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "salazar": {
+   "en": "Eliseo Salazar",
+   "uk": "Eliseo Salazar",
+   "wikidata": "Q173254",
+   "manual": {
+    "uk": "Елісео Салазар",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "salo": {
+   "en": "Mika Salo",
+   "uk": "Mika Salo",
+   "wikidata": "Q173094",
+   "manual": {
+    "uk": "Міка Сало",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "salvadori": {
+   "en": "Roy Salvadori",
+   "uk": "Рой Сальвадорі",
+   "wikidata": "Q171717"
+  },
+  "sanesi": {
+   "en": "Consalvo Sanesi",
+   "uk": "Consalvo Sanesi",
+   "wikidata": "Q172065",
+   "manual": {
+    "uk": "Консальво Санезі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "sargeant": {
+   "en": "Logan Sargeant",
+   "uk": "Лоґан Сарджент",
+   "wikidata": "Q28037494"
+  },
+  "sarrazin": {
+   "en": "Stéphane Sarrazin",
+   "uk": "Stéphane Sarrazin",
+   "wikidata": "Q173317",
+   "manual": {
+    "uk": "Стефан Сарразен",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "sato": {
+   "en": "Takuma Sato",
+   "uk": "Сато Такума",
+   "wikidata": "Q171297"
+  },
+  "satoru_nakajima": {
+   "en": "Satoru Nakajima",
+   "uk": "Satoru Nakajima",
+   "wikidata": "Q173221",
+   "manual": {
+    "uk": "Сатору Накадзіма",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "scarborough": {
+   "en": "Carl Scarborough",
+   "uk": "Carl Scarborough",
+   "wikidata": "Q172639",
+   "manual": {
+    "uk": "Карл Скарборо",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "scarfiotti": {
    "en": "Ludovico Scarfiotti",
    "uk": "Лудовіко Скарфіотті",
    "wikidata": "Q171568"
+  },
+  "scarlatti": {
+   "en": "Giorgio Scarlatti",
+   "uk": "Giorgio Scarlatti",
+   "wikidata": "Q172029",
+   "manual": {
+    "uk": "Джорджо Скарлатті",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "scheckter": {
    "en": "Jody Scheckter",
    "uk": "Джоді Шектер",
    "wikidata": "Q172775"
   },
+  "schell": {
+   "en": "Harry Schell",
+   "uk": "Гаррі Шелл",
+   "wikidata": "Q171561"
+  },
+  "schenken": {
+   "en": "Tim Schenken",
+   "uk": "Tim Schenken",
+   "wikidata": "Q171499",
+   "manual": {
+    "uk": "Тім Шенкен",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "scherrer": {
+   "en": "Albert Scherrer",
+   "uk": "Albert Scherrer",
+   "wikidata": "Q116272",
+   "manual": {
+    "uk": "Альберт Шеррер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "schiattarella": {
+   "en": "Domenico Schiattarella",
+   "uk": "Domenico Schiattarella",
+   "wikidata": "Q172990",
+   "manual": {
+    "uk": "Доменіко Ск'яттарелла",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "schiller": {
+   "en": "Heinz Schiller",
+   "uk": "Heinz Schiller",
+   "wikidata": "Q116638",
+   "manual": {
+    "uk": "Гайнц Шиллер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "schindler": {
+   "en": "Bill Schindler",
+   "uk": "Bill Schindler",
+   "wikidata": "Q173679",
+   "manual": {
+    "uk": "Білл Шиндлер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "schlesser": {
+   "en": "Jean-Louis Schlesser",
+   "uk": "Jean-Louis Schlesser",
+   "wikidata": "Q171479",
+   "manual": {
+    "uk": "Жан-Луї Шлессер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "schneider": {
+   "en": "Bernd Schneider",
+   "uk": "Bernd Schneider",
+   "wikidata": "Q61866",
+   "manual": {
+    "uk": "Бернд Шнайдер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "schoeller": {
+   "en": "Rudolf Schoeller",
+   "uk": "Rudolf Schoeller",
+   "wikidata": "Q116276",
+   "manual": {
+    "uk": "Рудольф Шеллер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "schroeder": {
+   "en": "Rob Schroeder",
+   "uk": "Rob Schroeder",
+   "wikidata": "Q173681",
+   "manual": {
+    "uk": "Роб Шредер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "schuppan": {
+   "en": "Vern Schuppan",
+   "uk": "Vern Schuppan",
+   "wikidata": "Q172076",
+   "manual": {
+    "uk": "Верн Шуппан",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "scott_Brown": {
+   "en": "Archie Scott Brown",
+   "uk": "Archie Scott Brown",
+   "wikidata": "Q555776",
+   "manual": {
+    "uk": "Арчі Скотт Браун",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "scotti": {
+   "en": "Piero Scotti",
+   "uk": "Piero Scotti",
+   "wikidata": "Q172603",
+   "manual": {
+    "uk": "П'єро Скотті",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "seidel": {
+   "en": "Wolfgang Seidel",
+   "uk": "Wolfgang Seidel",
+   "wikidata": "Q61495",
+   "manual": {
+    "uk": "Вольфганг Зайдель",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "senna": {
    "en": "Ayrton Senna",
    "uk": "Айртон Сенна",
    "wikidata": "Q10490"
+  },
+  "serafini": {
+   "en": "Dorino Serafini",
+   "uk": "Dorino Serafini",
+   "wikidata": "Q172185",
+   "manual": {
+    "uk": "Доріно Серафіні",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "serra": {
+   "en": "Chico Serra",
+   "uk": "Chico Serra",
+   "wikidata": "Q171507",
+   "manual": {
+    "uk": "Шіку Серра",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "serrurier": {
+   "en": "Doug Serrurier",
+   "uk": "Doug Serrurier",
+   "wikidata": "Q172212",
+   "manual": {
+    "uk": "Даг Серрур'є",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "settember": {
+   "en": "Tony Settember",
+   "uk": "Tony Settember",
+   "wikidata": "Q172361",
+   "manual": {
+    "uk": "Тоні Сеттембер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "sharp": {
+   "en": "Hap Sharp",
+   "uk": "Hap Sharp",
+   "wikidata": "Q171960",
+   "manual": {
+    "uk": "Гап Шарп",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "shawe_taylor": {
+   "en": "Brian Shawe Taylor",
+   "uk": "Brian Shawe Taylor",
+   "wikidata": "Q172205",
+   "manual": {
+    "uk": "Браян Шоу Тейлор",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "shelby": {
+   "en": "Carroll Shelby",
+   "uk": "Керролл Шелбі",
+   "wikidata": "Q354043"
+  },
+  "shelly": {
+   "en": "Tony Shelly",
+   "uk": "Tony Shelly",
+   "wikidata": "Q173592",
+   "manual": {
+    "uk": "Тоні Шеллі",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "siffert": {
    "en": "Jo Siffert",
@@ -619,15 +5904,205 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "simon": {
+   "en": "André Simon",
+   "uk": "André Simon",
+   "wikidata": "Q172463",
+   "manual": {
+    "uk": "Андре Сімон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "sirotkin": {
+   "en": "Sergey Sirotkin",
+   "uk": "Сіроткін Сергій Олегович",
+   "wikidata": "Q544206"
+  },
+  "solana": {
+   "en": "Moisés Solana",
+   "uk": "Moisés Solana",
+   "wikidata": "Q172143",
+   "manual": {
+    "uk": "Мойсес Солана",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "sommer": {
+   "en": "Raymond Sommer",
+   "uk": "Raymond Sommer",
+   "wikidata": "Q171878",
+   "manual": {
+    "uk": "Раймон Соммер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "sparken": {
+   "en": "Mike Sparken",
+   "uk": "Mike Sparken",
+   "wikidata": "Q172570",
+   "manual": {
+    "uk": "Майк Спаркен",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "speed": {
+   "en": "Scott Speed",
+   "uk": "Скотт Спід",
+   "wikidata": "Q171410"
+  },
+  "spence": {
+   "en": "Mike Spence",
+   "uk": "Mike Spence",
+   "wikidata": "Q171729",
+   "manual": {
+    "uk": "Майк Спенс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "stacey": {
+   "en": "Alan Stacey",
+   "uk": "Alan Stacey",
+   "wikidata": "Q171980",
+   "manual": {
+    "uk": "Алан Стейсі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "starrabba": {
+   "en": "Gaetano Starrabba",
+   "uk": "Gaetano Starrabba",
+   "wikidata": "Q172818",
+   "manual": {
+    "uk": "Гаетано Старрабба",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "stevens": {
+   "en": "Will Stevens",
+   "uk": "Will Stevens",
+   "wikidata": "Q538467",
+   "manual": {
+    "uk": "Вілл Стівенс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "stevenson": {
+   "en": "Chuck Stevenson",
+   "uk": "Chuck Stevenson",
+   "wikidata": "Q172647",
+   "manual": {
+    "uk": "Чак Стівенсон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "stewart": {
    "en": "Jackie Stewart",
    "uk": "Джекі Стюарт",
    "wikidata": "Q3188"
   },
+  "stohr": {
+   "en": "Siegfried Stohr",
+   "uk": "Siegfried Stohr",
+   "wikidata": "Q172147",
+   "manual": {
+    "uk": "Зігфрід Штор",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "stommelen": {
+   "en": "Rolf Stommelen",
+   "uk": "Rolf Stommelen",
+   "wikidata": "Q57925",
+   "manual": {
+    "uk": "Рольф Штоммелен",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "streiff": {
+   "en": "Philippe Streiff",
+   "uk": "Philippe Streiff",
+   "wikidata": "Q173084",
+   "manual": {
+    "uk": "Філіпп Стрейфф",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "stuck": {
+   "en": "Hans-Joachim Stuck",
+   "uk": "Hans-Joachim Stuck",
+   "wikidata": "Q58654",
+   "manual": {
+    "uk": "Ганс-Йоахім Штук",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "sullivan": {
+   "en": "Danny Sullivan",
+   "uk": "Danny Sullivan",
+   "wikidata": "Q173105",
+   "manual": {
+    "uk": "Денні Салліван",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "surer": {
+   "en": "Marc Surer",
+   "uk": "Marc Surer",
+   "wikidata": "Q171505",
+   "manual": {
+    "uk": "Марк Зурер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "surtees": {
    "en": "John Surtees",
    "uk": "Джон Сертіс",
    "wikidata": "Q3153"
+  },
+  "sutil": {
+   "en": "Adrian Sutil",
+   "uk": "Адріан Сутіл",
+   "wikidata": "Q49235"
+  },
+  "sutton": {
+   "en": "Len Sutton",
+   "uk": "Len Sutton",
+   "wikidata": "Q173674",
+   "manual": {
+    "uk": "Лен Саттон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "suzuki": {
+   "en": "Aguri Suzuki",
+   "uk": "Аґурі Судзукі",
+   "wikidata": "Q173197"
+  },
+  "swaters": {
+   "en": "Jacques Swaters",
+   "uk": "Jacques Swaters",
+   "wikidata": "Q172508",
+   "manual": {
+    "uk": "Жак Сватерс",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "sweikert": {
    "en": "Bob Sweikert",
@@ -638,6 +6113,36 @@
     "source": "transliteration",
     "checked": true,
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
+   }
+  },
+  "takagi": {
+   "en": "Toranosuke Takagi",
+   "uk": "Toranosuke Takagi",
+   "wikidata": "Q173160",
+   "manual": {
+    "uk": "Тораносуке Такагі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "takahara": {
+   "en": "Noritake Takahara",
+   "uk": "Noritake Takahara",
+   "wikidata": "Q171978",
+   "manual": {
+    "uk": "Норітаке Такахара",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "takahashi": {
+   "en": "Kunimitsu Takahashi",
+   "uk": "Kunimitsu Takahashi",
+   "wikidata": "Q172252",
+   "manual": {
+    "uk": "Куніміцу Такахасі",
+    "source": "transliteration",
+    "checked": false
    }
   },
   "tambay": {
@@ -651,10 +6156,190 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "tarquini": {
+   "en": "Gabriele Tarquini",
+   "uk": "Gabriele Tarquini",
+   "wikidata": "Q173299",
+   "manual": {
+    "uk": "Габріеле Тарквіні",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "taruffi": {
    "en": "Piero Taruffi",
    "uk": "П'єро Таруффі",
    "wikidata": "Q171578"
+  },
+  "taylor": {
+   "en": "John Taylor",
+   "uk": "John Taylor",
+   "wikidata": "Q171774",
+   "manual": {
+    "uk": "Джон Тейлор",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "teague": {
+   "en": "Marshall Teague",
+   "uk": "Marshall Teague",
+   "wikidata": "Q173569",
+   "manual": {
+    "uk": "Маршалл Тіг",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "templeman": {
+   "en": "Shorty Templeman",
+   "uk": "Shorty Templeman",
+   "wikidata": "Q173700",
+   "manual": {
+    "uk": "Шорті Темплмен",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "terra": {
+   "en": "Max de Terra",
+   "uk": "Max de Terra",
+   "wikidata": "Q115677",
+   "manual": {
+    "uk": "Макс де Терра",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "thackwell": {
+   "en": "Mike Thackwell",
+   "uk": "Mike Thackwell",
+   "wikidata": "Q171752",
+   "manual": {
+    "uk": "Майк Теквелл",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "thiele": {
+   "en": "Alfonso Thiele",
+   "uk": "Alfonso Thiele",
+   "wikidata": "Q173247",
+   "manual": {
+    "uk": "Альфонсо Тіле",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "thompson": {
+   "en": "Eric Thompson",
+   "uk": "Eric Thompson",
+   "wikidata": "Q172439",
+   "manual": {
+    "uk": "Ерік Томпсон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "thomson": {
+   "en": "Johnny Thomson",
+   "uk": "Johnny Thomson",
+   "wikidata": "Q172454",
+   "manual": {
+    "uk": "Джонні Томсон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "thorne": {
+   "en": "Leslie Thorne",
+   "uk": "Leslie Thorne",
+   "wikidata": "Q172410",
+   "manual": {
+    "uk": "Леслі Торн",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "tingelstad": {
+   "en": "Bud Tingelstad",
+   "uk": "Bud Tingelstad",
+   "wikidata": "Q173642",
+   "manual": {
+    "uk": "Бад Тінгелстад",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "tingle": {
+   "en": "Sam Tingle",
+   "uk": "Sam Tingle",
+   "wikidata": "Q172493",
+   "manual": {
+    "uk": "Сем Тінгл",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "titterington": {
+   "en": "Desmond Titterington",
+   "uk": "Desmond Titterington",
+   "wikidata": "Q172825",
+   "manual": {
+    "uk": "Десмонд Тіттерінгтон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "tolan": {
+   "en": "Johnnie Tolan",
+   "uk": "Johnnie Tolan",
+   "wikidata": "Q172591",
+   "manual": {
+    "uk": "Джонні Толан",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "tomaso": {
+   "en": "Alessandro de Tomaso",
+   "uk": "Alessandro de Tomaso",
+   "wikidata": "Q172234",
+   "manual": {
+    "uk": "Алессандро де Томазо",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "tornaco": {
+   "en": "Charles de Tornaco",
+   "uk": "Charles de Tornaco",
+   "wikidata": "Q173382",
+   "manual": {
+    "uk": "Шарль де Торнако",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "toshio_suzuki": {
+   "en": "Toshio Suzuki",
+   "uk": "Toshio Suzuki",
+   "wikidata": "Q171744",
+   "manual": {
+    "uk": "Тосіо Судзукі",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "trevor_taylor": {
+   "en": "Trevor Taylor",
+   "uk": "Trevor Taylor",
+   "wikidata": "Q47001334",
+   "manual": {
+    "uk": "Тревор Тейлор",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "trintignant": {
    "en": "Maurice Trintignant",
@@ -676,15 +6361,156 @@
    "uk": "Юкі Цунода",
    "wikidata": "Q59209579"
   },
+  "tuero": {
+   "en": "Esteban Tuero",
+   "uk": "Esteban Tuero",
+   "wikidata": "Q173298",
+   "manual": {
+    "uk": "Естебан Туеро",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "tunmer": {
+   "en": "Guy Tunmer",
+   "uk": "Guy Tunmer",
+   "wikidata": "Q172307",
+   "manual": {
+    "uk": "Гай Танмер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "turner": {
+   "en": "Jack Turner",
+   "uk": "Jack Turner",
+   "wikidata": "Q173686",
+   "manual": {
+    "uk": "Джек Тернер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ulmen": {
+   "en": "Toni Ulmen",
+   "uk": "Toni Ulmen",
+   "wikidata": "Q61832",
+   "manual": {
+    "uk": "Тоні Ульмен",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "unser": {
+   "en": "Bobby Unser",
+   "uk": "Bobby Unser",
+   "wikidata": "Q172100",
+   "manual": {
+    "uk": "Боббі Ансер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "uria": {
+   "en": "Alberto Uria",
+   "uk": "Alberto Uria",
+   "wikidata": "Q173195",
+   "manual": {
+    "uk": "Альберто Урія",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "vaccarella": {
+   "en": "Nino Vaccarella",
+   "uk": "Nino Vaccarella",
+   "wikidata": "Q173443",
+   "manual": {
+    "uk": "Ніно Ваккарелла",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "vandoorne": {
+   "en": "Stoffel Vandoorne",
+   "uk": "Стоффель Вандорн",
+   "wikidata": "Q1344577"
+  },
+  "veith": {
+   "en": "Bob Veith",
+   "uk": "Bob Veith",
+   "wikidata": "Q172562",
+   "manual": {
+    "uk": "Боб Віт",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "vergne": {
+   "en": "Jean-Éric Vergne",
+   "uk": "Жан-Ерік Вернь",
+   "wikidata": "Q82829"
+  },
+  "verstappen": {
+   "en": "Jos Verstappen",
+   "uk": "Йос Ферстаппен",
+   "wikidata": "Q173145"
+  },
   "vettel": {
    "en": "Sebastian Vettel",
    "uk": "Себастьян Феттель",
    "wikidata": "Q42311"
   },
+  "vic_wilson": {
+   "en": "Vic Wilson",
+   "uk": "Vic Wilson",
+   "wikidata": "Q172486",
+   "manual": {
+    "uk": "Вік Вілсон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "villeneuve": {
    "en": "Jacques Villeneuve",
    "uk": "Жак Вільнев",
    "wikidata": "Q172843"
+  },
+  "villoresi": {
+   "en": "Luigi Villoresi",
+   "uk": "Луїджі Віллорезі",
+   "wikidata": "Q171514"
+  },
+  "villota": {
+   "en": "Emilio de Villota",
+   "uk": "Emilio de Villota",
+   "wikidata": "Q173206",
+   "manual": {
+    "uk": "Еміліо де Вільота",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "volonterio": {
+   "en": "Ottorino Volonterio",
+   "uk": "Ottorino Volonterio",
+   "wikidata": "Q115693",
+   "manual": {
+    "uk": "Отторіно Волонтеріо",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "vonlanthen": {
+   "en": "Jo Vonlanthen",
+   "uk": "Jo Vonlanthen",
+   "wikidata": "Q115685",
+   "manual": {
+    "uk": "Йо Фонлантен",
+    "source": "transliteration",
+    "checked": false
+   }
   },
   "vukovich": {
    "en": "Bill Vukovich",
@@ -695,6 +6521,27 @@
     "source": "transliteration",
     "checked": true,
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
+   }
+  },
+  "wacker": {
+   "en": "Fred Wacker",
+   "uk": "Fred Wacker",
+   "wikidata": "Q172374",
+   "manual": {
+    "uk": "Фред Векер",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "walker": {
+   "en": "David Walker",
+   "uk": "David Walker",
+   "wikidata": "Q172091",
+   "manual": {
+    "uk": "Девід Вокер",
+    "source": "transliteration",
+    "checked": false
    }
   },
   "wallard": {
@@ -708,6 +6555,26 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "walt_brown": {
+   "en": "Walt Brown",
+   "uk": "Walt Brown",
+   "wikidata": "Q172561",
+   "manual": {
+    "uk": "Волт Браун",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "walter": {
+   "en": "Heini Walter",
+   "uk": "Heini Walter",
+   "wikidata": "Q115666",
+   "manual": {
+    "uk": "Гайні Вальтер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "ward": {
    "en": "Rodger Ward",
    "uk": "Rodger Ward",
@@ -717,6 +6584,16 @@
     "source": "transliteration",
     "checked": true,
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
+   }
+  },
+  "warwick": {
+   "en": "Derek Warwick",
+   "uk": "Derek Warwick",
+   "wikidata": "Q171442",
+   "manual": {
+    "uk": "Дерек Ворік",
+    "source": "transliteration",
+    "checked": false
    }
   },
   "watson": {
@@ -730,10 +6607,226 @@
     "checkedBy": "користувач 12.11: транслітерацію прийнято"
    }
   },
+  "webb": {
+   "en": "Travis Webb",
+   "uk": "Travis Webb",
+   "wikidata": "Q172636",
+   "manual": {
+    "uk": "Тревіс Вебб",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
   "webber": {
    "en": "Mark Webber",
    "uk": "Марк Веббер",
    "wikidata": "Q82667"
+  },
+  "wehrlein": {
+   "en": "Pascal Wehrlein",
+   "uk": "Паскаль Верляйн",
+   "wikidata": "Q85762"
+  },
+  "weiler": {
+   "en": "Wayne Weiler",
+   "uk": "Wayne Weiler",
+   "wikidata": "Q173669",
+   "manual": {
+    "uk": "Вейн Вайлер",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "wendlinger": {
+   "en": "Karl Wendlinger",
+   "uk": "Карл Вендлінгер",
+   "wikidata": "Q84161"
+  },
+  "weyant": {
+   "en": "Chuck Weyant",
+   "uk": "Chuck Weyant",
+   "wikidata": "Q172629",
+   "manual": {
+    "uk": "Чак Ваєнт",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "wharton": {
+   "en": "Ken Wharton",
+   "uk": "Ken Wharton",
+   "wikidata": "Q172452",
+   "manual": {
+    "uk": "Кен Вортон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "whitehead": {
+   "en": "Peter Whitehead",
+   "uk": "Пітер Вайтхед",
+   "wikidata": "Q173049"
+  },
+  "whitehouse": {
+   "en": "Bill Whitehouse",
+   "uk": "Bill Whitehouse",
+   "wikidata": "Q172559",
+   "manual": {
+    "uk": "Білл Вайтгаус",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "widdows": {
+   "en": "Robin Widdows",
+   "uk": "Robin Widdows",
+   "wikidata": "Q172427",
+   "manual": {
+    "uk": "Робін Віддоуз",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "wietzes": {
+   "en": "Eppie Wietzes",
+   "uk": "Eppie Wietzes",
+   "wikidata": "Q172285",
+   "manual": {
+    "uk": "Еппі Вітсес",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "wilds": {
+   "en": "Mike Wilds",
+   "uk": "Mike Wilds",
+   "wikidata": "Q172049",
+   "manual": {
+    "uk": "Майк Вайлдс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "williams": {
+   "en": "Jonathan Williams",
+   "uk": "Jonathan Williams",
+   "wikidata": "Q172506",
+   "manual": {
+    "uk": "Джонатан Вільямс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "williamson": {
+   "en": "Roger Williamson",
+   "uk": "Роджер Вільямсон",
+   "wikidata": "Q171501"
+  },
+  "wilson": {
+   "en": "Justin Wilson",
+   "uk": "Justin Wilson",
+   "wikidata": "Q171577",
+   "manual": {
+    "uk": "Джастін Вілсон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "wilson_fittipaldi": {
+   "en": "Wilson Fittipaldi",
+   "uk": "Wilson Fittipaldi",
+   "wikidata": "Q173296",
+   "manual": {
+    "uk": "Вілсон Фіттіпальді",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "wisell": {
+   "en": "Reine Wisell",
+   "uk": "Reine Wisell",
+   "wikidata": "Q172262",
+   "manual": {
+    "uk": "Рейне Віселль",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "wunderink": {
+   "en": "Roelof Wunderink",
+   "uk": "Roelof Wunderink",
+   "wikidata": "Q172224",
+   "manual": {
+    "uk": "Рулоф Вундерінк",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "wurz": {
+   "en": "Alexander Wurz",
+   "uk": "Александр Вюрц",
+   "wikidata": "Q78499"
+  },
+  "yamamoto": {
+   "en": "Sakon Yamamoto",
+   "uk": "Ямамото Сакон",
+   "wikidata": "Q171394"
+  },
+  "yoong": {
+   "en": "Alex Yoong",
+   "uk": "Alex Yoong",
+   "wikidata": "Q172006",
+   "manual": {
+    "uk": "Алекс Юнг",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "zanardi": {
+   "en": "Alessandro Zanardi",
+   "uk": "Алессандро Дзанарді",
+   "wikidata": "Q173188"
+  },
+  "zhou": {
+   "en": "Guanyu Zhou",
+   "uk": "Чжоу Гуаньюй",
+   "wikidata": "Q17327107"
+  },
+  "zonta": {
+   "en": "Ricardo Zonta",
+   "uk": "Ricardo Zonta",
+   "wikidata": "Q172004",
+   "manual": {
+    "uk": "Рікардо Зонта",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "zorzi": {
+   "en": "Renzo Zorzi",
+   "uk": "Renzo Zorzi",
+   "wikidata": "Q172231",
+   "manual": {
+    "uk": "Ренцо Дзордзі",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
+  },
+  "zunino": {
+   "en": "Ricardo Zunino",
+   "uk": "Ricardo Zunino",
+   "wikidata": "Q172229",
+   "manual": {
+    "uk": "Рікардо Суніно",
+    "source": "transliteration",
+    "checked": false,
+    "unsure": true
+   }
   }
  }
 }

@@ -30,7 +30,7 @@ REPO = Path(__file__).resolve().parents[2]
 OUT_DIR = REPO / "public/img/drivers"
 OUT = REPO / "src/data/curated/driver-portraits.json"
 COMMONS = "https://commons.wikimedia.org/w/api.php"
-FREE = ("CC0", "Public domain", "PD", "CC BY", "CC BY-SA", "Attribution", "OGL", "GFDL", "FAL")
+FREE = ("CC0", "Public domain", "PD", "CC BY", "CC BY-SA", "Attribution", "OGL", "GFDL", "FAL", "Copyrighted free use")
 SIZE = 96
 
 
@@ -89,7 +89,10 @@ def main() -> int:
     credits = json.loads(Path(arg("--credits") or "").read_text(encoding="utf-8"))
     curated = json.loads((REPO / "src/data/curated/drivers.json").read_text(encoding="utf-8"))["drivers"]
     index = json.loads((REPO / "e2e/fixtures/db/driver_index.json").read_text(encoding="utf-8"))
-    old = json.loads(OUT.read_text(encoding="utf-8")).get("drivers", {}) if OUT.exists() else {}
+    prev = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {}
+    old = prev.get("drivers", {})
+    # Переглянуті й відкинуті вручну (не портрет: машина, надгробок, статуя) — не повертати.
+    rejected = set(prev.get("rejected", []))
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
     result: dict[str, dict] = {}
@@ -138,6 +141,8 @@ def main() -> int:
             p18[ref] = imgs[0]
     info2 = commons_info(list(p18.values()))
     for ref, f in p18.items():
+        if ref in rejected:
+            continue
         i = info2.get(f.replace("_", " ")) or info2.get(f)
         if not i or not is_free(i["license"]) or not i["thumb"]:
             report["rejected"].append(f"{ref}: P18 «{f}» — ліцензія «{i and i['license']}»")
@@ -151,7 +156,8 @@ def main() -> int:
     for ref, v in old.items():
         if "manual" in v:
             result.setdefault(ref, {})["manual"] = v["manual"]
-    OUT.write_text(json.dumps({"drivers": dict(sorted(result.items()))}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    OUT.write_text(json.dumps({"drivers": dict(sorted(result.items())), "rejected": sorted(rejected)}, ensure_ascii=False, indent=1)
+                   + "\n", encoding="utf-8")
     total = len(index)
     have = len(result) + sum(1 for r in index if r["id"] in curated)
     print(f"пілотів: {total}; з портретом: {have} (макет {report['mockup']}, Wikidata {report['wikidata']}, кураторські "
