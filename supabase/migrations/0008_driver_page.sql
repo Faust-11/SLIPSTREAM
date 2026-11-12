@@ -40,7 +40,8 @@ with last as (
   select season_year, max(round_number * 100 + session_number) as k from f1.driver_standings group by season_year
 )
 select ds.season_year, ds.driver_id, ds.position, ds.points, coalesce(ds.is_eligible, true) as eligible,
-       coalesce(ds.adjustment_type = 102, false) as excluded
+       -- 101 — пілота виключено з підсумкового заліку (замір 12.11: лише Шумахер 1997), 102 — команду (McLaren 2007).
+       coalesce(ds.adjustment_type in (101, 102), false) as excluded
 from f1.driver_standings ds join last on last.season_year = ds.season_year
  and ds.round_number * 100 + ds.session_number = last.k;
 
