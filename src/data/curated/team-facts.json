@@ -1,0 +1,3020 @@
+{
+ "source": "англійська Вікіпедія (картка команди: Founders, Base) + Wikidata (українські назви, P17, P2003)",
+ "teams": {
+  "ferrari": {
+   "wikipedia": "Scuderia Ferrari",
+   "issues": [],
+   "wikidata": "Q169898",
+   "instagram": "scuderiaferrari",
+   "founders": [
+    {
+     "name": {
+      "en": "Enzo Ferrari",
+      "uk": "Енцо Феррарі",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q181282"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Maranello",
+     "uk": "Маранелло",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Italy",
+     "uk": "Італія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q100060"
+   }
+  },
+  "mclaren": {
+   "wikipedia": "McLaren",
+   "issues": [],
+   "wikidata": "Q172030",
+   "instagram": "mclaren",
+   "founders": [
+    {
+     "name": {
+      "en": "Bruce McLaren",
+      "uk": "Брюс Макларен",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q173081"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Woking",
+     "uk": "Вокінг",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q646225"
+   }
+  },
+  "mercedes": {
+   "wikipedia": "Mercedes-Benz in Formula One",
+   "issues": [],
+   "wikidata": "Q65954812",
+   "instagram": "mercedesamgf1",
+   "base": {
+    "city": {
+     "en": "Stuttgart",
+     "uk": "Штутгарт",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Germany",
+     "uk": "Німеччина",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q1022"
+   }
+  },
+  "red-bull": {
+   "wikipedia": "Red Bull Racing",
+   "issues": [],
+   "wikidata": "Q173663",
+   "instagram": "redbullracing",
+   "founders": [
+    {
+     "name": {
+      "en": "Dietrich Mateschitz",
+      "uk": "Дітріх Матешиць",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q111956"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Milton Keynes",
+     "uk": "Мілтон-Кінз",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q204234"
+   }
+  },
+  "williams": {
+   "wikipedia": "Williams Racing",
+   "issues": [],
+   "wikidata": "Q171337",
+   "instagram": "williamsf1official",
+   "founders": [
+    {
+     "name": {
+      "en": "Frank Williams",
+      "uk": "Френк Вільямс",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q173214"
+    },
+    {
+     "name": {
+      "en": "Patrick Head",
+      "uk": "Патрік Гед",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q167269"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Grove",
+     "uk": "Гров",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q991626"
+   }
+  },
+  "lotus": {
+   "wikipedia": "Team Lotus",
+   "issues": [],
+   "wikidata": "Q173996",
+   "founders": [
+    {
+     "name": {
+      "en": "Colin Chapman",
+      "uk": "Колін Чапмен",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q173007"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Norfolk",
+     "uk": "Норфолк",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q23109"
+   }
+  },
+  "renault": {
+   "wikipedia": "Renault in Formula One",
+   "issues": [],
+   "wikidata": "Q65954940",
+   "base": {
+    "city": {
+     "en": "Viry-Châtillon",
+     "uk": "Вірі-Шатійон",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "France",
+     "uk": "Франція",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q253554"
+   }
+  },
+  "brabham": {
+   "wikipedia": "Brabham",
+   "issues": [],
+   "wikidata": "Q173103",
+   "founders": [
+    {
+     "name": {
+      "en": "Jack Brabham",
+      "uk": "Джек Бребем",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q2125"
+    },
+    {
+     "name": {
+      "en": "Ron Tauranac",
+      "uk": "Ron Tauranac",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q173614"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Weybridge",
+     "uk": "Вейбридж",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q1754096"
+   }
+  },
+  "benetton": {
+   "wikipedia": "Benetton Formula",
+   "issues": [],
+   "wikidata": "Q171329",
+   "base": {
+    "city": {
+     "en": "Witney",
+     "uk": "Witney",
+     "ukFromWikidata": false
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q990166"
+   }
+  },
+  "tyrrell": {
+   "wikipedia": "Tyrrell Racing",
+   "issues": [],
+   "wikidata": "Q171992",
+   "founders": [
+    {
+     "name": {
+      "en": "Ken Tyrrell",
+      "uk": "Кен Тіррелл",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q173413"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Ockham",
+     "uk": "Ockham",
+     "ukFromWikidata": false
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q2705385"
+   }
+  },
+  "brm": {
+   "wikipedia": "British Racing Motors",
+   "issues": [],
+   "wikidata": "Q173012"
+  },
+  "cooper": {
+   "wikipedia": "Cooper Car Company",
+   "issues": [],
+   "wikidata": "Q173003",
+   "founders": [
+    {
+     "name": {
+      "en": "Charles Cooper",
+      "uk": "Charles Cooper",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q5076445"
+    },
+    {
+     "name": {
+      "en": "John Cooper",
+      "uk": "John Cooper",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q173814"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Surbiton",
+     "uk": "Сербітон",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q2453259"
+   }
+  },
+  "alfa-romeo": {
+   "wikipedia": "Alfa Romeo in Formula One",
+   "issues": [
+    "засновник без елемента Wikidata: Ugo Stella"
+   ],
+   "wikidata": "Q65960697",
+   "founders": [
+    {
+     "name": {
+      "en": "Alexandre Darracq",
+      "uk": "Александр Даррак",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q1343185"
+    },
+    {
+     "name": {
+      "en": "Ugo Stella",
+      "uk": "Ugo Stella",
+      "ukFromWikidata": false
+     }
+    },
+    {
+     "name": {
+      "en": "Nicola Romeo",
+      "uk": "Nicola Romeo",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q725825"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Milan",
+     "uk": "Мілан",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Italy",
+     "uk": "Італія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q490"
+   }
+  },
+  "ligier": {
+   "wikipedia": "Ligier",
+   "issues": [
+    "засновник без елемента Wikidata: Guy Ligier"
+   ],
+   "wikidata": "Q35931",
+   "instagram": "ligier_officiel",
+   "founders": [
+    {
+     "name": {
+      "en": "Guy Ligier",
+      "uk": "Guy Ligier",
+      "ukFromWikidata": false
+     }
+    }
+   ]
+  },
+  "maserati": {
+   "wikipedia": "Maserati",
+   "issues": [],
+   "wikidata": "Q35962",
+   "instagram": "maserati",
+   "founders": [
+    {
+     "name": {
+      "en": "Alfieri Maserati",
+      "uk": "Альф'єрі Мазераті",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q3611086"
+    }
+   ]
+  },
+  "matra": {
+   "wikipedia": "Matra",
+   "issues": [
+    "засновник без елемента Wikidata: Marcel Chassagny"
+   ],
+   "wikidata": "Q35982",
+   "founders": [
+    {
+     "name": {
+      "en": "Jean-Luc Lagardère",
+      "uk": "Jean-Luc Lagardère",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q321042"
+    },
+    {
+     "name": {
+      "en": "Marcel Chassagny",
+      "uk": "Marcel Chassagny",
+      "ukFromWikidata": false
+     }
+    }
+   ]
+  },
+  "vanwall": {
+   "wikipedia": "Vanwall",
+   "issues": [],
+   "wikidata": "Q173093",
+   "founders": [
+    {
+     "name": {
+      "en": "Tony Vandervell",
+      "uk": "Tony Vandervell",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q7823618"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Acton",
+     "uk": "Ектон",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q83609"
+   }
+  },
+  "brawn": {
+   "wikipedia": "Brawn GP",
+   "issues": [
+    "база без населеного пункту з посиланням: ['Brackley, Northamptonshire, England']"
+   ],
+   "wikidata": "Q17596",
+   "founders": [
+    {
+     "name": {
+      "en": "Ross Brawn",
+      "uk": "Росс Брон",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q173140"
+    }
+   ],
+   "baseText": "Brackley, Northamptonshire, England"
+  },
+  "kurtis-kraft": {
+   "wikipedia": "Kurtis Kraft",
+   "issues": [],
+   "wikidata": "Q1502001"
+  },
+  "jordan": {
+   "wikipedia": "Jordan Grand Prix",
+   "issues": [],
+   "wikidata": "Q171367",
+   "founders": [
+    {
+     "name": {
+      "en": "Eddie Jordan",
+      "uk": "Едді Джордан",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q173175"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Silverstone",
+     "uk": "Сільверстоун",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q339226"
+   }
+  },
+  "march": {
+   "wikipedia": "March Engineering",
+   "issues": [
+    "база без населеного пункту з посиланням: ['United Kingdom']"
+   ],
+   "wikidata": "Q173177",
+   "founders": [
+    {
+     "name": {
+      "en": "Max Mosley",
+      "uk": "Макс Мослі",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q173246"
+    },
+    {
+     "name": {
+      "en": "Alan Rees",
+      "uk": "Алан Різ",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q172273"
+    },
+    {
+     "name": {
+      "en": "Graham Coaker",
+      "uk": "Graham Coaker",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q5592731"
+    },
+    {
+     "name": {
+      "en": "Robin Herd",
+      "uk": "Robin Herd",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q173850"
+    }
+   ],
+   "baseText": "United Kingdom"
+  },
+  "honda": {
+   "wikipedia": "Honda in Formula One",
+   "issues": [],
+   "wikidata": "Q65961126",
+   "base": {
+    "city": {
+     "en": "Tokyo",
+     "uk": "Токіо",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Japan",
+     "uk": "Японія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q1490"
+   }
+  },
+  "wolf": {
+   "wikipedia": "Walter Wolf Racing",
+   "issues": [
+    "засновник без елемента Wikidata: Walter Wolf"
+   ],
+   "wikidata": "Q172997",
+   "founders": [
+    {
+     "name": {
+      "en": "Walter Wolf",
+      "uk": "Walter Wolf",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Reading",
+     "uk": "Редінг",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q161491"
+   }
+  },
+  "watson": {
+   "wikipedia": "A. J. Watson",
+   "issues": [],
+   "wikidata": "Q1526296"
+  },
+  "lotus-f1": {
+   "wikipedia": "Lotus F1",
+   "issues": [],
+   "wikidata": "Q173018",
+   "base": {
+    "city": {
+     "en": "Enstone",
+     "uk": "Enstone",
+     "ukFromWikidata": false
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q1145119"
+   }
+  },
+  "epperly": {
+   "wikipedia": "Epperly",
+   "issues": [],
+   "wikidata": "Q16775591"
+  },
+  "toro-rosso": {
+   "wikipedia": "Scuderia Toro Rosso",
+   "issues": [],
+   "wikidata": "Q141818",
+   "instagram": "tororosso",
+   "founders": [
+    {
+     "name": {
+      "en": "Dietrich Mateschitz",
+      "uk": "Дітріх Матешиць",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q111956"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Faenza",
+     "uk": "Фаенца",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Italy",
+     "uk": "Італія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q52981"
+   }
+  },
+  "alpine": {
+   "wikipedia": "Alpine F1 Team",
+   "issues": [],
+   "wikidata": "Q98930155",
+   "instagram": "alpinef1team",
+   "base": {
+    "city": {
+     "en": "Enstone",
+     "uk": "Enstone",
+     "ukFromWikidata": false
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q1145119"
+   }
+  },
+  "shadow": {
+   "wikipedia": "Shadow Racing Cars",
+   "issues": [],
+   "wikidata": "Q173879",
+   "founders": [
+    {
+     "name": {
+      "en": "Don Nichols",
+      "uk": "Don Nichols",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q18062359"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Northampton",
+     "uk": "Нортгемптон",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q192240"
+   }
+  },
+  "alphatauri": {
+   "wikipedia": "Scuderia AlphaTauri",
+   "issues": [],
+   "wikidata": "Q71371541",
+   "instagram": "alphataurif1",
+   "founders": [
+    {
+     "name": {
+      "en": "Dietrich Mateschitz",
+      "uk": "Дітріх Матешиць",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q111956"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Faenza",
+     "uk": "Фаенца",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Italy",
+     "uk": "Італія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q52981"
+   }
+  },
+  "bmw-sauber": {
+   "wikipedia": "BMW in Formula One",
+   "issues": [],
+   "wikidata": "Q63928692",
+   "base": {
+    "city": {
+     "en": "Hinwil",
+     "uk": "Гінвіль",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Switzerland",
+     "uk": "Швейцарія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q69383"
+   }
+  },
+  "hesketh": {
+   "wikipedia": "Hesketh Racing",
+   "issues": [
+    "база без населеного пункту з посиланням: ['United Kingdom']"
+   ],
+   "wikidata": "Q171596",
+   "baseText": "United Kingdom"
+  },
+  "stewart": {
+   "wikipedia": "Stewart Grand Prix",
+   "issues": [],
+   "wikidata": "Q173066",
+   "founders": [
+    {
+     "name": {
+      "en": "Jackie Stewart",
+      "uk": "Джекі Стюарт",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q3188"
+    },
+    {
+     "name": {
+      "en": "Paul Stewart",
+      "uk": "Paul Stewart",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q4356482"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Milton Keynes",
+     "uk": "Мілтон-Кінз",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q204234"
+   }
+  },
+  "penske": {
+   "wikipedia": "Team Penske",
+   "issues": [],
+   "wikidata": "Q174144",
+   "instagram": "team_penske",
+   "base": {
+    "city": {
+     "en": "Mooresville",
+     "uk": "Мурсвілл",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United States",
+     "uk": "США",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q2027955"
+   }
+  },
+  "racing-point": {
+   "wikipedia": "Racing Point F1 Team",
+   "issues": [],
+   "wikidata": "Q56245286",
+   "instagram": "racingpointf1",
+   "founders": [
+    {
+     "name": {
+      "en": "Lawrence Stroll",
+      "uk": "Лоуренс Стролл",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q24053619"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Silverstone",
+     "uk": "Сільверстоун",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q339226"
+   }
+  },
+  "porsche": {
+   "wikipedia": "Porsche in motorsport",
+   "issues": [],
+   "wikidata": "Q63929540"
+  },
+  "eagle": {
+   "wikipedia": "All American Racers",
+   "issues": [],
+   "wikidata": "Q173450",
+   "founders": [
+    {
+     "name": {
+      "en": "Dan Gurney",
+      "uk": "Dan Gurney",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q171466"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Rye",
+     "uk": "Рай",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q1020800"
+   }
+  },
+  "kuzma": {
+   "wikipedia": "Eddie Kuzma",
+   "issues": [],
+   "wikidata": "Q113022776"
+  },
+  "sauber": {
+   "wikipedia": "Sauber Motorsport",
+   "issues": [],
+   "wikidata": "Q171335",
+   "founders": [
+    {
+     "name": {
+      "en": "Peter Sauber",
+      "uk": "Peter Sauber",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q173014"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Bicester",
+     "uk": "Bicester",
+     "ukFromWikidata": false
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q251903"
+   }
+  },
+  "minardi": {
+   "wikipedia": "Minardi",
+   "issues": [],
+   "wikidata": "Q142381",
+   "founders": [
+    {
+     "name": {
+      "en": "Gian Carlo Minardi",
+      "uk": "Gian Carlo Minardi",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q173444"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Faenza",
+     "uk": "Фаенца",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Italy",
+     "uk": "Італія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q52981"
+   }
+  },
+  "arrows": {
+   "wikipedia": "Arrows Grand Prix International",
+   "issues": [
+    "засновник без елемента Wikidata: Franco Ambrosio",
+    "засновник без елемента Wikidata: Dave Wass"
+   ],
+   "wikidata": "Q174176",
+   "founders": [
+    {
+     "name": {
+      "en": "Franco Ambrosio",
+      "uk": "Franco Ambrosio",
+      "ukFromWikidata": false
+     }
+    },
+    {
+     "name": {
+      "en": "Alan Rees",
+      "uk": "Алан Різ",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q172273"
+    },
+    {
+     "name": {
+      "en": "Jackie Oliver",
+      "uk": "Джекі Олівер",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q171720"
+    },
+    {
+     "name": {
+      "en": "Dave Wass",
+      "uk": "Dave Wass",
+      "ukFromWikidata": false
+     }
+    },
+    {
+     "name": {
+      "en": "Tony Southgate",
+      "uk": "Tony Southgate",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q174027"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Milton Keynes",
+     "uk": "Мілтон-Кінз",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q204234"
+   }
+  },
+  "haas": {
+   "wikipedia": "Haas F1 Team",
+   "issues": [],
+   "wikidata": "Q16300222",
+   "instagram": "haasf1team",
+   "founders": [
+    {
+     "name": {
+      "en": "Gene Haas",
+      "uk": "Джин Гаас",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q1094091"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Kannapolis",
+     "uk": "Каннаполіс",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United States",
+     "uk": "США",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q2029146"
+   }
+  },
+  "force-india": {
+   "wikipedia": "Racing Point Force India",
+   "issues": [],
+   "wikidata": "Q61957608",
+   "founders": [
+    {
+     "name": {
+      "en": "Lawrence Stroll",
+      "uk": "Лоуренс Стролл",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q24053619"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Silverstone",
+     "uk": "Сільверстоун",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q339226"
+   }
+  },
+  "aston-martin": {
+   "wikipedia": "Aston Martin in Formula One",
+   "issues": [],
+   "wikidata": "Q25412511",
+   "instagram": "astonmartinf1",
+   "base": {
+    "city": {
+     "en": "Newport Pagnell",
+     "uk": "Newport Pagnell",
+     "ukFromWikidata": false
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q1020231"
+   }
+  },
+  "toyota": {
+   "wikipedia": "Toyota Racing",
+   "issues": [],
+   "wikidata": "Q92773574"
+  },
+  "osella": {
+   "wikipedia": "Osella",
+   "issues": [],
+   "wikidata": "Q171506",
+   "founders": [
+    {
+     "name": {
+      "en": "Enzo Osella",
+      "uk": "Enzo Osella",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q3055544"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Verolengo",
+     "uk": "Вероленго",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Italy",
+     "uk": "Італія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q10343"
+   }
+  },
+  "surtees": {
+   "wikipedia": "Surtees",
+   "issues": [],
+   "wikidata": "Q1418677"
+  },
+  "bar": {
+   "wikipedia": "British American Racing",
+   "issues": [],
+   "wikidata": "Q171320",
+   "founders": [
+    {
+     "name": {
+      "en": "Craig Pollock",
+      "uk": "Craig Pollock",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q3002056"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Brackley",
+     "uk": "Brackley",
+     "ukFromWikidata": false
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q671557"
+   }
+  },
+  "larrousse": {
+   "wikipedia": "Larrousse",
+   "issues": [
+    "засновник без елемента Wikidata: Didier Calmels"
+   ],
+   "wikidata": "Q172958",
+   "founders": [
+    {
+     "name": {
+      "en": "Gérard Larrousse",
+      "uk": "Gérard Larrousse",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q171768"
+    },
+    {
+     "name": {
+      "en": "Didier Calmels",
+      "uk": "Didier Calmels",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Antony",
+     "uk": "Антоні",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "France",
+     "uk": "Франція",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q205592"
+   }
+  },
+  "fittipaldi": {
+   "wikipedia": "Fittipaldi Automotive",
+   "issues": [],
+   "wikidata": "Q171665",
+   "founders": [
+    {
+     "name": {
+      "en": "Wilson Fittipaldi Júnior",
+      "uk": "Wilson Fittipaldi Júnior",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q173296"
+    },
+    {
+     "name": {
+      "en": "Emerson Fittipaldi",
+      "uk": "Емерсон Фіттіпальді",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q172849"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "São Paulo",
+     "uk": "Сан-Паулу",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Brazil",
+     "uk": "Бразилія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q174"
+   }
+  },
+  "ensign": {
+   "wikipedia": "Ensign Racing",
+   "issues": [],
+   "wikidata": "Q173415",
+   "founders": [
+    {
+     "name": {
+      "en": "Mo Nunn",
+      "uk": "Mo Nunn",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q173234"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Lichfield",
+     "uk": "Лічфілд",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q207371"
+   }
+  },
+  "ats": {
+   "wikipedia": "ATS Wheels",
+   "issues": [
+    "база без населеного пункту з посиланням: ['Germany']"
+   ],
+   "wikidata": "Q784953",
+   "founders": [
+    {
+     "name": {
+      "en": "Günter Schmid",
+      "uk": "Günter Schmid",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q9283972"
+    }
+   ],
+   "baseText": "Germany"
+  },
+  "footwork": {
+   "wikipedia": "Footwork Arrows",
+   "issues": [],
+   "wikidata": "Q534022",
+   "base": {
+    "city": {
+     "en": "Milton Keynes",
+     "uk": "Мілтон-Кінз",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q204234"
+   }
+  },
+  "lola": {
+   "wikipedia": "MasterCard Lola",
+   "issues": [],
+   "wikidata": "Q1082386",
+   "founders": [
+    {
+     "name": {
+      "en": "Eric Broadley",
+      "uk": "Eric Broadley",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q172846"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Huntingdon",
+     "uk": "Гантінгдон",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q685640"
+   }
+  },
+  "jaguar": {
+   "wikipedia": "Jaguar Racing",
+   "issues": [],
+   "wikidata": "Q55593194"
+  },
+  "prost": {
+   "wikipedia": "Prost Grand Prix",
+   "issues": [],
+   "wikidata": "Q173110",
+   "founders": [
+    {
+     "name": {
+      "en": "Alain Prost",
+      "uk": "Ален Прост",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q10494"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Guyancourt",
+     "uk": "Гіянкур",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "France",
+     "uk": "Франція",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q237303"
+   }
+  },
+  "dallara": {
+   "wikipedia": "Dallara",
+   "issues": [],
+   "wikidata": "Q1157975",
+   "founders": [
+    {
+     "name": {
+      "en": "Giampaolo Dallara",
+      "uk": "Giampaolo Dallara",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q258628"
+    }
+   ]
+  },
+  "racing-bulls": {
+   "wikipedia": "Racing Bulls",
+   "issues": [],
+   "wikidata": "Q124350606",
+   "instagram": "visacashapprb",
+   "base": {
+    "city": {
+     "en": "Faenza",
+     "uk": "Фаенца",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Italy",
+     "uk": "Італія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q52981"
+   }
+  },
+  "toleman": {
+   "wikipedia": "Toleman",
+   "issues": [
+    "засновник без елемента Wikidata: Alex Hawkridge"
+   ],
+   "wikidata": "Q172987",
+   "founders": [
+    {
+     "name": {
+      "en": "Ted Toleman",
+      "uk": "Ted Toleman",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q19517665"
+    },
+    {
+     "name": {
+      "en": "Alex Hawkridge",
+      "uk": "Alex Hawkridge",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Witney",
+     "uk": "Witney",
+     "ukFromWikidata": false
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q990166"
+   }
+  },
+  "hrt": {
+   "wikipedia": "HRT Formula 1 Team",
+   "issues": [],
+   "wikidata": "Q171420",
+   "founders": [
+    {
+     "name": {
+      "en": "Adrián Campos",
+      "uk": "Adrián Campos",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q171456"
+    },
+    {
+     "name": {
+      "en": "José Ramón Carabante",
+      "uk": "José Ramón Carabante",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q627386"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Madrid",
+     "uk": "Мадрид",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Spain",
+     "uk": "Іспанія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q2807"
+   }
+  },
+  "caterham": {
+   "wikipedia": "Caterham F1",
+   "issues": [],
+   "wikidata": "Q174008",
+   "instagram": "caterhamf1",
+   "founders": [
+    {
+     "name": {
+      "en": "Tony Fernandes",
+      "uk": "Тоні Фернандес",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q173381"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Leafield",
+     "uk": "Leafield",
+     "ukFromWikidata": false
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q1931690"
+   }
+  },
+  "marussia": {
+   "wikipedia": "Marussia F1",
+   "issues": [],
+   "wikidata": "Q173179",
+   "base": {
+    "city": {
+     "en": "Banbury",
+     "uk": "Банбері",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q806160"
+   }
+  },
+  "zakspeed": {
+   "wikipedia": "Zakspeed",
+   "issues": [],
+   "wikidata": "Q144823",
+   "founders": [
+    {
+     "name": {
+      "en": "Erich Zakowski",
+      "uk": "Erich Zakowski",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q120518"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Niederzissen",
+     "uk": "Нідерциссен",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Germany",
+     "uk": "Німеччина",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q647234"
+   }
+  },
+  "ags": {
+   "wikipedia": "Automobiles Gonfaronnaises Sportives",
+   "issues": [],
+   "wikidata": "Q171487",
+   "founders": [
+    {
+     "name": {
+      "en": "Henri Julien",
+      "uk": "Henri Julien",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q14078403"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Gonfaron",
+     "uk": "Гонфарон",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "France",
+     "uk": "Франція",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q612401"
+   }
+  },
+  "super-aguri": {
+   "wikipedia": "Super Aguri F1",
+   "issues": [
+    "база без населеного пункту з посиланням: ['Leafield Technical Centre, Oxfordshire, United Kingdom']"
+   ],
+   "wikidata": "Q171326",
+   "founders": [
+    {
+     "name": {
+      "en": "Aguri Suzuki",
+      "uk": "Аґурі Судзукі",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q173197"
+    }
+   ],
+   "baseText": "Leafield Technical Centre, Oxfordshire, United Kingdom"
+  },
+  "manor-marussia": {
+   "wikipedia": "Manor Motorsport",
+   "issues": [],
+   "wikidata": "Q2267054"
+  },
+  "virgin": {
+   "wikipedia": "Virgin Racing",
+   "issues": [],
+   "wikidata": "Q179408",
+   "base": {
+    "city": {
+     "en": "Dinnington",
+     "uk": "Dinnington",
+     "ukFromWikidata": false
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q2296611"
+   }
+  },
+  "theodore": {
+   "wikipedia": "Theodore Racing",
+   "issues": [
+    "база без населеного пункту з посиланням: ['Hong Kong']"
+   ],
+   "wikidata": "Q11085064",
+   "founders": [
+    {
+     "name": {
+      "en": "Teddy Yip",
+      "uk": "Тедді Йіп",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q3275132"
+    }
+   ],
+   "baseText": "Hong Kong"
+  },
+  "gordini": {
+   "wikipedia": "Gordini",
+   "issues": [],
+   "wikidata": "Q173222"
+  },
+  "ram": {
+   "wikipedia": "RAM Racing",
+   "issues": [
+    "засновник без елемента Wikidata: Mike Ralph, John Macdonald"
+   ],
+   "wikidata": "Q173104",
+   "founders": [
+    {
+     "name": {
+      "en": "Mike Ralph, John Macdonald",
+      "uk": "Mike Ralph, John Macdonald",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "base": {
+    "city": null,
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q145"
+   }
+  },
+  "iso-marlboro": {
+   "wikipedia": "Frank Williams Racing Cars",
+   "issues": [],
+   "wikidata": "Q173225",
+   "founders": [
+    {
+     "name": {
+      "en": "Frank Williams",
+      "uk": "Френк Вільямс",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q173214"
+    }
+   ]
+  },
+  "leyton-house": {
+   "wikipedia": "Leyton House Racing",
+   "issues": [
+    "засновник без елемента Wikidata: Akira Akagi"
+   ],
+   "wikidata": "Q2089502",
+   "founders": [
+    {
+     "name": {
+      "en": "Akira Akagi",
+      "uk": "Akira Akagi",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Bicester",
+     "uk": "Bicester",
+     "ukFromWikidata": false
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q251903"
+   }
+  },
+  "spirit": {
+   "wikipedia": "Spirit Racing",
+   "issues": [
+    "засновник без елемента Wikidata: John Wickham"
+   ],
+   "wikidata": "Q173088",
+   "founders": [
+    {
+     "name": {
+      "en": "Gordon Coppuck",
+      "uk": "Gordon Coppuck",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q5585030"
+    },
+    {
+     "name": {
+      "en": "John Wickham",
+      "uk": "John Wickham",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Slough",
+     "uk": "Слау",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q211907"
+   }
+  },
+  "forti": {
+   "wikipedia": "Forti",
+   "issues": [],
+   "wikidata": "Q172974",
+   "founders": [
+    {
+     "name": {
+      "en": "Guido Forti",
+      "uk": "Guido Forti",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q3019960"
+    },
+    {
+     "name": {
+      "en": "Paolo Guerci",
+      "uk": "Paolo Guerci",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q7132200"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Alessandria",
+     "uk": "Алессандрія",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Italy",
+     "uk": "Італія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q6088"
+   }
+  },
+  "pacific": {
+   "wikipedia": "Pacific Racing",
+   "issues": [],
+   "wikidata": "Q172992",
+   "founders": [
+    {
+     "name": {
+      "en": "Keith Wiggins",
+      "uk": "Keith Wiggins",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q3702469"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Thetford",
+     "uk": "Тетфорд",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q237250"
+   }
+  },
+  "simtek": {
+   "wikipedia": "Simtek",
+   "issues": [],
+   "wikidata": "Q172976",
+   "founders": [
+    {
+     "name": {
+      "en": "Max Mosley",
+      "uk": "Макс Мослі",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q173246"
+    },
+    {
+     "name": {
+      "en": "Nick Wirth",
+      "uk": "Nick Wirth",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q173394"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Banbury",
+     "uk": "Банбері",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q806160"
+   }
+  },
+  "rial": {
+   "wikipedia": "Rial Racing",
+   "issues": [],
+   "wikidata": "Q171974",
+   "founders": [
+    {
+     "name": {
+      "en": "Günter Schmid",
+      "uk": "Günter Schmid",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q9283972"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Fußgönheim",
+     "uk": "Фусгенгайм",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Germany",
+     "uk": "Німеччина",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q22460"
+   }
+  },
+  "audi": {
+   "wikipedia": "Audi in Formula One",
+   "issues": [],
+   "wikidata": "Q113640151",
+   "instagram": "audif1",
+   "base": {
+    "city": {
+     "en": "Hinwil",
+     "uk": "Гінвіль",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Switzerland",
+     "uk": "Швейцарія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q69383"
+   }
+  },
+  "cadillac": {
+   "wikipedia": "Cadillac in Formula One",
+   "issues": [],
+   "wikidata": "Q131323401",
+   "instagram": "cadillacf1",
+   "base": {
+    "city": {
+     "en": "Fishers",
+     "uk": "Фішерс",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United States",
+     "uk": "США",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q2284046"
+   }
+  },
+  "fondmetal": {
+   "wikipedia": "Fondmetal",
+   "issues": [],
+   "wikidata": "Q173473",
+   "founders": [
+    {
+     "name": {
+      "en": "Gabriele Rumi",
+      "uk": "Gabriele Rumi",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q16015142"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Bergamo",
+     "uk": "Бергамо",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Italy",
+     "uk": "Італія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q628"
+   }
+  },
+  "connaught": {
+   "wikipedia": "Connaught Engineering",
+   "issues": [
+    "засновник без елемента Wikidata: Rodney Clarke",
+    "засновник без елемента Wikidata: Mike Oliver"
+   ],
+   "wikidata": "Q173536",
+   "founders": [
+    {
+     "name": {
+      "en": "Rodney Clarke",
+      "uk": "Rodney Clarke",
+      "ukFromWikidata": false
+     }
+    },
+    {
+     "name": {
+      "en": "Mike Oliver",
+      "uk": "Mike Oliver",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Send",
+     "uk": "Send",
+     "ukFromWikidata": false
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q2186179"
+   }
+  },
+  "onyx": {
+   "wikipedia": "Onyx Grand Prix",
+   "issues": [
+    "засновник без елемента Wikidata: Mike Earle",
+    "засновник без елемента Wikidata: Greg Field"
+   ],
+   "wikidata": "Q172109",
+   "founders": [
+    {
+     "name": {
+      "en": "Mike Earle",
+      "uk": "Mike Earle",
+      "ukFromWikidata": false
+     }
+    },
+    {
+     "name": {
+      "en": "Greg Field",
+      "uk": "Greg Field",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "West Sussex",
+     "uk": "Західний Сассекс",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q23287"
+   }
+  },
+  "spyker": {
+   "wikipedia": "Spyker F1",
+   "issues": [],
+   "wikidata": "Q172765",
+   "base": {
+    "city": {
+     "en": "Northamptonshire",
+     "uk": "Нортгемптоншир",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q23115"
+   }
+  },
+  "parnelli": {
+   "wikipedia": "Vel's Parnelli Jones Racing",
+   "issues": [],
+   "wikidata": "Q172483"
+  },
+  "euro-brun": {
+   "wikipedia": "EuroBrun",
+   "issues": [],
+   "wikidata": "Q173806",
+   "base": {
+    "city": {
+     "en": "Senago",
+     "uk": "Сенаго",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Italy",
+     "uk": "Італія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q43079"
+   }
+  },
+  "simca": {
+   "wikipedia": "Simca",
+   "issues": [],
+   "wikidata": "Q173357",
+   "founders": [
+    {
+     "name": {
+      "en": "Henri Pigozzi",
+      "uk": "Henri Pigozzi",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q1035334"
+    }
+   ]
+  },
+  "hwm": {
+   "wikipedia": "Hersham and Walton Motors",
+   "issues": [
+    "засновник без елемента Wikidata: John Heath",
+    "база без населеного пункту з посиланням: ['Walton on Thames, UK']"
+   ],
+   "wikidata": "Q1035731",
+   "founders": [
+    {
+     "name": {
+      "en": "John Heath",
+      "uk": "John Heath",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "baseText": "Walton on Thames, UK"
+  },
+  "mf1": {
+   "wikipedia": "Midland F1 Racing",
+   "issues": [],
+   "wikidata": "Q173054",
+   "founders": [
+    {
+     "name": {
+      "en": "Alex Shnaider",
+      "uk": "Алекс Шнайдер",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q605919"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Northamptonshire",
+     "uk": "Нортгемптоншир",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q23115"
+   }
+  },
+  "talbot": {
+   "wikipedia": "Talbot-Lago",
+   "issues": [],
+   "wikidata": "Q787757",
+   "founders": [
+    {
+     "name": {
+      "en": "Antonio Lago",
+      "uk": "Antonio Lago",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q1591730"
+    }
+   ]
+  },
+  "brp": {
+   "wikipedia": "British Racing Partnership",
+   "issues": [
+    "засновник без елемента Wikidata: Ken Gregory"
+   ],
+   "wikidata": "Q172148",
+   "founders": [
+    {
+     "name": {
+      "en": "Alfred Moss",
+      "uk": "Alfred Moss",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q2835357"
+    },
+    {
+     "name": {
+      "en": "Ken Gregory",
+      "uk": "Ken Gregory",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Tring",
+     "uk": "Трінг",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q10999"
+   }
+  },
+  "coloni": {
+   "wikipedia": "Scuderia Coloni",
+   "issues": [],
+   "wikidata": "Q1631454"
+  },
+  "de-tomaso": {
+   "wikipedia": "De Tomaso",
+   "issues": [],
+   "wikidata": "Q173085",
+   "instagram": "detomaso_official",
+   "founders": [
+    {
+     "name": {
+      "en": "Alejandro de Tomaso",
+      "uk": "Alejandro de Tomaso",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q172234"
+    }
+   ]
+  },
+  "tecno": {
+   "wikipedia": "Tecno",
+   "issues": [],
+   "wikidata": "Q16283984"
+  },
+  "embassy-hill": {
+   "wikipedia": "Embassy Hill",
+   "issues": [],
+   "wikidata": "Q173301",
+   "founders": [
+    {
+     "name": {
+      "en": "Graham Hill",
+      "uk": "Ґрем Гілл",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q3128"
+    }
+   ],
+   "base": {
+    "city": null,
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q145"
+   }
+  },
+  "merzario": {
+   "wikipedia": "Merzario",
+   "issues": [
+    "засновник без елемента Wikidata: Arturo Merzario, Guglielmo Bellasi"
+   ],
+   "wikidata": "Q172577",
+   "founders": [
+    {
+     "name": {
+      "en": "Arturo Merzario, Guglielmo Bellasi",
+      "uk": "Arturo Merzario, Guglielmo Bellasi",
+      "ukFromWikidata": false
+     }
+    }
+   ]
+  },
+  "lesovsky": {
+   "wikipedia": "Lesovsky",
+   "issues": [],
+   "wikidata": "Q1820889"
+  },
+  "era": {
+   "wikipedia": "English Racing Automobiles",
+   "issues": [],
+   "wikidata": "Q172153"
+  },
+  "phillips": {
+   "wikipedia": "Phillips (constructor)",
+   "issues": [],
+   "wikidata": "Q1817628"
+  },
+  "stevens": {
+   "wikipedia": "Myron Stevens",
+   "issues": [],
+   "wikidata": "Q16012169"
+  },
+  "veritas": {
+   "wikipedia": "Veritas (automobile)",
+   "issues": [
+    "засновник без елемента Wikidata: Ernst Loof, Georg Meier and Lorenz Dietrich"
+   ],
+   "wikidata": "Q700373",
+   "founders": [
+    {
+     "name": {
+      "en": "Ernst Loof, Georg Meier and Lorenz Dietrich",
+      "uk": "Ernst Loof, Georg Meier and Lorenz Dietrich",
+      "ukFromWikidata": false
+     }
+    }
+   ]
+  },
+  "trojan": {
+   "wikipedia": "Trojan–Tauranac Racing",
+   "issues": [],
+   "wikidata": "Q1078831"
+  },
+  "boro": {
+   "wikipedia": "Boro (Formula One)",
+   "issues": [
+    "засновник без елемента Wikidata: Bob Hoogenboom",
+    "засновник без елемента Wikidata: Rody Hoogenboom",
+    "база без населеного пункту з посиланням: ['Bovenkerk, Netherlands']"
+   ],
+   "wikidata": "Q171760",
+   "founders": [
+    {
+     "name": {
+      "en": "Bob Hoogenboom",
+      "uk": "Bob Hoogenboom",
+      "ukFromWikidata": false
+     }
+    },
+    {
+     "name": {
+      "en": "Rody Hoogenboom",
+      "uk": "Rody Hoogenboom",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "baseText": "Bovenkerk, Netherlands"
+  },
+  "lambo": {
+   "wikipedia": "Modena (racing team)",
+   "issues": [],
+   "wikidata": "Q173295",
+   "base": {
+    "city": {
+     "en": "Modena",
+     "uk": "Модена",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Italy",
+     "uk": "Італія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q279"
+   }
+  },
+  "alta": {
+   "wikipedia": "Alta Car and Engineering Company",
+   "issues": [],
+   "wikidata": "Q1825008"
+  },
+  "lds": {
+   "wikipedia": "LDS (automobile)",
+   "issues": [
+    "база без населеного пункту з посиланням: ['South Africa']"
+   ],
+   "wikidata": "Q172638",
+   "founders": [
+    {
+     "name": {
+      "en": "Doug Serrurier",
+      "uk": "Doug Serrurier",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q172212"
+    }
+   ],
+   "baseText": "South Africa"
+  },
+  "scirocco": {
+   "wikipedia": "Scirocco-Powell",
+   "issues": [
+    "засновник без елемента Wikidata: Hugh Powell"
+   ],
+   "wikidata": "Q172490",
+   "founders": [
+    {
+     "name": {
+      "en": "Hugh Powell",
+      "uk": "Hugh Powell",
+      "ukFromWikidata": false
+     }
+    }
+   ]
+  },
+  "martini": {
+   "wikipedia": "Automobiles Martini",
+   "issues": [
+    "засновник без елемента Wikidata: Bill Knight"
+   ],
+   "wikidata": "Q173497",
+   "founders": [
+    {
+     "name": {
+      "en": "Renato Martini",
+      "uk": "Renato Martini",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q30077602"
+    },
+    {
+     "name": {
+      "en": "Bill Knight",
+      "uk": "Bill Knight",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Magny-Cours",
+     "uk": "Маньї-Кур",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "France",
+     "uk": "Франція",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q269952"
+   }
+  },
+  "schroeder": {
+   "wikipedia": "Gordon Schroeder",
+   "issues": [],
+   "wikidata": "Q691125"
+  },
+  "bromme": {
+   "wikipedia": "Bromme",
+   "issues": [],
+   "wikidata": "Q926760"
+  },
+  "trevis": {
+   "wikipedia": "Trevis",
+   "issues": [],
+   "wikidata": "Q1788382"
+  },
+  "osca": {
+   "wikipedia": "O.S.C.A.",
+   "issues": [],
+   "wikidata": "Q936574",
+   "instagram": "osca_automobili"
+  },
+  "frazer-nash": {
+   "wikipedia": "Frazer Nash",
+   "issues": [],
+   "wikidata": "Q1452093"
+  },
+  "afm": {
+   "wikipedia": "Alex von Falkenhausen Motorenbau",
+   "issues": [
+    "засновник без елемента Wikidata: Alexander von Falkenhausen"
+   ],
+   "wikidata": "Q121665",
+   "founders": [
+    {
+     "name": {
+      "en": "Alexander von Falkenhausen",
+      "uk": "Alexander von Falkenhausen",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Munich",
+     "uk": "Мюнхен",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Germany",
+     "uk": "Німеччина",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q1726"
+   }
+  },
+  "lancia": {
+   "wikipedia": "Lancia Corse HF",
+   "issues": [],
+   "wikidata": "Q2246685",
+   "founders": [
+    {
+     "name": {
+      "en": "Gianni Lancia",
+      "uk": "Джанні Лянча",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q3763545"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Turin",
+     "uk": "Турин",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Italy",
+     "uk": "Італія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q495"
+   }
+  },
+  "emeryson": {
+   "wikipedia": "Emeryson",
+   "issues": [],
+   "wikidata": "Q173553",
+   "founders": [
+    {
+     "name": {
+      "en": "Paul Emery",
+      "uk": "Paul Emery",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q172551"
+    }
+   ]
+  },
+  "jbw": {
+   "wikipedia": "JBW",
+   "issues": [],
+   "wikidata": "Q3267645"
+  },
+  "spyker-mf1": {
+   "wikipedia": "Midland F1 Racing",
+   "issues": [],
+   "wikidata": "Q173054",
+   "founders": [
+    {
+     "name": {
+      "en": "Alex Shnaider",
+      "uk": "Алекс Шнайдер",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q605919"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Northamptonshire",
+     "uk": "Нортгемптоншир",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q23115"
+   }
+  },
+  "deidt": {
+   "wikipedia": "Emil Diedt",
+   "issues": [],
+   "wikidata": "Q1183193"
+  },
+  "moore": {
+   "wikipedia": "Lou Moore",
+   "issues": [],
+   "wikidata": "Q6685662"
+  },
+  "pawl": {
+   "wikipedia": "Pawl (constructor)",
+   "issues": [],
+   "wikidata": "Q1548484"
+  },
+  "dunn": {
+   "wikipedia": "Dunn Engineering",
+   "issues": [],
+   "wikidata": "Q661544"
+  },
+  "scarab": {
+   "wikipedia": "Scarab (constructor)",
+   "issues": [],
+   "wikidata": "Q1783689"
+  },
+  "gilby": {
+   "wikipedia": "Gilby",
+   "issues": [],
+   "wikidata": "Q410365"
+  },
+  "token": {
+   "wikipedia": "Token Racing",
+   "issues": [
+    "засновник без елемента Wikidata: Tony Vlassopulos",
+    "засновник без елемента Wikidata: Ken Grob"
+   ],
+   "wikidata": "Q172841",
+   "founders": [
+    {
+     "name": {
+      "en": "Tony Vlassopulos",
+      "uk": "Tony Vlassopulos",
+      "ukFromWikidata": false
+     }
+    },
+    {
+     "name": {
+      "en": "Ken Grob",
+      "uk": "Ken Grob",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "base": {
+    "city": null,
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q145"
+   }
+  },
+  "lec": {
+   "wikipedia": "LEC Refrigeration Racing",
+   "issues": [],
+   "wikidata": "Q2291349"
+  },
+  "nichels": {
+   "wikipedia": "Nichels",
+   "issues": [],
+   "wikidata": "Q4354639"
+  },
+  "marchese": {
+   "wikipedia": "Carl Marchese",
+   "issues": [],
+   "wikidata": "Q5040520"
+  },
+  "ewing": {
+   "wikipedia": "Wayne Ewing",
+   "issues": [],
+   "wikidata": "Q1383226"
+  },
+  "sherman": {
+   "wikipedia": "Roy Sherman",
+   "issues": [],
+   "wikidata": "Q2232584"
+  },
+  "aston-butterworth": {
+   "wikipedia": "Aston Butterworth",
+   "issues": [
+    "засновник без елемента Wikidata: Bill Aston",
+    "база без населеного пункту з посиланням: ['United Kingdom']"
+   ],
+   "wikidata": "Q173485",
+   "founders": [
+    {
+     "name": {
+      "en": "Bill Aston",
+      "uk": "Bill Aston",
+      "ukFromWikidata": false
+     }
+    },
+    {
+     "name": {
+      "en": "Archie Butterworth",
+      "uk": "Archie Butterworth",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q4786635"
+    }
+   ],
+   "baseText": "United Kingdom"
+  },
+  "bmw": {
+   "wikipedia": "BMW",
+   "issues": [
+    "засновник без елемента Wikidata: Franz Josef Popp<ref></ref"
+   ],
+   "wikidata": "Q26678",
+   "instagram": "bmwgroup",
+   "founders": [
+    {
+     "name": {
+      "en": "Camillo Castiglioni",
+      "uk": "Камілло Кастільйоні",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q79091"
+    },
+    {
+     "name": {
+      "en": "Franz Josef Popp<ref></ref",
+      "uk": "Franz Josef Popp<ref></ref",
+      "ukFromWikidata": false
+     }
+    }
+   ]
+  },
+  "pankratz": {
+   "wikipedia": "Pankratz",
+   "issues": [],
+   "wikidata": "Q548456"
+  },
+  "christensen": {
+   "wikipedia": "Christensen (constructor)",
+   "issues": [],
+   "wikidata": "Q1078418"
+  },
+  "behra": {
+   "wikipedia": "Behra-Porsche",
+   "issues": [
+    "база без населеного пункту з посиланням: ['France']"
+   ],
+   "wikidata": "Q3499634",
+   "founders": [
+    {
+     "name": {
+      "en": "Jean Behra",
+      "uk": "Жан Бехра",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q172250"
+    }
+   ],
+   "baseText": "France"
+  },
+  "bellasi": {
+   "wikipedia": "Bellasi",
+   "issues": [
+    "засновник без елемента Wikidata: Guglielmo Bellasi",
+    "база без населеного пункту з посиланням: ['Italy']"
+   ],
+   "wikidata": "Q2343891",
+   "founders": [
+    {
+     "name": {
+      "en": "Guglielmo Bellasi",
+      "uk": "Guglielmo Bellasi",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "baseText": "Italy"
+  },
+  "kojima": {
+   "wikipedia": "Kojima Engineering",
+   "issues": [],
+   "wikidata": "Q172465"
+  },
+  "andrea-moda": {
+   "wikipedia": "Andrea Moda Formula",
+   "issues": [],
+   "wikidata": "Q173293",
+   "founders": [
+    {
+     "name": {
+      "en": "Andrea Sassetti",
+      "uk": "Andrea Sassetti",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q3298820"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Civitanova Marche",
+     "uk": "Чивітанова-Марке",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "Italy",
+     "uk": "Італія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q13146"
+   }
+  },
+  "langley": {
+   "wikipedia": "Langley (constructor)",
+   "issues": [],
+   "wikidata": "Q4354542"
+  },
+  "rae": {
+   "wikipedia": "Johnny Rae (motorsport)",
+   "issues": [],
+   "wikidata": "Q950092"
+  },
+  "olson": {
+   "wikipedia": "Olson (constructor)",
+   "issues": [],
+   "wikidata": "Q1145384"
+  },
+  "wetteroth": {
+   "wikipedia": "Wetteroth",
+   "issues": [],
+   "wikidata": "Q953949"
+  },
+  "snowberger": {
+   "wikipedia": "Russ Snowberger",
+   "issues": [],
+   "wikidata": "Q7381237"
+  },
+  "adams": {
+   "wikipedia": "Adams (constructor)",
+   "issues": [],
+   "wikidata": "Q1645121"
+  },
+  "hall": {
+   "wikipedia": null,
+   "issues": [
+    "не вдалося прочитати «Hall (constructor)»"
+   ]
+  },
+  "turner": {
+   "wikipedia": null,
+   "issues": [
+    "не вдалося прочитати «Turner (constructor)»"
+   ]
+  },
+  "del-roy": {
+   "wikipedia": "Frank DelRoy",
+   "issues": [],
+   "wikidata": "Q1618123"
+  },
+  "emw": {
+   "wikipedia": "Eisenacher Motorenwerk",
+   "issues": [],
+   "wikidata": "Q988514"
+  },
+  "klenk": {
+   "wikipedia": "Klenk",
+   "issues": [
+    "база без населеного пункту з посиланням: ['West Germany']"
+   ],
+   "wikidata": "Q3500607",
+   "founders": [
+    {
+     "name": {
+      "en": "Hans Klenk",
+      "uk": "Hans Klenk",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q62235"
+    }
+   ],
+   "baseText": "West Germany"
+  },
+  "bugatti": {
+   "wikipedia": "Bugatti",
+   "issues": [],
+   "wikidata": "Q27401",
+   "founders": [
+    {
+     "name": {
+      "en": "Ettore Bugatti",
+      "uk": "Бугатті Етторе",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q314419"
+    }
+   ]
+  },
+  "elder": {
+   "wikipedia": "Edgar Elder",
+   "issues": [],
+   "wikidata": "Q4764516"
+  },
+  "sutton": {
+   "wikipedia": "Sutton (constructor)",
+   "issues": [],
+   "wikidata": "Q1645114"
+  },
+  "tec": {
+   "wikipedia": "Tec-Mec",
+   "issues": [],
+   "wikidata": "Q284186",
+   "founders": [
+    {
+     "name": {
+      "en": "Valerio Colotti",
+      "uk": "Valerio Colotti",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q4007870"
+    }
+   ]
+  },
+  "meskowski": {
+   "wikipedia": "Meskowski",
+   "issues": [],
+   "wikidata": "Q744581"
+  },
+  "ferguson": {
+   "wikipedia": "Ferguson Research",
+   "issues": [],
+   "wikidata": "Q174065"
+  },
+  "enb": {
+   "wikipedia": "Écurie Nationale Belge",
+   "issues": [],
+   "wikidata": "Q987562"
+  },
+  "stebro": {
+   "wikipedia": "Stebro",
+   "issues": [],
+   "wikidata": "Q590733"
+  },
+  "derrington": {
+   "wikipedia": "Derrington-Francis",
+   "issues": [
+    "засновник без елемента Wikidata: Vic Derrington",
+    "база без населеного пункту з посиланням: ['United Kingdom']"
+   ],
+   "wikidata": "Q14913969",
+   "founders": [
+    {
+     "name": {
+      "en": "Alf Francis",
+      "uk": "Alf Francis",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q4721677"
+    },
+    {
+     "name": {
+      "en": "Vic Derrington",
+      "uk": "Vic Derrington",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "baseText": "United Kingdom"
+  },
+  "shannon": {
+   "wikipedia": "Shannon Racing Cars",
+   "issues": [
+    "засновник без елемента Wikidata: Aiden Jones",
+    "база без населеного пункту з посиланням: ['UK']"
+   ],
+   "wikidata": "Q1077805",
+   "founders": [
+    {
+     "name": {
+      "en": "Paul Emery",
+      "uk": "Paul Emery",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q172551"
+    },
+    {
+     "name": {
+      "en": "Aiden Jones",
+      "uk": "Aiden Jones",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "baseText": "UK"
+  },
+  "protos": {
+   "wikipedia": "Protos (constructor)",
+   "issues": [],
+   "wikidata": "Q1701505",
+   "founders": [
+    {
+     "name": {
+      "en": "Frank Costin",
+      "uk": "Frank Costin",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q1443103"
+    }
+   ],
+   "base": {
+    "city": null,
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q145"
+   }
+  },
+  "politoys": {
+   "wikipedia": "Frank Williams Racing Cars",
+   "issues": [],
+   "wikidata": "Q173225",
+   "founders": [
+    {
+     "name": {
+      "en": "Frank Williams",
+      "uk": "Френк Вільямс",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q173214"
+    }
+   ]
+  },
+  "connew": {
+   "wikipedia": "Connew",
+   "issues": [
+    "засновник без елемента Wikidata: Peter Connew"
+   ],
+   "wikidata": "Q586041",
+   "founders": [
+    {
+     "name": {
+      "en": "Peter Connew",
+      "uk": "Peter Connew",
+      "ukFromWikidata": false
+     }
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Chadwell Heath",
+     "uk": "Chadwell Heath",
+     "ukFromWikidata": false
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q1058698"
+   }
+  },
+  "amon": {
+   "wikipedia": "Chris Amon Racing",
+   "issues": [
+    "база без населеного пункту з посиланням: ['New Zealand']"
+   ],
+   "wikidata": "Q172158",
+   "founders": [
+    {
+     "name": {
+      "en": "Chris Amon",
+      "uk": "Кріс Еймон",
+      "ukFromWikidata": true
+     },
+     "wikidata": "Q171469"
+    }
+   ],
+   "baseText": "New Zealand"
+  },
+  "lyncar": {
+   "wikipedia": "Lyncar",
+   "issues": [
+    "засновник без елемента Wikidata: Martin Slater"
+   ],
+   "wikidata": "Q1160036",
+   "founders": [
+    {
+     "name": {
+      "en": "Martin Slater",
+      "uk": "Martin Slater",
+      "ukFromWikidata": false
+     }
+    }
+   ]
+  },
+  "rebaque": {
+   "wikipedia": "Rebaque",
+   "issues": [],
+   "wikidata": "Q172622",
+   "founders": [
+    {
+     "name": {
+      "en": "Héctor Rebaque",
+      "uk": "Héctor Rebaque",
+      "ukFromWikidata": false
+     },
+     "wikidata": "Q171539"
+    }
+   ],
+   "base": {
+    "city": {
+     "en": "Leamington Spa",
+     "uk": "Роял-Лемінгтон-Спа",
+     "ukFromWikidata": true
+    },
+    "country": {
+     "en": "United Kingdom",
+     "uk": "Велика Британія",
+     "ukFromWikidata": true
+    },
+    "wikidata": "Q546635"
+   }
+  },
+  "lotus-racing": {
+   "wikipedia": "Lotus Racing",
+   "issues": [],
+   "wikidata": "Q6685196"
+  }
+ }
+}

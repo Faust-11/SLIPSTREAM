@@ -1,0 +1,690 @@
+{
+ "source": "Wikidata (підписи uk) через статті Вікіпедії з API Jolpica",
+ "drivers": {
+  "alboreto": {
+   "en": "Michele Alboreto",
+   "uk": "Мікеле Альборето",
+   "wikidata": "Q172983"
+  },
+  "alesi": {
+   "en": "Jean Alesi",
+   "uk": "Жан Алезі",
+   "wikidata": "Q172777"
+  },
+  "angelis": {
+   "en": "Elio de Angelis",
+   "uk": "Elio de Angelis",
+   "wikidata": "Q173115",
+   "manual": {
+    "uk": "Еліо де Анджеліс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "arnoux": {
+   "en": "René Arnoux",
+   "uk": "René Arnoux",
+   "wikidata": "Q173279",
+   "manual": {
+    "uk": "Рене Арну",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ascari": {
+   "en": "Alberto Ascari",
+   "uk": "Альберто Аскарі",
+   "wikidata": "Q2086"
+  },
+  "baghetti": {
+   "en": "Giancarlo Baghetti",
+   "uk": "Giancarlo Baghetti",
+   "wikidata": "Q171478",
+   "manual": {
+    "uk": "Джанкарло Багетті",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "bandini": {
+   "en": "Lorenzo Bandini",
+   "uk": "Lorenzo Bandini",
+   "wikidata": "Q173006",
+   "manual": {
+    "uk": "Лоренцо Бандіні",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "barrichello": {
+   "en": "Rubens Barrichello",
+   "uk": "Рубенс Барікелло",
+   "wikidata": "Q169846"
+  },
+  "beltoise": {
+   "en": "Jean-Pierre Beltoise",
+   "uk": "Jean-Pierre Beltoise",
+   "wikidata": "Q171526",
+   "manual": {
+    "uk": "Жан-П'єр Бельтуаз",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "berger": {
+   "en": "Gerhard Berger",
+   "uk": "Герхард Бергер",
+   "wikidata": "Q78502"
+  },
+  "bonnier": {
+   "en": "Jo Bonnier",
+   "uk": "Йо Бонніер",
+   "wikidata": "Q172239"
+  },
+  "boutsen": {
+   "en": "Thierry Boutsen",
+   "uk": "Тьєрі Бутсен",
+   "wikidata": "Q172761"
+  },
+  "brambilla": {
+   "en": "Vittorio Brambilla",
+   "uk": "Vittorio Brambilla",
+   "wikidata": "Q171533",
+   "manual": {
+    "uk": "Вітторіо Брамбілла",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "brooks": {
+   "en": "Tony Brooks",
+   "uk": "Tony Brooks",
+   "wikidata": "Q1845218",
+   "manual": {
+    "uk": "Тоні Брукс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "bryan": {
+   "en": "Jimmy Bryan",
+   "uk": "Jimmy Bryan",
+   "wikidata": "Q172278",
+   "manual": {
+    "uk": "Джиммі Браян",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "button": {
+   "en": "Jenson Button",
+   "uk": "Дженсон Баттон",
+   "wikidata": "Q10510"
+  },
+  "cevert": {
+   "en": "François Cevert",
+   "uk": "Франсуа Север",
+   "wikidata": "Q172773"
+  },
+  "clark": {
+   "en": "Jim Clark",
+   "uk": "Джим Кларк",
+   "wikidata": "Q3137"
+  },
+  "collins": {
+   "en": "Peter Collins",
+   "uk": "Пітер Коллінз",
+   "wikidata": "Q171483"
+  },
+  "coulthard": {
+   "en": "David Coulthard",
+   "uk": "Девід Култхард",
+   "wikidata": "Q172832"
+  },
+  "damon_hill": {
+   "en": "Damon Hill",
+   "uk": "Деймон Гілл",
+   "wikidata": "Q10505"
+  },
+  "depailler": {
+   "en": "Patrick Depailler",
+   "uk": "Patrick Depailler",
+   "wikidata": "Q171611",
+   "manual": {
+    "uk": "Патрік Депайє",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "emerson_fittipaldi": {
+   "en": "Emerson Fittipaldi",
+   "uk": "Емерсон Фіттіпальді",
+   "wikidata": "Q172849"
+  },
+  "fagioli": {
+   "en": "Luigi Fagioli",
+   "uk": "Луїджі Фаджолі",
+   "wikidata": "Q173038"
+  },
+  "fangio": {
+   "en": "Juan Fangio",
+   "uk": "Хуан-Мануель Фанхіо",
+   "wikidata": "Q2069"
+  },
+  "farina": {
+   "en": "Nino Farina",
+   "uk": "Джузеппе Фаріна",
+   "wikidata": "Q2040"
+  },
+  "fisichella": {
+   "en": "Giancarlo Fisichella",
+   "uk": "Джанкарло Фізікелла",
+   "wikidata": "Q172712"
+  },
+  "flaherty": {
+   "en": "Pat Flaherty",
+   "uk": "Pat Flaherty",
+   "wikidata": "Q172630",
+   "manual": {
+    "uk": "Пет Флаерті",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "frentzen": {
+   "en": "Heinz-Harald Frentzen",
+   "uk": "Гайнц-Гаральд Френтцен",
+   "wikidata": "Q76720"
+  },
+  "gethin": {
+   "en": "Peter Gethin",
+   "uk": "Peter Gethin",
+   "wikidata": "Q171511",
+   "manual": {
+    "uk": "Пітер Гетін",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "gilles_villeneuve": {
+   "en": "Gilles Villeneuve",
+   "uk": "Жиль Вільнев",
+   "wikidata": "Q172845"
+  },
+  "ginther": {
+   "en": "Richie Ginther",
+   "uk": "Richie Ginther",
+   "wikidata": "Q171460",
+   "manual": {
+    "uk": "Річі Гінтер",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "gonzalez": {
+   "en": "José Froilán González",
+   "uk": "Хосе Фройлан Гонсалес",
+   "wikidata": "Q171447"
+  },
+  "gurney": {
+   "en": "Dan Gurney",
+   "uk": "Dan Gurney",
+   "wikidata": "Q171466",
+   "manual": {
+    "uk": "Ден Герні",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "hakkinen": {
+   "en": "Mika Häkkinen",
+   "uk": "Міка Хаккінен",
+   "wikidata": "Q172842"
+  },
+  "hanks": {
+   "en": "Sam Hanks",
+   "uk": "Sam Hanks",
+   "wikidata": "Q172291",
+   "manual": {
+    "uk": "Сем Генкс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "hawthorn": {
+   "en": "Mike Hawthorn",
+   "uk": "Майк Готорн",
+   "wikidata": "Q2104"
+  },
+  "herbert": {
+   "en": "Johnny Herbert",
+   "uk": "Джонні Герберт",
+   "wikidata": "Q172751"
+  },
+  "hill": {
+   "en": "Graham Hill",
+   "uk": "Ґрем Гілл",
+   "wikidata": "Q3128"
+  },
+  "hulme": {
+   "en": "Denny Hulme",
+   "uk": "Денні Гальм",
+   "wikidata": "Q3166"
+  },
+  "hunt": {
+   "en": "James Hunt",
+   "uk": "Джеймс Хант",
+   "wikidata": "Q140393"
+  },
+  "ickx": {
+   "en": "Jacky Ickx",
+   "uk": "Жакі Ікс",
+   "wikidata": "Q173123"
+  },
+  "ireland": {
+   "en": "Innes Ireland",
+   "uk": "Іннес Айрленд",
+   "wikidata": "Q173336"
+  },
+  "irvine": {
+   "en": "Eddie Irvine",
+   "uk": "Едді Ірвайн",
+   "wikidata": "Q171397"
+  },
+  "jabouille": {
+   "en": "Jean-Pierre Jabouille",
+   "uk": "Jean-Pierre Jabouille",
+   "wikidata": "Q171462",
+   "manual": {
+    "uk": "Жан-П'єр Жабуй",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "jack_brabham": {
+   "en": "Jack Brabham",
+   "uk": "Джек Бребем",
+   "wikidata": "Q2125"
+  },
+  "jones": {
+   "en": "Alan Jones",
+   "uk": "Алан Джонс",
+   "wikidata": "Q172753"
+  },
+  "keke_rosberg": {
+   "en": "Keke Rosberg",
+   "uk": "Кеке Росберг",
+   "wikidata": "Q171381"
+  },
+  "kovalainen": {
+   "en": "Heikki Kovalainen",
+   "uk": "Хейккі Ковалайнен",
+   "wikidata": "Q82891"
+  },
+  "kubica": {
+   "en": "Robert Kubica",
+   "uk": "Роберт Кубіца",
+   "wikidata": "Q160359"
+  },
+  "laffite": {
+   "en": "Jacques Laffite",
+   "uk": "Jacques Laffite",
+   "wikidata": "Q171434",
+   "manual": {
+    "uk": "Жак Лаффіт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "lauda": {
+   "en": "Niki Lauda",
+   "uk": "Нікі Лауда",
+   "wikidata": "Q78489"
+  },
+  "maldonado": {
+   "en": "Pastor Maldonado",
+   "uk": "Пастор Мальдонадо",
+   "wikidata": "Q82845"
+  },
+  "mansell": {
+   "en": "Nigel Mansell",
+   "uk": "Найджел Менселл",
+   "wikidata": "Q10501"
+  },
+  "mario_andretti": {
+   "en": "Mario Andretti",
+   "uk": "Маріо Андретті",
+   "wikidata": "Q171312"
+  },
+  "mass": {
+   "en": "Jochen Mass",
+   "uk": "Jochen Mass",
+   "wikidata": "Q57459",
+   "manual": {
+    "uk": "Йохен Масс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "massa": {
+   "en": "Felipe Massa",
+   "uk": "Феліпе Масса",
+   "wikidata": "Q82652"
+  },
+  "mclaren": {
+   "en": "Bruce McLaren",
+   "uk": "Брюс Макларен",
+   "wikidata": "Q173081"
+  },
+  "michael_schumacher": {
+   "en": "Michael Schumacher",
+   "uk": "Міхаель Шумахер",
+   "wikidata": "Q9671"
+  },
+  "montoya": {
+   "en": "Juan Pablo Montoya",
+   "uk": "Хуан-Пабло Монтойя",
+   "wikidata": "Q172744"
+  },
+  "moss": {
+   "en": "Stirling Moss",
+   "uk": "Стірлінг Мосс",
+   "wikidata": "Q172728"
+  },
+  "musso": {
+   "en": "Luigi Musso",
+   "uk": "Луїджі Муссо",
+   "wikidata": "Q171484"
+  },
+  "nannini": {
+   "en": "Alessandro Nannini",
+   "uk": "Alessandro Nannini",
+   "wikidata": "Q173087",
+   "manual": {
+    "uk": "Алессандро Нанніні",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "nilsson": {
+   "en": "Gunnar Nilsson",
+   "uk": "Gunnar Nilsson",
+   "wikidata": "Q171445",
+   "manual": {
+    "uk": "Гуннар Нільссон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ocon": {
+   "en": "Esteban Ocon",
+   "uk": "Естебан Окон",
+   "wikidata": "Q15074165"
+  },
+  "pace": {
+   "en": "Carlos Pace",
+   "uk": "Жозе Карлус Пачі",
+   "wikidata": "Q171443"
+  },
+  "panis": {
+   "en": "Olivier Panis",
+   "uk": "Олів'є Паніс",
+   "wikidata": "Q172018"
+  },
+  "parsons": {
+   "en": "Johnnie Parsons",
+   "uk": "Johnnie Parsons",
+   "wikidata": "Q366770",
+   "manual": {
+    "uk": "Джонні Парсонс",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "patrese": {
+   "en": "Riccardo Patrese",
+   "uk": "Ріккардо Патрезе",
+   "wikidata": "Q172759"
+  },
+  "peterson": {
+   "en": "Ronnie Peterson",
+   "uk": "Ронні Петерсон",
+   "wikidata": "Q173280"
+  },
+  "phil_hill": {
+   "en": "Phil Hill",
+   "uk": "Філ Гілл",
+   "wikidata": "Q3112"
+  },
+  "piquet": {
+   "en": "Nelson Piquet",
+   "uk": "Нельсон Соуту Піке",
+   "wikidata": "Q171346"
+  },
+  "pironi": {
+   "en": "Didier Pironi",
+   "uk": "Дідьє Піроні",
+   "wikidata": "Q171432"
+  },
+  "prost": {
+   "en": "Alain Prost",
+   "uk": "Ален Прост",
+   "wikidata": "Q10494"
+  },
+  "raikkonen": {
+   "en": "Kimi Räikkönen",
+   "uk": "Кімі Ряйкконен",
+   "wikidata": "Q11192"
+  },
+  "ralf_schumacher": {
+   "en": "Ralf Schumacher",
+   "uk": "Ральф Шумахер",
+   "wikidata": "Q75825"
+  },
+  "rathmann": {
+   "en": "Jim Rathmann",
+   "uk": "Jim Rathmann",
+   "wikidata": "Q172510",
+   "manual": {
+    "uk": "Джим Ратманн",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "regazzoni": {
+   "en": "Clay Regazzoni",
+   "uk": "Clay Regazzoni",
+   "wikidata": "Q173284",
+   "manual": {
+    "uk": "Клей Регаццоні",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "reutemann": {
+   "en": "Carlos Reutemann",
+   "uk": "Carlos Reutemann",
+   "wikidata": "Q173238",
+   "manual": {
+    "uk": "Карлос Ройтеман",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "revson": {
+   "en": "Peter Revson",
+   "uk": "Peter Revson",
+   "wikidata": "Q171535",
+   "manual": {
+    "uk": "Пітер Ревсон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ricciardo": {
+   "en": "Daniel Ricciardo",
+   "uk": "Даніель Ріккардо",
+   "wikidata": "Q82816"
+  },
+  "rindt": {
+   "en": "Jochen Rindt",
+   "uk": "Йохен Ріндт",
+   "wikidata": "Q3234"
+  },
+  "rodriguez": {
+   "en": "Pedro Rodríguez",
+   "uk": "Pedro Rodríguez",
+   "wikidata": "Q171452",
+   "manual": {
+    "uk": "Педро Родрігес",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "rosberg": {
+   "en": "Nico Rosberg",
+   "uk": "Ніко Росберг",
+   "wikidata": "Q75820"
+  },
+  "ruttman": {
+   "en": "Troy Ruttman",
+   "uk": "Troy Ruttman",
+   "wikidata": "Q172165",
+   "manual": {
+    "uk": "Трой Раттман",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "scarfiotti": {
+   "en": "Ludovico Scarfiotti",
+   "uk": "Лудовіко Скарфіотті",
+   "wikidata": "Q171568"
+  },
+  "scheckter": {
+   "en": "Jody Scheckter",
+   "uk": "Джоді Шектер",
+   "wikidata": "Q172775"
+  },
+  "senna": {
+   "en": "Ayrton Senna",
+   "uk": "Айртон Сенна",
+   "wikidata": "Q10490"
+  },
+  "siffert": {
+   "en": "Jo Siffert",
+   "uk": "Jo Siffert",
+   "wikidata": "Q171531",
+   "manual": {
+    "uk": "Йо Сіфферт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "stewart": {
+   "en": "Jackie Stewart",
+   "uk": "Джекі Стюарт",
+   "wikidata": "Q3188"
+  },
+  "surtees": {
+   "en": "John Surtees",
+   "uk": "Джон Сертіс",
+   "wikidata": "Q3153"
+  },
+  "sweikert": {
+   "en": "Bob Sweikert",
+   "uk": "Bob Sweikert",
+   "wikidata": "Q172134",
+   "manual": {
+    "uk": "Боб Свайкерт",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "tambay": {
+   "en": "Patrick Tambay",
+   "uk": "Patrick Tambay",
+   "wikidata": "Q173020",
+   "manual": {
+    "uk": "Патрік Тамбе",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "taruffi": {
+   "en": "Piero Taruffi",
+   "uk": "П'єро Таруффі",
+   "wikidata": "Q171578"
+  },
+  "trintignant": {
+   "en": "Maurice Trintignant",
+   "uk": "Моріс Трентіньян",
+   "wikidata": "Q171438"
+  },
+  "trips": {
+   "en": "Wolfgang von Trips",
+   "uk": "Вольфганг фон Тріпс",
+   "wikidata": "Q57451"
+  },
+  "trulli": {
+   "en": "Jarno Trulli",
+   "uk": "Ярно Труллі",
+   "wikidata": "Q171350"
+  },
+  "vettel": {
+   "en": "Sebastian Vettel",
+   "uk": "Себастьян Феттель",
+   "wikidata": "Q42311"
+  },
+  "villeneuve": {
+   "en": "Jacques Villeneuve",
+   "uk": "Жак Вільнев",
+   "wikidata": "Q172843"
+  },
+  "vukovich": {
+   "en": "Bill Vukovich",
+   "uk": "Bill Vukovich",
+   "wikidata": "Q171619",
+   "manual": {
+    "uk": "Білл Вукович",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "wallard": {
+   "en": "Lee Wallard",
+   "uk": "Lee Wallard",
+   "wikidata": "Q453022",
+   "manual": {
+    "uk": "Лі Воллард",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "ward": {
+   "en": "Rodger Ward",
+   "uk": "Rodger Ward",
+   "wikidata": "Q172475",
+   "manual": {
+    "uk": "Роджер Ворд",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "watson": {
+   "en": "John Watson",
+   "uk": "John Watson",
+   "wikidata": "Q171422",
+   "manual": {
+    "uk": "Джон Вотсон",
+    "source": "transliteration",
+    "checked": false
+   }
+  },
+  "webber": {
+   "en": "Mark Webber",
+   "uk": "Марк Веббер",
+   "wikidata": "Q82667"
+  }
+ }
+}

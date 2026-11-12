@@ -87,3 +87,57 @@ export type TeamIndexRow = {
   current_position: number | null;
   current_drivers: string[];
 };
+
+/* ---------- Сторінка команди (фаза 3b, подання 0005) ---------- */
+
+/** Пілот у рядку подання (латиниця з бази; українське ім'я — з кураторських даних). */
+export type DbDriverName = { ref: string; forename: string; surname: string };
+
+export type TeamTotalsRow = {
+  id: string;
+  grands_prix: number;
+  wins: number;
+  podiums: number;
+  poles: number;
+  one_twos: number;
+  constructors_titles: number;
+  drivers_titles: number;
+  debut_year: number;
+  debut_name: string;
+  debut_date: string;
+  last_year: number;
+  last_name: string;
+  last_date: string;
+};
+
+export type TeamSeasonRow = {
+  id: string;
+  year: number;
+  entries: string[];
+  grands_prix: number;
+  wins: number;
+  podiums: number;
+  /** null — до 1958 (Кубка не було), без очок або виключена. */
+  position: number | null;
+  points: number | null;
+  excluded: boolean;
+  champion: boolean;
+  in_progress: boolean;
+  season_races: number;
+};
+
+export type TeamWinRow = { id: string; n: number; year: number; round: number; name: string; date: string; drivers: DbDriverName[] };
+
+export type TeamChampionRow = { id: string; driver: string; forename: string; surname: string; years: number[] };
+
+export type TeamPairingRow = {
+  id: string;
+  driver: string;
+  forename: string;
+  surname: string;
+  ord: number;
+  races: number;
+  points: number;
+  race_ahead: number;
+  quali_ahead: number;
+};
