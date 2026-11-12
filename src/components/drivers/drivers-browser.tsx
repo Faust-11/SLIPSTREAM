@@ -12,6 +12,7 @@ import {
   DRIVERS_PAGE_SIZE,
   driversQueryString,
   expandDriver,
+  isDefaultView,
   firstLetter,
   paginate,
   parseDriversQuery,
@@ -174,7 +175,11 @@ export function DriversBrowser({ packed, locale, labels }: Props) {
   const rows = useMemo(() => packed.map(expandDriver), [packed]);
   const [query, setQuery] = useState<DriversQuery>(DEFAULT_DRIVERS_QUERY);
   const [synced, setSynced] = useState(false);
-  const selected = useMemo(() => selectDrivers(rows, query, locale), [rows, query, locale]);
+  // Типовий вигляд — рядки вже впорядковані сервером (packed у порядку selectDrivers за замовчуванням).
+  const selected = useMemo(
+    () => (isDefaultView(query) ? rows : selectDrivers(rows, query, locale)),
+    [rows, query, locale],
+  );
   const { items, page, pages } = paginate(selected, query.p);
   // Номер сторінки поза межами (?p=999) — показуємо найближчу, і в адресу пишемо її (рев'ю 12.11).
   const effectiveP = page;

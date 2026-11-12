@@ -67,13 +67,31 @@ export function firstLetter(surname: string): string {
 
 const KEY: Record<Exclude<DriverSort, "n">, keyof DriverRow> = { st: "starts", w: "wins", pd: "podiums", pl: "poles", t: "titles" };
 
+const collators = new Map<string, Intl.Collator>();
+function collatorFor(locale: string): Intl.Collator {
+  let c = collators.get(locale);
+  if (!c) collators.set(locale, (c = new Intl.Collator(locale)));
+  return c;
+}
+
+/** Рядок пошуку — лише коли щось шукають (у браузері він порожній до першого пошуку: TBT, Lighthouse 12.11). */
+function haystack(r: DriverRow): string {
+  if (!r.search) r.search = normalizeSearch([r.name, r.alt, r.latin, r.countryCode ?? "", r.team ?? ""].join(" "));
+  return r.search;
+}
+
+/** Типовий порядок і без фільтрів — рядки вже в ньому (сервер передає відсортованими): без сортування 793 рядків. */
+export function isDefaultView(q: DriversQuery): boolean {
+  return !q.q.trim() && q.f === "all" && !q.d && !q.l && q.sort === DEFAULT_DRIVERS_QUERY.sort && q.dir === DEFAULT_DRIVERS_QUERY.dir;
+}
+
 export function selectDrivers(rows: DriverRow[], q: DriversQuery, locale: "uk" | "en"): DriverRow[] {
   // Без діакритики й апострофів (hakkinen → Häkkinen, «пєр» ~ «п'єр»), як у «Командах».
   const s = normalizeSearch(q.q);
-  const collator = new Intl.Collator(locale);
+  const collator = collatorFor(locale);
   const out = rows.filter(
     (r) =>
-      (!s || r.search.includes(s)) &&
+      (!s || haystack(r).includes(s)) &&
       (q.f === "all" || (q.f === "cur" && r.current) || (q.f === "ch" && r.titles > 0) || (q.f === "win" && r.wins > 0)) &&
       (!q.d || (r.years[0] <= q.d + 9 && r.years[1] >= q.d)) &&
       (!q.l || firstLetter(r.surname) === q.l),
@@ -102,6 +120,6 @@ export function expandDriver(p: PackedDriver): DriverRow {
     avatar: avatar || null,
     countryCode: cc || null, team: team || null, starts, wins, podiums, poles, titles, years: [y0, y1],
     current: cur ? { position: cur[0], points: cur[1], team: cur[2], color: cur[3], number: cur[4] } : null,
-    search: normalizeSearch([name, alt, latin, cc, team].join(" ")),
+    search: "", // будується ліниво при першому пошуку (haystack)
   };
 }
