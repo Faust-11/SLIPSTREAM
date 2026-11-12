@@ -26,21 +26,34 @@ REPO = Path(__file__).resolve().parents[2]
 TEAMS = REPO / "src/data/curated/teams.json"
 OUT = REPO / "public/img/cars"
 COMMONS = "https://commons.wikimedia.org/w/api.php"
+# Wikimedia віддає мініатюри лише стандартних ширин (mediawiki.org «Common thumbnail sizes»: …, 960, 1280, 1920):
+# нестандартна (640) — HTTP 429. Тому з Commons — лише 1280, 640 — зменшуємо самі.
+SOURCE_WIDTH = 1280
 WIDTHS = (1280, 640)
 QUALITY = 72
 
 
 def fetch_bytes(url: str) -> bytes:
     import time
+    import urllib.error
     import urllib.request
 
-    wait = 1.0 - (time.time() - tf._last)
-    if wait > 0:
-        time.sleep(wait)
-    req = urllib.request.Request(url, headers={"User-Agent": tf.UA})
-    with urllib.request.urlopen(req, timeout=120) as r:
-        tf._last = time.time()
-        return r.read()
+    for attempt in range(6):
+        wait = 1.5 - (time.time() - tf._last)
+        if wait > 0:
+            time.sleep(wait)
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": tf.UA})
+            with urllib.request.urlopen(req, timeout=120) as r:
+                tf._last = time.time()
+                return r.read()
+        except urllib.error.HTTPError as e:
+            tf._last = time.time()
+            if e.code in (429, 503) and attempt < 5:
+                time.sleep(int(e.headers.get("Retry-After") or 0) or 10 * 2 ** attempt)
+                continue
+            raise
+    raise RuntimeError(url)
 
 
 def main() -> int:
@@ -53,18 +66,17 @@ def main() -> int:
     files = {t["id"]: urllib.parse.unquote(t["photo"]["credit"]["page"].split("/wiki/", 1)[1]).replace("_", " ") for t in teams}
     info: dict[str, dict] = {}
     for part in tf.chunks(sorted(set(files.values()))):
-        for w in WIDTHS:
-            q = {"action": "query", "format": "json", "formatversion": "2", "prop": "imageinfo", "titles": "|".join(part),
-                 "iiprop": "url|size|extmetadata", "iiurlwidth": str(w), "iiextmetadatafilter": "LicenseShortName"}
-            d = tf.get(COMMONS + "?" + urllib.parse.urlencode(q))["query"]
-            alias = {x["from"]: x["to"] for x in d.get("normalized", [])}
-            for p in d["pages"]:
-                ii = (p.get("imageinfo") or [None])[0]
-                if ii:
-                    info.setdefault(p["title"], {})[w] = ii
-            for k, v in alias.items():
-                if v in info:
-                    info[k] = info[v]
+        q = {"action": "query", "format": "json", "formatversion": "2", "prop": "imageinfo", "titles": "|".join(part),
+             "iiprop": "url|size|extmetadata", "iiurlwidth": str(SOURCE_WIDTH), "iiextmetadatafilter": "LicenseShortName"}
+        d = tf.get(COMMONS + "?" + urllib.parse.urlencode(q))["query"]
+        alias = {x["from"]: x["to"] for x in d.get("normalized", [])}
+        for p in d["pages"]:
+            ii = (p.get("imageinfo") or [None])[0]
+            if ii:
+                info[p["title"]] = ii
+        for k, v in alias.items():
+            if v in info:
+                info[k] = info[v]
     total = 0
     problems = []
     for t in teams:
@@ -72,23 +84,26 @@ def main() -> int:
         if not ii:
             problems.append(f"{t['id']}: файл не знайдено на Commons ({files[t['id']]})")
             continue
-        lic = ii[WIDTHS[0]].get("extmetadata", {}).get("LicenseShortName", {}).get("value", "")
+        lic = ii.get("extmetadata", {}).get("LicenseShortName", {}).get("value", "")
         if lic.replace("-", " ").lower() != t["photo"]["credit"]["license"].replace("-", " ").lower():
             problems.append(f"{t['id']}: ліцензія на Commons «{lic}» ≠ «{t['photo']['credit']['license']}» — пропущено")
             continue
         srcset = []
         size = None
+        big = OUT / f"{t['id']}-hero-{SOURCE_WIDTH}.webp"
+        # Повторний запуск не качає вже готові файли (ліміти Wikimedia).
+        src = Image.open(big) if big.exists() else Image.open(io.BytesIO(fetch_bytes(ii["thumburl"])))
+        src = src.convert("RGB")
         for w in WIDTHS:
-            raw = fetch_bytes(ii[w]["thumburl"])
-            img = Image.open(io.BytesIO(raw)).convert("RGB")
-            if img.width > w:
-                img = img.resize((w, round(img.height * w / img.width)), Image.LANCZOS)
+            img = src.resize((w, round(src.height * w / src.width)), Image.Resampling.LANCZOS) if src.width > w else src
             path = OUT / f"{t['id']}-hero-{w}.webp"
-            img.save(path, "WEBP", quality=QUALITY, method=6)
+            if not (path == big and big.exists()):
+                img.save(path, "WEBP", quality=QUALITY, method=6)
             total += path.stat().st_size
             srcset.append(f"/img/cars/{path.name} {img.width}w")
             if w == WIDTHS[0]:
                 size = (img.width, img.height)
+        assert size
         t["hero"] = {"src": f"/img/cars/{t['id']}-hero-{WIDTHS[0]}.webp", "srcSet": ", ".join(srcset),
                      "width": size[0], "height": size[1]}
         print(f"{t['id']}: {size[0]}×{size[1]}", flush=True)

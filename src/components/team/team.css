@@ -43,8 +43,10 @@
 .th img {
   display: block;
   width: 100%;
-  height: clamp(260px, 30vw, 380px);
+  /* Вища за макет (380): фото Commons 3:2, у смузі 380 px машина часто виходила з кадру (контрольний лист 12.11). */
+  height: clamp(260px, 36vw, 460px);
   object-fit: cover;
+  object-position: 50% 62%;
 }
 .th.has-photo::after {
   content: "";
@@ -72,6 +74,15 @@
 }
 .th.has-photo h1 {
   color: var(--team);
+}
+/* Історична команда (немає кольору): назва — світла на темному тлі; смуга під банером — нейтральна. */
+.th.no-color,
+.th.no-color.has-photo h1 {
+  color: #f3f4f1;
+}
+.th.no-color {
+  background: #16181d;
+  border-bottom-color: var(--rule);
 }
 .th p {
   margin: 0;

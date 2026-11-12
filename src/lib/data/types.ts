@@ -67,7 +67,8 @@ export type CuratedTeam = {
   color: string | null;
   photo: TeamSnapshot["photo"];
   /** Широке фото банера сторінки команди (той самий файл Commons, що й photo; scripts/curated/hero_photos.py). */
-  hero?: { src: string; srcSet: string; width: number; height: number };
+  /** focusY — вертикальна точка кадрування банера, % (типово 62: машина зазвичай нижче центру; контрольний лист 12.11). */
+  hero?: { src: string; srcSet: string; width: number; height: number; focusY?: number };
 };
 
 /** Кураторські дані пілота (src/data/curated/drivers.json). */
