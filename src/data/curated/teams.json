@@ -1678,7 +1678,34 @@
     "srcSet": "/img/cars/larrousse-hero-1280.webp 1280w, /img/cars/larrousse-hero-800.webp 800w, /img/cars/larrousse-hero-480.webp 480w",
     "width": 1280,
     "height": 960
-   }
+   },
+   "exclusions": [
+    {
+     "year": 1990,
+     "sources": [
+      {
+       "url": "https://www.motorsportmagazine.com/archive/article/april-1991/14/formula-one-scene/",
+       "quote": "They cancelled the Larrousse Team from their sixth place in the Constructors Championship"
+      },
+      {
+       "url": "https://www.grandprix.com/constructors/larrousse.html",
+       "quote": "the FIA taking away Larrousse's points because of a false declaration about the design"
+      },
+      {
+       "url": "https://www.autosport.com/f1/news/when-frances-other-team-brought-colour-to-f1/10645670/",
+       "quote": "The penance for the administrative error was to have its 1990 constructors' points docked."
+      },
+      {
+       "url": "https://en.wikipedia.org/wiki/Larrousse",
+       "quote": "Although the team officially lost their points from 1990"
+      },
+      {
+       "url": "https://www.formula1.com/en/results/1990/team",
+       "quote": "6 Lola Lamborghini 11"
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "fittipaldi",
