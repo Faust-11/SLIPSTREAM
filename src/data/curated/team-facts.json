@@ -224,6 +224,26 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q1754096"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Jack Brabham",
+      "uk": "Джек Бребем"
+     },
+     {
+      "en": "Ron Tauranac",
+      "uk": "Рон Торанак"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Brabham",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "benetton": {
@@ -242,6 +262,50 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q990166"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Benetton family",
+      "uk": "родина Бенеттон"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://www.motorsportmagazine.com/archive/article/november-2023/96/benetton-when-f1-was-in-fashion",
+      "quote": "in 1985, that he agreed a deal to buy Toleman."
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Benetton_Formula",
+      "quote": "formed in 1985 when the Toleman team was sold to the Benetton family"
+     },
+     {
+      "url": "https://www.f1technical.net/f1db/teams/16",
+      "quote": "He liked the results so much, he bought a team"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "base": [
+     {
+      "city": {
+       "en": "Witney",
+       "uk": "Вітні"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Benetton_Formula",
+      "quote": "infobox: Base"
+     }
+    ],
+    "baseTranslit": true
    }
   },
   "tyrrell": {
@@ -270,12 +334,82 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q2705385"
+   },
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Ockham",
+       "uk": "Окем"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Tyrrell_Racing",
+      "quote": "infobox: Base"
+     }
+    ],
+    "baseTranslit": true,
+    "checked": false
    }
   },
   "brm": {
    "wikipedia": "British Racing Motors",
    "issues": [],
-   "wikidata": "Q173012"
+   "wikidata": "Q173012",
+   "manual": {
+    "founders": [
+     {
+      "en": "Raymond Mays",
+      "uk": "Реймонд Мейс"
+     },
+     {
+      "en": "Peter Berthon",
+      "uk": "Пітер Бертон"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/British_Racing_Motors",
+      "quote": "BRM was founded just after the Second World War by Raymond Mays"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/British_Racing_Motors",
+      "quote": "and Peter Berthon, a long-time associate."
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Bourne, Lincolnshire",
+       "uk": "Борн (Лінкольншир)"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1951–1977"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/British_Racing_Motors",
+      "quote": "based in the market town of Bourne in Lincolnshire"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/British_Racing_Motors",
+      "quote": "A factory was set up in Spalding Road, Bourne, Lincolnshire"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "cooper": {
    "wikipedia": "Cooper Car Company",
@@ -311,6 +445,26 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q2453259"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Charles Cooper",
+      "uk": "Чарльз Купер"
+     },
+     {
+      "en": "John Cooper",
+      "uk": "Джон Купер"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Cooper_Car_Company",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "alfa-romeo": {
@@ -356,6 +510,11 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q490"
+   },
+   "manual": {
+    "founders": null,
+    "foundersNote": "засновник компанії-виробника, не команди — не показуємо",
+    "checked": false
    }
   },
   "ligier": {
@@ -373,7 +532,62 @@
       "ukFromWikidata": false
      }
     }
-   ]
+   ],
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Vichy",
+       "uk": "Віші"
+      },
+      "country": {
+       "en": "France",
+       "uk": "Франція"
+      },
+      "years": null
+     },
+     {
+      "city": {
+       "en": "Magny-Cours",
+       "uk": "Маньї-Кур"
+      },
+      "country": {
+       "en": "France",
+       "uk": "Франція"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.f1technical.net/f1db/teams/69",
+      "quote": "Vichy (1976-88), Magny Cours (1988-96)"
+     },
+     {
+      "url": "https://www.grandprix.com/news/prost-grand-prix-on-the-move.html",
+      "quote": "Ligier moved to Magny-Cours in 1988"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/%C3%89quipe_Ligier",
+      "quote": "Vichy (1976–1988) and Magny-Cours (1989–1996), France"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Guy Ligier",
+      "uk": "Гі Ліжьє"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Ligier",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
+   }
   },
   "maserati": {
    "wikipedia": "Maserati",
@@ -389,7 +603,30 @@
      },
      "wikidata": "Q3611086"
     }
-   ]
+   ],
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Modena",
+       "uk": "Модена"
+      },
+      "country": {
+       "en": "Italy",
+       "uk": "Італія"
+      },
+      "years": "1950–1960"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Maserati",
+      "quote": "in 1940 moved the company headquarters to their home town of Modena"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "matra": {
    "wikipedia": "Matra",
@@ -413,7 +650,47 @@
       "ukFromWikidata": false
      }
     }
-   ]
+   ],
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Romorantin-Lanthenay",
+       "uk": "Роморантен-Лантене"
+      },
+      "country": {
+       "en": "France",
+       "uk": "Франція"
+      },
+      "years": "1967–1969"
+     },
+     {
+      "city": {
+       "en": "Vélizy-Villacoublay",
+       "uk": "Велізі-Віллакубле"
+      },
+      "country": {
+       "en": "France",
+       "uk": "Франція"
+      },
+      "years": "1969–1972"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Equipe_Matra_Sports",
+      "quote": "Romorantin-Lanthenay (1967–1969) and Vélizy-Villacoublay (1969–1979)"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Equipe_Matra_Sports",
+      "quote": "The F1 team was established at Vélizy-Villacoublay in the southwestern suburbs of Paris"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": null,
+    "foundersNote": "засновник компанії-виробника, не команди — не показуємо"
+   }
   },
   "vanwall": {
    "wikipedia": "Vanwall",
@@ -441,6 +718,22 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q83609"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Tony Vandervell",
+      "uk": "Тоні Вендервелл"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Vanwall",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "brawn": {
@@ -459,12 +752,59 @@
      "wikidata": "Q173140"
     }
    ],
-   "baseText": "Brackley, Northamptonshire, England"
+   "baseText": "Brackley, Northamptonshire, England",
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Brackley, Northamptonshire",
+       "uk": "Бреклі"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "2009"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Brawn_GP",
+      "quote": "The team used the Brawn GP base in Brackley for its operations"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Brawn_GP",
+      "quote": "set up the British American Racing (BAR) team in a new factory in Brackley"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "kurtis-kraft": {
    "wikipedia": "Kurtis Kraft",
    "issues": [],
-   "wikidata": "Q1502001"
+   "wikidata": "Q1502001",
+   "manual": {
+    "founders": [
+     {
+      "en": "Frank Kurtis",
+      "uk": "Френк Куртіс"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Kurtis_Kraft",
+      "quote": "It was founded by Frank Kurtis when he built his own midget car chassis"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Frank_Kurtis",
+      "quote": "He was the founder of Kurtis Kraft."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "jordan": {
    "wikipedia": "Jordan Grand Prix",
@@ -534,7 +874,59 @@
      "wikidata": "Q173850"
     }
    ],
-   "baseText": "United Kingdom"
+   "baseText": "United Kingdom",
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Bicester",
+       "uk": "Бістер"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/March_Engineering",
+      "quote": "oversaw production at the factory in Bicester, Oxfordshire"
+     },
+     {
+      "url": "https://www.autosport.com/f1/news/autosport-70-the-lost-f1-team-that-launched-newey-4981789/4981789/",
+      "quote": "the resurrected March Formula 1 team's Bicester base in the summer of 1987"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Max Mosley",
+      "uk": "Макс Мослі"
+     },
+     {
+      "en": "Alan Rees",
+      "uk": "Алан Різ"
+     },
+     {
+      "en": "Graham Coaker",
+      "uk": "Грем Коукер"
+     },
+     {
+      "en": "Robin Herd",
+      "uk": "Робін Герд"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/March_Engineering",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
+   }
   },
   "honda": {
    "wikipedia": "Honda in Formula One",
@@ -581,12 +973,67 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q161491"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Walter Wolf",
+      "uk": "Вальтер Вольф"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Walter_Wolf_Racing",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "watson": {
    "wikipedia": "A. J. Watson",
    "issues": [],
-   "wikidata": "Q1526296"
+   "wikidata": "Q1526296",
+   "manual": {
+    "founders": [
+     {
+      "en": "A. J. Watson",
+      "uk": "Ей Джей Вотсон"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/A._J._Watson",
+      "quote": "was an American race car builder and chief mechanic."
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Glendale, California",
+       "uk": "Глендейл (Каліфорнія)"
+      },
+      "country": {
+       "en": "United States",
+       "uk": "США"
+      },
+      "years": "1950–1960"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.indianapolismotorspeedway.com/news-multimedia/news/2014/05/12/remembering-aj-watson",
+      "quote": "at his modest shop on a side street in Glendale, California"
+     },
+     {
+      "url": "https://www.indianapolismotorspeedway.com/news-multimedia/news/2014/05/12/remembering-aj-watson",
+      "quote": "All the 'roadsters' were built in Glendale."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "lotus-f1": {
    "wikipedia": "Lotus F1",
@@ -604,12 +1051,55 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q1145119"
+   },
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Enstone",
+       "uk": "Енстоун"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Lotus_F1",
+      "quote": "infobox: Base"
+     }
+    ],
+    "baseTranslit": true,
+    "checked": false
    }
   },
   "epperly": {
    "wikipedia": "Epperly",
    "issues": [],
-   "wikidata": "Q16775591"
+   "wikidata": "Q16775591",
+   "manual": {
+    "founders": [
+     {
+      "en": "Quin Epperly",
+      "uk": "Квін Епперлі"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://www.flyinglap.com.br/epperly",
+      "quote": "Quincy \"Quin\" Epperly/1953"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Quin_Epperly",
+      "quote": "Epperly opened his own shop in Lawndale, California"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "toro-rosso": {
    "wikipedia": "Scuderia Toro Rosso",
@@ -657,6 +1147,29 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q1145119"
+   },
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Enstone",
+       "uk": "Енстоун"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Alpine_F1_Team",
+      "quote": "infobox: Base"
+     }
+    ],
+    "baseTranslit": true,
+    "checked": false
    }
   },
   "shadow": {
@@ -685,6 +1198,22 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q192240"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Don Nichols",
+      "uk": "Дон Ніколс"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Shadow_Racing_Cars",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "alphatauri": {
@@ -732,6 +1261,26 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q69383"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Peter Sauber",
+      "uk": "Петер Заубер"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/BMW_in_Formula_One",
+      "quote": "selling the team back to its founder, Peter Sauber."
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/BMW_in_Formula_One",
+      "quote": "BMW bought Swiss team Sauber in June 2005 to form the BMW Sauber F1 Team"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
    }
   },
   "hesketh": {
@@ -740,7 +1289,62 @@
     "база без населеного пункту з посиланням: ['United Kingdom']"
    ],
    "wikidata": "Q171596",
-   "baseText": "United Kingdom"
+   "baseText": "United Kingdom",
+   "manual": {
+    "founders": [
+     {
+      "en": "Alexander Hesketh, 3rd Baron Hesketh (Lord Hesketh)",
+      "uk": "Александр Гескет, 3-й барон Гескет (лорд Гескет)"
+     },
+     {
+      "en": "Anthony 'Bubbles' Horsley",
+      "uk": "Ентоні «Баблз» Горслі"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://www.grandprix.com/constructors/hesketh-racing.html",
+      "quote": "Hesketh and a friend, Anthony Bubbles Horsley, decided to set up a racing team."
+     },
+     {
+      "url": "https://www.f1technical.net/f1db/teams/50",
+      "quote": "set up his operation in 1972 from his stately home at Easton Neston"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Hesketh_Racing",
+      "quote": "in partnership with Anthony 'Bubbles' Horsley as driver"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Towcester (Easton Neston estate), Northamptonshire",
+       "uk": "Тоустер (маєток Істон-Нестон), Нортгемптоншир"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.f1technical.net/f1db/teams/50",
+      "quote": "Based in: Towcester"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Hesketh_Racing",
+      "quote": "Hesketh ran his race team out of the stables at his Easton Neston family estate"
+     },
+     {
+      "url": "https://www.grandprix.com/constructors/hesketh-racing.html",
+      "quote": "in converted stables at Easton Neston"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "stewart": {
    "wikipedia": "Stewart Grand Prix",
@@ -776,6 +1380,26 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q204234"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Jackie Stewart",
+      "uk": "Джекі Стюарт"
+     },
+     {
+      "en": "Paul Stewart",
+      "uk": "Пол Стюарт"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Stewart_Grand_Prix",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "penske": {
@@ -795,6 +1419,26 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q2027955"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Roger Penske",
+      "uk": "Роджер Пенске"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://speedcafe.com/team-penske-to-celebrate-50th-anniversary/",
+      "quote": "Formed by Roger Penske in 1966"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Team_Penske",
+      "quote": "is owned and chaired by Roger Penske"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
    }
   },
   "racing-point": {
@@ -829,7 +1473,34 @@
   "porsche": {
    "wikipedia": "Porsche in motorsport",
    "issues": [],
-   "wikidata": "Q63929540"
+   "wikidata": "Q63929540",
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Stuttgart",
+       "uk": "Штутгарт"
+      },
+      "country": {
+       "en": "Germany",
+       "uk": "Німеччина"
+      },
+      "years": "1957–1964"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.f1technical.net/f1db/teams/90",
+      "quote": "Based in: Stuttgart"
+     },
+     {
+      "url": "https://www.formulaonehistory.com/teams/porsche/",
+      "quote": "Stuttgart, Germany"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "eagle": {
    "wikipedia": "All American Racers",
@@ -857,12 +1528,44 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q1020800"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Dan Gurney",
+      "uk": "Ден Герні"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/All_American_Racers",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "kuzma": {
    "wikipedia": "Eddie Kuzma",
    "issues": [],
-   "wikidata": "Q113022776"
+   "wikidata": "Q113022776",
+   "manual": {
+    "founders": [
+     {
+      "en": "Eddie Kuzma",
+      "uk": "Едді Кузма"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Eddie_Kuzma",
+      "quote": "was an American race car builder. He constructed Troy Ruttman's winning car"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "sauber": {
    "wikipedia": "Sauber Motorsport",
@@ -890,6 +1593,42 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q251903"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Peter Sauber",
+      "uk": "Петер Заубер"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Sauber_Motorsport",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false,
+    "base": [
+     {
+      "city": {
+       "en": "Bicester",
+       "uk": "Бістер"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Sauber_Motorsport",
+      "quote": "infobox: Base"
+     }
+    ],
+    "baseTranslit": true
    }
   },
   "minardi": {
@@ -918,6 +1657,22 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q52981"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Gian Carlo Minardi",
+      "uk": "Джан Карло Мінарді"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Minardi",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "arrows": {
@@ -979,6 +1734,38 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q204234"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Franco Ambrosio",
+      "uk": "Франко Амброзіо"
+     },
+     {
+      "en": "Alan Rees",
+      "uk": "Алан Різ"
+     },
+     {
+      "en": "Jackie Oliver",
+      "uk": "Джекі Олівер"
+     },
+     {
+      "en": "Dave Wass",
+      "uk": "Дейв Васс"
+     },
+     {
+      "en": "Tony Southgate",
+      "uk": "Тоні Саутгейт"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Arrows_Grand_Prix_International",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "haas": {
@@ -1055,12 +1842,62 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q1020231"
+   },
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Newport Pagnell",
+       "uk": "Ньюпорт-Пагнелл"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Aston_Martin_in_Formula_One",
+      "quote": "infobox: Base"
+     }
+    ],
+    "baseTranslit": true,
+    "checked": false
    }
   },
   "toyota": {
    "wikipedia": "Toyota Racing",
    "issues": [],
-   "wikidata": "Q92773574"
+   "wikidata": "Q92773574",
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Cologne",
+       "uk": "Кельн"
+      },
+      "country": {
+       "en": "Germany",
+       "uk": "Німеччина"
+      },
+      "years": "2002–2009"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Toyota_in_Formula_One",
+      "quote": "based in Cologne, Germany"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Toyota_Motorsport_GmbH",
+      "quote": "motorsport services facility based in Cologne, Germany"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "osella": {
    "wikipedia": "Osella",
@@ -1088,12 +1925,75 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q10343"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Enzo Osella",
+      "uk": "Енцо Озелла"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Osella",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "surtees": {
    "wikipedia": "Surtees",
    "issues": [],
-   "wikidata": "Q1418677"
+   "wikidata": "Q1418677",
+   "manual": {
+    "founders": [
+     {
+      "en": "John Surtees",
+      "uk": "Джон Сертіс"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Surtees_Racing_Organisation",
+      "quote": "The team was formed by John Surtees"
+     },
+     {
+      "url": "https://www.grandprix.com/constructors/surtees-racing-organisation.html",
+      "quote": "John Surtees set up his own team to race CanAm sportscars in America in 1966."
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Edenbridge",
+       "uk": "Еденбридж"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1970–1978"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.grandprix.com/constructors/surtees-racing-organisation.html",
+      "quote": "relocated in mid-1969 from premises in Slough to a new base at Edenbridge"
+     },
+     {
+      "url": "https://www.gracesguide.co.uk/Team_Surtees",
+      "quote": "Formula 1 cars built at Edenbridge, including for export"
+     },
+     {
+      "url": "https://www.oldracingcars.com/f1/surtees/",
+      "quote": "then at a new factory at Edenbridge in Kent"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "bar": {
    "wikipedia": "British American Racing",
@@ -1121,6 +2021,42 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q671557"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Craig Pollock",
+      "uk": "Крейг Поллок"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/British_American_Racing",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false,
+    "base": [
+     {
+      "city": {
+       "en": "Brackley",
+       "uk": "Бреклі"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/British_American_Racing",
+      "quote": "infobox: Base"
+     }
+    ],
+    "baseTranslit": true
    }
   },
   "larrousse": {
@@ -1158,6 +2094,26 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q205592"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Gérard Larrousse",
+      "uk": "Жерар Ларрусс"
+     },
+     {
+      "en": "Didier Calmels",
+      "uk": "Дідьє Кальмель"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Larrousse",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "fittipaldi": {
@@ -1194,6 +2150,26 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q174"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Wilson Fittipaldi Júnior",
+      "uk": "Вілсон Фіттіпальді-молодший"
+     },
+     {
+      "en": "Emerson Fittipaldi",
+      "uk": "Емерсон Фіттіпальді"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Fittipaldi_Automotive",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "ensign": {
@@ -1222,6 +2198,22 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q207371"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Mo Nunn",
+      "uk": "Мо Нанн"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Ensign_Racing",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "ats": {
@@ -1240,7 +2232,66 @@
      "wikidata": "Q9283972"
     }
    ],
-   "baseText": "Germany"
+   "baseText": "Germany",
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Bad Dürkheim (ATS wheel factory)",
+       "uk": "Бад-Дюркгайм"
+      },
+      "country": {
+       "en": "Germany",
+       "uk": "Німеччина"
+      },
+      "years": "1977"
+     },
+     {
+      "city": {
+       "en": "Bicester, Oxfordshire",
+       "uk": "Бістер"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1978–1984"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.f1technical.net/f1db/teams/12",
+      "quote": "the team took over the facilities of the departing March operation in Bicester."
+     },
+     {
+      "url": "https://www.motorsportmagazine.com/archive/article/january-1998/57/wheel-nut/",
+      "quote": "He set up shop in a factory in Bicester."
+     },
+     {
+      "url": "https://www.motorsportmagazine.com/archive/article/january-1998/57/wheel-nut/",
+      "quote": "we were in the factory which made the ATS rims."
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/ATS_Wheels",
+      "quote": "It is based in Bad Dürkheim near the Hockenheimring race circuit."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Günter Schmid",
+      "uk": "Гюнтер Шмід"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/ATS_Wheels",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
+   }
   },
   "footwork": {
    "wikipedia": "Footwork Arrows",
@@ -1258,6 +2309,46 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q204234"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Franco Ambrosio",
+      "uk": "Франко Амброзіо"
+     },
+     {
+      "en": "Alan Rees",
+      "uk": "Алан Різ"
+     },
+     {
+      "en": "Jackie Oliver",
+      "uk": "Джекі Олівер"
+     },
+     {
+      "en": "Dave Wass",
+      "uk": "Дейв Васс"
+     },
+     {
+      "en": "Tony Southgate",
+      "uk": "Тоні Саутгейт"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Footwork_Arrows",
+      "quote": "Arrows was officially renamed Footwork for 1991."
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Arrows_Grand_Prix_International",
+      "quote": "team was founded in Milton Keynes, England in November 1977"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Arrows_Grand_Prix_International",
+      "quote": "Franco Ambrosio, Alan Rees, former racing driver Jackie Oliver, Dave Wass and Tony Southgate"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
    }
   },
   "lola": {
@@ -1286,12 +2377,51 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q685640"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Eric Broadley",
+      "uk": "Ерік Бродлі"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/MasterCard_Lola",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "jaguar": {
    "wikipedia": "Jaguar Racing",
    "issues": [],
-   "wikidata": "Q55593194"
+   "wikidata": "Q55593194",
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Milton Keynes",
+       "uk": "Мілтон-Кінз"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "2000–2004"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Jaguar_Racing_(Formula_One)",
+      "quote": "these plans never came to fruition, and Jaguar remained in Milton Keynes."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "prost": {
    "wikipedia": "Prost Grand Prix",
@@ -1334,7 +2464,47 @@
      },
      "wikidata": "Q258628"
     }
-   ]
+   ],
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Varano de' Melegari",
+       "uk": "Варано-де-Мелегарі"
+      },
+      "country": {
+       "en": "Italy",
+       "uk": "Італія"
+      },
+      "years": "1988–1992"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Dallara",
+      "quote": "founded by designer Giampaolo Dallara in 1972 in Varano de' Melegari, near Parma"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Dallara",
+      "quote": "It is headquartered in Varano, Italy, near the Varano race track."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Giampaolo Dallara",
+      "uk": "Джампаоло Даллара"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Dallara",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
+   }
   },
   "racing-bulls": {
    "wikipedia": "Racing Bulls",
@@ -1390,6 +2560,46 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q990166"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Ted Toleman",
+      "uk": "Тед Толмен"
+     },
+     {
+      "en": "Alex Hawkridge",
+      "uk": "Алекс Гокрідж"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Toleman",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false,
+    "base": [
+     {
+      "city": {
+       "en": "Witney",
+       "uk": "Вітні"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Toleman",
+      "quote": "infobox: Base"
+     }
+    ],
+    "baseTranslit": true
    }
   },
   "hrt": {
@@ -1426,6 +2636,26 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q2807"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Adrián Campos",
+      "uk": "Адріан Кампос"
+     },
+     {
+      "en": "José Ramón Carabante",
+      "uk": "Хосе Рамон Карабанте"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/HRT_Formula_1_Team",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "caterham": {
@@ -1455,6 +2685,29 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q1931690"
+   },
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Leafield",
+       "uk": "Ліфілд"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Caterham_F1",
+      "quote": "infobox: Base"
+     }
+    ],
+    "baseTranslit": true,
+    "checked": false
    }
   },
   "marussia": {
@@ -1501,6 +2754,22 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q647234"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Erich Zakowski",
+      "uk": "Еріх Заковскі"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Zakspeed",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "ags": {
@@ -1529,6 +2798,22 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q612401"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Henri Julien",
+      "uk": "Анрі Жюльєн"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Automobiles_Gonfaronnaises_Sportives",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "super-aguri": {
@@ -1547,12 +2832,108 @@
      "wikidata": "Q173197"
     }
    ],
-   "baseText": "Leafield Technical Centre, Oxfordshire, United Kingdom"
+   "baseText": "Leafield Technical Centre, Oxfordshire, United Kingdom",
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Leafield",
+       "uk": "Ліфілд"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "2006–2008"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Super_Aguri_F1",
+      "quote": "operated from the former Arrows factory at the Leafield Technical Centre, Oxfordshire"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "manor-marussia": {
    "wikipedia": "Manor Motorsport",
    "issues": [],
-   "wikidata": "Q2267054"
+   "wikidata": "Q2267054",
+   "manual": {
+    "founders": [
+     {
+      "en": "John Booth",
+      "uk": "Джон Бут"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Manor_Motorsport",
+      "quote": "formed in 1990 by former single-seater champion John Booth"
+     },
+     {
+      "url": "https://sportsmole.co.uk/formula-1/toro-rosso/news/manor-founder-john-booth-joins-toro-rosso_271477.html",
+      "quote": "Manor founder John Booth joins Toro Rosso"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Dinnington",
+       "uk": "Діннінгтон"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "2015 (until about Oct 2015)"
+     },
+     {
+      "city": {
+       "en": "Silverstone",
+       "uk": "Сільверстоун"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "2015 (offices, until about Oct 2015)"
+     },
+     {
+      "city": {
+       "en": "Banbury",
+       "uk": "Банбері"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "Oct 2015–2016"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.thecheckeredflag.co.uk/2015/10/manor-back-under-one-roof-following-banbury-return/",
+      "quote": "forced to work out of offices in Silverstone and in their old site in Dinington"
+     },
+     {
+      "url": "https://www.thecheckeredflag.co.uk/2015/10/manor-back-under-one-roof-following-banbury-return/",
+      "quote": "The Manor F1 Team have finally made their move back to Banbury"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Marussia_F1",
+      "quote": "based in Banbury, Oxfordshire and then later Dinnington, South Yorkshire"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Manor_Racing",
+      "quote": "constructor based in Banbury, Oxfordshire in the United Kingdom"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "virgin": {
    "wikipedia": "Virgin Racing",
@@ -1570,6 +2951,54 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q2296611"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Manor Motorsport",
+      "uk": "Manor Motorsport"
+     },
+     {
+      "en": "Wirth Research",
+      "uk": "Wirth Research"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Virgin_Racing",
+      "quote": "formed as Manor Grand Prix as a tie-up between Manor Motorsport and Wirth Research."
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Virgin_Racing",
+      "quote": "Manor Motorsport boss John Booth as sporting director"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Virgin_Racing",
+      "quote": "former Simtek team owner Nick Wirth as technical director."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "base": [
+     {
+      "city": {
+       "en": "Dinnington",
+       "uk": "Діннінгтон"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Virgin_Racing",
+      "quote": "infobox: Base"
+     }
+    ],
+    "baseTranslit": true
    }
   },
   "theodore": {
@@ -1588,12 +3017,104 @@
      "wikidata": "Q3275132"
     }
    ],
-   "baseText": "Hong Kong"
+   "baseText": "Hong Kong",
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Woking",
+       "uk": "Вокінг"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1978"
+     },
+     {
+      "city": {
+       "en": "Northampton",
+       "uk": "Нортгемптон"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1981–1982"
+     },
+     {
+      "city": {
+       "en": "Chasetown",
+       "uk": "Чейстаун"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1983"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.f1technical.net/f1db/teams/3",
+      "quote": "Based in: Woking (1978), Northampton (1981-82), Chasetown (1983)"
+     },
+     {
+      "url": "https://www.f1technical.net/f1db/teams/3",
+      "quote": "based at Ralt's old works at Woking"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "gordini": {
    "wikipedia": "Gordini",
    "issues": [],
-   "wikidata": "Q173222"
+   "wikidata": "Q173222",
+   "manual": {
+    "founders": [
+     {
+      "en": "Amédée Gordini",
+      "uk": "Амеде Гордіні"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Gordini",
+      "quote": "established in 1946 by Amédée Gordini (1899–1979)"
+     },
+     {
+      "url": "https://fr.wikipedia.org/wiki/Gordini",
+      "quote": "Gordini est une société fondée par Amédée Gordini"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Paris",
+       "uk": "Париж"
+      },
+      "country": {
+       "en": "France",
+       "uk": "Франція"
+      },
+      "years": "1952–1956"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://fr.wikipedia.org/wiki/Gordini",
+      "quote": "son atelier sis au 69/71 boulevard Victor dans le 15e arrondissement de Paris"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Gordini",
+      "quote": "opened a workshop at the Boulevard Victor in Paris"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "ram": {
    "wikipedia": "RAM Racing",
@@ -1618,6 +3139,50 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q145"
+   },
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Bicester",
+       "uk": "Бістер"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://f1technical.net/f1db/teams/92",
+      "quote": "Based in: Bicester"
+     },
+     {
+      "url": "https://www.the-race.com/formula-1/remembering-a-very-different-f1-pioneer-john-macdonald/",
+      "quote": "the RAM/March operation in Bicester, UK"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Mike Ralph",
+      "uk": "Майк Ральф"
+     },
+     {
+      "en": "John Macdonald",
+      "uk": "Джон Макдональд"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/RAM_Racing",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
    }
   },
   "iso-marlboro": {
@@ -1633,7 +3198,34 @@
      },
      "wikidata": "Q173214"
     }
-   ]
+   ],
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Reading, Berkshire",
+       "uk": "Редінг"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1973–1974"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.motorsportmagazine.com/archive/article/june-1973/84/notes-on-the-new-cars-at-barcelona/",
+      "quote": "the second design to come from the Reading workshops of Frank Williams Racing"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Frank_Williams_Racing_Cars",
+      "quote": "The team was based in the Williams facility at Reading"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "leyton-house": {
    "wikipedia": "Leyton House Racing",
@@ -1662,6 +3254,42 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q251903"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Akira Akagi",
+      "uk": "Акіра Акаґі"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Leyton_House_Racing",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false,
+    "base": [
+     {
+      "city": {
+       "en": "Bicester",
+       "uk": "Бістер"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Leyton_House_Racing",
+      "quote": "infobox: Base"
+     }
+    ],
+    "baseTranslit": true
    }
   },
   "spirit": {
@@ -1699,6 +3327,26 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q211907"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Gordon Coppuck",
+      "uk": "Гордон Коппак"
+     },
+     {
+      "en": "John Wickham",
+      "uk": "Джон Вікгем"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Spirit_Racing",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "forti": {
@@ -1735,6 +3383,26 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q6088"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Guido Forti",
+      "uk": "Гвідо Форті"
+     },
+     {
+      "en": "Paolo Guerci",
+      "uk": "Паоло Гуерчі"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Forti",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "pacific": {
@@ -1763,6 +3431,22 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q237250"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Keith Wiggins",
+      "uk": "Кіт Віггінс"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Pacific_Racing",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "simtek": {
@@ -1799,6 +3483,26 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q806160"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Max Mosley",
+      "uk": "Макс Мослі"
+     },
+     {
+      "en": "Nick Wirth",
+      "uk": "Нік Вірт"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Simtek",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "rial": {
@@ -1827,6 +3531,22 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q22460"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Günter Schmid",
+      "uk": "Гюнтер Шмід"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Rial_Racing",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "audi": {
@@ -1893,6 +3613,22 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q628"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Gabriele Rumi",
+      "uk": "Габріеле Румі"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Fondmetal",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "connaught": {
@@ -1930,6 +3666,46 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q2186179"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Rodney Clarke",
+      "uk": "Родні Кларк"
+     },
+     {
+      "en": "Mike Oliver",
+      "uk": "Майк Олівер"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Connaught_Engineering",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false,
+    "base": [
+     {
+      "city": {
+       "en": "Send",
+       "uk": "Сенд"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Connaught_Engineering",
+      "quote": "infobox: Base"
+     }
+    ],
+    "baseTranslit": true
    }
   },
   "onyx": {
@@ -1967,6 +3743,26 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q23287"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Mike Earle",
+      "uk": "Майк Ерл"
+     },
+     {
+      "en": "Greg Field",
+      "uk": "Грег Філд"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Onyx_Grand_Prix",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "spyker": {
@@ -1990,7 +3786,54 @@
   "parnelli": {
    "wikipedia": "Vel's Parnelli Jones Racing",
    "issues": [],
-   "wikidata": "Q172483"
+   "wikidata": "Q172483",
+   "manual": {
+    "founders": [
+     {
+      "en": "Parnelli Jones",
+      "uk": "Парнеллі Джонс"
+     },
+     {
+      "en": "Vel Miletich",
+      "uk": "Вел Мілетич"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Vel's_Parnelli_Jones_Racing",
+      "quote": "formed in 1969 by former USAC racer Parnelli Jones and his business partner"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Vel's_Parnelli_Jones_Racing",
+      "quote": "Velko \"Vel\" Miletich."
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Torrance, California",
+       "uk": "Торренс (Каліфорнія)"
+      },
+      "country": {
+       "en": "United States",
+       "uk": "США"
+      },
+      "years": "1974–1976"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://f1technical.net/f1db/teams/87",
+      "quote": "Based in: Torrance"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Vel's_Parnelli_Jones_Racing",
+      "quote": "It was developed at their facility in Torrance, California"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "euro-brun": {
    "wikipedia": "EuroBrun",
@@ -2008,6 +3851,34 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q43079"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Walter Brun",
+      "uk": "Вальтер Брун"
+     },
+     {
+      "en": "Giampaolo Pavanello",
+      "uk": "Джампаоло Паванелло"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/EuroBrun",
+      "quote": "The team was a combination of two outfits"
+     },
+     {
+      "url": "https://www.f1technical.net/f1db/teams/39",
+      "quote": "Walter Brun teamed up with Gianpaulo Pavanello's Euroracing operation"
+     },
+     {
+      "url": "https://www.f1technical.net/f1db/teams/39",
+      "quote": "did little credit to its founders"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
    }
   },
   "simca": {
@@ -2023,7 +3894,12 @@
      },
      "wikidata": "Q1035334"
     }
-   ]
+   ],
+   "manual": {
+    "founders": null,
+    "foundersNote": "засновник компанії-виробника, не команди — не показуємо",
+    "checked": false
+   }
   },
   "hwm": {
    "wikipedia": "Hersham and Walton Motors",
@@ -2041,7 +3917,47 @@
      }
     }
    ],
-   "baseText": "Walton on Thames, UK"
+   "baseText": "Walton on Thames, UK",
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Walton-on-Thames",
+       "uk": "Волтон-он-Темз"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1951–1954"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Hersham_and_Walton_Motors",
+      "quote": "operated with a very limited budget from their little garage in Walton-on-Thames"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Hersham_and_Walton_Motors",
+      "quote": "a building based on New Zealand Avenue in Walton on Thames"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "John Heath",
+      "uk": "Джон Гіт"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Hersham_and_Walton_Motors",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
+   }
   },
   "mf1": {
    "wikipedia": "Midland F1 Racing",
@@ -2084,7 +4000,43 @@
      },
      "wikidata": "Q1591730"
     }
-   ]
+   ],
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Suresnes",
+       "uk": "Сюрен"
+      },
+      "country": {
+       "en": "France",
+       "uk": "Франція"
+      },
+      "years": "1950–1951"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Talbot-Lago",
+      "quote": "a French automobile manufacturer based in Suresnes, Hauts de Seine, outside Paris."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Antonio Lago",
+      "uk": "Антоніо Лаго"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Talbot-Lago",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
+   }
   },
   "brp": {
    "wikipedia": "British Racing Partnership",
@@ -2121,12 +4073,75 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q10999"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Alfred Moss",
+      "uk": "Альфред Мосс"
+     },
+     {
+      "en": "Ken Gregory",
+      "uk": "Кен Грегорі"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/British_Racing_Partnership",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "coloni": {
    "wikipedia": "Scuderia Coloni",
    "issues": [],
-   "wikidata": "Q1631454"
+   "wikidata": "Q1631454",
+   "manual": {
+    "founders": [
+     {
+      "en": "Enzo Coloni",
+      "uk": "Енцо Колоні"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Scuderia_Coloni",
+      "quote": "Founded by former racing driver Enzo Coloni in 1983"
+     },
+     {
+      "url": "https://www.f1technical.net/f1db/teams/24",
+      "quote": "Principal: Enzo Coloni"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Passignano sul Trasimeno",
+       "uk": "Пассіньяно-суль-Тразімено"
+      },
+      "country": {
+       "en": "Italy",
+       "uk": "Італія"
+      },
+      "years": "1987–1991"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Scuderia_Coloni",
+      "quote": "Coloni was founded in 1983 in Passignano sul Trasimeno by Enzo Coloni"
+     },
+     {
+      "url": "https://www.f1technical.net/f1db/teams/24",
+      "quote": "Based in: Passignano sul Trasimeno, Perugia, Italy"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "de-tomaso": {
    "wikipedia": "De Tomaso",
@@ -2142,12 +4157,91 @@
      },
      "wikidata": "Q172234"
     }
-   ]
+   ],
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Modena",
+       "uk": "Модена"
+      },
+      "country": {
+       "en": "Italy",
+       "uk": "Італія"
+      },
+      "years": "1961–1970"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/De_Tomaso",
+      "quote": "It was founded in 1959 by the Argentine Alejandro de Tomaso in Modena."
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/De_Tomaso",
+      "quote": "In 2014, the original workshop in Modena was in abandonment."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Alejandro de Tomaso",
+      "uk": "Алехандро де Томазо"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/De_Tomaso",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
+   }
   },
   "tecno": {
    "wikipedia": "Tecno",
    "issues": [],
-   "wikidata": "Q16283984"
+   "wikidata": "Q16283984",
+   "manual": {
+    "founders": [
+     {
+      "en": "Luciano Pederzani",
+      "uk": "Лучано Педерцані"
+     },
+     {
+      "en": "Gianfranco Pederzani",
+      "uk": "Джанфранко Педерцані"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Tecno_(motorsport)",
+      "quote": "the company's owners, brothers Luciano and Gianfranco Pederzani, decided to enter motor sport"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Bologna",
+       "uk": "Болонья"
+      },
+      "country": {
+       "en": "Italy",
+       "uk": "Італія"
+      },
+      "years": "1972–1973"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Tecno_(motorsport)",
+      "quote": "Italian kart and former racing car constructor based in Bologna"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "embassy-hill": {
    "wikipedia": "Embassy Hill",
@@ -2171,6 +4265,29 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q145"
+   },
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Hanworth (West London)",
+       "uk": "Генворт"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1973–1975"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Embassy_Hill",
+      "quote": "warehouse based on an industrial estate in Hanworth, West London"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
    }
   },
   "merzario": {
@@ -2187,17 +4304,120 @@
       "ukFromWikidata": false
      }
     }
-   ]
+   ],
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Como",
+       "uk": "Комо"
+      },
+      "country": {
+       "en": "Italy",
+       "uk": "Італія"
+      },
+      "years": "1978–1979"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.f1technical.net/f1db/teams/81",
+      "quote": "Based in: Como"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Arturo Merzario",
+      "uk": "Артуро Мерцаріо"
+     },
+     {
+      "en": "Guglielmo Bellasi",
+      "uk": "Гульєльмо Белласі"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Merzario",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
+   }
   },
   "lesovsky": {
    "wikipedia": "Lesovsky",
    "issues": [],
-   "wikidata": "Q1820889"
+   "wikidata": "Q1820889",
+   "manual": {
+    "founders": [
+     {
+      "en": "Lujie Lesovsky",
+      "uk": "Луджі Лесовскі"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://www.flyinglap.com.br/lesovsky",
+      "quote": "Lujie Lesovsky/1948"
+     },
+     {
+      "url": "https://rmsothebys.com/auctions/mh12/lots/r113-1962-lesovsky-indianapolis-roadster",
+      "quote": "other talented mechanics, such as Lujie Lesovsky"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "era": {
    "wikipedia": "English Racing Automobiles",
    "issues": [],
-   "wikidata": "Q172153"
+   "wikidata": "Q172153",
+   "manual": {
+    "founders": [
+     {
+      "en": "Humphrey Cook",
+      "uk": "Гамфрі Кук"
+     },
+     {
+      "en": "Raymond Mays",
+      "uk": "Реймонд Мейс"
+     },
+     {
+      "en": "Peter Berthon",
+      "uk": "Пітер Бертон"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/English_Racing_Automobiles",
+      "quote": "ERA was founded by Humphrey Cook, Raymond Mays, and Peter Berthon in November 1933"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Dunstable",
+       "uk": "Данстабл"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1950–1952"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/English_Racing_Automobiles",
+      "quote": "ERA restarted operations in Dunstable under new ownership in 1947"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "phillips": {
    "wikipedia": "Phillips (constructor)",
@@ -2207,7 +4427,27 @@
   "stevens": {
    "wikipedia": "Myron Stevens",
    "issues": [],
-   "wikidata": "Q16012169"
+   "wikidata": "Q16012169",
+   "manual": {
+    "founders": [
+     {
+      "en": "Myron Stevens",
+      "uk": "Майрон Стівенс"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Myron_Stevens",
+      "quote": "Stevens established his own shop and continued building racecar bodies."
+     },
+     {
+      "url": "https://www.oldracingcars.com/indy/stevens/",
+      "quote": "Myron left Miller to set up his own shop."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "veritas": {
    "wikipedia": "Veritas (automobile)",
@@ -2223,12 +4463,103 @@
       "ukFromWikidata": false
      }
     }
-   ]
+   ],
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Nürburg (Nürburgring)",
+       "uk": "Нюрбург (Нюрбургринг)"
+      },
+      "country": {
+       "en": "West Germany",
+       "uk": "ФРН"
+      },
+      "years": "1950–1953"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Veritas_(automobile)",
+      "quote": "Ernst Loof moved to the Nürburgring in 1950"
+     },
+     {
+      "url": "https://de.wikipedia.org/wiki/Veritas_(Automarke)",
+      "quote": "Seine neu gegründete VERITAS-Automobil-Werke Ernst Loof GmbH Nürburgring"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Ernst Loof",
+      "uk": "Ернст Лоф"
+     },
+     {
+      "en": "Georg Meier",
+      "uk": "Георг Маєр"
+     },
+     {
+      "en": "Lorenz Dietrich",
+      "uk": "Лоренц Дітріх"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Veritas_(automobile)",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
+   }
   },
   "trojan": {
    "wikipedia": "Trojan–Tauranac Racing",
    "issues": [],
-   "wikidata": "Q1078831"
+   "wikidata": "Q1078831",
+   "manual": {
+    "founders": [
+     {
+      "en": "Peter Agg",
+      "uk": "Пітер Агг"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://8w.forix.com/trojan.html",
+      "quote": "Croydon-based Trojan, founded by Peter Agg, started off in the early seventies"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Trojan–Tauranac_Racing",
+      "quote": "The car producer Trojan Limited was founded by Leslie Hounsfield in 1914"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Croydon",
+       "uk": "Кройдон"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1974"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://8w.forix.com/trojan.html",
+      "quote": "Croydon-based Trojan"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Trojan–Tauranac_Racing",
+      "quote": "in its factory at Purley Way, Croydon, Surrey"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "boro": {
    "wikipedia": "Boro (Formula One)",
@@ -2254,7 +4585,47 @@
      }
     }
    ],
-   "baseText": "Bovenkerk, Netherlands"
+   "baseText": "Bovenkerk, Netherlands",
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Bovenkerk",
+       "uk": "Бовенкерк"
+      },
+      "country": {
+       "en": "Netherlands",
+       "uk": "Нідерланди"
+      },
+      "years": "1976–1977"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Boro_(Formula_One)",
+      "quote": "In the Dutch village of Bovenkerk (North Holland), the Hoogenboom brothers set up a factory"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Bob Hoogenboom",
+      "uk": "Боб Гогенбом"
+     },
+     {
+      "en": "Rody Hoogenboom",
+      "uk": "Роді Гогенбом"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Boro_(Formula_One)",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
+   }
   },
   "lambo": {
    "wikipedia": "Modena (racing team)",
@@ -2277,7 +4648,50 @@
   "alta": {
    "wikipedia": "Alta Car and Engineering Company",
    "issues": [],
-   "wikidata": "Q1825008"
+   "wikidata": "Q1825008",
+   "manual": {
+    "founders": [
+     {
+      "en": "Geoffrey Taylor",
+      "uk": "Джеффрі Тейлор"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Alta_Car_and_Engineering_Company",
+      "quote": "The company was founded by engineer Geoffrey Taylor (1903–1966) in Surbiton, Surrey"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Surbiton (Tolworth)",
+       "uk": "Сербітон (Толворт)"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Alta_Car_and_Engineering_Company",
+      "quote": "founded by engineer Geoffrey Taylor (1903–1966) in Surbiton, Surrey"
+     },
+     {
+      "url": "https://www.motorsportmagazine.com/archive/article/february-1986/47/the-sports-model-atlas",
+      "quote": "built his own factory on a piece of ground he had acquired at Fuller's Way"
+     },
+     {
+      "url": "https://www.motorsportmagazine.com/archive/article/february-1986/47/the-sports-model-atlas",
+      "quote": "beside the Tolworth spur-road of the Kingston By-Pass"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "lds": {
    "wikipedia": "LDS (automobile)",
@@ -2295,7 +4709,51 @@
      "wikidata": "Q172212"
     }
    ],
-   "baseText": "South Africa"
+   "baseText": "South Africa",
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Alberton",
+       "uk": "Альбертон"
+      },
+      "country": {
+       "en": "South Africa",
+       "uk": "ПАР"
+      },
+      "years": "1962–1968"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.supercars.net/blog/peter-de-klerk-the-alfa-special/3/",
+      "quote": "near the Alberton workshops of Doug Serrurier"
+     },
+     {
+      "url": "https://theauto.page/classic/the-astounding-peter-de-klerk-alfa-special-story/",
+      "quote": "Serrurier, whose LDS workshop was nearby in Alberton"
+     },
+     {
+      "url": "https://www.motorsportmagazine.com/archive/article/august-2006/15/obituary-doug-serrurier/",
+      "quote": "in a backyard workshop near Johannesburg"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Doug Serrurier",
+      "uk": "Даг Серрюр'є"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/LDS_(automobile)",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
+   }
   },
   "scirocco": {
    "wikipedia": "Scirocco-Powell",
@@ -2311,7 +4769,43 @@
       "ukFromWikidata": false
      }
     }
-   ]
+   ],
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "London (Goldhawk Road)",
+       "uk": "Лондон"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1963"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://forix.com/8w/scirocco.html",
+      "quote": "a shed at the back of the Seven Stars pub in Goldhawk Road, London"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Hugh Powell",
+      "uk": "Г'ю Павелл"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Scirocco-Powell",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
+   }
   },
   "martini": {
    "wikipedia": "Automobiles Martini",
@@ -2348,33 +4842,218 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q269952"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Renato Martini",
+      "uk": "Ренато Мартіні"
+     },
+     {
+      "en": "Bill Knight",
+      "uk": "Білл Найт"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Automobiles_Martini",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "schroeder": {
    "wikipedia": "Gordon Schroeder",
    "issues": [],
-   "wikidata": "Q691125"
+   "wikidata": "Q691125",
+   "manual": {
+    "founders": [
+     {
+      "en": "Gordon Schroeder",
+      "uk": "Гордон Шредер"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Gordon_Schroeder",
+      "quote": "was an American racing car constructor"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Gordon_Schroeder",
+      "quote": "Schroeder cars competed in four FIA World Championship races"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "bromme": {
    "wikipedia": "Bromme",
    "issues": [],
-   "wikidata": "Q926760"
+   "wikidata": "Q926760",
+   "manual": {
+    "founders": [
+     {
+      "en": "Louis (Lou) Bromme",
+      "uk": "Луїс (Лу) Бромме"
+     },
+     {
+      "en": "Bruce Bromme",
+      "uk": "Брюс Бромме"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://www.flyinglap.com.br/bromme",
+      "quote": "Louis and Bruce Bromme/1945"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "trevis": {
    "wikipedia": "Trevis",
    "issues": [],
-   "wikidata": "Q1788382"
+   "wikidata": "Q1788382",
+   "manual": {
+    "founders": [
+     {
+      "en": "Floyd Trevis",
+      "uk": "Флойд Тревіс"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Floyd_Trevis",
+      "quote": "Floyd Trevis of Youngstown, Ohio was an American builder of racing cars"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Youngstown",
+       "uk": "Янгстаун"
+      },
+      "country": {
+       "en": "United States",
+       "uk": "США"
+      },
+      "years": "1951–1960"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Floyd_Trevis",
+      "quote": "Floyd Trevis of Youngstown, Ohio"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "osca": {
    "wikipedia": "O.S.C.A.",
    "issues": [],
    "wikidata": "Q936574",
-   "instagram": "osca_automobili"
+   "instagram": "osca_automobili",
+   "manual": {
+    "founders": [
+     {
+      "en": "Ernesto Maserati",
+      "uk": "Ернесто Мазераті"
+     },
+     {
+      "en": "Ettore Maserati",
+      "uk": "Етторе Мазераті"
+     },
+     {
+      "en": "Bindo Maserati",
+      "uk": "Біндо Мазераті"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/O.S.C.A.",
+      "quote": "OSCA was founded in 1947 by Ernesto Maserati (engineering manager)"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/O.S.C.A.",
+      "quote": "his two brothers Ettore, and Bindo (operations managers)"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "San Lazzaro di Savena (Bologna)",
+       "uk": "Сан-Лаццаро-ді-Савена"
+      },
+      "country": {
+       "en": "Italy",
+       "uk": "Італія"
+      },
+      "years": "1951–1953"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/O.S.C.A.",
+      "quote": "The OSCA factory was located in San Lazzaro di Savena outside Bologna"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "frazer-nash": {
    "wikipedia": "Frazer Nash",
    "issues": [],
-   "wikidata": "Q1452093"
+   "wikidata": "Q1452093",
+   "manual": {
+    "founders": [
+     {
+      "en": "Archibald Frazer-Nash",
+      "uk": "Арчибальд Фрейзер-Неш"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Frazer_Nash",
+      "quote": "Frazer Nash Limited founded by engineer Archibald Frazer-Nash"
+     },
+     {
+      "url": "https://www.f1technical.net/f1db/teams/45",
+      "quote": "Archie Frazer-Nash began production of his own cars in the 1920s"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Isleworth, Middlesex",
+       "uk": "Айлворт"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1952"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Frazer_Nash",
+      "quote": "AFN's operations moved to Isleworth, Middlesex"
+     },
+     {
+      "url": "https://www.f1technical.net/f1db/teams/45",
+      "quote": "Based in: Isleworth"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "afm": {
    "wikipedia": "Alex von Falkenhausen Motorenbau",
@@ -2403,6 +5082,22 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q1726"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Alexander von Falkenhausen",
+      "uk": "Александр фон Фалькенгаузен"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Alex_von_Falkenhausen_Motorenbau",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "lancia": {
@@ -2446,12 +5141,114 @@
      },
      "wikidata": "Q172551"
     }
-   ]
+   ],
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Twickenham",
+       "uk": "Твікенгем"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1956"
+     },
+     {
+      "city": {
+       "en": "Send",
+       "uk": "Сенд"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1960–1961"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.motorsportmagazine.com/archive/article/march-1985/30/cars-paul-emery",
+      "quote": "his little general engineering shop in Twickenham"
+     },
+     {
+      "url": "https://www.motorsportmagazine.com/archive/article/march-1985/30/cars-paul-emery",
+      "quote": "Emery moved from Twickenham to the Connaught headquarters at Send"
+     },
+     {
+      "url": "https://www.hrscc.co.nz/formula-junior/emerysons/part-2-hawthorne-hill-1946/",
+      "quote": "The team took over the Connaught factory in Send, near Woking"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Paul Emery",
+      "uk": "Пол Емері"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Emeryson",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
+   }
   },
   "jbw": {
    "wikipedia": "JBW",
    "issues": [],
-   "wikidata": "Q3267645"
+   "wikidata": "Q3267645",
+   "manual": {
+    "founders": [
+     {
+      "en": "Brian Naylor",
+      "uk": "Браян Нейлор"
+     },
+     {
+      "en": "Fred Wilkinson",
+      "uk": "Фред Вілкінсон"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/JBW",
+      "quote": "Brian Naylor, an amateur driver from Stockport, financed his mechanic Fred Wilkinson to build"
+     },
+     {
+      "url": "https://www.grandprix.com/constructors/jbw-cars.html",
+      "quote": "his JBW sportscar, built by mechanic Fred Wilkinson"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Stockport",
+       "uk": "Стокпорт"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1959–1961"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.f1technical.net/f1db/teams/54",
+      "quote": "Based in: Stockport"
+     },
+     {
+      "url": "https://www.f1technical.net/f1db/teams/54",
+      "quote": "Stockport motor dealer Brian Naylor"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "spyker-mf1": {
    "wikipedia": "Midland F1 Racing",
@@ -2484,32 +5281,224 @@
   "deidt": {
    "wikipedia": "Emil Diedt",
    "issues": [],
-   "wikidata": "Q1183193"
+   "wikidata": "Q1183193",
+   "manual": {
+    "founders": [
+     {
+      "en": "Emil Diedt",
+      "uk": "Еміль Дідт"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Emil_Diedt",
+      "quote": "Emil Albert Diedt (born Emil Albert Didt, March 17, 1897"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Emil_Diedt",
+      "quote": "– December 8, 1980) was an American race car builder."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "moore": {
    "wikipedia": "Lou Moore",
    "issues": [],
-   "wikidata": "Q6685662"
+   "wikidata": "Q6685662",
+   "manual": {
+    "founders": [
+     {
+      "en": "Lou Moore",
+      "uk": "Лу Мур"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Lou_Moore",
+      "quote": "was an American racing driver and team owner"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Lou_Moore",
+      "quote": "After his driving career ended in 1936, Moore became a competitive car owner."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "pawl": {
    "wikipedia": "Pawl (constructor)",
    "issues": [],
-   "wikidata": "Q1548484"
+   "wikidata": "Q1548484",
+   "manual": {
+    "founders": [
+     {
+      "en": "Johnny Pawl",
+      "uk": "Джонні Пол"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://www.flyinglap.com.br/pawl",
+      "quote": "Johnny Pawl/1947"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Crown Point",
+       "uk": "Краун-Пойнт"
+      },
+      "country": {
+       "en": "United States",
+       "uk": "США"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://historicracing.com/driver.cfm?otd=7508",
+      "quote": "Indy car owner Murrell Belanger financed John's shop in Crown Point, Indiana"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "dunn": {
    "wikipedia": "Dunn Engineering",
    "issues": [],
-   "wikidata": "Q661544"
+   "wikidata": "Q661544",
+   "manual": {
+    "founders": [
+     {
+      "en": "Harold Dunn",
+      "uk": "Гарольд Данн"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Dunn_Engineering",
+      "quote": "The team was owned by engineer Harold Dunn, and based in Detroit, Michigan."
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Detroit",
+       "uk": "Детройт"
+      },
+      "country": {
+       "en": "United States",
+       "uk": "США"
+      },
+      "years": "1957–1959"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Dunn_Engineering",
+      "quote": "based in Detroit, Michigan"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "scarab": {
    "wikipedia": "Scarab (constructor)",
    "issues": [],
-   "wikidata": "Q1783689"
+   "wikidata": "Q1783689",
+   "manual": {
+    "founders": [
+     {
+      "en": "Lance Reventlow",
+      "uk": "Ленс Ревентлов"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Scarab_(constructor)",
+      "quote": "for Reventlow Automobiles Inc, owned by Lance Reventlow."
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Scarab_Mark_I_and_Scarab_Mark_II",
+      "quote": "Incorporating Reventlow Automobiles in 1957."
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Venice (Los Angeles), California",
+       "uk": "Веніс (Лос-Анджелес)"
+      },
+      "country": {
+       "en": "United States",
+       "uk": "США"
+      },
+      "years": "1960"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://thegentlemanracer.com/2022/11/americas-first-formula-1-car/",
+      "quote": "renting out the Venice Beach headquarters to Carroll Shelby to launch Shelby American."
+     },
+     {
+      "url": "https://thegentlemanracer.com/2012/09/1042-princeton-drive/",
+      "quote": "It had belonged to Lance Reventlow's Scarab operation"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "gilby": {
    "wikipedia": "Gilby",
    "issues": [],
-   "wikidata": "Q410365"
+   "wikidata": "Q410365",
+   "manual": {
+    "founders": [
+     {
+      "en": "Syd Greene",
+      "uk": "Сід Грін"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Gilby_Engineering",
+      "quote": "he fed his enthusiasm for motor racing by founding a motor racing team"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Gilby_Engineering",
+      "quote": "Formula One constructor owned by Syd Greene"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Ongar, Essex",
+       "uk": "Онгар"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.f1technical.net/f1db/teams/48",
+      "quote": "Syd Greene and his Gilby Engineering Company from Ongar"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "token": {
    "wikipedia": "Token Racing",
@@ -2542,32 +5531,206 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q145"
+   },
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Walton-on-Thames",
+       "uk": "Волтон-он-Темс"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1974"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.autosport.com/f1/news/tony-vlassopulos-obituary-f1-team-boss-and-ron-dennis-backer-dies-aged-89-4975932/4975932/",
+      "quote": "and moved to a smaller workshop in Walton-on-Thames."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Tony Vlassopulos",
+      "uk": "Тоні Влассопулос"
+     },
+     {
+      "en": "Ken Grob",
+      "uk": "Кен Гроб"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Token_Racing",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
    }
   },
   "lec": {
    "wikipedia": "LEC Refrigeration Racing",
    "issues": [],
-   "wikidata": "Q2291349"
+   "wikidata": "Q2291349",
+   "manual": {
+    "founders": [
+     {
+      "en": "David Purley",
+      "uk": "Девід Перлі"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://www.grandprix.com/constructors/lec-lec-refrigeration-racing.html",
+      "quote": "David Purley had run private teams in the junior formulae under his banner"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/LEC_Refrigeration_Racing",
+      "quote": "with backing from his family's refrigeration company LEC Refrigeration"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Bognor Regis",
+       "uk": "Богнор Регіс"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1977"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/LEC_Refrigeration_Racing",
+      "quote": "Formula One constructor based at Bognor Regis, West Sussex"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "nichels": {
    "wikipedia": "Nichels",
    "issues": [],
-   "wikidata": "Q4354639"
+   "wikidata": "Q4354639",
+   "manual": {
+    "founders": [
+     {
+      "en": "Ray Nichels",
+      "uk": "Рей Нікелс"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Nichels",
+      "quote": "It was run by crew chief / mechanic Ray Nichels."
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Hammond, Indiana",
+       "uk": "Гаммонд (Індіана)"
+      },
+      "country": {
+       "en": "United States",
+       "uk": "США"
+      },
+      "years": "1950"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://au.motorsport.com/vintage/news/memories-of-raymond-r-nichels/1290575/",
+      "quote": "constructed this car in the basement of Russo's Hammond, Indiana home"
+     },
+     {
+      "url": "https://au.motorsport.com/vintage/news/memories-of-raymond-r-nichels/1290575/",
+      "quote": "managed Pontiac's involvement in stock car racing from his operations in Highland, Indiana."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "marchese": {
    "wikipedia": "Carl Marchese",
    "issues": [],
-   "wikidata": "Q5040520"
+   "wikidata": "Q5040520",
+   "manual": {
+    "founders": [
+     {
+      "en": "Carl Marchese",
+      "uk": "Карл Маркезе"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Carl_Marchese",
+      "quote": "entering his own Marchese chassis into the 1950 and 1951 races"
+     },
+     {
+      "url": "https://wihalloffame.com/carl-marchese",
+      "quote": "a midget car owner and designer"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "ewing": {
    "wikipedia": "Wayne Ewing",
    "issues": [],
-   "wikidata": "Q1383226"
+   "wikidata": "Q1383226",
+   "manual": {
+    "founders": [
+     {
+      "en": "Wayne Ewing",
+      "uk": "Вейн Юїнг"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://www.flyinglap.com.br/ewing",
+      "quote": "Wayne Ewing/1949"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Wayne_Ewing",
+      "quote": "Ewing occasionally branched out as an independent builder"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "sherman": {
    "wikipedia": "Roy Sherman",
    "issues": [],
-   "wikidata": "Q2232584"
+   "wikidata": "Q2232584",
+   "manual": {
+    "founders": [
+     {
+      "en": "Roy Sherman",
+      "uk": "Рой Шерман"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Roy_Sherman",
+      "quote": "Cars built by Sherman competed in two FIA World Championship races"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "aston-butterworth": {
    "wikipedia": "Aston Butterworth",
@@ -2593,7 +5756,27 @@
      "wikidata": "Q4786635"
     }
    ],
-   "baseText": "United Kingdom"
+   "baseText": "United Kingdom",
+   "manual": {
+    "founders": [
+     {
+      "en": "Bill Aston",
+      "uk": "Білл Астон"
+     },
+     {
+      "en": "Archie Butterworth",
+      "uk": "Арчі Баттерворт"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Aston_Butterworth",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
+   }
   },
   "bmw": {
    "wikipedia": "BMW",
@@ -2618,12 +5801,61 @@
       "ukFromWikidata": false
      }
     }
-   ]
+   ],
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Munich",
+       "uk": "Мюнхен"
+      },
+      "country": {
+       "en": "West Germany",
+       "uk": "ФРН"
+      },
+      "years": "1952–1953"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.f1technical.net/f1db/teams/17",
+      "quote": "Bayerische Motoren Werke of Munich never really entered Formula 1 in their own right"
+     },
+     {
+      "url": "https://www.f1technical.net/f1db/teams/17",
+      "quote": "Based in: Munich"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": null,
+    "foundersNote": "засновник компанії-виробника, не команди — не показуємо"
+   }
   },
   "pankratz": {
    "wikipedia": "Pankratz",
    "issues": [],
-   "wikidata": "Q548456"
+   "wikidata": "Q548456",
+   "manual": {
+    "founders": [
+     {
+      "en": "Bob Pankratz",
+      "uk": "Боб Панкрац"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Pankratz",
+      "quote": "It was established by Bob Pankratz, a race driver."
+     },
+     {
+      "url": "https://www.flyinglap.com.br/pankratz",
+      "quote": "Robert “Bob” Pankratz/1950"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "christensen": {
    "wikipedia": "Christensen (constructor)",
@@ -2664,12 +5896,83 @@
      }
     }
    ],
-   "baseText": "Italy"
+   "baseText": "Italy",
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Novara",
+       "uk": "Новара"
+      },
+      "country": {
+       "en": "Italy",
+       "uk": "Італія"
+      },
+      "years": "1970–1971"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.formulaonehistory.com/teams/bellasi/",
+      "quote": "Novara, Italy"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Guglielmo Bellasi",
+      "uk": "Гульєльмо Белласі"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Bellasi",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
+   }
   },
   "kojima": {
    "wikipedia": "Kojima Engineering",
    "issues": [],
-   "wikidata": "Q172465"
+   "wikidata": "Q172465",
+   "manual": {
+    "founders": [
+     {
+      "en": "Matsuhisa Kojima",
+      "uk": "Мацухіса Кодзіма"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Kojima_Engineering",
+      "quote": "The F1 team was founded in 1976 by Matsuhisa Kojima."
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Kyoto",
+       "uk": "Кіото"
+      },
+      "country": {
+       "en": "Japan",
+       "uk": "Японія"
+      },
+      "years": "1976–1977"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://japanesenostalgiccar.com/motorsport-kojima-engineering-ke007/",
+      "quote": "the company headquarters in Kyoto"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "andrea-moda": {
    "wikipedia": "Andrea Moda Formula",
@@ -2697,6 +6000,22 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q13146"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Andrea Sassetti",
+      "uk": "Андреа Сассетті"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Andrea_Moda_Formula",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "langley": {
@@ -2707,7 +6026,23 @@
   "rae": {
    "wikipedia": "Johnny Rae (motorsport)",
    "issues": [],
-   "wikidata": "Q950092"
+   "wikidata": "Q950092",
+   "manual": {
+    "founders": [
+     {
+      "en": "Johnny Rae",
+      "uk": "Джонні Рей"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Johnny_Rae_(motorsport)",
+      "quote": "Rae constructed a car owned by Alden Sampson II"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "olson": {
    "wikipedia": "Olson (constructor)",
@@ -2717,17 +6052,73 @@
   "wetteroth": {
    "wikipedia": "Wetteroth",
    "issues": [],
-   "wikidata": "Q953949"
+   "wikidata": "Q953949",
+   "manual": {
+    "founders": [
+     {
+      "en": "Louis \"Curly\" Wetteroth",
+      "uk": "Луїс «Керлі» Веттерот"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Wetteroth",
+      "quote": "owned and operated by California-based Texan Louis \"Curly\" Wetteroth"
+     },
+     {
+      "url": "https://www.flyinglap.com.br/wetteroth",
+      "quote": "Louis “Curly” Wetteroth/1932"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "snowberger": {
    "wikipedia": "Russ Snowberger",
    "issues": [],
-   "wikidata": "Q7381237"
+   "wikidata": "Q7381237",
+   "manual": {
+    "founders": [
+     {
+      "en": "Russ Snowberger",
+      "uk": "Расс Сноубергер"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Russ_Snowberger",
+      "quote": "Snowberger continued his affiliation with the \"500\" by sponsoring entries throughout the 1950s"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "adams": {
    "wikipedia": "Adams (constructor)",
    "issues": [],
-   "wikidata": "Q1645121"
+   "wikidata": "Q1645121",
+   "manual": {
+    "founders": [
+     {
+      "en": "Clyde Adams",
+      "uk": "Клайд Адамс"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Adams_(constructor)",
+      "quote": "Adams was an American racing car constructor named after Clyde Adams."
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Adams_(constructor)",
+      "quote": "Adams set up his own business."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "hall": {
    "wikipedia": null,
@@ -2744,12 +6135,51 @@
   "del-roy": {
    "wikipedia": "Frank DelRoy",
    "issues": [],
-   "wikidata": "Q1618123"
+   "wikidata": "Q1618123",
+   "manual": {
+    "founders": [
+     {
+      "en": "Frank DelRoy",
+      "uk": "Френк Делрой"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Frank_DelRoy",
+      "quote": "DelRoy's cars competed in one round of the FIA World Championship - the 1953 Indianapolis 500."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "emw": {
    "wikipedia": "Eisenacher Motorenwerk",
    "issues": [],
-   "wikidata": "Q988514"
+   "wikidata": "Q988514",
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Eisenach",
+       "uk": "Айзенах"
+      },
+      "country": {
+       "en": "East Germany",
+       "uk": "НДР"
+      },
+      "years": "1953"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Eisenacher_Motorenwerk",
+      "quote": "an East German manufacturer of automobiles and motorcycles based in Eisenach."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "klenk": {
    "wikipedia": "Klenk",
@@ -2767,7 +6197,43 @@
      "wikidata": "Q62235"
     }
    ],
-   "baseText": "West Germany"
+   "baseText": "West Germany",
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Stuttgart",
+       "uk": "Штутгарт"
+      },
+      "country": {
+       "en": "West Germany",
+       "uk": "ФРН"
+      },
+      "years": "1954"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.f1technical.net/f1db/teams/58",
+      "quote": "Based in: Stuttgart"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Hans Klenk",
+      "uk": "Ганс Кленк"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Klenk",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
+   }
   },
   "bugatti": {
    "wikipedia": "Bugatti",
@@ -2782,12 +6248,55 @@
      },
      "wikidata": "Q314419"
     }
-   ]
+   ],
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Molsheim",
+       "uk": "Мольсайм"
+      },
+      "country": {
+       "en": "France",
+       "uk": "Франція"
+      },
+      "years": "1956"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.motorsportmagazine.com/archive/article/october-1997/80/bugatti-final-fatal-flop",
+      "quote": "the first straight-eight engine spluttered into life on a Molsheim dyno"
+     },
+     {
+      "url": "https://www.motorsportmagazine.com/archive/article/october-1997/80/bugatti-final-fatal-flop",
+      "quote": "Bugatti retreated to Molsheim but development was killed by inadequate funding."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "elder": {
    "wikipedia": "Edgar Elder",
    "issues": [],
-   "wikidata": "Q4764516"
+   "wikidata": "Q4764516",
+   "manual": {
+    "founders": [
+     {
+      "en": "Edgar Elder",
+      "uk": "Едгар Елдер"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Edgar_Elder",
+      "quote": "A car built by Elder competed in one FIA World Championship race"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "sutton": {
    "wikipedia": "Sutton (constructor)",
@@ -2807,27 +6316,204 @@
      },
      "wikidata": "Q4007870"
     }
-   ]
+   ],
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Modena",
+       "uk": "Модена"
+      },
+      "country": {
+       "en": "Italy",
+       "uk": "Італія"
+      },
+      "years": "1959"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://primotipo.com/2024/03/11/tec-mec-f415-maserati/",
+      "quote": "Colotti left Maserati to form his own Studio Tecnica Meccanica in Modena."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Valerio Colotti",
+      "uk": "Валеріо Колотті"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Tec-Mec",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
+   }
   },
   "meskowski": {
    "wikipedia": "Meskowski",
    "issues": [],
-   "wikidata": "Q744581"
+   "wikidata": "Q744581",
+   "manual": {
+    "founders": [
+     {
+      "en": "Wally Meskowski",
+      "uk": "Воллі Месковскі"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://www.flyinglap.com.br/meskowski",
+      "quote": "Wally Meskowski/1958"
+     },
+     {
+      "url": "https://www.thehenryford.org/collections/explore/artifact/358826",
+      "quote": "Car was built by Wally Meskowski of Indianapolis, Indiana"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Indianapolis",
+       "uk": "Індіанаполіс"
+      },
+      "country": {
+       "en": "United States",
+       "uk": "США"
+      },
+      "years": "1960"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.thehenryford.org/collections/explore/artifact/358826",
+      "quote": "Maker: Wally Meskowski, Indianapolis, Indiana"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "ferguson": {
    "wikipedia": "Ferguson Research",
    "issues": [],
-   "wikidata": "Q174065"
+   "wikidata": "Q174065",
+   "manual": {
+    "founders": [
+     {
+      "en": "Harry Ferguson",
+      "uk": "Гаррі Фергюсон"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Ferguson_Research",
+      "quote": "Harry Ferguson Research Limited was a British company founded by Harry Ferguson"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Coventry",
+       "uk": "Ковентрі"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1961"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Ferguson_Research",
+      "quote": "The company was based in Siskin Drive, in Coventry, England."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "enb": {
    "wikipedia": "Écurie Nationale Belge",
    "issues": [],
-   "wikidata": "Q987562"
+   "wikidata": "Q987562",
+   "manual": {
+    "founders": [
+     {
+      "en": "Jacques Swaters",
+      "uk": "Жак Сватерс"
+     },
+     {
+      "en": "Johnny Claes",
+      "uk": "Джонні Клаес"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://fr.wikipedia.org/wiki/Équipe_nationale_belge",
+      "quote": "Fondée par Jacques Swaters et Johnny Claes"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Ecurie_Nationale_Belge",
+      "quote": "formed through a merger of Jacques Swaters' Écurie Francorchamps and Johnny Claes' Écurie Belge."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "stebro": {
    "wikipedia": "Stebro",
    "issues": [],
-   "wikidata": "Q590733"
+   "wikidata": "Q590733",
+   "manual": {
+    "founders": [
+     {
+      "en": "John Stevens",
+      "uk": "Джон Стівенс"
+     },
+     {
+      "en": "Peter Broeker",
+      "uk": "Пітер Брокер"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Stebro",
+      "quote": "The team, founded by John Stevens and Peter Broeker"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Montreal, Quebec",
+       "uk": "Монреаль"
+      },
+      "country": {
+       "en": "Canada",
+       "uk": "Канада"
+      },
+      "years": "1963"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Stebro",
+      "quote": "designed and built the Stebros in his Montreal plant"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Stebro",
+      "quote": "built in 1960 in the Stebro repair garage on McGill street in Montreal"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "derrington": {
    "wikipedia": "Derrington-Francis",
@@ -2853,7 +6539,27 @@
      }
     }
    ],
-   "baseText": "United Kingdom"
+   "baseText": "United Kingdom",
+   "manual": {
+    "founders": [
+     {
+      "en": "Alf Francis",
+      "uk": "Альф Френсіс"
+     },
+     {
+      "en": "Vic Derrington",
+      "uk": "Вік Деррінгтон"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Derrington-Francis",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
+   }
   },
   "shannon": {
    "wikipedia": "Shannon Racing Cars",
@@ -2879,7 +6585,27 @@
      }
     }
    ],
-   "baseText": "UK"
+   "baseText": "UK",
+   "manual": {
+    "founders": [
+     {
+      "en": "Paul Emery",
+      "uk": "Пол Емері"
+     },
+     {
+      "en": "Aiden Jones",
+      "uk": "Ейден Джонс"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Shannon_Racing_Cars",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
+   }
   },
   "protos": {
    "wikipedia": "Protos (constructor)",
@@ -2903,6 +6629,46 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q145"
+   },
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Maidenhead, Berkshire",
+       "uk": "Мейденгед"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1967"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.motorsportmagazine.com/archive/article/november-2003/56/ply-in-the-ointment/",
+      "quote": "the other cars were built at Ron Harris’ Maidenhead workshop."
+     },
+     {
+      "url": "https://www.grandprix.com/gpe/con-proto.html",
+      "quote": "Formula 2 team owner Ron Harris commissioned Frank Costin to build a Formula 2 car"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Frank Costin",
+      "uk": "Френк Костін"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Protos_(constructor)",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
    }
   },
   "politoys": {
@@ -2918,7 +6684,34 @@
      },
      "wikidata": "Q173214"
     }
-   ]
+   ],
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Reading, Berkshire",
+       "uk": "Редінг"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1972"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.autosport.com/f1/news/why-the-first-williams-f1-car-was-named-after-a-toy-company/10700667/",
+      "quote": "move from Bath Road in Slough to Bennet Road, Reading"
+     },
+     {
+      "url": "https://oldracingcars.com/williams/fx3",
+      "quote": "the car was completed at Frank Williams' premises in Reading."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "connew": {
    "wikipedia": "Connew",
@@ -2947,6 +6740,42 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q1058698"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Peter Connew",
+      "uk": "Пітер Коннью"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Connew",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false,
+    "base": [
+     {
+      "city": {
+       "en": "Chadwell Heath",
+       "uk": "Чадвелл-Гіт"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": null
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Connew",
+      "quote": "infobox: Base"
+     }
+    ],
+    "baseTranslit": true
    }
   },
   "amon": {
@@ -2965,7 +6794,30 @@
      "wikidata": "Q171469"
     }
    ],
-   "baseText": "New Zealand"
+   "baseText": "New Zealand",
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Reading",
+       "uk": "Редінг"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1974"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.oldracingcars.com/amon/af1/",
+      "quote": "the car completed at the Amon team's base at Reading"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   },
   "lyncar": {
    "wikipedia": "Lyncar",
@@ -2981,7 +6833,47 @@
       "ukFromWikidata": false
      }
     }
-   ]
+   ],
+   "manual": {
+    "base": [
+     {
+      "city": {
+       "en": "Slough",
+       "uk": "Слау"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "1974–1975"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://www.totalkitcar.com/?p=24472",
+      "quote": "Lyncar Engineering was based in Slough, Berkshire"
+     },
+     {
+      "url": "https://www.totalkitcar.com/?p=24472",
+      "quote": "Martin founded Lyncar Engineering, working from premises in Slough"
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)",
+    "founders": [
+     {
+      "en": "Martin Slater",
+      "uk": "Мартін Слейтер"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Lyncar",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true
+   }
   },
   "rebaque": {
    "wikipedia": "Rebaque",
@@ -3009,12 +6901,63 @@
      "ukFromWikidata": true
     },
     "wikidata": "Q546635"
+   },
+   "manual": {
+    "founders": [
+     {
+      "en": "Héctor Rebaque",
+      "uk": "Ектор Ребаке"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Rebaque",
+      "quote": "infobox: Founders"
+     }
+    ],
+    "foundersTranslit": true,
+    "checked": false
    }
   },
   "lotus-racing": {
    "wikipedia": "Lotus Racing",
    "issues": [],
-   "wikidata": "Q6685196"
+   "wikidata": "Q6685196",
+   "manual": {
+    "founders": [
+     {
+      "en": "Tony Fernandes",
+      "uk": "Тоні Фернандес"
+     }
+    ],
+    "foundersSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Team_Lotus_(2010–2011)",
+      "quote": "set up by a group of Malaysian businessmen led by Tony Fernandes"
+     }
+    ],
+    "base": [
+     {
+      "city": {
+       "en": "Hingham, Norfolk",
+       "uk": "Гінгем (Норфолк)"
+      },
+      "country": {
+       "en": "United Kingdom",
+       "uk": "Велика Британія"
+      },
+      "years": "2010–2011"
+     }
+    ],
+    "baseSources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Team_Lotus_(2010–2011)",
+      "quote": "based in Hingham, Norfolk, UK, which competed during the 2010 and 2011 Formula One seasons."
+     }
+    ],
+    "checked": false,
+    "note": "ручне дослідження 12.11 (Wikipedia, f1technical, grandprix.com, oldracingcars та ін.)"
+   }
   }
  }
 }

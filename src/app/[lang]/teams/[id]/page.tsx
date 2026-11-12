@@ -84,7 +84,8 @@ export default async function TeamPageView(props: Props) {
   const t = dict.team;
   const n = (v: number) => fmt[lang].format(v);
   const { team, totals, facts, insights: ins } = page;
-  const color = team.color ?? "#767C8D";
+  // Колір команди є лише в учасників поточного сезону; у історичних — нейтральний (банер без фото — темний з білим).
+  const color = team.color ?? "var(--ink)";
   const current = page.seasons[0]?.year === page.currentSeason ? page.seasons[0]! : null;
   const lastChampion = page.champions.flatMap((c) => c.years.map((y) => ({ y, d: c.driver }))).sort((a, b) => b.y - a.y)[0];
   const lastCup = page.seasons.find((s) => s.champion);
@@ -147,7 +148,7 @@ export default async function TeamPageView(props: Props) {
         </div>
       </nav>
 
-      <section className={team.photo ? "th has-photo" : "th"}>
+      <section className={[team.photo ? "th has-photo" : "th", team.color ? "" : "no-color"].join(" ").trim()}>
         {team.photo && (
           // Банер: широке фото (1280/640), без нього — фото картки (480). Готові WebP, як у списку.
           // eslint-disable-next-line @next/next/no-img-element
@@ -160,6 +161,7 @@ export default async function TeamPageView(props: Props) {
             alt={lang === "uk" ? `Болід ${team.name}` : `${team.name} car`}
             fetchPriority="high"
             decoding="async"
+            style={team.hero?.focusY !== undefined ? { objectPosition: `50% ${team.hero.focusY}%` } : undefined}
           />
         )}
         <div className="wrap">
@@ -176,7 +178,9 @@ export default async function TeamPageView(props: Props) {
             {lastChampion && fill(t.summary.lastChampion, { team: team.name, driver: lastChampion.d.name, year: lastChampion.y })}
             {!lastCup && !lastChampion && fill(t.summary.debutOnly, { gp: page.debut.name, year: page.debut.year })}
           </p>
-          {facts.instagram && (
+          {/* Instagram — лише команд поточного сезону: у історичних Wikidata дає акаунт компанії-спадкоємця
+              (напр. Ligier — виробник авто, не команда Ф1). */}
+          {facts.instagram && current && (
             <a className="th-ig" href={`https://www.instagram.com/${encodeURIComponent(facts.instagram)}/`} rel="noopener">
               {t.instagram} <small>@{facts.instagram}</small>
             </a>
@@ -265,7 +269,8 @@ export default async function TeamPageView(props: Props) {
           </div>
           <div className="pos">
             <div className="pos-chart">
-              <div className="pos-scroll">
+              {/* На вузькому екрані графік прокручується вбік — область доступна з клавіатури (axe scrollable-region-focusable). */}
+              <div className="pos-scroll" role="region" aria-label={t.seasons.chartLabel} tabIndex={0}>
                 <SeasonChart seasons={[...page.seasons].reverse()} label={t.seasons.chartLabel} describe={describe} />
               </div>
               <p className="pkey">
