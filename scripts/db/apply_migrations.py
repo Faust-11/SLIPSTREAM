@@ -37,7 +37,11 @@ def main() -> int:
         print("DATABASE_URL не задано", file=sys.stderr)
         return 2
     files = sorted(MIGRATIONS.glob("*.sql"))
-    with psycopg.connect(dsn) as conn:
+    # autocommit: кожен `conn.transaction()` — справжня окрема транзакція (без нього перший select відкрив би
+    # зовнішню, і міграції стали б точками збереження всередині неї). lock_timeout — спільний проєкт: міграція
+    # не стоїть у черзі за блокуванням, затримуючи інші запити, а падає.
+    with psycopg.connect(dsn, autocommit=True) as conn:
+        conn.execute("set lock_timeout = '10s'")
         with conn.transaction():
             conn.execute(JOURNAL)
         done = {r[0] for r in conn.execute("select name from f1.schema_migrations")}
