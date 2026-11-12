@@ -3,30 +3,34 @@
 import "server-only";
 import curatedDriversJson from "@/data/curated/drivers.json";
 import curatedTeamsJson from "@/data/curated/teams.json";
-import snapshot from "@/data/snapshot/teams.json";
 import type { Locale } from "@/i18n/config";
 import { dbSelect } from "./db";
-import type { Credit, CuratedDriver, CuratedTeam, SnapshotDriver, TeamIndexRow, TeamSnapshot, TeamsSnapshot } from "./types";
+import type { Credit, CuratedDriver, CuratedTeam, SnapshotDriver, TeamIndexRow, TeamSnapshot } from "./types";
 
 // JSON-імпорт TypeScript типізує ширше (number[][] замість кортежів, number замість 480) — приводимо
-// через unknown; форму гарантують тести (`__tests__/teams-snapshot.test.ts`, `curated.test.ts`).
-/** Знімок фази 3a — лише фікстура тестів паритету (дані сайту — з бази). */
-export const teamsSnapshot = snapshot as unknown as TeamsSnapshot;
+// через unknown; форму перевіряють дані з бази (loadTeams кидає помилку на розбіжність) і тести `__tests__/teams.test.ts`.
 export const curatedTeams = (curatedTeamsJson as unknown as { teams: CuratedTeam[] }).teams;
 export const curatedDrivers = (curatedDriversJson as unknown as { drivers: Record<string, CuratedDriver> }).drivers;
 
 type SiteMetaRow = { current_season: number; last_round: number; last_race_date: string };
 type DbDriverRow = { ref: string; forename: string; surname: string };
 
-// Один запит на збірку: сторінки EN/UK і метадані беруть ті самі дані.
-let indexPromise: Promise<TeamIndexRow[]> | undefined;
-let metaPromise: Promise<SiteMetaRow> | undefined;
-const loadIndex = () =>
-  (indexPromise ??= dbSelect<TeamIndexRow>(
-    "team_index",
-    "select=id,seasons,grands_prix,wins,titles,current_position,current_drivers",
-  ));
-const loadMeta = () => (metaPromise ??= dbSelect<SiteMetaRow>("site_meta", "select=current_season,last_round,last_race_date").then((r) => r[0]!));
+/** Один запит на процес (сторінки EN/UK і метадані беруть ті самі дані); збій не кешується — наступний виклик повторить запит. */
+function once<T>(load: () => Promise<T>): () => Promise<T> {
+  let promise: Promise<T> | undefined;
+  return () =>
+    (promise ??= load().catch((e: unknown) => {
+      promise = undefined;
+      throw e;
+    }));
+}
+
+const loadIndex = once(() =>
+  dbSelect<TeamIndexRow>("team_index", "select=id,seasons,grands_prix,wins,titles,current_position,current_drivers"),
+);
+const loadMeta = once(() =>
+  dbSelect<SiteMetaRow>("site_meta", "select=current_season,last_round,last_race_date").then((r) => r[0]!),
+);
 
 /** Пілот без кураторських даних (новачок посеред сезону) — латиниця з бази, ініціали, без фото. */
 async function fallbackDrivers(refs: string[]): Promise<Record<string, CuratedDriver>> {
@@ -42,7 +46,8 @@ async function fallbackDrivers(refs: string[]): Promise<Record<string, CuratedDr
 }
 
 /** Команди з бази + кураторські дані, у формі знімка 3a (далі — та сама логіка карток). */
-async function loadTeams(): Promise<TeamSnapshot[]> {
+const loadTeams = once(buildTeams);
+async function buildTeams(): Promise<TeamSnapshot[]> {
   const rows = await loadIndex();
   const byId = new Map(curatedTeams.map((t) => [t.id, t]));
   const missingDrivers = [...new Set(rows.flatMap((r) => r.current_drivers))].filter((ref) => !curatedDrivers[ref]);
