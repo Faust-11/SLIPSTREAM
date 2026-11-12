@@ -1089,22 +1089,6 @@
  },
  {
   "id": "ats",
-  "year": 1963,
-  "entries": [
-   "ATS"
-  ],
-  "grands_prix": 5,
-  "wins": 0,
-  "podiums": 0,
-  "position": null,
-  "points": 0.0,
-  "excluded": false,
-  "champion": false,
-  "in_progress": false,
-  "season_races": 10
- },
- {
-  "id": "ats",
   "year": 1978,
   "entries": [
    "ATS"
@@ -1214,6 +1198,22 @@
   "champion": false,
   "in_progress": false,
   "season_races": 16
+ },
+ {
+  "id": "ats-italy",
+  "year": 1963,
+  "entries": [
+   "ATS"
+  ],
+  "grands_prix": 5,
+  "wins": 0,
+  "podiums": 0,
+  "position": null,
+  "points": 0.0,
+  "excluded": false,
+  "champion": false,
+  "in_progress": false,
+  "season_races": 10
  },
  {
   "id": "audi",

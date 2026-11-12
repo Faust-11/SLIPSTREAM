@@ -43,7 +43,7 @@ export default defineConfig({
         {
         command: process.env.CI
           ? `npx next start -p ${PORT}`
-          : `npx next build && npx next start -p ${PORT}`,
+          : `npm run build && npx next start -p ${PORT}`,
         // Готовність — відкритий порт, а не статус «/»: зламана сторінка має впасти в тесті, а не в тайм-ауті.
         port: PORT,
         // Чужий або старий сервер на порту дав би хибно-зелений прогін; перевикористання — лише явно.
