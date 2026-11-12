@@ -29,6 +29,9 @@ QUERIES = {
                     "from f1.team_seasons order by id, year",
     "team_wins": "select id, n, year, round, name, date::text as date, drivers from f1.team_wins order by id, n",
     "team_champions": "select id, driver, forename, surname, years from f1.team_champions order by id, years[1]",
+    "driver_index": "select id, forename, surname, code, country_code, nationality, starts, wins, podiums, poles, titles, "
+                    "title_years, y0, y1, seasons, main_team, current_team, current_number, current_position, current_points "
+                    "from f1.driver_index order by id",
     "team_pairing": "select id, driver, forename, surname, ord, races, points, in_last_race, race_ahead, quali_ahead "
                     "from f1.team_pairing order by id, ord",
 }
