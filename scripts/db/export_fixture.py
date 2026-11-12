@@ -34,6 +34,14 @@ QUERIES = {
                     "from f1.driver_index order by id",
     "team_pairing": "select id, driver, forename, surname, ord, races, points, in_last_race, race_ahead, quali_ahead "
                     "from f1.team_pairing order by id, ord",
+    # Сторінка пілота (0008).
+    "driver_totals": "select id, date_of_birth::text as date_of_birth, permanent_number, points, fastest_laps, fastest_laps_known, "
+                     "debut, last_race, first_podium, first_pole from f1.driver_totals order by id",
+    "driver_seasons": "select id, year, teams, numbers, races, wins, podiums, poles, points, position, excluded, champion, in_progress "
+                      "from f1.driver_seasons order by id, year",
+    "driver_wins": "select id, n, year, round, name, date::text as date, team, grid from f1.driver_wins order by id, n",
+    "driver_teammates": "select id, team, mate, forename, surname, years, races, race_ahead, race_behind, quali_races, quali_ahead, "
+                        "quali_behind from f1.driver_teammates order by id, team, mate",
 }
 with psycopg.connect(DSN) as conn:
     for name, sql in QUERIES.items():
