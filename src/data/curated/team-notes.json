@@ -348,6 +348,39 @@
     "checked": false
    }
   ],
+  "larrousse": [
+   {
+    "year": 1990,
+    "text": {
+     "uk": "У сезоні 1990 команда Larrousse з шасі Lola посіла шосте місце в Кубку конструкторів (11 очок). На початку 1991 року FISA анулювала цей результат: у заявці на сезон команду вказали конструктором, хоча шасі побудувала Lola. В офіційному архіві Формули-1 ці 11 очок і шосте місце досі значаться за «Lola Lamborghini».",
+     "en": "In 1990 the Larrousse team, running Lola chassis, finished sixth in the Constructors' Championship with 11 points. In early 1991 FISA cancelled that result because the team's entry had named Larrousse, not Lola, as the constructor. The official Formula 1 results archive still lists the sixth place and 11 points under 'Lola Lamborghini'."
+    },
+    "sources": [
+     {
+      "url": "https://www.motorsportmagazine.com/archive/article/april-1991/14/formula-one-scene/",
+      "title": ""
+     },
+     {
+      "url": "https://www.grandprix.com/constructors/larrousse.html",
+      "title": ""
+     },
+     {
+      "url": "https://www.autosport.com/f1/news/when-frances-other-team-brought-colour-to-f1/10645670/",
+      "title": ""
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Larrousse",
+      "title": ""
+     },
+     {
+      "url": "https://www.formula1.com/en/results/1990/team",
+      "title": ""
+     }
+    ],
+    "checked": false,
+    "decision": "користувач 12.11: виправити з джерелами (виключення підтверджують 4 джерела)"
+   }
+  ],
   "lola": [
    {
     "year": 1962,
