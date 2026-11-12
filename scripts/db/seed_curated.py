@@ -47,7 +47,7 @@ def main() -> int:
             join f1.rounds ro on ro.id = s.round_id
             join f1.teams t on t.id = r.team_id
             left join f1.team_families tf on tf.ref = t.ref and ro.season_year between tf.from_year and tf.to_year
-            where tf.ref is null and f1.result_started(r.detail, r.position, r.laps_completed, r.grid)
+            where tf.ref is null and f1.result_started(r.detail, r.position, r.laps_completed, r.grid, r.status)
             order by 1
             """
         ).fetchall()

@@ -310,23 +310,20 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     for a, b in (("hamilton", "alonso"), ("hamilton", "button"), ("hamilton", "bottas"), ("norris", "sainz"), ("norris", "piastri"), ("senna", "prost"), ("fangio", "moss")):
         print(f"INFO  напарники {a}–{b}:", [(k[1], v) for k, v in tm.items() if k[0] == a and k[2] == b])
     print("INFO  розмір подань пілота:", q("select relname, pg_size_pretty(pg_total_relation_size(c.oid)) from pg_class c join pg_namespace n on n.oid = c.relnamespace where n.nspname = 'f1' and relname like 'driver\\_%' and relkind = 'm' order by 1"))
-    # --- ЗАМІР (тимчасово): правило старту й заявки, зняті до гонки ---
-    print("INFO  START Марімон 1954 р.6:", q("""select r.status, r.detail, r.position, r.is_classified, r.grid, r.laps_completed, r.points, r.time_ms
-        from f1.results r join f1.sessions s on s.id = r.session_id and s.type = 'R' join f1.rounds ro on ro.id = s.round_id
-        join f1.drivers d on d.id = r.driver_id where d.ref = 'marimon' and ro.season_year = 1954 and ro.number = 6"""))
-    print("INFO  START стартували за правилом, за status (к-сть; з них 0 кіл):", q("""select r.status, count(*), count(*) filter (where coalesce(r.laps_completed, 0) = 0)
-        from f1.results r join f1.sessions s on s.id = r.session_id and s.type = 'R'
-        where f1.result_started(r.detail, r.position, r.laps_completed, r.grid) group by 1 order by 1"""))
-    print("INFO  START НЕ стартували за правилом, за status:", q("""select r.status, count(*) from f1.results r join f1.sessions s on s.id = r.session_id and s.type = 'R'
-        where not f1.result_started(r.detail, r.position, r.laps_completed, r.grid) group by 1 order by 1"""))
-    print("INFO  START стартували, 0 кіл, grid > 0 — detail (топ 40):", q("""select r.status, r.detail, r.is_classified, (r.position is null) as no_pos, count(*)
-        from f1.results r join f1.sessions s on s.id = r.session_id and s.type = 'R'
-        where f1.result_started(r.detail, r.position, r.laps_completed, r.grid) and coalesce(r.laps_completed, 0) = 0
-        group by 1, 2, 3, 4 order by 5 desc limit 40"""))
-    print("INFO  START Шумахер 0 кіл:", q("""select ro.season_year, ro.name, r.status, r.detail, r.position, r.grid, r.laps_completed
-        from f1.results r join f1.sessions s on s.id = r.session_id and s.type = 'R' join f1.rounds ro on ro.id = s.round_id
-        join f1.drivers d on d.id = r.driver_id where d.ref = 'michael_schumacher' and coalesce(r.laps_completed, 0) = 0 order by 1, 2"""))
-    print("INFO  START колонки results у дампі:", q("select column_name from information_schema.columns where table_schema = 'f1' and table_name = 'results' order by ordinal_position"))
+    # --- Правило старту (0009): status = 30 «не стартував» — не старт ---
+    dns = q("""select count(*) from f1.v_driver_round v join f1.results r on r.driver_id = v.driver_id
+               join f1.sessions s on s.id = r.session_id and s.type = 'R' and s.round_id = v.round_id
+               where r.status = 30 and not exists (select 1 from f1.results r2 join f1.sessions s2 on s2.id = r2.session_id and s2.type = 'R'
+                 where s2.round_id = v.round_id and r2.driver_id = v.driver_id and coalesce(r2.status, 0) <> 30)""")[0][0]
+    check("жодна гонка пілота не тримається лише на заявці «не стартував»", dns == 0, dns)
+    mar = q("select i.starts, t.last_race->>'name', (t.last_race->>'year')::int from f1.driver_index i join f1.driver_totals t on t.id = i.id where i.id = 'marimon'")
+    check("Марімон: 11 стартів (Вікіпедія), остання гонка — Гран-прі Великої Британії 1954", mar == [(11, "British Grand Prix", 1954)], mar)
+    print("INFO  START заявки status=30, які раніше рахувались стартом — за пілотами (топ):", q("""select d.ref, count(*) from f1.results r
+        join f1.sessions s on s.id = r.session_id and s.type = 'R' join f1.drivers d on d.id = r.driver_id
+        where r.status = 30 and f1.result_started(r.detail, r.position, r.laps_completed, r.grid) group by 1 order by 2 desc, 1 limit 70"""))
+    print("INFO  START еталони після зміни:", {k: (idx[k]["gp"], idx[k]["w"], idx[k]["t"]) for k in reference},
+          {k: drv.get(k) for k in ("michael_schumacher", "senna", "prost", "fangio", "clark", "hamilton")})
+    print("INFO  START пілотів зі стартом:", len(drv), "; команд:", len(idx))
     # Довідкові числа для звірки з Вікіпедією (docs/decisions.md) — друк, не перевірка.
     for k in ("mclaren", "ferrari", "williams", "brabham", "lotus", "mercedes", "red-bull", "tyrrell"):
         ch = conn.execute("select driver, years from f1.team_champions where id = %s order by years[1]", (k,)).fetchall()
