@@ -5,6 +5,7 @@ import curatedDriversJson from "@/data/curated/drivers.json";
 import curatedTeamsJson from "@/data/curated/teams.json";
 import type { Locale } from "@/i18n/config";
 import { dbSelect } from "./db";
+import { once } from "./once";
 import type { Credit, CuratedDriver, CuratedTeam, SnapshotDriver, TeamIndexRow, TeamSnapshot } from "./types";
 
 // JSON-імпорт TypeScript типізує ширше (number[][] замість кортежів, number замість 480) — приводимо
@@ -14,16 +15,6 @@ export const curatedDrivers = (curatedDriversJson as unknown as { drivers: Recor
 
 type SiteMetaRow = { current_season: number; last_round: number; last_race_date: string };
 type DbDriverRow = { ref: string; forename: string; surname: string };
-
-/** Один запит на процес (сторінки EN/UK і метадані беруть ті самі дані); збій не кешується — наступний виклик повторить запит. */
-function once<T>(load: () => Promise<T>): () => Promise<T> {
-  let promise: Promise<T> | undefined;
-  return () =>
-    (promise ??= load().catch((e: unknown) => {
-      promise = undefined;
-      throw e;
-    }));
-}
 
 const loadIndex = once(() =>
   dbSelect<TeamIndexRow>("team_index", "select=id,seasons,grands_prix,wins,titles,current_position,current_drivers"),

@@ -92,6 +92,10 @@ with races as (
          count(distinct (round_id, position)) filter (where started and session_type = 'R' and is_classified and position <= 3) as podiums
   from f1.v_team_race group by family_id, season_year
 ),
+season_len as (
+  -- Гонок у сезоні (з результатами) — для «15 перемог із 16 гонок».
+  select season_year, count(distinct round_id) as n from f1.v_team_race where session_type = 'R' group by season_year
+),
 standing as (
   select distinct on (tf.family_id, f.season_year)
          tf.family_id, f.season_year, f.position, f.points, f.eligible, f.excluded, f.decided
@@ -106,8 +110,12 @@ select r.family_id as id, r.season_year::int as year, r.entries,
        round(s.points)::int as points,
        coalesce(s.excluded, false) as excluded,
        coalesce(s.eligible and s.position = 1 and s.decided, false) as champion,
-       coalesce(not s.decided, false) as in_progress
+       -- Сезон ще триває (лишились етапи) — незалежно від того, чи Кубок уже вирішено.
+       (r.season_year = cs.year and cs.team_points_left > 0) as in_progress,
+       sl.n::int as season_races
 from races r left join standing s on s.family_id = r.family_id and s.season_year = r.season_year
+join season_len sl on sl.season_year = r.season_year
+cross join f1.v_current_season cs
 where r.grands_prix > 0 or s.family_id is not null;
 create unique index if not exists team_seasons_pk on f1.team_seasons(id, year);
 grant select on f1.team_seasons to anon, authenticated;

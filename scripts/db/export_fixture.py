@@ -25,7 +25,7 @@ QUERIES = {
     "team_totals": "select id, grands_prix, wins, podiums, poles, one_twos, constructors_titles, drivers_titles, "
                    "debut_year, debut_name, debut_date::text as debut_date, last_year, last_name, last_date::text as last_date "
                    "from f1.team_totals order by id",
-    "team_seasons": "select id, year, entries, grands_prix, wins, podiums, position, points, excluded, champion, in_progress "
+    "team_seasons": "select id, year, entries, grands_prix, wins, podiums, position, points, excluded, champion, in_progress, season_races "
                     "from f1.team_seasons order by id, year",
     "team_wins": "select id, n, year, round, name, date::text as date, drivers from f1.team_wins order by id, n",
     "team_champions": "select id, driver, forename, surname, years from f1.team_champions order by id, years[1]",

@@ -6,7 +6,8 @@
  *   node scripts/dev/fake-postgrest.mjs [--port 54321]
  *   SUPABASE_URL=http://127.0.0.1:54321 SUPABASE_ANON_KEY=test npm run build
  *
- * Перевіряє ті самі заголовки, що й Supabase (apikey, Accept-Profile: f1); фільтр `ref=in.(…)` — для drivers.
+ * Перевіряє ті самі заголовки, що й Supabase (apikey, Accept-Profile: f1); фільтр `ref=in.(…)` — для drivers;
+ * limit/offset і Prefer: count=exact — для посторінкового читання (dbSelectAll).
  */
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
@@ -29,7 +30,16 @@ createServer(async (req, res) => {
       const refs = new Set(refIn[1].split(","));
       rows = rows.filter((r) => refs.has(r.ref));
     }
-    res.writeHead(200, { "content-type": "application/json" }).end(JSON.stringify(rows));
+    // limit/offset і Prefer: count=exact (Content-Range «0-999/1154»), як у PostgREST — для dbSelectAll.
+    const total = rows.length;
+    const offset = Number(url.searchParams.get("offset") ?? 0);
+    const limit = url.searchParams.has("limit") ? Number(url.searchParams.get("limit")) : total;
+    rows = rows.slice(offset, offset + limit);
+    const headers = { "content-type": "application/json" };
+    if (/count=exact/.test(req.headers.prefer ?? "")) {
+      headers["content-range"] = rows.length ? `${offset}-${offset + rows.length - 1}/${total}` : `*/${total}`;
+    }
+    res.writeHead(200, headers).end(JSON.stringify(rows));
   } catch {
     res.writeHead(404).end(`no fixture for ${m[1]}`);
   }

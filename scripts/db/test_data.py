@@ -175,6 +175,9 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     check("поули й дублі ≤ Гран-прі, подіуми ≤ 3 × Гран-прі", not over, over[:5])
     mcl07 = conn.execute("select position, excluded from f1.team_seasons where id = 'mclaren' and year = 2007").fetchone()
     check("McLaren 2007 — виключена з заліку, без місця", mcl07 == (None, True), mcl07)
+    running = conn.execute("select bool_and(in_progress), count(*) from f1.team_seasons where year = %s", (cs_year,)).fetchone()
+    left = conn.execute("select team_points_left from f1.v_current_season").fetchone()[0]
+    check("поточний сезон «триває», поки лишились етапи (навіть якщо Кубок вирішено)", running[0] == (left > 0) and running[1] >= 10, (running, left))
     pre = conn.execute("select count(*) from f1.team_seasons where year < 1958 and position is not null").fetchone()[0]
     check("до 1958 Кубка не було — місць немає", pre == 0, pre)
     pair = conn.execute("select driver, races, points, race_ahead, quali_ahead from f1.team_pairing where id = 'mclaren' order by ord").fetchall()
