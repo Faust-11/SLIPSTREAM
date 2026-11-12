@@ -213,6 +213,72 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     print(f"INFO  пілотів зі стартом: {len(drv)}; чемпіонів: {champs}; переможців гонок: {winners}")
     for ref in ("hamilton", "max_verstappen", "michael_schumacher", "senna", "fangio", "antonelli"):
         print("INFO  pilot", ref, conn.execute("select starts, wins, podiums, poles, titles, title_years, y0, y1, main_team, current_team, current_number, current_position, current_points from f1.driver_index where id = %s", (ref,)).fetchone())
+    # --- Сторінка пілота (0008) ---
+    q = lambda sql, *a: conn.execute(sql, a).fetchall()
+    tot_d = {r[0]: r[1:] for r in q("select id, points, fastest_laps, fastest_laps_known, debut, last_race, first_podium, first_pole, date_of_birth from f1.driver_totals")}
+    check("driver_totals — ті самі пілоти, що в списку", set(tot_d) == set(drv), sorted(set(tot_d) ^ set(drv))[:10])
+    sums = {r[0]: r[1:] for r in q("select id, sum(races)::int, sum(wins)::int, sum(podiums)::int, sum(poles)::int, count(*)::int, min(year), max(year) from f1.driver_seasons group by id")}
+    idx_d = {r[0]: r[1:] for r in q("select id, starts, wins, podiums, poles, seasons, y0, y1 from f1.driver_index")}
+    bad = [(k, idx_d[k], sums.get(k)) for k in idx_d if sums.get(k) != idx_d[k]]
+    check("сума сезонів пілота = рядок списку (старти, перемоги, подіуми, поули, сезони, роки) — для всіх", not bad, bad[:5])
+    wn = dict(q("select id, count(*)::int from f1.driver_wins group by id"))
+    bad = [(k, v[1], wn.get(k, 0)) for k, v in idx_d.items() if wn.get(k, 0) != v[1]]
+    check("перемог у driver_wins = перемог у списку — для всіх", not bad, bad[:5])
+    gaps = q("select id from f1.driver_wins group by id having max(n) <> count(*) or min(n) <> 1")
+    check("номери перемог пілота 1..N без пропусків", not gaps, gaps[:5])
+    champ_rows = q("select id, array_agg(year order by year) from f1.driver_seasons where champion group by id")
+    bad = [(i, y) for i, y in champ_rows if y != conn.execute("select title_years from f1.driver_index where id = %s", (i,)).fetchone()[0]]
+    check("чемпіонські сезони пілота = роки титулів у списку", not bad and len(champ_rows) == champs, (bad[:5], len(champ_rows), champs))
+    multi = q("select count(*) from f1.driver_seasons where jsonb_array_length(teams) > 1")[0][0]
+    bad = q("select id, year from f1.driver_seasons s where (select sum((t->>'races')::int) from jsonb_array_elements(s.teams) t) <> s.races limit 5")
+    check("гонки за командами сезону в сумі = гонки сезону", not bad and multi > 0, (bad, multi))
+    # Гамілтон і Норріс: місце й очки сезонів (Вікіпедія; завершені сезони — не змінюються).
+    ham = {r[0]: (r[1], r[2]) for r in q("select year, position, points from f1.driver_seasons where id = 'hamilton'")}
+    exp = {2007: (2, 109), 2008: (1, 98), 2009: (5, 49), 2010: (4, 240), 2011: (5, 227), 2012: (4, 190), 2013: (4, 189),
+           2014: (1, 384), 2015: (1, 381), 2016: (2, 380), 2017: (1, 363), 2018: (1, 408), 2019: (1, 413), 2020: (1, 347),
+           2021: (2, 387.5), 2022: (6, 240), 2023: (3, 234), 2024: (7, 223)}
+    check("Гамілтон 2007–2024: місце й очки кожного сезону", all(ham.get(y) == v for y, v in exp.items()), {y: ham.get(y) for y, v in exp.items() if ham.get(y) != v})
+    nor = {r[0]: (r[1], r[2]) for r in q("select year, position, points from f1.driver_seasons where id = 'norris'")}
+    exp = {2019: (11, 49), 2020: (9, 97), 2021: (6, 160), 2022: (7, 122), 2023: (6, 205), 2024: (2, 374)}
+    check("Норріс 2019–2024: місце й очки кожного сезону", all(nor.get(y) == v for y, v in exp.items()), {y: nor.get(y) for y in exp if nor.get(y) != exp[y]})
+    h = tot_d["hamilton"]
+    check("Гамілтон: дебют і перший подіум — Австралія 2007 (P3), перший поул — Канада 2007",
+          (h[3]["year"], h[3]["name"], h[5]["name"], h[5]["position"], h[6]["year"], h[6]["name"]) ==
+          (2007, "Australian Grand Prix", "Australian Grand Prix", 3, 2007, "Canadian Grand Prix"), (h[3], h[5], h[6]))
+    w1 = q("select year, name, team, grid from f1.driver_wins where id = 'hamilton' and n = 1")[0]
+    check("Гамілтон: перша перемога — Канада 2007, McLaren, з поулу", w1 == (2007, "Canadian Grand Prix", "mclaren", 1), w1)
+    # Найшвидші кола: у Jolpica лише з 2004 (замір API 12.11) — повні лише в пілотів, що дебютували не раніше.
+    fl_year = q("select min(ro.season_year) from f1.results r join f1.sessions s on s.id = r.session_id and s.type = 'R' join f1.rounds ro on ro.id = s.round_id where r.fastest_lap_rank = 1")[0][0]
+    known = sum(1 for v in tot_d.values() if v[2])
+    check("найшвидші кола: дані з 2004; Гамілтон і Норріс — відомі, Шумахер і Сенна — ні",
+          fl_year == 2004 and h[2] and tot_d["norris"][2] and not tot_d["michael_schumacher"][2] and not tot_d["senna"][2], (fl_year, known))
+    bad = [k for k, v in tot_d.items() if not v[2] and conn.execute("select y0 from f1.driver_index where id = %s", (k,)).fetchone()[0] >= fl_year]
+    check("…«відомі» = дебют не раніше першого сезону з даними", not bad, bad[:5])
+    # Напарники: симетрія й межі.
+    tm = {(r[0], r[1], r[2]): r[3:] for r in q("select id, team, mate, years, races, race_ahead, race_behind, quali_races, quali_ahead, quali_behind from f1.driver_teammates")}
+    bad = [k for k, v in tm.items() if (m := tm.get((k[2], k[1], k[0]))) is None
+           or (m[1], m[2], m[3], m[4], m[5], m[6]) != (v[1], v[3], v[2], v[4], v[6], v[5]) or m[0] != v[0]]
+    check("напарники: кожна пара дзеркальна (A проти B = B проти A)", not bad, bad[:5])
+    bad = [k for k, v in tm.items() if v[1] < 5 or v[2] + v[3] > v[1] or v[4] > v[1] or v[5] + v[6] > v[4]]
+    check("напарники: від 5 спільних гонок; «попереду» ≤ гонок; кваліфікацій ≤ гонок", not bad, bad[:5])
+    hr = tm.get(("hamilton", "mercedes", "rosberg"))
+    check("Гамілтон — Росберг: Mercedes 2013–2016, 78 спільних гонок", hr is not None and hr[0] == [2013, 2014, 2015, 2016] and hr[1] == 78, hr)
+    per = q("select count(*), max(n), percentile_disc(0.5) within group (order by n), percentile_disc(0.9) within group (order by n) from (select id, count(*) n from f1.driver_teammates group by id) x")[0]
+    print(f"INFO  напарники: рядків {len(tm)}; пілотів з напарниками / макс. / медіана / p90 = {per}; без напарників: {len(drv) - per[0]}")
+    print("INFO  кваліфікації (Q1–Q3) — сезони з даними:", q("select min(ro.season_year), max(ro.season_year), count(distinct ro.season_year) from f1.sessions s join f1.rounds ro on ro.id = s.round_id join f1.results r on r.session_id = s.id where s.type in ('Q1','Q2','Q3')")[0])
+    print("INFO  типи сесій з результатами (тип, роки, рядків):", q("select s.type, min(ro.season_year), max(ro.season_year), count(*) from f1.sessions s join f1.rounds ro on ro.id = s.round_id join f1.results r on r.session_id = s.id group by s.type order by 2, 1"))
+    print("INFO  пари без повних кваліфікацій (quali_races < races) / усього:", sum(1 for v in tm.values() if v[4] < v[1]), "/", len(tm), "; з них quali_races > 0:", sum(1 for v in tm.values() if 0 < v[4] < v[1]))
+    print("INFO  коригування заліку пілотів (adjustment_type, eligible, к-сть):", q("select adjustment_type, is_eligible, count(*) from f1.driver_standings group by 1, 2 order by 1, 2"))
+    print("INFO  Шумахер 1997:", q("select year, position, points, excluded, champion from f1.driver_seasons where id = 'michael_schumacher' and year = 1997"))
+    print("INFO  сезони без запису в заліку:", q("select count(*) from f1.driver_seasons where points is null")[0][0], "; приклади:", q("select id, year from f1.driver_seasons where points is null order by year desc limit 5"))
+    print("INFO  номери: сезонів з > 3 номерами:", q("select count(*) from f1.driver_seasons where cardinality(numbers) > 3")[0][0], "; сезонів без номера:", q("select count(*) from f1.driver_seasons where cardinality(numbers) = 0")[0][0])
+    print("INFO  без дати народження:", sum(1 for v in tot_d.values() if v[7] is None), "; найшвидші кола відомі в", known, "пілотів")
+    for ref in ("hamilton", "norris", "michael_schumacher", "senna", "prost", "fangio", "clark", "max_verstappen"):
+        v = tot_d[ref]
+        print(f"INFO  підсумки {ref}: очки {v[0]}, найшв. кола {v[1]} (відомі: {v[2]}), дебют {v[3]['year']} {v[3]['name']}, остання {v[4]['year']} {v[4]['name']}")
+    for a, b in (("hamilton", "alonso"), ("hamilton", "button"), ("hamilton", "bottas"), ("norris", "sainz"), ("norris", "piastri"), ("senna", "prost"), ("fangio", "moss")):
+        print(f"INFO  напарники {a}–{b}:", [(k[1], v) for k, v in tm.items() if k[0] == a and k[2] == b])
+    print("INFO  розмір подань пілота:", q("select relname, pg_size_pretty(pg_total_relation_size(c.oid)) from pg_class c join pg_namespace n on n.oid = c.relnamespace where n.nspname = 'f1' and relname like 'driver\\_%' and relkind = 'm' order by 1"))
     # Довідкові числа для звірки з Вікіпедією (docs/decisions.md) — друк, не перевірка.
     for k in ("mclaren", "ferrari", "williams", "brabham", "lotus", "mercedes", "red-bull", "tyrrell"):
         ch = conn.execute("select driver, years from f1.team_champions where id = %s order by years[1]", (k,)).fetchall()
