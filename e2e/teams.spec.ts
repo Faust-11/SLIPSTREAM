@@ -1,5 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 import { expectNoA11yViolations } from "./axe";
+import { NEXT_CHUNKS } from "./next-chunks";
 
 const cards = (page: Page) => page.locator(".teams-grid .tc");
 const visibleCards = (page: Page) => page.locator(".teams-grid .tc");
@@ -217,7 +218,7 @@ test.describe("дизайн-рев'ю 11.11", () => {
   });
 
   test("посилання зі станом, а JS не завантажився: список з'являється за запобіжником (≤ 6 с)", async ({ page }) => {
-    await page.route("**/_next/static/chunks/*.js", (r) => r.abort());
+    await page.route(NEXT_CHUNKS, (r) => r.abort());
     await page.goto("/uk/teams?q=ferrari");
     await expect(page.locator("html")).toHaveAttribute("data-list-query", "");
     await expect(page.locator(".teams-grid")).toHaveCSS("visibility", "hidden");
