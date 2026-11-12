@@ -1,4 +1,717 @@
 {
  "_about": "Редакційні пояснення до незвичних сезонів команди (UK + EN), кожне з джерелами. Формат: {\"<id команди>\": [{\"year\": 2007, \"text\": {\"uk\": \"…\", \"en\": \"…\"}, \"sources\": [{\"url\": \"…\", \"title\": \"…\"}]}]}.",
- "notes": {}
+ "notes": {
+  "alfa-romeo": [
+   {
+    "year": 1979,
+    "text": {
+     "uk": "Після сезону 1951 заводська команда Alfa Romeo пішла з Гран-прі, не ставши будувати нову машину. Як конструктор вона повернулася 1979 року через свій гоночний підрозділ Autodelta і знову пішла після сезону 1985.",
+     "en": "After 1951 the Alfa Romeo works team withdrew from Grand Prix racing rather than build a new car. It returned as a constructor in 1979 through its racing department Autodelta and left again after the 1985 season."
+    },
+    "sources": [
+     {
+      "url": "https://www.motorsportmagazine.com/database/championships/1951-f1-world-championship",
+      "title": "1951 F1 World Championship — Motor Sport Magazine database"
+     },
+     {
+      "url": "https://www.autosport.com/f1/news/when-alfa-romeo-went-unbeaten-in-f1-5110943/5110943/",
+      "title": "When Alfa Romeo went unbeaten in F1 — Autosport"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_in_Formula_One",
+      "title": "Alfa Romeo in Formula One — Wikipedia"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "alpine": [
+   {
+    "year": 2021,
+    "text": {
+     "uk": "Alpine — це перейменована з 2021 року команда Renault F1 Team. Її історія починається з Toleman (1981), згодом команда виступала як Benetton, Renault і Lotus.",
+     "en": "Alpine is the Renault F1 Team renamed for 2021. Its history goes back to Toleman (1981); the team later raced as Benetton, Renault and Lotus."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Alpine_F1_Team",
+      "title": "Alpine F1 Team — Wikipedia"
+     },
+     {
+      "url": "https://www.autosport.com/f1/news/151921/renault-f1-team-to-become-alpine-for-2021",
+      "title": "Renault F1 team to become Alpine for 2021 — Autosport (06.09.2020)"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "arrows": [
+   {
+    "year": 1997,
+    "text": {
+     "uk": "У 1991–1996 роках команда виступала під назвою Footwork — після великих інвестицій японського підприємця Ватару Охаші. У березні 1996 року контроль над нею отримав Том Волкіншоу, і з 1997-го вона знову виступала як Arrows.",
+     "en": "From 1991 to 1996 the team raced as Footwork, following heavy investment by Japanese businessman Wataru Ohashi. Tom Walkinshaw took control in March 1996, and from 1997 the team was entered as Arrows again."
+    },
+    "sources": [
+     {
+      "url": "https://www.grandprix.com/gpe/con-arrow.html",
+      "title": "Arrows — GrandPrix.com encyclopedia"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Arrows_Grand_Prix_International",
+      "title": "Arrows Grand Prix International — Wikipedia"
+     }
+    ],
+    "checked": false
+   },
+   {
+    "year": 2002,
+    "text": {
+     "uk": "У середині сезону 2002 року в Arrows закінчилися гроші, і команда пропустила останні етапи чемпіонату. Наприкінці року її ліквідували, а заявку на 2003 рік FIA відхилила.",
+     "en": "Arrows ran out of money in mid-2002 and missed the final races of the season. The team went into liquidation at the end of the year, and the FIA rejected its entry for 2003."
+    },
+    "sources": [
+     {
+      "url": "https://www.grandprix.com/gpe/con-arrow.html",
+      "title": "Arrows — GrandPrix.com encyclopedia"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Arrows_Grand_Prix_International",
+      "title": "Arrows Grand Prix International — Wikipedia"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "aston-martin": [
+   {
+    "year": 2021,
+    "text": {
+     "uk": "Команда Aston Martin з 2021 року — це перейменована Racing Point (раніше Force India, а від 1991 року — Jordan), власник якої Лоуренс Строл вклав кошти в автовиробника. Організаційно вона не пов'язана із заводською командою 1959–1960 років.",
+     "en": "The Aston Martin team from 2021 is the renamed Racing Point (previously Force India, originally Jordan from 1991), whose owner Lawrence Stroll had invested in the car maker. It is not organisationally linked to the 1959–60 works team."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Aston_Martin_in_Formula_One",
+      "title": "Aston Martin in Formula One — Wikipedia"
+     },
+     {
+      "url": "https://www.formula1.com/en/latest/article/racing-point-set-to-become-aston-martin-racing-for-2021.2YwShWhMbZr2NK1M4Q1nMn",
+      "title": "Racing Point set to become Aston Martin works team for 2021 — formula1.com (31.01.2020)"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "audi": [
+   {
+    "year": 2026,
+    "text": {
+     "uk": "Audi прийшла у Formula 1, викупивши команду Sauber (повне поглинання завершено в січні 2025 року). У 1993–2025 роках ця команда виступала як Sauber, BMW Sauber, Alfa Romeo та Kick Sauber.",
+     "en": "Audi entered Formula One by buying the Sauber team (the full takeover was completed in January 2025). From 1993 to 2025 that team raced as Sauber, BMW Sauber, Alfa Romeo and Kick Sauber."
+    },
+    "sources": [
+     {
+      "url": "https://f1technical.net/news/26230",
+      "title": "Audi confirms complete takeover of the Sauber F1 team — f1technical.net (30.01.2025)"
+     },
+     {
+      "url": "https://www.skysports.com/f1/news/12040/13089777/formula-1-audi-complete-full-sauber-takeover-ahead-of-2026-entry-to-sport",
+      "title": "Audi complete full Sauber takeover ahead of 2026 entry — Sky Sports (08.03.2024)"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Sauber_Motorsport",
+      "title": "Sauber Motorsport — Wikipedia"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "brm": [
+   {
+    "year": 1956,
+    "text": {
+     "uk": "У 1952–1953 роках гонки чемпіонату світу проводили за правилами Формули-2, тож V16 від BRM був непридатний, а нова 2,5-літрова P25 під регламент 1954 року була готова до гонок лише у вересні 1955-го. Тому наступний старт BRM у чемпіонаті припав на 1956 рік.",
+     "en": "In 1952–1953 World Championship races were run to Formula Two rules, which ruled out BRM's V16, and its 2.5-litre P25 for the new 1954 regulations was not ready to race until September 1955. BRM's next championship start therefore came in 1956."
+    },
+    "sources": [
+     {
+      "url": "https://www.autosport.com/f1/news/the-f1-car-nobody-wanted-to-drive-5113129/5113129/",
+      "title": "The F1 car nobody wanted to drive — Autosport"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/1952_Formula_One_season",
+      "title": "1952 Formula One season — Wikipedia"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/British_Racing_Motors",
+      "title": "British Racing Motors — Wikipedia"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "cadillac": [
+   {
+    "year": 2026,
+    "text": {
+     "uk": "Cadillac — повністю нова команда, а не перейменована: у березні 2025 року FIA та Formula 1 схвалили заявку General Motors і TWG Motorsports, і з 2026-го на старті стало одинадцять команд.",
+     "en": "Cadillac is a new entry, not a renamed existing team: in March 2025 the FIA and Formula 1 approved the application from General Motors and TWG Motorsports, expanding the grid to eleven teams from 2026."
+    },
+    "sources": [
+     {
+      "url": "https://www.skysports.com/f1/news/12433/13323418/cadillac-f1-team-approved-for-2026-season-with-new-general-motors-backed-entry-to-join-as-grids-11th-outfit",
+      "title": "Cadillac F1 team approved for 2026 season — Sky Sports, 7 March 2025"
+     },
+     {
+      "url": "https://www.autosport.com/f1/news/f1-formally-approves-deal-for-general-motors-to-become-11th-team-with-cadillac-in-2026/10701178/",
+      "title": "F1 formally approves deal for General Motors to become 11th team — Autosport"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "de-tomaso": [
+   {
+    "year": 1970,
+    "text": {
+     "uk": "Після нечисленних виступів у 1961–1963 роках De Tomaso повернулася 1970-го лише як виробник шасі 505/38 (конструктор Джан Паоло Даллара), на якому виступала команда Frank Williams Racing Cars. Після цього сезону співпраця припинилася.",
+     "en": "After a handful of entries in 1961–63, De Tomaso returned in 1970 only as the builder of the 505/38 chassis (designed by Gian Paolo Dallara), raced by Frank Williams Racing Cars. The partnership ended after that season."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/De_Tomaso",
+      "title": "De Tomaso — Wikipedia"
+     },
+     {
+      "url": "https://www.formulaonehistory.com/teams/de-tomaso/",
+      "title": "De Tomaso — formulaonehistory.com"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "emeryson": [
+   {
+    "year": 1961,
+    "text": {
+     "uk": "Emeryson — невелика майстерня британського конструктора Пола Емері, який 1956 року один раз стартував у чемпіонаті на власній машині. Марка повернулася 1961 року з новими 1,5-літровими машинами, а наприкінці того ж року Емері продав компанію американцеві Г'ю Павеллу.",
+     "en": "Emeryson was the small concern of British builder Paul Emery, who made a single championship start in his own car in 1956. The marque returned in 1961 with new 1.5-litre cars, and by the end of that year Emery had sold the company to American Hugh Powell."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Emeryson",
+      "title": "Emeryson — Wikipedia"
+     },
+     {
+      "url": "https://www.hrscc.co.nz/formula-junior/emerysons/part-5-1961-1963-formula-junior-formula-one/",
+      "title": "Emerysons part 5: 1961–1963 — Historic Racing Sports Car Club NZ"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "ewing": [
+   {
+    "year": 1950,
+    "text": {
+     "uk": "Ewing потрапив до статистики лише завдяки «Індіанаполіс 500», яка у 1950–1960 роках входила до чемпіонату світу серед пілотів, але не давала очок конструкторам. Машини з шасі Ewing стартували там у 1950 і 1960 роках.",
+     "en": "Ewing appears only through the Indianapolis 500, which counted towards the drivers' World Championship from 1950 to 1960 but gave no constructors' points. Ewing-chassis cars started the race in 1950 and 1960."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/1950_Indianapolis_500",
+      "title": "1950 Indianapolis 500 — Wikipedia"
+     },
+     {
+      "url": "https://cms.ims.com/events/indy500/history/historical-stats/race-stats/race-results/1950",
+      "title": "1950 Indianapolis 500 race results — Indianapolis Motor Speedway"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Ewing_(constructor)",
+      "title": "Ewing (constructor) — Wikipedia"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "honda": [
+   {
+    "year": 1968,
+    "text": {
+     "uk": "Після останньої гонки 1968 року Honda офіційно пішла з Формули-1. Того сезону на Гран-прі Франції за кермом Honda RA302 загинув Жо Шлессер; компанія також посилалася на труднощі з продажем дорожніх авто у США.",
+     "en": "Honda formally withdrew from Formula One after the last race of 1968, a season in which Jo Schlesser was killed driving its RA302 at the French Grand Prix. Honda also pointed to difficulties selling road cars in the United States."
+    },
+    "sources": [
+     {
+      "url": "https://www.autosport.com/general/news/living-with-the-dead-13-kms-5076677/5076677/",
+      "title": "Living with the dead — Autosport"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Honda_in_Formula_One",
+      "title": "Honda in Formula One — Wikipedia"
+     }
+    ],
+    "checked": false
+   },
+   {
+    "year": 2006,
+    "text": {
+     "uk": "Honda повернулася як конструктор, ставши єдиним власником команди BAR, якій постачала двигуни з 2000 року; з 2006-го команда виступала як Honda Racing F1 Team.",
+     "en": "Honda returned as a constructor by becoming sole owner of BAR, the team it had supplied with engines since 2000; from 2006 it raced as Honda Racing F1 Team."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Honda_in_Formula_One",
+      "title": "Honda in Formula One — Wikipedia"
+     },
+     {
+      "url": "https://journalauto.com/constructeurs/bar-honda-devient-honda-racing-team/",
+      "title": "BAR Honda devient Honda Racing Team — Journal de l'Automobile"
+     }
+    ],
+    "checked": false
+   },
+   {
+    "year": 2008,
+    "text": {
+     "uk": "У грудні 2008 року Honda оголосила про негайний вихід з Формули-1 через економічну ситуацію. Команду врятував викуп менеджментом на чолі з Россом Броном: 2009 року вона виступала як Brawn GP, а згодом стала Mercedes.",
+     "en": "In December 2008 Honda announced it was leaving Formula One with immediate effect, citing the economic situation. A management buy-out led by Ross Brawn saved the team, which raced as Brawn GP in 2009 and later became Mercedes."
+    },
+    "sources": [
+     {
+      "url": "https://f1technical.net/news/11194",
+      "title": "Honda withdraw from Formula One — F1Technical"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Honda_in_Formula_One",
+      "title": "Honda in Formula One — Wikipedia"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "lola": [
+   {
+    "year": 1962,
+    "text": {
+     "uk": "Lola Cars переважно будувала шасі для інших команд, а не виставляла власну заводську команду, тож окремі відрізки на графіку — це різні колективи: Bowmaker (1962–1963), Embassy Hill (1974–1975), Larrousse (1991) і Scuderia Italia (1993).",
+     "en": "Lola Cars mostly built chassis for other teams rather than running its own works team, so the separate spells here belong to different outfits: Bowmaker (1962–63), Embassy Hill (1974–75), Larrousse (1991) and Scuderia Italia (1993)."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Lola_Cars",
+      "title": "Lola Cars — Wikipedia"
+     },
+     {
+      "url": "https://www.formulaonehistory.com/teams/lola/",
+      "title": "Lola — formulaonehistory.com"
+     }
+    ],
+    "checked": false
+   },
+   {
+    "year": 1967,
+    "text": {
+     "uk": "У 1967 і 1968 роках Lola з'являється лише на Гран-прі Німеччини: там стартували машини Lola-BMW, створені на базі шасі Formula 2.",
+     "en": "In 1967 and 1968 Lola appears only at the German Grand Prix, where Lola-BMW cars based on Formula Two chassis took part."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Hubert_Hahne",
+      "title": "Hubert Hahne — Wikipedia"
+     },
+     {
+      "url": "https://www.formulaonehistory.com/teams/lola/",
+      "title": "Lola — formulaonehistory.com"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "march": [
+   {
+    "year": 1987,
+    "text": {
+     "uk": "March повернулася до Ф-1 1987 року за підтримки компанії Leyton House з Іваном Капеллі за кермом. Після того як 1989 року Leyton House викупила команду, у 1990–1991 роках вона виступала як Leyton House — у наших даних ці сезони записані окремо.",
+     "en": "March returned to F1 in 1987 with backing from Leyton House and Ivan Capelli as driver. After Leyton House bought the team in 1989, it raced as Leyton House in 1990–1991, and those seasons are listed separately in our data."
+    },
+    "sources": [
+     {
+      "url": "https://www.goodwood.com/grr/f1/a-bolt-from-the-blue-the-rise-and-fall-of-leyton-house-racing/",
+      "title": "A bolt from the blue: the rise and fall of Leyton House Racing — Goodwood"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/March_Engineering",
+      "title": "March Engineering — Wikipedia"
+     }
+    ],
+    "checked": false
+   },
+   {
+    "year": 1992,
+    "text": {
+     "uk": "1992 року колишня команда Leyton House перейшла до нового консорціуму власників і знову взяла назву March, хоча вже не була пов'язана з групою March. Через брак фінансування на початку 1993 року команда припинила існування.",
+     "en": "For 1992 the former Leyton House team, now owned by a new consortium and no longer connected to the March group, revived the March name. Short of funding, it folded in early 1993."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/March_Engineering",
+      "title": "March Engineering — Wikipedia"
+     },
+     {
+      "url": "https://www.formulaonehistory.com/teams/leyton-house/",
+      "title": "Leyton House — Formula One History"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "mclaren": [
+   {
+    "year": 2007,
+    "text": {
+     "uk": "У 2007 році McLaren виключили з Кубка конструкторів і анулювали всі очки команди після рішення FIA у справі про конфіденційні технічні дані Ferrari. Очки пілотів залишилися в заліку.",
+     "en": "In 2007 McLaren was excluded from the constructors' championship and lost all its points after an FIA ruling in a case involving confidential Ferrari technical data. Its drivers kept their points."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/2007_Formula_One_espionage_controversy",
+      "title": "2007 Formula One espionage controversy — Wikipedia"
+     },
+     {
+      "url": "https://www.autosport.com/f1/news/62313/mclaren-lose-2007-points-fined-100m",
+      "title": "McLaren lose 2007 points, fined $100m — Autosport (13.09.2007)"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "mercedes": [
+   {
+    "year": 1955,
+    "text": {
+     "uk": "Наприкінці 1955 року Mercedes-Benz пішов з автоспорту, зокрема з Формули-1, після трагедії на перегонах «24 години Ле-Мана» того ж сезону. Власною командою марка повернулася до чемпіонату лише 2010 року.",
+     "en": "Mercedes-Benz left motor racing, Formula One included, at the end of 1955 in the wake of that year's Le Mans disaster. It did not field its own F1 team again until 2010."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Mercedes-Benz_in_Formula_One",
+      "title": "Mercedes-Benz in Formula One — Wikipedia"
+     },
+     {
+      "url": "https://www.motorsportmagazine.com/database/teams/mercedes-benz",
+      "title": "Mercedes-Benz — Motor Sport Magazine database"
+     }
+    ],
+    "checked": false
+   },
+   {
+    "year": 2010,
+    "text": {
+     "uk": "Mercedes повернувся як конструктор, коли в листопаді 2009 року Daimler разом з Aabar Investments викупили 75,1% команди Brawn GP — чинного чемпіона 2009 року. Сама Brawn GP була колишньою заводською командою Honda, що веде історію від BAR і Tyrrell.",
+     "en": "Mercedes returned as a constructor after Daimler and Aabar Investments took a 75.1% stake in 2009 champions Brawn GP in November 2009. Brawn GP was the former Honda works team, whose lineage runs back through BAR to Tyrrell."
+    },
+    "sources": [
+     {
+      "url": "https://www.grandprix.com/ns/ns21982.html",
+      "title": "GrandPrix.com news, 16 November 2009"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Mercedes-Benz_in_Formula_One",
+      "title": "Mercedes-Benz in Formula One — Wikipedia"
+     },
+     {
+      "url": "https://www.motorsportmagazine.com/database/teams/mercedes-benz",
+      "title": "Mercedes-Benz — Motor Sport Magazine database"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "moore": [
+   {
+    "year": 1950,
+    "text": {
+     "uk": "Moore потрапив до статистики лише завдяки «Індіанаполіс 500», яка у 1950–1960 роках входила до чемпіонату світу серед пілотів, але не давала очок конструкторам. 1950 року машину виставила команда Лу Мура.",
+     "en": "Moore appears only through the Indianapolis 500, which counted towards the drivers' World Championship from 1950 to 1960 but gave no constructors' points. In 1950 the car was entered by Lou Moore's team."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/1950_Indianapolis_500",
+      "title": "1950 Indianapolis 500 — Wikipedia"
+     },
+     {
+      "url": "https://cms.ims.com/events/indy500/history/historical-stats/race-stats/race-results/1950",
+      "title": "1950 Indianapolis 500 race results — Indianapolis Motor Speedway"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "racing-bulls": [
+   {
+    "year": 2024,
+    "text": {
+     "uk": "Це не нова команда: її заснували як Minardi (1985–2005), після купівлі Red Bull вона виступала як Toro Rosso (2006–2019) та AlphaTauri (2020–2023), 2024 року — як RB, а з 2025-го — як Racing Bulls. Попередні сезони в наших даних записані під давнішими назвами.",
+     "en": "This is not a new team: it began as Minardi (1985–2005), raced as Toro Rosso (2006–2019) and AlphaTauri (2020–2023) under Red Bull ownership, competed as RB in 2024 and became Racing Bulls in 2025. Its earlier seasons appear in our data under those older names."
+    },
+    "sources": [
+     {
+      "url": "https://www.formula1.com/en/latest/article/team-preview-can-racing-bulls-put-on-a-charge-with-their-new-name-and.6AdJIA1akhxYKLsf1KwvgG",
+      "title": "Team preview: Racing Bulls — Formula1.com"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Racing_Bulls",
+      "title": "Racing Bulls — Wikipedia"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "racing-point": [
+   {
+    "year": 2019,
+    "text": {
+     "uk": "Racing Point — колишня Force India: у серпні 2018 року її активи викупив консорціум на чолі з Лоуренсом Стролом. Під назвою Racing Point команда виступала у 2019–2020 роках, а з 2021-го стала Aston Martin.",
+     "en": "Racing Point is the former Force India, whose assets a consortium led by Lawrence Stroll bought in August 2018. The team raced as Racing Point in 2019–20 and became Aston Martin in 2021."
+    },
+    "sources": [
+     {
+      "url": "https://www.formula1.com/en/latest/article/fia-approve-racing-point-force-india-f1-entry.3BsgxEhqbYeUqec40OaSEw.3BsgxEhqbYeUqec40OaSEw",
+      "title": "FIA approve Racing Point Force India F1 entry — formula1.com (23.08.2018)"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Racing_Point_F1_Team",
+      "title": "Racing Point F1 Team — Wikipedia"
+     }
+    ],
+    "checked": false
+   },
+   {
+    "year": 2020,
+    "text": {
+     "uk": "У 2020 році Racing Point позбавили 15 очок у Кубку конструкторів і оштрафували на 400 000 євро: стюарди задовольнили протест Renault щодо задніх гальмівних повітроводів, які, за їхнім висновком, спроєктувала Mercedes, а не сама команда. Очки пілотів не зняли.",
+     "en": "In 2020 Racing Point lost 15 constructors' points and was fined €400,000 after stewards upheld Renault's protest over its rear brake ducts, which they found had been designed by Mercedes rather than the team itself. The drivers kept their points."
+    },
+    "sources": [
+     {
+      "url": "https://www.formula1.com/en/latest/article/breaking-racing-point-deducted-15-points-and-fined-heavily-as-renault.7j9tsLSAm7rXnWHxH1Uy9c",
+      "title": "Racing Point deducted 15 points and fined heavily as Renault protest upheld — formula1.com (07.08.2020)"
+     },
+     {
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/racing-point-fined-and-docked-points-after-stewards-side-with-renault-in-copycat-protest/",
+      "title": "Racing Point fined and docked points after Renault brake duct protest — Motor Sport Magazine"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "red-bull": [
+   {
+    "year": 2005,
+    "text": {
+     "uk": "Red Bull Racing — колишня команда Jaguar Racing, яку Red Bull купив у Ford у листопаді 2004 року. Своєю чергою Jaguar Racing виник 2000 року з команди Stewart Grand Prix (1997–1999).",
+     "en": "Red Bull Racing is the former Jaguar Racing team, which Red Bull bought from Ford in November 2004. Jaguar Racing had itself been created from Stewart Grand Prix (1997–1999)."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Red_Bull_Racing",
+      "title": "Red Bull Racing — Wikipedia"
+     },
+     {
+      "url": "https://www.grandprix.com/news/mateschitz-confirms-jaguar-purchase.html",
+      "title": "Mateschitz confirms Jaguar purchase — grandprix.com (15.11.2004)"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "renault": [
+   {
+    "year": 2002,
+    "text": {
+     "uk": "Наприкінці 1985 року Renault закрила заводську команду, але згодом повернулася до Ф-1 як постачальник двигунів. На початку 2000 року компанія купила Benetton і з 2002-го виставляла команду під власною назвою.",
+     "en": "Renault closed its works team at the end of 1985 but later came back to F1 as an engine supplier. It bought Benetton in early 2000 and entered the team under its own name from 2002."
+    },
+    "sources": [
+     {
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/teapots-turbos-and-titles-renaults-wild-f1-ride/",
+      "title": "Teapots, turbos and titles: Renault's wild F1 ride — Motor Sport"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Renault_in_Formula_One",
+      "title": "Renault in Formula One — Wikipedia"
+     },
+     {
+      "url": "https://www.motorsportmagazine.com/archive/page/april-2016/120",
+      "title": "Data trace: Enstone — Motor Sport, April 2016"
+     }
+    ],
+    "checked": false
+   },
+   {
+    "year": 2016,
+    "text": {
+     "uk": "Перед сезоном 2010 Renault продала більшість команди з Енстоуна компанії Genii Capital: вона ще виступала як Renault (2011 року — як Lotus Renault GP), а з 2012-го — як Lotus. У грудні 2015 року Renault викупила команду назад; після 2020 року її перейменували на Alpine.",
+     "en": "Renault sold a majority of the Enstone team to Genii Capital ahead of 2010; it kept the Renault name (Lotus Renault GP in 2011) and raced as Lotus from 2012. Renault bought it back in December 2015, and after 2020 it was renamed Alpine."
+    },
+    "sources": [
+     {
+      "url": "https://www.formula1.com/en/latest/article/renault-formally-complete-lotus-takeover.5aFbvhNiNzoO5DxGIZ5iQr",
+      "title": "Renault formally complete Lotus takeover — Formula1.com"
+     },
+     {
+      "url": "https://www.motorsportmagazine.com/archive/page/april-2016/120",
+      "title": "Data trace: Enstone — Motor Sport, April 2016"
+     },
+     {
+      "url": "https://www.formula1.com/en/latest/article/renault-alpine-f1-team-2021.7eY84dCU9MythQjcYG8T45",
+      "title": "Renault to rebrand as Alpine F1 Team in 2021 — Formula1.com"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Renault_in_Formula_One",
+      "title": "Renault in Formula One — Wikipedia"
+     }
+    ],
+    "checked": false
+   },
+   {
+    "year": 2019,
+    "text": {
+     "uk": "Після протесту Racing Point обидві машини Renault дискваліфікували з результатів Гран-прі Японії 2019 року: стюарди визнали автоматичну систему регулювання балансу гальм забороненою допомогою пілоту, і команда втратила дев'ять очок.",
+     "en": "Both Renault cars were disqualified from the 2019 Japanese Grand Prix after a protest by Racing Point: the stewards ruled the team's automatic brake-balance system an illegal driver aid, and Renault lost nine points."
+    },
+    "sources": [
+     {
+      "url": "https://www.formula1.com/en/latest/article/renault-disqualified-from-results-of-the-japanese-grand-prix.5lDaMU1SWKaXnpEP93CLVB",
+      "title": "Renault disqualified from results of the Japanese Grand Prix — Formula1.com"
+     },
+     {
+      "url": "https://f1technical.net/news/22222",
+      "title": "Renault disqualified from Japanese GP due to illegal driver aid — F1Technical"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "sauber": [
+   {
+    "year": 2006,
+    "text": {
+     "uk": "Наприкінці 2005 року BMW викупила контрольний пакет Sauber, тому в 2006–2009 роках команда значиться як BMW Sauber.",
+     "en": "At the end of 2005 BMW bought a majority stake in Sauber, so in 2006–2009 the team is listed as BMW Sauber."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Sauber_Motorsport",
+      "title": "Sauber Motorsport — Wikipedia"
+     },
+     {
+      "url": "https://www.motorsportmagazine.com/archive/article/august-2005/9/bmw-buys-sauber-and-aims-for-2008-title",
+      "title": "BMW buys Sauber and aims for 2008 title — Motor Sport Magazine (August 2005)"
+     }
+    ],
+    "checked": false
+   },
+   {
+    "year": 2010,
+    "text": {
+     "uk": "Після виходу BMW з Formula 1 наприкінці 2009 року засновник Петер Заубер викупив команду назад, і з 2010 року вона знову виступає як Sauber.",
+     "en": "After BMW left Formula One at the end of 2009, founder Peter Sauber bought the team back, and from 2010 it raced as Sauber again."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Sauber_Motorsport",
+      "title": "Sauber Motorsport — Wikipedia"
+     },
+     {
+      "url": "https://www.swissinfo.ch/eng/racing-boss-sauber-gets-clean-restart/8199292",
+      "title": "Racing boss Sauber gets clean restart — swissinfo.ch (31.01.2010)"
+     }
+    ],
+    "checked": false
+   },
+   {
+    "year": 2019,
+    "text": {
+     "uk": "У 2019–2023 роках команда виступала під назвою Alfa Romeo за спонсорською угодою, не змінюючи власників. У 2024–2025 роках вона повернулася до назви Sauber (Kick Sauber), а з 2026 року стала Audi.",
+     "en": "From 2019 to 2023 the team raced under the Alfa Romeo name as part of a sponsorship deal, without a change of ownership. It returned to the Sauber name (Kick Sauber) in 2024–25 and became Audi in 2026."
+    },
+    "sources": [
+     {
+      "url": "https://www.autosport.com/f1/news/141278/sauber-f1-team-renamed-alfa-romeo-racing",
+      "title": "Sauber F1 team renamed Alfa Romeo Racing — Autosport (01.02.2019)"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Sauber_Motorsport",
+      "title": "Sauber Motorsport — Wikipedia"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "trevis": [
+   {
+    "year": 1951,
+    "text": {
+     "uk": "Trevis — машини американського конструктора Флойда Тревіса, що брали участь у чемпіонаті світу лише в гонці «Індіанаполіс 500», яка входила до чемпіонату в 1950–1960 роках; пропущені сезони — роки, коли машин Trevis не було на старті. Очки в «Індіанаполісі» рахувалися лише пілотам, а не в Кубку конструкторів (з 1958 року).",
+     "en": "Trevis cars, built by American constructor Floyd Trevis, appear only at the Indianapolis 500, which was a World Championship round from 1950 to 1960; the missing seasons are years with no Trevis car in the race. Indianapolis counted for the drivers' title but not for the constructors' cup introduced in 1958."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Floyd_Trevis",
+      "title": "Floyd Trevis — Wikipedia"
+     },
+     {
+      "url": "https://www.formulaonehistory.com/teams/trevis/",
+      "title": "Trevis — Formula One History"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/1958_Formula_One_season",
+      "title": "1958 Formula One season — Wikipedia"
+     }
+    ],
+    "checked": false
+   }
+  ],
+  "williams": [
+   {
+    "year": 1978,
+    "text": {
+     "uk": "Френк Вільямс і Патрік Гед заснували Williams Grand Prix Engineering 1977 року; того сезону команда виступала на клієнтському шасі March 761 (у наших даних ці результати записані за March). Перше власне шасі, FW06, вийшло на старт 1978 року.",
+     "en": "Frank Williams and Patrick Head founded Williams Grand Prix Engineering in 1977; that season it raced a customer March 761, so its 1977 results are listed under March. Its first own car, the FW06, appeared in 1978."
+    },
+    "sources": [
+     {
+      "url": "https://www.formula1.com/en/latest/article/f1-williams-40-anniversary-facts-stats-video-moments.4gCUxY8VnOgkAGqe8A8646",
+      "title": "Williams 40th anniversary: facts, stats — Formula1.com"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Williams_Racing",
+      "title": "Williams Racing — Wikipedia"
+     }
+    ],
+    "checked": false
+   },
+   {
+    "year": 1995,
+    "text": {
+     "uk": "На Гран-прі Бразилії 1995 року машини Williams і Benetton виключили з результатів через невідповідне паливо. Після апеляції пілотам повернули місця, але командам не нарахували очок у Кубку конструкторів за цю гонку — Williams втратила очки за друге місце Девіда Култгарда.",
+     "en": "At the 1995 Brazilian Grand Prix the Williams and Benetton cars were excluded over a fuel irregularity. On appeal the drivers' results were restored, but neither team received constructors' points for the race, so Williams lost the points for David Coulthard's second place."
+    },
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/1995_Brazilian_Grand_Prix",
+      "title": "1995 Brazilian Grand Prix — Wikipedia"
+     },
+     {
+      "url": "https://www.grandprix.com/news/fia-shoots-itself-in-the-foot.html",
+      "title": "FIA shoots itself in the foot — GrandPrix.com, 17 April 1995"
+     }
+    ],
+    "checked": false
+   }
+  ]
+ }
 }
