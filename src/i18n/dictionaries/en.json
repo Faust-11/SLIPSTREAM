@@ -122,5 +122,164 @@
       "drivers": "Driver portraits: authors and licences"
     },
     "emptyQuery": "Nothing found for “{q}”."
+  },
+  "team": {
+    "crumbs": "Teams",
+    "stamp": {
+      "one": "Constructors' champion",
+      "many": "{n}× constructors' champion"
+    },
+    "summary": {
+      "champion": "Constructors' champion of {year}.",
+      "lastChampion": "Its latest world champion: {driver}, {year}.",
+      "debutOnly": "Debut: {year} {gp}."
+    },
+    "instagram": "Instagram",
+    "facts": {
+      "label": "Facts",
+      "country": "Nationality",
+      "founders": "Founder",
+      "foundersMany": "Founders",
+      "base": "Base",
+      "debut": "Debut",
+      "last": "Last Grand Prix",
+      "drivers": "{year} drivers",
+      "now": "{year} so far",
+      "nowValue": "P{pos} · {points} · {wins}"
+    },
+    "totals": {
+      "label": "All-time",
+      "grandsPrix": {
+        "one": "Grand Prix",
+        "few": "Grands Prix",
+        "many": "Grands Prix",
+        "other": "Grands Prix"
+      },
+      "wins": {
+        "one": "win",
+        "few": "wins",
+        "many": "wins",
+        "other": "wins"
+      },
+      "podiums": {
+        "one": "podium",
+        "few": "podiums",
+        "many": "podiums",
+        "other": "podiums"
+      },
+      "poles": {
+        "one": "pole",
+        "few": "poles",
+        "many": "poles",
+        "other": "poles"
+      },
+      "oneTwos": {
+        "one": "one-two finish",
+        "few": "one-two finishes",
+        "many": "one-two finishes",
+        "other": "one-two finishes"
+      },
+      "constructors": {
+        "one": "constructors' title",
+        "few": "constructors' titles",
+        "many": "constructors' titles",
+        "other": "constructors' titles"
+      },
+      "drivers": {
+        "one": "drivers' title",
+        "few": "drivers' titles",
+        "many": "drivers' titles",
+        "other": "drivers' titles"
+      }
+    },
+    "points": {
+      "one": "{n} pt",
+      "few": "{n} pts",
+      "many": "{n} pts",
+      "other": "{n} pts"
+    },
+    "winsN": {
+      "one": "{n} win",
+      "few": "{n} wins",
+      "many": "{n} wins",
+      "other": "{n} wins"
+    },
+    "seasons": {
+      "title": "Season by season",
+      "note": "Place in the constructors' championship",
+      "noteRunning": "Place in the constructors' championship · {year} after round {round}",
+      "keyChampion": "Constructors' champion",
+      "keyOther": "Other seasons",
+      "keyExcluded": "Excluded",
+      "chartLabel": "Constructors' championship position by season",
+      "showAll": {
+        "one": "Show {n} season",
+        "few": "Show all {n} seasons",
+        "many": "Show all {n} seasons",
+        "other": "Show all {n} seasons"
+      },
+      "year": "Year",
+      "entries": "Entered as",
+      "wins": "Wins",
+      "points": "Pts",
+      "place": "Place",
+      "running": "running",
+      "excluded": "excluded",
+      "noCup": "no constructors' championship before 1958",
+      "streak": "Longest run: <b>{n} constructors' titles in a row</b>, {from}–{to}.",
+      "streakMany": "Longest run: <b>{n} constructors' titles in a row</b>, {from}–{to}.",
+      "best": "Most wins in a season: <b>{wins} of {races} races</b> in {year}.",
+      "wait": "Longest wait between titles: <b>{years}</b>, from {from} to {to}.",
+      "excludedNote": "In <b>{year}</b> the team was excluded from the constructors' championship.",
+      "sources": "Sources"
+    },
+    "years": {
+      "one": "{n} year",
+      "few": "{n} years",
+      "many": "{n} years",
+      "other": "{n} years"
+    },
+    "champions": {
+      "title": "World champions with {team}",
+      "note": {
+        "one": "{n} drivers' title",
+        "few": "{n} drivers' titles",
+        "many": "{n} drivers' titles",
+        "other": "{n} drivers' titles"
+      }
+    },
+    "wins": {
+      "title": {
+        "one": "{n} win",
+        "few": "{n} wins",
+        "many": "{n} wins",
+        "other": "{n} wins"
+      },
+      "byDriver": "Wins by driver",
+      "byGrandPrix": "Most wins by Grand Prix",
+      "first": "First win",
+      "milestone": "{n}th win",
+      "latest": "Latest, No. {n}",
+      "showAll": "Show all {n}",
+      "no": "No.",
+      "date": "Date",
+      "race": "Grand Prix",
+      "driver": "Driver",
+      "shared": "shared car"
+    },
+    "pairing": {
+      "title": "{year} drivers",
+      "note": "After round {round}",
+      "races": "races",
+      "points": "points",
+      "raceAhead": "Ahead in races",
+      "qualiAhead": "Ahead in qualifying",
+      "pointsLabel": "Points"
+    },
+    "credits": {
+      "cars": "Car photos: authors and licences",
+      "drivers": "Driver portraits: authors and licences"
+    },
+    "metaDescription": "{team}: {gp} Grands Prix, {wins}, {titles}. Season by season, world champions and every win."
   }
 }

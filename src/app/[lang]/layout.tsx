@@ -8,6 +8,7 @@ import "@/components/site/site.css";
 // Стилі розділів — у спільному файлі, а не на сторінці: prefetch пунктів меню передзавантажує CSS
 // маршруту, і на кожній іншій сторінці браузер попереджав «preloaded but not used» (замір 11.11).
 import "@/components/teams/teams.css";
+import "@/components/team/team.css";
 import { ThemeRestore } from "@/components/theme/theme-restore";
 import { ThemeScript } from "@/components/theme/theme-script";
 import { getDictionary } from "@/i18n/get-dictionary";
