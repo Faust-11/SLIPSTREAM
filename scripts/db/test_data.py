@@ -184,14 +184,6 @@ with psycopg.connect(DSN, autocommit=True) as conn:
         ch = conn.execute("select driver, years from f1.team_champions where id = %s order by years[1]", (k,)).fetchall()
         print(f"INFO  {k}: GP/W/pod/pole/1-2/КК/ТП = {tot.get(k)}; чемпіони {[(d, y) for d, y in ch]}")
     print("INFO  McLaren пара:", pair)
-    # Діагностика виключень (тимчасово): як дамп позначає «E» (McLaren 2007) проти «-» (без очок).
-    for row in conn.execute("""select ts.season_year, t.ref, ts.round_number, ts.session_number, ts.position, ts.points,
-                                      ts.is_eligible, ts.adjustment_type
-                               from f1.team_standings ts join f1.teams t on t.id = ts.team_id
-                               where t.ref = 'mclaren' and ts.season_year = 2007 order by ts.round_number desc limit 3"""):
-        print("INFO  mclaren-2007", row)
-    print("INFO  adjustment_type:", conn.execute("select adjustment_type, is_eligible, count(*), min(season_year), max(season_year) from f1.team_standings group by 1, 2 order by 1, 2").fetchall())
-    print("INFO  driver adjustment_type:", conn.execute("select adjustment_type, is_eligible, count(*), min(season_year), max(season_year) from f1.driver_standings group by 1, 2 order by 1, 2").fetchall())
     print(f"Lotus: {lotus['gp']} Гран-прі; Lotus Racing: {racing['gp']}; site_meta {meta}")
 
 sys.exit(1 if failed else 0)

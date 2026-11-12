@@ -10,7 +10,8 @@
 --   * титул пілота зараховується команді, за яку чемпіон того сезону стартував у найбільшій кількості гонок
 --     (рівність — команда його останньої гонки сезону);
 --   * місце сезону — найкраще серед записів родини в Кубку конструкторів (до 1958 Кубка не було — null);
---     виключена з заліку (is_eligible = false, напр. McLaren 2007) — excluded, без місця.
+--     виключена з заліку — adjustment_type = 102 у дампі (замір 12.11: лише McLaren 2007, positionText «E» в API),
+--     без місця; is_eligible = false — запис без очок і місця («-» в API), не виключення.
 -- Службові подання v_* — не публічні (0004: select лише явно), публічні — матеріалізовані нижче.
 
 create or replace view f1.v_team_race as
@@ -46,7 +47,8 @@ with last as (
   select season_year, max(round_number * 100 + session_number) as k from f1.team_standings group by season_year
 ),
 fin as (
-  select ts.season_year, ts.team_id, ts.position, ts.points, coalesce(ts.is_eligible, true) as eligible
+  select ts.season_year, ts.team_id, ts.position, ts.points, coalesce(ts.is_eligible, true) as eligible,
+         coalesce(ts.adjustment_type = 102, false) as excluded
   from f1.team_standings ts join last on last.season_year = ts.season_year
    and ts.round_number * 100 + ts.session_number = last.k
 ),
@@ -92,7 +94,7 @@ with races as (
 ),
 standing as (
   select distinct on (tf.family_id, f.season_year)
-         tf.family_id, f.season_year, f.position, f.points, f.eligible, f.decided
+         tf.family_id, f.season_year, f.position, f.points, f.eligible, f.excluded, f.decided
   from f1.v_team_final f
   join f1.teams t on t.id = f.team_id
   join f1.team_families tf on tf.ref = t.ref
@@ -100,9 +102,9 @@ standing as (
 )
 select r.family_id as id, r.season_year::int as year, r.entries,
        r.grands_prix::int, r.wins::int, r.podiums::int,
-       case when s.eligible then s.position end::int as position,
+       case when s.eligible and not s.excluded then s.position end::int as position,
        round(s.points)::int as points,
-       coalesce(not s.eligible, false) as excluded,
+       coalesce(s.excluded, false) as excluded,
        coalesce(s.eligible and s.position = 1 and s.decided, false) as champion,
        coalesce(not s.decided, false) as in_progress
 from races r left join standing s on s.family_id = r.family_id and s.season_year = r.season_year
