@@ -87,7 +87,7 @@ test("метадані: canonical, hreflang, JSON-LD ItemList", async ({ page })
 });
 
 for (const theme of ["light", "dark"] as const)
-  for (const width of [320, 390, 1280])
+  for (const width of [320, 390, 768, 1280])
     test(`без порушень axe і горизонтальної прокрутки: ${theme}, ${width} px`, async ({ page }) => {
       await page.emulateMedia({ colorScheme: theme });
       await page.setViewportSize({ width, height: 900 });
