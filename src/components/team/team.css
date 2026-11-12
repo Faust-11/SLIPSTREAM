@@ -382,8 +382,14 @@ details.more[open] summary {
   word-spacing: normal;
   vertical-align: middle;
 }
-.wn {
-  font-size: 12px;
+.wlist {
+  margin: 0;
+  padding: 8px 0 8px 3.2em;
+  font-size: 14px;
+  line-height: 1.9;
+}
+.wlist li::marker {
+  font: 12px var(--f-mono);
   color: var(--ink-soft);
 }
 
