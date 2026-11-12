@@ -6,7 +6,7 @@ import type { Locale } from "@/i18n/config";
 import { countryName } from "@/lib/countries";
 import { driverSlug } from "@/lib/driver-slug";
 import { dbSelectAll } from "./db";
-import { driverName, driverPortrait } from "./drivers";
+import { driverName, driverPortrait, loadDriverIndex } from "./drivers";
 import { once } from "./once";
 import { gpName } from "./team-page";
 import { curatedDrivers, curatedTeams } from "./teams";
@@ -40,11 +40,7 @@ function grouped<T extends { id: string }>(rows: T[]): Map<string, T[]> {
 }
 
 const loadIndex = once(async () => {
-  const rows = await dbSelectAll<DriverIndexRow>(
-    "driver_index",
-    "select=id,forename,surname,code,country_code,nationality,starts,wins,podiums,poles,titles,title_years,y0,y1,seasons," +
-      "main_team,current_team,current_number,current_position,current_points&order=id",
-  );
+  const rows = await loadDriverIndex();
   const bySlug = new Map<string, DriverIndexRow>();
   for (const r of rows) {
     const slug = driverSlug(r.id);
@@ -58,7 +54,7 @@ const loadTotals = once(async () =>
   grouped(
     await dbSelectAll<DriverTotalsRow>(
       "driver_totals",
-      "select=id,date_of_birth,permanent_number,points,fastest_laps,fastest_laps_known,debut,last_race,first_podium,first_pole&order=id",
+      "select=id,date_of_birth,points,fastest_laps,fastest_laps_known,debut,last_race,first_podium,first_pole&order=id",
     ),
   ),
 );
@@ -126,7 +122,8 @@ export function numberPeriods(seasons: Pick<DriverSeasonRow, "year" | "numbers">
     if (s.numbers.length !== 1) break;
     const n = s.numbers[0]!;
     const last = out[out.length - 1];
-    if (last && last.n === n) last.from = s.year;
+    // Той самий номер лише в сусідніх сезонах — один період (Алонсо: 14 у 2021–2026, а не «2014–2026» через перерву).
+    if (last && last.n === n && last.from - s.year <= 1) last.from = s.year;
     else if (out.length === max) break;
     else out.push({ n, from: s.year, to: s.year });
   }
@@ -171,7 +168,10 @@ export type DriverPage = {
   latin: string;
   initials: string;
   avatar: string | null;
-  portrait: null | { src: string; srcSet: string; width: number; height: number; credit: Credit };
+  /** Портрет банера 4:5; maxWidth — ширина найбільшого файлу (вужче джерело не розтягуємо). */
+  portrait: null | { src: string; srcSet: string; width: number; height: number; maxWidth: number; credit: Credit };
+  /** Номер машини в поточному сезоні (з останньої гонки) — лише в учасників сезону. */
+  carNumber: number | null;
   /** Колір команди поточного сезону; у пілотів, що не виступають, — null (нейтральний акцент). */
   color: string | null;
   country: string | null;
@@ -370,9 +370,11 @@ export async function getDriverPage(slug: string, locale: Locale, today = new Da
             srcSet: widths.map((w, i) => `/img/drivers/${id}-${i === 0 ? 420 : 640}.webp ${w}w`).join(", "),
             width: widths[0]!,
             height: Math.floor((widths[0]! * 5) / 4),
+            maxWidth: Math.max(...widths),
             credit: portraitSrc.credit,
           }
         : null,
+    carNumber: active ? row.current_number : null,
     color: row.current_team ? (teamsById.get(row.current_team)?.color ?? null) : null,
     country: countryName(row.country_code, locale),
     born: totals.date_of_birth,

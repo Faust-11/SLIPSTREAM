@@ -266,8 +266,17 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     bad = [k for k, v in tm.items() if (m := tm.get((k[2], k[1], k[0]))) is None
            or (m[1], m[2], m[3], m[4], m[5], m[6]) != (v[1], v[3], v[2], v[4], v[6], v[5]) or m[0] != v[0]]
     check("напарники: кожна пара дзеркальна (A проти B = B проти A)", not bad, bad[:5])
-    bad = [k for k, v in tm.items() if v[1] < 5 or v[2] + v[3] > v[1] or v[4] > v[1] or v[5] + v[6] > v[4]]
-    check("напарники: від 5 спільних гонок; «попереду» ≤ гонок; кваліфікацій ≤ гонок", not bad, bad[:5])
+    bad = [k for k, v in tm.items() if v[1] < 5 or v[2] + v[3] > v[1] or v[5] + v[6] > v[4]]
+    check("напарники: від 5 спільних гонок; «попереду» ≤ гонок і ≤ кваліфікацій", not bad, bad[:5])
+    # Той самий рахунок, що на сторінці команди: пари, які існують лише в поточному сезоні.
+    cur_pairs = q("""select a.id, a.driver, b.driver, a.race_ahead, a.quali_ahead, b.quali_ahead from f1.team_pairing a
+                     join f1.team_pairing b on b.id = a.id and b.ord = 2 where a.ord = 1""")
+    diff = []
+    for fam, a, b, ra, qa_, qb_ in cur_pairs:
+        row = tm.get((a, fam, b))
+        if row is not None and row[0] == [cs_year] and (row[2], row[5], row[6]) != (ra, qa_, qb_):
+            diff.append((fam, a, b, (ra, qa_, qb_), (row[2], row[5], row[6])))
+    check("пара поточного сезону: сторінка пілота = сторінка команди (гонки й кваліфікації)", not diff, diff[:5])
     # Звірка з макетом Гамілтона (незалежний підрахунок 10.11): гонки й кваліфікації «попереду : позаду».
     for mate, exp in {"alonso": (17, 7, 10, 17, 9, 8), "button": (58, 32, 26, 58, 44, 14)}.items():
         got = tm.get(("hamilton", "mclaren", mate))

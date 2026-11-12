@@ -185,7 +185,6 @@ export type DriverRaceRef = { year: number; round: number; name: string; date?: 
 export type DriverTotalsRow = {
   id: string;
   date_of_birth: string | null;
-  permanent_number: number | null;
   /** Сума підсумкових (зарахованих) очок чемпіонатів. */
   points: number;
   fastest_laps: number;

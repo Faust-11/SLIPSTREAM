@@ -15,7 +15,8 @@ const driverNames = (driverNamesJson as unknown as { drivers: Record<string, Nam
 const portraits = (driverPortraitsJson as unknown as { drivers: Record<string, PortraitEntry> }).drivers;
 const teamsById = new Map(curatedTeams.map((t) => [t.id, t]));
 
-const loadIndex = once(() =>
+/** Рядки f1.driver_index — один запит на процес; спільний для списку й сторінок пілотів. */
+export const loadDriverIndex = once(() =>
   dbSelectAll<DriverIndexRow>(
     "driver_index",
     "select=id,forename,surname,code,country_code,nationality,starts,wins,podiums,poles,titles,title_years,y0,y1,seasons," +
@@ -66,7 +67,7 @@ export type DriverRow = {
 };
 
 export async function getDriversIndex(locale: Locale): Promise<DriverRow[]> {
-  const rows = await loadIndex();
+  const rows = await loadDriverIndex();
   return rows.map((r) => {
     const name = driverName(r.id, r.forename, r.surname, locale);
     const other = driverName(r.id, r.forename, r.surname, locale === "uk" ? "en" : "uk");
@@ -105,7 +106,7 @@ export async function getDriversIndex(locale: Locale): Promise<DriverRow[]> {
 
 /** Автори й ліцензії показаних портретів. */
 export async function getDriversCredits(): Promise<{ driver: string; page: string; author: string; license: string }[]> {
-  const rows = await loadIndex();
+  const rows = await loadDriverIndex();
   return rows
     .map((r) => ({ r, p: driverPortrait(r.id) }))
     .filter((x) => x.p)

@@ -60,6 +60,9 @@
   font: 44px/1 var(--f-display);
   word-spacing: -0.35em;
 }
+img.dh-ini {
+  object-fit: cover;
+}
 .dh-id {
   display: flex;
   flex-direction: column;
@@ -439,6 +442,12 @@
     flex-shrink: 0;
     width: 4.2ch;
     font-size: 18px;
+  }
+}
+/* 320–380 px: без колонки «Гонки» — місце в заліку має вміщуватись без прокрутки. */
+@media (width <= 380px) {
+  .driver-page .c-xs {
+    display: none;
   }
 }
 @media (width <= 600px) {
