@@ -30,7 +30,7 @@
    },
    "hero": {
     "src": "/img/cars/ferrari-hero-1280.webp",
-    "srcSet": "/img/cars/ferrari-hero-1280.webp 1280w, /img/cars/ferrari-hero-640.webp 640w",
+    "srcSet": "/img/cars/ferrari-hero-1280.webp 1280w, /img/cars/ferrari-hero-800.webp 800w, /img/cars/ferrari-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -68,7 +68,7 @@
    },
    "hero": {
     "src": "/img/cars/mclaren-hero-1280.webp",
-    "srcSet": "/img/cars/mclaren-hero-1280.webp 1280w, /img/cars/mclaren-hero-640.webp 640w",
+    "srcSet": "/img/cars/mclaren-hero-1280.webp 1280w, /img/cars/mclaren-hero-800.webp 800w, /img/cars/mclaren-hero-480.webp 480w",
     "width": 1280,
     "height": 720
    }
@@ -102,7 +102,7 @@
    },
    "hero": {
     "src": "/img/cars/mercedes-hero-1280.webp",
-    "srcSet": "/img/cars/mercedes-hero-1280.webp 1280w, /img/cars/mercedes-hero-640.webp 640w",
+    "srcSet": "/img/cars/mercedes-hero-1280.webp 1280w, /img/cars/mercedes-hero-800.webp 800w, /img/cars/mercedes-hero-480.webp 480w",
     "width": 1280,
     "height": 753
    }
@@ -136,7 +136,7 @@
    },
    "hero": {
     "src": "/img/cars/red-bull-hero-1280.webp",
-    "srcSet": "/img/cars/red-bull-hero-1280.webp 1280w, /img/cars/red-bull-hero-640.webp 640w",
+    "srcSet": "/img/cars/red-bull-hero-1280.webp 1280w, /img/cars/red-bull-hero-800.webp 800w, /img/cars/red-bull-hero-480.webp 480w",
     "width": 1280,
     "height": 670
    }
@@ -172,7 +172,7 @@
    },
    "hero": {
     "src": "/img/cars/williams-hero-1280.webp",
-    "srcSet": "/img/cars/williams-hero-1280.webp 1280w, /img/cars/williams-hero-640.webp 640w",
+    "srcSet": "/img/cars/williams-hero-1280.webp 1280w, /img/cars/williams-hero-800.webp 800w, /img/cars/williams-hero-480.webp 480w",
     "width": 1280,
     "height": 851
    }
@@ -212,7 +212,7 @@
    },
    "hero": {
     "src": "/img/cars/lotus-hero-1280.webp",
-    "srcSet": "/img/cars/lotus-hero-1280.webp 807w, /img/cars/lotus-hero-640.webp 640w",
+    "srcSet": "/img/cars/lotus-hero-1280.webp 807w, /img/cars/lotus-hero-800.webp 800w, /img/cars/lotus-hero-480.webp 480w",
     "width": 807,
     "height": 513
    }
@@ -246,7 +246,7 @@
    },
    "hero": {
     "src": "/img/cars/renault-hero-1280.webp",
-    "srcSet": "/img/cars/renault-hero-1280.webp 500w, /img/cars/renault-hero-640.webp 500w",
+    "srcSet": "/img/cars/renault-hero-1280.webp 500w, /img/cars/renault-hero-800.webp 500w, /img/cars/renault-hero-480.webp 480w",
     "width": 500,
     "height": 287
    }
@@ -286,7 +286,7 @@
    },
    "hero": {
     "src": "/img/cars/brabham-hero-1280.webp",
-    "srcSet": "/img/cars/brabham-hero-1280.webp 716w, /img/cars/brabham-hero-640.webp 640w",
+    "srcSet": "/img/cars/brabham-hero-1280.webp 716w, /img/cars/brabham-hero-800.webp 716w, /img/cars/brabham-hero-480.webp 480w",
     "width": 716,
     "height": 517
    }
@@ -320,7 +320,7 @@
    },
    "hero": {
     "src": "/img/cars/benetton-hero-1280.webp",
-    "srcSet": "/img/cars/benetton-hero-1280.webp 1000w, /img/cars/benetton-hero-640.webp 640w",
+    "srcSet": "/img/cars/benetton-hero-1280.webp 1000w, /img/cars/benetton-hero-800.webp 800w, /img/cars/benetton-hero-480.webp 480w",
     "width": 1000,
     "height": 381
    }
@@ -355,7 +355,7 @@
    },
    "hero": {
     "src": "/img/cars/tyrrell-hero-1280.webp",
-    "srcSet": "/img/cars/tyrrell-hero-1280.webp 1280w, /img/cars/tyrrell-hero-640.webp 640w",
+    "srcSet": "/img/cars/tyrrell-hero-1280.webp 1280w, /img/cars/tyrrell-hero-800.webp 800w, /img/cars/tyrrell-hero-480.webp 480w",
     "width": 1280,
     "height": 822
    }
@@ -390,7 +390,7 @@
    },
    "hero": {
     "src": "/img/cars/brm-hero-1280.webp",
-    "srcSet": "/img/cars/brm-hero-1280.webp 1280w, /img/cars/brm-hero-640.webp 640w",
+    "srcSet": "/img/cars/brm-hero-1280.webp 1280w, /img/cars/brm-hero-800.webp 800w, /img/cars/brm-hero-480.webp 480w",
     "width": 1280,
     "height": 855
    }
@@ -434,7 +434,7 @@
    },
    "hero": {
     "src": "/img/cars/cooper-hero-1280.webp",
-    "srcSet": "/img/cars/cooper-hero-1280.webp 1280w, /img/cars/cooper-hero-640.webp 640w",
+    "srcSet": "/img/cars/cooper-hero-1280.webp 1280w, /img/cars/cooper-hero-800.webp 800w, /img/cars/cooper-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -468,7 +468,7 @@
    },
    "hero": {
     "src": "/img/cars/alfa-romeo-hero-1280.webp",
-    "srcSet": "/img/cars/alfa-romeo-hero-1280.webp 1200w, /img/cars/alfa-romeo-hero-640.webp 640w",
+    "srcSet": "/img/cars/alfa-romeo-hero-1280.webp 1200w, /img/cars/alfa-romeo-hero-800.webp 800w, /img/cars/alfa-romeo-hero-480.webp 480w",
     "width": 1200,
     "height": 900
    }
@@ -503,7 +503,7 @@
    },
    "hero": {
     "src": "/img/cars/ligier-hero-1280.webp",
-    "srcSet": "/img/cars/ligier-hero-1280.webp 1280w, /img/cars/ligier-hero-640.webp 640w",
+    "srcSet": "/img/cars/ligier-hero-1280.webp 1280w, /img/cars/ligier-hero-800.webp 800w, /img/cars/ligier-hero-480.webp 480w",
     "width": 1280,
     "height": 1025,
     "focusY": 95
@@ -539,7 +539,7 @@
    },
    "hero": {
     "src": "/img/cars/maserati-hero-1280.webp",
-    "srcSet": "/img/cars/maserati-hero-1280.webp 709w, /img/cars/maserati-hero-640.webp 640w",
+    "srcSet": "/img/cars/maserati-hero-1280.webp 709w, /img/cars/maserati-hero-800.webp 709w, /img/cars/maserati-hero-480.webp 480w",
     "width": 709,
     "height": 467
    }
@@ -574,7 +574,7 @@
    },
    "hero": {
     "src": "/img/cars/matra-hero-1280.webp",
-    "srcSet": "/img/cars/matra-hero-1280.webp 1280w, /img/cars/matra-hero-640.webp 640w",
+    "srcSet": "/img/cars/matra-hero-1280.webp 1280w, /img/cars/matra-hero-800.webp 800w, /img/cars/matra-hero-480.webp 480w",
     "width": 1280,
     "height": 890
    }
@@ -609,7 +609,7 @@
    },
    "hero": {
     "src": "/img/cars/vanwall-hero-1280.webp",
-    "srcSet": "/img/cars/vanwall-hero-1280.webp 1280w, /img/cars/vanwall-hero-640.webp 640w",
+    "srcSet": "/img/cars/vanwall-hero-1280.webp 1280w, /img/cars/vanwall-hero-800.webp 800w, /img/cars/vanwall-hero-480.webp 480w",
     "width": 1280,
     "height": 947
    }
@@ -643,7 +643,7 @@
    },
    "hero": {
     "src": "/img/cars/brawn-hero-1280.webp",
-    "srcSet": "/img/cars/brawn-hero-1280.webp 981w, /img/cars/brawn-hero-640.webp 640w",
+    "srcSet": "/img/cars/brawn-hero-1280.webp 981w, /img/cars/brawn-hero-800.webp 800w, /img/cars/brawn-hero-480.webp 480w",
     "width": 981,
     "height": 418
    }
@@ -675,7 +675,7 @@
    },
    "hero": {
     "src": "/img/cars/kurtis-kraft-hero-1280.webp",
-    "srcSet": "/img/cars/kurtis-kraft-hero-1280.webp 1280w, /img/cars/kurtis-kraft-hero-640.webp 640w",
+    "srcSet": "/img/cars/kurtis-kraft-hero-1280.webp 1280w, /img/cars/kurtis-kraft-hero-800.webp 800w, /img/cars/kurtis-kraft-hero-480.webp 480w",
     "width": 1280,
     "height": 851
    }
@@ -709,7 +709,7 @@
    },
    "hero": {
     "src": "/img/cars/jordan-hero-1280.webp",
-    "srcSet": "/img/cars/jordan-hero-1280.webp 1280w, /img/cars/jordan-hero-640.webp 640w",
+    "srcSet": "/img/cars/jordan-hero-1280.webp 1280w, /img/cars/jordan-hero-800.webp 800w, /img/cars/jordan-hero-480.webp 480w",
     "width": 1280,
     "height": 844
    }
@@ -745,7 +745,7 @@
    },
    "hero": {
     "src": "/img/cars/march-hero-1280.webp",
-    "srcSet": "/img/cars/march-hero-1280.webp 1280w, /img/cars/march-hero-640.webp 640w",
+    "srcSet": "/img/cars/march-hero-1280.webp 1280w, /img/cars/march-hero-800.webp 800w, /img/cars/march-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -779,7 +779,7 @@
    },
    "hero": {
     "src": "/img/cars/honda-hero-1280.webp",
-    "srcSet": "/img/cars/honda-hero-1280.webp 1280w, /img/cars/honda-hero-640.webp 640w",
+    "srcSet": "/img/cars/honda-hero-1280.webp 1280w, /img/cars/honda-hero-800.webp 800w, /img/cars/honda-hero-480.webp 480w",
     "width": 1280,
     "height": 958
    }
@@ -811,7 +811,7 @@
    },
    "hero": {
     "src": "/img/cars/wolf-hero-1280.webp",
-    "srcSet": "/img/cars/wolf-hero-1280.webp 1280w, /img/cars/wolf-hero-640.webp 640w",
+    "srcSet": "/img/cars/wolf-hero-1280.webp 1280w, /img/cars/wolf-hero-800.webp 800w, /img/cars/wolf-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -843,7 +843,7 @@
    },
    "hero": {
     "src": "/img/cars/watson-hero-1280.webp",
-    "srcSet": "/img/cars/watson-hero-1280.webp 1280w, /img/cars/watson-hero-640.webp 640w",
+    "srcSet": "/img/cars/watson-hero-1280.webp 1280w, /img/cars/watson-hero-800.webp 800w, /img/cars/watson-hero-480.webp 480w",
     "width": 1280,
     "height": 851
    }
@@ -875,7 +875,7 @@
    },
    "hero": {
     "src": "/img/cars/lotus-f1-hero-1280.webp",
-    "srcSet": "/img/cars/lotus-f1-hero-1280.webp 1280w, /img/cars/lotus-f1-hero-640.webp 640w",
+    "srcSet": "/img/cars/lotus-f1-hero-1280.webp 1280w, /img/cars/lotus-f1-hero-800.webp 800w, /img/cars/lotus-f1-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -907,7 +907,7 @@
    },
    "hero": {
     "src": "/img/cars/epperly-hero-1280.webp",
-    "srcSet": "/img/cars/epperly-hero-1280.webp 1280w, /img/cars/epperly-hero-640.webp 640w",
+    "srcSet": "/img/cars/epperly-hero-1280.webp 1280w, /img/cars/epperly-hero-800.webp 800w, /img/cars/epperly-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -941,7 +941,7 @@
    },
    "hero": {
     "src": "/img/cars/toro-rosso-hero-1280.webp",
-    "srcSet": "/img/cars/toro-rosso-hero-1280.webp 1280w, /img/cars/toro-rosso-hero-640.webp 640w",
+    "srcSet": "/img/cars/toro-rosso-hero-1280.webp 1280w, /img/cars/toro-rosso-hero-800.webp 800w, /img/cars/toro-rosso-hero-480.webp 480w",
     "width": 1280,
     "height": 773
    }
@@ -976,7 +976,7 @@
    },
    "hero": {
     "src": "/img/cars/alpine-hero-1280.webp",
-    "srcSet": "/img/cars/alpine-hero-1280.webp 1280w, /img/cars/alpine-hero-640.webp 640w",
+    "srcSet": "/img/cars/alpine-hero-1280.webp 1280w, /img/cars/alpine-hero-800.webp 800w, /img/cars/alpine-hero-480.webp 480w",
     "width": 1280,
     "height": 720
    }
@@ -1010,7 +1010,7 @@
    },
    "hero": {
     "src": "/img/cars/shadow-hero-1280.webp",
-    "srcSet": "/img/cars/shadow-hero-1280.webp 1280w, /img/cars/shadow-hero-640.webp 640w",
+    "srcSet": "/img/cars/shadow-hero-1280.webp 1280w, /img/cars/shadow-hero-800.webp 800w, /img/cars/shadow-hero-480.webp 480w",
     "width": 1280,
     "height": 851
    }
@@ -1045,7 +1045,7 @@
    },
    "hero": {
     "src": "/img/cars/alphatauri-hero-1280.webp",
-    "srcSet": "/img/cars/alphatauri-hero-1280.webp 1280w, /img/cars/alphatauri-hero-640.webp 640w",
+    "srcSet": "/img/cars/alphatauri-hero-1280.webp 1280w, /img/cars/alphatauri-hero-800.webp 800w, /img/cars/alphatauri-hero-480.webp 480w",
     "width": 1280,
     "height": 606
    }
@@ -1077,7 +1077,7 @@
    },
    "hero": {
     "src": "/img/cars/bmw-sauber-hero-1280.webp",
-    "srcSet": "/img/cars/bmw-sauber-hero-1280.webp 1222w, /img/cars/bmw-sauber-hero-640.webp 640w",
+    "srcSet": "/img/cars/bmw-sauber-hero-1280.webp 1222w, /img/cars/bmw-sauber-hero-800.webp 800w, /img/cars/bmw-sauber-hero-480.webp 480w",
     "width": 1222,
     "height": 566
    }
@@ -1109,7 +1109,7 @@
    },
    "hero": {
     "src": "/img/cars/hesketh-hero-1280.webp",
-    "srcSet": "/img/cars/hesketh-hero-1280.webp 1280w, /img/cars/hesketh-hero-640.webp 640w",
+    "srcSet": "/img/cars/hesketh-hero-1280.webp 1280w, /img/cars/hesketh-hero-800.webp 800w, /img/cars/hesketh-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -1143,7 +1143,7 @@
    },
    "hero": {
     "src": "/img/cars/stewart-hero-1280.webp",
-    "srcSet": "/img/cars/stewart-hero-1280.webp 1280w, /img/cars/stewart-hero-640.webp 640w",
+    "srcSet": "/img/cars/stewart-hero-1280.webp 1280w, /img/cars/stewart-hero-800.webp 800w, /img/cars/stewart-hero-480.webp 480w",
     "width": 1280,
     "height": 850
    }
@@ -1175,7 +1175,7 @@
    },
    "hero": {
     "src": "/img/cars/penske-hero-1280.webp",
-    "srcSet": "/img/cars/penske-hero-1280.webp 1280w, /img/cars/penske-hero-640.webp 640w",
+    "srcSet": "/img/cars/penske-hero-1280.webp 1280w, /img/cars/penske-hero-800.webp 800w, /img/cars/penske-hero-480.webp 480w",
     "width": 1280,
     "height": 852
    }
@@ -1210,7 +1210,7 @@
    },
    "hero": {
     "src": "/img/cars/racing-point-hero-1280.webp",
-    "srcSet": "/img/cars/racing-point-hero-1280.webp 1280w, /img/cars/racing-point-hero-640.webp 640w",
+    "srcSet": "/img/cars/racing-point-hero-1280.webp 1280w, /img/cars/racing-point-hero-800.webp 800w, /img/cars/racing-point-hero-480.webp 480w",
     "width": 1280,
     "height": 715
    }
@@ -1242,7 +1242,7 @@
    },
    "hero": {
     "src": "/img/cars/porsche-hero-1280.webp",
-    "srcSet": "/img/cars/porsche-hero-1280.webp 1280w, /img/cars/porsche-hero-640.webp 640w",
+    "srcSet": "/img/cars/porsche-hero-1280.webp 1280w, /img/cars/porsche-hero-800.webp 800w, /img/cars/porsche-hero-480.webp 480w",
     "width": 1280,
     "height": 961
    }
@@ -1276,7 +1276,7 @@
    },
    "hero": {
     "src": "/img/cars/eagle-hero-1280.webp",
-    "srcSet": "/img/cars/eagle-hero-1280.webp 1280w, /img/cars/eagle-hero-640.webp 640w",
+    "srcSet": "/img/cars/eagle-hero-1280.webp 1280w, /img/cars/eagle-hero-800.webp 800w, /img/cars/eagle-hero-480.webp 480w",
     "width": 1280,
     "height": 834
    }
@@ -1308,7 +1308,7 @@
    },
    "hero": {
     "src": "/img/cars/kuzma-hero-1280.webp",
-    "srcSet": "/img/cars/kuzma-hero-1280.webp 1280w, /img/cars/kuzma-hero-640.webp 640w",
+    "srcSet": "/img/cars/kuzma-hero-1280.webp 1280w, /img/cars/kuzma-hero-800.webp 800w, /img/cars/kuzma-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -1342,7 +1342,7 @@
    },
    "hero": {
     "src": "/img/cars/sauber-hero-1280.webp",
-    "srcSet": "/img/cars/sauber-hero-1280.webp 1280w, /img/cars/sauber-hero-640.webp 640w",
+    "srcSet": "/img/cars/sauber-hero-1280.webp 1280w, /img/cars/sauber-hero-800.webp 800w, /img/cars/sauber-hero-480.webp 480w",
     "width": 1280,
     "height": 720
    }
@@ -1377,7 +1377,7 @@
    },
    "hero": {
     "src": "/img/cars/minardi-hero-1280.webp",
-    "srcSet": "/img/cars/minardi-hero-1280.webp 1280w, /img/cars/minardi-hero-640.webp 640w",
+    "srcSet": "/img/cars/minardi-hero-1280.webp 1280w, /img/cars/minardi-hero-800.webp 800w, /img/cars/minardi-hero-480.webp 480w",
     "width": 1280,
     "height": 840
    }
@@ -1409,7 +1409,7 @@
    },
    "hero": {
     "src": "/img/cars/arrows-hero-1280.webp",
-    "srcSet": "/img/cars/arrows-hero-1280.webp 1280w, /img/cars/arrows-hero-640.webp 640w",
+    "srcSet": "/img/cars/arrows-hero-1280.webp 1280w, /img/cars/arrows-hero-800.webp 800w, /img/cars/arrows-hero-480.webp 480w",
     "width": 1280,
     "height": 838
    }
@@ -1443,7 +1443,7 @@
    },
    "hero": {
     "src": "/img/cars/haas-hero-1280.webp",
-    "srcSet": "/img/cars/haas-hero-1280.webp 1280w, /img/cars/haas-hero-640.webp 640w",
+    "srcSet": "/img/cars/haas-hero-1280.webp 1280w, /img/cars/haas-hero-800.webp 800w, /img/cars/haas-hero-480.webp 480w",
     "width": 1280,
     "height": 720
    }
@@ -1478,7 +1478,7 @@
    },
    "hero": {
     "src": "/img/cars/force-india-hero-1280.webp",
-    "srcSet": "/img/cars/force-india-hero-1280.webp 1280w, /img/cars/force-india-hero-640.webp 640w",
+    "srcSet": "/img/cars/force-india-hero-1280.webp 1280w, /img/cars/force-india-hero-800.webp 800w, /img/cars/force-india-hero-480.webp 480w",
     "width": 1280,
     "height": 720
    }
@@ -1513,7 +1513,7 @@
    },
    "hero": {
     "src": "/img/cars/aston-martin-hero-1280.webp",
-    "srcSet": "/img/cars/aston-martin-hero-1280.webp 1280w, /img/cars/aston-martin-hero-640.webp 640w",
+    "srcSet": "/img/cars/aston-martin-hero-1280.webp 1280w, /img/cars/aston-martin-hero-800.webp 800w, /img/cars/aston-martin-hero-480.webp 480w",
     "width": 1280,
     "height": 720
    }
@@ -1547,7 +1547,7 @@
    },
    "hero": {
     "src": "/img/cars/toyota-hero-1280.webp",
-    "srcSet": "/img/cars/toyota-hero-1280.webp 1280w, /img/cars/toyota-hero-640.webp 640w",
+    "srcSet": "/img/cars/toyota-hero-1280.webp 1280w, /img/cars/toyota-hero-800.webp 800w, /img/cars/toyota-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -1579,7 +1579,7 @@
    },
    "hero": {
     "src": "/img/cars/osella-hero-1280.webp",
-    "srcSet": "/img/cars/osella-hero-1280.webp 977w, /img/cars/osella-hero-640.webp 640w",
+    "srcSet": "/img/cars/osella-hero-1280.webp 977w, /img/cars/osella-hero-800.webp 800w, /img/cars/osella-hero-480.webp 480w",
     "width": 977,
     "height": 615
    }
@@ -1611,7 +1611,7 @@
    },
    "hero": {
     "src": "/img/cars/surtees-hero-1280.webp",
-    "srcSet": "/img/cars/surtees-hero-1280.webp 1280w, /img/cars/surtees-hero-640.webp 640w",
+    "srcSet": "/img/cars/surtees-hero-1280.webp 1280w, /img/cars/surtees-hero-800.webp 800w, /img/cars/surtees-hero-480.webp 480w",
     "width": 1280,
     "height": 664
    }
@@ -1643,7 +1643,7 @@
    },
    "hero": {
     "src": "/img/cars/bar-hero-1280.webp",
-    "srcSet": "/img/cars/bar-hero-1280.webp 1179w, /img/cars/bar-hero-640.webp 640w",
+    "srcSet": "/img/cars/bar-hero-1280.webp 1179w, /img/cars/bar-hero-800.webp 800w, /img/cars/bar-hero-480.webp 480w",
     "width": 1179,
     "height": 480
    }
@@ -1675,7 +1675,7 @@
    },
    "hero": {
     "src": "/img/cars/larrousse-hero-1280.webp",
-    "srcSet": "/img/cars/larrousse-hero-1280.webp 1280w, /img/cars/larrousse-hero-640.webp 640w",
+    "srcSet": "/img/cars/larrousse-hero-1280.webp 1280w, /img/cars/larrousse-hero-800.webp 800w, /img/cars/larrousse-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -1707,7 +1707,7 @@
    },
    "hero": {
     "src": "/img/cars/fittipaldi-hero-1280.webp",
-    "srcSet": "/img/cars/fittipaldi-hero-1280.webp 522w, /img/cars/fittipaldi-hero-640.webp 522w",
+    "srcSet": "/img/cars/fittipaldi-hero-1280.webp 522w, /img/cars/fittipaldi-hero-800.webp 522w, /img/cars/fittipaldi-hero-480.webp 480w",
     "width": 522,
     "height": 275
    }
@@ -1739,7 +1739,7 @@
    },
    "hero": {
     "src": "/img/cars/ensign-hero-1280.webp",
-    "srcSet": "/img/cars/ensign-hero-1280.webp 1280w, /img/cars/ensign-hero-640.webp 640w",
+    "srcSet": "/img/cars/ensign-hero-1280.webp 1280w, /img/cars/ensign-hero-800.webp 800w, /img/cars/ensign-hero-480.webp 480w",
     "width": 1280,
     "height": 836
    }
@@ -1771,7 +1771,7 @@
    },
    "hero": {
     "src": "/img/cars/ats-hero-1280.webp",
-    "srcSet": "/img/cars/ats-hero-1280.webp 531w, /img/cars/ats-hero-640.webp 531w",
+    "srcSet": "/img/cars/ats-hero-1280.webp 531w, /img/cars/ats-hero-800.webp 531w, /img/cars/ats-hero-480.webp 480w",
     "width": 531,
     "height": 375
    }
@@ -1803,7 +1803,7 @@
    },
    "hero": {
     "src": "/img/cars/footwork-hero-1280.webp",
-    "srcSet": "/img/cars/footwork-hero-1280.webp 697w, /img/cars/footwork-hero-640.webp 640w",
+    "srcSet": "/img/cars/footwork-hero-1280.webp 697w, /img/cars/footwork-hero-800.webp 697w, /img/cars/footwork-hero-480.webp 480w",
     "width": 697,
     "height": 237
    }
@@ -1835,7 +1835,7 @@
    },
    "hero": {
     "src": "/img/cars/lola-hero-1280.webp",
-    "srcSet": "/img/cars/lola-hero-1280.webp 1280w, /img/cars/lola-hero-640.webp 640w",
+    "srcSet": "/img/cars/lola-hero-1280.webp 1280w, /img/cars/lola-hero-800.webp 800w, /img/cars/lola-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -1869,7 +1869,7 @@
    },
    "hero": {
     "src": "/img/cars/jaguar-hero-1280.webp",
-    "srcSet": "/img/cars/jaguar-hero-1280.webp 1280w, /img/cars/jaguar-hero-640.webp 640w",
+    "srcSet": "/img/cars/jaguar-hero-1280.webp 1280w, /img/cars/jaguar-hero-800.webp 800w, /img/cars/jaguar-hero-480.webp 480w",
     "width": 1280,
     "height": 848
    }
@@ -1901,7 +1901,7 @@
    },
    "hero": {
     "src": "/img/cars/prost-hero-1280.webp",
-    "srcSet": "/img/cars/prost-hero-1280.webp 800w, /img/cars/prost-hero-640.webp 640w",
+    "srcSet": "/img/cars/prost-hero-1280.webp 800w, /img/cars/prost-hero-800.webp 800w, /img/cars/prost-hero-480.webp 480w",
     "width": 800,
     "height": 496
    }
@@ -1952,7 +1952,7 @@
    },
    "hero": {
     "src": "/img/cars/racing-bulls-hero-1280.webp",
-    "srcSet": "/img/cars/racing-bulls-hero-1280.webp 1280w, /img/cars/racing-bulls-hero-640.webp 640w",
+    "srcSet": "/img/cars/racing-bulls-hero-1280.webp 1280w, /img/cars/racing-bulls-hero-800.webp 800w, /img/cars/racing-bulls-hero-480.webp 480w",
     "width": 1280,
     "height": 720
    }
@@ -1984,7 +1984,7 @@
    },
    "hero": {
     "src": "/img/cars/toleman-hero-1280.webp",
-    "srcSet": "/img/cars/toleman-hero-1280.webp 1280w, /img/cars/toleman-hero-640.webp 640w",
+    "srcSet": "/img/cars/toleman-hero-1280.webp 1280w, /img/cars/toleman-hero-800.webp 800w, /img/cars/toleman-hero-480.webp 480w",
     "width": 1280,
     "height": 959
    }
@@ -2016,7 +2016,7 @@
    },
    "hero": {
     "src": "/img/cars/hrt-hero-1280.webp",
-    "srcSet": "/img/cars/hrt-hero-1280.webp 1221w, /img/cars/hrt-hero-640.webp 640w",
+    "srcSet": "/img/cars/hrt-hero-1280.webp 1221w, /img/cars/hrt-hero-800.webp 800w, /img/cars/hrt-hero-480.webp 480w",
     "width": 1221,
     "height": 677
    }
@@ -2048,7 +2048,7 @@
    },
    "hero": {
     "src": "/img/cars/caterham-hero-1280.webp",
-    "srcSet": "/img/cars/caterham-hero-1280.webp 1280w, /img/cars/caterham-hero-640.webp 640w",
+    "srcSet": "/img/cars/caterham-hero-1280.webp 1280w, /img/cars/caterham-hero-800.webp 800w, /img/cars/caterham-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -2080,7 +2080,7 @@
    },
    "hero": {
     "src": "/img/cars/marussia-hero-1280.webp",
-    "srcSet": "/img/cars/marussia-hero-1280.webp 1280w, /img/cars/marussia-hero-640.webp 640w",
+    "srcSet": "/img/cars/marussia-hero-1280.webp 1280w, /img/cars/marussia-hero-800.webp 800w, /img/cars/marussia-hero-480.webp 480w",
     "width": 1280,
     "height": 640
    }
@@ -2112,7 +2112,7 @@
    },
    "hero": {
     "src": "/img/cars/zakspeed-hero-1280.webp",
-    "srcSet": "/img/cars/zakspeed-hero-1280.webp 1280w, /img/cars/zakspeed-hero-640.webp 640w",
+    "srcSet": "/img/cars/zakspeed-hero-1280.webp 1280w, /img/cars/zakspeed-hero-800.webp 800w, /img/cars/zakspeed-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -2144,7 +2144,7 @@
    },
    "hero": {
     "src": "/img/cars/ags-hero-1280.webp",
-    "srcSet": "/img/cars/ags-hero-1280.webp 1280w, /img/cars/ags-hero-640.webp 640w",
+    "srcSet": "/img/cars/ags-hero-1280.webp 1280w, /img/cars/ags-hero-800.webp 800w, /img/cars/ags-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -2176,7 +2176,7 @@
    },
    "hero": {
     "src": "/img/cars/super-aguri-hero-1280.webp",
-    "srcSet": "/img/cars/super-aguri-hero-1280.webp 625w, /img/cars/super-aguri-hero-640.webp 625w",
+    "srcSet": "/img/cars/super-aguri-hero-1280.webp 625w, /img/cars/super-aguri-hero-800.webp 625w, /img/cars/super-aguri-hero-480.webp 480w",
     "width": 625,
     "height": 195
    }
@@ -2208,7 +2208,7 @@
    },
    "hero": {
     "src": "/img/cars/manor-marussia-hero-1280.webp",
-    "srcSet": "/img/cars/manor-marussia-hero-1280.webp 1280w, /img/cars/manor-marussia-hero-640.webp 640w",
+    "srcSet": "/img/cars/manor-marussia-hero-1280.webp 1280w, /img/cars/manor-marussia-hero-800.webp 800w, /img/cars/manor-marussia-hero-480.webp 480w",
     "width": 1280,
     "height": 850
    }
@@ -2240,7 +2240,7 @@
    },
    "hero": {
     "src": "/img/cars/virgin-hero-1280.webp",
-    "srcSet": "/img/cars/virgin-hero-1280.webp 1280w, /img/cars/virgin-hero-640.webp 640w",
+    "srcSet": "/img/cars/virgin-hero-1280.webp 1280w, /img/cars/virgin-hero-800.webp 800w, /img/cars/virgin-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -2288,7 +2288,7 @@
    },
    "hero": {
     "src": "/img/cars/gordini-hero-1280.webp",
-    "srcSet": "/img/cars/gordini-hero-1280.webp 1280w, /img/cars/gordini-hero-640.webp 640w",
+    "srcSet": "/img/cars/gordini-hero-1280.webp 1280w, /img/cars/gordini-hero-800.webp 800w, /img/cars/gordini-hero-480.webp 480w",
     "width": 1280,
     "height": 724
    }
@@ -2320,7 +2320,7 @@
    },
    "hero": {
     "src": "/img/cars/ram-hero-1280.webp",
-    "srcSet": "/img/cars/ram-hero-1280.webp 1280w, /img/cars/ram-hero-640.webp 640w",
+    "srcSet": "/img/cars/ram-hero-1280.webp 1280w, /img/cars/ram-hero-800.webp 800w, /img/cars/ram-hero-480.webp 480w",
     "width": 1280,
     "height": 848
    }
@@ -2352,7 +2352,7 @@
    },
    "hero": {
     "src": "/img/cars/iso-marlboro-hero-1280.webp",
-    "srcSet": "/img/cars/iso-marlboro-hero-1280.webp 1280w, /img/cars/iso-marlboro-hero-640.webp 640w",
+    "srcSet": "/img/cars/iso-marlboro-hero-1280.webp 1280w, /img/cars/iso-marlboro-hero-800.webp 800w, /img/cars/iso-marlboro-hero-480.webp 480w",
     "width": 1280,
     "height": 849
    }
@@ -2384,7 +2384,7 @@
    },
    "hero": {
     "src": "/img/cars/leyton-house-hero-1280.webp",
-    "srcSet": "/img/cars/leyton-house-hero-1280.webp 1280w, /img/cars/leyton-house-hero-640.webp 640w",
+    "srcSet": "/img/cars/leyton-house-hero-1280.webp 1280w, /img/cars/leyton-house-hero-800.webp 800w, /img/cars/leyton-house-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -2416,7 +2416,7 @@
    },
    "hero": {
     "src": "/img/cars/spirit-hero-1280.webp",
-    "srcSet": "/img/cars/spirit-hero-1280.webp 1280w, /img/cars/spirit-hero-640.webp 640w",
+    "srcSet": "/img/cars/spirit-hero-1280.webp 1280w, /img/cars/spirit-hero-800.webp 800w, /img/cars/spirit-hero-480.webp 480w",
     "width": 1280,
     "height": 678
    }
@@ -2448,7 +2448,7 @@
    },
    "hero": {
     "src": "/img/cars/forti-hero-1280.webp",
-    "srcSet": "/img/cars/forti-hero-1280.webp 559w, /img/cars/forti-hero-640.webp 559w",
+    "srcSet": "/img/cars/forti-hero-1280.webp 559w, /img/cars/forti-hero-800.webp 559w, /img/cars/forti-hero-480.webp 480w",
     "width": 559,
     "height": 290
    }
@@ -2480,7 +2480,7 @@
    },
    "hero": {
     "src": "/img/cars/pacific-hero-1280.webp",
-    "srcSet": "/img/cars/pacific-hero-1280.webp 891w, /img/cars/pacific-hero-640.webp 640w",
+    "srcSet": "/img/cars/pacific-hero-1280.webp 891w, /img/cars/pacific-hero-800.webp 800w, /img/cars/pacific-hero-480.webp 480w",
     "width": 891,
     "height": 587,
     "focusY": 88
@@ -2513,7 +2513,7 @@
    },
    "hero": {
     "src": "/img/cars/simtek-hero-1280.webp",
-    "srcSet": "/img/cars/simtek-hero-1280.webp 1280w, /img/cars/simtek-hero-640.webp 640w",
+    "srcSet": "/img/cars/simtek-hero-1280.webp 1280w, /img/cars/simtek-hero-800.webp 800w, /img/cars/simtek-hero-480.webp 480w",
     "width": 1280,
     "height": 865
    }
@@ -2545,7 +2545,7 @@
    },
    "hero": {
     "src": "/img/cars/rial-hero-1280.webp",
-    "srcSet": "/img/cars/rial-hero-1280.webp 1280w, /img/cars/rial-hero-640.webp 640w",
+    "srcSet": "/img/cars/rial-hero-1280.webp 1280w, /img/cars/rial-hero-800.webp 800w, /img/cars/rial-hero-480.webp 480w",
     "width": 1280,
     "height": 639
    }
@@ -2580,7 +2580,7 @@
    },
    "hero": {
     "src": "/img/cars/audi-hero-1280.webp",
-    "srcSet": "/img/cars/audi-hero-1280.webp 1280w, /img/cars/audi-hero-640.webp 640w",
+    "srcSet": "/img/cars/audi-hero-1280.webp 1280w, /img/cars/audi-hero-800.webp 800w, /img/cars/audi-hero-480.webp 480w",
     "width": 1280,
     "height": 720
    }
@@ -2615,7 +2615,7 @@
    },
    "hero": {
     "src": "/img/cars/cadillac-hero-1280.webp",
-    "srcSet": "/img/cars/cadillac-hero-1280.webp 1280w, /img/cars/cadillac-hero-640.webp 640w",
+    "srcSet": "/img/cars/cadillac-hero-1280.webp 1280w, /img/cars/cadillac-hero-800.webp 800w, /img/cars/cadillac-hero-480.webp 480w",
     "width": 1280,
     "height": 640
    }
@@ -2647,7 +2647,7 @@
    },
    "hero": {
     "src": "/img/cars/fondmetal-hero-1280.webp",
-    "srcSet": "/img/cars/fondmetal-hero-1280.webp 1024w, /img/cars/fondmetal-hero-640.webp 640w",
+    "srcSet": "/img/cars/fondmetal-hero-1280.webp 1024w, /img/cars/fondmetal-hero-800.webp 800w, /img/cars/fondmetal-hero-480.webp 480w",
     "width": 1024,
     "height": 683
    }
@@ -2679,7 +2679,7 @@
    },
    "hero": {
     "src": "/img/cars/connaught-hero-1280.webp",
-    "srcSet": "/img/cars/connaught-hero-1280.webp 1280w, /img/cars/connaught-hero-640.webp 640w",
+    "srcSet": "/img/cars/connaught-hero-1280.webp 1280w, /img/cars/connaught-hero-800.webp 800w, /img/cars/connaught-hero-480.webp 480w",
     "width": 1280,
     "height": 850
    }
@@ -2711,7 +2711,7 @@
    },
    "hero": {
     "src": "/img/cars/onyx-hero-1280.webp",
-    "srcSet": "/img/cars/onyx-hero-1280.webp 1280w, /img/cars/onyx-hero-640.webp 640w",
+    "srcSet": "/img/cars/onyx-hero-1280.webp 1280w, /img/cars/onyx-hero-800.webp 800w, /img/cars/onyx-hero-480.webp 480w",
     "width": 1280,
     "height": 932
    }
@@ -2743,7 +2743,7 @@
    },
    "hero": {
     "src": "/img/cars/spyker-hero-1280.webp",
-    "srcSet": "/img/cars/spyker-hero-1280.webp 720w, /img/cars/spyker-hero-640.webp 640w",
+    "srcSet": "/img/cars/spyker-hero-1280.webp 720w, /img/cars/spyker-hero-800.webp 720w, /img/cars/spyker-hero-480.webp 480w",
     "width": 720,
     "height": 438
    }
@@ -2775,7 +2775,7 @@
    },
    "hero": {
     "src": "/img/cars/parnelli-hero-1280.webp",
-    "srcSet": "/img/cars/parnelli-hero-1280.webp 1280w, /img/cars/parnelli-hero-640.webp 640w",
+    "srcSet": "/img/cars/parnelli-hero-1280.webp 1280w, /img/cars/parnelli-hero-800.webp 800w, /img/cars/parnelli-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -2807,7 +2807,7 @@
    },
    "hero": {
     "src": "/img/cars/euro-brun-hero-1280.webp",
-    "srcSet": "/img/cars/euro-brun-hero-1280.webp 1280w, /img/cars/euro-brun-hero-640.webp 640w",
+    "srcSet": "/img/cars/euro-brun-hero-1280.webp 1280w, /img/cars/euro-brun-hero-800.webp 800w, /img/cars/euro-brun-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -2839,7 +2839,7 @@
    },
    "hero": {
     "src": "/img/cars/simca-hero-1280.webp",
-    "srcSet": "/img/cars/simca-hero-1280.webp 1280w, /img/cars/simca-hero-640.webp 640w",
+    "srcSet": "/img/cars/simca-hero-1280.webp 1280w, /img/cars/simca-hero-800.webp 800w, /img/cars/simca-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -2871,7 +2871,7 @@
    },
    "hero": {
     "src": "/img/cars/hwm-hero-1280.webp",
-    "srcSet": "/img/cars/hwm-hero-1280.webp 1280w, /img/cars/hwm-hero-640.webp 640w",
+    "srcSet": "/img/cars/hwm-hero-1280.webp 1280w, /img/cars/hwm-hero-800.webp 800w, /img/cars/hwm-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -2903,7 +2903,7 @@
    },
    "hero": {
     "src": "/img/cars/mf1-hero-1280.webp",
-    "srcSet": "/img/cars/mf1-hero-1280.webp 800w, /img/cars/mf1-hero-640.webp 640w",
+    "srcSet": "/img/cars/mf1-hero-1280.webp 800w, /img/cars/mf1-hero-800.webp 800w, /img/cars/mf1-hero-480.webp 480w",
     "width": 800,
     "height": 514
    }
@@ -2935,7 +2935,7 @@
    },
    "hero": {
     "src": "/img/cars/talbot-hero-1280.webp",
-    "srcSet": "/img/cars/talbot-hero-1280.webp 1280w, /img/cars/talbot-hero-640.webp 640w",
+    "srcSet": "/img/cars/talbot-hero-1280.webp 1280w, /img/cars/talbot-hero-800.webp 800w, /img/cars/talbot-hero-480.webp 480w",
     "width": 1280,
     "height": 904
    }
@@ -2983,7 +2983,7 @@
    },
    "hero": {
     "src": "/img/cars/coloni-hero-1280.webp",
-    "srcSet": "/img/cars/coloni-hero-1280.webp 1280w, /img/cars/coloni-hero-640.webp 640w",
+    "srcSet": "/img/cars/coloni-hero-1280.webp 1280w, /img/cars/coloni-hero-800.webp 800w, /img/cars/coloni-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -3018,7 +3018,7 @@
    },
    "hero": {
     "src": "/img/cars/de-tomaso-hero-1280.webp",
-    "srcSet": "/img/cars/de-tomaso-hero-1280.webp 1280w, /img/cars/de-tomaso-hero-640.webp 640w",
+    "srcSet": "/img/cars/de-tomaso-hero-1280.webp 1280w, /img/cars/de-tomaso-hero-800.webp 800w, /img/cars/de-tomaso-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -3050,7 +3050,7 @@
    },
    "hero": {
     "src": "/img/cars/tecno-hero-1280.webp",
-    "srcSet": "/img/cars/tecno-hero-1280.webp 1280w, /img/cars/tecno-hero-640.webp 640w",
+    "srcSet": "/img/cars/tecno-hero-1280.webp 1280w, /img/cars/tecno-hero-800.webp 800w, /img/cars/tecno-hero-480.webp 480w",
     "width": 1280,
     "height": 961
    }
@@ -3082,7 +3082,7 @@
    },
    "hero": {
     "src": "/img/cars/embassy-hill-hero-1280.webp",
-    "srcSet": "/img/cars/embassy-hill-hero-1280.webp 1280w, /img/cars/embassy-hill-hero-640.webp 640w",
+    "srcSet": "/img/cars/embassy-hill-hero-1280.webp 1280w, /img/cars/embassy-hill-hero-800.webp 800w, /img/cars/embassy-hill-hero-480.webp 480w",
     "width": 1280,
     "height": 788
    }
@@ -3114,7 +3114,7 @@
    },
    "hero": {
     "src": "/img/cars/merzario-hero-1280.webp",
-    "srcSet": "/img/cars/merzario-hero-1280.webp 1280w, /img/cars/merzario-hero-640.webp 640w",
+    "srcSet": "/img/cars/merzario-hero-1280.webp 1280w, /img/cars/merzario-hero-800.webp 800w, /img/cars/merzario-hero-480.webp 480w",
     "width": 1280,
     "height": 720
    }
@@ -3162,7 +3162,7 @@
    },
    "hero": {
     "src": "/img/cars/era-hero-1280.webp",
-    "srcSet": "/img/cars/era-hero-1280.webp 1280w, /img/cars/era-hero-640.webp 640w",
+    "srcSet": "/img/cars/era-hero-1280.webp 1280w, /img/cars/era-hero-800.webp 800w, /img/cars/era-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -3226,7 +3226,7 @@
    },
    "hero": {
     "src": "/img/cars/veritas-hero-1280.webp",
-    "srcSet": "/img/cars/veritas-hero-1280.webp 900w, /img/cars/veritas-hero-640.webp 640w",
+    "srcSet": "/img/cars/veritas-hero-1280.webp 900w, /img/cars/veritas-hero-800.webp 800w, /img/cars/veritas-hero-480.webp 480w",
     "width": 900,
     "height": 599
    }
@@ -3258,7 +3258,7 @@
    },
    "hero": {
     "src": "/img/cars/trojan-hero-1280.webp",
-    "srcSet": "/img/cars/trojan-hero-1280.webp 1280w, /img/cars/trojan-hero-640.webp 640w",
+    "srcSet": "/img/cars/trojan-hero-1280.webp 1280w, /img/cars/trojan-hero-800.webp 800w, /img/cars/trojan-hero-480.webp 480w",
     "width": 1280,
     "height": 586
    }
@@ -3290,7 +3290,7 @@
    },
    "hero": {
     "src": "/img/cars/boro-hero-1280.webp",
-    "srcSet": "/img/cars/boro-hero-1280.webp 1280w, /img/cars/boro-hero-640.webp 640w",
+    "srcSet": "/img/cars/boro-hero-1280.webp 1280w, /img/cars/boro-hero-800.webp 800w, /img/cars/boro-hero-480.webp 480w",
     "width": 1280,
     "height": 721
    }
@@ -3322,7 +3322,7 @@
    },
    "hero": {
     "src": "/img/cars/lambo-hero-1280.webp",
-    "srcSet": "/img/cars/lambo-hero-1280.webp 1280w, /img/cars/lambo-hero-640.webp 640w",
+    "srcSet": "/img/cars/lambo-hero-1280.webp 1280w, /img/cars/lambo-hero-800.webp 800w, /img/cars/lambo-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -3354,7 +3354,7 @@
    },
    "hero": {
     "src": "/img/cars/alta-hero-1280.webp",
-    "srcSet": "/img/cars/alta-hero-1280.webp 1280w, /img/cars/alta-hero-640.webp 640w",
+    "srcSet": "/img/cars/alta-hero-1280.webp 1280w, /img/cars/alta-hero-800.webp 800w, /img/cars/alta-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -3388,7 +3388,7 @@
    },
    "hero": {
     "src": "/img/cars/lds-hero-1280.webp",
-    "srcSet": "/img/cars/lds-hero-1280.webp 1280w, /img/cars/lds-hero-640.webp 640w",
+    "srcSet": "/img/cars/lds-hero-1280.webp 1280w, /img/cars/lds-hero-800.webp 800w, /img/cars/lds-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -3420,7 +3420,7 @@
    },
    "hero": {
     "src": "/img/cars/scirocco-hero-1280.webp",
-    "srcSet": "/img/cars/scirocco-hero-1280.webp 1218w, /img/cars/scirocco-hero-640.webp 640w",
+    "srcSet": "/img/cars/scirocco-hero-1280.webp 1218w, /img/cars/scirocco-hero-800.webp 800w, /img/cars/scirocco-hero-480.webp 480w",
     "width": 1218,
     "height": 1834
    }
@@ -3452,7 +3452,7 @@
    },
    "hero": {
     "src": "/img/cars/martini-hero-1280.webp",
-    "srcSet": "/img/cars/martini-hero-1280.webp 1280w, /img/cars/martini-hero-640.webp 640w",
+    "srcSet": "/img/cars/martini-hero-1280.webp 1280w, /img/cars/martini-hero-800.webp 800w, /img/cars/martini-hero-480.webp 480w",
     "width": 1280,
     "height": 640
    }
@@ -3548,7 +3548,7 @@
    },
    "hero": {
     "src": "/img/cars/frazer-nash-hero-1280.webp",
-    "srcSet": "/img/cars/frazer-nash-hero-1280.webp 1280w, /img/cars/frazer-nash-hero-640.webp 640w",
+    "srcSet": "/img/cars/frazer-nash-hero-1280.webp 1280w, /img/cars/frazer-nash-hero-800.webp 800w, /img/cars/frazer-nash-hero-480.webp 480w",
     "width": 1280,
     "height": 851
    }
@@ -3580,7 +3580,7 @@
    },
    "hero": {
     "src": "/img/cars/afm-hero-1280.webp",
-    "srcSet": "/img/cars/afm-hero-1280.webp 1280w, /img/cars/afm-hero-640.webp 640w",
+    "srcSet": "/img/cars/afm-hero-1280.webp 1280w, /img/cars/afm-hero-800.webp 800w, /img/cars/afm-hero-480.webp 480w",
     "width": 1280,
     "height": 914
    }
@@ -3612,7 +3612,7 @@
    },
    "hero": {
     "src": "/img/cars/lancia-hero-1280.webp",
-    "srcSet": "/img/cars/lancia-hero-1280.webp 810w, /img/cars/lancia-hero-640.webp 640w",
+    "srcSet": "/img/cars/lancia-hero-1280.webp 810w, /img/cars/lancia-hero-800.webp 800w, /img/cars/lancia-hero-480.webp 480w",
     "width": 810,
     "height": 575
    }
@@ -3644,7 +3644,7 @@
    },
    "hero": {
     "src": "/img/cars/emeryson-hero-1280.webp",
-    "srcSet": "/img/cars/emeryson-hero-1280.webp 1280w, /img/cars/emeryson-hero-640.webp 640w",
+    "srcSet": "/img/cars/emeryson-hero-1280.webp 1280w, /img/cars/emeryson-hero-800.webp 800w, /img/cars/emeryson-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -3676,7 +3676,7 @@
    },
    "hero": {
     "src": "/img/cars/jbw-hero-1280.webp",
-    "srcSet": "/img/cars/jbw-hero-1280.webp 1280w, /img/cars/jbw-hero-640.webp 640w",
+    "srcSet": "/img/cars/jbw-hero-1280.webp 1280w, /img/cars/jbw-hero-800.webp 800w, /img/cars/jbw-hero-480.webp 480w",
     "width": 1280,
     "height": 646
    }
@@ -3708,7 +3708,7 @@
    },
    "hero": {
     "src": "/img/cars/spyker-mf1-hero-1280.webp",
-    "srcSet": "/img/cars/spyker-mf1-hero-1280.webp 800w, /img/cars/spyker-mf1-hero-640.webp 640w",
+    "srcSet": "/img/cars/spyker-mf1-hero-1280.webp 800w, /img/cars/spyker-mf1-hero-800.webp 800w, /img/cars/spyker-mf1-hero-480.webp 480w",
     "width": 800,
     "height": 514
    }
@@ -3740,7 +3740,7 @@
    },
    "hero": {
     "src": "/img/cars/deidt-hero-1280.webp",
-    "srcSet": "/img/cars/deidt-hero-1280.webp 1280w, /img/cars/deidt-hero-640.webp 640w",
+    "srcSet": "/img/cars/deidt-hero-1280.webp 1280w, /img/cars/deidt-hero-800.webp 800w, /img/cars/deidt-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -3820,7 +3820,7 @@
    },
    "hero": {
     "src": "/img/cars/scarab-hero-1280.webp",
-    "srcSet": "/img/cars/scarab-hero-1280.webp 1280w, /img/cars/scarab-hero-640.webp 640w",
+    "srcSet": "/img/cars/scarab-hero-1280.webp 1280w, /img/cars/scarab-hero-800.webp 800w, /img/cars/scarab-hero-480.webp 480w",
     "width": 1280,
     "height": 851
    }
@@ -3852,7 +3852,7 @@
    },
    "hero": {
     "src": "/img/cars/gilby-hero-1280.webp",
-    "srcSet": "/img/cars/gilby-hero-1280.webp 1280w, /img/cars/gilby-hero-640.webp 640w",
+    "srcSet": "/img/cars/gilby-hero-1280.webp 1280w, /img/cars/gilby-hero-800.webp 800w, /img/cars/gilby-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -3884,7 +3884,7 @@
    },
    "hero": {
     "src": "/img/cars/token-hero-1280.webp",
-    "srcSet": "/img/cars/token-hero-1280.webp 1280w, /img/cars/token-hero-640.webp 640w",
+    "srcSet": "/img/cars/token-hero-1280.webp 1280w, /img/cars/token-hero-800.webp 800w, /img/cars/token-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -3916,7 +3916,7 @@
    },
    "hero": {
     "src": "/img/cars/lec-hero-1280.webp",
-    "srcSet": "/img/cars/lec-hero-1280.webp 1280w, /img/cars/lec-hero-640.webp 640w",
+    "srcSet": "/img/cars/lec-hero-1280.webp 1280w, /img/cars/lec-hero-800.webp 800w, /img/cars/lec-hero-480.webp 480w",
     "width": 1280,
     "height": 568
    }
@@ -4012,7 +4012,7 @@
    },
    "hero": {
     "src": "/img/cars/aston-butterworth-hero-1280.webp",
-    "srcSet": "/img/cars/aston-butterworth-hero-1280.webp 1280w, /img/cars/aston-butterworth-hero-640.webp 640w",
+    "srcSet": "/img/cars/aston-butterworth-hero-1280.webp 1280w, /img/cars/aston-butterworth-hero-800.webp 800w, /img/cars/aston-butterworth-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -4044,7 +4044,7 @@
    },
    "hero": {
     "src": "/img/cars/bmw-hero-1280.webp",
-    "srcSet": "/img/cars/bmw-hero-1280.webp 1280w, /img/cars/bmw-hero-640.webp 640w",
+    "srcSet": "/img/cars/bmw-hero-1280.webp 1280w, /img/cars/bmw-hero-800.webp 800w, /img/cars/bmw-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -4140,7 +4140,7 @@
    },
    "hero": {
     "src": "/img/cars/kojima-hero-1280.webp",
-    "srcSet": "/img/cars/kojima-hero-1280.webp 1280w, /img/cars/kojima-hero-640.webp 640w",
+    "srcSet": "/img/cars/kojima-hero-1280.webp 1280w, /img/cars/kojima-hero-800.webp 800w, /img/cars/kojima-hero-480.webp 480w",
     "width": 1280,
     "height": 853,
     "focusY": 80
@@ -4173,7 +4173,7 @@
    },
    "hero": {
     "src": "/img/cars/andrea-moda-hero-1280.webp",
-    "srcSet": "/img/cars/andrea-moda-hero-1280.webp 1280w, /img/cars/andrea-moda-hero-640.webp 640w",
+    "srcSet": "/img/cars/andrea-moda-hero-1280.webp 1280w, /img/cars/andrea-moda-hero-800.webp 800w, /img/cars/andrea-moda-hero-480.webp 480w",
     "width": 1280,
     "height": 889
    }
@@ -4285,7 +4285,7 @@
    },
    "hero": {
     "src": "/img/cars/adams-hero-1280.webp",
-    "srcSet": "/img/cars/adams-hero-1280.webp 1280w, /img/cars/adams-hero-640.webp 640w",
+    "srcSet": "/img/cars/adams-hero-1280.webp 1280w, /img/cars/adams-hero-800.webp 800w, /img/cars/adams-hero-480.webp 480w",
     "width": 1280,
     "height": 1044
    }
@@ -4397,7 +4397,7 @@
    },
    "hero": {
     "src": "/img/cars/bugatti-hero-1280.webp",
-    "srcSet": "/img/cars/bugatti-hero-1280.webp 1280w, /img/cars/bugatti-hero-640.webp 640w",
+    "srcSet": "/img/cars/bugatti-hero-1280.webp 1280w, /img/cars/bugatti-hero-800.webp 800w, /img/cars/bugatti-hero-480.webp 480w",
     "width": 1280,
     "height": 724
    }
@@ -4461,7 +4461,7 @@
    },
    "hero": {
     "src": "/img/cars/tec-hero-1280.webp",
-    "srcSet": "/img/cars/tec-hero-1280.webp 1280w, /img/cars/tec-hero-640.webp 640w",
+    "srcSet": "/img/cars/tec-hero-1280.webp 1280w, /img/cars/tec-hero-800.webp 800w, /img/cars/tec-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -4493,7 +4493,7 @@
    },
    "hero": {
     "src": "/img/cars/meskowski-hero-1280.webp",
-    "srcSet": "/img/cars/meskowski-hero-1280.webp 1280w, /img/cars/meskowski-hero-640.webp 640w",
+    "srcSet": "/img/cars/meskowski-hero-1280.webp 1280w, /img/cars/meskowski-hero-800.webp 800w, /img/cars/meskowski-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -4525,7 +4525,7 @@
    },
    "hero": {
     "src": "/img/cars/ferguson-hero-1280.webp",
-    "srcSet": "/img/cars/ferguson-hero-1280.webp 1280w, /img/cars/ferguson-hero-640.webp 640w",
+    "srcSet": "/img/cars/ferguson-hero-1280.webp 1280w, /img/cars/ferguson-hero-800.webp 800w, /img/cars/ferguson-hero-480.webp 480w",
     "width": 1280,
     "height": 458
    }
@@ -4557,7 +4557,7 @@
    },
    "hero": {
     "src": "/img/cars/enb-hero-1280.webp",
-    "srcSet": "/img/cars/enb-hero-1280.webp 1280w, /img/cars/enb-hero-640.webp 640w",
+    "srcSet": "/img/cars/enb-hero-1280.webp 1280w, /img/cars/enb-hero-800.webp 800w, /img/cars/enb-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -4605,7 +4605,7 @@
    },
    "hero": {
     "src": "/img/cars/derrington-hero-1280.webp",
-    "srcSet": "/img/cars/derrington-hero-1280.webp 1280w, /img/cars/derrington-hero-640.webp 640w",
+    "srcSet": "/img/cars/derrington-hero-1280.webp 1280w, /img/cars/derrington-hero-800.webp 800w, /img/cars/derrington-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -4685,7 +4685,7 @@
    },
    "hero": {
     "src": "/img/cars/connew-hero-1280.webp",
-    "srcSet": "/img/cars/connew-hero-1280.webp 1280w, /img/cars/connew-hero-640.webp 640w",
+    "srcSet": "/img/cars/connew-hero-1280.webp 1280w, /img/cars/connew-hero-800.webp 800w, /img/cars/connew-hero-480.webp 480w",
     "width": 1280,
     "height": 960
    }
@@ -4717,7 +4717,7 @@
    },
    "hero": {
     "src": "/img/cars/amon-hero-1280.webp",
-    "srcSet": "/img/cars/amon-hero-1280.webp 1280w, /img/cars/amon-hero-640.webp 640w",
+    "srcSet": "/img/cars/amon-hero-1280.webp 1280w, /img/cars/amon-hero-800.webp 800w, /img/cars/amon-hero-480.webp 480w",
     "width": 1280,
     "height": 853
    }
@@ -4749,7 +4749,7 @@
    },
    "hero": {
     "src": "/img/cars/lyncar-hero-1280.webp",
-    "srcSet": "/img/cars/lyncar-hero-1280.webp 1280w, /img/cars/lyncar-hero-640.webp 640w",
+    "srcSet": "/img/cars/lyncar-hero-1280.webp 1280w, /img/cars/lyncar-hero-800.webp 800w, /img/cars/lyncar-hero-480.webp 480w",
     "width": 1280,
     "height": 854
    }
@@ -4781,7 +4781,7 @@
    },
    "hero": {
     "src": "/img/cars/rebaque-hero-1280.webp",
-    "srcSet": "/img/cars/rebaque-hero-1280.webp 1280w, /img/cars/rebaque-hero-640.webp 640w",
+    "srcSet": "/img/cars/rebaque-hero-1280.webp 1280w, /img/cars/rebaque-hero-800.webp 800w, /img/cars/rebaque-hero-480.webp 480w",
     "width": 1280,
     "height": 855
    }
