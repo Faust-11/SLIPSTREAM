@@ -68,7 +68,7 @@ describe("selectTeams на знімку", async () => {
 
   it("за замовчуванням (sort=p): спершу 11 команд сезону 2026 за позицією, далі решта", () => {
     const res = selectTeams(uk, DEFAULT, "uk");
-    expect(res).toHaveLength(165);
+    expect(res).toHaveLength(166);
     expect(res.slice(0, 11).map((c) => c.current?.position)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
     expect(res[11]!.current).toBeNull();
   });
@@ -88,7 +88,7 @@ describe("selectTeams на знімку", async () => {
     expect(ids({ q: "ferr" })).toContain("ferrari");
     expect(ids({ q: "lotus" })).toEqual(expect.arrayContaining(["lotus", "lotus-f1"]));
     expect(ids({ q: "zzz" })).toEqual([]);
-    expect(ids({ q: "   " })).toHaveLength(165);
+    expect(ids({ q: "   " })).toHaveLength(166);
   });
 
   it("пошук кирилицею, за пілотом і з опечатками (дизайн-рев'ю 11.11)", () => {
