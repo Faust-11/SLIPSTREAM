@@ -28,7 +28,8 @@ classif as (
   -- Протокол гонки чи спринту: класифіковані за місцем, далі за пройденими колами.
   select round_id, type,
          jsonb_agg(jsonb_strip_nulls(jsonb_build_object(
-                     'p', case when coalesce(is_classified, true) then position end, 'o', position,
+                     -- Дискваліфікований (status 20) — без місця, хоч Jolpica й дає позицію (рев'ю 13.11: 2023/18 Гамілтон «P19»).
+                     'p', case when coalesce(is_classified, true) and coalesce(status, 0) <> 20 then position end, 'o', position,
                      'd', dref, 't', fam, 'c', car_number, 'g', grid, 'l', laps_completed, 'ms', time_ms,
                      's', status, 'x', detail, 'pts', points::float8, 'fl', fastest_lap_rank,
                      'fms', case when fastest_lap_rank = 1 then best_ms end,
@@ -38,34 +39,67 @@ classif as (
   group by round_id, type
 ),
 quali as (
-  -- Кваліфікація: Q1–Q3 (з 2006) — підсумкове місце з останньої сесії пілота; QB/QA (1994–2005) — одна сесія.
-  -- Спринт-кваліфікація SQ1–SQ3 (2023+) — так само, окремим полем.
+  -- Кваліфікація: підсумкове місце. Jolpica зберігає місце В КОЖНІЙ частині (Q1/Q2/Q3); при дискваліфікації чи
+  -- пониженні місце в Q1 уже підсумкове, а в пізніших частинах лишається старе (замір 13.11 на дампі: Албон, Зандворт
+  -- 2024 — Q1 19, Q3 «10»; Гюлькенберг і Магнуссен, Монако 2024 — Q1 20/19, Q2 «14/15»; Алонсо там — Q1 14 після їх
+  -- виключення). Правило: місце з Q1, якщо пілот далі не пройшов або його місце в Q1 поза числом учасників Q2; так само
+  -- Q2 щодо Q3; інакше Q3. Наприкінці — row_number (місця 1..N без дублів; без часу — в кінці). QB/QA (1994–2005) —
+  -- одна сесія. Спринт-кваліфікація SQ1–SQ3 — так само, окремим полем. Рев'ю 13.11: було coalesce(Q3, Q2, Q1) → дублі
+  -- місць у 6 етапах (2023/10, 2024/8, 2024/15, 2024/17, 2025/7, 2026/20).
   select round_id, sprint,
-         jsonb_agg(jsonb_strip_nulls(jsonb_build_object('p', pos, 'd', dref, 't', fam, 'q1', q1, 'q2', q2, 'q3', q3))
-                   order by pos nulls last, dref) as rows
+         jsonb_agg(jsonb_strip_nulls(jsonb_build_object('p', fin, 'd', dref, 't', fam, 'q1', q1, 'q2', q2, 'q3', q3))
+                   order by fin) as rows
   from (
-    select round_id, dref, fam, left(type, 1) = 'S' as sprint,
-           coalesce(max(position) filter (where type in ('Q3', 'SQ3')), max(position) filter (where type in ('Q2', 'SQ2')),
-                    max(position) filter (where type in ('Q1', 'SQ1', 'QB', 'QA'))) as pos,
-           min(best_ms) filter (where type in ('Q1', 'SQ1', 'QB', 'QA')) as q1,
-           min(best_ms) filter (where type in ('Q2', 'SQ2')) as q2,
-           min(best_ms) filter (where type in ('Q3', 'SQ3')) as q3
-    from res where type in ('Q1', 'Q2', 'Q3', 'QB', 'QA', 'SQ1', 'SQ2', 'SQ3')
-    group by round_id, dref, fam, left(type, 1) = 'S'
+    select x.*, row_number() over (partition by round_id, sprint
+                                   order by pos nulls last, coalesce(q3, q2, q1) nulls last, dref) as fin
+    from (
+      select y.*,
+             case when p2 is null or p1 > n2 then p1
+                  when p3 is null or p2 > n3 then p2
+                  else p3 end as pos
+      from (
+        select z.*, count(p2) over w as n2, count(p3) over w as n3
+        from (
+          select round_id, dref, fam, left(type, 1) = 'S' as sprint,
+                 min(position) filter (where type in ('Q1', 'SQ1', 'QB', 'QA')) as p1,
+                 min(position) filter (where type in ('Q2', 'SQ2')) as p2,
+                 min(position) filter (where type in ('Q3', 'SQ3')) as p3,
+                 -- Час: найкраще коло (дамп), інакше результат сесії — доливка з API (topup_api.insert_qualifying) кіл
+                 -- не пише, час лише в results.time_ms (рев'ю 13.11: 2026/19–20 були без часів кваліфікації).
+                 min(coalesce(best_ms, time_ms)) filter (where type in ('Q1', 'SQ1', 'QB', 'QA')) as q1,
+                 min(coalesce(best_ms, time_ms)) filter (where type in ('Q2', 'SQ2')) as q2,
+                 min(coalesce(best_ms, time_ms)) filter (where type in ('Q3', 'SQ3')) as q3
+          from res where type in ('Q1', 'Q2', 'Q3', 'QB', 'QA', 'SQ1', 'SQ2', 'SQ3')
+          group by round_id, dref, fam, left(type, 1) = 'S'
+        ) z
+        window w as (partition by round_id, sprint)
+      ) y
+    ) x
   ) q
   group by round_id, sprint
 ),
+sbest as (
+  -- Найкращий у сесії (місце 1) — один прохід замість підзапиту на кожну сесію (рев'ю 13.11: продуктивність refresh).
+  select distinct on (session_id) session_id, jsonb_build_object('d', dref, 'ms', coalesce(best_ms, time_ms)) as best
+  from res where position = 1
+  order by session_id, id
+),
 sess as (
-  -- Сесії вікенду: час (real — справжній, а не північ дати), найкращий (тренування й кваліфікація — за колом, гонка й спринт — переможець).
+  -- Сесії вікенду: час (real — справжній, а не північ дати, в UTC явно), найкращий (тренування — за колом).
+  -- Порядок: день, потім вид сесії (без справжнього часу сортування за часом ставило кваліфікацію перед FP3 —
+  -- рев'ю 13.11), потім час. Кваліфікація — одна сесія на вид (QB 1994–1995 — дві за вікенд; QA 2005).
   select s.round_id,
          jsonb_agg(jsonb_build_object(
            'k', s.type, 'n', s.number, 'at', s.starts_at,
-           'real', s.starts_at is not null and s.starts_at::time <> '00:00',
-           'best', (select jsonb_build_object('d', r.dref, 'ms', coalesce(r.best_ms, r.time_ms))
-                    from res r where r.session_id = s.id and r.position = 1 order by r.id limit 1))
-           order by s.starts_at nulls last, s.number) as rows
-  from f1.sessions s join rnd on rnd.id = s.round_id
-  where not s.is_cancelled and s.type in ('FP1', 'FP2', 'FP3', 'Q1', 'QB', 'SQ1', 'SR', 'R')
+           'real', s.starts_at is not null and (s.starts_at at time zone 'UTC')::time <> '00:00',
+           'best', sb.best)
+           order by (s.starts_at at time zone 'UTC')::date nulls last,
+                    array_position(array['FP1', 'FP2', 'FP3', 'SQ1', 'SR', 'Q1', 'QB', 'QA', 'R'], s.type),
+                    s.starts_at, s.number) as rows
+  from f1.sessions s
+  join rnd on rnd.id = s.round_id
+  left join sbest sb on sb.session_id = s.id
+  where not s.is_cancelled and s.type in ('FP1', 'FP2', 'FP3', 'Q1', 'QB', 'QA', 'SQ1', 'SR', 'R')
   group by s.round_id
 ),
 chart as (
