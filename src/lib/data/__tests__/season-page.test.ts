@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 import circuitsJson from "@/data/curated/circuits.json";
 import seasonIndex from "../../../../e2e/fixtures/db/season_index.json";
 import seasonRounds from "../../../../e2e/fixtures/db/season_rounds.json";
-import { getSeasonPage, getSeasonYears } from "../season-page";
+import { getSeasonPage, getSeasonYears, poleCars } from "../season-page";
 
 vi.mock("@/lib/data/db", async () => {
   const fx = await import("@/lib/data/__tests__/db-fixture");
@@ -108,8 +108,15 @@ describe("getSeasonPage — межові сезони", () => {
     expect(p.inProgress).toBe(true);
     expect(p.calendar.filter((c) => !c.done && !c.cancelled).length).toBe(cur.rounds - cur.races);
     expect(p.calendar.some((c) => c.cancelled)).toBe(seasonRounds.some((r) => r.year === cur.year && r.cancelled));
-    expect(p.facts.decider !== null).toBe(cur.driver_decided ? p.facts.decider !== null : false);
-    if (!cur.driver_decided) expect(p.facts.decider).toBeNull();
+    // Титул вирішено — вирішальний етап є і він уже відбувся; не вирішено — висновку немає.
+    if (cur.driver_decided) {
+      expect(p.facts.decider).not.toBeNull();
+      expect(p.facts.decider!.round).toBeLessThanOrEqual(cur.races);
+    } else expect(p.facts.decider).toBeNull();
+    // Календар — за датою; скасований етап без номера — на своєму місці, а не в кінці.
+    const dates = p.calendar.map((c) => c.date ?? "9999");
+    expect(dates).toEqual([...dates].sort());
+    expect(p.calendar.at(-1)!.cancelled).toBe(false);
   });
 
   it("невідомий рік — null; років сторінок стільки ж, скільки сезонів", async () => {
@@ -128,5 +135,33 @@ describe("кураторські місця етапів", () => {
     const places = (circuitsJson as unknown as { places: Record<string, { uk: string; en: string }> }).places;
     const missing = [...new Set(seasonRounds.map((r) => r.circuit).filter((c): c is string => !!c))].filter((c) => !places[c]?.uk || !places[c]?.en);
     expect(missing).toEqual([]);
+  });
+});
+
+describe("поул по машинах (1950-ті: машину ділили кілька пілотів)", () => {
+  const w = (driver: string, car: number | null) => ({ driver, team: "x", car });
+  it("екіпаж однієї машини — одна група (1955 Аргентина, №12)", () => {
+    expect(poleCars([w("farina", 12), w("gonzalez", 12), w("trintignant", 12)])).toEqual([["farina", "gonzalez", "trintignant"]]);
+  });
+  it("пілот у двох машинах — машину, де він уже є, відкидаємо (1964 Італія: Кларк №1 і №2 зі Спенсом)", () => {
+    expect(poleCars([w("clark", 1), w("clark", 2), w("spence", 2)])).toEqual([["clark"]]);
+  });
+  it("різні машини з grid = 1 — обидві (помилка даних 1952, показуємо як є); звичайний етап — один пілот", () => {
+    expect(poleCars([w("ascari", 12), w("moss", 32)])).toEqual([["ascari"], ["moss"]]);
+    expect(poleCars([w("norris", 4)])).toEqual([["norris"]]);
+  });
+});
+
+describe("тексти: правки рев'ю 13.11", () => {
+  it("сусідній сезон, що триває, але з вирішеним титулом — не «лідер»", async () => {
+    const cur = seasonIndex.find((s) => s.in_progress)!;
+    const prev = await page(cur.year - 1);
+    expect(prev.next?.inProgress).toBe(!cur.driver_decided);
+  });
+  it("відставання на останньому етапі (= підсумковий відрив) окремим фактом не показуємо", async () => {
+    for (const y of [2013, 2014, 2019, 2023]) {
+      const p = await page(y);
+      if (p.facts.deficit) expect(p.facts.deficit.round).not.toBe(p.chart.rounds.at(-1)!.round);
+    }
   });
 });

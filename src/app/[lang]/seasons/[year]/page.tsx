@@ -140,14 +140,25 @@ export default async function SeasonPage(props: Props) {
     );
   if (f.deficit) {
     const d = f.deficit;
-    const p: ReactNode[] = rich(d.champion ? t.story.deficitChampion : t.story.deficit, {
+    // «…і все одно виграв титул» — лише коли титул справді вирішено (у сезоні, що триває, лідер ще не чемпіон).
+    const won = d.champion && page.decided;
+    const p: ReactNode[] = rich(won ? t.story.deficitChampion : t.story.deficit, {
       round: d.round,
       place: d.place,
       driver: <DriverLink d={d.driver} lang={lang} short />,
       points: <b>{pts(d.points)}</b>,
     });
-    if (!d.champion && d.winsAfter > 0)
-      p.push(" ", fill(t.story.after, { wins: d.winsAfter, races: fill(plural(d.racesAfter, lang, t.story.afterRaces), { n: d.racesAfter }) }));
+    // Перемоги після найбільшого відставання — серед гонок, що вже відбулись (у сезоні, що триває, — «відтоді»).
+    const races = fill(plural(d.racesAfter, lang, t.story.afterRaces), { n: d.racesAfter });
+    if (!won && d.winsAfter > 0)
+      p.push(
+        " ",
+        page.inProgress
+          ? fill(t.story.afterRunning, { wins: d.winsAfter, races })
+          : d.racesAfter === 1
+            ? t.story.afterOne
+            : fill(t.story.after, { wins: d.winsAfter, races }),
+      );
     story.push(p);
   }
   for (const q of f.disqualified)
@@ -183,14 +194,19 @@ export default async function SeasonPage(props: Props) {
       : []),
   ];
 
+  const raceDates = page.calendar
+    .filter((c) => c.date && !c.cancelled)
+    .map((c) => c.date!)
+    .sort();
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
     name: fill(t.title, { year: page.year }),
     sport: "Formula One",
     url: new URL(path(`/seasons/${page.year}`), siteUrl()).href,
-    startDate: page.calendar.find((c) => c.date)?.date ?? undefined,
-    endDate: page.calendar.filter((c) => c.date).at(-1)?.date ?? undefined,
+    // Лише етапи, що не скасовані (2026: Саудівська Аравія скасована — сезон закінчується в грудні, а не 19 квітня).
+    startDate: raceDates[0],
+    endDate: raceDates.at(-1),
     ...(page.hero.photo ? { image: new URL(page.hero.photo.src, siteUrl()).href } : {}),
   };
 
@@ -275,6 +291,7 @@ export default async function SeasonPage(props: Props) {
                 roundLabel={(r) => fill(t.round, { n: r })}
                 stripLabel={t.leaderStrip}
                 tableLabel={t.tableOpen}
+                regionLabel={t.fightSub}
                 colRound={fill(t.round, { n: "" }).trim()}
                 fmt={n}
               />
@@ -381,7 +398,7 @@ export default async function SeasonPage(props: Props) {
             {page.calendar.map((c) => (
               <li
                 key={`${c.round ?? "x"}-${c.gp}`}
-                className={["race", c.decider && "decider", !c.done && "upcoming", c.cancelled && "cancelled"].filter(Boolean).join(" ")}
+                className={["race", c.decider && "decider", !c.done && !c.cancelled && "upcoming", c.cancelled && "cancelled"].filter(Boolean).join(" ")}
                 {...slotStyle(c.slot)}
               >
                 <div className="race-in">
@@ -412,7 +429,10 @@ export default async function SeasonPage(props: Props) {
                         <b>{joinNodes(c.winners.map((w) => <DriverLink key={w.id} d={w} lang={lang} short />), " / ")}</b>
                         {c.winners[0]?.team && <small translate="no">{c.winners[0].team.name}</small>}
                       </span>
-                      {c.poles.length > 0 && <span className="sub">{fill(t.pole, { names: c.poles.map((p) => p.short).join(", ") })}</span>}
+                      {c.poles.length > 0 && (
+                        // Машина з екіпажем (1950-ті) — через « / », як спільна перемога.
+                        <span className="sub">{fill(t.pole, { names: c.poles.map((car) => car.map((p) => p.short).join(" / ")).join(", ") })}</span>
+                      )}
                       {c.sprintWinners.length > 0 && (
                         <span className="sub">{fill(t.sprintWin, { names: c.sprintWinners.map((p) => p.short).join(", ") })}</span>
                       )}

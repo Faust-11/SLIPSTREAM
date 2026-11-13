@@ -25,7 +25,7 @@ import { once } from "./once";
 import { loadSeasonIndex, mainTeams } from "./seasons";
 import { gpName, loadTeamSeasons } from "./team-page";
 import { curatedDrivers, curatedTeams } from "./teams";
-import type { Credit, DriverIndexRow, L10n, SeasonPointsDbRow, SeasonRoundRow, SeasonRuleRow } from "./types";
+import type { Credit, DriverIndexRow, L10n, SeasonPointsDbRow, SeasonPoleWho, SeasonRoundRow, SeasonRuleRow } from "./types";
 
 type CuratedSeason = {
   driverRef?: string;
@@ -41,6 +41,8 @@ const teamsById = new Map(curatedTeams.map((t) => [t.id, t]));
 
 /** Ліній на графіку: перші 4 фінального заліку + усі, хто очолював залік хоч після одного етапу. */
 export const CHART_TOP = 4;
+/** Слотів у палітрі графіка (season.css --s0…--s5, штрихи DASH); більше ліній — слоти по колу (у даних максимум 6). */
+export const PALETTE_SLOTS = 6;
 /** Найменша ширина джерела банера (px). */
 export const HERO_MIN_WIDTH = 960;
 
@@ -123,7 +125,8 @@ export type CalendarRound = {
   /** Етап уже відбувся (є переможець гонки). */
   done: boolean;
   winners: (SeasonDriver & { team: SeasonTeamRef | null })[];
-  poles: SeasonDriver[];
+  /** Машини з поулом (у кожної — екіпаж: у 1950-х машину ділили кілька пілотів). */
+  poles: SeasonDriver[][];
   sprintWinners: SeasonDriver[];
   /** Колір смуги — позиція переможця в палітрі графіка (пілот з лінією) або null. */
   slot: number | null;
@@ -189,6 +192,30 @@ function teamRef(id: string | undefined | null): SeasonTeamRef | null {
   const t = teamsById.get(id);
   if (!t) throw new Error(`Команда ${id} є в базі, але не в curated/teams.json`);
   return { id, name: t.name, color: t.color };
+}
+
+/**
+ * Поул по машинах: записи з grid = 1 (у порядку бази) групуються за номером машини; машину, де вже є пілот із
+ * попередньої, відкидаємо (1964 Італія: Кларк на №1 і на №2 з Спенсом — поул один, Кларка). Різні машини з grid = 1
+ * (1952 Італія: Аскарі й Мосс) — помилка даних Jolpica, показуємо як є (docs/data/review-…-circuit-places.md).
+ */
+export function poleCars(poles: SeasonPoleWho[]): string[][] {
+  const cars = new Map<string, string[]>();
+  for (const p of poles) {
+    const k = p.car === null ? `?${p.driver}` : String(p.car);
+    const list = cars.get(k);
+    if (list) {
+      if (!list.includes(p.driver)) list.push(p.driver);
+    } else cars.set(k, [p.driver]);
+  }
+  const seen = new Set<string>();
+  const out: string[][] = [];
+  for (const crew of cars.values()) {
+    if (crew.some((d) => seen.has(d))) continue;
+    crew.forEach((d) => seen.add(d));
+    out.push(crew);
+  }
+  return out;
 }
 
 /** Місце етапу мовою сторінки: circuits.json → locality з бази. */
@@ -269,7 +296,7 @@ export async function getSeasonPage(year: number, locale: Locale): Promise<Seaso
     const ib = standingIds.indexOf(b);
     return (ia < 0 ? 999 : ia) - (ib < 0 ? 999 : ib);
   });
-  const slotOf = new Map(lineIds.map((id, i) => [id, i]));
+  const slotOf = new Map(lineIds.map((id, i) => [id, i % PALETTE_SLOTS]));
   const doneRounds = [...new Set(points.filter((p) => p.standing_points !== null).map((p) => p.round))].sort((a, b) => a - b);
   const placeOf = new Map(rounds.map((r) => [r.round!, placeName(r.circuit, r.locality, locale)]));
   const lines: ChartLine[] = lineIds.map((id) => {
@@ -294,7 +321,8 @@ export async function getSeasonPage(year: number, locale: Locale): Promise<Seaso
   const top3 = new Set(standingIds.slice(0, 3));
   const calendar: CalendarRound[] = allRounds
     .slice()
-    .sort((a, b) => (a.round ?? 999) - (b.round ?? 999) || (a.date ?? "").localeCompare(b.date ?? ""))
+    // За датою: скасований етап без номера стає на своє місце в сезоні (2026 — Саудівська Аравія у квітні), а не в кінець.
+    .sort((a, b) => (a.date ?? "9999").localeCompare(b.date ?? "9999") || (a.round ?? 999) - (b.round ?? 999))
     .map((r) => {
       const winners = (r.winners ?? []).map((w) => ({ ...drv(w.driver), team: teamRef(w.team) }));
       return {
@@ -306,7 +334,7 @@ export async function getSeasonPage(year: number, locale: Locale): Promise<Seaso
         cancelled: r.cancelled,
         done: winners.length > 0,
         winners,
-        poles: (r.poles ?? []).map((p) => drv(p.driver)),
+        poles: poleCars(r.poles ?? []).map((car) => car.map(drv)),
         sprintWinners: (r.sprint_winners ?? []).map((w) => drv(w.driver)),
         slot: winners.length === 1 ? (slotOf.get(winners[0]!.id) ?? null) : null,
         decider: decision !== null && r.round === decision.round,
@@ -384,7 +412,8 @@ export async function getSeasonPage(year: number, locale: Locale): Promise<Seaso
     .map((id) => ({ id, d: maxDeficit(points, id) }))
     .filter((x): x is { id: string; d: { round: number; points: number } } => x.d !== null)
     .sort((a, b) => b.d.points - a.d.points);
-  if (deficits[0]) {
+  // Відставання після останнього етапу — те саме, що підсумковий відрив: окремим абзацом не повторюємо.
+  if (deficits[0] && deficits[0].d.round !== doneRounds.at(-1)) {
     const { id, d } = deficits[0];
     const after = calendar.filter((c) => c.round !== null && c.round > d.round && c.done);
     facts.deficit = {
@@ -421,7 +450,8 @@ export async function getSeasonPage(year: number, locale: Locale): Promise<Seaso
     return {
       year: y,
       champion: n.driver ? driverName(n.driver, n.forename!, n.surname!, locale) : null,
-      inProgress: n.in_progress,
+      // «Лідер» — лише поки титул не вирішено (2026 вирішено достроково — «Чемпіон», як на його сторінці).
+      inProgress: n.in_progress && !n.driver_decided,
       photo: seasonCardPhoto(y, n.driver),
     };
   };
