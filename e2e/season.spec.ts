@@ -122,6 +122,10 @@ for (const theme of ["light", "dark"] as const)
       await page.emulateMedia({ colorScheme: theme });
       await page.setViewportSize({ width, height: 900 });
       await page.goto("/uk/seasons/2025");
+      // Картки нижче першого екрана — з content-visibility: auto; для пропущеного елемента axe бере тло сторінки замість
+      // тла картки (замір 13.11: «вирішальна» картка — 1,44:1 з увімкненою, 0 порушень з вимкненою; насправді ~11:1).
+      // Перевіряємо сторінку такою, якою її бачать після прокрутки.
+      await page.addStyleTag({ content: ".season-page * { content-visibility: visible !important; }" });
       await expectNoA11yViolations(page);
       expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
     });
