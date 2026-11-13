@@ -90,6 +90,10 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     check("topup --dry-run — без змін", r.returncode == 0 and counts(conn) == after_topup, r.stderr[-300:])
     r = run("scripts/jolpica/topup_api.py")
     check("повторний topup — без дублікатів", r.returncode == 0 and counts(conn) == after_topup, r.stdout[-300:])
+    # Повторний дамп замінив результати — кураторські виправлення (result-fixes.json) знову застосовуємо, як на бою
+    # (data-sync: дамп → seed_curated → доливка → публікація).
+    r = run("scripts/db/seed_curated.py", "--strict")
+    check("кураторські дані й виправлення після повторного дампу — успіх", r.returncode == 0 and "result-fix" in r.stdout, r.stdout[-300:] + r.stderr[-300:])
 
     # ---------- Task 3: похідні дані команд ----------
     idx = index(conn)

@@ -301,3 +301,35 @@ export type SeasonPointsDbRow = {
   standing: number | null;
   standing_points: number | null;
 };
+
+/** f1.race_page (0012): рядок протоколу гонки / спринту (ключі — короткі, див. міграцію). */
+export type RaceResultJson = {
+  p: number | null;
+  o: number | null;
+  d: string;
+  t: string;
+  c: number | null;
+  g: number | null;
+  l: number | null;
+  ms: number | null;
+  s: number | null;
+  x: string | null;
+  pts: number | null;
+  fl: number | null;
+  fms: number | null;
+};
+export type RaceQualiJson = { p: number | null; d: string; t: string; q1: number | null; q2: number | null; q3: number | null };
+export type RaceSessionJson = { k: string; n: number | null; at: string | null; real: boolean; best: { d: string; ms: number | null } | null };
+export type RaceStopJson = { d: string; lap: number | null; n: number | null; ms: number | null };
+/** f1.race_page (0012): один рядок на гонку. laps — позиції пілота по колах (1994+). */
+export type RacePageRow = {
+  year: number;
+  round: number;
+  sessions: RaceSessionJson[];
+  race: RaceResultJson[];
+  sprint: RaceResultJson[];
+  quali: RaceQualiJson[];
+  sprint_quali: RaceQualiJson[];
+  laps: Record<string, (number | null)[]>;
+  stops: RaceStopJson[];
+};
