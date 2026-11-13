@@ -265,3 +265,37 @@ export type SeasonIndexRow = {
   cup_team: string | null;
   cup_decided: boolean;
 };
+
+/** f1.season_rules (0011): правило заліку Jolpica; null — система без рядка в міграції. */
+export type SeasonRuleRow = { year: number; driver_best_results: number | null; driver_season_split: number | null };
+
+export type SeasonRoundWho = { driver: string; team: string };
+/** f1.season_rounds (0011): етап календаря сезону; round = null — скасований етап без номера. */
+export type SeasonRoundRow = {
+  year: number;
+  round: number | null;
+  name: string;
+  date: string | null;
+  cancelled: boolean;
+  circuit: string | null;
+  locality: string | null;
+  country: string | null;
+  sprint: boolean;
+  winners: SeasonRoundWho[] | null;
+  winner_points: number | null;
+  poles: SeasonRoundWho[] | null;
+  sprint_winners: SeasonRoundWho[] | null;
+  disqualified: string[];
+};
+
+/** f1.season_points (0011) — див. SeasonPointsRow у src/lib/season-math.ts (+ рік). */
+export type SeasonPointsDbRow = {
+  year: number;
+  round: number;
+  driver: string;
+  race_points: number;
+  sprint_points: number;
+  place: number | null;
+  standing: number | null;
+  standing_points: number | null;
+};

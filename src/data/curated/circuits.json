@@ -1,0 +1,317 @@
+{
+ "_about": "Місце етапу для календаря сезону (як його знають уболівальники: місто або траса, якщо в Jolpica locality — регіон: Kent → Брендс-Гетч). Ключ — f1.circuits.ref. Нова траса в базі без запису — тест падає (src/lib/data/__tests__/season-page.test.ts). Сумнівні написання — docs/data/review-2026-11-13-circuit-places.md.",
+ "places": {
+  "adelaide": {
+   "uk": "Аделаїда",
+   "en": "Adelaide"
+  },
+  "ain-diab": {
+   "uk": "Касабланка",
+   "en": "Casablanca"
+  },
+  "aintree": {
+   "uk": "Ейнтрі",
+   "en": "Aintree"
+  },
+  "albert_park": {
+   "uk": "Мельбурн",
+   "en": "Melbourne"
+  },
+  "americas": {
+   "uk": "Остін",
+   "en": "Austin"
+  },
+  "anderstorp": {
+   "uk": "Андерсторп",
+   "en": "Anderstorp"
+  },
+  "avus": {
+   "uk": "Берлін",
+   "en": "Berlin"
+  },
+  "bahrain": {
+   "uk": "Сахір",
+   "en": "Sakhir"
+  },
+  "baku": {
+   "uk": "Баку",
+   "en": "Baku"
+  },
+  "boavista": {
+   "uk": "Порту",
+   "en": "Porto"
+  },
+  "brands_hatch": {
+   "uk": "Брендс-Гетч",
+   "en": "Brands Hatch"
+  },
+  "bremgarten": {
+   "uk": "Берн",
+   "en": "Bern"
+  },
+  "buddh": {
+   "uk": "Буддх",
+   "en": "Buddh"
+  },
+  "catalunya": {
+   "uk": "Барселона",
+   "en": "Barcelona"
+  },
+  "charade": {
+   "uk": "Клермон-Ферран",
+   "en": "Clermont-Ferrand"
+  },
+  "dallas": {
+   "uk": "Даллас",
+   "en": "Dallas"
+  },
+  "detroit": {
+   "uk": "Детройт",
+   "en": "Detroit"
+  },
+  "dijon": {
+   "uk": "Діжон",
+   "en": "Dijon"
+  },
+  "donington": {
+   "uk": "Донінгтон",
+   "en": "Donington"
+  },
+  "essarts": {
+   "uk": "Руан",
+   "en": "Rouen"
+  },
+  "estoril": {
+   "uk": "Ешторіл",
+   "en": "Estoril"
+  },
+  "fuji": {
+   "uk": "Фудзі",
+   "en": "Fuji"
+  },
+  "galvez": {
+   "uk": "Буенос-Айрес",
+   "en": "Buenos Aires"
+  },
+  "george": {
+   "uk": "Іст-Лондон",
+   "en": "East London"
+  },
+  "hockenheimring": {
+   "uk": "Гоккенгайм",
+   "en": "Hockenheim"
+  },
+  "hungaroring": {
+   "uk": "Будапешт",
+   "en": "Budapest"
+  },
+  "imola": {
+   "uk": "Імола",
+   "en": "Imola"
+  },
+  "indianapolis": {
+   "uk": "Індіанаполіс",
+   "en": "Indianapolis"
+  },
+  "interlagos": {
+   "uk": "Сан-Паулу",
+   "en": "São Paulo"
+  },
+  "istanbul": {
+   "uk": "Стамбул",
+   "en": "Istanbul"
+  },
+  "jacarepagua": {
+   "uk": "Ріо-де-Жанейро",
+   "en": "Rio de Janeiro"
+  },
+  "jarama": {
+   "uk": "Харама",
+   "en": "Jarama"
+  },
+  "jeddah": {
+   "uk": "Джидда",
+   "en": "Jeddah"
+  },
+  "jerez": {
+   "uk": "Херес",
+   "en": "Jerez"
+  },
+  "kyalami": {
+   "uk": "К'ялемі",
+   "en": "Kyalami"
+  },
+  "las_vegas": {
+   "uk": "Лас-Вегас",
+   "en": "Las Vegas"
+  },
+  "lemans": {
+   "uk": "Ле-Ман",
+   "en": "Le Mans"
+  },
+  "long_beach": {
+   "uk": "Лонг-Біч",
+   "en": "Long Beach"
+  },
+  "losail": {
+   "uk": "Лусаїл",
+   "en": "Lusail"
+  },
+  "madring": {
+   "uk": "Мадрид",
+   "en": "Madrid"
+  },
+  "magny_cours": {
+   "uk": "Маньї-Кур",
+   "en": "Magny-Cours"
+  },
+  "marina_bay": {
+   "uk": "Сінгапур",
+   "en": "Singapore"
+  },
+  "miami": {
+   "uk": "Маямі",
+   "en": "Miami"
+  },
+  "monaco": {
+   "uk": "Монако",
+   "en": "Monaco"
+  },
+  "monsanto": {
+   "uk": "Лісабон",
+   "en": "Lisbon"
+  },
+  "montjuic": {
+   "uk": "Барселона",
+   "en": "Barcelona"
+  },
+  "monza": {
+   "uk": "Монца",
+   "en": "Monza"
+  },
+  "mosport": {
+   "uk": "Моспорт",
+   "en": "Mosport"
+  },
+  "mugello": {
+   "uk": "Муджелло",
+   "en": "Mugello"
+  },
+  "nivelles": {
+   "uk": "Нівель",
+   "en": "Nivelles"
+  },
+  "nurburgring": {
+   "uk": "Нюрбургрінг",
+   "en": "Nürburgring"
+  },
+  "okayama": {
+   "uk": "Окаяма",
+   "en": "Okayama"
+  },
+  "pedralbes": {
+   "uk": "Барселона",
+   "en": "Barcelona"
+  },
+  "pescara": {
+   "uk": "Пескара",
+   "en": "Pescara"
+  },
+  "phoenix": {
+   "uk": "Фінікс",
+   "en": "Phoenix"
+  },
+  "portimao": {
+   "uk": "Портімау",
+   "en": "Portimão"
+  },
+  "red_bull_ring": {
+   "uk": "Шпільберг",
+   "en": "Spielberg"
+  },
+  "reims": {
+   "uk": "Реймс",
+   "en": "Reims"
+  },
+  "ricard": {
+   "uk": "Ле-Кастелле",
+   "en": "Le Castellet"
+  },
+  "riverside": {
+   "uk": "Ріверсайд",
+   "en": "Riverside"
+  },
+  "rodriguez": {
+   "uk": "Мехіко",
+   "en": "Mexico City"
+  },
+  "sebring": {
+   "uk": "Себрінг",
+   "en": "Sebring"
+  },
+  "sepang": {
+   "uk": "Сепанг",
+   "en": "Sepang"
+  },
+  "shanghai": {
+   "uk": "Шанхай",
+   "en": "Shanghai"
+  },
+  "silverstone": {
+   "uk": "Сільверстоун",
+   "en": "Silverstone"
+  },
+  "sochi": {
+   "uk": "Сочі",
+   "en": "Sochi"
+  },
+  "spa": {
+   "uk": "Спа",
+   "en": "Spa"
+  },
+  "suzuka": {
+   "uk": "Сузука",
+   "en": "Suzuka"
+  },
+  "tremblant": {
+   "uk": "Мон-Тремблан",
+   "en": "Mont-Tremblant"
+  },
+  "valencia": {
+   "uk": "Валенсія",
+   "en": "Valencia"
+  },
+  "vegas": {
+   "uk": "Лас-Вегас",
+   "en": "Las Vegas"
+  },
+  "villeneuve": {
+   "uk": "Монреаль",
+   "en": "Montreal"
+  },
+  "watkins_glen": {
+   "uk": "Воткінс-Глен",
+   "en": "Watkins Glen"
+  },
+  "yas_marina": {
+   "uk": "Абу-Дабі",
+   "en": "Abu Dhabi"
+  },
+  "yeongam": {
+   "uk": "Йонам",
+   "en": "Yeongam"
+  },
+  "zandvoort": {
+   "uk": "Зандворт",
+   "en": "Zandvoort"
+  },
+  "zeltweg": {
+   "uk": "Цельтвег",
+   "en": "Zeltweg"
+  },
+  "zolder": {
+   "uk": "Зольдер",
+   "en": "Zolder"
+  }
+ }
+}

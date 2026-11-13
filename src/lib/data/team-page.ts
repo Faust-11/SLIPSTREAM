@@ -95,7 +95,8 @@ const loadTotals = once(async () =>
     ),
   ),
 );
-const loadSeasons = once(async () =>
+/** Спільний для сторінки сезону (один запит на збірку). */
+export const loadTeamSeasons = once(async () =>
   grouped(
     await dbSelectAll<TeamSeasonRow>(
       "team_seasons",
@@ -202,7 +203,7 @@ export async function getTeamPage(id: string, locale: Locale): Promise<TeamPage 
   if (!team) return null;
   const [totalsBy, seasonsBy, winsBy, champsBy, pairBy] = await Promise.all([
     loadTotals(),
-    loadSeasons(),
+    loadTeamSeasons(),
     loadWins(),
     loadChampions(),
     loadPairing(),

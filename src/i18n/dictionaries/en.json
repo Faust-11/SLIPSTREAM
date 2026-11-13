@@ -593,6 +593,166 @@
       "few": "{done} of {n} rounds",
       "many": "{done} of {n} rounds",
       "other": "{done} of {n} rounds"
-    }
+    },
+    "seasonLink": "Season {year}"
+  },
+  "seasonPage": {
+    "metaDescription": "The {year} Formula 1 season: {who}. The title fight after every round, the calendar with winners and poles, and the final drivers' and constructors' standings.",
+    "metaChampion": "champion {driver}",
+    "metaLeader": "leader {driver}",
+    "crumbs": "Seasons",
+    "all": "← All seasons",
+    "title": "Season {year}",
+    "summary": {
+      "champion": "{driver} won the title for {team} by {margin}.",
+      "championNoTeam": "{driver} won the title by {margin}.",
+      "cupSame": "{team} took the constructors' title as well.",
+      "cupOther": "{team} won the constructors' title.",
+      "noCup": "There was no constructors' championship yet.",
+      "running": "The season is under way: {done} of {total} rounds done.",
+      "leader": "{driver} ({team}) leads by {margin}.",
+      "leaderDecided": "{driver} ({team}) has already clinched the title."
+    },
+    "points": {
+      "one": "{n} point",
+      "few": "{n} points",
+      "many": "{n} points",
+      "other": "{n} points"
+    },
+    "keys": {
+      "label": "The season in numbers",
+      "races": {
+        "one": "race",
+        "few": "races",
+        "many": "races",
+        "other": "races"
+      },
+      "sprints": {
+        "one": "sprint",
+        "few": "sprints",
+        "many": "sprints",
+        "other": "sprints"
+      },
+      "winners": {
+        "one": "winner",
+        "few": "different winners",
+        "many": "different winners",
+        "other": "different winners"
+      },
+      "margin": {
+        "one": "point between 1st and 2nd",
+        "few": "points between 1st and 2nd",
+        "many": "points between 1st and 2nd",
+        "other": "points between 1st and 2nd"
+      },
+      "teamWins": "{team} wins out of {n}",
+      "teamWinsOne": {
+        "one": "{team} win out of {n}",
+        "few": "{team} wins out of {n}",
+        "many": "{team} wins out of {n}",
+        "other": "{team} wins out of {n}"
+      }
+    },
+    "fight": "The title fight",
+    "fightSub": "Points after each round",
+    "chartLabel": "Points after each round: {names}. The same numbers are in the table below the chart.",
+    "leaderStrip": "Championship leader after each round",
+    "round": "Round {n}",
+    "tableOpen": "Table: points after each round",
+    "story": {
+      "margin": "{first} ({p1}) and {second} ({p2}) were separated by {gap} at the end.",
+      "marginRunning": "{first} ({p1}) and {second} ({p2}) are {gap} apart.",
+      "spellsOne": "{driver} led after every round.",
+      "spells": "The lead changed hands {n}: {list}.",
+      "changes": {
+        "one": "once",
+        "few": "{n} times",
+        "many": "{n} times",
+        "other": "{n} times"
+      },
+      "spell": "{driver} — rounds {from}–{to}",
+      "spellOne": "{driver} — round {from}",
+      "deficit": "After round {round} ({place}) {driver} was {points} off the lead.",
+      "deficitChampion": "After round {round} ({place}) {driver} was {points} off the lead — and still won the title.",
+      "after": "He then won {wins} of the remaining {races}.",
+      "afterRaces": {
+        "one": "{n} race",
+        "few": "{n} races",
+        "many": "{n} races",
+        "other": "{n} races"
+      },
+      "dsq": "{place}: {drivers} disqualified; {winner} won the race.",
+      "dropped": "{rival} scored more points overall ({rt} to {ct}), but only the best results counted: {champion} {cc}, {rival} {rc}.",
+      "decider": "The title was decided after round {round} ({place}): from there the rivals could no longer catch up.",
+      "deciderLast": "The title was settled only at the final round ({place}).",
+      "excluded": "{driver} was excluded from the final standings ({points} during the season)."
+    },
+    "contenders": "Three contenders",
+    "contendersRunning": "The top three",
+    "place": {
+      "1": "Champion",
+      "2": "Runner-up",
+      "3": "Third"
+    },
+    "placeRunning": {
+      "1": "Championship leader",
+      "2": "Second",
+      "3": "Third"
+    },
+    "stats": {
+      "points": {
+        "one": "point",
+        "few": "points",
+        "many": "points",
+        "other": "points"
+      },
+      "wins": {
+        "one": "win",
+        "few": "wins",
+        "many": "wins",
+        "other": "wins"
+      },
+      "poles": {
+        "one": "pole",
+        "few": "poles",
+        "many": "poles",
+        "other": "poles"
+      },
+      "podiums": {
+        "one": "podium",
+        "few": "podiums",
+        "many": "podiums",
+        "other": "podiums"
+      },
+      "gap": "−{n} pts"
+    },
+    "calendar": "Calendar",
+    "calendarKey": "Colour strip: the driver on the title-fight chart",
+    "sprintKey": "sprint weekend",
+    "sprintTag": "Sprint",
+    "pole": "Pole: {names}",
+    "sprintWin": "Sprint: {names}",
+    "decider": "Title decided",
+    "half": "Half points",
+    "dsqNote": "Disqualified: {names}",
+    "cancelled": "Cancelled",
+    "upcoming": "Still to come",
+    "tables": "Final standings",
+    "tablesRunning": "Standings so far",
+    "drivers": "Drivers",
+    "teams": "Constructors",
+    "col": {
+      "pos": "Pos",
+      "driver": "Driver",
+      "team": "Team",
+      "points": "Points"
+    },
+    "excludedMark": "excluded",
+    "neighbours": "Neighbouring seasons",
+    "prev": "‹ Previous season",
+    "next": "Next season ›",
+    "nbChampion": "Champion: {name}",
+    "nbLeader": "Leader: {name}",
+    "credits": "Photo credits"
   }
 }
