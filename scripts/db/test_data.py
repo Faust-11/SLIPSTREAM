@@ -469,6 +469,17 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     print("INFO  RACE PAGE race_page рядків:", rp_n, "; з колами:", q("select count(*) from f1.race_page where laps <> '{}'::jsonb")[0][0],
           "; з піт-стопами:", q("select count(*) from f1.race_page where stops <> '[]'::jsonb")[0][0],
           "; з кваліфікацією:", q("select count(*) from f1.race_page where quali <> '[]'::jsonb")[0][0])
+    # --- Траси (0013) ---
+    ci = {r[0]: r[1:] for r in q("select ref, name, country_code from f1.circuit_index")}
+    used = {r[0] for r in q("select distinct circuit from f1.season_rounds where not cancelled")}
+    check("circuit_index: рівно траси нескасованих етапів календаря", set(ci) == used, sorted(set(ci) ^ used)[:8])
+    check("circuit_index: у кожної траси назва й код країни", all(n and cc for n, cc in ci.values()),
+          [k for k, (n, cc) in ci.items() if not (n and cc)][:8])
+    held = dict(q("""select circuit, count(*) from f1.season_rounds where not cancelled and winners is not null group by circuit"""))
+    check("гонок на трасі (макет «Список трас»): Монца 76, Монако 72, Сільверстоун 61, Спа 59, Яс-Марина 17",
+          [held.get(k) for k in ("monza", "monaco", "silverstone", "spa", "yas_marina")] == [76, 72, 61, 59, 17],
+          [held.get(k) for k in ("monza", "monaco", "silverstone", "spa", "yas_marina")])
+    print("INFO  CIRCUITS circuit_index:", len(ci), "; країн:", len({cc for _, cc in ci.values()}))
     n_pts = q("select count(*), count(distinct year) from f1.season_points")[0]
     print("INFO  SEASON PAGE season_points рядків / сезонів:", n_pts, "; season_rounds:", q("select count(*) from f1.season_rounds")[0][0],
           "; скасовані:", q("select year, name from f1.season_rounds where cancelled order by 1"))
