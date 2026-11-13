@@ -5,7 +5,7 @@ import "server-only";
 import circuitsJson from "@/data/curated/circuits.json";
 import type { Locale } from "@/i18n/config";
 import { lapLeaders, lapSpells, lapsNotLed, lowestAfterStart, positionPoints, raceScale, swapWithNext } from "@/lib/race-math";
-import { decidingRound, jolpicaRule, observedMax, seasonRules, type SeasonData } from "@/lib/season-math";
+import { decidingRound, jolpicaRule, observedMax, seasonRules, type Rule, type SeasonData } from "@/lib/season-math";
 import { dbSelectAll } from "./db";
 import { once } from "./once";
 import {
@@ -24,7 +24,7 @@ import {
 } from "./season-page";
 import { loadSeasonIndex } from "./seasons";
 import { gpName } from "./team-page";
-import type { Credit, L10n, RacePageRow, RaceQualiJson, RaceResultJson } from "./types";
+import type { Credit, L10n, RacePageRow, RaceQualiJson, RaceResultJson, SeasonPointsDbRow } from "./types";
 
 type CuratedCircuit = L10n & { wiki?: string; hero?: { src: string; srcSet: string; width: number; height: number; focusY?: number }; credit?: Credit };
 const circuits = (circuitsJson as unknown as { places: Record<string, CuratedCircuit> }).places;
@@ -165,11 +165,52 @@ function quali(rows: RaceQualiJson[], drv: (id: string, team?: string) => RaceDr
   return rows.map((q) => ({ position: q.p ?? null, driver: drv(q.d, q.t), q1: q.q1 ?? null, q2: q.q2 ?? null, q3: q.q3 ?? null }));
 }
 
+type SeasonCtx = {
+  roundsBy: Awaited<ReturnType<typeof loadRounds>>;
+  pointsBy: Awaited<ReturnType<typeof loadPoints>>;
+  rules: Awaited<ReturnType<typeof loadRules>>;
+  index: Awaited<ReturnType<typeof loadSeasonIndex>>;
+};
+
+/** Проведені етапи сезону за номером (без скасованих). */
+export function playedRounds(roundsBy: SeasonCtx["roundsBy"], year: number) {
+  return (roundsBy.get(year) ?? []).filter((r) => r.round !== null && !r.cancelled).sort((a, b) => a.round! - b.round!);
+}
+
+/**
+ * Вирішальний етап заліку пілотів (season-math, як на сторінці сезону) і правило заліку Jolpica; сезон, що триває, —
+ * лише коли титул уже вирішено (максимум очків за гонку — щонайменше 26, за спринт — 8). Сторінки гонки й траси.
+ */
+export function seasonDecision(year: number, ctx: SeasonCtx): { decision: null | { round: number; driver: string }; rule: Rule | null } {
+  const seasonRounds = playedRounds(ctx.roundsBy, year);
+  const si = ctx.index.find((s) => s.year === year);
+  const points = ctx.pointsBy.get(year) ?? [];
+  const data: SeasonData = { rounds: seasonRounds.map((r) => r.round!), sprintRounds: new Set(seasonRounds.filter((r) => r.sprint).map((r) => r.round!)), rows: points };
+  const rule = ctx.rules.get(year);
+  const jr = rule ? jolpicaRule(rule.driver_best_results, rule.driver_season_split, seasonRounds.length) : null;
+  const obs = observedMax(points);
+  const max = si?.in_progress ? { race: Math.max(obs.race, 26), sprint: Math.max(obs.sprint, 8) } : obs;
+  return { decision: si && (!si.in_progress || si.driver_decided) ? decidingRound(data, seasonRules(data, jr), max) : null, rule: jr };
+}
+
+/**
+ * Залік після етапу (за очками, рівні — за місцем у заліку: рахунок місць; 2007 — Гамілтон другий при 109 = 109 з
+ * Алонсо) і перші три з очками до етапу.
+ */
+export function titleStandings(points: SeasonPointsDbRow[], seasonRounds: { round: number | null }[], round: number) {
+  const after = points
+    .filter((p) => p.round === round && p.standing_points !== null)
+    .sort((a, b) => b.standing_points! - a.standing_points! || (a.standing ?? 999) - (b.standing ?? 999));
+  const prevRound = seasonRounds.filter((r) => r.round! < round).at(-1)?.round;
+  const before = new Map(points.filter((p) => p.round === prevRound && p.standing_points !== null).map((p) => [p.driver, p.standing_points!]));
+  return { after, top: after.slice(0, 3).map((p) => ({ driver: p.driver, before: before.get(p.driver) ?? 0, after: p.standing_points! })) };
+}
+
 export async function getRacePage(year: number, round: number, locale: Locale): Promise<RacePage | null> {
   const [races, roundsBy, pointsBy, rules, names, index] = await Promise.all([loadRaces(), loadRounds(), loadPoints(), loadRules(), loadNames(), loadSeasonIndex()]);
   const row = races.get(`${year}/${round}`);
   if (!row) return null;
-  const seasonRounds = (roundsBy.get(year) ?? []).filter((r) => r.round !== null && !r.cancelled).sort((a, b) => a.round! - b.round!);
+  const seasonRounds = playedRounds(roundsBy, year);
   const meta = seasonRounds.find((r) => r.round === round);
   if (!meta) return null;
   const base = (id: string) => makeDriver(id, names, locale);
@@ -212,27 +253,14 @@ export async function getRacePage(year: number, round: number, locale: Locale): 
   }
 
   /* --- вирішальна гонка (season-math) і «як вирішився титул» --- */
-  const si = index.find((s) => s.year === year);
-  const points = pointsBy.get(year) ?? [];
-  const data: SeasonData = { rounds: seasonRounds.map((r) => r.round!), sprintRounds: new Set(seasonRounds.filter((r) => r.sprint).map((r) => r.round!)), rows: points };
-  const rule = rules.get(year);
-  const jr = rule ? jolpicaRule(rule.driver_best_results, rule.driver_season_split, seasonRounds.length) : null;
-  const obs = observedMax(points);
-  const max = si?.in_progress ? { race: Math.max(obs.race, 26), sprint: Math.max(obs.sprint, 8) } : obs;
-  const decision = si && (!si.in_progress || si.driver_decided) ? decidingRound(data, seasonRules(data, jr), max) : null;
+  const { decision, rule: jr } = seasonDecision(year, { roundsBy, pointsBy, rules, index });
   const isDecider = decision?.round === round;
   let title: RacePage["title"] = null;
   if (isDecider && decision) {
-    // Порядок — за очками, рівні — за місцем у заліку (рахунок місць; 2007: Гамілтон другий при 109 = 109 з Алонсо).
-    const after = points
-      .filter((p) => p.round === round && p.standing_points !== null)
-      .sort((a, b) => b.standing_points! - a.standing_points! || (a.standing ?? 999) - (b.standing ?? 999));
-    const prevRound = seasonRounds.filter((r) => r.round! < round).at(-1)?.round;
-    const before = new Map(points.filter((p) => p.round === prevRound && p.standing_points !== null).map((p) => [p.driver, p.standing_points!]));
-    const top = after.slice(0, 3);
+    const { after, top } = titleStandings(pointsBy.get(year) ?? [], seasonRounds, round);
     const contenders = top.map((p) => {
       const rr = row.race.find((r) => r.d === p.driver);
-      return { driver: drv(p.driver, rr?.t), before: before.get(p.driver) ?? 0, after: p.standing_points!, finish: rr?.p ?? null, champion: p.driver === decision.driver };
+      return { driver: drv(p.driver, rr?.t), before: p.before, after: p.after, finish: rr?.p ?? null, champion: p.driver === decision.driver };
     });
     let lower: NonNullable<RacePage["title"]>["lower"] = null;
     const champRow = row.race.find((r) => r.d === decision.driver);
@@ -290,7 +318,7 @@ export async function getRacePage(year: number, round: number, locale: Locale): 
   return {
     year,
     round,
-    rounds: si?.rounds ?? seasonRounds.length,
+    rounds: index.find((s) => s.year === year)?.rounds ?? seasonRounds.length,
     gp: gpName(meta.name, locale),
     place: placeName(meta.circuit, meta.locality, locale),
     circuit: meta.circuit,

@@ -851,5 +851,123 @@
     "ledOnlyOne": "{driver} led only lap {ranges}.",
     "ttBefore": "before",
     "ttAfter": "after"
+  },
+  "circuitsPage": {
+    "metaDescription": "All {n} Formula 1 World Championship circuits since 1950: layout, years on the calendar, number of races and the most successful drivers.",
+    "title": "Circuits",
+    "factsLabel": "Circuits in numbers",
+    "facts": {
+      "circuits": {
+        "one": "circuit",
+        "few": "circuits",
+        "many": "circuits",
+        "other": "circuits"
+      },
+      "countries": {
+        "one": "country",
+        "few": "countries",
+        "many": "countries",
+        "other": "countries"
+      },
+      "onCalendar": "on the {season} calendar"
+    },
+    "tools": "Search and filter circuits",
+    "search": "Search circuits",
+    "searchPlaceholder": "Search: Monza, Japan, Monaco…",
+    "filtersLabel": "Show",
+    "filters": {
+      "all": "All",
+      "cal": "{season} calendar",
+      "old": "Off the calendar"
+    },
+    "sort": "Sort",
+    "sorts": {
+      "n": "by races",
+      "y1": "most recent first",
+      "y0": "oldest first",
+      "a": "A–Z"
+    },
+    "count": {
+      "one": "{n} circuit",
+      "few": "{n} circuits",
+      "many": "{n} circuits",
+      "other": "{n} circuits"
+    },
+    "empty": "No circuits match.",
+    "reset": "Reset filters",
+    "races": "Races",
+    "mostWins": "Most wins",
+    "noRaces": "No races yet",
+    "noLayout": "No layout",
+    "layoutLabel": "{name} layout",
+    "yearsLabel": "Seasons with a race: {years}",
+    "calendarBadge": "On the {season} calendar",
+    "credits": "Circuit layouts: authors and licences",
+    "layoutsSource": "Circuit layouts: f1-circuits by Tomislav Bacinger (MIT) and © OpenStreetMap contributors (ODbL); the rest from Wikimedia Commons (authors below).",
+    "more": "Show {n} more of {left}"
+  },
+  "circuitPage": {
+    "metaDescription": "{name} ({place}): all {n} Formula 1 Grands Prix, winners, poles, lap record and the titles decided at this circuit.",
+    "crumbs": "Circuits",
+    "nextRace": "Next race: {date} · round {round}",
+    "track": "circuit",
+    "since": "{gp} since {year}",
+    "span": "{gp}, {from}–{to}",
+    "once": "{gp} {year}",
+    "factsLabel": "Circuit in numbers",
+    "layoutCaption": "Layout: the circuit's current configuration (f1-circuits, OpenStreetMap)",
+    "layoutCaptionCommons": "Layout: Wikimedia Commons",
+    "layoutSince": "Layout since {year}",
+    "layoutName": "Layout: {name}",
+    "length": "Lap length",
+    "km": "km",
+    "firstGp": "First Grand Prix",
+    "laps": "Race laps",
+    "turns": "Turns",
+    "record": "Race lap record",
+    "distance": "Race distance",
+    "opened": "Opened",
+    "architect": "Architect",
+    "capacity": "Capacity",
+    "factsSource": "Length, turns, lap record, opening, architect and capacity: English Wikipedia, article “{title}”,",
+    "factsSourceLink": "revision used",
+    "strip": {
+      "label": "Circuit in numbers",
+      "races": "Grands Prix",
+      "winners": "different winners",
+      "fromPole": "wins from pole",
+      "furthest": "furthest back a winner started, {year}",
+      "finales": "times the season finale",
+      "titles": "titles decided here"
+    },
+    "racesTitle": "Every race here",
+    "racesCaption": "Championship races at the circuit, newest first",
+    "col": {
+      "year": "Year",
+      "winner": "Winner",
+      "grid": "Grid",
+      "pole": "Pole",
+      "fastest": "Fastest lap"
+    },
+    "titleBadge": "Title",
+    "currentKey": "current layout",
+    "titleKey": "the drivers' title was decided in this race",
+    "fastestNote": "Fastest laps from {year}: earlier data in the source is incomplete.",
+    "titlesTitle": "Titles decided here",
+    "titlesSub": {
+      "one": "{n} of {f} season finale at this circuit",
+      "few": "{n} of {f} season finales at this circuit",
+      "many": "{n} of {f} season finales at this circuit",
+      "other": "{n} of {f} season finales at this circuit"
+    },
+    "titlesSubNoFinals": "Rounds after which the drivers' title was out of the rivals' reach",
+    "before": "Before the race",
+    "after": "After",
+    "leadersTitle": "Most successful here",
+    "driverWins": "Driver wins",
+    "teamWins": "Team wins",
+    "podiums": "Podiums",
+    "credits": "Photo and layout: authors and licences",
+    "noFacts": "The source has no technical data for this circuit."
   }
 }

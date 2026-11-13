@@ -85,12 +85,12 @@ function needles(q: string): string[] {
   return CYRILLIC.test(q) ? [q, translit(q)] : [q];
 }
 
-function exactMatch(search: string, q: string): boolean {
+export function exactMatch(search: string, q: string): boolean {
   return needles(q).some((n) => search.includes(n) || search.replaceAll(" ", "").includes(n.replaceAll(" ", "")));
 }
 
 /** Опечатки: слово або пара сусідніх слів (без пробілу) на відстані ≤ 1 (≤ 2 для запитів від 8 літер). */
-function fuzzyMatch(search: string, q: string): boolean {
+export function fuzzyMatch(search: string, q: string): boolean {
   const tokens = search.split(/[\s-]+/).filter(Boolean);
   const candidates = [...tokens, ...tokens.slice(1).map((t, i) => tokens[i] + t)];
   return needles(q.replaceAll(" ", "")).some((n) => {

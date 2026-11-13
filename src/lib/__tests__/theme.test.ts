@@ -86,7 +86,7 @@ describe("themeScriptSource (inline-скрипт у <head>)", () => {
     return document.documentElement.getAttribute("data-theme");
   }
 
-  it("data-list-query — лише на «Команди» / «Пілоти» з параметрами списку (рев'ю: футер ховався на інших сторінках)", () => {
+  it("data-list-query — лише на «Команди» / «Пілоти» / «Траси» з параметрами списку (рев'ю: футер ховався на інших сторінках)", () => {
     const cases: [string, boolean][] = [
       ["/uk/teams?q=lotus", true],
       ["/teams?f=win", true],
@@ -98,6 +98,10 @@ describe("themeScriptSource (inline-скрипт у <head>)", () => {
       ["/drivers", false],
       ["/drivers?utm_source=fb", false],
       ["/teams?utm_source=fb", false],
+      ["/uk/circuits?f=cal", true],
+      ["/circuits?q=monza", true],
+      ["/circuits", false],
+      ["/circuits/monza?q=1", false],
     ];
     for (const [url, expected] of cases) {
       window.history.replaceState(null, "", url);
