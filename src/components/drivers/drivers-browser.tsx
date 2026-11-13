@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
 import { localizedPath } from "@/i18n/paths";
@@ -199,7 +199,20 @@ export function DriversBrowser({ packed, locale, labels }: Props) {
   // Остання адреса, яку записали ми самі: її «луну» з useSearchParams ігноруємо, щоб застаріла адреса
   // не перезаписала новіший стан під час швидкого набору (code-review 12.11).
   const written = useRef<string | null>(null);
+  // Ввід до гідратації (замір 13.11 на main: 2 з 6 ранніх наборів губилися — поле порожнє): (1) текст, набраний у
+  // серверне поле до того, як React підключив onChange, підхоплюємо в useLayoutEffect; (2) перше читання адреси
+  // (QuerySync) не затирає стан, який користувач уже змінив. Як у «Трасах» (фаза 3h).
+  const input = useRef<HTMLInputElement>(null);
+  const dirty = useRef(false);
+  useLayoutEffect(() => {
+    const typed = input.current?.value ?? "";
+    if (typed) {
+      dirty.current = true;
+      setQuery((prev) => (prev.q === typed ? prev : { ...prev, q: typed, p: 1 }));
+    }
+  }, []);
   const set = (patch: Partial<DriversQuery>) => {
+    dirty.current = true;
     // Будь-яка зміна, крім сторінки, повертає на першу сторінку. Порівняння — за станом, а не за адресою
     // (адреса обрізає пробіли, і пробіл у пошуку губився: «ayrton senna» не набирався).
     const next = { ...query, ...patch, p: patch.p ?? 1 };
@@ -207,6 +220,10 @@ export function DriversBrowser({ packed, locale, labels }: Props) {
   };
   const onParams = useCallback((q: DriversQuery) => {
     const incoming = driversQueryString(q);
+    if (written.current === null && dirty.current) {
+      setSynced(true);
+      return;
+    }
     if (written.current !== null && incoming === written.current) {
       setSynced(true);
       return;
@@ -244,6 +261,7 @@ export function DriversBrowser({ packed, locale, labels }: Props) {
         </label>
         <input
           id="drv-q"
+          ref={input}
           type="search"
           autoComplete="off"
           placeholder={labels.searchPlaceholder}
