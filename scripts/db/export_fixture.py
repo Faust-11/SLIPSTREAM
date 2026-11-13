@@ -36,6 +36,11 @@ QUERIES = {
                     "from f1.team_pairing order by id, ord",
     "season_index": "select year, races, rounds, in_progress, driver, forename, surname, points, driver_decided, teams, wins, "
                     "cup_team, cup_decided from f1.season_index order by year",
+    "season_rules": "select year, driver_best_results, driver_season_split from f1.season_rules order by year",
+    "season_rounds": "select year, round, name, date::text as date, cancelled, circuit, locality, country, sprint, winners, "
+                     "winner_points, poles, sprint_winners, disqualified from f1.season_rounds order by year, round nulls last, name",
+    "season_points": "select year, round, driver, race_points, sprint_points, place, standing, standing_points "
+                     "from f1.season_points order by year, round, driver",
     # Сторінка пілота (0008).
     "driver_totals": "select id, date_of_birth::text as date_of_birth, permanent_number, points, fastest_laps, fastest_laps_known, "
                      "debut, last_race, first_podium, first_pole from f1.driver_totals order by id",

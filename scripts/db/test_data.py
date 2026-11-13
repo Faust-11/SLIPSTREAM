@@ -8,6 +8,7 @@
 """
 from __future__ import annotations
 
+import collections
 import json
 import os
 import subprocess
@@ -384,5 +385,56 @@ with psycopg.connect(DSN, autocommit=True) as conn:
         print(f"INFO  {k}: GP/W/pod/pole/1-2/КК/ТП = {tot.get(k)}; чемпіони {[(d, y) for d, y in ch]}")
     print("INFO  McLaren пара:", pair)
     print(f"Lotus: {lotus['gp']} Гран-прі; Lotus Racing: {racing['gp']}; site_meta {meta}")
+
+    # --- Сторінка сезону (0011) ---
+    rules = {r[0]: r[1:] for r in q("select year, driver_best_results, driver_season_split from f1.season_rules")}
+    bad = [y for y in range(1950, cs_year + 1) if y not in rules or None in rules[y]]
+    check("season_rules: правило заліку Jolpica є для кожного сезону", not bad, bad)
+    check("season_rules: еталони 1950 (4 кращі), 1967 (половини), 1988 (11 кращих), 2025 (усі)",
+          (rules[1950], rules[1967], rules[1988], rules[2025]) == ((4, 0), (-2, 2), (11, 0), (-1, 0)), (rules[1950], rules[1967], rules[1988], rules[2025]))
+    cal = {r[0]: r[1] for r in q("select year, count(*) from f1.season_rounds where round is not null and not cancelled group by year")}
+    bad = [(y, cal.get(y), si[y][1]) for y in range(1950, cs_year) if cal.get(y) != si[y][1]]
+    check("season_rounds: етапів у календарі = етапів у season_index (завершені сезони)", not bad, bad[:8])
+    r25 = q("select round, sprint, winners, poles, sprint_winners, disqualified, locality from f1.season_rounds where year = 2025 and round is not null order by round")
+    wins25 = collections.Counter(w["driver"] for r in r25 for w in (r[2] or []))
+    check("2025: 24 етапи, 6 спринтів, перемоги Ферстаппен 8 / Норріс 7 / Піастрі 7 / Расселл 2 (макет)",
+          len(r25) == 24 and sum(r[1] for r in r25) == 6 and wins25 == {"max_verstappen": 8, "norris": 7, "piastri": 7, "russell": 2},
+          (len(r25), sum(r[1] for r in r25), dict(wins25)))
+    lv = next((r for r in r25 if r[6] == "Las Vegas"), None)
+    check("2025 Лас-Вегас: обидва McLaren дискваліфіковано, переміг Ферстаппен",
+          lv is not None and {"norris", "piastri"} <= set(lv[5]) and [w["driver"] for w in lv[2]] == ["max_verstappen"], lv)
+    check("2025 етап 1: поул і перемога — Норріс; етап 2 (спринт): спринт — Гамілтон",
+          [p["driver"] for p in r25[0][3]] == ["norris"] and [w["driver"] for w in r25[0][2]] == ["norris"]
+          and [w["driver"] for w in (r25[1][4] or [])] == ["hamilton"], (r25[0][2:4], r25[1][4]))
+    # Гонки з половиною очок — очки переможця (сайт визначає їх сам, порівнюючи з типовими очками переможця сезону).
+    half = {(y, n): p for y, n, p in q("select year, round, winner_points from f1.season_rounds where (year, round) in "
+                                        "((1975, 4), (1975, 12), (1984, 6), (1991, 16), (2009, 2), (2021, 12))")}
+    check("половина очок: 1975 Іспанія й Австрія, 1984 Монако — 4,5; 1991 Австралія, 2009 Малайзія — 5; 2021 Бельгія — 12,5",
+          half == {(1975, 4): 4.5, (1975, 12): 4.5, (1984, 6): 4.5, (1991, 16): 5.0, (2009, 2): 5.0, (2021, 12): 12.5}, half)
+    # Очки по етапах: підсумок останнього етапу = офіційний залік (Вікіпедія — вибірка еталонів).
+    fin = {(y, d): (st, p) for y, d, st, p in q(
+        "select sp.year, sp.driver, sp.standing, sp.standing_points from f1.season_points sp "
+        "where sp.round = (select max(round) from f1.season_points x where x.year = sp.year and x.standing_points is not null)")}
+    exp = {(1964, "surtees"): (1, 40), (1964, "hill"): (2, 39), (1988, "senna"): (1, 90), (1988, "prost"): (2, 87),
+           (1997, "villeneuve"): (1, 81), (1997, "frentzen"): (2, 42), (1997, "michael_schumacher"): (None, 78),
+           (2007, "raikkonen"): (1, 110), (2007, "hamilton"): (2, 109), (2007, "alonso"): (3, 109),
+           (2021, "max_verstappen"): (1, 395.5), (2021, "hamilton"): (2, 387.5),
+           (2025, "norris"): (1, 423), (2025, "max_verstappen"): (2, 421), (2025, "piastri"): (3, 410)}
+    got = {k: fin.get(k) for k in exp}
+    check("season_points: фінальні заліки еталонів (1964, 1988 — зараховані очки; 1997 Шумахер без місця; 2007; 2021; 2025)", got == exp, got)
+    # Де зараховуються всі результати (з 1991), сума очок по етапах = залік — інакше графік і вирішальний етап хибні.
+    bad = q("""select sp.year, sp.driver, sum(sp.race_points + sp.sprint_points), max(sp.standing_points) filter (where sp.round = m.r)
+               from f1.season_points sp join (select year, max(round) as r from f1.season_points where standing_points is not null group by year) m
+                 on m.year = sp.year
+               where sp.year between 1991 and %s group by sp.year, sp.driver, m.r
+               having abs(sum(sp.race_points + sp.sprint_points) - coalesce(max(sp.standing_points) filter (where sp.round = m.r), 0)) > 0.01
+               order by 1, 2""", cs_year - 1)
+    check("season_points 1991–2025: сума очок по етапах = підсумковий залік кожного пілота", not bad, bad[:8])
+    lead = [d for _, d in q("select round, driver from f1.season_points where year = 2025 and standing = 1 order by round")]
+    check("2025: лідер після етапів — Норріс 1–4, Піастрі 5–19, Норріс 20–24 (макет)",
+          lead == ["norris"] * 4 + ["piastri"] * 15 + ["norris"] * 5, lead)
+    n_pts = q("select count(*), count(distinct year) from f1.season_points")[0]
+    print("INFO  SEASON PAGE season_points рядків / сезонів:", n_pts, "; season_rounds:", q("select count(*) from f1.season_rounds")[0][0],
+          "; скасовані:", q("select year, name from f1.season_rounds where cancelled order by 1"))
 
 sys.exit(1 if failed else 0)
