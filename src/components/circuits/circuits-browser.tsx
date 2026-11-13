@@ -70,7 +70,7 @@ export function CircuitsBrowser({ cards, locale, season, fromYear, pageSize, lab
 
   useEffect(() => {
     if (focusFrom.current === null) return;
-    const target = document.querySelectorAll<HTMLElement>(".ct-grid .ct-card h3 a")[focusFrom.current];
+    const target = document.querySelectorAll<HTMLElement>(".ct-grid .ct-card .ct-title a")[focusFrom.current];
     focusFrom.current = null;
     target?.focus();
   }, [shown]);

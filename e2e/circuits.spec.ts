@@ -17,7 +17,7 @@ test("/uk/circuits: 78 трас, 34 країни, 23 у календарі; Мо
   await expect(cards).toHaveCount(24);
   await page.locator(".ct-more").click();
   await expect(cards).toHaveCount(48);
-  await expect(cards.nth(24).locator("h3 a")).toBeFocused();
+  await expect(cards.nth(24).locator(".ct-title a")).toBeFocused();
   await expect(cards.first()).toContainText("Autodromo Nazionale di Monza");
   await expect(cards.first()).toContainText("1950–1979, 1981–2026");
   await expect(cards.first().locator(".ct-n")).toHaveText("76");
@@ -116,7 +116,7 @@ test("траса без фото й фактів (Пескара, 1957): тем�
 test("усі 78 трас мають сторінку обома мовами", async ({ page, request }) => {
   await page.goto("/circuits");
   while (await page.locator(".ct-more").count()) await page.locator(".ct-more").click();
-  const hrefs = await page.locator(".ct-card h3 a").evaluateAll((as) => as.map((a) => a.getAttribute("href")!));
+  const hrefs = await page.locator(".ct-card .ct-title a").evaluateAll((as) => as.map((a) => a.getAttribute("href")!));
   expect(hrefs).toHaveLength(78);
   const bad: string[] = [];
   for (let i = 0; i < hrefs.length; i += 13) {

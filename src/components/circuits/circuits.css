@@ -173,31 +173,31 @@ html:has(.ct-tools) {
   color: var(--on-yellow);
   font: 700 11px var(--f-mono);
 }
-.ct-card h3 {
+.ct-card .ct-title {
   margin: 0;
   padding: 0 12px;
   font-size: 16px;
   line-height: 1.25;
   text-wrap: balance;
 }
-.ct-card h3 a {
+.ct-card .ct-title a {
   text-decoration: none;
 }
 /* Уся картка — посилання на трасу; посилання на пілотів — над ним. */
-.ct-card h3 a::after {
+.ct-card .ct-title a::after {
   content: "";
   position: absolute;
   inset: 0;
 }
-.ct-card h3 a:focus-visible {
+.ct-card .ct-title a:focus-visible {
   outline: none;
 }
-.ct-card:has(h3 a:focus-visible) {
+.ct-card:has(.ct-title a:focus-visible) {
   outline: 3px solid var(--focus);
   outline-offset: 2px;
 }
 @media (hover: hover) {
-  .ct-card h3 a:hover {
+  .ct-card .ct-title a:hover {
     color: var(--blue-text);
     text-decoration: underline;
     text-underline-offset: 3px;
