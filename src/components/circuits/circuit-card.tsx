@@ -60,11 +60,11 @@ export function CircuitCard({ c, labels, locale, season, fromYear }: { c: Circui
           </span>
         )}
       </div>
-      <h3 id={titleId}>
+      <h2 id={titleId} className="ct-title">
         <a href={path(`/circuits/${c.slug}`)} translate="no">
           {c.name}
         </a>
-      </h3>
+      </h2>
       <p className="ct-loc">{[c.place, c.country].filter(Boolean).join(", ")}</p>
       {c.races > 0 ? (
         <div className="ct-yr">
