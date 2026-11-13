@@ -21,7 +21,7 @@ import { gpName } from "./team-page";
 import type { Credit, L10n, RaceResultJson, SeasonRoundRow } from "./types";
 
 type CircuitIndexRow = { ref: string; name: string; locality: string | null; country: string | null; country_code: string | null; lat: number | null; lng: number | null };
-type CuratedPlace = L10n & { wiki?: string; hero?: { src: string; srcSet: string; width: number; height: number; focusY?: number }; credit?: Credit };
+type CuratedPlace = L10n & { short?: L10n; wiki?: string; hero?: { src: string; srcSet: string; width: number; height: number; focusY?: number }; credit?: Credit };
 export type CircuitLayout = { d: string; w: number; h: number; source: "f1-circuits" | "commons"; credit?: Credit };
 type CircuitFacts = {
   title: string;
@@ -229,6 +229,8 @@ export type CircuitPage = {
   ref: string;
   slug: string;
   name: string;
+  /** Коротка назва траси для заголовка («Яс-Марина»; circuits.json → short, scripts/curated/circuit_short_names.py). */
+  short: string;
   place: string;
   country: string | null;
   /** Гран-прі траси: у календарі поточного сезону — його нинішня назва з року першої гонки під нею; інакше —
@@ -437,6 +439,7 @@ export async function getCircuitPage(ref: string, locale: Locale): Promise<Circu
     ref,
     slug: circuitSlug(ref),
     name: row.name,
+    short: places[ref]?.short?.[locale] ?? placeLabel,
     place: placeLabel,
     country: countryName(row.country_code, locale),
     gp,

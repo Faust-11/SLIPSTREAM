@@ -59,7 +59,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   return pageMetadata({
     locale: lang,
     path: `/circuits/${page.slug}`,
-    title: `${page.place} — ${page.name}`,
+    title: `${page.short} — ${page.name}`,
     description: fill(dict.circuitPage.metaDescription, { name: page.name, place: [page.place, page.country].filter(Boolean).join(", "), n: page.strip.races }),
   });
 }
@@ -160,7 +160,7 @@ export default async function CircuitPageView(props: Props) {
           <span className="sep" aria-hidden="true">
             /
           </span>
-          <span aria-current="page">{page.place}</span>
+          <span aria-current="page">{page.short}</span>
         </div>
       </nav>
 
@@ -191,10 +191,11 @@ export default async function CircuitPageView(props: Props) {
             <span className="ct-stamp">{fill(t.nextRace, { date: page.next.date ? dayFmt[lang].format(utc(page.next.date)) : page.next.season, round: page.next.round })}</span>
           )}
           <h1 className="display">
-            {page.place}
+            {page.short}
             <span translate="no">{page.name}</span>
           </h1>
-          <p>{[page.country, gpLine].filter(Boolean).join(" · ")}</p>
+          {/* Місце — якщо відрізняється від короткої назви («Абу-Дабі, ОАЕ»; у Монци — лише «Італія»). */}
+          <p>{[[page.place !== page.short ? page.place : null, page.country].filter(Boolean).join(", "), gpLine].filter(Boolean).join(" · ")}</p>
         </div>
       </section>
 

@@ -68,7 +68,8 @@ test("/uk/circuits/yas-marina: банер, цифри, смуга, гонки, �
   page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
   const res = await page.goto("/uk/circuits/yas-marina");
   expect(res?.status()).toBe(200);
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("Абу-Дабі");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Яс-Марина");
+  await expect(page.locator(".ct-hero p")).toContainText("Абу-Дабі, ОАЕ");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Yas Marina Circuit");
   await expect(page.locator(".ct-stamp")).toHaveText("Наступна гонка: 6 грудня 2026 р. · етап 23");
   await expect(page.locator(".ct-hero p")).toContainText("Гран-прі Абу-Дабі з 2009 року");
