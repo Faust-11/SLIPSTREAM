@@ -19,7 +19,7 @@ DSN = os.environ.get("TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or s
 out = Path(sys.argv[1] if len(sys.argv) > 1 else "e2e/fixtures/db")
 out.mkdir(parents=True, exist_ok=True)
 # Великі подання сторінки сезону — рядок на рядок (компактно й читабельно в diff); решта — як було (indent=1).
-ONE_ROW_PER_LINE = {"season_points", "season_rounds"}
+ONE_ROW_PER_LINE = {"season_points", "season_rounds", "race_page"}
 
 QUERIES = {
     "team_index": "select id, seasons, grands_prix, wins, titles, current_position, current_drivers from f1.team_index order by id",
@@ -44,6 +44,7 @@ QUERIES = {
                      "winner_points, poles, sprint_winners, disqualified from f1.season_rounds order by year, round nulls last, name",
     "season_points": "select year, round, driver, race_points, sprint_points, place, standing, standing_points "
                      "from f1.season_points order by year, round, driver",
+    "race_page": "select year, round, sessions, race, sprint, quali, sprint_quali, laps, stops from f1.race_page order by year, round",
     # Сторінка пілота (0008).
     "driver_totals": "select id, date_of_birth::text as date_of_birth, permanent_number, points, fastest_laps, fastest_laps_known, "
                      "debut, last_race, first_podium, first_pole from f1.driver_totals order by id",
