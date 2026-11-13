@@ -146,6 +146,11 @@ describe("поул по машинах (1950-ті: машину ділили к�
   it("пілот у двох машинах — машину, де він уже є, відкидаємо (1964 Італія: Кларк №1 і №2 зі Спенсом)", () => {
     expect(poleCars([w("clark", 1), w("clark", 2), w("spence", 2)])).toEqual([["clark"]]);
   });
+  it("на фікстурі бази: 1955 етап 1 — екіпаж №12; 1964 етап 9 — лише Кларк", async () => {
+    const ids = (y: number, r: number) => async () => (await page(y)).calendar.find((c) => c.round === r)!.poles.map((car) => car.map((d) => d.id));
+    expect(await (await ids(1955, 1))()).toEqual([["farina", "gonzalez", "trintignant"]]);
+    expect(await (await ids(1964, 9))()).toEqual([["clark"]]);
+  });
   it("різні машини з grid = 1 — обидві (помилка даних 1952, показуємо як є); звичайний етап — один пілот", () => {
     expect(poleCars([w("ascari", 12), w("moss", 32)])).toEqual([["ascari"], ["moss"]]);
     expect(poleCars([w("norris", 4)])).toEqual([["norris"]]);
