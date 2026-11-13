@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
 import type { TeamCard as TeamCardData } from "@/lib/data/teams";
@@ -96,14 +96,40 @@ export function TeamsBrowser({ cards, locale, season, pageSize, labels }: Props)
   const left = Math.max(0, selected.length - shown);
   const visible = selected.slice(0, shown);
 
+  // Остання адреса, яку записали ми самі: її «луну» з useSearchParams ігноруємо — інакше застаріла адреса
+  // перезаписує новіший стан під час швидкого набору (замір 13.11 на main: 4 з 6 наборів «mclaren mercedes»
+  // зіпсовано; як у «Пілотах» з 12.11 і «Трасах»).
+  const written = useRef<string | null>(null);
+  // Ввід до гідратації (замір 13.11: 2 з 6 ранніх наборів губилися): текст із серверного поля підхоплюємо в
+  // useLayoutEffect, а перше читання адреси не затирає стан, який користувач уже змінив.
+  const input = useRef<HTMLInputElement>(null);
+  const dirty = useRef(false);
+  useLayoutEffect(() => {
+    const typed = input.current?.value ?? "";
+    if (typed) {
+      dirty.current = true;
+      setQuery((prev) => (prev.q === typed ? prev : { ...prev, q: typed }));
+    }
+  }, []);
   const set = (patch: Partial<TeamsQuery>) => {
+    dirty.current = true;
+    // Порівняння — за станом, а не за адресою: адреса обрізає пробіли, і пробіл на початку слова губився б.
     const next = { ...query, ...patch };
-    if (teamsQueryString(next) !== teamsQueryString(query)) setQuery(next);
+    if (next.q !== query.q || next.f !== query.f || next.sort !== query.sort) setQuery(next);
   };
 
   // Стан з адреси — лише якщо він інший (наш власний replaceState повертається сюди ж і нічого не змінює).
   const onParams = useCallback((q: TeamsQuery) => {
-    setQuery((prev) => (teamsQueryString(prev) === teamsQueryString(q) ? prev : q));
+    const incoming = teamsQueryString(q);
+    if (written.current === null && dirty.current) {
+      setSynced(true);
+      return;
+    }
+    if (written.current !== null && incoming === written.current) {
+      setSynced(true);
+      return;
+    }
+    setQuery((prev) => (teamsQueryString(prev) === incoming ? prev : q));
     setSynced(true);
   }, []);
 
@@ -111,6 +137,7 @@ export function TeamsBrowser({ cards, locale, season, pageSize, labels }: Props)
   // До першої синхронізації не пишемо, інакше стан за замовчуванням затер би параметри посилання.
   useEffect(() => {
     if (!synced) return;
+    written.current = teamsQueryString(query);
     const next = withTeamsQuery(window.location.search, query);
     if (next !== (window.location.search === "?" ? "" : window.location.search)) {
       window.history.replaceState(null, "", `${window.location.pathname}${next}${window.location.hash}`);
@@ -155,6 +182,7 @@ export function TeamsBrowser({ cards, locale, season, pageSize, labels }: Props)
               <path d="M15.5 15.5 21 21" stroke="currentColor" strokeWidth="2.2" strokeLinecap="square" />
             </svg>
             <input
+              ref={input}
               type="search"
               className="teams-q"
               name="q"

@@ -348,3 +348,23 @@ test("фото першої картки (кандидат LCP) — fetchpriorit
   await expect(imgs.nth(1)).not.toHaveAttribute("fetchpriority", "high");
   await expect(imgs.nth(4)).toHaveAttribute("loading", "lazy");
 });
+
+// Пошук: ранній ввід (до гідратації) і швидкий набір не губляться (замір 13.11 на main; PR «баги пошуку списків»).
+test("пошук: ввід одразу після відкриття й швидкий набір не губляться", async ({ page }) => {
+  for (let i = 0; i < 3; i++) {
+    await page.goto("/uk/teams");
+    const box = page.getByRole("searchbox", { name: "Пошук команди" });
+    await box.fill("mclaren");
+    await page.waitForTimeout(800);
+    await expect(box).toHaveValue("mclaren");
+  }
+  await page.goto("/uk/teams", { waitUntil: "networkidle" });
+  const box = page.getByRole("searchbox", { name: "Пошук команди" });
+  for (let i = 0; i < 3; i++) {
+    await box.fill("");
+    await box.pressSequentially("mclaren mercedes", { delay: 0 });
+    await page.waitForTimeout(600);
+    await expect(box).toHaveValue("mclaren mercedes");
+  }
+  await expect(page).toHaveURL(/q=mclaren\+mercedes/);
+});
