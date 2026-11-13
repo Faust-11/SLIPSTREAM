@@ -1,0 +1,20 @@
+{
+ "_about": "Виправлення помилок даних Jolpica в результатах (застосовує scripts/db/seed_curated.py після кожного завантаження дампу; лише якщо в даних досі значення from). Кожне — з джерелом. Рішення користувача 13.11: помилки даних виправляємо кураторським записом із джерелом.",
+ "fixes": [
+  {
+   "year": 1952,
+   "round": 8,
+   "session": "R",
+   "driver": "moss",
+   "field": "grid",
+   "from": 1,
+   "to": 9,
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/1952_Italian_Grand_Prix",
+     "quote": "Race classification: Stirling Moss, Connaught-Lea Francis, Ret (Engine), Grid 9; qualifying: 9th, 2:09.8 (pole — Alberto Ascari, 2:05.7)"
+    }
+   ]
+  }
+ ]
+}

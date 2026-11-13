@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Кураторські дані → база: f1.team_families (ref Jolpica → id команди) з src/data/curated/teams.json,
+виправлення помилок Jolpica в результатах (src/data/curated/result-fixes.json, з джерелами),
 потім f1.refresh_derived(). Усе в одній транзакції.
 
     DATABASE_URL=postgresql://... python3 scripts/db/seed_curated.py
@@ -18,6 +19,15 @@ from pathlib import Path
 import psycopg
 
 CURATED = Path(__file__).resolve().parents[2] / "src" / "data" / "curated" / "teams.json"
+RESULT_FIXES = CURATED.with_name("result-fixes.json")
+# Поля, які дозволено виправляти (назва поля не підставляється в SQL з файлу — лише з цього переліку).
+FIX_SQL = {
+    "grid": """update f1.results r set grid = %(to)s
+               from f1.sessions s, f1.rounds ro, f1.drivers d
+               where s.id = r.session_id and ro.id = s.round_id and d.id = r.driver_id
+                 and ro.season_year = %(year)s and ro.number = %(round)s and s.type = %(session)s
+                 and d.ref = %(driver)s and r.grid = %(from)s""",
+}
 
 
 def main() -> int:
@@ -40,6 +50,13 @@ def main() -> int:
             cur.executemany("insert into f1.team_families(ref, family_id, from_year, to_year) values (%s, %s, %s, %s)", pairs)
             if exclusions:
                 cur.executemany("insert into f1.team_season_exclusions(family_id, season_year) values (%s, %s)", exclusions)
+        # Виправлення помилок даних Jolpica (result-fixes.json): лише якщо значення досі хибне — Jolpica могла виправити сама.
+        for fx in json.loads(RESULT_FIXES.read_text(encoding="utf-8"))["fixes"]:
+            if fx["field"] not in FIX_SQL:
+                raise SystemExit(f"result-fixes.json: поле {fx['field']!r} не підтримується")
+            n = conn.execute(FIX_SQL[fx["field"]], fx).rowcount
+            print(f"result-fix {fx['year']}/{fx['round']} {fx['driver']} {fx['field']} {fx['from']}→{fx['to']}: "
+                  + ("застосовано" if n else "не застосовано (у даних уже інше значення)"))
         unmapped = conn.execute(
             """
             select distinct t.ref from f1.results r
