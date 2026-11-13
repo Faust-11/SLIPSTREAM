@@ -61,6 +61,10 @@ describe("getCircuitsIndex (макет «Список трас»)", () => {
     expect([by("yas_marina").place, by("yas_marina").country, by("yas_marina").onCalendar]).toEqual(["Абу-Дабі", "ОАЕ", true]);
     expect(by("pescara").onCalendar).toBe(false);
   });
+  it("у кожної траси — коротка назва обома мовами (circuit_short_names.py)", () => {
+    const places = (circuitsJson as unknown as { places: Record<string, { short?: { uk?: string; en?: string } }> }).places;
+    expect(Object.entries(places).filter(([, p]) => !p.short?.uk || !p.short?.en).map(([k]) => k)).toEqual([]);
+  });
   it("у кожної траси — місце й країна обома мовами (новий код країни ловить тест)", async () => {
     const places = (circuitsJson as unknown as { places: Record<string, unknown> }).places;
     for (const l of ["uk", "en"] as const) {
@@ -126,6 +130,11 @@ describe("getCircuitPage — Яс-Марина (еталон — макет)", (
     expect(l.podiums.rows.slice(0, 3).map((x) => [x.driver.id, x.n])).toEqual([["hamilton", 10], ["vettel", 7], ["max_verstappen", 7]]);
   });
 
+  it("коротка назва в заголовку — «Яс-Марина» (рішення користувача 13.11), місце — «Абу-Дабі»", async () => {
+    const p = await page();
+    expect([p.short, p.place]).toEqual(["Яс-Марина", "Абу-Дабі"]);
+    expect((await getCircuitPage("yas_marina", "en"))!.short).toBe("Yas Marina");
+  });
   it("Гран-прі траси: Абу-Дабі з 2009, триває", async () => {
     expect((await page()).gp).toEqual({ name: "Гран-прі Абу-Дабі", from: 2009, to: 2025, ongoing: true });
   });

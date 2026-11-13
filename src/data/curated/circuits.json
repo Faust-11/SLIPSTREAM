@@ -1,5 +1,5 @@
 {
- "_about": "Місце етапу для календаря сезону (як його знають уболівальники: місто або траса, якщо в Jolpica locality — регіон: Kent → Брендс-Гетч). Ключ — f1.circuits.ref. Нова траса в базі без запису — тест падає (src/lib/data/__tests__/season-page.test.ts). Написання звірено з назвами статей української Вікіпедії (міжмовні посилання з англійської, 13.11): docs/data/review-2026-11-13-circuit-places.md.",
+ "_about": "Місце етапу для календаря сезону (як його знають уболівальники: місто або траса, якщо в Jolpica locality — регіон: Kent → Брендс-Гетч). Ключ — f1.circuits.ref. Нова траса в базі без запису — тест падає (src/lib/data/__tests__/season-page.test.ts). Написання звірено з назвами статей української Вікіпедії (міжмовні посилання з англійської, 13.11): docs/data/review-2026-11-13-circuit-places.md. Коротка назва траси (\"short\", заголовок картки) — scripts/curated/circuit_short_names.py: назва статті ukwiki/enwiki без уточнення в дужках, якщо до двох слів і без загальних слів, інакше — місце.",
  "places": {
   "adelaide": {
    "uk": "Аделаїда",
@@ -15,12 +15,20 @@
     "page": "https://commons.wikimedia.org/wiki/File:Clipsal_500_-_main_straight_on_friday_2008.jpg",
     "author": "Muzzamo (talk)",
     "license": "Public domain"
+   },
+   "short": {
+    "uk": "Аделаїда",
+    "en": "Adelaide"
    }
   },
   "ain-diab": {
    "uk": "Касабланка",
    "en": "Casablanca",
-   "wiki": "Ain-Diab Circuit"
+   "wiki": "Ain-Diab Circuit",
+   "short": {
+    "uk": "Айн-Діаб",
+    "en": "Ain Diab"
+   }
   },
   "aintree": {
    "uk": "Ейнтрі",
@@ -36,6 +44,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Vanwall_VW5_Aintree_1957.jpg",
     "author": "Terry Whalebone from Bolton, UK",
     "license": "CC BY 2.0"
+   },
+   "short": {
+    "uk": "Ейнтрі",
+    "en": "Aintree"
    }
   },
   "albert_park": {
@@ -52,6 +64,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Melbourne_Grand_Prix_Circuit_pit_building.jpg",
     "author": "Ozzmosis",
     "license": "CC BY-SA 2.5"
+   },
+   "short": {
+    "uk": "Альберт-Парк",
+    "en": "Albert Park"
    }
   },
   "americas": {
@@ -68,6 +84,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Circuit_of_the_americas_cota_%2852781066233%29.jpg",
     "author": "Zach Catanzareti Photo",
     "license": "CC BY 2.0"
+   },
+   "short": {
+    "uk": "Остін",
+    "en": "Austin"
    }
   },
   "anderstorp": {
@@ -84,6 +104,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Swedish_Grand_Prix_1973_%28JOKAMAL3B08-14%29.tif",
     "author": "Markku Lepola",
     "license": "CC BY 4.0"
+   },
+   "short": {
+    "uk": "Андерсторп",
+    "en": "Anderstorp"
    }
   },
   "avus": {
@@ -100,6 +124,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Funkturm_Berlin_View_14.jpg",
     "author": "A.Savin",
     "license": "CC BY-SA 3.0"
+   },
+   "short": {
+    "uk": "АФУС",
+    "en": "AVUS"
    }
   },
   "bahrain": {
@@ -116,6 +144,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:2012_Bahrain_Grand_Prix_2.jpg",
     "author": "Ryan Bayona",
     "license": "CC BY 2.0"
+   },
+   "short": {
+    "uk": "Сахір",
+    "en": "Bahrain"
    }
   },
   "baku": {
@@ -132,6 +164,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Aerial_View_of_Baku%2C_May_2012.jpg",
     "author": "Khortan",
     "license": "CC BY-SA 3.0"
+   },
+   "short": {
+    "uk": "Баку",
+    "en": "Baku City"
    }
   },
   "boavista": {
@@ -148,6 +184,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:A5_HPIM4185_%281187021094%29.jpg",
     "author": "Dario Alvarez from Orense, España",
     "license": "CC BY 2.0"
+   },
+   "short": {
+    "uk": "Боавішта",
+    "en": "Boavista"
    }
   },
   "brands_hatch": {
@@ -164,6 +204,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Brands-hatch.jpg",
     "author": "Whiters",
     "license": "Public domain"
+   },
+   "short": {
+    "uk": "Брендс-Гетч",
+    "en": "Brands Hatch"
    }
   },
   "bremgarten": {
@@ -180,6 +224,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Tennikurvebremgarp.jpg",
     "author": "Travus (talk)",
     "license": "CC BY-SA 3.0"
+   },
+   "short": {
+    "uk": "Берн",
+    "en": "Bern"
    }
   },
   "buddh": {
@@ -196,6 +244,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Buddh_international_circuit.jpg",
     "author": "Alok09031995",
     "license": "CC BY-SA 4.0"
+   },
+   "short": {
+    "uk": "Велика Нойда",
+    "en": "Greater Noida"
    }
   },
   "catalunya": {
@@ -212,6 +264,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:F1_Circuit_de_Catalunya_-_Tribuna.jpg",
     "author": "Mutari 10:51, 21 September 2007 (UTC)",
     "license": "Public domain"
+   },
+   "short": {
+    "uk": "Каталунья",
+    "en": "Barcelona-Catalunya"
    }
   },
   "charade": {
@@ -228,6 +284,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Circuit_de_Charade_2017-1.jpg",
     "author": "Fabien1309",
     "license": "CC BY-SA 4.0"
+   },
+   "short": {
+    "uk": "Шарад",
+    "en": "Charade"
    }
   },
   "dallas": {
@@ -239,7 +299,11 @@
      "file": "Dallas Fair Park Esplanade.jpg",
      "why": "без траси (статуя й будівлі)"
     }
-   ]
+   ],
+   "short": {
+    "uk": "Даллас",
+    "en": "Dallas"
+   }
   },
   "detroit": {
    "uk": "Детройт",
@@ -255,6 +319,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Gerhard_Berger_1986_Detroit.jpg",
     "author": "Don France from Alamo, CA, USADon France Photography",
     "license": "CC BY-SA 2.0"
+   },
+   "short": {
+    "uk": "Детройт",
+    "en": "Detroit"
    }
   },
   "dijon": {
@@ -271,6 +339,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Dijon-Prenois1.jpg",
     "author": "No machine-readable author provided. NSX-Racer assumed (based on copyright claims).",
     "license": "CC BY 2.5"
+   },
+   "short": {
+    "uk": "Діжон-Пренуа",
+    "en": "Dijon-Prenois"
    }
   },
   "donington": {
@@ -287,17 +359,29 @@
     "page": "https://commons.wikimedia.org/wiki/File:Mini_Challenge_Clubsport_Donington_Park_2024.jpg",
     "author": "BWard 1997",
     "license": "CC BY 4.0"
+   },
+   "short": {
+    "uk": "Донінгтон Парк",
+    "en": "Donington Park"
    }
   },
   "essarts": {
    "uk": "Руан",
    "en": "Rouen",
-   "wiki": "Rouen-Les-Essarts"
+   "wiki": "Rouen-Les-Essarts",
+   "short": {
+    "uk": "Руан-Лез-Ессар",
+    "en": "Rouen-Les-Essarts"
+   }
   },
   "estoril": {
    "uk": "Ешторіл",
    "en": "Estoril",
-   "wiki": "Circuito do Estoril"
+   "wiki": "Circuito do Estoril",
+   "short": {
+    "uk": "Ешторіл",
+    "en": "Estoril"
+   }
   },
   "fuji": {
    "uk": "Фудзі",
@@ -313,6 +397,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Safety_car_2024_WEC_Fuji.jpg",
     "author": "Morio",
     "license": "CC BY-SA 4.0"
+   },
+   "short": {
+    "uk": "Фудзі",
+    "en": "Fuji"
    }
   },
   "galvez": {
@@ -329,12 +417,20 @@
     "page": "https://commons.wikimedia.org/wiki/File:Autodromo_galvez_en_2023.jpg",
     "author": "Unknown author",
     "license": "CC BY 2.5 ar"
+   },
+   "short": {
+    "uk": "Буенос-Айрес",
+    "en": "Buenos Aires"
    }
   },
   "george": {
    "uk": "Іст-Лондон",
    "en": "East London",
-   "wiki": "Prince George Circuit"
+   "wiki": "Prince George Circuit",
+   "short": {
+    "uk": "Іст-Лондон",
+    "en": "East London"
+   }
   },
   "hockenheimring": {
    "uk": "Гоккенгайм",
@@ -350,6 +446,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Kimi_Raikkonen_-_Turn_1_of_the_Hockenheimring_-_2014_German_Grand_Prix.jpg",
     "author": "Justin LaBerge",
     "license": "CC BY 2.0"
+   },
+   "short": {
+    "uk": "Гоккенгаймринг",
+    "en": "Hockenheimring"
    }
   },
   "hungaroring": {
@@ -366,6 +466,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:2022_ETCR_-_RD2_-_Hungaroring_%2852186703505%29.jpg",
     "author": "EKSRX",
     "license": "CC BY 2.0"
+   },
+   "short": {
+    "uk": "Хунгароринг",
+    "en": "Hungaroring"
    }
   },
   "imola": {
@@ -382,6 +486,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:2025_Emilia_Romagna_Grand_Prix_03.jpg",
     "author": "Jmmuguerza",
     "license": "CC BY-SA 4.0"
+   },
+   "short": {
+    "uk": "Імола",
+    "en": "Imola"
    }
   },
   "indianapolis": {
@@ -398,6 +506,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Indianapolis-motor-speedway-1848561.jpg",
     "author": "tpsdave",
     "license": "CC0"
+   },
+   "short": {
+    "uk": "Індіанаполіс",
+    "en": "Indianapolis"
    }
   },
   "interlagos": {
@@ -414,6 +526,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Aut%C3%B3dromo_de_Interlagos_em_Dezembro_de_2023.jpg",
     "author": "Boaventuravinicius",
     "license": "CC BY-SA 4.0"
+   },
+   "short": {
+    "uk": "Сан-Паулу",
+    "en": "São Paulo"
    }
   },
   "istanbul": {
@@ -430,6 +546,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Istanbul_park_turn_1_and_pit_lane_exit.JPG",
     "author": "Homonihilis",
     "license": "CC BY 3.0"
+   },
+   "short": {
+    "uk": "Істанбул Парк",
+    "en": "Istanbul Park"
    }
   },
   "jacarepagua": {
@@ -445,7 +565,11 @@
      "file": "Moto 1000 GP (6366270607).jpg",
      "why": "мотоцикли"
     }
-   ]
+   ],
+   "short": {
+    "uk": "Ріо-де-Жанейро",
+    "en": "Rio de Janeiro"
+   }
   },
   "jarama": {
    "uk": "Харама",
@@ -461,12 +585,20 @@
     "page": "https://commons.wikimedia.org/wiki/File:Tribuna_recta_Circuito_del_Jarama.jpg",
     "author": "Carlos Delgado",
     "license": "CC BY-SA 3.0"
+   },
+   "short": {
+    "uk": "Харама",
+    "en": "Jarama"
    }
   },
   "jeddah": {
    "uk": "Джидда",
    "en": "Jeddah",
-   "wiki": "Jeddah Corniche Circuit"
+   "wiki": "Jeddah Corniche Circuit",
+   "short": {
+    "uk": "Джидда",
+    "en": "Jeddah Corniche"
+   }
   },
   "jerez": {
    "uk": "Херес",
@@ -482,6 +614,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Circuito_de_Jerez_%284360360194%29.jpg",
     "author": "Daniel Sancho from Málaga, Spain",
     "license": "CC BY 2.0"
+   },
+   "short": {
+    "uk": "Херес",
+    "en": "Jerez"
    }
   },
   "kyalami": {
@@ -504,12 +640,20 @@
      "file": "Kyalami 16.png",
      "why": "схема"
     }
-   ]
+   ],
+   "short": {
+    "uk": "К'яламі",
+    "en": "Kyalami"
+   }
   },
   "las_vegas": {
    "uk": "Лас-Вегас",
    "en": "Las Vegas",
-   "wiki": "Las Vegas Strip Circuit"
+   "wiki": "Las Vegas Strip Circuit",
+   "short": {
+    "uk": "Лас-Вегас",
+    "en": "Las Vegas"
+   }
   },
   "lemans": {
    "uk": "Ле-Ман",
@@ -531,7 +675,11 @@
      "file": "Circuit de la Sarthe v2.png",
      "why": "схема"
     }
-   ]
+   ],
+   "short": {
+    "uk": "Ле-Ман",
+    "en": "Le Mans"
+   }
   },
   "long_beach": {
    "uk": "Лонг-Біч",
@@ -547,6 +695,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Long_beach3_%28cropped%29.jpg",
     "author": "himefrias",
     "license": "Copyrighted free use"
+   },
+   "short": {
+    "uk": "Лонг-Біч",
+    "en": "Long Beach"
    }
   },
   "losail": {
@@ -558,12 +710,20 @@
      "file": "Qatar GP 2021. Pol Espargaro y Stefan Bradl en carrera - 51079776027.jpg",
      "why": "мотоцикли (MotoGP)"
     }
-   ]
+   ],
+   "short": {
+    "uk": "Лусаїл",
+    "en": "Lusail"
+   }
   },
   "madring": {
    "uk": "Мадрид",
    "en": "Madrid",
-   "wiki": "Madring"
+   "wiki": "Madring",
+   "short": {
+    "uk": "Мадринг",
+    "en": "Madring"
+   }
   },
   "magny_cours": {
    "uk": "Маньї-Кур",
@@ -579,6 +739,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Magnycourt1new.jpg",
     "author": "V.Charpiat",
     "license": "CC BY-SA 2.5"
+   },
+   "short": {
+    "uk": "Маньї-Кур",
+    "en": "Magny-Cours"
    }
   },
   "marina_bay": {
@@ -595,6 +759,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Singapore_%28SG%29%2C_Marina_Bay_Street_Circuit%2C_F1_Pit_Building_--_2019_--_4478.jpg",
     "author": "Dietmar Rabich",
     "license": "CC BY-SA 4.0"
+   },
+   "short": {
+    "uk": "Марина Бей",
+    "en": "Marina Bay"
    }
   },
   "miami": {
@@ -611,6 +779,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Start_of_the_Porsche_Sprint_Challenge_North_America_at_the_F1_Miami_GP_-_2022.jpg",
     "author": "USACJack",
     "license": "CC BY-SA 4.0"
+   },
+   "short": {
+    "uk": "Маямі",
+    "en": "Miami"
    }
   },
   "monaco": {
@@ -627,12 +799,20 @@
     "page": "https://commons.wikimedia.org/wiki/File:MONACO_FORMULA_1_TURN_1_-_panoramio.jpg",
     "author": "otterboris",
     "license": "CC BY 3.0"
+   },
+   "short": {
+    "uk": "Монако",
+    "en": "Monaco"
    }
   },
   "monsanto": {
    "uk": "Лісабон",
    "en": "Lisbon",
-   "wiki": "Circuito de Monsanto"
+   "wiki": "Circuito de Monsanto",
+   "short": {
+    "uk": "Монсанто",
+    "en": "Monsanto"
+   }
   },
   "montjuic": {
    "uk": "Барселона",
@@ -648,6 +828,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:24_Horas_de_Montjuich._10_de_julio_de_1966_8.jpg",
     "author": "Toni Sala",
     "license": "CC BY-SA 4.0"
+   },
+   "short": {
+    "uk": "Монжуїк",
+    "en": "Montjuïc"
    }
   },
   "monza": {
@@ -664,6 +848,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:1975_Italian_GP_race_start_-_Niki_Lauda_%26_Clay_Regazzoni_%28Ferrari_312T%29.jpg",
     "author": "Rainer W. Schlegelmilch",
     "license": "Public domain"
+   },
+   "short": {
+    "uk": "Монца",
+    "en": "Monza"
    }
   },
   "mosport": {
@@ -680,6 +868,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Canadian_Tire_Motorsports_Park_%2827356592970%29.jpg",
     "author": "Adam Moss from East Amherst, New York, United States",
     "license": "CC BY-SA 2.0"
+   },
+   "short": {
+    "uk": "Моспорт Парк",
+    "en": "Mosport"
    }
   },
   "mugello": {
@@ -696,12 +888,20 @@
     "page": "https://commons.wikimedia.org/wiki/File:Partenza_del_Gran_Premio_d%27Italia_TIM_2011.jpg",
     "author": "Press office",
     "license": "CC BY-SA 3.0"
+   },
+   "short": {
+    "uk": "Муджелло",
+    "en": "Mugello"
    }
   },
   "nivelles": {
    "uk": "Нівель",
    "en": "Nivelles",
-   "wiki": "Nivelles-Baulers"
+   "wiki": "Nivelles-Baulers",
+   "short": {
+    "uk": "Нівель-Болер",
+    "en": "Nivelles-Baulers"
+   }
   },
   "nurburgring": {
    "uk": "Нюрбургринг",
@@ -717,6 +917,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:ADAC_GT_Masters_at_Nuerburgring.jpg",
     "author": "Herranderssvensson",
     "license": "CC BY-SA 3.0"
+   },
+   "short": {
+    "uk": "Нюрбургринг",
+    "en": "Nürburgring"
    }
   },
   "okayama": {
@@ -733,12 +937,20 @@
     "page": "https://commons.wikimedia.org/wiki/File:2009_1000km_of_Okayama_%28Race_1%29_opening_lap.jpg",
     "author": "Morio",
     "license": "CC BY-SA 3.0"
+   },
+   "short": {
+    "uk": "Окаяма",
+    "en": "Okayama"
    }
   },
   "pedralbes": {
    "uk": "Барселона",
    "en": "Barcelona",
-   "wiki": "Pedralbes Circuit"
+   "wiki": "Pedralbes Circuit",
+   "short": {
+    "uk": "Педральбес",
+    "en": "Pedralbes"
+   }
   },
   "pescara": {
    "uk": "Пескара",
@@ -749,7 +961,11 @@
      "file": "Circuito di Pescara.png",
      "why": "схема"
     }
-   ]
+   ],
+   "short": {
+    "uk": "Пескара",
+    "en": "Pescara"
+   }
   },
   "phoenix": {
    "uk": "Фінікс",
@@ -765,6 +981,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:AlainProst_Ferrari_1991.jpg",
     "author": "StuSeeger",
     "license": "CC BY 2.0"
+   },
+   "short": {
+    "uk": "Фінікс",
+    "en": "Phoenix"
    }
   },
   "portimao": {
@@ -781,6 +1001,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Aut%C3%B3dromo_Internacional_do_Algarve_%282012-09-23%29%2C_by_Klugschnacker_in_Wikipedia_%282%29.JPG",
     "author": "Klugschnacker",
     "license": "CC BY-SA 3.0"
+   },
+   "short": {
+    "uk": "Алгарве",
+    "en": "Algarve"
    }
   },
   "red_bull_ring": {
@@ -797,12 +1021,20 @@
     "page": "https://commons.wikimedia.org/wiki/File:United_Autosports_ELMS_Red_Bull_Ring_2017-218.jpg",
     "author": "United Autosports",
     "license": "CC BY-SA 2.0"
+   },
+   "short": {
+    "uk": "Ред Булл Ринг",
+    "en": "Red Bull Ring"
    }
   },
   "reims": {
    "uk": "Реймс",
    "en": "Reims",
-   "wiki": "Reims-Gueux"
+   "wiki": "Reims-Gueux",
+   "short": {
+    "uk": "Реймс-Ге",
+    "en": "Reims-Gueux"
+   }
   },
   "ricard": {
    "uk": "Ле-Кастелле",
@@ -818,6 +1050,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Circuit_Paul_Ricard_CPR.jpg",
     "author": "Presse CPR",
     "license": "CC BY-SA 4.0"
+   },
+   "short": {
+    "uk": "Поль Рікар",
+    "en": "Paul Ricard"
    }
   },
   "riverside": {
@@ -834,6 +1070,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:RiversideInternationalRaceway_1988.jpg",
     "author": "Jay Bonvouloir",
     "license": "CC BY-SA 2.0"
+   },
+   "short": {
+    "uk": "Ріверсайд",
+    "en": "Riverside"
    }
   },
   "rodriguez": {
@@ -850,6 +1090,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Formula_1_2016_-i---i-_%2830061627393%29.jpg",
     "author": "Gobierno CDMX",
     "license": "CC0"
+   },
+   "short": {
+    "uk": "Мехіко",
+    "en": "Mexico City"
    }
   },
   "sebring": {
@@ -866,6 +1110,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:2018_12_Hours_of_Sebring%2C_Race_Impression.jpg",
     "author": "Patrick Smith",
     "license": "CC BY 2.0"
+   },
+   "short": {
+    "uk": "Сібрінг",
+    "en": "Sebring"
    }
   },
   "sepang": {
@@ -882,6 +1130,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Sepang_tribune.jpg",
     "author": "Postmortem at Russian Wikipedia",
     "license": "Public domain"
+   },
+   "short": {
+    "uk": "Сепанг",
+    "en": "Sepang"
    }
   },
   "shanghai": {
@@ -898,6 +1150,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Shanghai_F1_Circui_01.jpg",
     "author": "Unknown author",
     "license": "CC BY-SA 2.0"
+   },
+   "short": {
+    "uk": "Шанхай",
+    "en": "Shanghai"
    }
   },
   "silverstone": {
@@ -914,6 +1170,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:McLaren_MP4-16A_2015_McLaren_MP4-16A_shakedown_%2821219267118%29.jpg",
     "author": "United Autosports",
     "license": "CC BY-SA 2.0"
+   },
+   "short": {
+    "uk": "Сільверстоун",
+    "en": "Silverstone"
    }
   },
   "sochi": {
@@ -930,6 +1190,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:F1_Grand_Prix_Russia_2014_start_lane.jpg",
     "author": "Premier.gov.ru press service",
     "license": "CC BY 4.0"
+   },
+   "short": {
+    "uk": "Сочі",
+    "en": "Sochi"
    }
   },
   "spa": {
@@ -946,6 +1210,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:2022_4_Hours_of_Spa-Francorchamps_-_Circuit.jpg",
     "author": "United Autosports",
     "license": "CC BY-SA 2.0"
+   },
+   "short": {
+    "uk": "Спа-Франкоршам",
+    "en": "Spa-Francorchamps"
    }
   },
   "suzuka": {
@@ -962,6 +1230,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Suzukacircuit_main-straight.jpg",
     "author": "Wata0929",
     "license": "CC BY-SA 4.0"
+   },
+   "short": {
+    "uk": "Судзука",
+    "en": "Suzuka"
    }
   },
   "tremblant": {
@@ -978,6 +1250,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Mont-Tremblant_Control_Tower.JPG",
     "author": "John Chapman User:Pyrope",
     "license": "CC BY-SA 3.0"
+   },
+   "short": {
+    "uk": "Мон-Трамблан",
+    "en": "Mont-Tremblant"
    }
   },
   "valencia": {
@@ -994,12 +1270,20 @@
     "page": "https://commons.wikimedia.org/wiki/File:Swing-bridge_Valencia_Street_Circuit.jpg",
     "author": "Bridge_Valencia_Street_Circuit.jpg: Nestor Correa Mayo derivative work: SilkTork (talk)",
     "license": "CC BY 2.0"
+   },
+   "short": {
+    "uk": "Валенсія",
+    "en": "Valencia"
    }
   },
   "vegas": {
    "uk": "Лас-Вегас",
    "en": "Las Vegas",
-   "wiki": "Las Vegas Grand Prix#Circuit"
+   "wiki": "Las Vegas Grand Prix#Circuit",
+   "short": {
+    "uk": "Лас-Вегас",
+    "en": "Las Vegas"
+   }
   },
   "villeneuve": {
    "uk": "Монреаль",
@@ -1015,6 +1299,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Circuit_Gilles_Villeneuve_Hairpin.jpg",
     "author": "magicfab",
     "license": "CC BY 2.0"
+   },
+   "short": {
+    "uk": "Монреаль",
+    "en": "Montreal"
    }
   },
   "watkins_glen": {
@@ -1031,6 +1319,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Austin_cindric_%2851370767098%29.jpg",
     "author": "Zach Catanzareti Photo",
     "license": "CC BY 2.0"
+   },
+   "short": {
+    "uk": "Воткінс-Глен",
+    "en": "Watkins Glen"
    }
   },
   "yas_marina": {
@@ -1053,7 +1345,11 @@
      "file": "Yas Marina Circuit.png",
      "why": "схема"
     }
-   ]
+   ],
+   "short": {
+    "uk": "Яс-Марина",
+    "en": "Yas Marina"
+   }
   },
   "yeongam": {
    "uk": "Йонам",
@@ -1069,6 +1365,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:2012_Korean_GP_Lotus_Ferrari.jpg",
     "author": "LG전자",
     "license": "CC BY 2.0"
+   },
+   "short": {
+    "uk": "Йонам",
+    "en": "Yeongam"
    }
   },
   "zandvoort": {
@@ -1091,7 +1391,11 @@
      "file": "Zandvoort Circuit.png",
      "why": "схема"
     }
-   ]
+   ],
+   "short": {
+    "uk": "Зандворт",
+    "en": "Zandvoort"
+   }
   },
   "zeltweg": {
    "uk": "Цельтвег",
@@ -1107,6 +1411,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Zeltweg_Airfield_Fliegerhorst_Hinterstoisser_04.jpg",
     "author": "Iswoar",
     "license": "CC BY-SA 4.0"
+   },
+   "short": {
+    "uk": "Цельтвег",
+    "en": "Zeltweg"
    }
   },
   "zolder": {
@@ -1123,6 +1431,10 @@
     "page": "https://commons.wikimedia.org/wiki/File:Circuit_Zolder_6-11-2008_16-29-22.jpg",
     "author": "Paul Hermans",
     "license": "CC BY-SA 3.0"
+   },
+   "short": {
+    "uk": "Золдер",
+    "en": "Zolder"
    }
   }
  }
