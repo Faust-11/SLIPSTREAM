@@ -13,6 +13,7 @@ import "@/components/drivers/drivers.css";
 import "@/components/driver/driver.css";
 import "@/components/seasons/seasons.css";
 import "@/components/season/season.css";
+import "@/components/race/race.css";
 import { ThemeRestore } from "@/components/theme/theme-restore";
 import { ThemeScript } from "@/components/theme/theme-script";
 import { getDictionary } from "@/i18n/get-dictionary";

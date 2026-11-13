@@ -4,7 +4,7 @@
 import "server-only";
 import circuitsJson from "@/data/curated/circuits.json";
 import type { Locale } from "@/i18n/config";
-import { lapLeaders, lapsNotLed, lowestAfterStart, onePlaceLower } from "@/lib/race-math";
+import { lapLeaders, lapSpells, lapsNotLed, lowestAfterStart, onePlaceLower } from "@/lib/race-math";
 import { decidingRound, jolpicaRule, observedMax, seasonRules, type SeasonData } from "@/lib/season-math";
 import { dbSelectAll } from "./db";
 import { once } from "./once";
@@ -112,6 +112,8 @@ export type RacePage = {
     lines: LapLine[];
     winner: SeasonDriver;
     notLed: { from: number; to: number }[];
+    /** Кола, на яких лідирував переможець (для «лідирував лише на …», коли це менше половини гонки: Абу-Дабі 2021). */
+    led: { from: number; to: number }[];
     ledAll: boolean;
     /** Найбільше падіння в першій п'ятірці (після першого кола) і місце фінішу. */
     drop: null | { driver: SeasonDriver; lap: number; position: number; finish: number; stopLap: number | null };
@@ -200,7 +202,8 @@ export async function getRacePage(year: number, round: number, locale: Locale): 
       drop = { driver: base(id), lap: low.lap, position: low.position, finish, stopLap };
       break;
     }
-    lapChart = { laps: leaders.length, lines, winner: base(winnerRow.d), notLed, ledAll: notLed.length === 0, drop };
+    const led = lapSpells(leaders).filter((x) => x.driver === winnerRow.d).map(({ from, to }) => ({ from, to }));
+    lapChart = { laps: leaders.length, lines, winner: base(winnerRow.d), notLed, led, ledAll: notLed.length === 0, drop };
   }
 
   /* --- вирішальна гонка (season-math) і «як вирішився титул» --- */

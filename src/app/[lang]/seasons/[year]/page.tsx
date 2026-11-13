@@ -415,7 +415,14 @@ export default async function SeasonPage(props: Props) {
                       </abbr>
                     )}
                   </span>
-                  <span className="city">{c.place}</span>
+                  {/* Етап, що відбувся, — посилання на сторінку гонки (фаза 3g); майбутній і скасований — без. */}
+                  {c.done && c.round !== null ? (
+                    <a className="city" href={path(`/seasons/${page.year}/${c.round}`)}>
+                      {c.place}
+                    </a>
+                  ) : (
+                    <span className="city">{c.place}</span>
+                  )}
                   <span className="gp">{c.gp}</span>
                   {c.cancelled ? (
                     <span className="note">{t.cancelled}</span>

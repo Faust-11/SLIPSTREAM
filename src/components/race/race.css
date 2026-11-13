@@ -1,0 +1,614 @@
+/* Сторінка гонки /seasons/<рік>/<етап> (фаза 3g) — за макетом Абу-Дабі 2025. Усі класи з префіксом rc- (урок 3f:
+   глобальні .tc-strip / .pos / .race інших сторінок ламали розмітку). Палітра графіка — спільна з season.css
+   (--s0…--s5 на .race-page). Настанови modern-web-guidance: «Optimize image priority» (банер — LCP),
+   «Responsive tables» (таблиці — області прокрутки з підписом), «Defer rendering heavy content». */
+
+/* ---------- крихти ---------- */
+.rc-crumbs .wrap {
+  gap: 8px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.rc-crumbs .sp {
+  flex: 1;
+}
+.rc-crumbs .nb {
+  padding: 6px 10px;
+  box-shadow: inset 0 0 0 1.5px var(--rule);
+  text-decoration: none;
+}
+.rc-crumbs .nb:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ---------- банер ---------- */
+.rc-hero {
+  position: relative;
+  overflow: clip;
+  background: #16181d;
+  color: #f3f4f1;
+  border-bottom: 8px solid var(--team);
+}
+.rc-hero img {
+  display: block;
+  width: 100%;
+  height: clamp(240px, 32vw, 400px);
+  object-fit: cover;
+}
+.rc-hero.has-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(10 11 14 / 0.85) 0%, rgb(10 11 14 / 0.45) 50%, rgb(10 11 14 / 0.1) 85%);
+}
+.rc-hero .wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+  min-height: clamp(200px, 22vw, 280px);
+  padding-block: 28px 30px;
+}
+.rc-hero.has-photo .wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  min-height: 0;
+}
+.rc-stamp {
+  align-self: flex-start;
+  padding: 7px 11px;
+  background: var(--yellow);
+  color: var(--on-yellow);
+  font: 600 12px var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.rc-hero h1 {
+  font-size: clamp(32px, 6vw, 84px);
+}
+.rc-hero h1 .yr {
+  display: block;
+  color: var(--yellow);
+}
+.rc-hero p {
+  margin: 0;
+  font-size: clamp(15px, 1.6vw, 18px);
+}
+
+/* ---------- смуга підсумку ---------- */
+.rc-strip {
+  border-bottom: var(--b) solid var(--rule);
+}
+.rc-strip dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin-block: 0;
+}
+.rc-strip dl > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding: 16px 16px 16px 0;
+}
+.rc-strip dl > div + div {
+  padding-left: 16px;
+  border-left: 2px solid var(--rule);
+}
+.rc-strip dt {
+  font: 600 11px var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.rc-strip .champ dt {
+  color: var(--red-text);
+}
+.rc-strip dd {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin: 0;
+  font-weight: 700;
+}
+.rc-strip dd small {
+  font: 500 12.5px var(--f-mono);
+  color: var(--ink-soft);
+}
+.race-page a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+/* ---------- секції ---------- */
+.rc-sec {
+  border-bottom: var(--b) solid var(--rule);
+}
+.rc-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 8px 16px;
+  padding-block: 34px 18px;
+}
+.rc-head h2 {
+  margin: 0;
+  font-size: clamp(24px, 3vw, 36px);
+}
+.rc-src {
+  font: 500 11px var(--f-mono);
+  color: var(--ink-soft);
+}
+
+/* ---------- вікенд ---------- */
+.rc-tl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  margin: 0;
+  padding: 0 0 36px;
+  list-style: none;
+  border-top: 2px solid var(--rule);
+}
+.rc-tl li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding: 14px 14px 0 0;
+}
+.rc-tl li + li {
+  padding-left: 14px;
+  border-left: 1px solid var(--hair);
+}
+.rc-tl li::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+.rc-tl li + li::before {
+  left: 8px;
+}
+.rc-tl .rc-race::before {
+  background: var(--red);
+}
+.rc-tl-day {
+  font: 11.5px var(--f-mono);
+  color: var(--ink-soft);
+}
+.rc-tl b {
+  font-size: 16px;
+}
+.rc-tl-res {
+  font-size: 13.5px;
+}
+
+/* ---------- як вирішився титул ---------- */
+.rc-title {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 36px;
+  padding-bottom: 36px;
+}
+.rc-title-text p {
+  max-width: 52ch;
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+.rc-title-text b {
+  color: var(--red-text);
+}
+.rc-tt {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.rc-tt li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 14px;
+  background: var(--paper-2);
+  border-left: 6px solid var(--hair);
+}
+/* Чемпіон — темна картка в обох темах (токени карток; урок 3f: --ink/--hair міняються місцями). */
+.rc-tt li.champ {
+  background: var(--card);
+  color: var(--on-card);
+  border-left-color: var(--yellow);
+}
+.rc-tt-n {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  font-weight: 700;
+}
+.rc-tt-p {
+  font: 500 11.5px var(--f-mono);
+  color: var(--ink-soft);
+}
+.rc-tt li.champ .rc-tt-p {
+  color: var(--yellow);
+}
+.rc-tt-pts {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+}
+.rc-tt-pts span,
+.rc-tt-pts i {
+  font-size: 15px;
+  font-style: normal;
+  opacity: 0.7;
+}
+.rc-tt-pts b {
+  font-size: 26px;
+  font-weight: 400;
+}
+.rc-tt li.champ .rc-tt-pts b {
+  color: var(--yellow);
+}
+
+/* ---------- коло за колом ---------- */
+.rc-laps {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.8fr);
+  gap: 36px;
+  padding-bottom: 36px;
+}
+.rc-story p {
+  max-width: 42ch;
+  margin: 0 0 12px;
+  font-size: 15.5px;
+}
+.rc-story b {
+  color: var(--red-text);
+}
+.rc-lc {
+  min-width: 0;
+}
+.rc-lc-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 0 0 10px;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+.rc-lc-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.rc-lc-legend line {
+  stroke: var(--c);
+  stroke-width: 3;
+}
+.rc-lc-legend .pit circle {
+  fill: var(--paper);
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+.rc-lc-scroll:focus-visible {
+  outline: 3px solid var(--focus, var(--yellow));
+  outline-offset: 2px;
+}
+.rc-lc-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.rc-lc-chart text {
+  font: 11px var(--f-mono);
+  fill: var(--ink-soft);
+}
+.rc-lc-chart .end {
+  font: 700 12.5px var(--f-body);
+  fill: var(--ink);
+}
+.rc-lc-chart .gl {
+  stroke: var(--grid);
+  stroke-width: 1;
+}
+.rc-lc-chart .ln {
+  fill: none;
+  stroke: var(--c);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.rc-lc-chart .ln.lead {
+  stroke-width: 3;
+}
+.rc-lc-chart .pit {
+  fill: var(--paper);
+  stroke: var(--c);
+  stroke-width: 2;
+}
+.rc-lc-chart .col rect {
+  fill: transparent;
+}
+.rc-lc-chart .col .hl {
+  stroke: var(--ink);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  opacity: 0;
+}
+.rc-lc-chart .col:hover .hl {
+  opacity: 1;
+}
+.rc-lc-table {
+  margin-top: 14px;
+  font-size: 13px;
+}
+.rc-lc-table summary {
+  cursor: pointer;
+  font: 600 12px var(--f-mono);
+}
+.rc-lc-table-scroll {
+  max-block-size: min(420px, 70vh);
+  margin-top: 8px;
+  overflow: auto;
+}
+.rc-lc-table table {
+  border-collapse: separate;
+  border-spacing: 0;
+  min-inline-size: 100%;
+}
+.rc-lc-table th,
+.rc-lc-table td {
+  padding: 3px 10px;
+  border-bottom: 1px solid var(--hair);
+  text-align: right;
+  white-space: nowrap;
+}
+.rc-lc-table thead th {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+  background: var(--paper);
+}
+.rc-lc-table td[data-pit] {
+  font-weight: 700;
+  text-decoration: underline;
+}
+@media (width <= 600px) {
+  /* Графік прокручується вбік у читабельному розмірі, з кінця гонки (row-reverse, без JS; урок 3f). */
+  .rc-lc-scroll {
+    display: flex;
+    flex-direction: row-reverse;
+    overflow-x: auto;
+  }
+  .rc-lc-chart {
+    flex: none;
+    min-width: 620px;
+  }
+}
+
+/* ---------- результати ---------- */
+.rc-tables {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+.rc-side {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 0;
+}
+.rc-tbl {
+  overflow-x: auto;
+}
+.rc-tbl:focus-visible {
+  outline: 3px solid var(--focus, var(--yellow));
+  outline-offset: 2px;
+}
+.rc-tbl table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.rc-tbl caption {
+  padding-bottom: 6px;
+  font: 600 12px var(--f-mono);
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.rc-tbl thead th {
+  padding: 10px 6px 8px;
+  border-bottom: 2px solid var(--rule);
+  font: 600 10.5px var(--f-mono);
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ink-soft);
+}
+.rc-tbl td,
+.rc-tbl tbody th {
+  padding: 7px 6px;
+  border-bottom: 1px solid var(--hair);
+  font-weight: 400;
+  text-align: left;
+  vertical-align: middle;
+}
+.rc-tbl .rc-r {
+  text-align: right;
+}
+.rc-pos {
+  width: 32px;
+  font: 400 13px var(--f-display);
+  word-spacing: -0.35em;
+}
+.rc-pts {
+  font: 400 13px var(--f-display);
+  word-spacing: -0.35em;
+}
+.rc-drv {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.rc-drv .av {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  background: var(--paper-2);
+  box-shadow: 0 0 0 2px var(--c, var(--hair));
+}
+.rc-drv .av-none {
+  display: inline-block;
+}
+.rc-drv-n {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 8px;
+  min-width: 0;
+  font-weight: 600;
+}
+.rc-drv-n small {
+  flex-basis: 100%;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+/* Пілот і команда — два посилання одне під одним: ціль ≥ 24 px (WCAG 2.5.8; axe target-size 13.11). */
+.rc-drv-n a {
+  display: inline-block;
+  min-block-size: 24px;
+  line-height: 24px;
+}
+.rc-fl {
+  padding: 1px 5px;
+  background: #6e2f8a;
+  color: #fff;
+  font: 600 10px var(--f-mono);
+  text-decoration: none;
+}
+.rc-up {
+  font: 600 11.5px var(--f-mono);
+  color: #127040;
+}
+.rc-dn {
+  font: 600 11.5px var(--f-mono);
+  color: var(--red-text);
+}
+:root[data-theme="dark"] .rc-up {
+  color: #4fd18b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .rc-up {
+    color: #4fd18b;
+  }
+}
+
+/* ---------- сусідні етапи ---------- */
+.rc-nbrs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-bottom: var(--b) solid var(--rule);
+}
+.rc-nbr {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 22px max(16px, env(safe-area-inset-left, 0px));
+  text-decoration: none;
+  border-right: 2px solid var(--rule);
+}
+.rc-nbr.next {
+  align-items: flex-end;
+  text-align: right;
+  border-right: 0;
+}
+.rc-nbr span {
+  font: 12px var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.rc-nbr b {
+  font: 400 26px var(--f-display);
+  word-spacing: -0.35em;
+}
+.rc-nbr:hover b,
+.rc-nbr:focus-visible b {
+  color: var(--red-text);
+}
+
+/* ---------- адаптивність ---------- */
+@media (width <= 1100px) {
+  .rc-laps,
+  .rc-title {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+}
+@media (width <= 860px) {
+  .rc-tables {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rc-strip dl > div,
+  .rc-strip dl > div + div {
+    padding: 12px 10px 12px 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--hair);
+  }
+}
+@media (width <= 600px) {
+  /* Вікенд — вертикальний перелік (макет): решітка у два стовпці ламала крапки й лінію. */
+  .rc-tl {
+    grid-template-columns: minmax(0, 1fr);
+    border-top: 0;
+  }
+  .rc-tl li,
+  .rc-tl li + li {
+    padding: 0 0 16px 22px;
+    border-left: 2px solid var(--hair);
+  }
+  .rc-tl li::before,
+  .rc-tl li + li::before {
+    top: 2px;
+    left: -7px;
+  }
+  .rc-hide-s {
+    display: none;
+  }
+  .rc-crumbs .lbl {
+    display: none;
+  }
+  .rc-nbr b {
+    font-size: 19px;
+  }
+  .rc-tbl td,
+  .rc-tbl tbody th {
+    padding: 7px 3px;
+  }
+}

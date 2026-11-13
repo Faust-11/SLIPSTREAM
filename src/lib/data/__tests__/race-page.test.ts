@@ -94,3 +94,11 @@ describe("getRacePage — межові гонки", () => {
     expect([p.place, p.gp]).toEqual(["Abu Dhabi", "Abu Dhabi Grand Prix"]);
   });
 });
+
+describe("тексти «коло за колом»", () => {
+  it("Абу-Дабі 2021: Ферстаппен лідирував лише на останньому колі (58)", async () => {
+    const lc = (await race(2021, 22)).lapChart!;
+    expect(lc.led).toEqual([{ from: 58, to: 58 }]);
+    expect(lc.notLed).toEqual([{ from: 1, to: 57 }]);
+  });
+});
