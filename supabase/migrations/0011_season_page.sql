@@ -112,7 +112,9 @@ select coalesce(per.season_year, st.season_year)::int as year, coalesce(per.roun
 from per
 full join st on st.season_year = per.season_year and st.round_number = per.round_number and st.driver_id = per.driver_id
 join scorers sc on sc.season_year = coalesce(per.season_year, st.season_year) and sc.driver_id = coalesce(per.driver_id, st.driver_id)
-join f1.drivers d on d.id = coalesce(per.driver_id, st.driver_id);
+join f1.drivers d on d.id = coalesce(per.driver_id, st.driver_id)
+-- Порожні рядки (без очок, місця й ненульового заліку) нічого не додають ні графіку, ні розрахунку — не зберігаємо.
+where coalesce(per.race_points, 0) + coalesce(per.sprint_points, 0) > 0 or per.place is not null or coalesce(st.points, 0) > 0;
 create unique index if not exists season_points_pk on f1.season_points(year, round, driver);
 grant select on f1.season_points to anon, authenticated;
 

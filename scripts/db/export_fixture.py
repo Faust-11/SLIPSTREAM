@@ -18,6 +18,9 @@ import psycopg
 DSN = os.environ.get("TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or sys.exit("TEST_DATABASE_URL не задано")
 out = Path(sys.argv[1] if len(sys.argv) > 1 else "e2e/fixtures/db")
 out.mkdir(parents=True, exist_ok=True)
+# Великі подання сторінки сезону — рядок на рядок (компактно й читабельно в diff); решта — як було (indent=1).
+ONE_ROW_PER_LINE = {"season_points", "season_rounds"}
+
 QUERIES = {
     "team_index": "select id, seasons, grands_prix, wins, titles, current_position, current_drivers from f1.team_index order by id",
     "site_meta": "select current_season, last_round, last_race_date::text as last_race_date from f1.site_meta",
@@ -55,5 +58,9 @@ with psycopg.connect(DSN) as conn:
         cur = conn.execute(sql)
         cols = [d.name for d in cur.description]
         rows = [dict(zip(cols, r)) for r in cur.fetchall()]
-        (out / f"{name}.json").write_text(json.dumps(rows, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        if name in ONE_ROW_PER_LINE:
+            text = "[\n" + ",\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n]\n"
+        else:
+            text = json.dumps(rows, ensure_ascii=False, indent=1) + "\n"
+        (out / f"{name}.json").write_text(text, encoding="utf-8")
         print(f"{name}: {len(rows)}")
