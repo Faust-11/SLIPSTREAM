@@ -1,0 +1,948 @@
+/* Траси (фаза 3h): список /circuits і картка /circuits/<slug>. Усі класи — з префіксом ct- (глобальні класи інших
+   сторінок конфліктують); спільні атоми сайту — .wrap, .display, .num, .crumbs, .page-credits. */
+
+/* Межа полів і чипів: у темній темі --rule на папері — 2.24:1 < 3:1 (WCAG 1.4.11), тож --ink-soft (як у «Командах»). */
+.ct-tools,
+.ct-empty {
+  --ct-line: var(--rule);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) :is(.ct-tools, .ct-empty) {
+    --ct-line: var(--ink-soft);
+  }
+}
+:root[data-theme="dark"] :is(.ct-tools, .ct-empty) {
+  --ct-line: var(--ink-soft);
+}
+
+/* ---------- інструменти списку ---------- */
+.ct-tools {
+  position: sticky;
+  top: calc(64px + env(safe-area-inset-top, 0px));
+  z-index: 5;
+  background: var(--paper);
+  border-bottom: var(--b2) solid var(--rule);
+}
+.ct-tools .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  align-items: center;
+  padding-block: 12px;
+}
+.ct-search {
+  position: relative;
+  flex: 1 1 240px;
+  min-width: 0;
+  display: flex;
+}
+.ct-search svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  translate: 0 -50%;
+  color: var(--ink-soft);
+  pointer-events: none;
+}
+.ct-q {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 12px 10px 38px;
+  font: 500 16px/1.2 var(--f-body);
+  word-spacing: normal;
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--b2) solid var(--ct-line);
+  border-radius: 0;
+}
+.ct-q::placeholder {
+  color: var(--ink-soft);
+  opacity: 1;
+}
+.ct-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.ct-chip {
+  min-height: 36px;
+  padding: 9px 11px;
+  font: 600 12.5px/1 var(--f-mono);
+  word-spacing: normal;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  box-shadow: inset 0 0 0 1.5px var(--ct-line);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.ct-chip[aria-pressed="true"] {
+  color: var(--paper);
+  background: var(--ink);
+}
+.ct-sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 12px var(--f-mono);
+  word-spacing: normal;
+  color: var(--ink-soft);
+}
+.ct-sort select {
+  min-height: 36px;
+  padding: 8px 10px;
+  font: 600 13px/1 var(--f-body);
+  word-spacing: normal;
+  color: var(--ink);
+  background-color: var(--paper);
+  border: var(--b2) solid var(--ct-line);
+  border-radius: 0;
+}
+@media (hover: hover) {
+  .ct-chip[aria-pressed="false"]:hover {
+    background: var(--paper-2);
+  }
+}
+html:has(.ct-tools) {
+  scroll-padding-top: calc(64px + var(--ct-tools-h, 64px) + 8px);
+}
+
+/* ---------- сітка карток ---------- */
+.ct-body {
+  padding-block: 20px 40px;
+}
+.ct-count {
+  margin: 0 0 14px;
+  font: 12px var(--f-mono);
+  color: var(--ink-soft);
+}
+.ct-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ct-grid > li {
+  display: grid;
+  min-width: 0;
+  /* Поза екраном картки не малюються (і маски схем не вантажаться) — настанова «dynamic sort», розділ про довгі списки. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 360px;
+}
+.ct-card {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
+  gap: 8px;
+  min-width: 0;
+  padding-bottom: 12px;
+  background: var(--paper);
+  border: var(--b2) solid var(--rule);
+}
+.ct-art {
+  position: relative;
+  background: var(--paper-2);
+  border-bottom: var(--b2) solid var(--rule);
+}
+.ct-lay {
+  display: block;
+  aspect-ratio: 200 / 124;
+  background: var(--ink);
+  mask: var(--lay) center / contain no-repeat;
+  margin: 10px;
+}
+.ct-lay.ct-none {
+  display: grid;
+  place-items: center;
+  background: none;
+  mask: none;
+  font: 600 11px var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.ct-cal {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 3px 6px;
+  background: var(--yellow);
+  color: var(--on-yellow);
+  font: 700 11px var(--f-mono);
+}
+.ct-card h3 {
+  margin: 0;
+  padding: 0 12px;
+  font-size: 16px;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+.ct-card h3 a {
+  text-decoration: none;
+}
+/* Уся картка — посилання на трасу; посилання на пілотів — над ним. */
+.ct-card h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.ct-card h3 a:focus-visible {
+  outline: none;
+}
+.ct-card:has(h3 a:focus-visible) {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+@media (hover: hover) {
+  .ct-card h3 a:hover {
+    color: var(--blue-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+.ct-loc {
+  margin: 0;
+  padding: 0 12px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+.ct-yr {
+  display: grid;
+  gap: 5px;
+  align-content: start;
+  margin: 0;
+  padding: 0 12px;
+}
+.ct-yr > .num,
+.ct-soon {
+  font: 11.5px var(--f-mono);
+  word-spacing: normal;
+  color: var(--ink-soft);
+}
+.ct-yrs {
+  display: block;
+  width: 100%;
+  height: 12px;
+}
+.ct-yrs rect {
+  fill: var(--ink);
+}
+.ct-yrs rect.bg {
+  fill: var(--paper-2);
+  stroke: var(--hair);
+  stroke-width: 0.5;
+  vector-effect: non-scaling-stroke;
+}
+.ct-kv {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 6px 14px;
+  margin: 0;
+  padding: 8px 12px 0;
+  border-top: 1px solid var(--hair);
+}
+.ct-kv > div {
+  display: contents;
+}
+.ct-kv dt {
+  align-self: center;
+  font: 10.5px var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.ct-kv dd {
+  margin: 0;
+  min-width: 0;
+  font-weight: 600;
+}
+.ct-n {
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-weight: 400;
+  font-size: 18px;
+}
+.ct-wn {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+}
+.ct-wn > b {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 16px;
+}
+.ct-ent {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  min-height: 28px;
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .ct-ent:hover span {
+    text-decoration: underline;
+  }
+}
+.ct-av {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  background: var(--paper-2);
+  box-shadow: 0 0 0 1px var(--hair);
+}
+.ct-wn .ct-av {
+  width: 26px;
+  height: 26px;
+}
+.ct-av.ct-ini {
+  display: inline-grid;
+  place-items: center;
+  font: 10px var(--f-mono);
+  color: var(--ink-soft);
+}
+.ct-empty {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  padding-block: 20px;
+}
+.ct-reset {
+  min-height: 44px;
+  padding: 10px 14px;
+  font: 600 13px var(--f-mono);
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  box-shadow: inset 0 0 0 1.5px var(--ct-line);
+  cursor: pointer;
+}
+.ct-more {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 20px;
+  padding: 12px 14px;
+  font: 600 13px/1 var(--f-mono);
+  word-spacing: normal;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  box-shadow: inset 0 0 0 1.5px var(--rule);
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .ct-more:hover {
+    color: var(--paper);
+    background: var(--ink);
+  }
+}
+.ct-rest {
+  margin: 16px 0 0;
+  padding-left: 2.5em;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.ct-src {
+  margin: 0;
+  padding-block: 0 24px;
+  font: 11.5px/1.5 var(--f-mono);
+  word-spacing: normal;
+  color: var(--ink-soft);
+}
+/* Посилання зі станом (?q=…): до гідратації не показувати нефільтрований список (як у «Командах»). */
+html[data-list-query] .ct-grid {
+  height: 100vh;
+  overflow: hidden;
+}
+html[data-list-query] .ct-grid,
+html[data-list-query] .ct-more,
+html[data-list-query] .ct-empty,
+html[data-list-query] .ct-src,
+html[data-list-query] .page-credits,
+html[data-list-query] .site-foot {
+  visibility: hidden;
+  animation: list-reveal 0s linear 6s forwards;
+}
+
+/* ---------- картка траси: банер ---------- */
+.ct-crumbs .wrap {
+  flex-wrap: wrap;
+}
+.ct-hero {
+  position: relative;
+  overflow: clip;
+  background: #16181d;
+  color: #f3f4f1;
+  border-bottom: var(--b) solid var(--rule);
+}
+.ct-hero img {
+  display: block;
+  width: 100%;
+  height: clamp(260px, 32vw, 400px);
+  object-fit: cover;
+}
+.ct-hero.has-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(10 11 14 / 0.85) 0%, rgb(10 11 14 / 0.45) 50%, rgb(10 11 14 / 0.1) 85%);
+}
+.ct-hero-lay {
+  position: absolute;
+  inset: 16px 16px 16px 40%;
+  width: calc(60% - 16px);
+  height: calc(100% - 32px);
+}
+.ct-hero-lay path {
+  fill: none;
+  stroke: rgb(243 244 241 / 0.22);
+  stroke-width: 28;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.ct-hero .wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+  min-height: clamp(220px, 24vw, 300px);
+  padding-block: 28px 30px;
+}
+.ct-hero.has-photo .wrap {
+  position: absolute;
+  inset: 0;
+  min-height: 0;
+}
+.ct-stamp {
+  align-self: flex-start;
+  padding: 7px 11px;
+  background: var(--red);
+  color: #fff;
+  font: 600 12px var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ct-hero h1 {
+  font-size: clamp(36px, 7vw, 96px);
+  overflow-wrap: anywhere;
+}
+.ct-hero h1 span {
+  display: block;
+  margin-top: 8px;
+  color: var(--yellow);
+  font-size: 0.36em;
+  /* Назва траси з кількох слів: стиснений міжслівний інтервал заголовка злипав їх («YASMARINACIRCUIT»). */
+  word-spacing: normal;
+}
+.ct-hero p {
+  margin: 0;
+  font-size: clamp(15px, 1.6vw, 18px);
+}
+
+/* ---------- схема й цифри ---------- */
+.ct-sec {
+  border-bottom: var(--b) solid var(--rule);
+}
+.ct-circ {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  align-items: center;
+  padding-block: 30px 28px;
+}
+.ct-circ.no-map {
+  grid-template-columns: minmax(0, 1fr);
+}
+.ct-map {
+  min-width: 0;
+  margin: 0;
+  padding-right: 32px;
+}
+.ct-map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 460px;
+}
+.ct-map .casing {
+  fill: none;
+  stroke: var(--grid);
+  stroke-width: 34;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.ct-map .line {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 10;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.ct-map figcaption {
+  margin-top: 8px;
+  font: 10.5px var(--f-mono);
+  word-spacing: normal;
+  color: var(--ink-soft);
+}
+.ct-stats {
+  min-width: 0;
+  padding-left: 32px;
+  border-left: var(--b2) solid var(--rule);
+}
+.no-map .ct-stats {
+  /* Без схеми — довжина ліворуч, решта цифр праворуч (інакше порожня половина блоку). */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 0 32px;
+  align-items: start;
+  padding-left: 0;
+  border-left: 0;
+}
+.no-map .ct-stats > .ct-src {
+  grid-column: 1 / -1;
+}
+.ct-lab {
+  display: block;
+  margin: 0 0 4px;
+  font: 600 12px var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.ct-big {
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--hair);
+}
+.ct-big b {
+  display: block;
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-weight: 400;
+  font-size: clamp(40px, 5vw, 60px);
+  line-height: 1.1;
+}
+.ct-big small,
+.ct-grid3 small {
+  margin-left: 6px;
+  font-size: 0.5em;
+}
+.ct-note {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.ct-grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* Рекорд кола на дві колонки не лишає дірок, коли якогось факту немає. */
+  grid-auto-flow: row dense;
+  margin: 0 0 14px;
+}
+.ct-grid3 > div {
+  min-width: 0;
+  padding: 16px 12px 16px 0;
+  border-bottom: 1px solid var(--hair);
+}
+.ct-grid3 .span2 {
+  grid-column: span 2;
+}
+.ct-grid3 dt {
+  margin-bottom: 4px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.ct-grid3 dd {
+  margin: 0;
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-size: 26px;
+  line-height: 1.1;
+}
+.ct-grid3 dd.txt {
+  font: 600 16px/1.3 var(--f-body);
+  word-spacing: normal;
+}
+.ct-grid3 dd b {
+  font-weight: 400;
+}
+.ct-who {
+  display: block;
+  margin-top: 6px;
+  font: 600 13.5px var(--f-body);
+  word-spacing: normal;
+}
+
+/* ---------- смуга ---------- */
+.ct-strip {
+  border-bottom: var(--b) solid var(--rule);
+}
+.ct-strip dl {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  margin-block: 0;
+}
+.ct-strip dl > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  min-width: 0;
+  padding: 18px 12px 18px 0;
+}
+.ct-strip dl > div + div {
+  padding-left: 14px;
+  border-left: var(--b2) solid var(--rule);
+}
+.ct-strip dd {
+  margin: 0;
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-size: clamp(22px, 2.6vw, 34px);
+  line-height: 1.05;
+  white-space: nowrap;
+}
+.ct-strip dt {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.ct-strip .hi dd {
+  color: var(--red-text);
+}
+
+/* ---------- таблиця гонок ---------- */
+.ct-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 8px 16px;
+  padding-block: 34px 18px;
+}
+.ct-head h2 {
+  font-size: clamp(24px, 3vw, 36px);
+}
+.ct-sub {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.ct-tbl {
+  overflow-x: auto;
+}
+.ct-tbl:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.ct-tbl table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.ct-tbl caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.ct-tbl th[scope="col"] {
+  padding: 10px 6px 8px;
+  font: 600 10.5px var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+  white-space: nowrap;
+  color: var(--ink-soft);
+  border-bottom: var(--b2) solid var(--rule);
+}
+.ct-tbl td,
+.ct-tbl tbody th {
+  padding: 7px 6px;
+  text-align: left;
+  font-weight: 400;
+  border-bottom: 1px solid var(--hair);
+  vertical-align: middle;
+}
+.ct-tbl .ct-r {
+  text-align: right;
+}
+.ct-tbl tbody th.ct-ty {
+  white-space: nowrap;
+  padding-left: 12px;
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+}
+.ct-tbl tbody th.ct-ty a {
+  color: var(--blue-text);
+}
+.ct-tbl tr.cur th.ct-ty {
+  box-shadow: inset 4px 0 0 var(--red);
+}
+.ct-drv {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.ct-drv-n {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.ct-drv-n a {
+  font-weight: 600;
+}
+.ct-team {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.ct-tbl a {
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .ct-tbl a:hover,
+  .ct-rank a:hover,
+  .ct-dec a:hover,
+  .ct-who a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+.ct-fl .num {
+  font: 12.5px var(--f-mono);
+  color: var(--ink-soft);
+}
+.ct-badge {
+  padding: 2px 6px;
+  font: 600 10px var(--f-mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: var(--yellow);
+  color: var(--on-yellow);
+}
+.ct-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  align-items: center;
+  margin: 10px 0 38px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+.ct-key .k-cur {
+  display: inline-block;
+  width: 4px;
+  height: 14px;
+  margin-right: 7px;
+  vertical-align: middle;
+  background: var(--red);
+}
+
+/* ---------- титули ---------- */
+.ct-decs {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 38px;
+  padding: 0;
+  list-style: none;
+}
+.ct-dec {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 14px;
+  background: var(--card);
+  color: var(--on-card);
+  border-bottom: 6px solid var(--yellow);
+}
+.ct-dec a {
+  color: inherit;
+  text-decoration: none;
+}
+.ct-y {
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-size: 24px;
+  color: var(--yellow) !important;
+}
+.ct-dec .ct-ent {
+  font-weight: 600;
+  font-size: 15.5px;
+}
+.ct-dec .ct-av {
+  width: 36px;
+  height: 36px;
+}
+.ct-dec p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--on-card-soft);
+}
+.ct-dec p b {
+  display: block;
+  font: 600 10.5px var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.ct-dec p em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--yellow);
+}
+
+/* ---------- найуспішніші (одна серія, dataviz: смуга ≤ 24 px, заокруглений кінець 4 px, база — квадратна) ---------- */
+.ct-lead3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px;
+  padding-bottom: 38px;
+}
+.ct-rank ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ct-rank li {
+  display: grid;
+  grid-template-columns: minmax(0, 140px) minmax(0, 1fr) 28px;
+  gap: 10px;
+  align-items: center;
+  min-height: 30px;
+}
+.ct-rank-n {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 14px;
+}
+.ct-rank-n a {
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
+}
+.ct-bar {
+  height: 10px;
+}
+.ct-bar i {
+  display: block;
+  width: var(--w);
+  height: 100%;
+  min-width: 4px;
+  background: var(--red);
+  border-radius: 0 4px 4px 0;
+}
+.ct-rank b {
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: right;
+}
+
+/* ---------- адаптив ---------- */
+@media (max-width: 1100px) {
+  .ct-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .ct-strip dl {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .ct-strip dl > div:nth-child(4) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .ct-strip dl > div:nth-child(n + 4) {
+    border-top: 1px solid var(--hair);
+  }
+  .ct-decs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .ct-lead3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 36px;
+  }
+}
+@media (max-width: 860px) {
+  .ct-tools {
+    position: static;
+  }
+  .ct-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ct-circ {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .ct-map {
+    padding-right: 0;
+  }
+  /* Витягнута траса (Яс-Марина, Джидда) на телефоні займала пів екрана. */
+  .ct-map svg {
+    max-height: 360px;
+  }
+  .ct-stats {
+    padding: 16px 0 0;
+    border-left: 0;
+    border-top: var(--b2) solid var(--rule);
+  }
+  .no-map .ct-stats {
+    grid-template-columns: minmax(0, 1fr);
+    border-top: 0;
+  }
+  .ct-decs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ct-hero-lay {
+    inset: 16px;
+    width: calc(100% - 32px);
+  }
+}
+@media (max-width: 600px) {
+  .ct-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ct-strip dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ct-strip dl > div,
+  .ct-strip dl > div + div {
+    padding: 12px 10px 12px 0;
+    border-left: 0;
+    border-top: 0;
+    border-bottom: 1px solid var(--hair);
+  }
+  .ct-strip dl > div:nth-child(even) {
+    padding-left: 12px;
+    border-left: var(--b2) solid var(--rule);
+  }
+  .ct-grid3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ct-grid3 .span2 {
+    grid-column: 1 / -1;
+  }
+  .ct-lead3,
+  .ct-decs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ct-hide-s {
+    display: none;
+  }
+}

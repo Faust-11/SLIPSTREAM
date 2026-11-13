@@ -10,6 +10,7 @@ import { localizedPath } from "@/i18n/paths";
 import { requireLocale } from "@/i18n/require-locale";
 import { getRaceKeys, getRacePage, type QualiRow, type ResultRow } from "@/lib/data/race-page";
 import type { SeasonDriver, SeasonTeamRef } from "@/lib/data/season-page";
+import { circuitPath } from "@/lib/circuit-math";
 import { plural } from "@/lib/plural";
 import { gapTime, lapTime, raceTime } from "@/lib/race-math";
 import { pageMetadata, siteUrl } from "@/lib/seo";
@@ -286,7 +287,15 @@ export default async function RacePage(props: Props) {
           <h1 className="display">
             {page.gp} <span className="yr">{page.year}</span>
           </h1>
-          <p>{fill(t.sub, { n: page.round, total: page.rounds, place: page.place, dates })}</p>
+          <p>
+            {rich(t.sub, {
+              n: page.round,
+              total: page.rounds,
+              // Сторінка траси (фаза 3h).
+              place: page.circuit ? <a href={path(circuitPath(page.circuit))}>{page.place}</a> : page.place,
+              dates,
+            })}
+          </p>
         </div>
       </section>
 
