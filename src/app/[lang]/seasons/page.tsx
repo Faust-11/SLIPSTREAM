@@ -68,8 +68,8 @@ export default async function SeasonsPage({ params }: Props) {
               style={c.photo.focus ? { objectPosition: c.photo.focus } : undefined}
             />
           ) : c.photo ? (
-            // Решта 73 фото — звичайний серверний <img loading="lazy"> (lazy не передзавантажується): 77 клієнтських
-            // компонентів давали TBT 537 мс у Lighthouse CI (12.11, performance 85).
+            // Решта 73 фото — звичайний серверний <img loading="lazy"> (lazy не передзавантажується). Клієнтськими всі 77 —
+            // TBT у Lighthouse CI на ~50 мс більший (537 проти 487 мс); головну частину TBT давала розкладка карток — seasons.css.
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={c.photo.src}
