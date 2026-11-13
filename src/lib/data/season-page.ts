@@ -55,7 +55,7 @@ const byYear = <T extends { year: number }>(rows: T[]) => {
   }
   return m;
 };
-const loadRounds = once(async () =>
+export const loadRounds = once(async () =>
   byYear(
     await dbSelectAll<SeasonRoundRow>(
       "season_rounds",
@@ -64,7 +64,7 @@ const loadRounds = once(async () =>
     ),
   ),
 );
-const loadPoints = once(async () =>
+export const loadPoints = once(async () =>
   byYear(
     await dbSelectAll<SeasonPointsDbRow>(
       "season_points",
@@ -72,10 +72,10 @@ const loadPoints = once(async () =>
     ),
   ),
 );
-const loadRules = once(async () =>
+export const loadRules = once(async () =>
   new Map((await dbSelectAll<SeasonRuleRow>("season_rules", "select=year,driver_best_results,driver_season_split&order=year")).map((r) => [r.year, r])),
 );
-const loadNames = once(async () => new Map((await loadDriverIndex()).map((r) => [r.id, r])));
+export const loadNames = once(async () => new Map((await loadDriverIndex()).map((r) => [r.id, r])));
 
 /* ---------- типи сторінки ---------- */
 
@@ -187,7 +187,7 @@ export type SeasonPage = {
 
 /* ---------- допоміжне ---------- */
 
-function teamRef(id: string | undefined | null): SeasonTeamRef | null {
+export function teamRef(id: string | undefined | null): SeasonTeamRef | null {
   if (!id) return null;
   const t = teamsById.get(id);
   if (!t) throw new Error(`Команда ${id} є в базі, але не в curated/teams.json`);
@@ -224,7 +224,7 @@ export function placeName(circuit: string | null, locality: string | null, local
   return p?.[locale] ?? locality ?? "—";
 }
 
-function makeDriver(id: string, names: Map<string, DriverIndexRow>, locale: Locale): SeasonDriver {
+export function makeDriver(id: string, names: Map<string, DriverIndexRow>, locale: Locale): SeasonDriver {
   const r = names.get(id);
   const forename = r?.forename ?? "";
   const surname = r?.surname ?? id;
