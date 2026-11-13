@@ -80,6 +80,33 @@ test("посилання картки: пілот, команда, Кубок �
   await expect(page.getByRole("navigation", { name: "Десятиліття" }).getByRole("link", { name: "1980-ті" })).toHaveAttribute("aria-current", "true");
 });
 
+// Картки нижче першого екрана мають content-visibility: auto з висотою-заглушкою: якщо заглушка розходиться з картками,
+// перехід за якорем зсувається і заголовок десятиліття ховається під липкими смугами (замір 13.11: 1950-ті на 320 px).
+for (const width of [320, 390, 700, 1280])
+  test(`перехід за якорем десятиліття: заголовок під липкими смугами видно (${width} px)`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 800 });
+    for (const d of ["2010", "1980", "1970", "1950"]) {
+      await page.goto(`/uk/seasons#d${d}`, { waitUntil: "networkidle" });
+      // Положення — після того, як картки біля екрана розкладено (зсув стається вже після переходу): чекаємо, поки воно
+      // не змінюється 3 кадри поспіль, і лише тоді міряємо.
+      const gap = await page.evaluate(async (id) => {
+        const el = document.getElementById(id)!;
+        const chips = document.getElementById("sn-decades")!;
+        const frame = () => new Promise((r) => requestAnimationFrame(r));
+        let last = NaN;
+        for (let same = 0, i = 0; same < 3 && i < 120; i++) {
+          await frame();
+          const top = el.getBoundingClientRect().top;
+          same = top === last ? same + 1 : 0;
+          last = top;
+        }
+        return Math.round(last - chips.getBoundingClientRect().bottom);
+      }, `d${d}-h`);
+      expect(gap, `#d${d}`).toBeGreaterThanOrEqual(0);
+      await expect(page.locator(`#d${d}-h`)).toBeInViewport();
+    }
+  });
+
 test.describe("без JavaScript", () => {
   test.use({ javaScriptEnabled: false });
   test("усі картки й чипи на місці", async ({ page }) => {
@@ -109,7 +136,9 @@ for (const theme of ["light", "dark"] as const)
       await expectNoA11yViolations(page);
       expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
       // Доріжка обрізає переповнення (overflow-x: clip), тож scrollWidth його не покаже — міряємо самі картки й рамки;
-      // зміщена картка наприкінці десятиліття не накриває наступне.
+      // зміщена картка наприкінці десятиліття не накриває наступне. Картки поза екраном мають content-visibility: auto
+      // і розмір-заглушку — для заміру справжньої геометрії вмикаємо їх розкладку.
+      await page.addStyleTag({ content: ".seasons-page .car { content-visibility: visible !important; }" });
       const bad = await page.evaluate(() => {
         const vw = document.documentElement.clientWidth;
         const out: string[] = [];

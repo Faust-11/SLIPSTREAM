@@ -217,6 +217,21 @@ html:has(.sn-chips) {
   border-bottom: 6px solid var(--team, #8a8f98);
   box-shadow: 0 8px 20px rgb(22 24 29 / 0.22);
 }
+/* Картки нижче першого екрана (усі, крім чотирьох перших): браузер не рахує їх розкладку й малювання, доки не наблизяться
+   до екрана. Lighthouse CI 12.11: кожен із 6 шрифтів, що догружаються, перераховував розкладку всіх 77 карток —
+   серія задач по 55–160 мс, TBT 487 мс (на /teams те саме лікує content-visibility карток). На .car, а не на .slot:
+   рамка й підпис позиції (.slot::before/::after) — поза карткою і обрізалися б; сама картка й так overflow: hidden.
+   Висота-заглушка — заміряна (13.11) за висотою рядів у десятиліттях 1950–2010 (картки 2020-х вищі — рядок «лідер»):
+   ≥ 760 px — 410; 601–759 — 50vw + 40; ≤ 600 — 50vw + 92 (на 320 px текст переноситься частіше — не менше 268).
+   Помилка заглушки зсуває перехід за якорем десятиліття — e2e перевіряє, що заголовок не під липкими смугами. */
+.seasons-page .decade:not(:first-child) .car,
+.seasons-page .decade:first-child .slot:nth-child(n + 5) .car {
+  content-visibility: auto;
+}
+/* Окремим правилом (без content-visibility не діє): нижча специфічність — тож перекривається в @media нижче. */
+.seasons-page .car {
+  contain-intrinsic-size: auto 410px;
+}
 .seasons-page .car > img,
 .seasons-page .car > .media {
   display: block;
@@ -349,6 +364,9 @@ html:has(.sn-chips) {
     position: static;
     padding-bottom: 18px;
   }
+  .seasons-page .car {
+    contain-intrinsic-size: auto min(410px, 50vw + 40px);
+  }
 }
 @media (width <= 600px) {
   .seasons-page .grid {
@@ -364,6 +382,9 @@ html:has(.sn-chips) {
   }
   .seasons-page .slot::after {
     display: none;
+  }
+  .seasons-page .car {
+    contain-intrinsic-size: auto max(268px, 50vw + 92px);
   }
   .seasons-page .car h3 {
     padding: 9px 10px 0;
