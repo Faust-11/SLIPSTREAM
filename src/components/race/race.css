@@ -76,6 +76,12 @@
   margin: 0;
   font-size: clamp(15px, 1.6vw, 18px);
 }
+/* Місце етапу — посилання на сторінку траси (фаза 3h). */
+.rc-hero p a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 /* ---------- смуга підсумку ---------- */
 .rc-strip {
