@@ -270,6 +270,8 @@ export type SeasonIndexRow = {
 export type SeasonRuleRow = { year: number; driver_best_results: number | null; driver_season_split: number | null };
 
 export type SeasonRoundWho = { driver: string; team: string };
+/** Поул: пілот, команда й номер машини (у 1950-х машину ділили кілька пілотів). */
+export type SeasonPoleWho = SeasonRoundWho & { car: number | null };
 /** f1.season_rounds (0011): етап календаря сезону; round = null — скасований етап без номера. */
 export type SeasonRoundRow = {
   year: number;
@@ -283,7 +285,7 @@ export type SeasonRoundRow = {
   sprint: boolean;
   winners: SeasonRoundWho[] | null;
   winner_points: number | null;
-  poles: SeasonRoundWho[] | null;
+  poles: SeasonPoleWho[] | null;
   sprint_winners: SeasonRoundWho[] | null;
   disqualified: string[];
 };

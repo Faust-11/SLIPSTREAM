@@ -9,6 +9,8 @@ type Props = {
   roundLabel: (n: number) => string;
   stripLabel: string;
   tableLabel: string;
+  /** Коротка назва області прокрутки (повний опис — у img графіка; дублювати не треба). */
+  regionLabel: string;
   colRound: string;
   fmt: (n: number) => string;
 };
@@ -32,7 +34,7 @@ function niceMax(v: number): { max: number; step: number } {
  * етапу, перехрестя — CSS :hover; для клавіатури й екранних читачів графік — img з підписом, ті самі числа — у таблиці.
  * Кольори — валідовані слоти палітри (season.css), не лівреї: історичних кольорів команд у даних немає.
  */
-export function TitleChart({ rounds, lines, leaders, label, roundLabel, stripLabel, tableLabel, colRound, fmt }: Props) {
+export function TitleChart({ rounds, lines, leaders, label, roundLabel, stripLabel, tableLabel, regionLabel, colRound, fmt }: Props) {
   const n = rounds.length;
   if (n === 0 || lines.length === 0) return null;
   const { max, step } = niceMax(Math.max(...lines.map((l) => Math.max(...l.points))));
@@ -59,7 +61,7 @@ export function TitleChart({ rounds, lines, leaders, label, roundLabel, stripLab
           </li>
         ))}
       </ul>
-      <div className="fc-scroll" tabIndex={0} role="region" aria-label={label}>
+      <div className="fc-scroll" tabIndex={0} role="region" aria-label={regionLabel}>
         <svg className="fc-chart" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={label}>
           {grid.map((v) => (
             <g key={v}>

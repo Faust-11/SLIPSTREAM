@@ -609,7 +609,7 @@
       "cupSame": "Кубок конструкторів теж дістався {team}.",
       "cupOther": "Кубок конструкторів виграла {team}.",
       "noCup": "Кубка конструкторів ще не було.",
-      "running": "Сезон триває: позаду {done} з {total} етапів.",
+      "running": "Сезон триває: позаду етапів — {done} із {total}.",
       "leader": "Лідирує {driver} ({team}), відрив — {margin}.",
       "leaderDecided": "{driver} ({team}) уже оформив титул достроково."
     },
@@ -660,8 +660,8 @@
     "round": "Етап {n}",
     "tableOpen": "Таблиця: очки після кожного етапу",
     "story": {
-      "margin": "Наприкінці {first} ({p1}) і {second} ({p2}) розділили {gap}.",
-      "marginRunning": "Зараз між {first} ({p1}) і {second} ({p2}) — {gap}.",
+      "margin": "Наприкінці: {first} — {p1}, {second} — {p2}; різниця — {gap}.",
+      "marginRunning": "Зараз: {first} — {p1}, {second} — {p2}; різниця — {gap}.",
       "spellsOne": "{driver} лідирував після кожного етапу.",
       "spells": "Лідер змінювався {n}: {list}.",
       "changes": {
@@ -681,11 +681,13 @@
         "many": "{n} гонок",
         "other": "{n} гонки"
       },
-      "dsq": "{place}: {drivers} дискваліфіковано, гонку виграв {winner}.",
+      "dsq": "{place}: дискваліфікація — {drivers}; гонку виграв {winner}.",
       "dropped": "{rival} набрав більше очок загалом ({rt} проти {ct}), але зараховувались лише кращі результати: {champion} — {cc}, {rival} — {rc}.",
       "decider": "Титул вирішено після етапу {round} ({place}): далі суперникам було вже не наздогнати.",
       "deciderLast": "Титул вирішився лише на останньому етапі ({place}).",
-      "excluded": "{driver} виключено з підсумкового заліку (у сезоні — {points})."
+      "excluded": "{driver}: виключення з підсумкового заліку (у сезоні — {points}).",
+      "afterOne": "Потім він виграв останню гонку.",
+      "afterRunning": "Відтоді він виграв {wins} з {races}."
     },
     "contenders": "Троє претендентів",
     "contendersRunning": "Перша трійка",

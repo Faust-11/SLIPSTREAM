@@ -433,6 +433,12 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     lead = [d for _, d in q("select round, driver from f1.season_points where year = 2025 and standing = 1 order by round")]
     check("2025: лідер після етапів — Норріс 1–4, Піастрі 5–19, Норріс 20–24 (макет)",
           lead == ["norris"] * 4 + ["piastri"] * 15 + ["norris"] * 5, lead)
+    poles25 = [len(r[0] or []) for r in q("select poles from f1.season_rounds where year = 2025 and round is not null order by round")]
+    check("2025: на кожному етапі рівно один поул", poles25 == [1] * 24, poles25)
+    multi_car = q("""select year, round, (select array_agg(distinct p->>'car') from jsonb_array_elements(poles) p)
+                     from f1.season_rounds where poles is not null
+                       and (select count(distinct p->>'car') from jsonb_array_elements(poles) p) > 1 order by 1, 2""")
+    print("INFO  SEASON PAGE поул: етапи з кількома машинами на grid = 1 (помилка даних або пілот у двох машинах):", multi_car)
     n_pts = q("select count(*), count(distinct year) from f1.season_points")[0]
     print("INFO  SEASON PAGE season_points рядків / сезонів:", n_pts, "; season_rounds:", q("select count(*) from f1.season_rounds")[0][0],
           "; скасовані:", q("select year, name from f1.season_rounds where cancelled order by 1"))

@@ -29,7 +29,7 @@ create unique index if not exists season_rules_pk on f1.season_rules(year);
 grant select on f1.season_rules to anon, authenticated;
 
 -- 2. Календар сезону: етап, дата, Гран-прі, траса, спринт; переможці гонки (спільна машина 1950-х — кілька),
---    поул (f1.v_pole, не залежить від старту), переможці спринту; очки переможця гонки (для «половини очок» на сайті);
+--    поул (як f1.v_pole, з номером машини), переможці спринту; очки переможця гонки (для «половини очок» на сайті);
 --    дискваліфіковані в гонці (status 20). Скасовані етапи без номера — з round = null.
 drop materialized view if exists f1.season_rounds;
 create materialized view f1.season_rounds as
@@ -48,10 +48,21 @@ win as (
   join f1.team_families tf on tf.ref = t.ref and ro.season_year between tf.from_year and tf.to_year
   group by ra.round_id, ra.type
 ),
+-- Поул — ті самі записи, що f1.v_pole (grid = 1, правило старту 0002), з номером машини: у 1950-х машину ділили
+-- кілька пілотів, і grid = 1 стоїть у кожного (1955 Аргентина — Фаріна, Гонсалес, Трентіньян на №12); хто саме
+-- кваліфікувався, у даних немає (кваліфікацій до 1994 немає) — сайт показує екіпаж машини через « / ».
 pole as (
-  select p.round_id, jsonb_agg(jsonb_build_object('driver', d.ref, 'team', p.family_id) order by d.ref) as who
-  from f1.v_pole p join f1.drivers d on d.id = p.driver_id
-  group by p.round_id
+  select ra.round_id,
+         jsonb_agg(jsonb_build_object('driver', d.ref, 'team', tf.family_id, 'car', r.car_number) order by r.id) as who
+  from race ra
+  join f1.results r on r.session_id = ra.session_id and r.grid = 1
+   and f1.result_started(r.detail, r.position, r.laps_completed, r.grid)
+  join f1.rounds ro on ro.id = ra.round_id
+  join f1.drivers d on d.id = r.driver_id
+  join f1.teams t on t.id = r.team_id
+  join f1.team_families tf on tf.ref = t.ref and ro.season_year between tf.from_year and tf.to_year
+  where ra.type = 'R'
+  group by ra.round_id
 ),
 dsq as (
   select ra.round_id, array_agg(distinct d.ref order by d.ref) as who

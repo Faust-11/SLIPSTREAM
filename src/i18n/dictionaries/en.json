@@ -660,8 +660,8 @@
     "round": "Round {n}",
     "tableOpen": "Table: points after each round",
     "story": {
-      "margin": "{first} ({p1}) and {second} ({p2}) were separated by {gap} at the end.",
-      "marginRunning": "{first} ({p1}) and {second} ({p2}) are {gap} apart.",
+      "margin": "At the end: {first} {p1}, {second} {p2} — a gap of {gap}.",
+      "marginRunning": "Right now: {first} {p1}, {second} {p2} — a gap of {gap}.",
       "spellsOne": "{driver} led after every round.",
       "spells": "The lead changed hands {n}: {list}.",
       "changes": {
@@ -685,7 +685,9 @@
       "dropped": "{rival} scored more points overall ({rt} to {ct}), but only the best results counted: {champion} {cc}, {rival} {rc}.",
       "decider": "The title was decided after round {round} ({place}): from there the rivals could no longer catch up.",
       "deciderLast": "The title was settled only at the final round ({place}).",
-      "excluded": "{driver} was excluded from the final standings ({points} during the season)."
+      "excluded": "{driver} was excluded from the final standings ({points} during the season).",
+      "afterOne": "He then won the final race.",
+      "afterRunning": "Since then he has won {wins} of {races}."
     },
     "contenders": "Three contenders",
     "contendersRunning": "The top three",
