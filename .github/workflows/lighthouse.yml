@@ -28,7 +28,8 @@ jobs:
   lighthouse:
     if: github.event_name != 'pull_request' || !github.event.pull_request.draft
     runs-on: ubuntu-26.04
-    timeout-minutes: 20
+    # 11 сторінок × 5 прогонів: 19,5 хв (13.11, 7d13f62) — 20 хв обривало прогін на останній сторінці; запас під нові сторінки.
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
