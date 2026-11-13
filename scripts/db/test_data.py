@@ -451,9 +451,9 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     race, quali, laps, stops, sess = ad
     win = race[0]
     check("Абу-Дабі 2025: переміг Ферстаппен з поулу, Піастрі 2-й, Норріс 3-й, 58 кіл (макет)",
-          (win["d"], win["g"], win["l"], [r["d"] for r in race[1:3]]) == ("max_verstappen", 1, 58, ["piastri", "norris"]), (win, race[1:3]))
-    pole = next((x for x in quali if x["p"] == 1), None)
-    check("Абу-Дабі 2025: поул Ферстаппена — 1:22.207 у Q3 (макет)", pole is not None and pole["d"] == "max_verstappen" and pole["q3"] == 82207, pole)
+          (win["d"], win.get("g"), win.get("l"), [r["d"] for r in race[1:3]]) == ("max_verstappen", 1, 58, ["piastri", "norris"]), (win, race[1:3]))
+    pole = next((x for x in quali if x.get("p") == 1), None)
+    check("Абу-Дабі 2025: поул Ферстаппена — 1:22.207 у Q3 (макет)", pole is not None and pole["d"] == "max_verstappen" and pole.get("q3") == 82207, pole)
     led = [i + 1 for i, p in enumerate(laps.get("max_verstappen", [])) if p != 1]
     check("Абу-Дабі 2025: Ферстаппен лідирував на всіх колах, крім 24–40 (макет)", led == list(range(24, 41)), led)
     check("Абу-Дабі 2025: у Ферстаппена 1 піт-стоп", sum(1 for x in stops if x["d"] == "max_verstappen") == 1, [x for x in stops if x["d"] == "max_verstappen"])
@@ -463,7 +463,7 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     it52 = q("select race from f1.race_page where year = 1952 and round = 8")[0][0]
     moss = next((r for r in it52 if r["d"] == "moss"), None)
     p52 = q("select poles from f1.season_rounds where year = 1952 and round = 8")[0][0]
-    check("1952 Італія після виправлення: Мосс стартував 9-м, поул — лише Аскарі", moss is not None and moss["g"] == 9 and [p["driver"] for p in p52] == ["ascari"], (moss and moss["g"], p52))
+    check("1952 Італія після виправлення: Мосс стартував 9-м, поул — лише Аскарі", moss is not None and moss.get("g") == 9 and [p["driver"] for p in p52] == ["ascari"], (moss and moss.get("g"), p52))
     print("INFO  RACE PAGE race_page рядків:", rp_n, "; з колами:", q("select count(*) from f1.race_page where laps <> '{}'::jsonb")[0][0],
           "; з піт-стопами:", q("select count(*) from f1.race_page where stops <> '[]'::jsonb")[0][0],
           "; з кваліфікацією:", q("select count(*) from f1.race_page where quali <> '[]'::jsonb")[0][0])

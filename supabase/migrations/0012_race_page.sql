@@ -2,7 +2,8 @@
 -- гонки): 740 тис. кіл не віддаємо по рядку — сайт читає ~1 170 рядків одним запитом на збірку.
 -- Ключі jsonb короткі (розмір фікстури): d — пілот (ref), t — команда (родина), c — номер машини, p — класифіковане
 -- місце (null — не класифікований), o — порядок у протоколі, g — старт, l — кола, ms — час, s — статус (0001),
--- x — текст статусу Jolpica, pts — очки, fl — місце за найшвидшим колом, fms — найшвидше коло пілота (мс).
+-- x — текст статусу Jolpica, pts — очки, fl — місце за найшвидшим колом, fms — найшвидше коло пілота (мс), ps — піт-стопів.
+-- Ключі зі значенням null не зберігаємо (jsonb_strip_nulls): відсутній ключ = null.
 -- Заміри покриття (дамп 3154f289f6e8): кваліфікація — 1994+ (QB до 2005, Q1–Q3 з 2006), кола — 1994+, піт-стопи — 2011+,
 -- тренування — 2025+, справжній час сесій — з 2022 (гонки — з 2005).
 drop materialized view if exists f1.race_page;
@@ -26,10 +27,12 @@ res as (
 classif as (
   -- Протокол гонки чи спринту: класифіковані за місцем, далі за пройденими колами.
   select round_id, type,
-         jsonb_agg(jsonb_build_object('p', case when coalesce(is_classified, true) then position end, 'o', position,
-                                      'd', dref, 't', fam, 'c', car_number, 'g', grid, 'l', laps_completed, 'ms', time_ms,
-                                      's', status, 'x', detail, 'pts', points::float8, 'fl', fastest_lap_rank,
-                                      'fms', case when fastest_lap_rank = 1 then best_ms end)
+         jsonb_agg(jsonb_strip_nulls(jsonb_build_object(
+                     'p', case when coalesce(is_classified, true) then position end, 'o', position,
+                     'd', dref, 't', fam, 'c', car_number, 'g', grid, 'l', laps_completed, 'ms', time_ms,
+                     's', status, 'x', detail, 'pts', points::float8, 'fl', fastest_lap_rank,
+                     'fms', case when fastest_lap_rank = 1 then best_ms end,
+                     'ps', (select nullif(count(*), 0) from f1.pit_stops ps where ps.result_id = res.id)))
                    order by position nulls last, laps_completed desc nulls last, id) as rows
   from res where type in ('R', 'SR')
   group by round_id, type
@@ -38,7 +41,8 @@ quali as (
   -- Кваліфікація: Q1–Q3 (з 2006) — підсумкове місце з останньої сесії пілота; QB/QA (1994–2005) — одна сесія.
   -- Спринт-кваліфікація SQ1–SQ3 (2023+) — так само, окремим полем.
   select round_id, sprint,
-         jsonb_agg(jsonb_build_object('p', pos, 'd', dref, 't', fam, 'q1', q1, 'q2', q2, 'q3', q3) order by pos nulls last, dref) as rows
+         jsonb_agg(jsonb_strip_nulls(jsonb_build_object('p', pos, 'd', dref, 't', fam, 'q1', q1, 'q2', q2, 'q3', q3))
+                   order by pos nulls last, dref) as rows
   from (
     select round_id, dref, fam, left(type, 1) = 'S' as sprint,
            coalesce(max(position) filter (where type in ('Q3', 'SQ3')), max(position) filter (where type in ('Q2', 'SQ2')),
@@ -64,21 +68,28 @@ sess as (
   where not s.is_cancelled and s.type in ('FP1', 'FP2', 'FP3', 'Q1', 'QB', 'SQ1', 'SR', 'R')
   group by s.round_id
 ),
+chart as (
+  -- Пілоти графіка «Коло за колом»: перша п'ятірка фінішу й усі, хто лідирував хоч одне коло (замір 13.11: позиції
+  -- всіх пілотів на всіх колах — 1,75 МБ фікстури, графіку й текстам потрібні лише ці — 0,43 МБ).
+  select r.id from res r where r.type = 'R' and coalesce(r.is_classified, true) and r.position <= 5
+  union
+  select r.id from res r where r.type = 'R' and exists (select 1 from f1.laps l where l.result_id = r.id and l.position = 1)
+),
 laps as (
   -- Позиції пілота по колах гонки (1994+): {"max_verstappen": [1, 1, …]}, кола від першого.
   select round_id, jsonb_object_agg(dref, pos) as rows
   from (
     select r.round_id, r.dref, jsonb_agg(l.position order by l.number) as pos
-    from res r join f1.laps l on l.result_id = r.id and l.number is not null and l.number >= 1
-    where r.type = 'R'
+    from res r join chart c on c.id = r.id
+    join f1.laps l on l.result_id = r.id and l.number is not null and l.number >= 1
     group by r.round_id, r.dref
   ) x
   group by round_id
 ),
 stops as (
+  -- Піт-стопи пілотів графіка (кількість для таблиці — поле ps протоколу).
   select r.round_id, jsonb_agg(jsonb_build_object('d', r.dref, 'lap', p.lap, 'n', p.number, 'ms', p.duration_ms) order by p.lap, r.dref) as rows
-  from res r join f1.pit_stops p on p.result_id = r.id
-  where r.type = 'R'
+  from res r join chart c on c.id = r.id join f1.pit_stops p on p.result_id = r.id
   group by r.round_id
 )
 select rnd.season_year::int as year, rnd.number::int as round,
