@@ -304,21 +304,24 @@ export type SeasonPointsDbRow = {
 
 /** f1.race_page (0012): рядок протоколу гонки / спринту (ключі — короткі, див. міграцію). */
 export type RaceResultJson = {
-  p: number | null;
-  o: number | null;
+  p?: number;
+  o?: number;
   d: string;
   t: string;
-  c: number | null;
-  g: number | null;
-  l: number | null;
-  ms: number | null;
-  s: number | null;
-  x: string | null;
-  pts: number | null;
-  fl: number | null;
-  fms: number | null;
+  c?: number;
+  g?: number;
+  l?: number;
+  ms?: number;
+  s?: number;
+  x?: string;
+  pts?: number;
+  fl?: number;
+  fms?: number;
+  /** Піт-стопів (2011+). */
+  ps?: number;
 };
-export type RaceQualiJson = { p: number | null; d: string; t: string; q1: number | null; q2: number | null; q3: number | null };
+/** Ключі зі значенням null у базі не зберігаються (jsonb_strip_nulls) — відсутній ключ = null. */
+export type RaceQualiJson = { p?: number; d: string; t: string; q1?: number; q2?: number; q3?: number };
 export type RaceSessionJson = { k: string; n: number | null; at: string | null; real: boolean; best: { d: string; ms: number | null } | null };
 export type RaceStopJson = { d: string; lap: number | null; n: number | null; ms: number | null };
 /** f1.race_page (0012): один рядок на гонку. laps — позиції пілота по колах (1994+). */

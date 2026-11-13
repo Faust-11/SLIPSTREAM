@@ -60,7 +60,7 @@ with psycopg.connect(DSN) as conn:
         cols = [d.name for d in cur.description]
         rows = [dict(zip(cols, r)) for r in cur.fetchall()]
         if name in ONE_ROW_PER_LINE:
-            text = "[\n" + ",\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n]\n"
+            text = "[\n" + ",\n".join(json.dumps(r, ensure_ascii=False, separators=(",", ":")) for r in rows) + "\n]\n"
         else:
             text = json.dumps(rows, ensure_ascii=False, indent=1) + "\n"
         (out / f"{name}.json").write_text(text, encoding="utf-8")
