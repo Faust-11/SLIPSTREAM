@@ -468,7 +468,9 @@ export default async function TeamPageView(props: Props) {
                       {f.kind === "first" ? t.wins.first : fill(f.kind === "milestone" ? t.wins.milestone : t.wins.latest, { n: f.win.n })}
                     </span>
                     <span className="wy num">{f.win.year}</span>
-                    <b>{f.win.name}</b>
+                    <b>
+                      <a href={localizedPath(`/seasons/${f.win.year}/${f.win.round}`, lang)}>{f.win.name}</a>
+                    </b>
                     {f.win.drivers.map((d) => (
                       <Person key={d.id} d={d} lang={lang} size={24} />
                     ))}

@@ -46,7 +46,7 @@ const PERF_THRESHOLD = Math.max(90, FRAMEWORK_BASELINE - 3);
 const BUDGET = { lcpMs: 2500, cls: 0.1, tbtMs: 400 };
 
 // Сторінка команди (фаза 3b): McLaren — з банером і графіком, Ferrari — найбільша (250 перемог, 77 сезонів).
-const PAGES = ["/", "/teams", "/uk/teams", "/uk/teams/mclaren", "/teams/ferrari", "/uk/drivers", "/uk/drivers/hamilton", "/uk/seasons", "/uk/seasons/2025", "/seasons/1988"];
+const PAGES = ["/", "/teams", "/uk/teams", "/uk/teams/mclaren", "/teams/ferrari", "/uk/drivers", "/uk/drivers/hamilton", "/uk/seasons", "/uk/seasons/2025", "/seasons/1988", "/uk/seasons/2025/24", "/seasons/1988/15"];
 const NOT_FOUND = "/uk/nope";
 // Для 404 за визначенням: статус 404 (SEO) — не вада сторінки.
 const IGNORED_ON_404 = new Set(["http-status-code"]);

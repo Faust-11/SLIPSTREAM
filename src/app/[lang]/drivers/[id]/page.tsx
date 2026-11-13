@@ -494,7 +494,9 @@ export default async function DriverPageView(props: Props) {
                       {f.kind === "first" ? t.wins.first : f.kind === "latest" ? t.wins.latest : fill(t.wins.fromGrid, { n: f.win.grid! })}
                     </span>
                     <span className="wy num">{f.win.year}</span>
-                    <b>{f.win.name}</b>
+                    <b>
+                      <a href={path(`/seasons/${f.win.year}/${f.win.round}`)}>{f.win.name}</a>
+                    </b>
                     <span className="wg">
                       <span translate="no">{f.win.team.name}</span>
                       {f.win.grid ? ` · ${fill(t.wins.grid, { n: f.win.grid })}` : ""}
