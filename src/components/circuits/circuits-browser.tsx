@@ -19,6 +19,7 @@ import {
 } from "@/lib/circuits-list";
 import type { CircuitCard as CircuitCardData } from "@/lib/data/circuits";
 import { plural } from "@/lib/plural";
+import { normalizeSearch } from "@/lib/teams-list";
 import { CircuitCard, type CircuitCardLabels } from "./circuit-card";
 
 type PluralForms = { one: string; few: string; many: string; other: string };
@@ -53,6 +54,9 @@ function QuerySync({ onParams }: { onParams: (q: CircuitsQuery) => void }) {
  * переставляє ті самі вузли (ключі React), результат оголошує один role="status"
  * (настанова «Handling dynamic user-triggered changes to sort order»).
  */
+/** Ключ вибірки для «Показати ще»: нормалізований пошук + фільтр + сортування. */
+const viewKey = (x: CircuitsQuery) => JSON.stringify([normalizeSearch(x.q), x.f, x.sort]);
+
 export function CircuitsBrowser({ cards, locale, season, fromYear, pageSize, labels }: Props) {
   const [query, setQuery] = useState<CircuitsQuery>(DEFAULT_CIRCUITS_QUERY);
   // Скільки показано — для конкретного стану (за ідентичністю об'єкта): нова зміна пошуку/фільтра скидає до pageSize.
@@ -63,7 +67,8 @@ export function CircuitsBrowser({ cards, locale, season, fromYear, pageSize, lab
   const focusFrom = useRef<number | null>(null);
   const selected = useMemo(() => selectCircuits(cards, query, locale), [cards, query, locale]);
   const defaultOrder = useMemo(() => selectCircuits(cards, DEFAULT_CIRCUITS_QUERY, locale), [cards, locale]);
-  const shown = page.of === query ? page.n : pageSize;
+  // «Показати ще» скидається лише при іншій вибірці: пробіл у кінці слова — та сама вибірка (code-review PR #18).
+  const shown = viewKey(page.of) === viewKey(query) ? page.n : pageSize;
   const visible = selected.slice(0, shown);
   const left = Math.max(0, selected.length - shown);
   const nf = useMemo(() => new Intl.NumberFormat(locale), [locale]);
@@ -95,15 +100,27 @@ export function CircuitsBrowser({ cards, locale, season, fromYear, pageSize, lab
     dirty.current = true;
     // Порівняння — за станом, а не за адресою: адреса обрізає пробіли, і пробіл у пошуку губився.
     const next = { ...query, ...patch };
-    if (next.q !== query.q || next.f !== query.f || next.sort !== query.sort) setQuery(next);
+    if (JSON.stringify(next) === JSON.stringify(query)) return;
+    // Інша вибірка — «Показати ще» з початку, навіть якщо згодом повернуться до попередньої (Усі → Переможці → Усі).
+    if (viewKey(next) !== viewKey(query)) setPage({ of: next, n: pageSize });
+    setQuery(next);
   };
   const onParams = useCallback((q: CircuitsQuery) => {
     const incoming = circuitsQueryString(q);
+    // Перше читання адреси після вводу до гідратації: параметри посилання (фільтр, сортування) — з адреси, пошук —
+    // той, що набрав користувач (code-review PR #18: інакше ?f=…&sort=… з посилання губились).
     if (written.current === null && dirty.current) {
+      setQuery((prev) => ({ ...q, q: prev.q }));
       setSynced(true);
       return;
     }
     if (written.current !== null && incoming === written.current) {
+      setSynced(true);
+      return;
+    }
+    // Запізніла луна старішої власної адреси: адреса в рядку вже новіша — не наш перехід, ігноруємо (code-review
+    // PR #18: written пам'ятає лише останню записану адресу). Справжній перехід (Back/Forward, меню) змінює і її.
+    if (written.current !== null && incoming !== circuitsQueryString(parseCircuitsQuery(new URLSearchParams(window.location.search)))) {
       setSynced(true);
       return;
     }

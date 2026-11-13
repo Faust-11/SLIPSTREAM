@@ -220,11 +220,20 @@ export function DriversBrowser({ packed, locale, labels }: Props) {
   };
   const onParams = useCallback((q: DriversQuery) => {
     const incoming = driversQueryString(q);
+    // Перше читання адреси після вводу до гідратації: параметри посилання (фільтр, сортування) — з адреси, пошук —
+    // той, що набрав користувач (code-review PR #18: інакше ?f=…&sort=… з посилання губились).
     if (written.current === null && dirty.current) {
+      setQuery((prev) => ({ ...q, q: prev.q, p: 1 }));
       setSynced(true);
       return;
     }
     if (written.current !== null && incoming === written.current) {
+      setSynced(true);
+      return;
+    }
+    // Запізніла луна старішої власної адреси: адреса в рядку вже новіша — не наш перехід, ігноруємо (code-review
+    // PR #18: written пам'ятає лише останню записану адресу). Справжній перехід (Back/Forward, меню) змінює і її.
+    if (written.current !== null && incoming !== driversQueryString(parseDriversQuery(new URLSearchParams(window.location.search)))) {
       setSynced(true);
       return;
     }

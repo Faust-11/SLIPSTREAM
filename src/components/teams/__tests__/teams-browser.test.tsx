@@ -111,6 +111,17 @@ describe("TeamsBrowser", () => {
     expect(visible()).toHaveLength(24);
   });
 
+  it("пробіл у кінці пошуку — та сама вибірка: «Показати ще» не скидається (code-review PR #18)", async () => {
+    const user = setup();
+    const box = screen.getByRole("searchbox", { name: "Пошук команди" });
+    await user.type(box, "team");
+    await user.click(screen.getByRole("button", { name: /Показати ще/ }));
+    expect(visible()).toHaveLength(30);
+    await user.type(box, " ");
+    expect(box).toHaveValue("team ");
+    expect(visible()).toHaveLength(30);
+  });
+
   it("зміна фільтра скидає пагінацію до 24; повторне натискання активного чипа — ні", async () => {
     const user = setup();
     await user.click(screen.getByRole("button", { name: /Показати ще/ }));
