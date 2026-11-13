@@ -904,7 +904,13 @@
     "calendarBadge": "On the {season} calendar",
     "credits": "Circuit layouts: authors and licences",
     "layoutsSource": "Circuit layouts: f1-circuits by Tomislav Bacinger (MIT) and © OpenStreetMap contributors (ODbL); the rest from Wikimedia Commons (authors below).",
-    "more": "Show {n} more of {left}"
+    "more": "Show {n} more of {left}",
+    "tieDrivers": {
+      "one": "{n} driver",
+      "few": "{n} drivers",
+      "many": "{n} drivers",
+      "other": "{n} drivers"
+    }
   },
   "circuitPage": {
     "metaDescription": "{name} ({place}): all {n} Formula 1 Grands Prix, winners, poles, lap record and the titles decided at this circuit.",
@@ -955,10 +961,10 @@
     "fastestNote": "Fastest laps from {year}: earlier data in the source is incomplete.",
     "titlesTitle": "Titles decided here",
     "titlesSub": {
-      "one": "{n} of {f} season finale at this circuit",
-      "few": "{n} of {f} season finales at this circuit",
-      "many": "{n} of {f} season finales at this circuit",
-      "other": "{n} of {f} season finales at this circuit"
+      "one": "The season finale here decided the title: {n} of {f}.",
+      "few": "The season finale here decided the title: {n} of {f}.",
+      "many": "The season finale here decided the title: {n} of {f}.",
+      "other": "The season finale here decided the title: {n} of {f}."
     },
     "titlesSubNoFinals": "Rounds after which the drivers' title was out of the rivals' reach",
     "before": "Before the race",
@@ -968,6 +974,11 @@
     "teamWins": "Team wins",
     "podiums": "Podiums",
     "credits": "Photo and layout: authors and licences",
-    "noFacts": "The source has no technical data for this circuit."
+    "noFacts": "The source has no technical data for this circuit.",
+    "layoutYear": "Layout used in {year}",
+    "layoutSpan": "Layout used {from}–{to}",
+    "layoutKey": "layout described above",
+    "titlesEarlier": "{n} more earlier in the season.",
+    "rankMore": "and {count} more with {n}"
   }
 }

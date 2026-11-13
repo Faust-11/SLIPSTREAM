@@ -7,19 +7,20 @@ import circuitsJson from "@/data/curated/circuits.json";
 import factsJson from "@/data/curated/circuit-facts.json";
 import layoutsJson from "@/data/curated/circuit-layouts.json";
 import type { Locale } from "@/i18n/config";
-import { circuitSlug, inSpans, leaders, modeOf, ranking, spansLabel, yearSpans } from "@/lib/circuit-math";
-import { countryName } from "@/lib/countries";
+import { circuitSlug, inSpans, leaders, modeOf, ranking, rankingWithTies, spansLabel, yearSpans } from "@/lib/circuit-math";
+import { DEFAULT_CIRCUITS_QUERY, selectCircuits } from "@/lib/circuits-list";
+import { countryAlpha2, countryName } from "@/lib/countries";
 import { normalizeSearch } from "@/lib/teams-list";
 import { driverPortrait } from "./drivers";
 import { dbSelectAll } from "./db";
 import { once } from "./once";
 import { playedRounds, seasonDecision, titleStandings } from "./race-page";
-import { loadNames, loadPoints, loadRounds, loadRules, makeDriver, poleCars, teamRef, type SeasonDriver, type SeasonTeamRef } from "./season-page";
+import { loadNames, loadPoints, loadRounds, loadRules, makeDriver, placeName, poleCars, teamRef, type SeasonDriver, type SeasonTeamRef } from "./season-page";
 import { loadSeasonIndex } from "./seasons";
 import { gpName } from "./team-page";
 import type { Credit, L10n, RaceResultJson, SeasonRoundRow } from "./types";
 
-type CircuitIndexRow = { ref: string; name: string; locality: string | null; country: string | null; country_code: string | null };
+type CircuitIndexRow = { ref: string; name: string; locality: string | null; country: string | null; country_code: string | null; lat: number | null; lng: number | null };
 type CuratedPlace = L10n & { wiki?: string; hero?: { src: string; srcSet: string; width: number; height: number; focusY?: number }; credit?: Credit };
 export type CircuitLayout = { d: string; w: number; h: number; source: "f1-circuits" | "commons"; credit?: Credit };
 type CircuitFacts = {
@@ -42,7 +43,7 @@ const facts = (factsJson as unknown as { facts: Record<string, CircuitFacts> }).
 export const FASTEST_LAP_FROM = 2004;
 
 const loadCircuits = once(async () =>
-  new Map((await dbSelectAll<CircuitIndexRow>("circuit_index", "select=ref,name,locality,country,country_code&order=ref")).map((r) => [r.ref, r])),
+  new Map((await dbSelectAll<CircuitIndexRow>("circuit_index", "select=ref,name,locality,country,country_code,lat,lng&order=ref")).map((r) => [r.ref, r])),
 );
 /** Протоколи гонок без кіл і піт-стопів (на сторінці траси — лише переможець, подіум, найшвидше коло). */
 const loadRaceRows = once(async () => {
@@ -64,9 +65,20 @@ function currentCalendar(roundsBy: Map<number, SeasonRoundRow[]>) {
   return { season, circuits: new Set(rows.map((r) => r.circuit).filter((c): c is string => !!c)), rows };
 }
 
-function placeOf(ref: string, row: CircuitIndexRow | undefined, locale: Locale): string {
-  return places[ref]?.[locale] ?? row?.locality ?? ref;
-}
+/**
+ * Вирішальні етапи заліку пілотів усіх сезонів (season-math) — від траси й мови не залежать: один раз на процес,
+ * а не на кожну з 156 сторінок (code-review 13.11).
+ */
+const loadDeciders = once(async () => {
+  const [roundsBy, pointsBy, rules, index] = await Promise.all([loadRounds(), loadPoints(), loadRules(), loadSeasonIndex()]);
+  const ctx = { roundsBy, pointsBy, rules, index };
+  const out = new Map<number, { round: number; driver: string }>();
+  for (const s of index) {
+    const d = seasonDecision(s.year, ctx).decision;
+    if (d) out.set(s.year, d);
+  }
+  return out;
+});
 
 /** Перемоги пілотів (спільна машина 1950-х — кожному пілоту екіпажу), у порядку першої перемоги. */
 function driverWins(races: SeasonRoundRow[]): Map<string, number> {
@@ -92,7 +104,8 @@ export type CircuitCard = {
   last: number;
   spans: [number, number][];
   spansLabel: string;
-  topWinners: null | { drivers: SeasonDriver[]; wins: number };
+  /** Найбільше перемог: до двох пілотів — з іменами (як у макеті), більше — лише кількість пілотів. */
+  topWinners: null | { drivers: SeasonDriver[]; count: number; wins: number };
   /** Є схема (файл /img/circuits/layouts/<ref>.svg — маска на картці); шлях у дані списку не йде (розмір RSC, TBT). */
   layout: boolean;
   /** Нормалізований рядок пошуку (обидві мови, код країни). */
@@ -120,7 +133,19 @@ function portraitCredits(drivers: SeasonDriver[]): CreditItem[] {
   return out;
 }
 
-export async function getCircuitsIndex(locale: Locale): Promise<CircuitsIndex> {
+const indexBy = new Map<Locale, Promise<CircuitsIndex>>();
+/** Метадані й сторінка беруть той самий результат (code-review 13.11: рахувалось двічі на мову). */
+export function getCircuitsIndex(locale: Locale): Promise<CircuitsIndex> {
+  let p = indexBy.get(locale);
+  if (!p) {
+    p = buildCircuitsIndex(locale);
+    p.catch(() => indexBy.delete(locale));
+    indexBy.set(locale, p);
+  }
+  return p;
+}
+
+async function buildCircuitsIndex(locale: Locale): Promise<CircuitsIndex> {
   const [circuits, roundsBy, names] = await Promise.all([loadCircuits(), loadRounds(), loadNames()]);
   const cal = currentCalendar(roundsBy);
   const held = heldAt(roundsBy);
@@ -137,7 +162,7 @@ export async function getCircuitsIndex(locale: Locale): Promise<CircuitsIndex> {
     const years = races.map((r) => r.year);
     const spans = yearSpans(years);
     const top = leaders(driverWins(races));
-    const place = placeOf(ref, row, locale);
+    const place = placeName(ref, row.locality, locale);
     const country = countryName(row.country_code, locale);
     const l = layouts[ref];
     cards.push({
@@ -152,16 +177,17 @@ export async function getCircuitsIndex(locale: Locale): Promise<CircuitsIndex> {
       last: years.at(-1) ?? cal.season,
       spans,
       spansLabel: spansLabel(spans),
-      topWinners: top ? { drivers: top.ids.map((id) => makeDriver(id, names, locale)), wins: top.n } : null,
+      topWinners: top ? { drivers: top.ids.length <= 2 ? top.ids.map((id) => makeDriver(id, names, locale)) : [], count: top.ids.length, wins: top.n } : null,
       layout: !!l,
       search: normalizeSearch(
         [row.name, row.locality ?? "", places[ref]?.en ?? "", places[ref]?.uk ?? "", countryName(row.country_code, "en") ?? "", countryName(row.country_code, "uk") ?? "", row.country_code ?? ""].join(" "),
       ),
     });
   }
-  cards.sort((a, b) => b.races - a.races || a.name.localeCompare(b.name));
+  // Той самий порядок, що бачить користувач (список, <noscript>, JSON-LD ItemList) — code-review 13.11.
+  const ordered = selectCircuits(cards, DEFAULT_CIRCUITS_QUERY, locale);
   return {
-    cards,
+    cards: ordered,
     facts: {
       circuits: cards.length,
       countries: new Set([...circuits.values()].map((c) => c.country_code)).size,
@@ -205,14 +231,21 @@ export type CircuitPage = {
   name: string;
   place: string;
   country: string | null;
-  /** Головне Гран-прі траси: найчастіша назва, роки. */
+  /** Гран-прі траси: у календарі поточного сезону — його нинішня назва з року першої гонки під нею; інакше —
+   *  найчастіша назва з роками (code-review 13.11: «Гран-прі Мексики з 1963», хоча з 2021 — Гран-прі Мехіко). */
   gp: null | { name: string; from: number; to: number; ongoing: boolean };
+  /** Різних назв Гран-прі на трасі (підзаголовок таблиці — лише коли одна). */
+  gpNames: number;
+  onCalendar: boolean;
+  /** ISO 3166-1 alpha-2 і координати — для JSON-LD. */
+  geo: { country: string | null; lat: number | null; lng: number | null };
   hero: null | { src: string; srcSet: string; width: number; height: number; focus: string; credit: Credit };
   layout: null | CircuitLayout;
   next: null | { season: number; round: number; date: string | null };
   facts: null | {
     layoutName: string | null;
-    layoutFrom: number | null;
+    /** Проміжок конфігурації, що охоплює останню гонку F1 тут (to = null — дотепер). */
+    layoutYears: null | { from: number; to: number | null };
     lengthKm: number | null;
     turns: number | null;
     laps: number | null;
@@ -230,17 +263,21 @@ export type CircuitPage = {
     fromPole: number;
     furthest: null | { grid: number; year: number; round: number; driver: SeasonDriver };
     finales: number;
+    /** З них титул вирішився саме у фіналі сезону. */
+    finaleTitles: number;
     titles: number;
   };
   races: CircuitRaceRow[];
   titles: { year: number; round: number; champion: SeasonDriver; before: { driver: SeasonDriver; points: number }[]; after: { driver: SeasonDriver; points: number }[] }[];
   leaders: {
-    drivers: { driver: SeasonDriver; n: number }[];
-    teams: { team: SeasonTeamRef; n: number }[];
-    podiums: { driver: SeasonDriver; n: number }[];
+    drivers: LeaderList<{ driver: SeasonDriver; n: number }>;
+    teams: LeaderList<{ team: SeasonTeamRef; n: number }>;
+    podiums: LeaderList<{ driver: SeasonDriver; n: number }>;
   };
   credits: { media: CreditItem[]; portraits: CreditItem[] };
 };
+/** Рейтинг з нічиїми: рівні на межі не відкидаються мовчки — або всі в списку, або «і ще count по n» (рев'ю 13.11). */
+export type LeaderList<T> = { rows: T[]; more: null | { count: number; n: number } };
 
 export async function getCircuitRefs(): Promise<string[]> {
   return [...(await loadCircuits()).keys()];
@@ -251,12 +288,13 @@ export async function circuitBySlug(slug: string): Promise<string | null> {
   return null;
 }
 
-/** Скільки перших місць у рейтингах «найуспішніші тут». */
+/** Скільки перших місць у рейтингах «найуспішніші тут»; рівні на межі — до LEADERS_CAP рядків. */
 export const LEADERS_TOP = 7;
+export const LEADERS_CAP = 10;
 
 export async function getCircuitPage(ref: string, locale: Locale): Promise<CircuitPage | null> {
-  const [circuits, roundsBy, pointsBy, rules, names, index, raceRows] = await Promise.all([
-    loadCircuits(), loadRounds(), loadPoints(), loadRules(), loadNames(), loadSeasonIndex(), loadRaceRows(),
+  const [circuits, roundsBy, pointsBy, names, index, raceRows, deciders] = await Promise.all([
+    loadCircuits(), loadRounds(), loadPoints(), loadNames(), loadSeasonIndex(), loadRaceRows(), loadDeciders(),
   ]);
   const row = circuits.get(ref);
   if (!row) return null;
@@ -264,14 +302,9 @@ export async function getCircuitPage(ref: string, locale: Locale): Promise<Circu
   const races = heldAt(roundsBy, ref);
   const f = facts[ref];
   const spans = f?.layout?.years.length ? f.layout.years : null;
-
-  // Вирішальні етапи всіх сезонів (season-math) — один раз на збірку сторінки.
-  const ctx = { roundsBy, pointsBy, rules, index };
-  const deciders = new Map<number, { round: number; driver: string }>();
-  for (const s of index) {
-    const d = seasonDecision(s.year, ctx).decision;
-    if (d) deciders.set(s.year, d);
-  }
+  const lastYear = races.at(-1)?.year;
+  // Проміжок, у якому остання гонка F1 (Аделаїда [[1985,1995],[2000,2000]] — 1985–1995, а не «з 2000»; рев'ю 13.11).
+  const span = spans ? (spans.find(([a, b]) => lastYear !== undefined && a <= lastYear && lastYear <= (b ?? 9999)) ?? spans[0]!) : null;
 
   const rows: CircuitRaceRow[] = races.map((r) => {
     const race = raceRows.get(`${r.year}/${r.round}`) ?? [];
@@ -302,23 +335,34 @@ export async function getCircuitPage(ref: string, locale: Locale): Promise<Circu
     if (win?.g && (!furthest || win.g > furthest.grid)) furthest = { grid: win.g, year: r.year, round: r.round!, driver: base(win.d) };
   }
   let finales = 0;
+  let finaleTitles = 0;
   for (const s of index) {
     if (s.in_progress) continue;
     const last = playedRounds(roundsBy, s.year).at(-1);
-    if (last?.circuit === ref) finales++;
+    if (last?.circuit !== ref) continue;
+    finales++;
+    if (deciders.get(s.year)?.round === last.round) finaleTitles++;
   }
 
   /* --- титули, вирішені тут --- */
   const titles: CircuitPage["titles"] = [];
   for (const r of rows.filter((x) => x.title)) {
     const d = deciders.get(r.year)!;
-    const { top } = titleStandings(pointsBy.get(r.year) ?? [], playedRounds(roundsBy, r.year), r.round);
+    const seasonRounds = playedRounds(roundsBy, r.year);
+    const points = pointsBy.get(r.year) ?? [];
+    const { top } = titleStandings(points, seasonRounds, r.round);
+    // «Перед гонкою» — трійка заліку ДО етапу (не трійка після, відсортована за очками до; рев'ю 13.11).
+    const prev = seasonRounds.filter((x) => x.round! < r.round).at(-1)?.round;
+    const before = points
+      .filter((x) => x.round === prev && x.standing_points !== null)
+      .sort((a, b) => b.standing_points! - a.standing_points! || (a.standing ?? 999) - (b.standing ?? 999))
+      .slice(0, 3);
     titles.push({
       year: r.year,
       round: r.round,
       champion: base(d.driver),
-      before: [...top].sort((a, b) => b.before - a.before).map((p) => ({ driver: base(p.driver), points: p.before })),
-      after: top.map((p) => ({ driver: base(p.driver), points: p.after })),
+      before: before.map((x) => ({ driver: base(x.driver), points: x.standing_points! })),
+      after: top.map((x) => ({ driver: base(x.driver), points: x.after })),
     });
   }
 
@@ -336,12 +380,12 @@ export async function getCircuitPage(ref: string, locale: Locale): Promise<Circu
   const hero = p?.hero && p.credit ? { ...p.hero, focus: `50% ${p.hero.focusY ?? 62}%`, credit: p.credit } : null;
   const cal = currentCalendar(roundsBy);
   const upcoming = cal.rows.filter((r) => r.circuit === ref && !r.winners?.length).sort((a, b) => a.round! - b.round!)[0];
-  const lapsIn = spans ? races.filter((r) => inSpans(r.year, spans)) : [];
+  const lapsIn = span ? races.filter((r) => inSpans(r.year, [span])) : [];
   const laps = modeOf(lapsIn.map((r) => (raceRows.get(`${r.year}/${r.round}`) ?? []).find((x) => x.p === 1)?.l).filter((x): x is number => x !== undefined));
   const factsOut: CircuitPage["facts"] = f
     ? {
         layoutName: f.layout?.name ?? null,
-        layoutFrom: spans?.at(-1)?.[0] ?? null,
+        layoutYears: span ? { from: span[0], to: span[1] } : null,
         lengthKm: f.lengthKm ?? null,
         turns: f.turns ?? null,
         laps,
@@ -356,37 +400,55 @@ export async function getCircuitPage(ref: string, locale: Locale): Promise<Circu
 
   const gpCount = new Map<string, number>();
   for (const r of races) gpCount.set(r.name, (gpCount.get(r.name) ?? 0) + 1);
-  const mainGp = ranking(gpCount, 1)[0];
-  const gpYears = mainGp ? races.filter((r) => r.name === mainGp.id).map((r) => r.year) : [];
+  const onCalendar = cal.circuits.has(ref);
+  const currentName = onCalendar ? cal.rows.find((r) => r.circuit === ref)?.name : undefined;
+  let gp: CircuitPage["gp"] = null;
+  if (currentName) {
+    const years = races.filter((r) => r.name === currentName).map((r) => r.year);
+    gp = { name: gpName(currentName, locale), from: years[0] ?? cal.season, to: years.at(-1) ?? cal.season, ongoing: true };
+  } else {
+    const main = ranking(gpCount, 1)[0];
+    const years = main ? races.filter((r) => r.name === main.id).map((r) => r.year) : [];
+    if (main) gp = { name: gpName(main.id, locale), from: years[0]!, to: years.at(-1)!, ongoing: false };
+  }
 
-  const leadersOut: CircuitPage["leaders"] = {
-    drivers: ranking(winsBy, LEADERS_TOP).map(({ id, n }) => ({ driver: base(id), n })),
-    teams: ranking(teamWins, LEADERS_TOP).map(({ id, n }) => ({ team: teamRef(id)!, n })),
-    podiums: ranking(podiums, LEADERS_TOP).map(({ id, n }) => ({ driver: base(id), n })),
+  const list = <T>(counts: Map<string, number>, row: (id: string, n: number) => T): LeaderList<T> => {
+    const r = rankingWithTies(counts, LEADERS_TOP, LEADERS_CAP);
+    return { rows: r.rows.map(({ id, n }) => row(id, n)), more: r.more };
   };
+  const leadersOut: CircuitPage["leaders"] = {
+    drivers: list(winsBy, (id, n) => ({ driver: base(id), n })),
+    teams: list(teamWins, (id, n) => ({ team: teamRef(id)!, n })),
+    podiums: list(podiums, (id, n) => ({ driver: base(id), n })),
+  };
+  const placeLabel = placeName(ref, row.locality, locale);
   const media: CreditItem[] = [];
-  if (hero) media.push({ label: hero.credit.page.split("File:")[1]?.replace(/_/g, " ") ?? row.name, href: hero.credit.page, author: hero.credit.author, license: hero.credit.license });
+  // Підпис — місце (як на сторінці гонки), а не сирий URL Commons з %28 і розширенням (code-review 13.11).
+  if (hero) media.push({ label: placeLabel, href: hero.credit.page, author: hero.credit.author, license: hero.credit.license });
   media.push(...layoutCredits([ref]));
   const shownDrivers = [
     ...rows.flatMap((r) => [...r.winners, ...r.poles.flat(), ...(r.fastest ? [r.fastest.driver] : [])]),
     ...titles.flatMap((t) => [t.champion, ...t.before.map((x) => x.driver)]),
-    ...leadersOut.drivers.map((x) => x.driver),
-    ...leadersOut.podiums.map((x) => x.driver),
+    ...leadersOut.drivers.rows.map((x) => x.driver),
+    ...leadersOut.podiums.rows.map((x) => x.driver),
   ];
 
   return {
     ref,
     slug: circuitSlug(ref),
     name: row.name,
-    place: placeOf(ref, row, locale),
+    place: placeLabel,
     country: countryName(row.country_code, locale),
-    gp: mainGp ? { name: gpName(mainGp.id, locale), from: gpYears[0]!, to: gpYears.at(-1)!, ongoing: cal.circuits.has(ref) } : null,
+    gp,
+    gpNames: gpCount.size,
+    onCalendar,
+    geo: { country: countryAlpha2(row.country_code), lat: row.lat, lng: row.lng },
     hero,
     layout: layouts[ref] ?? null,
     next: upcoming ? { season: cal.season, round: upcoming.round!, date: upcoming.date } : null,
     facts: factsOut,
     firstGp: races[0]?.year ?? null,
-    strip: { races: races.length, winners: winsBy.size, fromPole, furthest, finales, titles: titles.length },
+    strip: { races: races.length, winners: winsBy.size, fromPole, furthest, finales, finaleTitles, titles: titles.length },
     races: rows.reverse(),
     titles,
     leaders: leadersOut,

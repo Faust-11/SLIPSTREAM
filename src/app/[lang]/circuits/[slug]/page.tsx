@@ -86,7 +86,7 @@ function Avatar({ d, size = 28 }: { d: SeasonDriver; size?: number }) {
 }
 
 /** Рейтинг «найуспішніші тут» — одна серія, смуги від спільної базової лінії, значення текстом (настанова dataviz). */
-function Ranking({ title, id, rows, lang }: { title: string; id: string; rows: { key: string; label: ReactNode; n: number }[]; lang: Locale }) {
+function Ranking({ title, id, rows, more, lang }: { title: string; id: string; rows: { key: string; label: ReactNode; n: number }[]; more: string | null; lang: Locale }) {
   const max = Math.max(1, ...rows.map((r) => r.n));
   return (
     <div className="ct-rank">
@@ -104,6 +104,7 @@ function Ranking({ title, id, rows, lang }: { title: string; id: string; rows: {
           </li>
         ))}
       </ol>
+      {more && <p className="ct-rank-more">{more}</p>}
     </div>
   );
 }
@@ -123,6 +124,7 @@ export default async function CircuitPageView(props: Props) {
         : fill(t.span, { gp: page.gp.name, from: page.gp.from, to: page.gp.to })
     : null;
   const finales = page.strip.finales;
+  const moreText = (m: { count: number; n: number } | null) => (m ? fill(t.rankMore, { count: m.count, n: m.n }) : null);
   const hasFastest = page.races.some((r) => r.fastest);
   const anyCurrent = page.races.some((r) => r.current);
 
@@ -131,8 +133,23 @@ export default async function CircuitPageView(props: Props) {
     "@type": "SportsActivityLocation",
     name: page.name,
     url: new URL(path(`/circuits/${page.slug}`), siteUrl()).href,
-    address: { "@type": "PostalAddress", addressLocality: page.place, ...(page.country ? { addressCountry: page.country } : {}) },
+    // addressCountry — код ISO 3166-1 (рекомендація schema.org), не локалізована назва; координати — з бази (рев'ю 13.11).
+    address: { "@type": "PostalAddress", addressLocality: page.place, ...(page.geo.country ? { addressCountry: page.geo.country } : {}) },
+    ...(page.geo.lat !== null && page.geo.lng !== null ? { geo: { "@type": "GeoCoordinates", latitude: page.geo.lat, longitude: page.geo.lng } } : {}),
   };
+  // Рекорд кола — на дві колонки лише з початку ряду (інакше дірка в сітці; grid-auto-flow: dense міняв порядок
+  // читання відносно DOM — рев'ю 13.11).
+  const beforeRecord = f ? [page.firstGp !== null, f.laps !== null, f.turns !== null].filter(Boolean).length : 0;
+  const recordWide = beforeRecord % 3 === 0;
+  const layoutNote = f?.layoutYears
+    ? f.layoutYears.to === null
+      ? fill(t.layoutSince, { year: f.layoutYears.from })
+      : f.layoutYears.from === f.layoutYears.to
+        ? fill(t.layoutYear, { year: f.layoutYears.from })
+        : fill(t.layoutSpan, { from: f.layoutYears.from, to: f.layoutYears.to })
+    : f?.layoutName
+      ? fill(t.layoutName, { name: f.layoutName })
+      : null;
 
   return (
     <div className="ct-page">
@@ -202,14 +219,10 @@ export default async function CircuitPageView(props: Props) {
                       {kmFmt[lang].format(f.lengthKm)}
                       <small>{t.km}</small>
                     </b>
-                    {f.layoutFrom !== null ? (
-                      <span className="ct-note">{fill(t.layoutSince, { year: f.layoutFrom })}</span>
-                    ) : (
-                      f.layoutName && (
-                        <span className="ct-note" translate="no">
-                          {fill(t.layoutName, { name: f.layoutName })}
-                        </span>
-                      )
+                    {layoutNote && (
+                      <span className="ct-note" translate={f.layoutYears ? undefined : "no"}>
+                        {layoutNote}
+                      </span>
                     )}
                   </div>
                 )}
@@ -233,7 +246,7 @@ export default async function CircuitPageView(props: Props) {
                     </div>
                   )}
                   {f.record && (
-                    <div className="span2">
+                    <div className={recordWide ? "span2" : undefined}>
                       <dt>{t.record}</dt>
                       <dd>
                         <b className="num">{lapTime(f.record.ms)}</b>
@@ -324,7 +337,9 @@ export default async function CircuitPageView(props: Props) {
             <h2 className="display" id="ct-races-h">
               {t.racesTitle}
             </h2>
-            {page.gp && <p className="ct-sub">{page.gp.from === page.gp.to ? `${page.gp.name} · ${page.gp.from}` : `${page.gp.name} · ${page.gp.from}–${page.gp.to}`}</p>}
+            {page.gp && page.gpNames === 1 && (
+              <p className="ct-sub">{page.gp.from === page.gp.to ? `${page.gp.name} · ${page.gp.from}` : `${page.gp.name} · ${page.gp.from}–${page.gp.to}`}</p>
+            )}
           </div>
           <div className="ct-tbl" role="region" aria-labelledby="ct-races-cap" tabIndex={0}>
             <table>
@@ -386,7 +401,7 @@ export default async function CircuitPageView(props: Props) {
             {anyCurrent && (
               <span>
                 <i className="k-cur" aria-hidden="true" />
-                {t.currentKey}
+                {page.onCalendar ? t.currentKey : t.layoutKey}
               </span>
             )}
             {page.strip.titles > 0 && (
@@ -407,7 +422,9 @@ export default async function CircuitPageView(props: Props) {
                 {t.titlesTitle}
               </h2>
               <p className="ct-sub">
-                {finales > 0 ? fill(plural(finales, lang, t.titlesSub), { n: page.titles.length, f: finales }) : t.titlesSubNoFinals}
+                {/* n — титули, вирішені саме у фіналі (code-review 13.11: «12 з 6 фіналів» у Сузуки); решта — окремо. */}
+                {finales > 0 ? fill(plural(finales, lang, t.titlesSub), { n: page.strip.finaleTitles, f: finales }) : t.titlesSubNoFinals}
+                {finales > 0 && page.titles.length > page.strip.finaleTitles && ` ${fill(t.titlesEarlier, { n: page.titles.length - page.strip.finaleTitles })}`}
               </p>
             </div>
             <ul className="ct-decs">
@@ -445,7 +462,7 @@ export default async function CircuitPageView(props: Props) {
         </section>
       )}
 
-      {page.leaders.drivers.length > 0 && (
+      {page.leaders.drivers.rows.length > 0 && (
         <section className="ct-sec" aria-labelledby="ct-lead-h">
           <div className="wrap">
             <div className="ct-head">
@@ -458,14 +475,22 @@ export default async function CircuitPageView(props: Props) {
                 title={t.driverWins}
                 id="ct-rk-w"
                 lang={lang}
-                rows={page.leaders.drivers.map((x) => ({ key: x.driver.id, n: x.n, label: <DriverLink d={x.driver} lang={lang} short /> }))}
+                rows={page.leaders.drivers.rows.map((x) => ({ key: x.driver.id, n: x.n, label: <DriverLink d={x.driver} lang={lang} short /> }))}
+                more={moreText(page.leaders.drivers.more)}
               />
-              <Ranking title={t.teamWins} id="ct-rk-t" lang={lang} rows={page.leaders.teams.map((x) => ({ key: x.team.id, n: x.n, label: <TeamLink tm={x.team} lang={lang} /> }))} />
+              <Ranking
+                title={t.teamWins}
+                id="ct-rk-t"
+                lang={lang}
+                rows={page.leaders.teams.rows.map((x) => ({ key: x.team.id, n: x.n, label: <TeamLink tm={x.team} lang={lang} /> }))}
+                more={moreText(page.leaders.teams.more)}
+              />
               <Ranking
                 title={t.podiums}
                 id="ct-rk-p"
                 lang={lang}
-                rows={page.leaders.podiums.map((x) => ({ key: x.driver.id, n: x.n, label: <DriverLink d={x.driver} lang={lang} short /> }))}
+                rows={page.leaders.podiums.rows.map((x) => ({ key: x.driver.id, n: x.n, label: <DriverLink d={x.driver} lang={lang} short /> }))}
+                more={moreText(page.leaders.podiums.more)}
               />
             </div>
           </div>

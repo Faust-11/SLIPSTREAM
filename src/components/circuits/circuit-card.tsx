@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
 import { localizedPath } from "@/i18n/paths";
+import { plural } from "@/lib/plural";
 import type { CircuitCard as CircuitCardData } from "@/lib/data/circuits";
 
 export type CircuitCardLabels = {
@@ -12,6 +13,8 @@ export type CircuitCardLabels = {
   layoutLabel: string;
   yearsLabel: string;
   calendarBadge: string;
+  /** «{n} пілотів» — коли найбільше перемог у трьох і більше (як у макеті). */
+  tieDrivers: { one: string; few: string; many: string; other: string };
 };
 
 /** Схема списку — окремий SVG-файл як маска (колір — var(--ink), тема сайту); у HTML шляхів немає (бюджет TBT). */
@@ -50,8 +53,10 @@ export function CircuitCard({ c, labels, locale, season, fromYear }: { c: Circui
           </span>
         )}
         {c.onCalendar && (
-          <span className="ct-cal num" title={fill(labels.calendarBadge, { season })}>
-            {season}
+          <span className="ct-cal num">
+            <span aria-hidden="true">{season}</span>
+            {/* title недоступний скрінрідерам — повний текст прихованим рядком (рев'ю 13.11). */}
+            <span className="ct-sr">{fill(labels.calendarBadge, { season })}</span>
           </span>
         )}
       </div>
@@ -64,9 +69,11 @@ export function CircuitCard({ c, labels, locale, season, fromYear }: { c: Circui
       {c.races > 0 ? (
         <div className="ct-yr">
           <YearStrip spans={c.spans} from={fromYear} to={season} />
-          <span className="num" aria-label={fill(labels.yearsLabel, { years: c.spansLabel })}>
+          {/* aria-label на span без ролі скрінрідери ігнорують — прихований текст замість нього (рев'ю 13.11). */}
+          <span className="num" aria-hidden="true">
             {c.spansLabel}
           </span>
+          <span className="ct-sr">{fill(labels.yearsLabel, { years: c.spansLabel })}</span>
         </div>
       ) : (
         <p className="ct-yr ct-soon">{labels.noRaces}</p>
@@ -80,20 +87,35 @@ export function CircuitCard({ c, labels, locale, season, fromYear }: { c: Circui
           <div>
             <dt>{labels.mostWins}</dt>
             <dd className="ct-wn">
-              {c.topWinners.drivers.map((d) => (
-                <a key={d.id} className="ct-ent" href={path(`/drivers/${d.slug}`)}>
-                  {d.avatar ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img className="ct-av" src={d.avatar} width={26} height={26} alt="" loading="lazy" decoding="async" />
-                  ) : (
-                    <span className="ct-av ct-ini" aria-hidden="true">
-                      {d.initials}
+              {c.topWinners.drivers.length === 0 ? (
+                <span className="ct-ties">{fill(plural(c.topWinners.count, locale, labels.tieDrivers), { n: c.topWinners.count })}</span>
+              ) : (
+                c.topWinners.drivers.map((d, i) => {
+                  const link = (
+                    <a key={d.id} className="ct-ent" href={path(`/drivers/${d.slug}`)}>
+                      {d.avatar ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img className="ct-av" src={d.avatar} width={26} height={26} alt="" loading="lazy" decoding="async" />
+                      ) : (
+                        <span className="ct-av ct-ini" aria-hidden="true">
+                          {d.initials}
+                        </span>
+                      )}
+                      <span>{d.short}</span>
+                    </a>
+                  );
+                  // Число перемог — разом з останнім ім'ям, без переносу на окремий рядок (рев'ю 13.11).
+                  return i === c.topWinners!.drivers.length - 1 ? (
+                    <span key={d.id} className="ct-last">
+                      {link}
+                      <b className="num">{nf.format(c.topWinners!.wins)}</b>
                     </span>
-                  )}
-                  <span>{d.short}</span>
-                </a>
-              ))}
-              <b className="num">{nf.format(c.topWinners.wins)}</b>
+                  ) : (
+                    link
+                  );
+                })
+              )}
+              {c.topWinners.drivers.length === 0 && <b className="num">{nf.format(c.topWinners.wins)}</b>}
             </dd>
           </div>
         )}

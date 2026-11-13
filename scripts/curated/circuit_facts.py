@@ -133,9 +133,15 @@ def layout_spans(name: str) -> list[tuple[int, int | None]]:
     if not m:
         return []
     out = []
-    for a, b in re.findall(r"(\d{4})(?:\s*[–-]\s*(present|\d{4}))?", m.group(1)):
-        out.append((int(a), None if b == "present" else int(b) if b else int(a)))
+    for a, b in re.findall(r"(\d{4})(?:\s*[–-]\s*(present|\d{4}))?", m.group(1), flags=re.I):
+        out.append((int(a), None if b.lower() == "present" else int(b) if b else int(a)))
     return out
+
+
+def layout_text(value: str | None) -> str:
+    """Назва конфігурації з роками: роки бувають другим рядком після <br> («Grand Prix Circuit (5th Variation)<br />
+    (1999–present)» — Інтерлагос; рев'ю 13.11: без цього years = [])."""
+    return " ".join(clean_layout(p) for p in (plain(value) if value else []))
 
 
 def is_f1_class(cls: str) -> bool:
@@ -230,10 +236,12 @@ def main() -> int:
         # блок — овал 1909–, F1 — дорожня траса 2000–2007; Брендс-Гетч 1986 — Grand Prix 1976–1987, а не Indy 1976–1998).
         last_f1 = last_year.get(ref)
         best, best_score = None, -1
+        has_layouts = False
         for n in [""] + [str(i) for i in range(2, 20)]:
-            nm = clean_layout(first(f.get("layout" + n)) or "")
+            nm = layout_text(f.get("layout" + n))
             if not nm:
                 continue
+            has_layouts = True
             spans = layout_spans(nm)
             covers = bool(last_f1) and any(y0 <= last_f1 <= (y1 or 9999) for y0, y1 in spans)
             if spans and not covers:
@@ -241,7 +249,7 @@ def main() -> int:
             score = 4 * covers + 2 * is_f1_class(first(f.get("record_class" + n)) or "") + bool(re.search(r"grand prix|\bgp\b", nm, re.I))
             if score > best_score:
                 best, best_score = n, score
-        if best is None:
+        if best is None and has_layouts:
             report.append(f"{ref}: жодна конфігурація картки не охоплює {last_f1} — факти конфігурації не взято")
             f = {k: v for k, v in f.items() if not any(k.startswith(b) for b in ("layout", "length", "turns", "record_"))}
         elif best:
@@ -251,9 +259,11 @@ def main() -> int:
             for k, v in pick.items():
                 if v not in f:
                     f.pop(k, None)
+        # Без полів layout* (картка лише з length_km/turns) — факти лишаються, конфігурації немає (рев'ю 13.11).
+        full = layout_text(f.get("layout"))
         name = clean_layout(first(f.get("layout")) or "")
         if name:
-            rec["layout"] = {"name": name, "years": [[a, b] for a, b in layout_spans(name)]}
+            rec["layout"] = {"name": name, "years": [[a, b] for a, b in layout_spans(full)]}
         km = number(f.get("length_km"))
         if km is not None and 1 <= km <= 30:
             rec["lengthKm"] = km
@@ -284,7 +294,8 @@ def main() -> int:
             rec["capacity"] = cap
         elif f.get("capacity"):
             report.append(f"{ref}: місткість «{first(f['capacity']) or f['capacity'][:40]}» не взято")
-        cls = first(f.get("record_class")) or ""
+        # Незакритий HTML-коментар у полі («F1 <!-- …», Аделаїда) — відрізати.
+        cls = re.sub(r"\s*<!--.*$", "", first(f.get("record_class")) or "").strip()
         ms = lap_ms(f.get("record_time"))
         year_text = first(f.get("record_year")) or ""
         year = re.search(r"\b(19|20)\d{2}\b", year_text)
