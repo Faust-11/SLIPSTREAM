@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
 import { localizedPath } from "@/i18n/paths";
@@ -48,8 +48,9 @@ function QuerySync({ onParams }: { onParams: (q: CircuitsQuery) => void }) {
 }
 
 /**
- * Список трас: пошук, фільтр, сортування; стан — у URL. Усі 78 карток у DOM (content-visibility: auto — поза
- * екраном не малюються); зміна порядку переставляє ті самі вузли (ключі React), результат оголошує один role="status"
+ * Список трас: пошук, фільтр, сортування; стан — у URL. Перші pageSize карток + «Показати ще» (без JS — решта в
+ * <noscript>, урок TBT «Команд»; поза екраном картки не малюються — content-visibility: auto); зміна порядку
+ * переставляє ті самі вузли (ключі React), результат оголошує один role="status"
  * (настанова «Handling dynamic user-triggered changes to sort order»).
  */
 export function CircuitsBrowser({ cards, locale, season, fromYear, pageSize, labels }: Props) {
@@ -58,6 +59,7 @@ export function CircuitsBrowser({ cards, locale, season, fromYear, pageSize, lab
   const [page, setPage] = useState<{ of: CircuitsQuery; n: number }>({ of: query, n: pageSize });
   const [synced, setSynced] = useState(false);
   const tools = useRef<HTMLDivElement>(null);
+  const input = useRef<HTMLInputElement>(null);
   const focusFrom = useRef<number | null>(null);
   const selected = useMemo(() => selectCircuits(cards, query, locale), [cards, query, locale]);
   const defaultOrder = useMemo(() => selectCircuits(cards, DEFAULT_CIRCUITS_QUERY, locale), [cards, locale]);
@@ -73,17 +75,45 @@ export function CircuitsBrowser({ cards, locale, season, fromYear, pageSize, lab
     target?.focus();
   }, [shown]);
 
+  // Остання адреса, яку записали ми самі: її «луну» з useSearchParams ігноруємо — інакше застаріла адреса
+  // перезаписує новіший стан під час швидкого набору (рев'ю 13.11: «siverstone», як було в «Пілотах» до 12.11).
+  const written = useRef<string | null>(null);
+  // Користувач змінив стан до першої синхронізації з адресою (набрав пошук до гідратації QuerySync) — перше читання
+  // адреси не має затерти його ввід (e2e 13.11: «японія» → 24 картки замість 3).
+  const dirty = useRef(false);
+  // Текст, набраний у серверне поле до гідратації (onChange ще не працює), — підхопити до першого рендеру з
+  // ефектами; useLayoutEffect — до того, як React звірить контрольоване поле зі станом (замір 13.11: 1 з 2 ранніх
+  // наборів губився — поле порожнє, 24 картки).
+  useLayoutEffect(() => {
+    const typed = input.current?.value ?? "";
+    if (typed) {
+      dirty.current = true;
+      setQuery((prev) => (prev.q === typed ? prev : { ...prev, q: typed }));
+    }
+  }, []);
   const set = (patch: Partial<CircuitsQuery>) => {
+    dirty.current = true;
+    // Порівняння — за станом, а не за адресою: адреса обрізає пробіли, і пробіл у пошуку губився.
     const next = { ...query, ...patch };
-    if (circuitsQueryString(next) !== circuitsQueryString(query)) setQuery(next);
+    if (next.q !== query.q || next.f !== query.f || next.sort !== query.sort) setQuery(next);
   };
   const onParams = useCallback((q: CircuitsQuery) => {
-    setQuery((prev) => (circuitsQueryString(prev) === circuitsQueryString(q) ? prev : q));
+    const incoming = circuitsQueryString(q);
+    if (written.current === null && dirty.current) {
+      setSynced(true);
+      return;
+    }
+    if (written.current !== null && incoming === written.current) {
+      setSynced(true);
+      return;
+    }
+    setQuery((prev) => (circuitsQueryString(prev) === incoming ? prev : q));
     setSynced(true);
   }, []);
 
   useEffect(() => {
     if (!synced) return;
+    written.current = circuitsQueryString(query);
     const next = withCircuitsQuery(window.location.search, query);
     if (next !== (window.location.search === "?" ? "" : window.location.search)) {
       window.history.replaceState(null, "", `${window.location.pathname}${next}${window.location.hash}`);
@@ -121,6 +151,7 @@ export function CircuitsBrowser({ cards, locale, season, fromYear, pageSize, lab
             </svg>
             <input
               type="search"
+              ref={input}
               className="ct-q"
               name="q"
               aria-label={labels.search}

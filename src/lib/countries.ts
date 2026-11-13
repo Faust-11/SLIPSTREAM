@@ -18,6 +18,11 @@ const HISTORIC: Record<string, Record<Locale, string>> = {
 };
 const names = new Map<Locale, Intl.DisplayNames>();
 
+/** ISO 3166-1 alpha-2 (для schema.org addressCountry); невідомий код — null. */
+export function countryAlpha2(code: string | null): string | null {
+  return code ? (A2[code] ?? null) : null;
+}
+
 /** Назва країни мовою сторінки; невідомий код — null (рядок не показується). */
 export function countryName(code: string | null, locale: Locale): string | null {
   if (!code) return null;

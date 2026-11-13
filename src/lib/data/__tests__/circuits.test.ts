@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import circuitsJson from "@/data/curated/circuits.json";
-import { circuitSlug, leaders, modeOf, ranking, spansLabel, yearSpans } from "@/lib/circuit-math";
+import { circuitSlug, leaders, modeOf, ranking, rankingWithTies, spansLabel, yearSpans } from "@/lib/circuit-math";
 import { circuitBySlug, getCircuitPage, getCircuitRefs, getCircuitsIndex } from "../circuits";
 
 vi.mock("@/lib/data/db", async () => {
@@ -22,6 +22,16 @@ describe("circuit-math", () => {
     expect(modeOf([58, 58, 55, 1])).toBe(58);
     expect(modeOf([])).toBeNull();
   });
+  it("рейтинг з нічиїми: рівні на межі — усі (≤ cap) або «і ще» (рев'ю 13.11)", () => {
+    const m = (xs: number[]) => new Map(xs.map((n, i) => [`d${i}`, n]));
+    expect(rankingWithTies(m([5, 4, 3]), 7, 10)).toEqual({ rows: [{ id: "d0", n: 5 }, { id: "d1", n: 4 }, { id: "d2", n: 3 }], more: null });
+    expect(rankingWithTies(m([6, 5, 5, 4, 3, 3, 3, 3]), 7, 10).rows).toHaveLength(8);
+    expect(rankingWithTies(m([9, 5, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2]), 7, 10)).toEqual({
+      rows: [{ id: "d0", n: 9 }, { id: "d1", n: 5 }, { id: "d2", n: 3 }, { id: "d3", n: 3 }],
+      more: { count: 9, n: 2 },
+    });
+    expect(rankingWithTies(m([3, 2, 2, 2, 2, 2, 2, 1, 1]), 7, 10)).toEqual({ rows: rankingWithTies(m([3, 2, 2, 2, 2, 2, 2]), 7, 10).rows, more: null });
+  });
   it("слаг: «_» → «-», унікальний для всіх трас бази", async () => {
     expect(circuitSlug("yas_marina")).toBe("yas-marina");
     const refs = await getCircuitRefs();
@@ -40,6 +50,7 @@ describe("getCircuitsIndex (макет «Список трас»)", () => {
     const { cards } = await getCircuitsIndex("uk");
     const by = (ref: string) => cards.find((c) => c.ref === ref)!;
     expect(cards[0]!.ref).toBe("monza");
+    expect(by("long_beach").topWinners).toEqual({ drivers: [], count: 8, wins: 1 }); // 8 переможців по 1 — лише кількість
     expect([by("monza").races, by("monza").spansLabel, by("monza").topWinners!.drivers.map((d) => d.id), by("monza").topWinners!.wins]).toEqual([
       76, "1950–1979, 1981–2026", ["michael_schumacher", "hamilton"], 5,
     ]);
@@ -77,7 +88,7 @@ describe("getCircuitPage — Яс-Марина (еталон — макет)", (
 
   it("факти enwiki: 5,281 км, 16 поворотів, 58 кіл, ≈306,3 км, рекорд 1:25.637 Магнуссена 2024", async () => {
     const { facts } = await page();
-    expect([facts!.lengthKm, facts!.turns, facts!.laps, facts!.distanceKm, facts!.layoutFrom]).toEqual([5.281, 16, 58, 306.3, 2021]);
+    expect([facts!.lengthKm, facts!.turns, facts!.laps, facts!.distanceKm, facts!.layoutYears]).toEqual([5.281, 16, 58, 306.3, { from: 2021, to: null }]);
     expect([facts!.record?.ms, facts!.record?.driver.id, facts!.record?.year]).toEqual([85637, "kevin_magnussen", 2024]);
     expect([facts!.opened, facts!.architects, facts!.capacity]).toEqual(["2009-10-30", ["Hermann Tilke"], 60000]);
     expect(facts!.source.href).toMatch(/^https:\/\/en\.wikipedia\.org\/w\/index\.php\?oldid=\d+$/);
@@ -110,13 +121,49 @@ describe("getCircuitPage — Яс-Марина (еталон — макет)", (
 
   it("найуспішніші: перемоги Гамілтон 5 = Ферстаппен 5, Феттель 3; команди Red Bull 8, Mercedes 6; подіуми Гамілтон 10", async () => {
     const { leaders: l } = await page();
-    expect(l.drivers.slice(0, 3).map((x) => [x.driver.id, x.n])).toEqual([["hamilton", 5], ["max_verstappen", 5], ["vettel", 3]]);
-    expect(l.teams.slice(0, 3).map((x) => [x.team.id, x.n])).toEqual([["red-bull", 8], ["mercedes", 6], ["mclaren", 2]]);
-    expect(l.podiums.slice(0, 3).map((x) => [x.driver.id, x.n])).toEqual([["hamilton", 10], ["vettel", 7], ["max_verstappen", 7]]);
+    expect(l.drivers.rows.slice(0, 3).map((x) => [x.driver.id, x.n])).toEqual([["hamilton", 5], ["max_verstappen", 5], ["vettel", 3]]);
+    expect(l.teams.rows.slice(0, 3).map((x) => [x.team.id, x.n])).toEqual([["red-bull", 8], ["mercedes", 6], ["mclaren", 2]]);
+    expect(l.podiums.rows.slice(0, 3).map((x) => [x.driver.id, x.n])).toEqual([["hamilton", 10], ["vettel", 7], ["max_verstappen", 7]]);
   });
 
   it("Гран-прі траси: Абу-Дабі з 2009, триває", async () => {
     expect((await page()).gp).toEqual({ name: "Гран-прі Абу-Дабі", from: 2009, to: 2025, ongoing: true });
+  });
+});
+
+describe("getCircuitPage — правки рев'ю 13.11", () => {
+  const pg = async (ref: string) => (await getCircuitPage(ref, "uk"))!;
+  it("Гран-прі — нинішня назва в календарі: Мехіко з 2021 (не «Мексики з 1963»), Сепанг 2026 — Гран-прі Бахрейну", async () => {
+    expect((await pg("rodriguez")).gp).toEqual({ name: "Гран-прі Мехіко", from: 2021, to: 2026, ongoing: true });
+    expect((await pg("sepang")).gp?.name).toBe("Гран-прі Бахрейну в Малайзії");
+    expect((await pg("rodriguez")).gpNames).toBe(2);
+  });
+  it("конфігурація — проміжок останньої гонки F1: Аделаїда 1985–1995, К'ялямі 1992–1993, Інтерлагос з 1999 (71 коло)", async () => {
+    expect((await pg("adelaide")).facts!.layoutYears).toEqual({ from: 1985, to: 1995 });
+    expect((await pg("kyalami")).facts!.layoutYears).toEqual({ from: 1992, to: 1993 });
+    const i = await pg("interlagos");
+    expect([i.facts!.layoutYears, i.facts!.laps]).toEqual([{ from: 1999, to: null }, 71]);
+  });
+  it("титули у фіналі: Сузука 4 з 6 фіналів (усього 12), Яс-Марина 5 з 14", async () => {
+    const s = (await pg("suzuka")).strip;
+    expect([s.finaleTitles, s.finales, s.titles]).toEqual([4, 6, 12]);
+    const y = (await pg("yas_marina")).strip;
+    expect([y.finaleTitles, y.finales]).toEqual([5, 14]);
+  });
+  it("«Перед гонкою» — трійка заліку до етапу (2010: Алонсо 246, Веббер 238, Феттель 231 — макет)", async () => {
+    const t = (await pg("yas_marina")).titles.find((x) => x.year === 2010)!;
+    expect(t.before.map((x) => [x.driver.id, x.points])).toEqual([["alonso", 246], ["webber", 238], ["vettel", 231]]);
+  });
+  it("рейтинг Монако не відкидає рівних: Росберг (3) поруч із Гамілтоном (3)", async () => {
+    const ids = (await pg("monaco")).leaders.drivers.rows.map((x) => x.driver.id);
+    expect(ids).toContain("rosberg");
+    expect(ids).toContain("hamilton");
+  });
+  it("підпис фото — місце, а не URL Commons; JSON-LD — код країни й координати", async () => {
+    const p = await getCircuitPage("americas", "en");
+    expect(p!.credits.media[0]!.label).toBe("Austin");
+    expect(p!.geo.country).toBe("US");
+    expect(p!.geo.lat).not.toBeNull();
   });
 });
 

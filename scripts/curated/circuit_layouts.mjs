@@ -244,7 +244,9 @@ async function main() {
   const info = await commonsInfo(files);
   console.error(`Commons imageinfo: ${Object.keys(info).length}`);
   const browser = await chromium.launch(process.env.PLAYWRIGHT_CHANNEL ? { channel: process.env.PLAYWRIGHT_CHANNEL } : {});
-  const ctx = await browser.newContext({ javaScriptEnabled: true, offline: true });
+  // JavaScript сторінки вимкнено: скрипти з SVG не виконуються взагалі, зокрема з префіксом простору імен (<svg:script>),
+  // які регулярний вираз sanitize() не ловить (рев'ю 13.11); page.evaluate працює й так (через DevTools-протокол).
+  const ctx = await browser.newContext({ javaScriptEnabled: false, offline: true });
   await ctx.route("**/*", (r) => (r.request().url().startsWith("data:") || r.request().url() === "about:blank" ? r.continue() : r.abort()));
   const page = await ctx.newPage();
   for (const [ref, file] of Object.entries(COMMONS)) {

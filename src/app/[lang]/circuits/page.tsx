@@ -66,6 +66,7 @@ export default async function CircuitsPage({ params }: Props) {
             layoutLabel: t.layoutLabel,
             yearsLabel: t.yearsLabel,
             calendarBadge: t.calendarBadge,
+            tieDrivers: t.tieDrivers,
           },
           tools: t.tools,
           search: t.search,

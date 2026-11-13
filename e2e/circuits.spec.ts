@@ -43,8 +43,22 @@ test("пошук, фільтр і сортування — стан в адре�
   await expect(page.locator(".ct-grid > li")).toContainText("Pescara");
 });
 
-test("картка списку веде на сторінку траси; посилання пілотів працюють", async ({ page }) => {
+test("швидкий набір у пошуку не губить символів (луна адреси; рев'ю 13.11)", async ({ page }) => {
   await page.goto("/uk/circuits");
+  const box = page.getByRole("searchbox", { name: "Пошук траси" });
+  for (let i = 0; i < 3; i++) {
+    await box.fill("");
+    await box.pressSequentially("silverstone circuit", { delay: 0 });
+    await page.waitForTimeout(400);
+    await expect(box).toHaveValue("silverstone circuit");
+  }
+  await expect(page).toHaveURL(/q=silverstone\+circuit/);
+  await expect(page.locator(".ct-grid > li")).toHaveCount(1);
+});
+
+test("картка списку веде на сторінку траси (Яс-Марина — поза першими 24, через пошук)", async ({ page }) => {
+  await page.goto("/uk/circuits");
+  await page.getByRole("searchbox", { name: "Пошук траси" }).fill("yas"); // у рядку пошуку — назва траси й місце («Абу-Дабі»), «яс» там немає
   await page.getByRole("link", { name: "Yas Marina Circuit" }).click();
   await expect(page).toHaveURL(/\/uk\/circuits\/yas-marina$/);
 });
@@ -133,7 +147,7 @@ test("метадані: canonical, hreflang, JSON-LD", async ({ page }) => {
 
 for (const path of ["/uk/circuits", "/uk/circuits/yas-marina"])
   for (const theme of ["light", "dark"] as const)
-    for (const width of [320, 390, 768, 1280])
+    for (const width of [320, 390, 768, 1024, 1280])
       test(`${path}: без порушень axe; ніщо не виходить за екран: ${theme}, ${width} px`, async ({ page }) => {
         await page.emulateMedia({ colorScheme: theme });
         await page.setViewportSize({ width, height: 900 });

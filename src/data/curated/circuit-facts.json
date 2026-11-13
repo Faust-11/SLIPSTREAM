@@ -19,7 +19,12 @@
    },
    "lengthKm": 3.78,
    "turns": 16,
-   "opened": "1985-10-31"
+   "opened": "1985-10-31",
+   "record": {
+    "ms": 75381,
+    "driver": "damon_hill",
+    "year": 1993
+   }
   },
   "ain-diab": {
    "title": "Ain-Diab Circuit",
@@ -581,7 +586,12 @@
    "revid": 1384524916,
    "layout": {
     "name": "Grand Prix Circuit (5th Variation)",
-    "years": []
+    "years": [
+     [
+      1999,
+      null
+     ]
+    ]
    },
    "lengthKm": 4.309,
    "turns": 15,
@@ -1200,7 +1210,12 @@
    "revid": 1385485909,
    "layout": {
     "name": "Current layout with Mistral chicane (1C-V2)",
-    "years": []
+    "years": [
+     [
+      2005,
+      null
+     ]
+    ]
    },
    "lengthKm": 5.842,
    "turns": 15,

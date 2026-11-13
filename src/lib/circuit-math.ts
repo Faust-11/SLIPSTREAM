@@ -38,6 +38,22 @@ export function ranking(counts: Map<string, number>, top: number): { id: string;
     .map(({ id, n }) => ({ id, n }));
 }
 
+/**
+ * Рейтинг без мовчазного відкидання рівних (рев'ю 13.11: Монако — Росберг з 3 перемогами випадав, Гамілтон з 3 —
+ * лишався): перші top; якщо на межі нічия — усі рівні, поки рядків ≤ cap; інакше обрізаємо до початку групи
+ * рівних і повертаємо «і ще count по n».
+ */
+export function rankingWithTies(counts: Map<string, number>, top: number, cap: number): { rows: { id: string; n: number }[]; more: null | { count: number; n: number } } {
+  const all = ranking(counts, counts.size);
+  if (all.length <= top) return { rows: all, more: null };
+  const edge = all[top - 1]!.n;
+  if (all[top]!.n !== edge) return { rows: all.slice(0, top), more: null };
+  const groupStart = all.findIndex((x) => x.n === edge);
+  const groupEnd = all.findLastIndex((x) => x.n === edge) + 1;
+  if (groupEnd <= cap) return { rows: all.slice(0, groupEnd), more: null };
+  return { rows: all.slice(0, groupStart), more: { count: groupEnd - groupStart, n: edge } };
+}
+
 /** Найчастіше значення (рівні — більше); порожньо — null. Кількість кіл гонки: скорочені гонки (дощ) — рідші. */
 export function modeOf(xs: number[]): number | null {
   const c = new Map<number, number>();
