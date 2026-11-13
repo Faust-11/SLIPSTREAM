@@ -18,7 +18,7 @@ describe("формати часу", () => {
     expect(gapTime(61800)).toBe("+1:01.800");
   });
   it("статуси результату — з коду бази (0001)", () => {
-    expect([0, 1, 10, 11, 20, 30, 40, 41, 99].map(statusOf)).toEqual(["finished", "lapped", "accident", "retired", "dsq", "dns", "dnq", "dnq", "retired"]);
+    expect([0, 1, 10, 11, 20, 30, 40, 41, 99].map((s) => statusOf(s))).toEqual(["finished", "lapped", "accident", "retired", "dsq", "dns", "dnq", "dnq", "retired"]);
   });
 });
 
@@ -26,7 +26,7 @@ describe("getRacePage — Абу-Дабі 2025 (еталон — макет)", (
   it("смуга: переміг Ферстаппен з поулу; вирішальна гонка — чемпіон Норріс", async () => {
     const p = await race(2025, 24);
     expect(p.strip.winners.map((w) => w.id)).toEqual(["max_verstappen"]);
-    expect(p.strip.poles.map((d) => d.id)).toEqual(["max_verstappen"]);
+    expect(p.strip.poles.flat().map((d) => d.id)).toEqual(["max_verstappen"]);
     expect(p.decider).toBe(true);
     expect(p.strip.champion?.id).toBe("norris");
     expect([p.place, p.gp, p.rounds]).toEqual(["Абу-Дабі", "Гран-прі Абу-Дабі", 24]);
@@ -78,7 +78,7 @@ describe("getRacePage — межові гонки", () => {
 
   it("1952 Італія — після виправлення поул лише Аскарі, Мосс стартував 9-м", async () => {
     const p = await race(1952, 8);
-    expect(p.strip.poles.map((d) => d.id)).toEqual(["ascari"]);
+    expect(p.strip.poles.flat().map((d) => d.id)).toEqual(["ascari"]);
     expect(p.race.find((r) => r.driver.id === "moss")?.grid).toBe(9);
     expect(p.lapChart).toBeNull();
     expect(p.quali).toEqual([]);
@@ -100,5 +100,56 @@ describe("тексти «коло за колом»", () => {
     const lc = (await race(2021, 22)).lapChart!;
     expect(lc.led).toEqual([{ from: 58, to: 58 }]);
     expect(lc.notLed).toEqual([{ from: 1, to: 57 }]);
+  });
+});
+
+describe("«на місце нижче» — обмін місцями з наступним (рев'ю 13.11)", () => {
+  it("Абу-Дабі 2021: з P2 Ферстаппен — 388,5 (коло лишається за ним), Гамілтон з P1 — 394,5 → титул змінив би власника", async () => {
+    expect((await race(2021, 22)).title!.lower).toMatchObject({ position: 2, driver: { id: "hamilton" }, would: 388.5, rival: 394.5 });
+  });
+  it("Абу-Дабі 2025: без змін — Норріс 420, Ферстаппен 421 (Леклер P4 — не суперник; бонусу за коло у 2025 немає)", async () => {
+    expect((await race(2025, 24)).title!.lower).toMatchObject({ position: 4, driver: { id: "max_verstappen" }, would: 420, rival: 421 });
+  });
+});
+
+
+describe("правки незалежного рев'ю 13.11", () => {
+  it("кваліфікація: місця 1..N без дублів і пропусків у кожній гонці (було — дублі в 6 етапах)", async () => {
+    const bad: string[] = [];
+    for (const { year, round } of await getRaceKeys()) {
+      const p = await race(year, round);
+      for (const rows of [p.quali, p.sprintQuali]) {
+        const pos = rows.map((r) => r.position);
+        if (rows.length && pos.join() !== rows.map((_, i) => i + 1).join()) bad.push(`${year}/${round}`);
+      }
+    }
+    expect(bad).toEqual([]);
+  });
+
+  it("Монако 2024: дискваліфіковані з кваліфікації Гюлькенберг і Магнуссен — 19-й і 20-й, Алонсо — 14-й", async () => {
+    const q = (await race(2024, 8)).quali;
+    const at = (id: string) => q.find((r) => r.driver.id === id)?.position;
+    expect([at("alonso"), at("kevin_magnussen"), at("hulkenberg")]).toEqual([14, 19, 20]);
+  });
+
+  it("2007 Бразилія: з P2 Райкконен — 108; Гамілтон і Алонсо по 109 — другий у заліку Гамілтон", async () => {
+    expect((await race(2007, 17)).title!.lower).toMatchObject({ position: 2, driver: { id: "hamilton" }, would: 108, rival: 109 });
+  });
+
+  it("порядок сесій: Сільверстоун 2021 (спринт) — FP1, Q, FP2, SR, R; 2019 — FP1, FP2, FP3, Q, R; одна кваліфікація", async () => {
+    expect((await race(2021, 10)).sessions.map((s) => s.kind)).toEqual(["FP1", "Q", "FP2", "SR", "R"]);
+    expect((await race(2019, 1)).sessions.map((s) => s.kind)).toEqual(["FP1", "FP2", "FP3", "Q", "R"]);
+    expect((await race(1994, 1)).sessions.filter((s) => s.kind === "Q")).toHaveLength(1);
+  });
+
+  it("дискваліфікований — без місця (2023 Остін: Гамілтон); «знявся» з колами — схід (1996 Іспанія: Френтцен)", async () => {
+    expect((await race(2023, 18)).race.find((r) => r.driver.id === "hamilton")).toMatchObject({ position: null, status: "dsq" });
+    expect((await race(1996, 6)).race.find((r) => r.driver.id === "frentzen")?.status).not.toBe("dns");
+  });
+
+  it("поул 1964 Італія — Кларк один раз; «опускався» лише при падінні після першого кола (1996 Монако: Паніс — ні)", async () => {
+    expect((await race(1964, 9)).strip.poles.map((car) => car.map((d) => d.id))).toEqual([["clark"]]);
+    const lc = (await race(1996, 6)).lapChart;
+    expect(lc?.drop?.driver.id).not.toBe("panis");
   });
 });

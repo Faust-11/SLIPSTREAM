@@ -93,7 +93,8 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     # Повторний дамп замінив результати — кураторські виправлення (result-fixes.json) знову застосовуємо, як на бою
     # (data-sync: дамп → seed_curated → доливка → публікація).
     r = run("scripts/db/seed_curated.py", "--strict")
-    check("кураторські дані й виправлення після повторного дампу — успіх", r.returncode == 0 and "result-fix" in r.stdout, r.stdout[-300:] + r.stderr[-300:])
+    check("кураторські дані й виправлення після повторного дампу — успіх (виправлення застосовано)",
+          r.returncode == 0 and "result-fix" in r.stdout and "не застосовано" not in r.stdout, r.stdout[-300:] + r.stderr[-300:])
 
     # ---------- Task 3: похідні дані команд ----------
     idx = index(conn)
@@ -442,7 +443,8 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     multi_car = q("""select year, round, (select array_agg(distinct p->>'car') from jsonb_array_elements(poles) p)
                      from f1.season_rounds where poles is not null
                        and (select count(distinct p->>'car') from jsonb_array_elements(poles) p) > 1 order by 1, 2""")
-    print("INFO  SEASON PAGE поул: етапи з кількома машинами на grid = 1 (помилка даних або пілот у двох машинах):", multi_car)
+    # План 3g (№6): один поул на етап, крім пілота в двох машинах (1964 Італія: Кларк на №1 і №2); 1952 Італія — виправлено.
+    check("поул: кілька машин на grid = 1 лише 1964 Італія (Кларк у двох машинах)", [(y, n) for y, n, _ in multi_car] == [(1964, 9)], multi_car)
     # --- Сторінка гонки (0012) ---
     races_total = q("select sum(races) from f1.season_index")[0][0]
     rp_n = q("select count(*) from f1.race_page")[0][0]

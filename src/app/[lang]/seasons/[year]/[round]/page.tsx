@@ -308,7 +308,11 @@ export default async function RacePage(props: Props) {
           {page.strip.poles.length > 0 && (
             <div>
               <dt>{t.strip.pole}</dt>
-              <dd>{joinNodes(page.strip.poles.map((p) => <DriverLink key={p.id} d={p} lang={lang} />), " / ")}</dd>
+              <dd>
+                {joinNodes(
+                  page.strip.poles.map((car) => <span key={car[0]!.id}>{joinNodes(car.map((p) => <DriverLink key={p.id} d={p} lang={lang} />), " / ")}</span>),
+                )}
+              </dd>
             </div>
           )}
           {page.strip.fastest && (
@@ -352,7 +356,7 @@ export default async function RacePage(props: Props) {
                   <b>{s.kind === "R" && raceLaps ? fill(plural(raceLaps, lang, t.raceLaps), { n: raceLaps }) : t.session[s.kind]}</b>
                   {s.best && (
                     <span className="rc-tl-res">
-                      {rich(s.kind === "R" || s.kind === "SR" ? t.wonBy : s.kind === "Q" || s.kind === "SQ" ? t.poleBy : t.fastestIn, {
+                      {rich(s.kind === "R" || s.kind === "SR" ? t.wonBy : t.fastestIn, {
                         name: <DriverLink d={s.best.driver} lang={lang} short />,
                       })}
                       {s.best.ms !== null && <span className="num"> · {lapTime(s.best.ms)}</span>}
@@ -397,7 +401,9 @@ export default async function RacePage(props: Props) {
                       <span className="rc-tt-p">{c.finish !== null ? fill(t.finish, { n: c.finish }) : t.finishNone}</span>
                     </span>
                     <span className="rc-tt-pts num">
-                      <span>{n(c.before)}</span> <i aria-hidden="true">→</i> <b>{n(c.after)}</b>
+                      <span className="sr-only">{t.ttBefore} </span>
+                      <span>{n(c.before)}</span> <i aria-hidden="true">→</i>
+                      <span className="sr-only"> {t.ttAfter} </span> <b>{n(c.after)}</b>
                     </span>
                   </li>
                 ))}
@@ -422,7 +428,10 @@ export default async function RacePage(props: Props) {
                     ? rich(t.ledAll, { driver: <DriverLink d={lc.winner} lang={lang} short /> })
                     : // Менше половини гонки попереду — «лише на …» (Абу-Дабі 2021: «крім 1–57» звучало б дивно).
                       lc.led.reduce((a, r) => a + r.to - r.from + 1, 0) * 2 < lc.laps
-                      ? rich(t.ledOnly, { driver: <DriverLink d={lc.winner} lang={lang} short />, ranges: <b>{ranges(lc.led)}</b> })
+                      ? rich(lc.led.length === 1 && lc.led[0]!.from === lc.led[0]!.to ? t.ledOnlyOne : t.ledOnly, {
+                          driver: <DriverLink d={lc.winner} lang={lang} short />,
+                          ranges: <b>{ranges(lc.led)}</b>,
+                        })
                       : rich(t.notLed, { driver: <DriverLink d={lc.winner} lang={lang} short />, ranges: <b>{ranges(lc.notLed)}</b> })}
                 </p>
                 {lc.drop && (

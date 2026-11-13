@@ -784,7 +784,6 @@
       "R": "Race"
     },
     "fastestIn": "fastest: {name}",
-    "poleBy": "pole: {name}",
     "wonBy": "won by {name}",
     "raceLaps": {
       "one": "Race · {n} lap",
@@ -848,6 +847,9 @@
     "toSeason": "Season {year} ›",
     "credits": "Photo credits",
     "neighbours": "Neighbouring rounds",
-    "ledOnly": "{driver} led only laps {ranges}."
+    "ledOnly": "{driver} led only laps {ranges}.",
+    "ledOnlyOne": "{driver} led only lap {ranges}.",
+    "ttBefore": "before",
+    "ttAfter": "after"
   }
 }

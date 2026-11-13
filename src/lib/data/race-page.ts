@@ -4,7 +4,7 @@
 import "server-only";
 import circuitsJson from "@/data/curated/circuits.json";
 import type { Locale } from "@/i18n/config";
-import { lapLeaders, lapSpells, lapsNotLed, lowestAfterStart, onePlaceLower } from "@/lib/race-math";
+import { lapLeaders, lapSpells, lapsNotLed, lowestAfterStart, positionPoints, raceScale, swapWithNext } from "@/lib/race-math";
 import { decidingRound, jolpicaRule, observedMax, seasonRules, type SeasonData } from "@/lib/season-math";
 import { dbSelectAll } from "./db";
 import { once } from "./once";
@@ -15,6 +15,7 @@ import {
   loadRules,
   makeDriver,
   PALETTE_SLOTS,
+  poleCars,
   placeName,
   teamRef,
   type SeasonDriver,
@@ -36,7 +37,9 @@ const loadRaces = once(async () => {
 
 /** Статус результату (0001): 0 фініш, 1 відстав на коло(а), 10 аварія, 11 схід, 20 дискваліфікація, 30 не стартував, 40/41 не кваліфікувався. */
 export type ResultStatus = "finished" | "lapped" | "accident" | "retired" | "dsq" | "dns" | "dnq";
-export function statusOf(s: number | undefined): ResultStatus {
+export function statusOf(s: number | undefined, laps?: number): ResultStatus {
+  // Код 30 у Jolpica — і «не стартував», і «знявся» (Withdrew): з пройденими колами — схід (рев'ю 13.11: 1996/6 Френтцен P4).
+  if (s === 30 && (laps ?? 0) > 0) return "retired";
   switch (s) {
     case 0:
     case undefined:
@@ -97,7 +100,8 @@ export type RacePage = {
   decider: boolean;
   strip: {
     winners: RaceDriver[];
-    poles: SeasonDriver[];
+    /** Машини з поулом (екіпаж спільної машини 1950-х — через « / »); пілот у двох машинах — один раз (1964 Італія). */
+    poles: SeasonDriver[][];
     fastest: null | { driver: SeasonDriver; ms: number };
     champion: SeasonDriver | null;
   };
@@ -134,7 +138,7 @@ export async function getRaceKeys(): Promise<{ year: number; round: number }[]> 
 function results(rows: RaceResultJson[], drv: (id: string, team?: string) => RaceDriver, slotOf: Map<string, number>): ResultRow[] {
   const win = rows.find((r) => r.p === 1);
   return rows.map((r) => {
-    const status = statusOf(r.s);
+    const status = statusOf(r.s, r.l);
     let time: ResultRow["time"] = null;
     if (r.p !== undefined && r.ms !== undefined && win?.ms !== undefined) {
       time = r.p === 1 ? { kind: "total", ms: r.ms } : status === "finished" ? { kind: "gap", ms: r.ms - win.ms } : null;
@@ -182,7 +186,8 @@ export async function getRacePage(year: number, round: number, locale: Locale): 
   const leaders = lapLeaders(row.laps);
   const winnerRow = row.race.find((r) => r.p === 1);
   let lapChart: RacePage["lapChart"] = null;
-  if (chartIds.length > 0 && winnerRow) {
+  // Графік — від двох кіл (рев'ю 13.11: Бельгія 2021 — розділ із текстом, але без графіка).
+  if (chartIds.length > 0 && winnerRow && leaders.length >= 2) {
     const lines = chartIds.map((id) => ({
       driver: base(id),
       slot: slotOf.get(id)!,
@@ -218,7 +223,10 @@ export async function getRacePage(year: number, round: number, locale: Locale): 
   const isDecider = decision?.round === round;
   let title: RacePage["title"] = null;
   if (isDecider && decision) {
-    const after = points.filter((p) => p.round === round && p.standing_points !== null).sort((a, b) => b.standing_points! - a.standing_points!);
+    // Порядок — за очками, рівні — за місцем у заліку (рахунок місць; 2007: Гамілтон другий при 109 = 109 з Алонсо).
+    const after = points
+      .filter((p) => p.round === round && p.standing_points !== null)
+      .sort((a, b) => b.standing_points! - a.standing_points! || (a.standing ?? 999) - (b.standing ?? 999));
     const prevRound = seasonRounds.filter((r) => r.round! < round).at(-1)?.round;
     const before = new Map(points.filter((p) => p.round === prevRound && p.standing_points !== null).map((p) => [p.driver, p.standing_points!]));
     const top = after.slice(0, 3);
@@ -228,13 +236,22 @@ export async function getRacePage(year: number, round: number, locale: Locale): 
     });
     let lower: NonNullable<RacePage["title"]>["lower"] = null;
     const champRow = row.race.find((r) => r.d === decision.driver);
-    // Лише коли зараховуються всі результати (з відкиданням гірших «на місце нижче» не рахується простим відніманням).
+    // Лише коли зараховуються всі результати (з відкиданням гірших «на місце нижче» не рахується простим обміном).
     if (jr?.kind === "all" && champRow?.p !== undefined) {
-      const nextPts = row.race.find((r) => r.p === champRow.p! + 1)?.pts ?? 0;
-      const champ = top.find((t) => t.driver === decision.driver);
-      const res = champ
-        ? onePlaceLower({ final: champ.standing_points!, racePoints: champRow.pts ?? 0 }, nextPts, top.filter((t) => t.driver !== decision.driver).map((t) => ({ driver: t.driver, final: t.standing_points! })))
-        : null;
+      const nextRow = row.race.find((r) => r.p === champRow.p! + 1) ?? null;
+      // Очки за місце — з гонок сезону (мода), масштаб гонки — половина чи подвійні; бонус за коло — надлишок над ними.
+      const table = positionPoints([...races.values()].filter((r) => r.year === year).map((r) => r.race));
+      const scale = raceScale(row.race, table);
+      const at = (p: number) => scale * (table.get(p) ?? 0);
+      const bonus = (r: RaceResultJson) => (r.fl === 1 && r.p !== undefined ? Math.max(0, (r.pts ?? 0) - at(r.p)) : 0);
+      const finalOf = (d: string) => after.find((a) => a.driver === d)?.standing_points ?? 0;
+      const res = swapWithNext(
+        { driver: decision.driver, final: finalOf(decision.driver), pts: champRow.pts ?? 0, fl: bonus(champRow) },
+        nextRow ? { driver: nextRow.d, final: finalOf(nextRow.d), pts: nextRow.pts ?? 0, fl: bonus(nextRow) } : null,
+        at(champRow.p),
+        at(champRow.p + 1),
+        after.map((a, i) => ({ driver: a.driver, final: a.standing_points!, standing: a.standing ?? 100 + i })),
+      );
       if (res) lower = { position: champRow.p + 1, driver: base(res.driver), would: res.championWould, rival: res.rival };
     }
     title = { contenders, lower };
@@ -243,8 +260,12 @@ export async function getRacePage(year: number, round: number, locale: Locale): 
   /* --- сесії --- */
   const qualiRows = quali(row.quali, drv);
   const sprintQualiRows = quali(row.sprint_quali, drv);
-  const sessions: SessionItem[] = row.sessions.map((s) => {
-    const kind = (["Q1", "QB"].includes(s.k) ? "Q" : s.k === "SQ1" ? "SQ" : s.k) as SessionItem["kind"];
+  const seenKinds = new Set<string>();
+  const sessions: SessionItem[] = row.sessions.flatMap((s) => {
+    const kind = (["Q1", "QB", "QA"].includes(s.k) ? "Q" : s.k === "SQ1" ? "SQ" : s.k) as SessionItem["kind"];
+    // Одна кваліфікація на вікенд (1994–1995 — дві сесії QB, 2005 — QA): рев'ю 13.11 — «поул — Гілл» двічі.
+    if (seenKinds.has(kind)) return [];
+    seenKinds.add(kind);
     let best: SessionItem["best"] = null;
     if (kind === "Q" || kind === "SQ") {
       const pole = (kind === "Q" ? qualiRows : sprintQualiRows).find((q) => q.position === 1);
@@ -253,7 +274,7 @@ export async function getRacePage(year: number, round: number, locale: Locale): 
       const w = (kind === "R" ? row.race : row.sprint).find((r) => r.p === 1);
       if (w) best = { driver: base(w.d), ms: null };
     } else if (s.best) best = { driver: base(s.best.d), ms: s.best.ms };
-    return { kind, at: s.at, real: s.real, best };
+    return [{ kind, at: s.at, real: s.real, best }];
   });
 
   /* --- банер, смуга, сусіди --- */
@@ -279,7 +300,7 @@ export async function getRacePage(year: number, round: number, locale: Locale): 
     decider: isDecider,
     strip: {
       winners,
-      poles: (meta.poles ?? []).map((p) => base(p.driver)),
+      poles: poleCars(meta.poles ?? []).map((car) => car.map(base)),
       fastest: fastestRow ? { driver: base(fastestRow.d), ms: fastestRow.fms! } : null,
       champion: isDecider && decision ? base(decision.driver) : null,
     },
