@@ -265,6 +265,15 @@ html:has(.sn-chips) {
   font: 400 22px/1 var(--f-display);
   word-spacing: -0.35em;
 }
+/* Рік — посилання на сторінку сезону: колір плашки, а не успадкований світлий (контраст на жовтому). */
+.seasons-page .car h3 a.yr {
+  color: var(--on-yellow);
+  text-decoration: none;
+}
+.seasons-page .car h3 a.yr:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .pole .car h3 .yr {
   font-size: 26px;
 }

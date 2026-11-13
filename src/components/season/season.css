@@ -1,0 +1,812 @@
+/* Сторінка сезону /seasons/<рік> (фаза 3f) — за макетом 2025. Настанови modern-web-guidance: «Optimize image priority»
+   (банер — LCP), «Defer rendering heavy content» (календар і таблиці нижче першого екрана), «Responsive tables».
+
+   Слоти палітри графіка — dataviz, валідовано scripts/validate_palette.js 13.11 на поверхнях сайту:
+   світла (#f3f4f1) — усі жорсткі перевірки PASS, контраст < 3:1 у 4 слотів → підписи в кінці ліній + таблиця;
+   темна (#111216) — усе PASS. Кольори — за позицією у фінальному заліку сезону, не лівреї (історичних кольорів команд
+   у даних немає). Друга ознака — штрих лінії (title-chart.tsx, DASH). */
+.season-page {
+  --s0: #2a78d6;
+  --s1: #eb6834;
+  --s2: #1baf7a;
+  --s3: #eda100;
+  --s4: #e87ba4;
+  --s5: #008300;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) .season-page {
+    --s0: #3987e5;
+    --s1: #d95926;
+    --s2: #199e70;
+    --s3: #c98500;
+    --s4: #d55181;
+    --s5: #008300;
+  }
+}
+:root[data-theme="dark"] .season-page {
+  --s0: #3987e5;
+  --s1: #d95926;
+  --s2: #199e70;
+  --s3: #c98500;
+  --s4: #d55181;
+  --s5: #008300;
+}
+.season-page [data-slot="0"] { --c: var(--s0); }
+.season-page [data-slot="1"] { --c: var(--s1); }
+.season-page [data-slot="2"] { --c: var(--s2); }
+.season-page [data-slot="3"] { --c: var(--s3); }
+.season-page [data-slot="4"] { --c: var(--s4); }
+.season-page [data-slot="5"] { --c: var(--s5); }
+
+/* ---------- крихти ---------- */
+.sp-crumbs .wrap {
+  gap: 8px;
+}
+.sp-crumbs .sp {
+  flex: 1;
+}
+.sp-crumbs .nb {
+  padding: 6px 10px;
+  box-shadow: inset 0 0 0 1.5px var(--rule);
+  text-decoration: none;
+}
+.sp-crumbs .nb:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ---------- банер ---------- */
+.sh {
+  position: relative;
+  background: #16181d;
+  color: #f3f4f1;
+  border-bottom: 8px solid var(--team);
+}
+.sh img {
+  display: block;
+  width: 100%;
+  height: clamp(240px, 30vw, 400px);
+  object-fit: cover;
+}
+.sh.has-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(10 11 14 / 0.88) 0%, rgb(10 11 14 / 0.55) 45%, rgb(10 11 14 / 0.05) 80%);
+}
+.sh .wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+  min-height: clamp(200px, 22vw, 280px);
+  padding-block: 28px 30px;
+}
+.sh.has-photo .wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  min-height: 0;
+}
+.sh h1 {
+  font-size: clamp(42px, 8vw, 104px);
+}
+.sh h1 .yr {
+  color: var(--yellow);
+}
+.sh p {
+  margin: 0;
+  max-width: 48ch;
+  font-size: clamp(16px, 1.8vw, 20px);
+  text-wrap: pretty;
+}
+.sh p b {
+  color: var(--yellow);
+}
+.sh a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+/* ---------- ключові числа ---------- */
+.sk {
+  border-bottom: var(--b) solid var(--rule);
+}
+.sk ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin-block: 0;
+  list-style: none;
+}
+.sk li {
+  min-width: 0;
+  padding: 18px 18px 18px 0;
+}
+.sk li + li {
+  padding-left: 18px;
+  border-left: 2px solid var(--rule);
+}
+.sk b {
+  display: block;
+  font: 400 clamp(24px, 3vw, 38px) / 1.05 var(--f-display);
+  word-spacing: -0.35em;
+}
+.sk span {
+  display: block;
+  font-size: 13.5px;
+  line-height: 1.3;
+  color: var(--ink-soft);
+}
+.sk .red b {
+  color: var(--red-text);
+}
+
+/* ---------- секції ---------- */
+.season-page .ss {
+  border-bottom: var(--b) solid var(--rule);
+}
+.season-page .ss-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 8px 16px;
+  padding-block: 36px 18px;
+}
+.season-page .ss-head h2 {
+  margin: 0;
+  font-size: clamp(26px, 3.2vw, 38px);
+}
+.season-page .src,
+.season-page .cal-key {
+  margin: 0;
+  font: 500 11px/1.4 var(--f-mono);
+  color: var(--ink-soft);
+}
+.season-page .cal-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  font: 13px/1.4 var(--f-body);
+}
+
+/* ---------- битва за титул ---------- */
+.fight-body {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.7fr);
+  gap: 40px;
+  padding-bottom: 36px;
+}
+.story {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.story p {
+  margin: 0;
+  max-width: 46ch;
+  text-wrap: pretty;
+}
+.story b {
+  font-weight: 700;
+  color: var(--red-text);
+}
+.fc-box {
+  min-width: 0;
+}
+.fc-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 0 0 10px;
+  padding: 0;
+  list-style: none;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.fc-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.fc-legend line {
+  stroke: var(--c);
+  stroke-width: 3;
+}
+.fc-scroll:focus-visible {
+  outline: 3px solid var(--focus, var(--yellow));
+  outline-offset: 2px;
+}
+.fc-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.fc-chart text {
+  font: 11px var(--f-mono);
+  fill: var(--ink-soft);
+}
+.fc-chart .end {
+  font: 700 12.5px var(--f-body);
+  fill: var(--ink);
+}
+.fc-chart .gl {
+  stroke: var(--grid);
+  stroke-width: 1;
+}
+.fc-chart .ln {
+  fill: none;
+  stroke: var(--c);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.fc-chart .ln.lead {
+  stroke-width: 3;
+}
+.fc-chart .dot {
+  fill: var(--c);
+  stroke: var(--paper);
+  stroke-width: 2;
+}
+.fc-chart .col rect {
+  fill: transparent;
+}
+.fc-chart .col .hl {
+  stroke: var(--ink);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  opacity: 0;
+}
+.fc-chart .col:hover .hl {
+  opacity: 1;
+}
+.fc-strip {
+  margin-top: 14px;
+}
+.fc-strip p {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 6px;
+  font: 11px var(--f-mono);
+  color: var(--ink-soft);
+}
+.fc-strip ol {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.fc-strip li {
+  height: 14px;
+  background: var(--c, var(--hair));
+}
+.fc-table {
+  margin-top: 14px;
+  font-size: 13px;
+}
+.fc-table summary {
+  cursor: pointer;
+  font: 600 12px var(--f-mono);
+  letter-spacing: 0.03em;
+}
+.fc-table-scroll {
+  max-block-size: min(420px, 70vh);
+  margin-top: 8px;
+  overflow: auto;
+}
+.fc-table table {
+  border-collapse: separate;
+  border-spacing: 0;
+  min-inline-size: 100%;
+}
+.fc-table th,
+.fc-table td {
+  padding: 4px 10px;
+  border-bottom: 1px solid var(--hair);
+  text-align: right;
+  white-space: nowrap;
+}
+.fc-table thead th {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+  background: var(--paper);
+}
+.fc-table tbody th {
+  position: sticky;
+  inset-inline-start: 0;
+  background: var(--paper);
+  text-align: left;
+  font-weight: 400;
+}
+.fc-table td[data-lead] {
+  font-weight: 700;
+}
+/* Телефон: графік прокручується вбік у читабельному розмірі (макет), сторінка — ні. */
+@media (width <= 600px) {
+  .fc-scroll {
+    overflow-x: auto;
+  }
+  .fc-chart {
+    min-width: 620px;
+  }
+}
+
+/* ---------- претенденти ---------- */
+.cons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0 0 40px;
+  list-style: none;
+}
+.con article {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--card);
+  color: var(--on-card);
+  border-bottom: 6px solid var(--c, var(--hair));
+}
+.con-media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #0e0f12;
+}
+.con-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.con-ini {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  font: 400 56px/1 var(--f-display);
+  word-spacing: -0.35em;
+  color: #8a8f98;
+}
+.con-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px 18px 18px;
+}
+.con-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: -46px;
+}
+.con-top .roundel {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--c, #8a8f98);
+  color: #101114;
+  font: 400 24px var(--f-display);
+  word-spacing: -0.35em;
+  box-shadow: 0 0 0 4px var(--card);
+}
+.con-top div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding-top: 40px;
+}
+.con-top .place {
+  font: 500 11px var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--yellow);
+}
+.con-top h3 {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.15;
+}
+.con-top a {
+  color: inherit;
+  text-decoration-color: rgb(243 244 241 / 0.35);
+  text-underline-offset: 3px;
+}
+.con-team {
+  font-size: 13px;
+  color: var(--on-card-soft);
+}
+.con-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px solid rgb(255 255 255 / 0.18);
+}
+.con-stats div {
+  display: flex;
+  flex-direction: column-reverse;
+  min-width: 0;
+}
+.con-stats dt {
+  font-size: 12px;
+  color: var(--on-card-soft);
+}
+.con-stats dd {
+  margin: 0;
+  font: 400 24px/1.05 var(--f-display);
+  word-spacing: -0.35em;
+}
+.con-stats .gap {
+  display: block;
+  font: 11px var(--f-mono);
+  word-spacing: normal;
+  color: #ff8a7a;
+}
+.con:first-child .con-stats div:first-child dd {
+  color: var(--yellow);
+}
+
+/* ---------- календар ---------- */
+.cal {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(186px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0 0 40px;
+  list-style: none;
+}
+/* Етапи нижче першого екрана — без розкладки, доки не наблизяться (урок 3e: шрифти перераховували всі картки).
+   Заглушка — висота картки з переможцем, поулом і спринтом. */
+.race:nth-child(n + 9) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 150px;
+}
+.race-in {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  height: 100%;
+  padding: 12px 12px 12px 14px;
+  background: var(--paper-2);
+  border-left: 6px solid var(--c, var(--hair));
+}
+.rhead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.rnum {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  font: 400 13px var(--f-display);
+  word-spacing: -0.35em;
+}
+.rdate {
+  font: 12px var(--f-mono);
+  color: var(--ink-soft);
+}
+.season-page .tag {
+  margin-left: auto;
+  padding: 2px 6px;
+  background: var(--yellow);
+  color: var(--on-yellow);
+  font: 600 10.5px var(--f-mono);
+  text-decoration: none;
+}
+.cal-key .tag {
+  margin: 0;
+}
+.city {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.gp {
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--ink-soft);
+}
+.winner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 8px;
+}
+.winner .av {
+  align-self: center;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 2px var(--c, var(--hair));
+}
+.winner b {
+  font-size: 14.5px;
+}
+.winner small {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.race .sub {
+  font: 11px var(--f-mono);
+  color: var(--ink-soft);
+}
+.race .note {
+  margin-top: 6px;
+  font: 600 10.5px var(--f-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--red-text);
+}
+.race a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+.decider .race-in {
+  background: var(--ink);
+  color: var(--paper);
+}
+.decider .gp,
+.decider .rdate,
+.decider .sub,
+.decider .winner small {
+  color: var(--hair);
+}
+.decider .rnum {
+  background: var(--yellow);
+  color: var(--on-yellow);
+}
+.decider .note {
+  color: var(--yellow);
+}
+.upcoming .race-in {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--hair);
+}
+.cancelled .city,
+.cancelled .gp {
+  text-decoration: line-through;
+}
+
+/* ---------- підсумкові таблиці ---------- */
+.tables {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+.tables.one {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 720px;
+}
+.st {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.st caption {
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--rule);
+  font: 600 12px var(--f-mono);
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.st thead {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.st td,
+.st th {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--hair);
+  vertical-align: middle;
+}
+.st .st-pos {
+  width: 34px;
+  font: 400 12px var(--f-display);
+  word-spacing: -0.35em;
+}
+.st tbody th {
+  font-weight: 600;
+  text-align: left;
+}
+.st .st-pts {
+  width: 56px;
+  text-align: right;
+  font: 400 13px var(--f-display);
+  word-spacing: -0.35em;
+}
+.st-name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  min-width: 0;
+  line-height: 1.2;
+}
+.st-name a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+.st-name small {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+.st .av {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  background: var(--paper-2);
+  box-shadow: 0 0 0 2px var(--c, var(--hair));
+}
+.st .av-none {
+  display: inline-block;
+}
+.st .st-dot {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+.st .st-ex {
+  font: 600 10.5px var(--f-mono);
+  font-style: normal;
+  text-transform: uppercase;
+  color: var(--red-text);
+}
+.st .st-bar {
+  display: block;
+  height: 6px;
+  margin-top: 6px;
+  background: var(--paper-2);
+}
+.st .st-bar i {
+  display: block;
+  height: 100%;
+  background: var(--c, var(--ink-soft));
+}
+
+/* ---------- сусідні сезони ---------- */
+.nbrs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.nbr {
+  position: relative;
+  display: block;
+  height: 220px;
+  overflow: hidden;
+  background: #0e0f12;
+  color: #f3f4f1;
+  text-decoration: none;
+}
+.nbr img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.75;
+}
+.nbr::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(10 11 14 / 0.1), rgb(10 11 14 / 0.85));
+}
+.nbr .t {
+  position: absolute;
+  inset: auto 24px 20px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.nbr.next .t {
+  align-items: flex-end;
+  text-align: right;
+}
+.nbr .t span {
+  font: 12px var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--yellow);
+}
+.nbr .t b {
+  font: 400 40px/1 var(--f-display);
+  word-spacing: -0.35em;
+}
+.nbr .t small {
+  font-size: 14px;
+}
+.nbr:hover .t b,
+.nbr:focus-visible .t b {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .nbr img {
+    transition: opacity 0.2s;
+  }
+  .nbr:hover img {
+    opacity: 0.9;
+  }
+}
+
+/* ---------- адаптивність ---------- */
+@media (width <= 1100px) {
+  .fight-body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .story {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 28px;
+  }
+}
+@media (width <= 860px) {
+  .cons,
+  .tables,
+  .story {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sk li,
+  .sk li + li {
+    padding: 14px 12px 14px 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--hair);
+  }
+}
+@media (width <= 600px) {
+  .cal {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .race-in {
+    padding: 10px 8px 10px 10px;
+  }
+  .city {
+    font-size: 14.5px;
+  }
+  .nbrs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .nbr {
+    height: 170px;
+  }
+  .nbr.empty {
+    display: none;
+  }
+  .nbr .t b {
+    font-size: 30px;
+  }
+}

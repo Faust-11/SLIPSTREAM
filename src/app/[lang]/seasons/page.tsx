@@ -88,7 +88,10 @@ export default async function SeasonsPage({ params }: Props) {
             </div>
           )}
           <h3 id={titleId}>
-            <span className="yr num">{c.year}</span>
+            {/* Рік — посилання на сторінку сезону (фаза 3f); назва посилання «Сезон 1988» містить видимий текст (WCAG 2.5.3). */}
+            <a className="yr num" href={path(`/seasons/${c.year}`)} aria-label={fill(t.seasonLink, { year: c.year })}>
+              {c.year}
+            </a>
             <span className="sr-only">: </span>
             {c.driver ? <a href={path(`/drivers/${c.driver.slug}`)}>{c.driver.name}</a> : "—"}
           </h3>

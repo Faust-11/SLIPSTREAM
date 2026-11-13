@@ -25,7 +25,8 @@ const curated = (seasonsJson as unknown as { seasons: Record<string, CuratedSeas
 const heroes = (driverHeroesJson as unknown as { drivers: Record<string, number[]> }).drivers;
 const teamsById = new Map(curatedTeams.map((t) => [t.id, t]));
 
-const loadSeasons = once(() =>
+/** Спільний для сторінки сезону (один запит на збірку). */
+export const loadSeasonIndex = once(() =>
   dbSelectAll<SeasonIndexRow>(
     "season_index",
     "select=year,races,rounds,in_progress,driver,forename,surname,points,driver_decided,teams,wins,cup_team,cup_decided&order=year",
@@ -82,7 +83,7 @@ export function mainTeams(teams: { id: string; races: number }[]): string[] {
 }
 
 export async function getSeasonsIndex(locale: Locale): Promise<SeasonsIndex> {
-  const rows = [...(await loadSeasons())].sort((a, b) => b.year - a.year);
+  const rows = [...(await loadSeasonIndex())].sort((a, b) => b.year - a.year);
   const credits: SeasonsIndex["credits"] = [];
   const surnameOf = (r: SeasonIndexRow) => splitName(driverName(r.driver!, r.forename!, r.surname!, locale), r.surname!)[1];
 

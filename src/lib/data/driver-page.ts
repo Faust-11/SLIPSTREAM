@@ -64,7 +64,8 @@ const loadTotals = once(async () =>
     ),
   ),
 );
-const loadSeasons = once(async () =>
+/** Спільний для сторінки сезону (один запит на збірку). */
+export const loadDriverSeasons = once(async () =>
   grouped(
     await dbSelectAll<DriverSeasonRow>(
       "driver_seasons",
@@ -260,7 +261,7 @@ export async function getDriverPage(slug: string, locale: Locale, today = new Da
   const row = (await loadIndex()).get(slug);
   if (!row) return null;
   const id = row.id;
-  const [totalsBy, seasonsBy, winsBy, matesBy] = await Promise.all([loadTotals(), loadSeasons(), loadWins(), loadTeammates()]);
+  const [totalsBy, seasonsBy, winsBy, matesBy] = await Promise.all([loadTotals(), loadDriverSeasons(), loadWins(), loadTeammates()]);
   const totals = totalsBy.get(id)?.[0];
   if (!totals) throw new Error(`Пілот ${id} є в f1.driver_index, але не в f1.driver_totals`);
   const seasonRows = seasonsBy.get(id) ?? [];
