@@ -1,5 +1,5 @@
 {
- "_about": "Місце етапу для календаря сезону (як його знають уболівальники: місто або траса, якщо в Jolpica locality — регіон: Kent → Брендс-Гетч). Ключ — f1.circuits.ref. Нова траса в базі без запису — тест падає (src/lib/data/__tests__/season-page.test.ts). Сумнівні написання — docs/data/review-2026-11-13-circuit-places.md.",
+ "_about": "Місце етапу для календаря сезону (як його знають уболівальники: місто або траса, якщо в Jolpica locality — регіон: Kent → Брендс-Гетч). Ключ — f1.circuits.ref. Нова траса в базі без запису — тест падає (src/lib/data/__tests__/season-page.test.ts). Написання звірено з назвами статей української Вікіпедії (міжмовні посилання з англійської, 13.11): docs/data/review-2026-11-13-circuit-places.md.",
  "places": {
   "adelaide": {
    "uk": "Аделаїда",
@@ -50,8 +50,8 @@
    "en": "Bern"
   },
   "buddh": {
-   "uk": "Буддх",
-   "en": "Buddh"
+   "uk": "Велика Нойда",
+   "en": "Greater Noida"
   },
   "catalunya": {
    "uk": "Барселона",
@@ -138,7 +138,7 @@
    "en": "Jerez"
   },
   "kyalami": {
-   "uk": "К'ялемі",
+   "uk": "К'яламі",
    "en": "Kyalami"
   },
   "las_vegas": {
@@ -202,7 +202,7 @@
    "en": "Nivelles"
   },
   "nurburgring": {
-   "uk": "Нюрбургрінг",
+   "uk": "Нюрбургринг",
    "en": "Nürburgring"
   },
   "okayama": {
@@ -222,7 +222,7 @@
    "en": "Phoenix"
   },
   "portimao": {
-   "uk": "Портімау",
+   "uk": "Портіман",
    "en": "Portimão"
   },
   "red_bull_ring": {
@@ -246,7 +246,7 @@
    "en": "Mexico City"
   },
   "sebring": {
-   "uk": "Себрінг",
+   "uk": "Сібрінг",
    "en": "Sebring"
   },
   "sepang": {
@@ -270,11 +270,11 @@
    "en": "Spa"
   },
   "suzuka": {
-   "uk": "Сузука",
+   "uk": "Судзука",
    "en": "Suzuka"
   },
   "tremblant": {
-   "uk": "Мон-Тремблан",
+   "uk": "Мон-Трамблан",
    "en": "Mont-Tremblant"
   },
   "valencia": {
@@ -310,7 +310,7 @@
    "en": "Zeltweg"
   },
   "zolder": {
-   "uk": "Зольдер",
+   "uk": "Золдер",
    "en": "Zolder"
   }
  }

@@ -60,8 +60,8 @@ test("1988: зараховано лише кращі результати — П
   await page.goto("/uk/seasons/1988");
   const story = page.locator(".story");
   await expect(story).toContainText("Прост набрав більше очок загалом (105 проти 94)");
-  await expect(story).toContainText("Титул вирішено після етапу 15 (Сузука)");
-  await expect(page.locator(".cal .decider")).toContainText("Сузука");
+  await expect(story).toContainText("Титул вирішено після етапу 15 (Судзука)");
+  await expect(page.locator(".cal .decider")).toContainText("Судзука");
 });
 
 test("1997: Шумахер виключений — у тексті й таблиці з позначкою, на графіку є", async ({ page }) => {
