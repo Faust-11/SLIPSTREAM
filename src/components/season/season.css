@@ -330,8 +330,15 @@
 }
 /* Телефон: графік прокручується вбік у читабельному розмірі (макет), сторінка — ні. */
 @media (width <= 600px) {
+  /* row-reverse: вміст переповнюється ліворуч, тож прокрутка стартує з правого краю — видно фінал сезону й підписи
+     ліній (без JS). */
   .fc-scroll {
+    display: flex;
+    flex-direction: row-reverse;
     overflow-x: auto;
+  }
+  .fc-chart {
+    flex: none;
   }
   .fc-chart {
     min-width: 620px;
@@ -428,6 +435,12 @@
   font-size: 13px;
   color: var(--on-card-soft);
 }
+/* Ціль натискання ≥ 24 px (WCAG 2.5.8, axe target-size 13.11). */
+.con-team a {
+  display: inline-block;
+  min-block-size: 24px;
+  line-height: 24px;
+}
 .con-stats {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -469,8 +482,10 @@
   list-style: none;
 }
 /* Етапи нижче першого екрана — без розкладки, доки не наблизяться (урок 3e: шрифти перераховували всі картки).
-   Заглушка — висота картки з переможцем, поулом і спринтом. */
-.race:nth-child(n + 9) {
+   На .race-in, а не на li: фон картки має бути на тому самому елементі, інакше axe не бачить фону пропущеного нащадка
+   й міряє контраст тексту з тлом сторінки (хибне color-contrast у світлій темі, 13.11). Заглушка — висота картки
+   з переможцем, поулом і спринтом; висоту в решітці задає height: 100%. */
+.race:nth-child(n + 9) .race-in {
   content-visibility: auto;
   contain-intrinsic-size: auto 150px;
 }
@@ -562,15 +577,17 @@
   color: inherit;
   text-underline-offset: 3px;
 }
+/* Вирішальна гонка — темна картка в обох темах (токени карток): --ink/--hair міняються місцями в темній темі,
+   і сірий текст та жовта позначка втрачали контраст (axe color-contrast, 13.11). */
 .decider .race-in {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--card);
+  color: var(--on-card);
 }
 .decider .gp,
 .decider .rdate,
 .decider .sub,
 .decider .winner small {
-  color: var(--hair);
+  color: var(--on-card-soft);
 }
 .decider .rnum {
   background: var(--yellow);
