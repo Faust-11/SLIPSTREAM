@@ -77,7 +77,7 @@ describe("getSeasonPage — межові сезони", () => {
   it("1988: зараховано 11 кращих — Прост набрав більше загалом (105 проти 94); вирішено в Сузуці (15-й етап)", async () => {
     const { facts } = await page(1988);
     expect(facts.dropped).toMatchObject({ champion: { id: "senna" }, championCounted: 90, rival: { id: "prost" }, rivalTotal: 105, rivalCounted: 87 });
-    expect(facts.decider).toMatchObject({ round: 15, place: "Сузука", last: false });
+    expect(facts.decider).toMatchObject({ round: 15, place: "Судзука", last: false });
   });
 
   it("1997: Шумахер виключений — у таблиці наприкінці з позначкою, на графіку (очолював залік)", async () => {
