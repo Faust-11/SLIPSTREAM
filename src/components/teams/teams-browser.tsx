@@ -8,6 +8,7 @@ import type { TeamCard as TeamCardData } from "@/lib/data/teams";
 import { plural } from "@/lib/plural";
 import { seasonsText } from "@/lib/season-strip";
 import {
+  normalizeSearch,
   parseTeamsQuery,
   selectTeams,
   TEAMS_FILTERS,
@@ -77,13 +78,17 @@ export function withTeamsQuery(search: string, query: TeamsQuery): string {
  * Сервер віддає перші `pageSize` карток у порядку за замовчуванням (їх гідратує React) і решту — у
  * `<noscript>`: без JS видно всі, з JS їх немає в DOM. Після гідратації QuerySync застосовує стан з адреси.
  */
+/** Ключ вибірки для «Показати ще»: нормалізований пошук + фільтр + сортування. */
+const viewKey = (x: TeamsQuery) => JSON.stringify([normalizeSearch(x.q), x.f, x.sort]);
+
 export function TeamsBrowser({ cards, locale, season, pageSize, labels }: Props) {
   const [query, setQuery] = useState<TeamsQuery>(DEFAULT_QUERY);
   // Скільки показано — для конкретного стану списку (за ідентичністю об'єкта): будь-яка справжня зміна
   // пошуку/фільтра/сортування (новий об'єкт) скидає до pageSize; повторний клік активного чипа — ні.
   const [page, setPage] = useState<{ of: TeamsQuery; n: number }>({ of: query, n: pageSize });
   const [synced, setSynced] = useState(false);
-  const shown = page.of === query ? page.n : pageSize;
+  // «Показати ще» скидається лише при іншій вибірці: пробіл у кінці слова — та сама вибірка (code-review PR #18).
+  const shown = viewKey(page.of) === viewKey(query) ? page.n : pageSize;
   // Перша нововідкрита картка після «Показати ще» — отримує фокус (кнопка може зникнути).
   const focusFrom = useRef<number | null>(null);
   const tools = useRef<HTMLDivElement>(null);
@@ -115,17 +120,29 @@ export function TeamsBrowser({ cards, locale, season, pageSize, labels }: Props)
     dirty.current = true;
     // Порівняння — за станом, а не за адресою: адреса обрізає пробіли, і пробіл на початку слова губився б.
     const next = { ...query, ...patch };
-    if (next.q !== query.q || next.f !== query.f || next.sort !== query.sort) setQuery(next);
+    if (JSON.stringify(next) === JSON.stringify(query)) return;
+    // Інша вибірка — «Показати ще» з початку, навіть якщо згодом повернуться до попередньої (Усі → Переможці → Усі).
+    if (viewKey(next) !== viewKey(query)) setPage({ of: next, n: pageSize });
+    setQuery(next);
   };
 
   // Стан з адреси — лише якщо він інший (наш власний replaceState повертається сюди ж і нічого не змінює).
   const onParams = useCallback((q: TeamsQuery) => {
     const incoming = teamsQueryString(q);
+    // Перше читання адреси після вводу до гідратації: параметри посилання (фільтр, сортування) — з адреси, пошук —
+    // той, що набрав користувач (code-review PR #18: інакше ?f=…&sort=… з посилання губились).
     if (written.current === null && dirty.current) {
+      setQuery((prev) => ({ ...q, q: prev.q }));
       setSynced(true);
       return;
     }
     if (written.current !== null && incoming === written.current) {
+      setSynced(true);
+      return;
+    }
+    // Запізніла луна старішої власної адреси: адреса в рядку вже новіша — не наш перехід, ігноруємо (code-review
+    // PR #18: written пам'ятає лише останню записану адресу). Справжній перехід (Back/Forward, меню) змінює і її.
+    if (written.current !== null && incoming !== teamsQueryString(parseTeamsQuery(new URLSearchParams(window.location.search)))) {
       setSynced(true);
       return;
     }

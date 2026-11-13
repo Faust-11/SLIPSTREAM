@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { expectSearchSurvivesRace } from "./search-race";
 import { expectNoA11yViolations } from "./axe";
 
 async function hydrated(page: Page) {
@@ -111,22 +112,7 @@ for (const theme of ["light", "dark"] as const)
       expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
     });
 
-// Пошук: ранній ввід (до гідратації) і швидкий набір не губляться (замір 13.11 на main; PR «баги пошуку списків»).
+// Пошук: ранній ввід (до гідратації) і швидкий набір не губляться (замір 13.11 на main; PR #18).
 test("пошук: ввід одразу після відкриття й швидкий набір не губляться", async ({ page }) => {
-  for (let i = 0; i < 3; i++) {
-    await page.goto("/uk/drivers");
-    const box = page.getByRole("searchbox", { name: "Пошук пілота" });
-    await box.fill("senna");
-    await page.waitForTimeout(800);
-    await expect(box).toHaveValue("senna");
-  }
-  await page.goto("/uk/drivers", { waitUntil: "networkidle" });
-  const box = page.getByRole("searchbox", { name: "Пошук пілота" });
-  for (let i = 0; i < 3; i++) {
-    await box.fill("");
-    await box.pressSequentially("ayrton senna", { delay: 0 });
-    await page.waitForTimeout(600);
-    await expect(box).toHaveValue("ayrton senna");
-  }
-  await expect(page).toHaveURL(/q=ayrton\+senna/);
+  await expectSearchSurvivesRace(page, "/uk/drivers", "Пошук пілота", "senna", "ayrton senna");
 });

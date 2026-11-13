@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { expectSearchSurvivesRace } from "./search-race";
 import { expectNoA11yViolations } from "./axe";
 
 // Траси (фаза 3h). Еталони — макети «Список трас» і «Траса: Яс-Марина», заміри — docs/decisions.md («Фаза 3h»).
@@ -177,22 +178,7 @@ test("CLS < 0.1 (390 px); розмір HTML ≤ 100 КБ gzip", async ({ page, r
   }
 });
 
-// Пошук: ранній ввід (до гідратації) і швидкий набір не губляться (замір 13.11 на main; PR «баги пошуку списків»).
+// Пошук: ранній ввід (до гідратації) і швидкий набір не губляться (замір 13.11 на main; PR #18).
 test("пошук: ввід одразу після відкриття й швидкий набір не губляться", async ({ page }) => {
-  for (let i = 0; i < 3; i++) {
-    await page.goto("/uk/circuits");
-    const box = page.getByRole("searchbox", { name: "Пошук траси" });
-    await box.fill("monza");
-    await page.waitForTimeout(800);
-    await expect(box).toHaveValue("monza");
-  }
-  await page.goto("/uk/circuits", { waitUntil: "networkidle" });
-  const box = page.getByRole("searchbox", { name: "Пошук траси" });
-  for (let i = 0; i < 3; i++) {
-    await box.fill("");
-    await box.pressSequentially("monza circuit", { delay: 0 });
-    await page.waitForTimeout(600);
-    await expect(box).toHaveValue("monza circuit");
-  }
-  await expect(page).toHaveURL(/q=monza\+circuit/);
+  await expectSearchSurvivesRace(page, "/uk/circuits", "Пошук траси", "monza", "monza circuit");
 });
