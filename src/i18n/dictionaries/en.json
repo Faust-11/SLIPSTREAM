@@ -980,7 +980,8 @@
     "layoutKey": "layout described above",
     "titlesEarlier": "{n} more earlier in the season.",
     "rankMore": "and {count} more with {n}",
-    "factsDb": "Laps and race distance come from race results (Jolpica database)."
+    "factsDb": "Race laps come from race results (Jolpica database).",
+    "factsDbDistance": "Race laps come from race results (Jolpica database); distance ≈ laps × lap length."
   },
   "calendarPage": {
     "metaDescription": {

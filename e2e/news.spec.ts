@@ -21,7 +21,7 @@ test("/uk/news: заголовки трьох видань, пости журн�
   if (SNAPSHOT) await expect(page.locator(".nw-upd")).toContainText("2 дублі склеєно");
   await expect(page.locator(".nw-src").filter({ hasText: "Formula 1" }).first()).toBeVisible();
   await expect(page.locator(".nw-src").filter({ hasText: "Motorsport.com" }).first()).toBeVisible();
-  await expect(page.locator(".nw-next")).toHaveAttribute("href", /^\/uk\/calendar#r\d+$/);
+  await expect(page.locator(".nw-next")).toHaveAttribute("href", SNAPSHOT ? "/uk/calendar#r21" : /^\/uk\/calendar#r\d+$/);
   if (SNAPSHOT) await expect(page.locator(".nw-next b")).toHaveText("Гран-прі Лас-Вегаса");
   expect(errors).toEqual([]);
 });
@@ -44,13 +44,13 @@ test("посилання: видання — https на їхні домени б
 
 test("вкладки: «Видання» ховає журналістів, стан у адресі; посилання з ?v=bsky", async ({ page }) => {
   await page.goto("/uk/news");
-  await page.getByRole("button", { name: /Видання · \d+/ }).click();
+  await page.getByRole("button", { name: SNAPSHOT ? /Видання · 48/ : /Видання · \d+/ }).click();
   await expect(page.locator(".nw-col-bsky")).toBeHidden();
   await expect(page.locator(".nw-col-rss")).toBeVisible();
   await expect(page).toHaveURL(/v=rss/);
   await page.goto("/uk/news?v=bsky");
   await expect(page.locator(".nw-col-rss")).toBeHidden();
-  await expect(page.getByRole("button", { name: /Журналісти · \d+/ })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByRole("button", { name: SNAPSHOT ? /Журналісти · 40/ : /Журналісти · \d+/ })).toHaveAttribute("aria-pressed", "true");
 });
 
 test("посилання з ?v=bsky: одна колонка з першого кадру — без стрибка (CLS < 0.02)", async ({ page }) => {
@@ -83,10 +83,10 @@ test("«Показати ще»: 12 → 24 заголовки, 20 → 40 пос�
   await expect(po).toHaveCount(20);
   await page.locator(".nw-col-rss .nw-more").click();
   await expect(hl).toHaveCount(24);
-  const total = await page.locator("#nw-rss > li").count();
+  const total = SNAPSHOT ? 48 : await page.locator("#nw-rss > li").count();
   await expect(page.locator(".nw-col-rss .nw-more")).toHaveText(`Показати ще ${Math.min(12, total - 24)} · лишилось ${total - 24}`);
   await page.locator(".nw-col-bsky .nw-more").click();
-  await expect(po).toHaveCount(Math.min(40, await page.locator("#nw-bsky > li").count()));
+  await expect(po).toHaveCount(SNAPSHOT ? 40 : Math.min(40, await page.locator("#nw-bsky > li").count()));
   await expect(page.locator(".nw-col-bsky .nw-more")).toHaveCount(0);
 });
 
@@ -94,8 +94,9 @@ test("без JS: усі записи видно, вкладок і «Показ�
   const ctx = await browser.newContext({ javaScriptEnabled: false });
   const page = await ctx.newPage();
   await page.goto("/uk/news");
-  await expect(page.locator("#nw-rss > li:visible")).toHaveCount(await page.locator("#nw-rss > li").count());
-  await expect(page.locator("#nw-bsky > li:visible")).toHaveCount(await page.locator("#nw-bsky > li").count());
+  // Локально — точні числа знімка (сервер віддає всі записи); проти продакшну — усі, що є в розмітці (рев'ю PR #21).
+  await expect(page.locator("#nw-rss > li:visible")).toHaveCount(SNAPSHOT ? 48 : await page.locator("#nw-rss > li").count());
+  await expect(page.locator("#nw-bsky > li:visible")).toHaveCount(SNAPSHOT ? 40 : await page.locator("#nw-bsky > li").count());
   await expect(page.locator(".nw-tabs")).toBeHidden();
   await expect(page.locator(".nw-more")).toHaveCount(2);
   await expect(page.locator(".nw-more").first()).toBeHidden();

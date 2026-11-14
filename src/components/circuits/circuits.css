@@ -942,17 +942,15 @@ html[data-list-query] .site-foot {
     font-size: clamp(32px, 6vw, 44px);
   }
 }
-@media (max-width: 700px) {
+/* Схема й факти — в одну колонку вже з планшета: горизонтальна схема у вузькій лівій колонці поруч із високим блоком
+   фактів лишала порожнечу ~250 px над і під собою на 768 px (рев'ю PR #21). */
+@media (max-width: 1000px) {
   .ct-circ {
     grid-template-columns: minmax(0, 1fr);
     gap: 18px;
   }
   .ct-map {
     padding-right: 0;
-  }
-  /* Витягнута траса (Яс-Марина, Джидда) на телефоні займала пів екрана. */
-  .ct-map svg {
-    max-height: 360px;
   }
   .ct-stats {
     padding: 16px 0 0;
@@ -962,6 +960,12 @@ html[data-list-query] .site-foot {
   .no-map .ct-stats {
     grid-template-columns: minmax(0, 1fr);
     border-top: 0;
+  }
+}
+@media (max-width: 700px) {
+  /* Схема горизонтальна (поворот генератора) — на телефоні низька й так; межа на випадок вертикальних. */
+  .ct-map svg {
+    max-height: 360px;
   }
   .ct-decs {
     grid-template-columns: repeat(2, minmax(0, 1fr));

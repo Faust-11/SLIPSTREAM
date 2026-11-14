@@ -17,6 +17,7 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { chromium } from "playwright-core";
+import { SIDE, toLayout, toPageLayout } from "./layout-geometry.mjs";
 
 const REPO = new URL("../../", import.meta.url).pathname;
 const OUT = join(REPO, "src/data/curated/circuit-layouts.json");
@@ -29,11 +30,6 @@ const JOLPICA = "https://api.jolpi.ca/ergast/f1/circuits.json?limit=100";
 const COMMONS_API = "https://commons.wikimedia.org/w/api.php";
 const UA = "Slipstream-data-loader/0.2 (non-commercial F1 fan site; batched, cached)";
 const MAX_KM = 3;
-const SIDE = 1000;
-const TOLERANCE = 1.5; // одиниць viewBox (з 1000): на картці списку (~280 px) — менше 0,5 px
-// Схема на сторінці траси (фаза 3j): до ~800 px завширшки — допуск менший, контур повернуто під горизонтальну рамку.
-const PAGE_TOLERANCE = 0.5;
-const PAGE_ASPECT = 1.7;
 const FREE = ["CC0", "Public domain", "PD", "CC BY", "CC BY-SA", "Attribution", "GFDL", "FAL", "Copyrighted free use"];
 
 /** Траса Jolpica → файл Commons (перегляд 13.11; причини відмови — у docs/data/review-2026-11-13-circuit-layouts.md). */
@@ -98,89 +94,6 @@ function km([lat1, lng1], [lat2, lng2]) {
   const r = Math.PI / 180;
   const a = Math.sin(((lat2 - lat1) * r) / 2) ** 2 + Math.cos(lat1 * r) * Math.cos(lat2 * r) * Math.sin(((lng2 - lng1) * r) / 2) ** 2;
   return 6371 * 2 * Math.asin(Math.sqrt(a));
-}
-
-/** Дуглас — Пекер (ітеративно). */
-function simplify(pts, tol) {
-  if (pts.length < 3) return pts;
-  const keep = new Uint8Array(pts.length);
-  keep[0] = keep[pts.length - 1] = 1;
-  const stack = [[0, pts.length - 1]];
-  while (stack.length) {
-    const [a, b] = stack.pop();
-    const [ax, ay] = pts[a];
-    const [bx, by] = pts[b];
-    const dx = bx - ax;
-    const dy = by - ay;
-    const len = Math.hypot(dx, dy);
-    let best = -1;
-    let at = -1;
-    for (let i = a + 1; i < b; i++) {
-      // Замкнений контур: перша й остання точки збігаються — відстань до точки, а не до відрізка нульової довжини
-      // (інакше все спрощувалось до 2 точок).
-      const d = len < 1e-9 ? Math.hypot(pts[i][0] - ax, pts[i][1] - ay) : Math.abs(dy * pts[i][0] - dx * pts[i][1] + bx * ay - by * ax) / len;
-      if (d > best) [best, at] = [d, i];
-    }
-    if (best > tol) {
-      keep[at] = 1;
-      stack.push([a, at], [at, b]);
-    }
-  }
-  return pts.filter((_, i) => keep[i]);
-}
-
-/** Точки → шлях у viewBox з довшою стороною SIDE; замкнений контур — «Z». */
-function toLayout(raw) {
-  const xs = raw.map((p) => p[0]);
-  const ys = raw.map((p) => p[1]);
-  const [x0, x1, y0, y1] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)];
-  const k = SIDE / Math.max(x1 - x0, y1 - y0);
-  const pts = simplify(raw.map(([x, y]) => [(x - x0) * k, (y - y0) * k]), TOLERANCE);
-  const w = Math.round((x1 - x0) * k);
-  const h = Math.round((y1 - y0) * k);
-  const closed = Math.hypot(pts[0][0] - pts.at(-1)[0], pts[0][1] - pts.at(-1)[1]) < SIDE * 0.03;
-  const body = (closed ? pts.slice(0, -1) : pts).map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)} ${y.toFixed(1)}`).join("");
-  return { d: body + (closed ? "Z" : ""), w, h, points: pts.length };
-}
-
-/**
- * Кут повороту (°, 0–179), за якого контур найбільше в рамці PAGE_ASPECT:1 (відгук користувача 14.11: витягнуті траси
- * займали третину ширини — Яс-Марина, Лас-Вегас). Поворот навколо центру, напрям руху не змінюється.
- */
-function bestRotation(raw) {
-  let best = { deg: 0, scale: -1 };
-  for (let deg = 0; deg < 180; deg++) {
-    const r = (deg * Math.PI) / 180;
-    const [c, s] = [Math.cos(r), Math.sin(r)];
-    let [x0, x1, y0, y1] = [Infinity, -Infinity, Infinity, -Infinity];
-    for (const [x, y] of raw) {
-      const X = x * c - y * s;
-      const Y = x * s + y * c;
-      x0 = Math.min(x0, X); x1 = Math.max(x1, X); y0 = Math.min(y0, Y); y1 = Math.max(y1, Y);
-    }
-    const scale = Math.min(PAGE_ASPECT / (x1 - x0), 1 / (y1 - y0));
-    // Рівні (±1 %) — менший кут: без зайвого повороту від півночі.
-    if (scale > best.scale * 1.01) best = { deg, scale };
-  }
-  return best.deg;
-}
-
-/**
- * Детальна повернута схема для сторінки. Лінію старту й напрям руху НЕ позначаємо: f1-circuits не гарантує, що перша
- * точка — старт, а порядок — напрям гонки (README мовчить; замір 14.11) — непідтверджене не малюємо.
- */
-function toPageLayout(raw) {
-  const deg = bestRotation(raw);
-  const r = (deg * Math.PI) / 180;
-  const rot = raw.map(([x, y]) => [x * Math.cos(r) - y * Math.sin(r), x * Math.sin(r) + y * Math.cos(r)]);
-  const xs = rot.map((p) => p[0]);
-  const ys = rot.map((p) => p[1]);
-  const [x0, x1, y0, y1] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)];
-  const k = SIDE / Math.max(x1 - x0, y1 - y0);
-  const pts = simplify(rot.map(([x, y]) => [(x - x0) * k, (y - y0) * k]), PAGE_TOLERANCE);
-  const closed = Math.hypot(pts[0][0] - pts.at(-1)[0], pts[0][1] - pts.at(-1)[1]) < SIDE * 0.03;
-  const body = (closed ? pts.slice(0, -1) : pts).map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)} ${y.toFixed(1)}`).join("");
-  return { d: body + (closed ? "Z" : ""), w: Math.round((x1 - x0) * k), h: Math.round((y1 - y0) * k), rot: deg, points: pts.length };
 }
 
 function geoPoints(geometry) {
