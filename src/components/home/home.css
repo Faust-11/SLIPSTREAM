@@ -1,0 +1,1113 @@
+/* Головна (фаза 4b). Класи — з префіксом hm- (глобальні класи інших сторінок конфліктують); спільні атоми сайту —
+   .wrap, .display, .num, .page-credits. Макет: https://claude.ai/artifact/LsnKimnyfRibEpn16S5jYe («програмка»: товсті
+   лінії ділять сторінку на панелі; дані — першими). */
+.hm {
+  --hm-gutter: max(16px, env(safe-area-inset-left, 0px));
+}
+.hm-sr {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.hm-eyebrow,
+.hm-meta,
+.hm-src,
+.hm-stamp,
+.hm-chip {
+  font-family: var(--f-mono);
+  word-spacing: normal;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hm-src {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--ink-soft);
+}
+.hm-more {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--blue-text);
+  text-decoration: none;
+}
+.hm-more:hover {
+  text-decoration: underline;
+}
+.hm-more-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 18px 0 0;
+}
+.hm-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-block: 32px 18px;
+}
+.hm-head h2 {
+  font-size: clamp(26px, 3vw, 36px);
+}
+
+/* сутності */
+.hm-ent {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  font-weight: 600;
+  text-decoration: none;
+}
+.hm-ent > span:last-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hm-ent:hover > span:last-child {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.hm-av {
+  inline-size: 28px;
+  block-size: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  background: var(--paper-2);
+  box-shadow: 0 0 0 1px var(--hair);
+}
+.hm-av-s {
+  inline-size: 24px;
+  block-size: 24px;
+}
+.hm-ini {
+  display: inline-grid;
+  place-items: center;
+  font: 600 10px/1 var(--f-mono);
+  color: var(--ink-soft);
+}
+.hm-team {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.hm-team:hover {
+  text-decoration: underline;
+}
+.hm-sq {
+  inline-size: 10px;
+  block-size: 10px;
+  flex-shrink: 0;
+  background: var(--c, var(--ink-soft));
+}
+.hm-roundel {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  line-height: 1;
+  background: var(--c, var(--ink));
+  color: var(--on, #fff);
+}
+.hm-stamp {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+.hm-stamp-champ {
+  background: var(--yellow);
+  color: var(--on-yellow);
+}
+.hm-stamp-fin {
+  background: #f3f4f1;
+  color: #16181d;
+}
+
+/* ---------- герой ---------- */
+.hm-hero {
+  border-bottom: var(--b) solid var(--rule);
+}
+.hm-hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+}
+.hm-hero-main {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+  padding-block: 44px 40px;
+  padding-inline-end: 48px;
+  border-inline-end: var(--b) solid var(--rule);
+}
+.hm-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px 16px;
+  flex-wrap: wrap;
+}
+.hm-hero h1 {
+  font-size: min(68px, 8cqi);
+  line-height: 0.98;
+}
+.hm-hero h1 span {
+  display: block;
+}
+.hm-accent {
+  color: var(--red-text);
+}
+.hm-lede {
+  margin: 0;
+  max-width: 58ch;
+  font-size: 19px;
+  line-height: 1.5;
+}
+.hm-ctas {
+  display: flex;
+  flex-wrap: wrap;
+}
+.hm-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 22px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.hm-btn-blue {
+  background: var(--blue);
+  color: #fff;
+}
+.hm-btn-line {
+  box-shadow: inset 0 0 0 var(--b2) var(--ink);
+}
+.hm-btn:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.hm-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: auto 0 0;
+  padding-top: 4px;
+  border-top: var(--b2) solid var(--rule);
+}
+.hm-stats > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  padding: 14px 12px 0 0;
+}
+.hm-stats > div + div {
+  padding-inline-start: 14px;
+  border-inline-start: 1px solid var(--hair);
+}
+.hm-stats dd {
+  margin: 0;
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.1;
+}
+.hm-stats dt {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.hm-stats > div:last-child dd {
+  color: var(--red-text);
+}
+.hm-champ {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  padding: 0 0 28px 32px;
+}
+.hm-champ-photo {
+  position: relative;
+  margin: 0 calc(-1 * var(--hm-gutter)) 0 0;
+  block-size: 300px;
+  overflow: hidden;
+  background: var(--card);
+}
+.hm-champ-photo img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+.hm-champ-photo .hm-stamp {
+  position: absolute;
+  inset: 0 auto auto 0;
+}
+.hm-champ-top {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: -48px;
+}
+.hm-champ-top > div {
+  min-width: 0;
+  padding-top: 56px;
+}
+.hm-champ-top .hm-roundel {
+  inline-size: 96px;
+  block-size: 96px;
+  flex-shrink: 0;
+  font-size: 36px;
+  box-shadow:
+    0 0 0 5px var(--paper),
+    inset 0 0 0 4px var(--ink);
+}
+.hm-champ-name {
+  display: block;
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-size: 22px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.hm-champ-name:hover {
+  text-decoration: underline;
+}
+.hm-champ-top p,
+.hm-champ-note {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.hm-champ-note {
+  margin: 0;
+  font-size: 15px;
+  max-width: 44ch;
+}
+
+/* ---------- смуга сезону ---------- */
+.hm-rail {
+  border-bottom: var(--b) solid var(--rule);
+}
+.hm-rail .wrap {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  padding-block: 18px;
+}
+.hm-rail h2 {
+  margin: 0;
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-weight: 400;
+  font-size: 18px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.hm-rail h2 a {
+  text-decoration: none;
+}
+.hm-rail h2 a:hover {
+  text-decoration: underline;
+}
+.hm-rail-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 3px;
+  align-items: end;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.hm-rail-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+}
+.hm-rail-cell i {
+  display: block;
+  inline-size: 100%;
+  block-size: 12px;
+  background: var(--ink);
+}
+.hm-rail-cell > span.num {
+  font: 600 10px/1 var(--f-mono);
+  color: var(--ink-soft);
+}
+/* Сезон завершено: останній етап — картатий прапор. */
+.hm-rail-done:last-of-type i,
+.hm-rail-cell.hm-rail-done:has(+ .hm-rail-next) i {
+  block-size: 20px;
+  background: repeating-conic-gradient(#16181d 0 25%, #f3f4f1 0 50%) 0 0 / 8px 8px;
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+}
+.hm-rail-cell.hm-rail-next i {
+  block-size: 20px;
+  background: var(--red);
+}
+.hm-rail-cell.hm-rail-later i {
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px var(--ink-soft);
+}
+.hm-rail-cell.hm-rail-done:has(+ .hm-rail-next) > span.num,
+.hm-rail-cell.hm-rail-next > span.num {
+  color: var(--ink);
+}
+.hm-rail-key {
+  display: flex;
+  gap: 18px;
+  font-size: 13.5px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.hm-rail-key b {
+  display: block;
+  font: 600 11px var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.hm-rail-key-next b {
+  color: var(--red-text);
+}
+
+/* ---------- остання / наступна гонка ---------- */
+.hm-races {
+  border-bottom: var(--b) solid var(--rule);
+}
+.hm-races .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+}
+.hm-last {
+  min-width: 0;
+  padding: 0 40px 32px 0;
+  border-inline-end: var(--b) solid var(--rule);
+}
+.hm-next {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0 0 32px 36px;
+}
+.hm-banner {
+  position: relative;
+  block-size: 250px;
+  margin-inline-start: calc(-1 * var(--hm-gutter));
+  overflow: hidden;
+  background: #1a1b1f;
+  color: #f3f4f1;
+}
+.hm-banner-next {
+  margin-inline: 0 calc(-1 * var(--hm-gutter));
+}
+/* Траса без фото (Лас-Вегас): нижчий темний банер — без порожніх 250 px. */
+.hm-banner:not(:has(img)) {
+  block-size: 150px;
+}
+.hm-banner img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+.hm-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(10 11 14 / 0.15) 0%, rgb(10 11 14 / 0) 35%, rgb(10 11 14 / 0.85) 100%);
+}
+.hm-banner .hm-stamp {
+  position: absolute;
+  inset-block-start: 14px;
+  inset-inline-start: var(--hm-gutter);
+  z-index: 1;
+}
+.hm-banner-label {
+  position: absolute;
+  inset-inline: var(--hm-gutter) 20px;
+  inset-block-end: 18px;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+}
+.hm-banner-next .hm-banner-label {
+  inset-inline: 20px 130px;
+}
+.hm-banner h2 {
+  font-size: clamp(24px, 3vw, 36px);
+}
+.hm-banner h2 a {
+  text-decoration: none;
+}
+.hm-banner h2 a:hover {
+  text-decoration: underline;
+}
+.hm-chip {
+  padding: 5px 9px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  background: var(--yellow);
+  color: var(--on-yellow);
+  white-space: nowrap;
+}
+.hm-roundel-next {
+  position: absolute;
+  inset-inline-end: max(20px, env(safe-area-inset-right, 0px));
+  inset-block-end: -1px;
+  z-index: 1;
+  inline-size: 92px;
+  block-size: 92px;
+  font-size: 36px;
+  background: var(--red);
+  box-shadow: 0 0 0 5px var(--paper);
+}
+.hm-podium {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: var(--b2) solid var(--rule);
+}
+.hm-podium li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding: 18px 14px 16px 0;
+  border-top: 6px solid var(--c, var(--ink-soft));
+}
+.hm-podium li + li {
+  padding-inline-start: 14px;
+  border-inline-start: var(--b2) solid var(--rule);
+}
+.hm-pod-p {
+  font: 600 11px var(--f-mono);
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+.hm-podium .hm-ent {
+  font-size: 16px;
+}
+.hm-pod-s {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.hm-tbl {
+  overflow-x: auto;
+}
+.hm-tbl table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+.hm-tbl th {
+  padding: 12px 6px 8px;
+  border-bottom: var(--b2) solid var(--rule);
+  text-align: start;
+  font: 600 11px var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.hm-tbl abbr {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+.hm-tbl td {
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--hair);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.hm-tbl .hm-r {
+  text-align: end;
+}
+.hm-pos {
+  inline-size: 38px;
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+}
+.hm-pts {
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+}
+.hm-drv {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.hm-stripe {
+  inline-size: 5px;
+  block-size: 26px;
+  flex-shrink: 0;
+  background: var(--c, var(--hair));
+}
+.hm-delta {
+  margin-inline-start: 6px;
+  font: 600 11.5px var(--f-mono);
+}
+/* #11703b — 5,6:1 на --paper (замір; #178a4c з макета — 4,0:1, мало для 11,5 px). */
+.hm-up {
+  color: #11703b;
+}
+.hm-dn {
+  color: var(--red-text);
+}
+.hm-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.hm-facts li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--paper-2);
+  font-size: 13.5px;
+}
+.hm-facts b {
+  font: 600 11px var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.hm-next-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding-top: 20px;
+}
+.hm-next-body > * {
+  align-self: stretch;
+}
+.hm-next-body > .hm-more {
+  align-self: flex-start;
+}
+.hm-when {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.45;
+}
+.hm-when strong {
+  display: block;
+  font-size: 17px;
+}
+.hm-count {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: var(--b2) solid var(--rule);
+}
+.hm-count > div {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px;
+}
+.hm-count > div + div {
+  border-inline-start: var(--b2) solid var(--rule);
+}
+.hm-count b {
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.05;
+}
+.hm-count span,
+.hm-count-started {
+  font: 500 11px var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.hm-count-started {
+  margin: 0;
+  padding: 12px;
+  border: var(--b2) solid var(--rule);
+}
+.hm-map {
+  margin: 0;
+  padding: 14px 16px 12px;
+  background: var(--paper-2);
+}
+.hm-map figcaption {
+  font: 600 11px var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.hm-map svg {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  max-block-size: 240px;
+}
+.hm-map-casing {
+  fill: none;
+  stroke: var(--grid);
+  stroke-width: 44;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.hm-map-line {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 15;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.hm-spec {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  margin: 0;
+  border-block: var(--b2) solid var(--rule);
+}
+.hm-spec > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  padding: 10px 0;
+}
+.hm-spec > div + div {
+  padding-inline-start: 12px;
+  border-inline-start: 1px solid var(--hair);
+}
+.hm-spec dd {
+  margin: 0;
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-size: 20px;
+}
+.hm-spec dt {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+.hm-past {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.hm-past b {
+  display: block;
+  font: 600 11px var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.hm-past a {
+  color: var(--blue-text);
+}
+.hm-over h2 {
+  font-size: clamp(24px, 3vw, 32px);
+}
+.hm-over p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+/* ---------- чемпіонат і рекорди ---------- */
+.hm-champs {
+  border-bottom: var(--b) solid var(--rule);
+}
+.hm-champs .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.6fr);
+}
+.hm-standings {
+  min-width: 0;
+  padding: 0 36px 32px 0;
+  border-inline-end: var(--b) solid var(--rule);
+}
+.hm-standings > .hm-more {
+  display: inline-block;
+  margin-top: 16px;
+}
+.hm-tabs {
+  display: flex;
+  border-bottom: var(--b2) solid var(--rule);
+}
+.hm-tabs button {
+  margin-bottom: calc(-1 * var(--b2));
+  padding: 10px 12px 9px;
+  border: 0;
+  border-bottom: var(--b2) solid transparent;
+  background: transparent;
+  font: 600 12px/1 var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.hm-tabs button:first-child {
+  padding-inline-start: 0;
+}
+.hm-tabs button[aria-pressed="true"] {
+  color: var(--ink);
+  border-bottom-color: var(--red);
+}
+.hm-slider {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.hm-slider::-webkit-scrollbar {
+  display: none;
+}
+.hm-panel {
+  flex: 0 0 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+.hm-st-row {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) 48px;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--hair);
+}
+.hm-st-pos {
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-size: 12px;
+}
+.hm-st-name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 10px;
+  min-width: 0;
+  font-size: 14px;
+}
+.hm-bar {
+  flex: 1 0 100%;
+  block-size: 6px;
+  margin-top: 4px;
+  background: var(--paper-2);
+}
+/* Одна серія (очки) — один колір; команду показує квадрат біля назви, не колір смуги (dataviz). */
+.hm-bar i {
+  display: block;
+  block-size: 100%;
+  min-inline-size: 2px;
+  background: var(--ink-soft);
+  border-radius: 0 3px 3px 0;
+}
+.hm-st-pts {
+  text-align: end;
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-size: 13px;
+}
+.hm-records {
+  min-width: 0;
+  margin-inline-end: calc(-1 * var(--hm-gutter));
+  padding: 0 var(--hm-gutter) 32px 36px;
+  background: var(--blue);
+  color: #fff;
+}
+.hm-records .hm-src {
+  color: rgb(255 255 255 / 0.8);
+}
+.hm-rec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: var(--b) solid #fff;
+}
+.hm-rec {
+  min-width: 0;
+  padding: 18px 20px 0 0;
+}
+.hm-rec + .hm-rec {
+  padding-inline-start: 20px;
+  border-inline-start: var(--b2) solid rgb(255 255 255 / 0.4);
+}
+.hm-rec h3 {
+  margin: 0 0 10px;
+  font: 600 12px var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffe38a;
+}
+.hm-rec-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: var(--b2) solid rgb(255 255 255 / 0.4);
+}
+.hm-rec-top > b {
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 0.9;
+}
+.hm-rec-who {
+  display: flex;
+  flex: 1 1 140px;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.hm-rec .hm-ent {
+  color: #fff;
+}
+.hm-rec .hm-ent > span:last-child {
+  white-space: normal;
+  line-height: 1.2;
+}
+.hm-rec .hm-av {
+  box-shadow: 0 0 0 1.5px rgb(255 255 255 / 0.6);
+}
+.hm-rec-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.hm-rec-list li {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr) 34px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgb(255 255 255 / 0.22);
+  font-size: 14px;
+}
+.hm-rec-list li:last-child {
+  border-bottom: 0;
+}
+.hm-rec-p {
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-size: 12px;
+  opacity: 0.85;
+}
+.hm-rec-v {
+  text-align: end;
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-size: 15px;
+}
+
+/* ---------- новини ---------- */
+.hm-news {
+  padding-bottom: 36px;
+  border-bottom: var(--b) solid var(--rule);
+}
+.hm-news .hm-slider {
+  margin-top: 4px;
+}
+.hm-hl li,
+.hm-posts li {
+  border-bottom: 1px solid var(--hair);
+}
+.hm-hl a {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 0;
+  text-decoration: none;
+}
+.hm-hl a:hover .hm-hl-t {
+  color: var(--blue-text);
+  text-decoration: underline;
+}
+.hm-hl-t {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.35;
+}
+.hm-hl-m,
+.hm-post-link {
+  font: 500 11px var(--f-mono);
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+.hm-posts li {
+  display: grid;
+  gap: 6px;
+  padding: 12px 0;
+}
+.hm-post-who b {
+  font-size: 14px;
+}
+.hm-post-who span {
+  font: 500 11px var(--f-mono);
+  color: var(--ink-soft);
+}
+.hm-posts p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.hm-post-link {
+  justify-self: start;
+}
+@media (min-width: 1101px) {
+  /* Дві колонки новин на широкому екрані: обидві вкладки видно одразу, перемикач не потрібен. */
+  .hm-news .hm-tabs {
+    display: none;
+  }
+  .hm-news .hm-slider {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 40px;
+    overflow: visible;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hm-up {
+    color: #4fd18b;
+  }
+}
+:root[data-theme="dark"] .hm-up {
+  color: #4fd18b;
+}
+
+/* ---------- адаптив ---------- */
+@media (max-width: 1100px) {
+  .hm-hero .wrap,
+  .hm-races .wrap,
+  .hm-champs .wrap {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hm-hero-main {
+    padding-inline-end: 0;
+    border-inline-end: 0;
+    border-bottom: var(--b2) solid var(--rule);
+  }
+  .hm-champ {
+    padding: 0 0 28px;
+  }
+  .hm-champ-photo {
+    margin-inline-start: calc(-1 * var(--hm-gutter));
+  }
+  .hm-rail .wrap {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .hm-last {
+    padding-inline-end: 0;
+    border-inline-end: 0;
+    border-bottom: var(--b) solid var(--rule);
+  }
+  .hm-banner,
+  .hm-banner-next {
+    margin-inline: calc(-1 * var(--hm-gutter));
+  }
+  .hm-next {
+    padding-inline-start: 0;
+  }
+  .hm-standings {
+    padding-inline-end: 0;
+    border-inline-end: 0;
+  }
+  .hm-records {
+    margin-inline-start: calc(-1 * var(--hm-gutter));
+    padding-inline-start: var(--hm-gutter);
+  }
+}
+@media (max-width: 860px) {
+  .hm-rec-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hm-rec + .hm-rec {
+    margin-top: 18px;
+    padding-inline-start: 0;
+    border-inline-start: 0;
+    border-top: var(--b2) solid rgb(255 255 255 / 0.4);
+  }
+  .hm-rail-cell > span.num {
+    display: none;
+  }
+  .hm-rail-cell.hm-rail-done:has(+ .hm-rail-next) > span.num,
+  .hm-rail-cell.hm-rail-next > span.num {
+    display: block;
+  }
+  .hm-rail-key {
+    flex-wrap: wrap;
+    white-space: normal;
+  }
+}
+@media (max-width: 600px) {
+  .hm-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hm-stats > div:nth-child(3) {
+    padding-inline-start: 0;
+    border-inline-start: 0;
+  }
+  .hm-podium {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hm-podium li,
+  .hm-podium li + li {
+    padding-inline: 0;
+    border-inline-start: 0;
+  }
+  .hm-c-grid {
+    display: none;
+  }
+  .hm-banner-label {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hm-roundel-next {
+    inline-size: 68px;
+    block-size: 68px;
+    font-size: 26px;
+  }
+  .hm-banner-next .hm-banner-label {
+    inset-inline-end: 100px;
+  }
+  .hm-ctas .hm-btn {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}

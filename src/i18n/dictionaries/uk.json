@@ -1109,5 +1109,123 @@
     "sourcesBsky": "Журналісти (Bluesky)",
     "rights": "Заголовки й анонси належать виданням, пости — їхнім авторам. Кожен запис веде на оригінал.",
     "openBskyAuthor": "— пост {name}"
+  },
+  "homePage": {
+    "eyebrow": "Програмка вболівальника · неофіційна",
+    "seasonState": {
+      "one": "Сезон {season} · {done} з {total} етапу позаду",
+      "few": "Сезон {season} · {done} з {total} етапів позаду",
+      "many": "Сезон {season} · {done} з {total} етапів позаду",
+      "other": "Сезон {season} · {done} з {total} етапів позаду"
+    },
+    "seasonOver": "Сезон {season} завершено",
+    "h1": [
+      "Уся Формула-1.",
+      "Коло за колом."
+    ],
+    "lede": "Результати кожної гонки з {first} року: сезони, пілоти, команди й траси — з джерелами, а поточний сезон оновлюється в день гонки.",
+    "ctaResults": "Результати: {gp}",
+    "ctaGame": "Проїхати гаряче коло →",
+    "stats": {
+      "seasons": {
+        "one": "сезон",
+        "few": "сезони",
+        "many": "сезонів",
+        "other": "сезони"
+      },
+      "drivers": {
+        "one": "пілот",
+        "few": "пілоти",
+        "many": "пілотів",
+        "other": "пілоти"
+      },
+      "circuits": {
+        "one": "траса",
+        "few": "траси",
+        "many": "трас",
+        "other": "траси"
+      },
+      "first": "перший сезон"
+    },
+    "champion": "Чемпіон світу {season}",
+    "leader": "Лідер чемпіонату {season}",
+    "points": {
+      "one": "{n} очко",
+      "few": "{n} очки",
+      "many": "{n} очок",
+      "other": "{n} очки"
+    },
+    "wins": {
+      "one": "{n} перемога",
+      "few": "{n} перемоги",
+      "many": "{n} перемог",
+      "other": "{n} перемоги"
+    },
+    "decided": {
+      "one": "Титул оформлено на {round}-му етапі ({place}) — за {left} етап до кінця сезону.",
+      "few": "Титул оформлено на {round}-му етапі ({place}) — за {left} етапи до кінця сезону.",
+      "many": "Титул оформлено на {round}-му етапі ({place}) — за {left} етапів до кінця сезону.",
+      "other": "Титул оформлено на {round}-му етапі ({place}) — за {left} етапи до кінця сезону."
+    },
+    "decidedLast": "Титул вирішився на останньому етапі ({place}).",
+    "leaderNote": "Титул ще не вирішено.",
+    "railTitle": "Сезон {season}",
+    "railLast": "Етап {round} · фініш",
+    "railNext": "Етап {round} · далі",
+    "railLabel": "Етапи сезону {season}",
+    "railDone": "проведено",
+    "railNextState": "наступний",
+    "railLater": "попереду",
+    "lastEyebrow": "Етап {round} з {rounds} · результати",
+    "lastFinish": "Фініш · {date}",
+    "laps": {
+      "one": "{n} коло",
+      "few": "{n} кола",
+      "many": "{n} кіл",
+      "other": "{n} кола"
+    },
+    "col": {
+      "pos": "Поз",
+      "driver": "Пілот",
+      "grid": "Старт",
+      "gap": "Відрив",
+      "pts": "Очки"
+    },
+    "gridTip": "Місце на старті. Його визначає кваліфікація.",
+    "pole": "Поул",
+    "fastest": "Найшвидше коло",
+    "climb": "Прорив",
+    "climbText": "з P{grid} на P{finish}",
+    "allResults": "Усі результати гонки →",
+    "calendarLink": "Календар сезону · усі етапи →",
+    "nextEyebrow": "Етап {round} з {rounds} · наступна гонка",
+    "mapHead": "Конфігурація траси",
+    "km": "км одне коло",
+    "turns": "поворотів",
+    "raceLaps": "кіл гонки",
+    "pastWinners": "Тут вигравали",
+    "circuitLink": "Траса →",
+    "raceStart": "Старт гонки",
+    "standings": "Чемпіонат",
+    "afterRound": "Після {round} етапу",
+    "tabsLabel": "Залік",
+    "tabDrivers": "Пілоти",
+    "tabTeams": "Команди",
+    "fullStandings": "Повний залік →",
+    "records": "Рекорди",
+    "recordsSince": "З {first} року",
+    "recWins": "Перемоги в гонках",
+    "recTitles": "Титули пілотів",
+    "recCups": "Кубки конструкторів",
+    "news": "Новини",
+    "allNews": "Усі новини →",
+    "newsTabs": "Стрічка",
+    "tabHeadlines": "Заголовки",
+    "tabPosts": "Журналісти",
+    "newsEmpty": "Джерела новин зараз не відповідають.",
+    "seasonOverNext": "Календар наступного сезону з'явиться, щойно його опублікують.",
+    "seasonLink": "Сезон {season} →",
+    "creditsPhotos": "Фото",
+    "creditsPortraits": "Портрети пілотів"
   }
 }

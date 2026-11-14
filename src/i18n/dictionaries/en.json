@@ -1109,5 +1109,107 @@
     "sourcesBsky": "Journalists (Bluesky)",
     "rights": "Headlines and summaries belong to the outlets, posts to their authors. Every item links to the original.",
     "openBskyAuthor": "— {name}’s post"
+  },
+  "homePage": {
+    "eyebrow": "A fan's programme · unofficial",
+    "seasonState": {
+      "one": "Season {season} · {done} of {total} round done",
+      "other": "Season {season} · {done} of {total} rounds done"
+    },
+    "seasonOver": "Season {season} is over",
+    "h1": [
+      "All of Formula 1.",
+      "Lap by lap."
+    ],
+    "lede": "Results of every race since {first}: seasons, drivers, teams and circuits, with sources — and the current season updates on race day.",
+    "ctaResults": "Results: {gp}",
+    "ctaGame": "Drive a hot lap →",
+    "stats": {
+      "seasons": {
+        "one": "season",
+        "other": "seasons"
+      },
+      "drivers": {
+        "one": "driver",
+        "other": "drivers"
+      },
+      "circuits": {
+        "one": "circuit",
+        "other": "circuits"
+      },
+      "first": "first season"
+    },
+    "champion": "{season} World Champion",
+    "leader": "{season} championship leader",
+    "points": {
+      "one": "{n} point",
+      "other": "{n} points"
+    },
+    "wins": {
+      "one": "{n} win",
+      "other": "{n} wins"
+    },
+    "decided": {
+      "one": "Title sealed at round {round} ({place}) with {left} round to go.",
+      "other": "Title sealed at round {round} ({place}) with {left} rounds to go."
+    },
+    "decidedLast": "The title went down to the final round ({place}).",
+    "leaderNote": "The title is still open.",
+    "railTitle": "Season {season}",
+    "railLast": "Round {round} · finished",
+    "railNext": "Round {round} · next",
+    "railLabel": "Rounds of the {season} season",
+    "railDone": "done",
+    "railNextState": "next",
+    "railLater": "ahead",
+    "lastEyebrow": "Round {round} of {rounds} · results",
+    "lastFinish": "Finished · {date}",
+    "laps": {
+      "one": "{n} lap",
+      "other": "{n} laps"
+    },
+    "col": {
+      "pos": "Pos",
+      "driver": "Driver",
+      "grid": "Grid",
+      "gap": "Gap",
+      "pts": "Pts"
+    },
+    "gridTip": "Starting position, set by qualifying.",
+    "pole": "Pole",
+    "fastest": "Fastest lap",
+    "climb": "Biggest climb",
+    "climbText": "P{grid} to P{finish}",
+    "allResults": "Full race results →",
+    "calendarLink": "Season calendar · every round →",
+    "nextEyebrow": "Round {round} of {rounds} · next race",
+    "mapHead": "Circuit layout",
+    "km": "km per lap",
+    "turns": "turns",
+    "raceLaps": "race laps",
+    "pastWinners": "Winners here",
+    "circuitLink": "Circuit →",
+    "raceStart": "Race start",
+    "standings": "Championship",
+    "afterRound": "After round {round}",
+    "tabsLabel": "Standings",
+    "tabDrivers": "Drivers",
+    "tabTeams": "Teams",
+    "fullStandings": "Full standings →",
+    "records": "Records",
+    "recordsSince": "Since {first}",
+    "recWins": "Race wins",
+    "recTitles": "Drivers' titles",
+    "recCups": "Constructors' titles",
+    "news": "News",
+    "allNews": "All news →",
+    "newsTabs": "Feed",
+    "tabHeadlines": "Headlines",
+    "tabPosts": "Journalists",
+    "newsEmpty": "News sources are not responding right now.",
+    "seasonOverNext": "Next season's calendar will appear as soon as it is published.",
+    "seasonLink": "Season {season} →",
+    "creditsPhotos": "Photos",
+    "creditsPortraits": "Driver portraits"
   }
 }
