@@ -649,7 +649,7 @@
   "las_vegas": {
    "uk": "Лас-Вегас",
    "en": "Las Vegas",
-   "wiki": "Las Vegas Strip Circuit",
+   "wiki": "Caesars Palace Grand Prix",
    "short": {
     "uk": "Лас-Вегас",
     "en": "Las Vegas"
@@ -684,7 +684,7 @@
   "long_beach": {
    "uk": "Лонг-Біч",
    "en": "Long Beach",
-   "wiki": "Long Beach, California",
+   "wiki": "Long Beach Street Circuit",
    "hero": {
     "src": "/img/circuits/long_beach-hero-1280.webp",
     "srcSet": "/img/circuits/long_beach-hero-1280.webp 988w, /img/circuits/long_beach-hero-800.webp 800w, /img/circuits/long_beach-hero-480.webp 480w",
@@ -1279,7 +1279,7 @@
   "vegas": {
    "uk": "Лас-Вегас",
    "en": "Las Vegas",
-   "wiki": "Las Vegas Grand Prix#Circuit",
+   "wiki": "Las Vegas Strip Circuit",
    "short": {
     "uk": "Лас-Вегас",
     "en": "Las Vegas"

@@ -203,9 +203,15 @@ export default async function CircuitPageView(props: Props) {
         <div className={page.layout ? "wrap ct-circ" : "wrap ct-circ no-map"}>
           {page.layout && (
             <figure className="ct-map">
-              <svg viewBox={`-30 -30 ${page.layout.w + 60} ${page.layout.h + 60}`} role="img" aria-label={fill(dict.circuitsPage.layoutLabel, { name: page.name })}>
-                <path className="casing" d={page.layout.d} />
-                <path className="line" d={page.layout.d} />
+              {/* Детальна схема, повернута під горизонтальну рамку (відгук користувача 14.11: вузька вертикальна схема
+                  займала третину ширини). */}
+              <svg
+                viewBox={`-40 -40 ${page.layout.page.w + 80} ${page.layout.page.h + 80}`}
+                role="img"
+                aria-label={fill(dict.circuitsPage.layoutLabel, { name: page.name })}
+              >
+                <path className="casing" d={page.layout.page.d} />
+                <path className="line" d={page.layout.page.d} />
               </svg>
               <figcaption>{page.layout.source === "commons" ? t.layoutCaptionCommons : t.layoutCaption}</figcaption>
             </figure>
@@ -287,12 +293,15 @@ export default async function CircuitPageView(props: Props) {
                     </div>
                   )}
                 </dl>
-                <p className="ct-src">
-                  {fill(t.factsSource, { title: f.source.title })}{" "}
-                  <a href={f.source.href} rel="noopener">
-                    {t.factsSourceLink}
-                  </a>
-                </p>
+                {f.source && (
+                  <p className="ct-src">
+                    {fill(t.factsSource, { title: f.source.title })}{" "}
+                    <a href={f.source.href} rel="noopener">
+                      {t.factsSourceLink}
+                    </a>
+                  </p>
+                )}
+                {f.laps !== null && <p className="ct-src">{t.factsDb}</p>}
               </>
             ) : (
               <p className="ct-src">{t.noFacts}</p>

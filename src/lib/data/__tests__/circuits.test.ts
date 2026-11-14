@@ -95,7 +95,7 @@ describe("getCircuitPage — Яс-Марина (еталон — макет)", (
     expect([facts!.lengthKm, facts!.turns, facts!.laps, facts!.distanceKm, facts!.layoutYears]).toEqual([5.281, 16, 58, 306.3, { from: 2021, to: null }]);
     expect([facts!.record?.ms, facts!.record?.driver.id, facts!.record?.year]).toEqual([85637, "kevin_magnussen", 2024]);
     expect([facts!.opened, facts!.architects, facts!.capacity]).toEqual(["2009-10-30", ["Hermann Tilke"], 60000]);
-    expect(facts!.source.href).toMatch(/^https:\/\/en\.wikipedia\.org\/w\/index\.php\?oldid=\d+$/);
+    expect(facts!.source!.href).toMatch(/^https:\/\/en\.wikipedia\.org\/w\/index\.php\?oldid=\d+$/);
   });
 
   it("наступна гонка: етап 23 сезону 2026, 6 грудня", async () => {
@@ -173,6 +173,26 @@ describe("getCircuitPage — правки рев'ю 13.11", () => {
     expect(p!.credits.media[0]!.label).toBe("Austin");
     expect(p!.geo.country).toBe("US");
     expect(p!.geo.lat).not.toBeNull();
+  });
+});
+
+describe("getCircuitPage — прогалини даних (відгук користувача 14.11)", () => {
+  it("Лас-Вегас: картка «Las Vegas Strip Circuit» — 6,201 км, 17 поворотів, 50 кіл, рекорд 1:33.365 Ферстаппена 2025 (= formula1.com)", async () => {
+    const f = (await getCircuitPage("vegas", "uk"))!.facts!;
+    expect([f.lengthKm, f.turns, f.laps, f.record?.ms, f.record?.driver.id, f.record?.year, f.source?.title]).toEqual([
+      6.201, 17, 50, 93365, "max_verstappen", 2025, "Las Vegas Strip Circuit",
+    ]);
+    expect(f.distanceKm).toBe(310); // ≈ (кола × довжина); formula1.com — 309,958 км (точна дистанція зі зміщенням старту)
+  });
+
+  it("Caesars Palace (1981–82): статті з карткою траси немає — кола й перший ГП з бази, без джерела Вікіпедії", async () => {
+    const p = (await getCircuitPage("las_vegas", "uk"))!;
+    expect([p.firstGp, p.facts?.laps, p.facts?.lengthKm, p.facts?.source]).toEqual([1981, 75, null, null]);
+  });
+
+  it("Лонг-Біч: конфігурація останньої гонки F1 (1983), а не нинішня IndyCar", async () => {
+    const f = (await getCircuitPage("long_beach", "uk"))!.facts!;
+    expect([f.lengthKm, f.layoutYears, f.record?.driver.id, f.record?.year]).toEqual([3.275, { from: 1983, to: 1983 }, "lauda", 1983]);
   });
 });
 

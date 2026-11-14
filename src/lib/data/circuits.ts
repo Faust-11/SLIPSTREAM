@@ -22,7 +22,15 @@ import type { Credit, L10n, RaceResultJson, SeasonRoundRow } from "./types";
 
 type CircuitIndexRow = { ref: string; name: string; locality: string | null; country: string | null; country_code: string | null; lat: number | null; lng: number | null };
 type CuratedPlace = L10n & { short?: L10n; wiki?: string; hero?: { src: string; srcSet: string; width: number; height: number; focusY?: number }; credit?: Credit };
-export type CircuitLayout = { d: string; w: number; h: number; source: "f1-circuits" | "commons"; credit?: Credit };
+export type CircuitLayout = {
+  d: string;
+  w: number;
+  h: number;
+  /** Схема для сторінки траси: детальніша й повернута на rot° під горизонтальну рамку (фаза 3j). */
+  page: { d: string; w: number; h: number; rot: number };
+  source: "f1-circuits" | "commons";
+  credit?: Credit;
+};
 type CircuitFacts = {
   title: string;
   revid: number;
@@ -256,7 +264,8 @@ export type CircuitPage = {
     architects: string[];
     capacity: number | null;
     record: null | { ms: number; driver: SeasonDriver; year: number };
-    source: { title: string; href: string };
+    /** Стаття Вікіпедії (довжина, повороти, рекорд…); null — картки траси немає, лише дані бази. */
+    source: null | { title: string; href: string };
   };
   firstGp: number | null;
   strip: {
@@ -382,23 +391,28 @@ export async function getCircuitPage(ref: string, locale: Locale): Promise<Circu
   const hero = p?.hero && p.credit ? { ...p.hero, focus: `50% ${p.hero.focusY ?? 62}%`, credit: p.credit } : null;
   const cal = currentCalendar(roundsBy);
   const upcoming = cal.rows.filter((r) => r.circuit === ref && !r.winners?.length).sort((a, b) => a.round! - b.round!)[0];
-  const lapsIn = span ? races.filter((r) => inSpans(r.year, [span])) : [];
-  const laps = modeOf(lapsIn.map((r) => (raceRows.get(`${r.year}/${r.round}`) ?? []).find((x) => x.p === 1)?.l).filter((x): x is number => x !== undefined));
-  const factsOut: CircuitPage["facts"] = f
-    ? {
-        layoutName: f.layout?.name ?? null,
-        layoutYears: span ? { from: span[0], to: span[1] } : null,
-        lengthKm: f.lengthKm ?? null,
-        turns: f.turns ?? null,
-        laps,
-        distanceKm: laps !== null && f.lengthKm ? Math.round(laps * f.lengthKm * 10) / 10 : null,
-        opened: f.opened ?? null,
-        architects: f.architects ?? [],
-        capacity: f.capacity ?? null,
-        record: f.record ? { ms: f.record.ms, driver: base(f.record.driver), year: f.record.year } : null,
-        source: { title: f.title, href: `https://en.wikipedia.org/w/index.php?oldid=${f.revid}` },
-      }
-    : null;
+  // Кола — мода нинішньої конфігурації; без даних про конфігурацію — остання гонка (рев'ю 14.11: Лас-Вегас без картки
+  // ховав і кола, і дистанцію, хоча вони є в базі).
+  const lapsOf = (r: (typeof races)[number]) => (raceRows.get(`${r.year}/${r.round}`) ?? []).find((x) => x.p === 1)?.l;
+  const lapsIn = span ? races.filter((r) => inSpans(r.year, [span])) : races.slice(-1);
+  const laps = modeOf(lapsIn.map(lapsOf).filter((x): x is number => x !== undefined));
+  const record = f?.record ? { ms: f.record.ms, driver: base(f.record.driver), year: f.record.year } : null;
+  const factsOut: CircuitPage["facts"] =
+    f || laps !== null || record
+      ? {
+          layoutName: f?.layout?.name ?? null,
+          layoutYears: span ? { from: span[0], to: span[1] } : null,
+          lengthKm: f?.lengthKm ?? null,
+          turns: f?.turns ?? null,
+          laps,
+          distanceKm: laps !== null && f?.lengthKm ? Math.round(laps * f.lengthKm * 10) / 10 : null,
+          opened: f?.opened ?? null,
+          architects: f?.architects ?? [],
+          capacity: f?.capacity ?? null,
+          record,
+          source: f ? { title: f.title, href: `https://en.wikipedia.org/w/index.php?oldid=${f.revid}` } : null,
+        }
+      : null;
 
   const gpCount = new Map<string, number>();
   for (const r of races) gpCount.set(r.name, (gpCount.get(r.name) ?? 0) + 1);
