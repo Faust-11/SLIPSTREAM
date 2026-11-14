@@ -5,7 +5,8 @@ const CSP = [
   "script-src 'self' 'unsafe-inline'",
   "script-src-attr 'none'",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  // Прев'ю новин (фаза 4a): лише домени картинок видань.
+  "img-src 'self' data: blob: https://media.formula1.com https://*.motorsport.com",
   "font-src 'self'",
   "connect-src 'self'",
   "object-src 'none'",
@@ -75,7 +76,7 @@ test("атрибут-обробник не виконується (script-src-at
   expect(await page.evaluate(() => (window as unknown as { __xss?: number }).__xss)).toBeUndefined();
 });
 
-for (const path of ["/", "/uk/stories", "/uk/nope", "/nope.png"]) {
+for (const path of ["/", "/uk/stories", "/uk/news", "/uk/nope", "/nope.png"]) {
   test(`CSP нічого не блокує: ${path} (тема, мова 404, стилі першого екрана)`, async ({ page }) => {
     const messages: string[] = [];
     page.on("console", (m) => {

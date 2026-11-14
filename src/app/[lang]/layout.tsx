@@ -16,6 +16,7 @@ import "@/components/season/season.css";
 import "@/components/race/race.css";
 import "@/components/circuits/circuits.css";
 import "@/components/calendar/calendar.css";
+import "@/components/news/news.css";
 import { ThemeRestore } from "@/components/theme/theme-restore";
 import { ThemeScript } from "@/components/theme/theme-script";
 import { getDictionary } from "@/i18n/get-dictionary";
