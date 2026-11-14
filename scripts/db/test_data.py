@@ -482,18 +482,38 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     print("INFO  CIRCUITS circuit_index:", len(ci), "; країн:", len({cc for _, cc in ci.values()}))
     # --- Календар (0014) ---
     cal = q("select year, round, sessions from f1.calendar_sessions order by round")
-    n_cal = q("""select count(*) from f1.season_rounds where year = (select max(year) from f1.season_rounds where round is not null and not cancelled)
-                 and round is not null and not cancelled""")[0][0]
-    check("calendar_sessions: рядок на кожен нескасований етап поточного сезону", len(cal) == n_cal, (len(cal), n_cal))
-    held = {r[0] for r in q("""select round from f1.season_rounds where year = (select max(year) from f1.season_rounds) and winners is not null""")}
+    check("calendar_sessions: не порожнє", bool(cal), len(cal))
+    cal_year = cal[0][0] if cal else None
+    # Сезон — найближчого етапу попереду, інакше останній (не max(рік): рев'ю PR #19 — календар 2027 у дампі посеред сезону).
+    exp_year = q("""select coalesce(
+                      (select min(season_year) from f1.rounds where number is not null and not is_cancelled and date >= current_date),
+                      (select max(season_year) from f1.rounds where number is not null and not is_cancelled))""")[0][0]
+    check("calendar_sessions: один сезон — найближчого етапу попереду (інакше останній)", {r[0] for r in cal} == {exp_year}, ({r[0] for r in cal}, exp_year))
+    n_cal = q("select count(*) from f1.season_rounds where year = %s and round is not null and not cancelled", cal_year)[0][0]
+    check("calendar_sessions: рядок на кожен нескасований етап сезону календаря", len(cal) == n_cal, (len(cal), n_cal))
+    held = {r[0] for r in q("select round from f1.season_rounds where year = %s and winners is not null", cal_year)}
     no_race = [r for y, r, s in cal if r in held and not any(x["k"] == "R" and x.get("at") for x in s)]
     check("calendar_sessions: у кожної проведеної гонки є час гонки", not no_race, no_race)
     future = [(r, [(x["k"], x.get("at"), x.get("real")) for x in s]) for y, r, s in cal if r not in held]
     lv = next((s for y, r, s in cal if y == 2026 and r == 21), [])
     check("Лас-Вегас 2026 (етап 21): FP1 2026-11-20 00:30 UTC, гонка 2026-11-22 04:00 UTC (Jolpica API 14.11)",
           [(x["k"], x.get("at")) for x in lv if x["k"] in ("FP1", "R")] == [("FP1", "2026-11-20T00:30:00+00:00"), ("R", "2026-11-22T04:00:00+00:00")]
-          or cal[0][0] != 2026, [(x["k"], x.get("at")) for x in lv])
-    print("INFO  CALENDAR рік:", cal[0][0] if cal else None, "; етапів:", len(cal), "; майбутні етапи з сесіями:", future)
+          or cal_year != 2026, [(x["k"], x.get("at")) for x in lv])
+    # Регресія: дамп приносить календар наступного року, поки поточний триває — сезон календаря не змінюється (поки є етап
+    # попереду). Етап наступного року вставляється в транзакції й відкочується.
+    if cal_year is not None and q("select count(*) from f1.rounds where season_year = %s and number is not null and not is_cancelled and date >= current_date", cal_year)[0][0]:
+        nxt = cal_year + 1
+        try:
+            with conn.transaction():
+                conn.execute("insert into f1.seasons (year) values (%s) on conflict do nothing", (nxt,))
+                conn.execute("insert into f1.rounds (season_year, number, name, date) values (%s, 999, 'Probe Grand Prix', current_date + 120)", (nxt,))
+                conn.execute("refresh materialized view f1.calendar_sessions")
+                probe = q("select distinct year from f1.calendar_sessions")
+                raise RuntimeError(probe)
+        except RuntimeError as e:
+            probe = e.args[0]
+        check(f"calendar_sessions: етап {nxt} у дампі посеред сезону {cal_year} — календар лишається {cal_year}", probe == [(cal_year,)], probe)
+    print("INFO  CALENDAR рік:", cal_year, "; етапів:", len(cal), "; майбутні етапи з сесіями:", future)
     n_pts = q("select count(*), count(distinct year) from f1.season_points")[0]
     print("INFO  SEASON PAGE season_points рядків / сезонів:", n_pts, "; season_rounds:", q("select count(*) from f1.season_rounds")[0][0],
           "; скасовані:", q("select year, name from f1.season_rounds where cancelled order by 1"))
