@@ -7,8 +7,6 @@
   --paint: var(--ink);
   --paint-soft: #6b7079;
   --pole: var(--red);
-  --card-h: 400px;
-  --card-h-m: 300px;
 }
 :root[data-theme="dark"] .seasons-page {
   --track-bg: #17181c;
@@ -166,16 +164,28 @@ html:has(.sn-chips) {
   column-gap: 84px;
   row-gap: 44px;
   margin: 0;
-  padding: 6px 64px calc(var(--card-h) / 2 + 30px);
+  /* Нижній відступ — лише проміжок до пунктиру: зміщена картка вже входить у висоту решітки (рядки нижче). */
+  padding: 6px 64px 22px;
   list-style: none;
 }
 .seasons-page .slot {
   position: relative;
   min-width: 0;
 }
-/* Зміщення другого стовпця — лише візуальне: порядок читання й табуляції лишається «від нових до старих». */
+/* Зміщення другого стовпця — лише візуальне: порядок читання й табуляції лишається «від нових до старих».
+   Через рядки решітки, а не transform: кожна картка займає два півряди, другий стовпець починається на півряд нижче.
+   Так зміщена картка входить у висоту решітки і відступ до пунктиру однаковий за будь-якої кількості сезонів:
+   з transform запас під звисання (півкартки + 30 px) лишався порожнім у десятилітті з непарною кількістю
+   (2020-ті, 7 сезонів: 230 px проти 22 px, замір 14.11) і був неточним на 601–1099 px (32–57 px). */
+.seasons-page .slot {
+  grid-row: span 2;
+  grid-column: 1;
+}
 .seasons-page .slot:nth-child(even) {
-  transform: translateY(50%);
+  grid-column: 2;
+}
+.seasons-page .slot:nth-child(2) {
+  grid-row: 2 / span 2;
 }
 .seasons-page .slot::before {
   content: "";
@@ -382,8 +392,7 @@ html:has(.sn-chips) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 26px;
     row-gap: 34px;
-    /* Зміщена картка звисає на пів своєї висоти: фото (≈ пів екрана) + текст — щоб не накривала наступне десятиліття. */
-    padding: 6px 8px calc(25vw + 70px);
+    padding: 6px 8px 22px;
   }
   .seasons-page .slot::before {
     inset: -8px -8px auto;
