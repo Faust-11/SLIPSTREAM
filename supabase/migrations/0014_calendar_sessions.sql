@@ -1,11 +1,15 @@
 -- Календар поточного сезону (фаза 3i, docs/plans/2026-11-14-phase3i-calendar.md). f1.race_page (0012) має сесії лише
--- проведених гонок; календарю потрібен розклад і майбутніх етапів. Рядок на нескасований етап поточного сезону (найбільший
--- рік з нумерованими етапами); sessions — як у race_page: k — вид, n — номер, at — початок, real — справжній час
+-- проведених гонок; календарю потрібен розклад і майбутніх етапів. Рядок на нескасований етап поточного сезону — сезону
+-- найближчого етапу, що ще попереду (на дату оновлення); немає таких — останнього сезону з етапами. Не max(рік): дамп
+-- приносить календар наступного року ще до кінця поточного (topup_api.py), і сторінка стрибнула б на сезон без
+-- результатів посеред сезону (рев'ю PR #19). sessions — як у race_page: k — вид, n — номер, at — початок, real — справжній час
 -- (не північ дати), той самий порядок (день, вид, час). Етапи, переможці, поули — з f1.season_rounds (0011).
 drop materialized view if exists f1.calendar_sessions;
 create materialized view f1.calendar_sessions as
 with season as (
-  select max(season_year) as year from f1.rounds where number is not null and not is_cancelled
+  select coalesce(
+           (select min(season_year) from f1.rounds where number is not null and not is_cancelled and date >= current_date),
+           (select max(season_year) from f1.rounds where number is not null and not is_cancelled)) as year
 ),
 rnd as (
   select ro.id, ro.season_year, ro.number
