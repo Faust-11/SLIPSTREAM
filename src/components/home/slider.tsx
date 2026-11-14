@@ -34,6 +34,22 @@ export function HmSlider({ id, label, tabs, children }: { id: string; label: str
     return () => io.disconnect();
   }, []);
 
+  // Панель поза видимою частиною контейнера — inert (після гідратації): Tab не веде в сховані посилання й не смикає
+  // контейнер убік (рев'ю PR #25). За видимістю, а не за вкладкою: на широкому екрані новини — дві колонки, видно обидві.
+  // Без JS панелі звичайні — їх гортають пальцем.
+  useEffect(() => {
+    const el = box.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const en of entries) (en.target as HTMLElement).inert = en.intersectionRatio < 0.5;
+      },
+      { root: el, threshold: [0, 0.5, 1] },
+    );
+    [...el.children].forEach((p) => io.observe(p));
+    return () => io.disconnect();
+  }, []);
+
   const go = (i: number) => {
     const el = box.current;
     const p = el?.children[i] as HTMLElement | undefined;
@@ -46,13 +62,15 @@ export function HmSlider({ id, label, tabs, children }: { id: string; label: str
 
   return (
     <>
-      <div className="hm-tabs" role="group" aria-label={label}>
-        {tabs.map((t, i) => (
-          <button key={t} type="button" aria-pressed={active === i} aria-controls={`${id}-${i}`} onClick={() => go(i)}>
-            {t}
-          </button>
-        ))}
-      </div>
+      {tabs.length > 1 && (
+        <div className="hm-tabs" role="group" aria-label={label}>
+          {tabs.map((t, i) => (
+            <button key={t} type="button" aria-pressed={active === i} aria-controls={`${id}-${i}`} onClick={() => go(i)}>
+              {t}
+            </button>
+          ))}
+        </div>
+      )}
       <div ref={box} className="hm-slider" id={id}>
         {children}
       </div>

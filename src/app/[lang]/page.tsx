@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 import type { CSSProperties, ReactNode } from "react";
-import { LocalDay, LocalTime } from "@/components/calendar/local-time";
+import { formatDay, LocalDay, LocalTime, TzNote } from "@/components/calendar/local-time";
 import { HmCountdown } from "@/components/home/countdown";
+import { HmNews } from "@/components/home/news";
 import { HmSlider } from "@/components/home/slider";
-import { Ago } from "@/components/news/ago";
 import { SeasonPhoto } from "@/components/seasons/season-photo";
+import { heroColors } from "@/components/site/section-hero";
 import { PageCredits } from "@/components/teams/page-credits";
 import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";
 import { requireLocale } from "@/i18n/require-locale";
-import { contrastRatio } from "@/lib/contrast";
 import { getHomePage, type RecordList } from "@/lib/data/home";
 import type { ResultRow } from "@/lib/data/race-page";
 import type { SeasonDriver, SeasonTeamRef } from "@/lib/data/season-page";
@@ -19,8 +19,8 @@ import { plural } from "@/lib/plural";
 import { gapTime, lapTime, raceTime } from "@/lib/race-math";
 import { pageMetadata } from "@/lib/seo";
 
-// Новини на головній — щонайбільше раз на 30 хв, як /news (рішення 14.11); решта даних — з тієї ж бази при збірці.
-export const revalidate = 1800;
+// Головна статична: збирається з кожним деплоєм після data-sync і бази під час ISR не читає (рішення користувача 14.11 —
+// інакше посилання на щойно опубліковану гонку давали б 404, поки йде деплой). Новини — клієнтом з /api/news (ISR 30 хв).
 
 const fmt = { uk: new Intl.NumberFormat("uk"), en: new Intl.NumberFormat("en") };
 const dayFmt = {
@@ -65,9 +65,6 @@ function Team({ t, lang }: { t: SeasonTeamRef | null; lang: Locale }) {
     </a>
   );
 }
-
-/** Текст на кольорі команди: темний або білий — що контрастніший (бірюза Mercedes з білим — 1,7:1). */
-const onColor = (bg: string) => (contrastRatio("#16181d", bg) >= contrastRatio("#ffffff", bg) ? "#16181d" : "#ffffff");
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const lang = requireLocale((await params).lang);
@@ -124,7 +121,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <div className="hm-hero-main">
             <div className="hm-meta">
               <span>{t.eyebrow}</span>
-              <span>{page.inProgress ? fill(plural(page.done, lang, t.seasonState), { season: page.season, done: page.done, total: page.total }) : fill(t.seasonOver, { season: page.season })}</span>
+              <span>
+                {page.phase === "running"
+                  ? fill(plural(page.total, lang, t.seasonState), { season: page.season, done: page.done, total: page.total })
+                  : page.phase === "ahead"
+                    ? fill(plural(page.total, lang, t.seasonAhead), { season: page.season, total: page.total })
+                    : fill(t.seasonOver, { season: page.season })}
+              </span>
             </div>
             <h1 className="display">
               <span>{t.h1[0]}</span>{" "}
@@ -176,11 +179,11 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                   />
                 )}
                 <span className="hm-stamp hm-stamp-champ" id="hm-champ-h">
-                  {fill(champion.decided ? t.champion : t.leader, { season: page.season })}
+                  {fill(champion.decided ? t.champion : t.leader, { season: champion.season })}
                 </span>
               </figure>
               <div className="hm-champ-top">
-                <span className="hm-roundel" style={champion.team?.color ? ({ "--c": champion.team.color, "--on": onColor(champion.team.color) } as CSSProperties) : undefined} aria-hidden="true">
+                <span className="hm-roundel" style={champion.team?.color ? ({ "--c": champion.team.color, "--on": heroColors(champion.team.color).fg } as CSSProperties) : undefined} aria-hidden="true">
                   {champion.number ?? champion.driver.initials}
                 </span>
                 <div>
@@ -194,13 +197,16 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                   </p>
                 </div>
               </div>
-              <p className="hm-champ-note">
-                {champion.decider
-                  ? champion.decider.left > 0
-                    ? fill(plural(champion.decider.left, lang, t.decided), { round: champion.decider.round, place: champion.decider.place, left: champion.decider.left })
-                    : fill(t.decidedLast, { place: champion.decider.place })
-                  : t.leaderNote}
-              </p>
+              {/* Титул вирішено, але етап рішення не визначено однозначно — без підпису (рев'ю PR #25). */}
+              {(champion.decider || !champion.decided) && (
+                <p className="hm-champ-note">
+                  {champion.decider
+                    ? champion.decider.left > 0
+                      ? fill(plural(champion.decider.left, lang, t.decided), { round: champion.decider.round, place: champion.decider.place, left: champion.decider.left })
+                      : fill(t.decidedLast, { place: champion.decider.place })
+                    : t.leaderNote}
+                </p>
+              )}
             </aside>
           )}
         </div>
@@ -238,7 +244,16 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 <b>{fill(t.railNext, { round: nextRail.round })}</b>
                 <span>
                   {nextRail.place}
-                  {nextRail.date ? `, ${shortDay[lang].format(utc(nextRail.date))}` : ""}
+                  {/* Дата старту — у поясі браузера, як і час старту нижче (календар, PR #19); без часу — дата етапу в UTC. */}
+                  {nextRail.raceTimed && nextRail.raceAt ? (
+                    <>
+                      , <LocalDay iso={nextRail.raceAt} locale={lang} />
+                    </>
+                  ) : nextRail.date ? (
+                    `, ${shortDay[lang].format(utc(nextRail.date))}`
+                  ) : (
+                    ""
+                  )}
                 </span>
               </div>
             )}
@@ -267,7 +282,10 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 {last.date && <span className="hm-stamp hm-stamp-fin">{fill(t.lastFinish, { date: dayFmt[lang].format(utc(last.date)) })}</span>}
                 <div className="hm-banner-label">
                   <div>
-                    <div className="hm-eyebrow">{fill(t.lastEyebrow, { round: last.round, rounds: last.rounds })}</div>
+                    <div className="hm-eyebrow">
+                      {last.year !== page.season && `${last.year} · `}
+                      {fill(t.lastEyebrow, { round: last.round, rounds: last.rounds })}
+                    </div>
                     <h2 className="display" id="hm-last-h">
                       <a href={path(`/seasons/${last.year}/${last.round}`)}>{last.gp}</a>
                     </h2>
@@ -313,12 +331,12 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                       return (
                         <tr key={r.driver.id}>
                           <td className="num hm-pos">{r.position}</td>
-                          <td>
+                          <th scope="row">
                             <span className="hm-drv">
                               <i className="hm-stripe" style={r.driver.team?.color ? ({ "--c": r.driver.team.color } as CSSProperties) : undefined} aria-hidden="true" />
                               <Driver d={r.driver} lang={lang} small />
                             </span>
-                          </td>
+                          </th>
                           <td className="hm-r hm-c-grid num">
                             {r.grid || "—"}
                             {delta !== 0 && (
@@ -397,23 +415,28 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 </div>
                 <div className="hm-next-body">
                   {next.raceAt && (
-                    <p className="hm-when">
+                    <div className="hm-when">
                       <strong>{next.place}</strong>
                       <span>
                         {t.raceStart}:{" "}
-                        {next.raceTimed ? <LocalTime iso={next.raceAt} locale={lang} /> : <LocalDay iso={next.raceAt} locale={lang} />}
+                        {/* Без справжнього часу raceAt — кінець дня за UTC: дату беремо з етапу в UTC, а не в поясі браузера
+                            (на схід від UTC вона з'їжджала б на день уперед; рев'ю PR #25, як у календарі). */}
+                        {next.raceTimed ? <LocalTime iso={next.raceAt} locale={lang} /> : formatDay(next.date ?? next.raceAt, lang, "UTC")}
                       </span>
-                    </p>
+                      {next.raceTimed && <TzNote utc={dict.calendarPage.tzUtc} local={dict.calendarPage.tzLocal} />}
+                    </div>
                   )}
-                  {next.raceAt && (
+                  {page.upcoming.length > 0 && (
                     <HmCountdown
-                      raceAt={next.raceAt}
+                      rounds={page.upcoming}
+                      shown={next.round}
                       labels={{
                         label: dict.calendarPage.countdownLabel,
                         days: dict.calendarPage.days,
                         hours: dict.calendarPage.hours,
                         minutes: dict.calendarPage.minutes,
                         started: fill(dict.calendarPage.raceStarted, { round: next.round }),
+                        then: t.countdownThen,
                       }}
                     />
                   )}
@@ -489,11 +512,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <div className="hm-standings">
             <div className="hm-head">
               <h2 className="display">{t.standings}</h2>
-              <span className="hm-src">{fill(t.afterRound, { round: page.standings.afterRound })}</span>
+              <span className="hm-src">
+                {page.standings.final ? fill(t.finalStandings, { season: page.standings.season }) : fill(t.afterRound, { round: page.standings.afterRound })}
+              </span>
             </div>
             <HmSlider id="hm-st" label={t.tabsLabel} tabs={page.standings.teams ? [t.tabDrivers, t.tabTeams] : [t.tabDrivers]}>
               <ol className="hm-panel" id="hm-st-0" aria-label={t.tabDrivers}>
-                {page.standings.drivers.slice(0, 10).map((r) => (
+                {page.standings.drivers.map((r) => (
                   <li key={r.driver.id} className="hm-st-row">
                     <span className="hm-st-pos num">{r.position ?? "—"}</span>
                     <span className="hm-st-name">
@@ -524,7 +549,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 </ol>
               )}
             </HmSlider>
-            <a className="hm-more" href={path(`/seasons/${page.season}`)}>
+            <a className="hm-more" href={path(`/seasons/${page.standings.season}`)}>
               {t.fullStandings}
             </a>
           </div>
@@ -562,39 +587,18 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               {t.allNews}
             </a>
           </div>
-          {page.news.headlines.length === 0 && page.news.posts.length === 0 ? (
-            <p className="hm-src">{t.newsEmpty}</p>
-          ) : (
-            <HmSlider id="hm-nw" label={t.newsTabs} tabs={[t.tabHeadlines, t.tabPosts]}>
-              <ul className="hm-panel hm-hl" id="hm-nw-0" aria-label={t.tabHeadlines}>
-                {page.news.headlines.map((h) => (
-                  <li key={h.id}>
-                    <a href={h.url} rel="noopener" target="_blank">
-                      <span className="hm-hl-t">{h.title}</span>
-                      {h.publishedAt && (
-                        <span className="hm-hl-m">
-                          <Ago iso={h.publishedAt} locale={lang} />
-                        </span>
-                      )}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <ul className="hm-panel hm-posts" id="hm-nw-1" aria-label={t.tabPosts}>
-                {page.news.posts.map((p) => (
-                  <li key={p.id}>
-                    <span className="hm-post-who">
-                      <b>{p.name}</b> <span>@{p.handle}</span>
-                    </span>
-                    <p>{p.text}</p>
-                    <a href={p.url} rel="noopener" target="_blank" className="hm-post-link">
-                      <Ago iso={p.createdAt} locale={lang} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </HmSlider>
-          )}
+          <HmNews
+            locale={lang}
+            labels={{
+              tabs: t.newsTabs,
+              headlines: t.tabHeadlines,
+              posts: t.tabPosts,
+              loading: t.newsLoading,
+              empty: t.newsEmpty,
+              post: dict.newsPage.openBskyAuthor,
+              sources: { f1: "Formula 1", motorsport: "Motorsport.com", autosport: "Autosport" },
+            }}
+          />
         </div>
       </section>
 
