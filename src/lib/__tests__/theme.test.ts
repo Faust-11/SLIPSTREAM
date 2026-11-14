@@ -102,6 +102,9 @@ describe("themeScriptSource (inline-скрипт у <head>)", () => {
       ["/circuits?q=monza", true],
       ["/circuits", false],
       ["/circuits/monza?q=1", false],
+      ["/uk/calendar?f=done", true],
+      ["/calendar", false],
+      ["/calendar?utm_source=fb", false],
     ];
     for (const [url, expected] of cases) {
       window.history.replaceState(null, "", url);
