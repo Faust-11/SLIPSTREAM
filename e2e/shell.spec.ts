@@ -347,7 +347,7 @@ test("клієнтський перехід на головну — без пе�
   });
   await page.getByRole("link", { name: "Slipstream — home" }).first().click();
   await expect(page).toHaveURL(/\/$/);
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Slipstream");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("All of Formula 1. Lap by lap.");
   expect(await page.evaluate(() => (window as unknown as { __marker?: number }).__marker)).toBe(1);
   expect(bad).toEqual([]);
 });
