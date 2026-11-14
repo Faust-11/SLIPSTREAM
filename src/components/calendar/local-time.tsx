@@ -1,27 +1,29 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
 import type { Locale } from "@/i18n/config";
+import { fill } from "@/i18n/fill";
+import { useHydrated } from "./clock";
+
+const tagOf = (locale: Locale) => (locale === "uk" ? "uk" : "en-GB");
+const tzOpt = (timeZone?: string) => (timeZone ? { timeZone } : {});
 
 /** Формат сесії: «пт, 20 лист. · 00:30»; пояс — UTC на сервері, браузерний після монтування. */
 export function formatSession(iso: string, locale: Locale, timeZone?: string): string {
   const d = new Date(iso);
-  const tag = locale === "uk" ? "uk" : "en-GB";
-  const day = new Intl.DateTimeFormat(tag, { weekday: "short", day: "numeric", month: "short", ...(timeZone ? { timeZone } : {}) }).format(d);
-  const time = new Intl.DateTimeFormat(tag, { hour: "2-digit", minute: "2-digit", hourCycle: "h23", ...(timeZone ? { timeZone } : {}) }).format(d);
+  const day = new Intl.DateTimeFormat(tagOf(locale), { weekday: "short", day: "numeric", month: "short", ...tzOpt(timeZone) }).format(d);
+  const time = new Intl.DateTimeFormat(tagOf(locale), { hour: "2-digit", minute: "2-digit", hourCycle: "h23", ...tzOpt(timeZone) }).format(d);
   return `${day} · ${time}`;
+}
+
+/** Дата картки: «22 лист.». */
+export function formatDay(iso: string, locale: Locale, timeZone?: string): string {
+  return new Intl.DateTimeFormat(tagOf(locale), { day: "numeric", month: "short", ...tzOpt(timeZone) }).format(new Date(iso));
 }
 
 /**
  * Час сесії: сервер і перший клієнтський рендер — UTC (без JS читач бачить UTC, гідратація без розбіжностей), після
  * монтування — у поясі браузера (рішення користувача 14.11).
  */
-const noop = () => () => {};
-/** true після гідратації (на сервері й під час гідратації — false): без розбіжності розмітки й без setState в ефекті. */
-export function useHydrated(): boolean {
-  return useSyncExternalStore(noop, () => true, () => false);
-}
-
 export function LocalTime({ iso, locale }: { iso: string; locale: Locale }) {
   const hydrated = useHydrated();
   const text = hydrated ? formatSession(iso, locale) : `${formatSession(iso, locale, "UTC")} UTC`;
@@ -32,8 +34,21 @@ export function LocalTime({ iso, locale }: { iso: string; locale: Locale }) {
   );
 }
 
+/**
+ * Дата картки за справжнім часом гонки — у тому самому поясі, що й сесії (рев'ю PR #19: у Лос-Анджелесі картка була
+ * «22 лист.», а гонка «сб, 21 лист. · 20:00»). Без JS — дата за UTC.
+ */
+export function LocalDay({ iso, locale, className }: { iso: string; locale: Locale; className?: string }) {
+  const hydrated = useHydrated();
+  return (
+    <time dateTime={iso} className={className}>
+      {formatDay(iso, locale, hydrated ? undefined : "UTC")}
+    </time>
+  );
+}
+
 /** Підпис поясу: «Час — UTC.» → «Час — ваш часовий пояс (Europe/Kyiv).» */
 export function TzNote({ utc, local }: { utc: string; local: string }) {
   const hydrated = useHydrated();
-  return <p className="cl-tz">{hydrated ? local.replace("{tz}", Intl.DateTimeFormat().resolvedOptions().timeZone) : utc}</p>;
+  return <p className="cl-tz">{hydrated ? fill(local, { tz: Intl.DateTimeFormat().resolvedOptions().timeZone }) : utc}</p>;
 }

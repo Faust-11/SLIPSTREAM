@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
-import { LocalTime, TzNote } from "@/components/calendar/local-time";
+import { LiveRounds } from "@/components/calendar/live-rounds";
+import { LocalDay, LocalTime, TzNote } from "@/components/calendar/local-time";
 import { NextRace, type UpcomingRound } from "@/components/calendar/next-race";
 import { RoundsFilter, type CalendarFilter } from "@/components/calendar/rounds-filter";
 import { PageCredits } from "@/components/teams/page-credits";
@@ -31,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale: lang,
     path: "/calendar",
     title: `${dict.calendarPage.title} ${page.season}`,
-    description: fill(dict.calendarPage.metaDescription, { season: page.season, n: page.total }),
+    description: fill(plural(page.total, lang, dict.calendarPage.metaDescription), { season: page.season, n: page.total }),
   });
 }
 
@@ -81,7 +82,7 @@ export default async function CalendarPage({ params }: Props) {
       gp: c.gp,
       place: c.place,
       raceAt: c.raceAt!,
-      sessions: c.sessions.filter((s) => s.at && s.real).map((s) => ({ label: sessionLabel(s.kind, sessionNames), at: s.at!, race: s.kind === "R" })),
+      sessions: c.sessions.filter((s) => s.at).map((s) => ({ label: sessionLabel(s.kind, sessionNames), at: s.at!, race: s.kind === "R", real: s.real })),
     }));
   const counts: Record<CalendarFilter, number> = {
     all: page.cards.length,
@@ -106,14 +107,31 @@ export default async function CalendarPage({ params }: Props) {
     "@type": "EventSeries",
     name: `Formula 1 ${page.season}`,
     url: new URL(path("/calendar"), siteUrl()).href,
-    subEvent: page.cards.map((c) => ({ "@type": "SportsEvent", name: `${c.gp} ${page.season}`, startDate: c.raceAt ?? c.date, location: { "@type": "Place", name: c.place } })),
+    subEvent: page.cards.map((c) => ({
+      "@type": "SportsEvent",
+      name: `${c.gp} ${page.season}`,
+      startDate: c.raceTimed ? c.raceAt : c.date,
+      location: { "@type": "Place", name: c.place, address: { "@type": "PostalAddress", addressLocality: c.place, ...(c.country ? { addressCountry: c.country } : {}) } },
+    })),
   };
 
   const card = (c: CalendarCard) => (
-    <li key={c.round} id={`r${c.round}`} className={`cl-card ${c.state}`} data-state={c.state} data-sprint={c.sprint ? "1" : "0"} style={c.color ? ({ "--win": c.color } as CSSProperties) : undefined}>
+    <li
+      key={c.round}
+      id={`r${c.round}`}
+      className={`cl-card ${c.state}`}
+      data-state={c.state}
+      data-sprint={c.sprint ? "1" : "0"}
+      data-race={c.state !== "done" ? (c.raceAt ?? undefined) : undefined}
+      style={c.color ? ({ "--win": c.color } as CSSProperties) : undefined}
+    >
       <div className="cl-top">
         <span className="cl-rnd num">{String(c.round).padStart(2, "0")}</span>
-        {c.date && <span className="cl-dt">{dayFmt[lang].format(new Date(`${c.date}T00:00:00Z`))}</span>}
+        {c.raceTimed && c.raceAt ? (
+          <LocalDay className="cl-dt" iso={c.raceAt} locale={lang} />
+        ) : (
+          c.date && <span className="cl-dt">{dayFmt[lang].format(new Date(`${c.date}T00:00:00Z`))}</span>
+        )}
         {c.sprint && <span className="cl-bd spr">{t.sprintTag}</span>}
         {c.decider && <span className="cl-bd ttl">{t.titleTag}</span>}
       </div>
@@ -145,30 +163,35 @@ export default async function CalendarPage({ params }: Props) {
           )}
         </dl>
       ) : (
-        <ul className="cl-sess">
-          {c.sessions
-            .filter((s) => s.at)
-            .map((s) => (
-              <li key={`${s.kind}-${s.at}`} className={s.kind === "R" ? "race" : undefined}>
-                {/* Коротко, як у макеті («П1»), повна назва — у підказці й для скрінрідера. */}
-                <abbr title={sessionLabel(s.kind, sessionNames)}>{sessionLabel(s.kind, t.sessionShort as Record<string, string>)}</abbr>
-                {s.real ? <LocalTime iso={s.at!} locale={lang} /> : <span className="num">{dayFmt[lang].format(new Date(s.at!))}</span>}
-              </li>
-            ))}
-        </ul>
+        <>
+          {/* Видно лише коли гонка вже стартувала за часом клієнта, а результатів у збірці ще немає (live-rounds.tsx). */}
+          <p className="cl-wait">{t.cardStarted}</p>
+          <ul className="cl-sess">
+            {c.sessions
+              .filter((s) => s.at)
+              .map((s) => (
+                <li key={`${s.kind}-${s.at}`} className={s.kind === "R" ? "race" : undefined}>
+                  {/* Коротко, як у макеті («П1»), повна назва — у підказці й для скрінрідера. */}
+                  <abbr title={sessionLabel(s.kind, sessionNames)}>{sessionLabel(s.kind, t.sessionShort as Record<string, string>)}</abbr>
+                  {s.real ? <LocalTime iso={s.at!} locale={lang} /> : <span className="num">{dayFmt[lang].format(new Date(s.at!))}</span>}
+                </li>
+              ))}
+          </ul>
+        </>
       )}
     </li>
   );
 
   return (
-    <div className="cl-page">
+    <div className="cl-page" id="cl-page">
+      <LiveRounds rootId="cl-page" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       <section className="cl-hero">
         <div className="wrap">
           <div>
             <span className="cl-stamp">
               {page.done === page.total
-                ? fill(t.stampOver, { season: page.season, total: page.total })
+                ? fill(plural(page.total, lang, t.stampOver), { season: page.season, total: page.total })
                 : fill(plural(page.total, lang, t.stamp), { season: page.season, done: page.done, total: page.total })}
             </span>
             <h1 className="display">
@@ -198,26 +221,25 @@ export default async function CalendarPage({ params }: Props) {
               </div>
             </dl>
           </div>
-          {upcoming.length > 0 ? (
-            <NextRace
-              rounds={upcoming}
-              season={page.season}
-              locale={lang}
-              labels={{ nextRace: t.nextRace, countdownLabel: t.countdownLabel, days: t.days, hours: t.hours, minutes: t.minutes, raceStarted: t.raceStarted, seasonOver: t.seasonOver }}
-            />
-          ) : (
-            <div className="cl-next">
-              <b className="cl-next-name">{fill(t.seasonOver, { season: page.season })}</b>
-            </div>
-          )}
+          <NextRace
+            rounds={upcoming}
+            season={page.season}
+            locale={lang}
+            labels={{ nextRace: t.nextRace, roundK: t.roundK, countdownLabel: t.countdownLabel, days: t.days, hours: t.hours, minutes: t.minutes, raceStarted: t.raceStarted, seasonOver: t.seasonOver }}
+          />
         </div>
       </section>
 
       <section className="cl-strip-sec" aria-label={t.stripLabel}>
         <div className="wrap">
-          <ol className="cl-strip">
+          <ol className="cl-strip" style={{ "--n": page.cards.length } as CSSProperties}>
             {page.cards.map((c) => (
-              <li key={c.round} className={c.state} style={c.color ? ({ "--win": c.color } as CSSProperties) : undefined}>
+              <li
+                key={c.round}
+                className={c.state}
+                data-race={c.state !== "done" ? (c.raceAt ?? undefined) : undefined}
+                style={c.color ? ({ "--win": c.color } as CSSProperties) : undefined}
+              >
                 <a href={`#r${c.round}`} aria-label={`${c.round} · ${c.gp}${c.winners[0] ? ` · ${c.winners.map((w) => w.short).join(" / ")}` : ""}`}>
                   <i aria-hidden="true" />
                   <span className="num">{c.round}</span>
@@ -258,51 +280,26 @@ export default async function CalendarPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="cl-sec" aria-labelledby="cl-st-h">
-        <div className="wrap">
-          <div className="cl-head">
-            <h2 className="display" id="cl-st-h">
-              {t.standings}
-            </h2>
-            <a className="cl-more" href={path(`/seasons/${page.season}`)}>
-              {fill(t.fullStandings, { season: page.season })}
-            </a>
-          </div>
-          <div className="cl-tables">
-            <div className="cl-tbl" role="region" aria-labelledby="cl-drv-cap" tabIndex={0}>
-              <table>
-                <caption id="cl-drv-cap">{t.driversTop}</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">{t.col.pos}</th>
-                    <th scope="col">{t.col.driver}</th>
-                    <th scope="col">{t.col.team}</th>
-                    <th scope="col" className="cl-r">
-                      {t.col.points}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {page.drivers.slice(0, CALENDAR_DRIVERS_TOP).map((r) => (
-                    <tr key={r.driver.id}>
-                      <td className="num">{r.position ?? "—"}</td>
-                      <th scope="row">
-                        <Driver d={r.driver} lang={lang} />
-                      </th>
-                      <td>{r.team && <Team t={r.team} lang={lang} />}</td>
-                      <td className="cl-r num">{n(r.points)}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+      {/* Сезон без результатів (календар наступного року після фіналу) — без заліку, лише посилання на попередній. */}
+      {page.started ? (
+        <section className="cl-sec" aria-labelledby="cl-st-h">
+          <div className="wrap">
+            <div className="cl-head">
+              <h2 className="display" id="cl-st-h">
+                {t.standings}
+              </h2>
+              <a className="cl-more" href={path(`/seasons/${page.season}`)}>
+                {fill(t.fullStandings, { season: page.season })}
+              </a>
             </div>
-            {page.teams && (
-              <div className="cl-tbl" role="region" aria-labelledby="cl-tm-cap" tabIndex={0}>
+            <div className="cl-tables">
+              <div className="cl-tbl" role="region" aria-labelledby="cl-drv-cap" tabIndex={0}>
                 <table>
-                  <caption id="cl-tm-cap">{t.teamsTitle}</caption>
+                  <caption id="cl-drv-cap">{t.driversTop}</caption>
                   <thead>
                     <tr>
                       <th scope="col">{t.col.pos}</th>
+                      <th scope="col">{t.col.driver}</th>
                       <th scope="col">{t.col.team}</th>
                       <th scope="col" className="cl-r">
                         {t.col.points}
@@ -310,27 +307,65 @@ export default async function CalendarPage({ params }: Props) {
                     </tr>
                   </thead>
                   <tbody>
-                    {page.teams.map((r) => (
-                      <tr key={r.team.id}>
+                    {page.drivers.slice(0, CALENDAR_DRIVERS_TOP).map((r) => (
+                      <tr key={r.driver.id}>
                         <td className="num">{r.position ?? "—"}</td>
                         <th scope="row">
-                          <Team t={r.team} lang={lang} />
+                          <Driver d={r.driver} lang={lang} />
                         </th>
+                        <td>{r.team && <Team t={r.team} lang={lang} />}</td>
                         <td className="cl-r num">{n(r.points)}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
+              {page.teams && (
+                <div className="cl-tbl" role="region" aria-labelledby="cl-tm-cap" tabIndex={0}>
+                  <table>
+                    <caption id="cl-tm-cap">{t.teamsTitle}</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">{t.col.pos}</th>
+                        <th scope="col">{t.col.team}</th>
+                        <th scope="col" className="cl-r">
+                          {t.col.points}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {page.teams.map((r) => (
+                        <tr key={r.team.id}>
+                          <td className="num">{r.position ?? "—"}</td>
+                          <th scope="row">
+                            <Team t={r.team} lang={lang} />
+                          </th>
+                          <td className="cl-r num">{n(r.points)}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+            {page.prev && (
+              <a className="cl-nbr" href={path(`/seasons/${page.prev.year}`)}>
+                {fill(t.prevSeason, { year: page.prev.year })}
+              </a>
             )}
           </div>
-          {page.prev && (
-            <a className="cl-nbr" href={path(`/seasons/${page.prev.year}`)}>
-              {fill(t.prevSeason, { year: page.prev.year })}
-            </a>
-          )}
-        </div>
-      </section>
+        </section>
+      ) : (
+        page.prev && (
+          <section className="cl-sec">
+            <div className="wrap">
+              <a className="cl-nbr" href={path(`/seasons/${page.prev.year}`)}>
+                {fill(t.prevSeason, { year: page.prev.year })}
+              </a>
+            </div>
+          </section>
+        )
+      )}
 
       <PageCredits groups={[{ title: t.credits, items: credits }]} />
     </div>
