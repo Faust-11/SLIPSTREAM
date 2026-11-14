@@ -489,6 +489,10 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     no_race = [r for y, r, s in cal if r in held and not any(x["k"] == "R" and x.get("at") for x in s)]
     check("calendar_sessions: у кожної проведеної гонки є час гонки", not no_race, no_race)
     future = [(r, [(x["k"], x.get("at"), x.get("real")) for x in s]) for y, r, s in cal if r not in held]
+    lv = next((s for y, r, s in cal if y == 2026 and r == 21), [])
+    check("Лас-Вегас 2026 (етап 21): FP1 2026-11-20 00:30 UTC, гонка 2026-11-22 04:00 UTC (Jolpica API 14.11)",
+          [(x["k"], x.get("at")) for x in lv if x["k"] in ("FP1", "R")] == [("FP1", "2026-11-20T00:30:00+00:00"), ("R", "2026-11-22T04:00:00+00:00")]
+          or cal[0][0] != 2026, [(x["k"], x.get("at")) for x in lv])
     print("INFO  CALENDAR рік:", cal[0][0] if cal else None, "; етапів:", len(cal), "; майбутні етапи з сесіями:", future)
     n_pts = q("select count(*), count(distinct year) from f1.season_points")[0]
     print("INFO  SEASON PAGE season_points рядків / сезонів:", n_pts, "; season_rounds:", q("select count(*) from f1.season_rounds")[0][0],
