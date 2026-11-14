@@ -47,6 +47,8 @@ QUERIES = {
     "race_page": "select year, round, sessions, race, sprint, quali, sprint_quali, laps, stops from f1.race_page order by year, round",
     # Траси (0013).
     "circuit_index": "select ref, name, locality, country, country_code, lat, lng, wikipedia_en from f1.circuit_index order by ref",
+    # Календар (0014).
+    "calendar_sessions": "select year, round, sessions from f1.calendar_sessions order by year, round",
     # Сторінка пілота (0008).
     "driver_totals": "select id, date_of_birth::text as date_of_birth, permanent_number, points, fastest_laps, fastest_laps_known, "
                      "debut, last_race, first_podium, first_pole from f1.driver_totals order by id",
