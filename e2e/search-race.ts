@@ -14,8 +14,15 @@ export async function expectSearchSurvivesRace(page: Page, path: string, label: 
     await expect(page).toHaveURL(q(early));
     await expect(box).toHaveValue(early);
   }
-  await page.goto(path, { waitUntil: "networkidle" });
+  // Гідратація — за React-вузлом на полі, а не networkidle: `next start` віддає ISR-сторінці «Новин» (посилання в меню
+  // передзавантажується) stale-while-revalidate, Chrome перевіряє такі відповіді у фоні, і Playwright не бачить їх
+  // завершення — networkidle не настає (замір 14.11: 0 з 3; без цієї директиви — 3 з 3). Vercel браузеру віддає
+  // max-age=0 (замір прод) — це лише тестове середовище.
+  await page.goto(path);
   const box = page.getByRole("searchbox", { name: label });
+  await expect
+    .poll(() => box.evaluate((el) => Object.keys(el).some((k) => k.startsWith("__reactFiber$") || k.startsWith("__reactProps$"))))
+    .toBe(true);
   for (let i = 0; i < 3; i++) {
     await box.fill("");
     await box.pressSequentially(typed, { delay: 0 });

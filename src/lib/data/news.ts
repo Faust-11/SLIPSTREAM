@@ -29,6 +29,10 @@ export const BSKY_HANDLES = [
 ];
 /** Постів у стрічці — найновіші. Макет мав 60; 40 — менше HTML і даних RSC (замір 14.11: 60 постів ≈ 36 КБ розмітки ×2). */
 export const POSTS_MAX = 40;
+/** Не більше постів одного автора: на знімку 14.11 racefans.net займав 17 з 40 (рев'ю PR #20). */
+export const POSTS_PER_AUTHOR = 6;
+/** Сторінки статей formula1.com (дата й прев'ю не змінюються) — кеш на добу, а не 10 × ~650 КБ кожні 30 хв. */
+const ARTICLE_REVALIDATE = 86400;
 
 export type NewsFeed = {
   fetchedAt: string;
@@ -40,13 +44,36 @@ export type NewsFeed = {
   failed: string[];
 };
 
-async function fetchText(url: string): Promise<string> {
+/** Помилка тайм-ауту — окремий тип для тестів і повідомлень. */
+class NewsTimeout extends Error {}
+
+/**
+ * Тайм-аут на весь запит разом із тілом — через Promise.race, а не лише AbortSignal: під час ISR запис кешу fetch завжди
+ * застарілий (той самий revalidate), Next оновлює його на передньому плані й відкидає signal (patch-fetch.js:660–679;
+ * замір рев'ю PR #20: тайм-аут 2 с, відповідь через 8 с без abort). Signal лишаємо — він діє під час збірки.
+ */
+function withTimeout<T>(work: Promise<T>, ms: number): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const limit = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => reject(new NewsTimeout(`тайм-аут ${ms} мс`)), ms);
+  });
+  return Promise.race([work, limit]).finally(() => clearTimeout(timer));
+}
+
+async function fetchText(url: string, revalidate = NEWS_REVALIDATE): Promise<string> {
   let last: unknown;
   for (let i = 0; i < 2; i++) {
+    // Повтор — з іншим ключем кешу: порожня 200 потрапляє в кеш fetch, і повтор з тією самою адресою прочитав би її звідти
+    // (patch-fetch.js:703; замір рев'ю PR #20). `cache: "no-store"` не можна — сторінка стала б динамічною (замір).
+    const target = i === 0 ? url : `${url}${url.includes("?") ? "&" : "?"}_r=${Date.now()}`;
     try {
-      const res = await fetch(url, { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(TIMEOUT_MS), next: { revalidate: NEWS_REVALIDATE } });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const text = await res.text();
+      const text = await withTimeout(
+        fetch(target, { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(TIMEOUT_MS), next: { revalidate } }).then(async (res) => {
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          return res.text();
+        }),
+        TIMEOUT_MS,
+      );
       // Замір 14.11: Bluesky раз віддав порожню відповідь з 200 — повторюємо.
       if (text.trim()) return text;
       throw new Error("порожня відповідь");
@@ -74,17 +101,21 @@ async function pool<T, R>(items: T[], n: number, fn: (x: T) => Promise<R>): Prom
   return out;
 }
 
-async function loadRss(src: (typeof RSS_SOURCES)[number]): Promise<RssItem[]> {
+async function loadRss(src: (typeof RSS_SOURCES)[number], failed: string[]): Promise<RssItem[]> {
   const xml = FIXTURES ? await fixture(`rss-${src.key}.xml`) : await fetchText(src.url);
   const items = parseRss(xml, src.key, src.take);
   if (src.key !== "f1") return items;
   // formula1.com: дата й прев'ю — зі сторінки статті; стаття не відповіла — запис без них (не падаємо).
   const meta: Record<string, { image: string | null; date: string | null }> = FIXTURES ? JSON.parse(await fixture("f1-articles.json")) : {};
-  return pool(items, 4, async (it) => {
+  const out = await pool(items, 4, async (it) => {
     let m = meta[it.link];
-    if (!m && !FIXTURES) m = await fetchText(it.link).then(parseF1Article, () => ({ image: null, date: null }));
+    if (!m && !FIXTURES) m = await fetchText(it.link, ARTICLE_REVALIDATE).then(parseF1Article, () => ({ image: null, date: null }));
     return { ...it, image: m?.image ?? null, publishedAt: m?.date ?? null };
   });
+  // Без дати запис іде в кінець стрічки — видно в «не відповіли», а не мовчки (рев'ю PR #20).
+  const undated = out.filter((x) => !x.publishedAt).length;
+  if (undated > 0) failed.push(`${src.name} (${undated}/${out.length})`);
+  return out;
 }
 
 async function loadBsky(handle: string) {
@@ -102,7 +133,7 @@ export const getNews = cache(async (): Promise<NewsFeed> => {
   const failed: string[] = [];
   const rss = await Promise.all(
     RSS_SOURCES.map((s) =>
-      loadRss(s).then(
+      loadRss(s, failed).then(
         (items) => items.map((item) => ({ source: s.key, item })),
         () => (failed.push(s.name), []),
       ),
@@ -119,7 +150,14 @@ export const getNews = cache(async (): Promise<NewsFeed> => {
   const flat = rss.flat();
   const headlines = mergeHeadlines(flat);
   const allPosts = bsky.flatMap((b) => b.posts).sort((a, b) => b.createdAt.localeCompare(a.createdAt));
-  const posts = allPosts.slice(0, POSTS_MAX);
+  const perAuthor = new Map<string, number>();
+  const posts = allPosts
+    .filter((p) => {
+      const k = (perAuthor.get(p.handle) ?? 0) + 1;
+      perAuthor.set(p.handle, k);
+      return k <= POSTS_PER_AUTHOR;
+    })
+    .slice(0, POSTS_MAX);
   if (headlines.length === 0 && posts.length === 0 && process.env.NEXT_PHASE !== "phase-production-build") {
     throw new Error(`Новини: жодне джерело не відповіло (${failed.join(", ")})`);
   }

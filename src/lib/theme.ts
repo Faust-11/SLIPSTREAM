@@ -78,8 +78,10 @@ export function resolveTheme(attribute: string | null | undefined, prefersDark: 
  * є стан списку (`q`/`f`/`sort`): список ховається до гідратації, щоб не показувати нефільтрований
  * (дизайн-рев'ю 11.11: на повільному телефоні ~4 с видно «не той» список). Лише на «Командах», «Пілотах», «Трасах» і «Календарі»:
  * знімає атрибут TeamsBrowser, і на інших сторінках він ховав би футер (code-review PR #5).
+ * `data-nw-v` — вкладка «Новин» з адреси (`?v=rss|bsky`) до першого кадру: без неї обидві колонки показувались до
+ * гідратації, потім одна зникала (CLS, рев'ю PR #20); знімає NewsTabs.
  * Без збереженого вибору `data-theme` немає — діє `prefers-color-scheme`.
  */
-export const themeScriptSource = `(function(){var d=document.documentElement;d.setAttribute("data-js","");if((/(^|\\/)(teams|circuits)\\/?$/.test(location.pathname)&&/[?&](q|f|sort)=/.test(location.search))||(/(^|\\/)drivers\\/?$/.test(location.pathname)&&/[?&](q|f|d|l|sort|dir|p)=/.test(location.search))||(/(^|\\/)calendar\\/?$/.test(location.pathname)&&/[?&]f=/.test(location.search)))d.setAttribute("data-list-query","");try{var t=localStorage.getItem(${JSON.stringify(
+export const themeScriptSource = `(function(){var d=document.documentElement;d.setAttribute("data-js","");if((/(^|\\/)(teams|circuits)\\/?$/.test(location.pathname)&&/[?&](q|f|sort)=/.test(location.search))||(/(^|\\/)drivers\\/?$/.test(location.pathname)&&/[?&](q|f|d|l|sort|dir|p)=/.test(location.search))||(/(^|\\/)calendar\\/?$/.test(location.pathname)&&/[?&]f=/.test(location.search)))d.setAttribute("data-list-query","");var nv=/(^|\\/)news\\/?$/.test(location.pathname)&&/[?&]v=(rss|bsky)(&|$)/.exec(location.search);if(nv)d.setAttribute("data-nw-v",nv[1]);try{var t=localStorage.getItem(${JSON.stringify(
   THEME_STORAGE_KEY,
 )});if(t==="light"||t==="dark")d.setAttribute("data-theme",t)}catch(e){}})()`;

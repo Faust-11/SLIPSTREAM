@@ -116,6 +116,25 @@ describe("themeScriptSource (inline-скрипт у <head>)", () => {
     document.documentElement.removeAttribute("data-list-query");
   });
 
+  it("data-nw-v — вкладка «Новин» з адреси, лише rss/bsky і лише на /news", () => {
+    const cases: [string, string | null][] = [
+      ["/uk/news?v=bsky", "bsky"],
+      ["/news?v=rss", "rss"],
+      ["/news?v=all", null],
+      ["/news?v=rssx", null],
+      ["/news", null],
+      ["/teams?v=rss", null],
+    ];
+    for (const [url, expected] of cases) {
+      window.history.replaceState(null, "", url);
+      document.documentElement.removeAttribute("data-nw-v");
+      runWith(storageWith(null));
+      expect(document.documentElement.getAttribute("data-nw-v"), url).toBe(expected);
+    }
+    window.history.replaceState(null, "", "/");
+    document.documentElement.removeAttribute("data-nw-v");
+  });
+
   it("ставить data-theme зі сховища", () => {
     expect(runWith(storageWith("light"))).toBe("light");
     expect(runWith(storageWith("dark"))).toBe("dark");

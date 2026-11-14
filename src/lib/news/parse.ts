@@ -28,7 +28,10 @@ export const LINK_HOSTS: Record<SourceKey, string[]> = {
 /** Домени прев'ю — ті самі, що в CSP img-src (next.config.ts). */
 export const IMAGE_HOSTS = ["media.formula1.com", /^cdn-\d+\.motorsport\.com$/] as const;
 
-const NAMED: Record<string, string> = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " " };
+const NAMED: Record<string, string> = {
+  amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ",
+  rsquo: "’", lsquo: "‘", rdquo: "”", ldquo: "“", hellip: "…", ndash: "–", mdash: "—", laquo: "«", raquo: "»", euro: "€", pound: "£",
+};
 
 /** Сутності HTML (іменовані з NAMED і числові) → символи; невідомі лишаються як є. */
 export function decodeEntities(s: string): string {
@@ -41,17 +44,24 @@ export function decodeEntities(s: string): string {
   });
 }
 
+const TAG = /<\/?[a-z][a-z0-9-]*(?:\s[^<>]*)?\/?>/gi;
+
+/** Обрізання за кодовими точками (емодзі не розрізаються навпіл) з «…». */
+export function clip(t: string, max: number): string {
+  const cps = Array.from(t);
+  return cps.length > max ? `${cps.slice(0, max - 1).join("").trimEnd()}…` : t;
+}
+
 /** Простий текст: CDATA розгорнуто, теги прибрано, сутності розкодовано, пробіли стиснуто. */
 export function plainText(raw: string | null | undefined, max = Infinity): string {
   if (!raw) return "";
-  let t = raw.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1");
-  // Двічі: у деяких стрічках теги всередині анонсу закодовано (&lt;p&gt;).
-  t = decodeEntities(t.replace(/<[^>]*>/g, " "));
-  t = decodeEntities(t.replace(/<[^>]*>/g, " "))
-    .replace(/\s+/g, " ")
-    .trim();
-  if (t.length > max) t = `${t.slice(0, max - 1).trimEnd()}…`;
-  return t;
+  let t = decodeEntities(raw.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1").replace(TAG, " "));
+  // Закодовані теги в анонсі (&lt;p&gt;) — другий прохід лише коли після розкодування справді є теги: інакше
+  // «P1 &lt; P2 but &gt; expectations» втрачав текст між знаками (рев'ю PR #20).
+  if (TAG.test(t)) t = decodeEntities(t.replace(TAG, " "));
+  TAG.lastIndex = 0;
+  t = t.replace(/\s+/g, " ").trim();
+  return max === Infinity ? t : clip(t, max);
 }
 
 function tag(block: string, name: string): string | null {
@@ -59,8 +69,8 @@ function tag(block: string, name: string): string | null {
   return m ? m[1]!.trim() : null;
 }
 function attr(block: string, name: string, a: string): string | null {
-  const m = block.match(new RegExp(`<${name}\\b[^>]*\\b${a}="([^"]+)"`, "i"));
-  return m ? decodeEntities(m[1]!) : null;
+  const m = block.match(new RegExp(`<${name}\\b[^>]*\\b${a}=(["'])([^"']+)\\1`, "i"));
+  return m ? decodeEntities(m[2]!) : null;
 }
 
 /** https-адреса з дозволеного домену, інакше null. */
@@ -72,7 +82,8 @@ export function safeUrl(raw: string | null | undefined, hosts: readonly (string 
   } catch {
     return null;
   }
-  if (u.protocol !== "https:" || u.username || u.password) return null;
+  // Нестандартний порт: CSP img-src (*.motorsport.com) його не пропустить — картинка зламалась би (рев'ю PR #20).
+  if (u.protocol !== "https:" || u.username || u.password || u.port) return null;
   if (!hosts.some((h) => (typeof h === "string" ? u.hostname === h : h.test(u.hostname)))) return null;
   // Мітки трекінгу (utm_*) не потрібні для відкриття статті, а подовжують кожен запис ×2 у HTML і даних RSC.
   for (const k of [...u.searchParams.keys()]) if (k.startsWith("utm_")) u.searchParams.delete(k);
@@ -95,10 +106,13 @@ function isoDate(raw: string | null | undefined): string | null {
 /** Записи RSS 2.0 (title, link, description, pubDate, enclosure/media) — до max штук. */
 export function parseRss(xml: string, source: SourceKey, max = 50): RssItem[] {
   const out: RssItem[] = [];
+  const seen = new Set<string>();
   for (const block of xml.match(/<item\b[\s\S]*?<\/item>/gi) ?? []) {
     const title = plainText(tag(block, "title"), 200);
     const link = safeUrl(plainText(tag(block, "link")), LINK_HOSTS[source]);
-    if (!title || !link) continue;
+    // Те саме посилання двічі в стрічці — один запис (інакше однакові ключі списку).
+    if (!title || !link || seen.has(link)) continue;
+    seen.add(link);
     out.push({
       title,
       link,
@@ -113,7 +127,8 @@ export function parseRss(xml: string, source: SourceKey, max = 50): RssItem[] {
 
 /** Метадані статті formula1.com: og:image і datePublished (JSON-LD) — у стрічці їх немає (замір 14.11). */
 export function parseF1Article(html: string): { image: string | null; date: string | null } {
-  const img = html.match(/<meta\s+property="og:image"\s+content="([^"]+)"/i)?.[1] ?? null;
+  const meta = html.match(/<meta\b[^>]*\bproperty=["']og:image["'][^>]*>/i)?.[0] ?? "";
+  const img = meta.match(/\bcontent=["']([^"']+)["']/i)?.[1] ?? null;
   const date = html.match(/"datePublished"\s*:\s*"([^"]+)"/)?.[1] ?? null;
   // Типова картинка «поділитися» — не прев'ю статті.
   const image = img && !img.includes("/social/f1-default-share") ? previewUrl(decodeEntities(img)) : null;
@@ -139,8 +154,13 @@ export function jaccard(a: string, b: string): number {
   return inter / (x.size + y.size - inter);
 }
 
-/** Поріг склейки: макет 10.11 — 3 дублі Motorsport/Autosport при ≥ 0,5 без хибних пар. */
-export const MERGE_THRESHOLD = 0.5;
+/**
+ * Поріг склейки 0,7 і дати в межах 48 год. При 0,5 склеювались різні новини з шаблонними заголовками («Verstappen wins
+ * Brazil GP» / «… Las Vegas GP» = 0,50, рев'ю PR #20); на знімку 14.11 справжні дублі — 1,00 і 0,91, у 0,25–0,9 пар немає.
+ */
+export const MERGE_THRESHOLD = 0.7;
+const MERGE_WINDOW_MS = 48 * 3600_000;
+const near = (a: string | null, b: string | null) => a === null || b === null || Math.abs(Date.parse(a) - Date.parse(b)) <= MERGE_WINDOW_MS;
 
 /**
  * Стрічка заголовків: новіші вгорі (без дати — наприкінці); матеріал, що вже є в іншому виданні (Жаккар ≥ поріг), стає
@@ -150,7 +170,13 @@ export function mergeHeadlines(items: { source: SourceKey; item: RssItem }[]): H
   const sorted = [...items].sort((a, b) => (b.item.publishedAt ?? "").localeCompare(a.item.publishedAt ?? ""));
   const out: Headline[] = [];
   for (const { source, item } of sorted) {
-    const twin = out.find((h) => h.source !== source && !h.also.some((x) => x.source === source) && jaccard(h.title, item.title) >= MERGE_THRESHOLD);
+    const twin = out.find(
+      (h) =>
+        h.source !== source &&
+        !h.also.some((x) => x.source === source) &&
+        near(h.publishedAt, item.publishedAt) &&
+        jaccard(h.title, item.title) >= MERGE_THRESHOLD,
+    );
     if (twin) {
       twin.also.push({ source, url: item.link });
       twin.image ??= item.image;
@@ -162,27 +188,30 @@ export function mergeHeadlines(items: { source: SourceKey; item: RssItem }[]): H
 }
 
 // Фільтр F1 (заміри на знімку 14.11, 278 власних постів 11 акаунтів): сильне слово — досить одного; слабке (траси,
-// загальні гоночні слова) — потрібно два різних. Одне «championship» чи «Madrid» пропускало MotoGP, ралі й особисте.
-const STRONG = new RegExp(
+// загальні гоночні слова, неоднозначні імена й назви) — потрібно два різних. Одне «championship» чи «Madrid» пропускало
+// MotoGP, ралі й особисте. Усі слова — цілими (\b): «audi» ловив audio, «stella» — constellation (рев'ю PR #20).
+const wordsRe = (list: string[], flags: string) => new RegExp(String.raw`\b(?:${list.join("|")})\b`, flags);
+const STRONG = wordsRe(
   [
-    String.raw`\bf1\b`, String.raw`formula\s?(?:1|one)\b`, "grand prix", String.raw`\bgp\b`, String.raw`\bfia\b`, "paddock", String.raw`\bdrs\b`,
-    "pirelli", "team principal", "power unit", "lights out",
-    "mercedes", "ferrari", "mclaren", "red bull", "racing bulls", "aston martin", "alpine", "williams", "haas", "audi", "sauber", "cadillac",
-    "antonelli", "russell", "hamilton", "leclerc", "norris", "piastri", "verstappen", "hadjar", "tsunoda", "lawson", "lindblad", "alonso",
-    "stroll", "gasly", "colapinto", "albon", "sainz", "ocon", "bearman", "h[uü]lkenberg", "bortoleto", "bottas", "p[eé]rez", "tsolov",
-    "camara", "toto wolff", "horner", "mekies", "vasseur", "stella", "komatsu", "vowles", "briatore", "domenicali", "ben sulayem",
-  ].join("|"),
+    "f1", String.raw`formula\s?(?:1|one)`, "grand prix", "gp", "fia", "paddock", "drs", "pirelli", "team principal", "power unit", "lights out",
+    "ferrari", "mclaren", "red bull", "racing bulls", "aston martin", "haas", "sauber", "cadillac", "f1 academy",
+    "antonelli", "leclerc", "norris", "piastri", "verstappen", "hadjar", "tsunoda", "lindblad", "alonso", "gasly", "colapinto",
+    "albon", "ocon", "bearman", "h[uü]lkenberg", "bortoleto", "bottas", "tsolov", "toto wolff", "horner", "mekies", "vasseur",
+    "komatsu", "vowles", "briatore", "domenicali", "ben sulayem",
+  ],
   "i",
 );
-const WEAK = new RegExp(
+const WEAK = wordsRe(
   [
-    "qualifying", String.raw`\bquali\b`, String.raw`\bpole\b`, "podium", String.raw`pit ?stops?`, String.raw`pit ?lane`, "safety car", String.raw`\bvsc\b`,
-    String.raw`\bgrid\b`, String.raw`stewards?`, String.raw`penalt\w*`, "chequered", String.raw`\blaps?\b`, "sprint", String.raw`constructors?`,
-    "championship", String.raw`\btitle\b`, String.raw`tyres?`, "testing", String.raw`\bdrivers?\b`, String.raw`\bmax\b`, String.raw`\bhonda\b`,
-    "las vegas", "qatar", "abu dhabi", "interlagos", String.raw`s[aã]o paulo`, "monza", "silverstone", "suzuka", "monaco", "imola", String.raw`\bspa\b`,
-    "zandvoort", "baku", "singapore", "melbourne", "bahrain", "jeddah", "miami", "montreal", "barcelona", "madrid", "hungaroring", "austin",
-    String.raw`\bcota\b`, "mexico",
-  ].join("|"),
+    // Неоднозначні: місто Гамільтон, «a stroll», «alpine skiing», сестри Вільямс, ралі-Сайнс…
+    "mercedes", "alpine", "williams", "audi", "russell", "hamilton", "lawson", "stroll", "sainz", "p[eé]rez", "camara", "stella", "honda",
+    "qualifying", "quali", "pole", "podium", String.raw`pit ?stops?`, String.raw`pit ?lane`, "safety car", "vsc", "grid", String.raw`stewards?`,
+    String.raw`penalt\w*`, "chequered", String.raw`laps?`, "sprint", String.raw`constructors?`, "championship", "title", String.raw`tyres?`,
+    "testing", String.raw`drivers?`, "max",
+    "las vegas", "qatar", "abu dhabi", "interlagos", String.raw`s[aã]o paulo`, "monza", "silverstone", "suzuka", "monaco", "imola", "spa",
+    "zandvoort", "baku", "singapore", "melbourne", "bahrain", "jeddah", "miami", "montreal", "barcelona", "madrid", "hungaroring",
+    "austin", "cota", "mexico",
+  ],
   "gi",
 );
 export function isF1Text(text: string): boolean {
@@ -217,7 +246,9 @@ export function bskyPosts(feed: BskyFeed): { posts: Post[]; own: number } {
     if (item.reason || p.record?.reply) continue;
     const handle = p.author?.handle ?? "";
     const rkey = p.uri?.split("/").at(-1) ?? "";
-    const created = isoDate(p.record?.createdAt ?? p.indexedAt);
+    // createdAt задає клієнт (може бути в майбутньому й закріпити пост угорі) — беремо раніший з createdAt і indexedAt.
+    const times = [isoDate(p.record?.createdAt), isoDate(p.indexedAt)].filter((x): x is string => x !== null).sort();
+    const created = times[0] ?? null;
     if (!HANDLE.test(handle) || !RKEY.test(rkey) || !created) continue;
     if (p.author?.labels?.some((l) => l.val === "!no-unauthenticated")) continue;
     own++;
@@ -227,7 +258,7 @@ export function bskyPosts(feed: BskyFeed): { posts: Post[]; own: number } {
       id: p.uri!,
       handle,
       name: (p.author?.displayName ?? "").trim() || handle,
-      text: text.length > 600 ? `${text.slice(0, 599).trimEnd()}…` : text,
+      text: clip(text, 600),
       url: `https://bsky.app/profile/${handle}/post/${rkey}`,
       createdAt: created,
     });

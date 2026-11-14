@@ -13,7 +13,7 @@ test("/uk/news: заголовки трьох видань, пости журн�
   page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
   const res = await page.goto("/uk/news");
   expect(res?.status()).toBe(200);
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText(/Новини\s*з паддоку/);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(/^Новини\s+з паддоку$/);
   await expect(page.locator(".nw-upd")).toContainText("2 дублі склеєно");
   await expect(page.locator(".nw-src").filter({ hasText: "Formula 1" }).first()).toBeVisible();
   await expect(page.locator(".nw-src").filter({ hasText: "Motorsport.com" }).first()).toBeVisible();
@@ -47,6 +47,28 @@ test("вкладки: «Видання» ховає журналістів, ст
   await page.goto("/uk/news?v=bsky");
   await expect(page.locator(".nw-col-rss")).toBeHidden();
   await expect(page.getByRole("button", { name: /Журналісти · 40/ })).toHaveAttribute("aria-pressed", "true");
+});
+
+test("посилання з ?v=bsky: одна колонка з першого кадру — без стрибка (CLS < 0.02)", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.addInitScript(() => {
+    (window as unknown as { __cls: number }).__cls = 0;
+    new PerformanceObserver((l) => {
+      for (const e of l.getEntries() as (PerformanceEntry & { value: number; hadRecentInput: boolean })[])
+        if (!e.hadRecentInput) (window as unknown as { __cls: number }).__cls += e.value;
+    }).observe({ type: "layout-shift", buffered: true });
+  });
+  await page.goto("/uk/news?v=bsky", { waitUntil: "networkidle" });
+  await expect(page.locator(".nw-col-rss")).toBeHidden();
+  await expect(page.locator("html")).not.toHaveAttribute("data-nw-v", /.*/);
+  expect(await page.evaluate(() => (window as unknown as { __cls: number }).__cls)).toBeLessThan(0.02);
+});
+
+test("доступність: посилання на пости названо автором; «Показати ще» переводить фокус на перший новий запис", async ({ page }) => {
+  await page.goto("/uk/news");
+  await expect(page.locator(".nw-open").first()).toHaveAccessibleName(/^Відкрити в Bluesky — пост \S.+$/);
+  await page.locator(".nw-col-bsky .nw-more").click();
+  await expect(page.locator("#nw-bsky > li").nth(20)).toBeFocused();
 });
 
 test("«Показати ще»: 12 → 24 заголовки, 20 → 40 постів, потім кнопки немає", async ({ page }) => {

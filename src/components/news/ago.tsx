@@ -6,12 +6,13 @@ import type { Locale } from "@/i18n/config";
 const tagOf = (l: Locale) => (l === "uk" ? "uk" : "en-GB");
 const rtf = new Map<Locale, Intl.RelativeTimeFormat>();
 
-/** «14 лист. · 15:02» — сервер і перший рендер (UTC), без JS. */
-function absolute(iso: string, locale: Locale): string {
-  const d = new Date(iso);
-  const day = new Intl.DateTimeFormat(tagOf(locale), { day: "numeric", month: "short", timeZone: "UTC" }).format(d);
-  const time = new Intl.DateTimeFormat(tagOf(locale), { hour: "2-digit", minute: "2-digit", hourCycle: "h23", timeZone: "UTC" }).format(d);
-  return `${day} · ${time} UTC`;
+/**
+ * «14.11 15:02 UTC» — сервер, перший рендер і без JS. Без Intl: скорочення місяців у ICU Node і браузера можуть
+ * різнитися (Firefox/Safari) — це була б розбіжність гідратації (рев'ю PR #20). Коротко — вміщається у вузьку клітинку
+ * «Оновлено» на 320 px без переносу (інакше після гідратації рядок скорочувався б — CLS).
+ */
+function absolute(iso: string): string {
+  return `${iso.slice(8, 10)}.${iso.slice(5, 7)} ${iso.slice(11, 16)} UTC`;
 }
 
 /** «2 год тому» / «вчора»; старше тижня — дата. */
@@ -35,7 +36,7 @@ export function Ago({ iso, locale }: { iso: string; locale: Locale }) {
   const now = useNow();
   return (
     <time dateTime={iso} className="nw-time" title={now === null ? undefined : new Date(iso).toLocaleString(tagOf(locale))}>
-      {now === null ? absolute(iso, locale) : relative(iso, now, locale)}
+      {now === null ? absolute(iso) : relative(iso, now, locale)}
     </time>
   );
 }

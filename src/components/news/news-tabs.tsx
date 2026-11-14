@@ -23,6 +23,8 @@ export function NewsTabs({ targetId, counts, labels }: { targetId: string; count
   useEffect(() => {
     const el = document.getElementById(targetId);
     if (el) el.dataset.v = v;
+    // Вкладку з адреси до першого кадру ставив ThemeScript (html[data-nw-v]); далі стан — у контейнері.
+    document.documentElement.removeAttribute("data-nw-v");
   }, [v, targetId]);
   const pick = (next: NewsView) => {
     setPicked(next);

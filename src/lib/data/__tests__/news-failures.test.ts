@@ -21,17 +21,48 @@ afterEach(() => {
 });
 
 describe("getNews — збої джерел", () => {
-  it("відповів лише Motorsport.com: його 20 заголовків, решта — у failed; повтор після порожньої відповіді", async () => {
-    let calls = 0;
+  it("відповів лише Motorsport.com: його 20 заголовків, решта — у failed; повтор після порожньої відповіді — з іншою адресою", async () => {
+    const urls: string[] = [];
     const n = await load(async (u) => {
-      if (u.includes("motorsport.com/rss")) return ++calls === 1 ? new Response("") : new Response(ms);
+      if (u.includes("motorsport.com/rss")) {
+        urls.push(u);
+        return urls.length === 1 ? new Response("") : new Response(ms);
+      }
       throw new Error("offline");
     });
-    expect(calls).toBe(2);
+    // Інша адреса = інший ключ кешу fetch: порожня 200 з кешу не повертається повтору (рев'ю PR #20).
+    expect(urls).toHaveLength(2);
+    expect(urls[1]).toMatch(/^https:\/\/www\.motorsport\.com\/rss\/f1\/news\/\?_r=\d+$/);
     expect(n.headlines).toHaveLength(20);
     expect(n.failed).toContain("Formula 1");
     expect(n.failed).toContain("Autosport");
     expect(n.failed.filter((f) => f.startsWith("@"))).toHaveLength(11);
+  });
+
+  it("завислий запит обривається за тайм-аутом навіть без реакції на signal (ISR відкидає signal)", async () => {
+    vi.useFakeTimers();
+    try {
+      const pending = load((u) =>
+        u.includes("autosport") ? new Promise<Response>(() => {}) : u.includes("motorsport.com/rss") ? Promise.resolve(new Response(ms)) : Promise.reject(new Error("offline")),
+      );
+      await vi.advanceTimersByTimeAsync(2 * 8000 + 100);
+      const n = await pending;
+      expect(n.failed).toContain("Autosport");
+      expect(n.headlines).toHaveLength(20);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it("статті formula1.com не відповіли: заголовки без дати — і позначка у failed", async () => {
+    const f1 = readFileSync(path.join(FX, "rss-f1.xml"), "utf8");
+    const n = await load(async (u) => {
+      if (u.startsWith("https://www.formula1.com/en/latest/all.xml")) return new Response(f1);
+      throw new Error("offline");
+    });
+    expect(n.headlines).toHaveLength(10);
+    expect(n.headlines.every((h) => h.publishedAt === null)).toBe(true);
+    expect(n.failed).toContain("Formula 1 (10/10)");
   });
 
   it("упали всі джерела: під час ISR — помилка, під час збірки — порожня стрічка", async () => {

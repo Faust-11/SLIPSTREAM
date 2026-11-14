@@ -103,8 +103,11 @@ export default async function NewsPage({ params }: Props) {
         <Ago iso={p.createdAt} locale={lang} />
       </div>
       <p className="nw-text">{p.text}</p>
+      {/* Однаковий текст 40 посилань — автор у доступній назві (WCAG 2.4.4, рев'ю PR #20); видимий текст лишається
+          її початком (WCAG 2.5.3 — тому прихований фрагмент, а не aria-label). */}
       <a className="nw-open" href={p.url} rel="noopener" target="_blank">
         {t.openBsky}
+        <span className="sr-only nw-sr">{fill(t.openBskyAuthor, { name: p.name })}</span>
       </a>
     </li>
   );
@@ -116,9 +119,17 @@ export default async function NewsPage({ params }: Props) {
     <div className="nw-page">
       <section className="nw-hero">
         <div className="wrap">
-          <div>
-            <h1 className="display">
-              {t.title} <span>{t.titleAccent}</span>
+          <div className="nw-ttl">
+            {/* Рядки заголовка фіксовані (у словнику «|» — межа рядка), без переносу, кегль — від найдовшого рядка: висота
+                не залежить від шрифту (CLS 0,10 на 390 px під час підміни кирилиці Rubik Mono One, рев'ю PR #20). */}
+            <h1 className="display" style={{ "--n": Math.max(...[t.title, ...t.titleAccent.split("|")].map((l) => [...l].length)) } as CSSProperties}>
+              <span>{t.title}</span>{" "}
+              {t.titleAccent.split("|").map((l, i) => (
+                <span key={l} className="nw-acc">
+                  {i > 0 && " "}
+                  {l}
+                </span>
+              ))}
             </h1>
             <p className="nw-lead">{t.lead}</p>
           </div>
@@ -156,7 +167,7 @@ export default async function NewsPage({ params }: Props) {
         </section>
       ) : (
         <>
-          <nav className="nw-bar" aria-label={t.tabsLabel}>
+          <div className="nw-bar">
             <div className="wrap">
               <NewsTabs
                 targetId="nw-cols"
@@ -165,7 +176,7 @@ export default async function NewsPage({ params }: Props) {
               />
               {news.failed.length > 0 && <p className="nw-failed">{fill(t.failed, { list: news.failed.join(", ") })}</p>}
             </div>
-          </nav>
+          </div>
           <div className="wrap nw-cols" id="nw-cols" data-v="all">
             <section className="nw-col-rss" aria-labelledby="nw-rss-h">
               <h2 className="display" id="nw-rss-h">
