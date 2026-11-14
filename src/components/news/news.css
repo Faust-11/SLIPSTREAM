@@ -31,12 +31,21 @@
 .nw-hero .wrap > * {
   min-width: 0;
 }
-.nw-hero h1 {
-  font-size: clamp(34px, 5.4vw, 70px);
+/* Заголовок: кожен рядок — окремо й без переносу; кегль — щоб найдовший рядок (--n символів, ~0,85 em на символ Rubik
+   Mono One, замір 14.11; запас до 0,9) вміщався в колонку. Висота = рядки × кегль — не залежить від шрифту (урок CLS
+   календаря). Запасний шрифт ширший — надлишок обрізано по горизонталі до підміни. */
+.nw-ttl {
+  container-type: inline-size;
 }
-/* Акцент — завжди окремим рядком: висота заголовка не залежить від шрифту (урок CLS календаря 14.11). */
-.nw-hero h1 span {
+.nw-hero h1 {
+  font-size: min(70px, calc(100cqi / var(--n, 10) / 0.9));
+  overflow-x: clip;
+}
+.nw-hero h1 > span {
   display: block;
+  white-space: nowrap;
+}
+.nw-hero h1 .nw-acc {
   color: var(--yellow);
 }
 .nw-lead {
@@ -86,6 +95,7 @@
   font-weight: 600;
   font-size: 14px;
   color: #fff;
+  white-space: nowrap;
 }
 .nw-next {
   grid-column: 2;
@@ -165,12 +175,16 @@ html:not([data-js]) .nw-more {
   align-items: start;
   padding-block: 26px 30px;
 }
+/* Вкладка: data-v контейнера (NewsTabs) або html[data-nw-v] з адреси до гідратації (ThemeScript) — без стрибка колонок. */
 .nw-cols[data-v="rss"],
-.nw-cols[data-v="bsky"] {
+.nw-cols[data-v="bsky"],
+html[data-nw-v] .nw-cols {
   grid-template-columns: minmax(0, 780px);
 }
 .nw-cols[data-v="rss"] .nw-col-bsky,
-.nw-cols[data-v="bsky"] .nw-col-rss {
+.nw-cols[data-v="bsky"] .nw-col-rss,
+html[data-nw-v="rss"] .nw-col-bsky,
+html[data-nw-v="bsky"] .nw-col-rss {
   display: none;
 }
 .nw-cols h2 {
@@ -305,6 +319,10 @@ html[data-js] .nw-list > li[data-page]:not([data-open]) {
   overflow-wrap: anywhere;
   white-space: pre-line;
 }
+/* Прихований текст — системним шрифтом: не вантажити файли Plex Mono заради невидимого (як .lang .sr-only). */
+.nw-sr {
+  font-family: system-ui, sans-serif;
+}
 .nw-open {
   justify-self: end;
   font: 600 12px var(--f-mono);
@@ -381,6 +399,10 @@ html[data-js] .nw-list > li[data-page]:not([data-open]) {
   .nw-bar {
     position: sticky;
     top: calc(64px + env(safe-area-inset-top, 0px));
+  }
+  /* Елемент у фокусі не ховається під шапкою й липкою панеллю (64 + ~58 px; рев'ю PR #20, WCAG 2.4.11). */
+  html:has(.nw-bar) {
+    scroll-padding-top: calc(64px + 72px + 16px);
   }
 }
 

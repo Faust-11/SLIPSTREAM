@@ -19,10 +19,13 @@ describe("getNews — знімок 14.11", () => {
     expect(dated).toEqual([...dated].sort().reverse());
   });
 
-  it("пости: не більше 60, новіші вгорі, усі про F1 і з посиланням bsky.app", async () => {
-    const { getNews, POSTS_MAX } = await import("../news");
+  it("пости: не більше 40 і не більше 6 від автора, новіші вгорі, усі про F1 і з посиланням bsky.app", async () => {
+    const { getNews, POSTS_MAX, POSTS_PER_AUTHOR } = await import("../news");
     const n = await getNews();
-    expect(n.posts.length).toBe(Math.min(POSTS_MAX, n.stats.f1));
+    expect(n.posts.length).toBe(POSTS_MAX);
+    const per = new Map<string, number>();
+    for (const p of n.posts) per.set(p.handle, (per.get(p.handle) ?? 0) + 1);
+    expect(Math.max(...per.values())).toBeLessThanOrEqual(POSTS_PER_AUTHOR);
     expect(n.stats.own).toBe(278);
     expect(n.posts.every((p) => p.url.startsWith("https://bsky.app/profile/"))).toBe(true);
     const t = n.posts.map((p) => p.createdAt);

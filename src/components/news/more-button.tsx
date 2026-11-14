@@ -13,10 +13,14 @@ export function MoreButton({ listId, pages, step, total, label }: { listId: stri
   const shown = Math.min(open * step, total);
   const left = total - shown;
   const reveal = () => {
-    const list = document.getElementById(listId);
-    list?.querySelectorAll<HTMLElement>(`:scope > [data-page="${open}"]`).forEach((el) => (el.dataset.open = ""));
-    // Фокус — на перший відкритий запис (інакше клавіатура лишається на кнопці, що зсунулась униз).
-    list?.querySelector<HTMLElement>(`:scope > [data-page="${open}"] a`)?.focus({ preventScroll: false });
+    const items = document.getElementById(listId)?.querySelectorAll<HTMLElement>(`:scope > [data-page="${open}"]`) ?? [];
+    items.forEach((el) => (el.dataset.open = ""));
+    // Фокус — на сам перший відкритий запис (не на його посилання: у поста це нижнє «Відкрити в Bluesky», рев'ю PR #20).
+    const first = items[0];
+    if (first) {
+      first.tabIndex = -1;
+      first.focus();
+    }
     setOpen(open + 1);
   };
   return (
