@@ -48,7 +48,11 @@
 .cl-hero h1 {
   font-size: clamp(36px, 6vw, 78px);
 }
+/* Рік — завжди окремим рядком: висота заголовка не залежить від шрифту. Кирилиця Rubik Mono One вантажиться за
+   потребою, а запасний шрифт вужчий — «КАЛЕНДАР 2026» вміщався в рядок і після підміни переносився (h1 36→72 px,
+   CLS 0,19–0,24 у CI без Arial, 14.11). На ширині від 1100 px рік і так переносився. */
 .cl-hero h1 span {
+  display: block;
   color: var(--yellow);
 }
 .cl-lead {
@@ -589,6 +593,11 @@ html[data-list-query] .cl-grid {
   .cl-tables {
     grid-template-columns: minmax(0, 1fr);
     gap: 24px;
+  }
+  /* Два рядки під назву незалежно від шрифту: після підміни запасного назва переносилась (21→42 px на 390 px) і
+     зсувала відлік і розклад. На ширшому банері назва вміщається в рядок. */
+  .cl-next-name {
+    min-height: 2.1em;
   }
   .cl-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
