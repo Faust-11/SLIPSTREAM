@@ -31,23 +31,82 @@ test("місцевий час: пояс браузера (Europe/Kyiv) — FP1 �
   const page = await ctx.newPage();
   await page.clock.setFixedTime(new Date("2026-11-15T12:00:00Z"));
   await page.goto("/uk/calendar");
-  await expect(page.locator("#r21 time").first()).toContainText("02:30");
+  await expect(page.locator("#r21 .cl-sess time").first()).toContainText("02:30");
   // Chrome віддає застарілий псевдонім «Europe/Kiev» — показуємо те, що повідомив браузер.
   await expect(page.locator(".cl-tz")).toContainText(/Europe\/Ki(y|e)v/);
   await ctx.close();
   const noJs = await browser.newContext({ javaScriptEnabled: false });
   const p2 = await noJs.newPage();
   await p2.goto("/uk/calendar");
-  await expect(p2.locator("#r21 time").first()).toContainText("00:30 UTC");
+  await expect(p2.locator("#r21 .cl-sess time").first()).toContainText("00:30 UTC");
   await expect(p2.locator(".cl-tz")).toHaveText("Час — UTC.");
+  // Без JS фільтр не працює — чипи сховано; на 320 px нічого не виходить за екран (час «… UTC» довший).
+  await expect(p2.locator(".cl-chips")).toBeHidden();
+  await p2.setViewportSize({ width: 320, height: 800 });
+  expect(await p2.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
   await noJs.close();
 });
 
-test("після старту гонки до оновлення даних: наступна — Катар, примітка про етап 21", async ({ page }) => {
+test("після старту гонки до оновлення даних: наступна — Катар і в банері, і в смузі та картках; етап 21 — «стартувала»", async ({ page }) => {
   await page.clock.setFixedTime(new Date("2026-11-23T10:00:00Z"));
   await page.goto("/uk/calendar");
   await expect(page.locator(".cl-next .cl-next-name")).toHaveText("Гран-прі Катару");
   await expect(page.locator(".cl-next-note")).toContainText("етапу 21");
+  // Рев'ю PR #19: смуга й картки лишались у стані збірки (Лас-Вегас — «наступний»).
+  await expect(page.locator("#r21")).toHaveAttribute("data-live", "started");
+  await expect(page.locator("#r21 .cl-wait")).toBeVisible();
+  await expect(page.locator("#r22")).toHaveAttribute("data-live", "next");
+  await expect(page.locator(".cl-strip > li").nth(20)).toHaveAttribute("data-live", "started");
+  await expect(page.locator(".cl-strip > li").nth(21)).toHaveAttribute("data-live", "next");
+  await expect(page.locator("#r22 .cl-wait")).toBeHidden();
+});
+
+test("фінал до оновлення даних: остання гонка стартувала — «Етап 23 · Абу-Дабі», а не «сезон завершено»", async ({ page }) => {
+  await page.clock.setFixedTime(new Date("2026-12-06T13:00:10Z"));
+  await page.goto("/uk/calendar");
+  await expect(page.locator(".cl-next-k")).toHaveText("Етап 23");
+  await expect(page.locator(".cl-next .cl-next-name")).toHaveText("Гран-прі Абу-Дабі");
+  await expect(page.locator(".cl-next-note")).toContainText("етапу 23");
+  await expect(page.locator(".cl-next")).not.toContainText("завершено");
+  await expect(page.locator(".cl-count")).toHaveCount(0);
+});
+
+test("відлік: хвилини змінюються на межі хвилини, без запізнення", async ({ page }) => {
+  // 22.11 04:00 − 15.11 12:00:50 = 6 дн 15 год 59 хв 10 с → «59»; о 12:01:00 лишається 58 хв 60 с → «58» одразу на межі
+  // (рев'ю PR #19: інтервал від монтування й округлений знімок давали запізнення до ~60 с).
+  await page.clock.install({ time: new Date("2026-11-15T12:00:50Z") });
+  await page.goto("/uk/calendar");
+  await expect(page.locator(".cl-count b").nth(2)).toHaveText("59");
+  await page.clock.runFor(12_000); // 12:01:02 — тік на межі 12:01:00 уже спрацював
+  await expect(page.locator(".cl-count b").nth(2)).toHaveText("58");
+});
+
+test("місцева дата картки — у поясі браузера, як і сесії (America/Los_Angeles: Лас-Вегас — 21 листопада)", async ({ browser }) => {
+  const ctx = await browser.newContext({ timezoneId: "America/Los_Angeles" });
+  const page = await ctx.newPage();
+  await page.clock.setFixedTime(new Date("2026-11-15T12:00:00Z"));
+  await page.goto("/uk/calendar");
+  await expect(page.locator("#r21 .cl-sess li.race time")).toContainText("21 лист. · 20:00");
+  await expect(page.locator("#r21 .cl-dt")).toHaveText("21 лист.");
+  await ctx.close();
+});
+
+test("посилання на сховану фільтром картку скидає фільтр на «Усі»", async ({ page }) => {
+  await page.goto("/uk/calendar?f=done");
+  await expect(page.locator("#r21")).toBeHidden();
+  await expect(page.locator("#r21")).toHaveAttribute("data-live", "next"); // гідратовано: обробник кліку вже є
+  await page.locator(".cl-strip > li").nth(20).locator("a").click();
+  await expect(page.locator("#r21")).toBeVisible();
+  await expect(page).not.toHaveURL(/f=done/);
+  await expect(page.getByRole("button", { name: /Усі · 23/ })).toHaveAttribute("aria-pressed", "true");
+  await page.getByRole("button", { name: /Минули · 20/ }).click();
+  await page.locator(".cl-next-name a").click();
+  await expect(page.locator("#r21")).toBeInViewport();
+});
+
+test("опис сторінки — правильна множина («усі 23 етапи»)", async ({ page }) => {
+  await page.goto("/uk/calendar");
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /усі 23 етапи —/);
 });
 
 test("фільтр етапів: стан в адресі, role=status, посилання з ?f=", async ({ page }) => {

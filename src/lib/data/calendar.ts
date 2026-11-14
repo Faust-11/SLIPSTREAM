@@ -6,7 +6,7 @@ import type { Locale } from "@/i18n/config";
 import { circuitSlug } from "@/lib/circuit-math";
 import { dbSelectAll } from "./db";
 import { once } from "./once";
-import { getSeasonPage, type CalendarRound, type SeasonDriver, type SeasonPage, type SeasonTeamRef } from "./season-page";
+import { getSeasonPage, getUpcomingSeason, type CalendarRound, type SeasonDriver, type SeasonPage, type SeasonTeamRef } from "./season-page";
 
 export type SessionKind = "FP1" | "FP2" | "FP3" | "SQ1" | "SR" | "Q1" | "QB" | "QA" | "R";
 export type CalendarSession = { kind: SessionKind; at: string | null; real: boolean };
@@ -25,11 +25,18 @@ export type CalendarCard = Omit<CalendarRound, "round"> & {
   /** Колір команди переможця (смуга прогресу, верх картки); null — ще не відбувся або кілька команд. */
   color: string | null;
   sessions: CalendarSession[];
-  /** Початок гонки (UTC, ISO) — для «наступної гонки» на клієнті. */
+  /**
+   * Початок гонки (UTC, ISO) — для «наступної гонки» на клієнті. Лише зі справжнього часу сесії; час невідомий (північ
+   * дати в базі) — кінець дня гонки за UTC, щоб етап не вважався стартованим зранку (рев'ю PR #19).
+   */
   raceAt: string | null;
+  /** raceAt — справжній час старту (JSON-LD startDate, місцева дата картки). */
+  raceTimed: boolean;
 };
 export type CalendarPage = {
   season: number;
+  /** false — сезон без жодного результату (календар наступного року після фіналу): без заліку й легенди. */
+  started: boolean;
   inProgress: boolean;
   done: number;
   total: number;
@@ -69,22 +76,35 @@ export async function getCalendarSeason(): Promise<number> {
   return Math.max(...years);
 }
 
+/** Початок гонки етапу: справжній час сесії R; інакше — кінець дня гонки (або етапу) за UTC. */
+export function raceStart(sessions: CalendarSession[], date: string | null): { at: string | null; timed: boolean } {
+  const r = sessions.find((x) => x.kind === "R");
+  if (r?.at && r.real) return { at: r.at, timed: true };
+  const day = r?.at?.slice(0, 10) ?? date;
+  return { at: day ? `${day}T23:59:59Z` : null, timed: false };
+}
+
 export async function getCalendarPage(locale: Locale): Promise<CalendarPage> {
   const season = await getCalendarSeason();
   const [page, sessions] = await Promise.all([getSeasonPage(season, locale), loadSessions()]);
-  if (!page) throw new Error(`Сезон ${season}: немає сторінки сезону`);
-  const live = page.calendar.filter((r): r is CalendarRound & { round: number } => !r.cancelled && r.round !== null);
+  // Сезон без результатів (немає в season_index) — лише календар (рев'ю PR #19: інакше збірка /calendar падала).
+  const upcoming = page ? null : await getUpcomingSeason(season, locale);
+  const calendar = page?.calendar ?? upcoming?.calendar;
+  if (!calendar) throw new Error(`Сезон ${season}: немає етапів у season_rounds`);
+  const live = calendar.filter((r): r is CalendarRound & { round: number } => !r.cancelled && r.round !== null);
   const states = roundStates(live.map((r) => r.done));
   const cards: CalendarCard[] = live.map((r, i) => {
     const ss = (sessions.get(`${season}/${r.round}`) ?? []).map((x) => ({ kind: x.k, at: x.at ?? null, real: !!x.real }));
     const teams = new Set(r.winners.map((w) => w.team?.id).filter(Boolean));
+    const start = raceStart(ss, r.date);
     return {
       ...r,
       state: states[i]!,
       circuitSlug: r.circuit ? circuitSlug(r.circuit) : null,
       color: teams.size === 1 ? (r.winners[0]?.team?.color ?? null) : null,
       sessions: ss,
-      raceAt: ss.find((x) => x.kind === "R")?.at ?? null,
+      raceAt: start.at,
+      raceTimed: start.timed,
     };
   });
   const wins = new Map<string, { team: SeasonTeamRef; wins: number }>();
@@ -97,18 +117,19 @@ export async function getCalendarPage(locale: Locale): Promise<CalendarPage> {
   }
   return {
     season,
-    inProgress: page.inProgress,
+    started: !!page,
+    inProgress: page?.inProgress ?? true,
     done: cards.filter((c) => c.state === "done").length,
     total: cards.length,
     sprints: cards.filter((c) => c.sprint).length,
-    champion: page.champion,
-    decided: page.decided,
-    cup: page.cup,
+    champion: page?.champion ?? null,
+    decided: page?.decided ?? false,
+    cup: page?.cup ?? null,
     cards,
-    cancelled: page.calendar.filter((r) => r.cancelled).map((r) => ({ gp: r.gp, place: r.place, date: r.date })),
+    cancelled: calendar.filter((r) => r.cancelled).map((r) => ({ gp: r.gp, place: r.place, date: r.date })),
     legend: [...wins.values()].sort((a, b) => b.wins - a.wins || a.team.name.localeCompare(b.team.name)),
-    drivers: page.drivers,
-    teams: page.teams,
-    prev: page.prev,
+    drivers: page?.drivers ?? [],
+    teams: page ? page.teams : null,
+    prev: page ? page.prev : (upcoming?.prev ?? null),
   };
 }

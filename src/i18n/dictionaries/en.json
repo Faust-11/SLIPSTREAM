@@ -982,7 +982,12 @@
     "rankMore": "and {count} more with {n}"
   },
   "calendarPage": {
-    "metaDescription": "Formula 1 {season} calendar: all {n} rounds — results of those already run and session times in your time zone.",
+    "metaDescription": {
+      "one": "Formula 1 {season} calendar: {n} round — results of those already run and session times in your time zone.",
+      "few": "Formula 1 {season} calendar: all {n} rounds — results of those already run and session times in your time zone.",
+      "many": "Formula 1 {season} calendar: all {n} rounds — results of those already run and session times in your time zone.",
+      "other": "Formula 1 {season} calendar: all {n} rounds — results of those already run and session times in your time zone."
+    },
     "title": "Calendar",
     "stamp": {
       "one": "Season {season} · {done} of {total} round run",
@@ -990,7 +995,12 @@
       "many": "Season {season} · {done} of {total} rounds run",
       "other": "Season {season} · {done} of {total} rounds run"
     },
-    "stampOver": "Season {season} finished · {total} rounds",
+    "stampOver": {
+      "one": "Season {season} finished · {total} round",
+      "few": "Season {season} finished · {total} rounds",
+      "many": "Season {season} finished · {total} rounds",
+      "other": "Season {season} finished · {total} rounds"
+    },
     "lead": "Every round of the season: results of the ones already run and session times for the ones ahead.",
     "tzUtc": "Times in UTC.",
     "tzLocal": "Times in your time zone ({tz}).",
@@ -1030,7 +1040,7 @@
     "pole": "Pole",
     "sprint": "Sprint",
     "sprintTag": "Sprint",
-    "titleTag": "Title",
+    "titleTag": "Drivers' title",
     "standings": "Standings",
     "driversTop": "Drivers · top ten",
     "teamsTitle": "Constructors",
@@ -1051,6 +1061,8 @@
       "SQ": "Sprint qualifying",
       "SR": "Sprint",
       "R": "Race"
-    }
+    },
+    "roundK": "Round {round}",
+    "cardStarted": "The race has started — results appear after the next data update."
   }
 }

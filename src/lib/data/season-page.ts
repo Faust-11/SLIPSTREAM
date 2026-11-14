@@ -25,7 +25,7 @@ import { once } from "./once";
 import { loadSeasonIndex, mainTeams } from "./seasons";
 import { gpName, loadTeamSeasons } from "./team-page";
 import { curatedDrivers, curatedTeams } from "./teams";
-import type { Credit, DriverIndexRow, L10n, SeasonPointsDbRow, SeasonPoleWho, SeasonRoundRow, SeasonRuleRow } from "./types";
+import type { Credit, DriverIndexRow, L10n, SeasonIndexRow, SeasonPointsDbRow, SeasonPoleWho, SeasonRoundRow, SeasonRuleRow } from "./types";
 
 type CuratedSeason = {
   driverRef?: string;
@@ -120,6 +120,8 @@ export type CalendarRound = {
   date: string | null;
   /** ref траси (сторінка /circuits/<slug>; календар поточного сезону, фаза 3i). */
   circuit: string | null;
+  /** Країна з бази (англійською; адреса в JSON-LD календаря). */
+  country: string | null;
   place: string;
   gp: string;
   sprint: boolean;
@@ -263,6 +265,51 @@ function seasonCardPhoto(year: number, driver: string | null): SeasonPhoto | nul
   return { ...c.photo, credit: c.credit, label: String(year) };
 }
 
+/** Календар сезону за датою: скасований етап без номера стає на своє місце в сезоні (2026 — Саудівська Аравія у квітні). */
+function calendarOf(
+  allRounds: SeasonRoundRow[],
+  locale: Locale,
+  drv: (id: string) => SeasonDriver,
+  ctx: { slot: (id: string) => number | null; decider: number | null; half: Set<number>; top3: Set<string> },
+): CalendarRound[] {
+  return allRounds
+    .slice()
+    .sort((a, b) => (a.date ?? "9999").localeCompare(b.date ?? "9999") || (a.round ?? 999) - (b.round ?? 999))
+    .map((r) => {
+      const winners = (r.winners ?? []).map((w) => ({ ...drv(w.driver), team: teamRef(w.team) }));
+      return {
+        round: r.round,
+        date: r.date,
+        circuit: r.circuit,
+        country: r.country,
+        place: placeName(r.circuit, r.locality, locale),
+        gp: gpName(r.name, locale),
+        sprint: r.sprint,
+        cancelled: r.cancelled,
+        done: winners.length > 0,
+        winners,
+        poles: poleCars(r.poles ?? []).map((car) => car.map(drv)),
+        sprintWinners: (r.sprint_winners ?? []).map((w) => drv(w.driver)),
+        slot: winners.length === 1 ? ctx.slot(winners[0]!.id) : null,
+        decider: ctx.decider !== null && r.round === ctx.decider,
+        half: r.round !== null && ctx.half.has(r.round),
+        disqualified: r.disqualified.filter((d) => ctx.top3.has(d)).map(drv),
+      };
+    });
+}
+
+function neighbourOf(index: SeasonIndexRow[], y: number, locale: Locale): Neighbour | null {
+  const n = index.find((r) => r.year === y);
+  if (!n) return null;
+  return {
+    year: y,
+    champion: n.driver ? driverName(n.driver, n.forename!, n.surname!, locale) : null,
+    // «Лідер» — лише поки титул не вирішено (2026 вирішено достроково — «Чемпіон», як на його сторінці).
+    inProgress: n.in_progress && !n.driver_decided,
+    photo: seasonCardPhoto(y, n.driver),
+  };
+}
+
 export async function getSeasonYears(): Promise<number[]> {
   return (await loadSeasonIndex()).map((r) => r.year);
 }
@@ -321,30 +368,12 @@ export async function getSeasonPage(year: number, locale: Locale): Promise<Seaso
 
   /* --- календар --- */
   const top3 = new Set(standingIds.slice(0, 3));
-  const calendar: CalendarRound[] = allRounds
-    .slice()
-    // За датою: скасований етап без номера стає на своє місце в сезоні (2026 — Саудівська Аравія у квітні), а не в кінець.
-    .sort((a, b) => (a.date ?? "9999").localeCompare(b.date ?? "9999") || (a.round ?? 999) - (b.round ?? 999))
-    .map((r) => {
-      const winners = (r.winners ?? []).map((w) => ({ ...drv(w.driver), team: teamRef(w.team) }));
-      return {
-        round: r.round,
-        date: r.date,
-        circuit: r.circuit,
-        place: placeName(r.circuit, r.locality, locale),
-        gp: gpName(r.name, locale),
-        sprint: r.sprint,
-        cancelled: r.cancelled,
-        done: winners.length > 0,
-        winners,
-        poles: poleCars(r.poles ?? []).map((car) => car.map(drv)),
-        sprintWinners: (r.sprint_winners ?? []).map((w) => drv(w.driver)),
-        slot: winners.length === 1 ? (slotOf.get(winners[0]!.id) ?? null) : null,
-        decider: decision !== null && r.round === decision.round,
-        half: r.round !== null && half.has(r.round),
-        disqualified: r.disqualified.filter((d) => top3.has(d)).map(drv),
-      };
-    });
+  const calendar = calendarOf(allRounds, locale, drv, {
+    slot: (id) => slotOf.get(id) ?? null,
+    decider: decision?.round ?? null,
+    half,
+    top3,
+  });
 
   /* --- таблиці --- */
   const drivers: StandingRow[] = seasonRows.map((r) => ({
@@ -447,19 +476,8 @@ export async function getSeasonPage(year: number, locale: Locale): Promise<Seaso
     own && c!.hero && c!.credit && c!.hero.width >= HERO_MIN_WIDTH
       ? { ...c!.hero, focus: `50% ${c!.hero.focusY ?? 50}%`, credit: c!.credit, label: String(year) }
       : null;
-  const neighbour = (y: number): Neighbour | null => {
-    const n = index.find((r) => r.year === y);
-    if (!n) return null;
-    return {
-      year: y,
-      champion: n.driver ? driverName(n.driver, n.forename!, n.surname!, locale) : null,
-      // «Лідер» — лише поки титул не вирішено (2026 вирішено достроково — «Чемпіон», як на його сторінці).
-      inProgress: n.in_progress && !n.driver_decided,
-      photo: seasonCardPhoto(y, n.driver),
-    };
-  };
-  const prev = neighbour(year - 1);
-  const next = neighbour(year + 1);
+  const prev = neighbourOf(index, year - 1, locale);
+  const next = neighbourOf(index, year + 1, locale);
   const credits: SeasonPage["credits"] = [];
   const seen = new Set<string>();
   const credit = (p: SeasonPhoto | null, label: string) => {
@@ -499,4 +517,21 @@ export async function getSeasonPage(year: number, locale: Locale): Promise<Seaso
     next,
     credits,
   };
+}
+
+/**
+ * Сезон без результатів (немає в season_index): календар поточного сезону до першої гонки — напр. календар 2027 у
+ * дампі після фіналу 2026 (фаза 3i, рев'ю PR #19). null — етапів сезону немає.
+ */
+export async function getUpcomingSeason(year: number, locale: Locale): Promise<{ calendar: CalendarRound[]; prev: Neighbour | null } | null> {
+  const [index, roundsBy, names] = await Promise.all([loadSeasonIndex(), loadRounds(), loadNames()]);
+  const allRounds = roundsBy.get(year) ?? [];
+  if (allRounds.length === 0) return null;
+  const calendar = calendarOf(allRounds, locale, (id) => makeDriver(id, names, locale), {
+    slot: () => null,
+    decider: null,
+    half: new Set(),
+    top3: new Set(),
+  });
+  return { calendar, prev: neighbourOf(index, year - 1, locale) };
 }
