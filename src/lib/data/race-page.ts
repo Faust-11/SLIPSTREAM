@@ -3,6 +3,7 @@
 // Обчислення — src/lib/race-math.ts і src/lib/season-math.ts. Лише на сервері.
 import "server-only";
 import circuitsJson from "@/data/curated/circuits.json";
+import videosJson from "@/data/curated/race-videos.json";
 import type { Locale } from "@/i18n/config";
 import { lapLeaders, lapSpells, lapsNotLed, lowestAfterStart, positionPoints, raceScale, swapWithNext } from "@/lib/race-math";
 import { decidingRound, jolpicaRule, observedMax, seasonRules, type Rule, type SeasonData } from "@/lib/season-math";
@@ -86,9 +87,14 @@ export type SessionItem = {
   best: null | { driver: SeasonDriver; ms: number | null };
 };
 export type LapLine = { driver: SeasonDriver; slot: number; positions: (number | null)[]; stops: number[] };
+/** Хайлайт гонки з офіційного YouTube FORMULA 1 (2024+; scripts/curated/race_videos.py). */
+export type RaceVideo = { id: string; title: string; /** Є превʼю 1280 px (maxresdefault). */ hd?: boolean };
+const videos = (videosJson as unknown as { videos: Record<string, RaceVideo> }).videos;
+
 export type RacePage = {
   year: number;
   round: number;
+  video: RaceVideo | null;
   rounds: number;
   gp: string;
   place: string;
@@ -318,6 +324,7 @@ export async function getRacePage(year: number, round: number, locale: Locale): 
   return {
     year,
     round,
+    video: videos[`${year}/${round}`] ?? null,
     rounds: index.find((s) => s.year === year)?.rounds ?? seasonRounds.length,
     gp: gpName(meta.name, locale),
     place: placeName(meta.circuit, meta.locality, locale),

@@ -153,3 +153,13 @@ describe("правки незалежного рев'ю 13.11", () => {
     expect(lc?.drop?.driver.id).not.toBe("panis");
   });
 });
+
+describe("getRacePage — хайлайт YouTube FORMULA 1 (запит користувача 14.11)", () => {
+  it("2024 Бахрейн — «Race Highlights | 2024 Bahrain Grand Prix»; 2026 Сан-Паулу — назва Jolpica «Brazilian», YouTube «Sao Paulo»", async () => {
+    expect((await getRacePage(2024, 1, "uk"))!.video).toEqual({ id: "9Y5wMpKXNK4", title: "Race Highlights | 2024 Bahrain Grand Prix", hd: true });
+    expect((await getRacePage(2026, 20, "uk"))!.video?.id).toBe("lkb5kqDJYXk");
+  });
+  it("до 2024 відео немає — блок не показується", async () => {
+    expect((await getRacePage(2023, 1, "uk"))!.video).toBeNull();
+  });
+});

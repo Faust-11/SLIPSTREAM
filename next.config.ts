@@ -14,7 +14,9 @@ const csp = [
   "script-src-attr 'none'",
   "style-src 'self' 'unsafe-inline'",
   // Прев'ю новин (фаза 4a, рішення 10.11): лише домени картинок видань — ті самі, що в src/lib/news/parse.ts IMAGE_HOSTS.
-  "img-src 'self' data: blob: https://media.formula1.com https://*.motorsport.com",
+  "img-src 'self' data: blob: https://media.formula1.com https://*.motorsport.com https://i.ytimg.com",
+  // Хайлайти гонок: плеєр YouTube без cookies — лише після кліку (src/components/race/race-video.tsx).
+  "frame-src https://www.youtube-nocookie.com",
   "font-src 'self'",
   "connect-src 'self'",
   "object-src 'none'",

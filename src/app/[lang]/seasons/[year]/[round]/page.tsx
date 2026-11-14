@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { CSSProperties, ReactNode } from "react";
 import { cache } from "react";
 import { LapChart } from "@/components/race/lap-chart";
+import { RaceVideo } from "@/components/race/race-video";
 import { PageCredits } from "@/components/teams/page-credits";
 import { locales, type Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
@@ -343,6 +344,21 @@ export default async function RacePage(props: Props) {
           )}
         </dl>
       </section>
+
+      {/* Хайлайт гонки з YouTube FORMULA 1 (запит користувача 14.11; 2024+). */}
+      {page.video && (
+        <section className="rc-sec" aria-labelledby="v-h">
+          <div className="wrap">
+            <div className="rc-head">
+              <h2 className="display" id="v-h">
+                {t.video.label}
+              </h2>
+              <span className="rc-src">{t.video.credit}</span>
+            </div>
+            <RaceVideo id={page.video.id} title={page.video.title} hd={page.video.hd} playLabel={fill(t.video.play, { title: page.video.title })} />
+          </div>
+        </section>
+      )}
 
       {page.sessions.length > 0 && (
         <section className="rc-sec" aria-labelledby="w-h">
