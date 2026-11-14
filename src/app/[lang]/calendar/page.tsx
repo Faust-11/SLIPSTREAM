@@ -133,7 +133,6 @@ export default async function CalendarPage({ params }: Props) {
           c.date && <span className="cl-dt">{dayFmt[lang].format(new Date(`${c.date}T00:00:00Z`))}</span>
         )}
         {c.sprint && <span className="cl-bd spr">{t.sprintTag}</span>}
-        {c.decider && <span className="cl-bd ttl">{t.titleTag}</span>}
       </div>
       <h3>{c.state === "done" ? <a href={path(`/seasons/${page.season}/${c.round}`)}>{c.gp}</a> : c.gp}</h3>
       {c.circuitSlug ? (
@@ -159,6 +158,16 @@ export default async function CalendarPage({ params }: Props) {
             <div>
               <dt>{t.sprint}</dt>
               <dd>{c.sprintWinners.map((d) => <Driver key={d.id} d={d} lang={lang} />)}</dd>
+            </div>
+          )}
+          {/* Вирішальний етап — чемпіон на ім'я, а не значок поруч із переможцем гонки (відгук користувача 14.11:
+              «Титул» біля Ферстаппена в Мехіко плутав — чемпіоном став Антонеллі). */}
+          {c.decider && page.champion && (
+            <div className="cl-title">
+              <dt>{t.titleRow}</dt>
+              <dd>
+                <Driver d={page.champion} lang={lang} />
+              </dd>
             </div>
           )}
         </dl>

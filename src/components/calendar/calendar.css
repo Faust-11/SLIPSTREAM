@@ -409,10 +409,6 @@ html[data-list-query] .cl-grid {
   background: var(--red);
   color: #fff;
 }
-.cl-bd.ttl {
-  background: var(--yellow);
-  color: var(--on-yellow);
-}
 .cl-card h3 {
   margin: 0;
   font-size: 15.5px;
@@ -444,6 +440,11 @@ html[data-list-query] .cl-grid {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-soft);
+}
+/* Рядок «Титул» вирішального етапу — жовта позначка зліва, як смуга вирішального етапу на сторінці сезону. */
+.cl-res .cl-title {
+  padding-left: 6px;
+  box-shadow: inset 3px 0 0 var(--yellow);
 }
 .cl-res dd {
   display: flex;

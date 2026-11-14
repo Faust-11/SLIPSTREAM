@@ -8,6 +8,11 @@ on:
   schedule:
     - cron: "0 6 * * 1"   # понеділок 06:00 UTC — після гоночних вихідних
     - cron: "0 6 * * 4"   # четвер — пізні зміни результатів, новий дамп (щовівторка)
+    # Гоночні вихідні (рішення користувача 14.11 — результати якомога швидше): щогодини легка перевірка (job gate), чи є в
+    # Jolpica результат гонки, якого ще немає в базі; лише тоді — повна синхронізація. Нд 06:00–23:00 і пн 00:00–05:00 UTC
+    # (покриває і нічні гонки — Лас-Вегас ~04:00 UTC нд), березень–грудень. Бюджет: ~24 запуски × 1 хв на тиждень.
+    - cron: "0 6-23 * 3-12 0"
+    - cron: "0 0-5 * 3-12 1"
   workflow_dispatch:
 
 concurrency:
@@ -18,10 +23,37 @@ permissions:
   contents: read
 
 jobs:
+  gate:
+    # Лише для щогодинних запусків: результат останньої гонки в API Jolpica є, а в базі ще немає → new=true.
+    # Без checkout і pip (≈ 10 с): curl + psql клієнт раннера.
+    if: github.event_name == 'schedule' && github.event.schedule != '0 6 * * 1' && github.event.schedule != '0 6 * * 4'
+    runs-on: ubuntu-26.04
+    timeout-minutes: 3
+    outputs:
+      new: ${{ steps.check.outputs.new }}
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - id: check
+        run: |
+          set -euo pipefail
+          command -v psql >/dev/null || { sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client >/dev/null; }
+          last=$(curl -fsS --max-time 30 https://api.jolpi.ca/ergast/f1/current/last/results.json | jq -r '.MRData.RaceTable.Races[0] | "\(.season) \(.round)"')
+          read -r season round <<< "$last"
+          [[ "$season" =~ ^[0-9]{4}$ && "$round" =~ ^[0-9]{1,2}$ ]] || { echo "API: несподівана відповідь «$last»"; echo "new=false" >> "$GITHUB_OUTPUT"; exit 0; }
+          have=$(psql "$DATABASE_URL" -Atc "select exists (select 1 from f1.results x join f1.sessions s on s.id = x.session_id join f1.rounds r on r.id = s.round_id where s.type = 'R' and r.season_year = $season and r.number = $round)")
+          echo "API: $season/$round; у базі: $have"
+          echo "new=$([ "$have" = f ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
   sync:
+    needs: gate
     # Лише main: ручний запуск з іншої гілки застосував би до бою її незлиті міграції (журнал їх запам'ятає,
-    # і виправлена до злиття версія вже не накотиться).
-    if: github.ref == 'refs/heads/main'
+    # і виправлена до злиття версія вже не накотиться). Щогодинний запуск — лише коли gate знайшов новий результат;
+    # пн/чт і ручний — завжди (gate тоді пропущено — !cancelled() не дає пропуску поширитись на sync).
+    if: >-
+      !cancelled() && github.ref == 'refs/heads/main' &&
+      (github.event_name != 'schedule' || github.event.schedule == '0 6 * * 1' || github.event.schedule == '0 6 * * 4' ||
+       needs.gate.outputs.new == 'true')
     runs-on: ubuntu-26.04
     timeout-minutes: 20
     env:
