@@ -850,7 +850,12 @@
     "ledOnly": "{driver} led only laps {ranges}.",
     "ledOnlyOne": "{driver} led only lap {ranges}.",
     "ttBefore": "before",
-    "ttAfter": "after"
+    "ttAfter": "after",
+    "video": {
+      "label": "Race highlights",
+      "play": "Watch highlights: {title}",
+      "credit": "Video: FORMULA 1 / YouTube"
+    }
   },
   "circuitsPage": {
     "metaDescription": "All {n} Formula 1 World Championship circuits since 1950: layout, years on the calendar, number of races and the most successful drivers.",

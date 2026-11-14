@@ -116,3 +116,18 @@ test("CLS < 0.1 (390 px); розмір HTML ≤ 100 КБ gzip", async ({ page, r
   const res = await request.get("/uk/seasons/2025/24", { headers: { "accept-encoding": "gzip" } });
   expect(gzipSync(await res.body()).length).toBeLessThan(100 * 1024);
 });
+
+test("хайлайт YouTube FORMULA 1: до кліку — мініатюра без iframe; після — плеєр youtube-nocookie; до 2024 — немає", async ({ page }) => {
+  const errors: string[] = [];
+  page.on("console", (m) => m.type() === "error" && /Content Security Policy|Refused/i.test(m.text()) && errors.push(m.text()));
+  await page.goto("/uk/seasons/2024/1");
+  const box = page.locator(".rc-video");
+  await expect(box).toBeVisible();
+  await expect(box.locator("iframe")).toHaveCount(0);
+  await expect(box.locator("img")).toHaveAttribute("src", "https://i.ytimg.com/vi/9Y5wMpKXNK4/hqdefault.jpg");
+  await box.getByRole("button", { name: /Дивитися хайлайти: Race Highlights \| 2024 Bahrain Grand Prix/ }).click();
+  await expect(box.locator("iframe")).toHaveAttribute("src", /^https:\/\/www\.youtube-nocookie\.com\/embed\/9Y5wMpKXNK4\?autoplay=1/);
+  expect(errors).toEqual([]);
+  await page.goto("/uk/seasons/2023/1");
+  await expect(page.locator(".rc-video")).toHaveCount(0);
+});

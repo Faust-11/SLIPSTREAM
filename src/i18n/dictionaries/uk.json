@@ -850,7 +850,12 @@
     "ledOnly": "{driver} лідирував лише на колах {ranges}.",
     "ledOnlyOne": "{driver} лідирував лише на колі {ranges}.",
     "ttBefore": "до етапу",
-    "ttAfter": "після етапу"
+    "ttAfter": "після етапу",
+    "video": {
+      "label": "Хайлайти гонки",
+      "play": "Дивитися хайлайти: {title}",
+      "credit": "Відео: FORMULA 1 / YouTube"
+    }
   },
   "circuitsPage": {
     "metaDescription": "Усі {n} трас чемпіонату Формули-1 з 1950 року: схема, роки в календарі, кількість гонок і найуспішніші пілоти.",

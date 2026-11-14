@@ -618,3 +618,61 @@
     padding: 7px 3px;
   }
 }
+
+/* ---------- хайлайт (YouTube FORMULA 1) ---------- */
+.rc-video {
+  position: relative;
+  max-width: 960px;
+  aspect-ratio: 16 / 9;
+  background: #0e0f12;
+}
+.rc-video iframe,
+.rc-video-play {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.rc-video-play {
+  display: block;
+  padding: 0;
+  background: #0e0f12;
+  cursor: pointer;
+}
+.rc-video-play img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Кнопка відтворення — червоний круг з білим трикутником, по центру. */
+.rc-video-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 76px;
+  height: 76px;
+  margin: -38px 0 0 -38px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 0 4px rgb(255 255 255 / 0.9);
+}
+.rc-video-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  border-style: solid;
+  border-width: 14px 0 14px 24px;
+  border-color: transparent transparent transparent #fff;
+  transform: translate(-50%, -50%);
+}
+.rc-video-play:hover .rc-video-icon,
+.rc-video-play:focus-visible .rc-video-icon {
+  transform: scale(1.06);
+}
+.rc-video-play:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
