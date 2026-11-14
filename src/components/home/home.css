@@ -124,7 +124,8 @@
   word-spacing: -0.35em;
   line-height: 1;
   background: var(--c, var(--ink));
-  color: var(--on, #fff);
+  /* --on — темний або білий за контрастом із кольором команди (heroColors); без кольору — фон --ink, текст --paper. */
+  color: var(--on, var(--paper));
 }
 .hm-stamp {
   display: inline-flex;
@@ -486,6 +487,7 @@
   block-size: 92px;
   font-size: 36px;
   background: var(--red);
+  color: #fff;
   box-shadow: 0 0 0 5px var(--paper);
 }
 .hm-podium {
@@ -542,7 +544,12 @@
   text-decoration: underline dotted;
   cursor: help;
 }
-.hm-tbl td {
+.hm-tbl tbody th {
+  font-weight: inherit;
+  text-align: start;
+}
+.hm-tbl td,
+.hm-tbl tbody th {
   padding: 8px 6px;
   border-bottom: 1px solid var(--hair);
   vertical-align: middle;
@@ -623,9 +630,24 @@
   font-size: 15px;
   line-height: 1.45;
 }
+.hm-when .cl-tz,
+.hm-when p {
+  margin: 4px 0 0;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
 .hm-when strong {
   display: block;
   font-size: 17px;
+}
+.hm-count-wrap {
+  display: grid;
+  gap: 8px;
+}
+.hm-count-note {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink-soft);
 }
 .hm-count {
   display: grid;
@@ -845,11 +867,12 @@
   min-width: 0;
   margin-inline-end: calc(-1 * var(--hm-gutter));
   padding: 0 var(--hm-gutter) 32px 36px;
-  background: var(--blue);
+  /* Той самий синій в обох темах: з --blue темної теми (#2f55f0) дрібні підписи мали 4,2:1 (рев'ю PR #25); #1d3fcc — 8,6. */
+  background: #1d3fcc;
   color: #fff;
 }
 .hm-records .hm-src {
-  color: rgb(255 255 255 / 0.8);
+  color: #fff;
 }
 .hm-rec-grid {
   display: grid;
@@ -940,6 +963,15 @@
 }
 .hm-news .hm-slider {
   margin-top: 4px;
+}
+/* Заглушка на час завантаження /api/news — приблизно висота списку, щоб підвал не стрибав (CLS). */
+.hm-news-wait {
+  min-block-size: 640px;
+  background: repeating-linear-gradient(180deg, transparent 0 63px, var(--hair) 63px 64px);
+  opacity: 0.6;
+}
+.hm-news-empty {
+  margin: 0;
 }
 .hm-hl li,
 .hm-posts li {
@@ -1067,7 +1099,8 @@
     display: none;
   }
   .hm-rail-cell.hm-rail-done:has(+ .hm-rail-next) > span.num,
-  .hm-rail-cell.hm-rail-next > span.num {
+  .hm-rail-cell.hm-rail-next > span.num,
+  .hm-rail-done:last-of-type > span.num {
     display: block;
   }
   .hm-rail-key {

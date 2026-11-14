@@ -1207,7 +1207,7 @@
     "circuitLink": "Траса →",
     "raceStart": "Старт гонки",
     "standings": "Чемпіонат",
-    "afterRound": "Після {round} етапу",
+    "afterRound": "Після {round}-го етапу",
     "tabsLabel": "Залік",
     "tabDrivers": "Пілоти",
     "tabTeams": "Команди",
@@ -1226,6 +1226,15 @@
     "seasonOverNext": "Календар наступного сезону з'явиться, щойно його опублікують.",
     "seasonLink": "Сезон {season} →",
     "creditsPhotos": "Фото",
-    "creditsPortraits": "Портрети пілотів"
+    "creditsPortraits": "Портрети пілотів",
+    "seasonAhead": {
+      "one": "Сезон {season} · {total} етап попереду",
+      "few": "Сезон {season} · {total} етапи попереду",
+      "many": "Сезон {season} · {total} етапів попереду",
+      "other": "Сезон {season} · {total} етапи попереду"
+    },
+    "countdownThen": "Далі — етап {round}, {gp}:",
+    "finalStandings": "Підсумок сезону {season}",
+    "newsLoading": "Завантажуємо новини…"
   }
 }
