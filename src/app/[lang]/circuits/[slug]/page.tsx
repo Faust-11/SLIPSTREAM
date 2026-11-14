@@ -181,8 +181,9 @@ export default async function CircuitPageView(props: Props) {
           />
         ) : (
           page.layout && (
-            <svg className="ct-hero-lay" viewBox={`-40 -40 ${page.layout.w + 80} ${page.layout.h + 80}`} aria-hidden="true" focusable="false" preserveAspectRatio="xMaxYMid meet">
-              <path d={page.layout.d} />
+            // Та сама орієнтація, що й схема нижче (рев'ю PR #21: у банері була північ угорі, а схема — повернута).
+            <svg className="ct-hero-lay" viewBox={`-40 -40 ${page.layout.page.w + 80} ${page.layout.page.h + 80}`} aria-hidden="true" focusable="false" preserveAspectRatio="xMaxYMid meet">
+              <path d={page.layout.page.d} />
             </svg>
           )
         )}
@@ -301,7 +302,8 @@ export default async function CircuitPageView(props: Props) {
                     </a>
                   </p>
                 )}
-                {f.laps !== null && <p className="ct-src">{t.factsDb}</p>}
+                {/* Кола — з бази; дистанція — кола з бази × довжина з Вікіпедії: згадуємо, лише коли вона є (рев'ю PR #21). */}
+                {f.laps !== null && <p className="ct-src">{f.distanceKm !== null ? t.factsDbDistance : t.factsDb}</p>}
               </>
             ) : (
               <p className="ct-src">{t.noFacts}</p>

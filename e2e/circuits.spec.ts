@@ -182,3 +182,30 @@ test("CLS < 0.1 (390 px); розмір HTML ≤ 100 КБ gzip", async ({ page, r
 test("пошук: ввід одразу після відкриття й швидкий набір не губляться", async ({ page }) => {
   await expectSearchSurvivesRace(page, "/uk/circuits", "Пошук траси", "monza", "monza circuit");
 });
+
+// Фаза 3j (відгук користувача 14.11): дані для всіх трас календаря й схеми під горизонтальну рамку.
+test("Лас-Вегас: факти з картки «Las Vegas Strip Circuit» і бази — 6,201 км, 50 кіл, рекорд 1:33.365", async ({ page }) => {
+  await page.goto("/uk/circuits/vegas");
+  const stats = page.locator(".ct-stats");
+  await expect(stats).toContainText("6,201");
+  await expect(stats).toContainText("50");
+  await expect(stats).toContainText("1:33.365");
+  await expect(stats).not.toContainText("Технічних даних траси в джерелі немає");
+});
+
+test("Caesars Palace: картки траси немає — кола з бази, підпис без дистанції", async ({ page }) => {
+  await page.goto("/uk/circuits/las-vegas");
+  await expect(page.locator(".ct-stats")).toContainText("75");
+  await expect(page.locator(".ct-stats .ct-src")).toHaveText("Кола в гонці — за результатами гонок (база Jolpica).");
+});
+
+test("схема горизонтальна й займає ширину; на 768 px — одна колонка (без порожнечі поруч)", async ({ page }) => {
+  for (const [width, slug] of [[1280, "yas-marina"], [1280, "jeddah"], [768, "spa"]] as const) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto(`/uk/circuits/${slug}`);
+    const box = (await page.locator(".ct-map svg").boundingBox())!;
+    expect(box.width, slug).toBeGreaterThan(box.height);
+    const col = (await page.locator(".ct-circ").boundingBox())!;
+    if (width === 768) expect(box.width / col.width, slug).toBeGreaterThan(0.95);
+  }
+});
