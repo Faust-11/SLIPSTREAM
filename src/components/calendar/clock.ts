@@ -61,3 +61,9 @@ export function liveStates(raceAts: (string | null)[], now: number): ("started" 
     return "later";
   });
 }
+
+/** Залишок до моменту (мс) — дні, години, хвилини; від'ємне — нулі (відлік календаря й головної). */
+export function timeLeft(ms: number): { d: number; h: number; m: number } {
+  const m = Math.max(0, Math.floor(ms / 60000));
+  return { d: Math.floor(m / 1440), h: Math.floor((m % 1440) / 60), m: m % 60 };
+}

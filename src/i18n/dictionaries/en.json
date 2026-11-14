@@ -1202,6 +1202,13 @@
     "seasonOverNext": "Next season's calendar will appear as soon as it is published.",
     "seasonLink": "Season {season} →",
     "creditsPhotos": "Photos",
-    "creditsPortraits": "Driver portraits"
+    "creditsPortraits": "Driver portraits",
+    "seasonAhead": {
+      "one": "Season {season} · {total} round ahead",
+      "other": "Season {season} · {total} rounds ahead"
+    },
+    "countdownThen": "Next up — round {round}, {gp}:",
+    "finalStandings": "Final {season} standings",
+    "newsLoading": "Loading news…"
   }
 }

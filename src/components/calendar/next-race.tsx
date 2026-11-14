@@ -2,7 +2,7 @@
 
 import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
-import { useNow } from "./clock";
+import { timeLeft, useNow } from "./clock";
 import { formatDay, LocalTime } from "./local-time";
 
 export type UpcomingRound = {
@@ -16,10 +16,6 @@ export type UpcomingRound = {
 };
 export type NextRaceLabels = { nextRace: string; roundK: string; countdownLabel: string; days: string; hours: string; minutes: string; raceStarted: string; seasonOver: string };
 
-const left = (ms: number) => {
-  const m = Math.max(0, Math.floor(ms / 60000));
-  return { d: Math.floor(m / 1440), h: Math.floor((m % 1440) / 60), m: m % 60 };
-};
 
 /**
  * Блок «Наступна гонка»: сервер показує першу непроведену за даними; клієнт — першу, чия гонка ще не стартувала
@@ -41,7 +37,7 @@ export function NextRace({ rounds, season, locale, labels }: { rounds: UpcomingR
   const shown = next ?? started!;
   // now — початок поточного кроку (реальний час у [now, now + TICK)): мінус 1 мс — і на межі кроку хвилини точні
   // (старт гонки — ціла хвилина, крок ділить хвилину), а не на одну більше.
-  const c = next && now !== null ? left(Date.parse(next.raceAt) - now - 1) : null;
+  const c = next && now !== null ? timeLeft(Date.parse(next.raceAt) - now - 1) : null;
   return (
     <div className="cl-next">
       <span className="cl-next-k">{fill(next ? labels.nextRace : labels.roundK, { round: shown.round })}</span>
