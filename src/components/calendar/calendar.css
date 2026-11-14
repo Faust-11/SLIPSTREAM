@@ -1,0 +1,569 @@
+/* Календар поточного сезону (фаза 3i). Класи — з префіксом cl- (глобальні класи інших сторінок конфліктують);
+   спільні атоми сайту — .wrap, .display, .num, .page-credits. Синій банер — як у макеті «Календар 2026». */
+.cl-page {
+  --cl-hero: #1868db;
+  --cl-box: #0e2f6b;
+  --cl-line: var(--rule);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .cl-page {
+    --cl-hero: #114fa8;
+    --cl-box: #0a2350;
+    --cl-line: var(--ink-soft);
+  }
+}
+:root[data-theme="dark"] .cl-page {
+  --cl-hero: #114fa8;
+  --cl-box: #0a2350;
+  --cl-line: var(--ink-soft);
+}
+
+/* ---------- банер ---------- */
+.cl-hero {
+  background: var(--cl-hero);
+  color: #fff;
+  border-bottom: var(--b) solid var(--rule);
+}
+.cl-hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+  padding-block: 38px 40px;
+}
+.cl-stamp {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 7px 11px;
+  background: var(--yellow);
+  color: var(--on-yellow);
+  font: 600 12px var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.cl-hero h1 {
+  font-size: clamp(36px, 6vw, 78px);
+}
+.cl-hero h1 span {
+  color: var(--yellow);
+}
+.cl-lead {
+  max-width: 50ch;
+  margin: 16px 0 0;
+  font-size: clamp(16px, 1.5vw, 19px);
+  color: #fff;
+}
+.cl-kf {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 24px 0 0;
+  border-top: 2px solid #fff;
+}
+.cl-kf > div {
+  min-width: 0;
+  padding: 10px 12px 0 0;
+}
+.cl-kf > div + div {
+  padding-left: 12px;
+  border-left: 1px solid rgb(255 255 255 / 0.4);
+}
+.cl-kf dt {
+  font: 10.5px var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  /* Білий без прозорості: на #1868DB лише 4,6:1 — з 85 % падало нижче 4,5:1 (axe, e2e 14.11). */
+  color: #fff;
+}
+.cl-kf dd {
+  margin: 6px 0 0;
+  font-weight: 600;
+}
+.cl-kf dd.num {
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-size: 22px;
+  font-weight: 400;
+}
+.cl-hero .cl-ent,
+.cl-hero .cl-team {
+  color: #fff;
+}
+.cl-next {
+  display: grid;
+  gap: 12px;
+  padding: 20px 22px;
+  background: var(--cl-box);
+  color: #fff;
+  border: 3px solid #fff;
+  text-decoration: none;
+}
+.cl-next:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+.cl-next-k {
+  font: 12px var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--yellow);
+}
+.cl-next-name {
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-weight: 400;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.cl-next-place {
+  font-size: 14px;
+  color: rgb(255 255 255 / 0.85);
+}
+.cl-next-note {
+  margin: 0;
+  font-size: 13px;
+  color: var(--yellow);
+}
+.cl-count {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.cl-count > span {
+  display: grid;
+  padding: 8px 10px;
+  background: rgb(255 255 255 / 0.1);
+}
+.cl-count b {
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-weight: 400;
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1;
+  /* Ширина цифр стабільна — відлік не зсуває макет (CLS). */
+  min-width: 2ch;
+}
+.cl-count > span > span {
+  font: 11px var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.8);
+}
+.cl-sess {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cl-sess li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 0;
+  border-top: 1px solid rgb(127 127 127 / 0.35);
+  font-size: 14px;
+}
+.cl-sess li.race {
+  font-weight: 700;
+}
+.cl-sess time,
+.cl-sess .num {
+  font: 13px var(--f-mono);
+  white-space: nowrap;
+}
+
+/* ---------- смуга прогресу (колір — ідентичність команди; номер — не на кольорі, контраст) ---------- */
+.cl-strip-sec {
+  border-bottom: var(--b2) solid var(--rule);
+}
+.cl-strip-sec .wrap {
+  display: grid;
+  gap: 10px;
+  padding-block: 18px 14px;
+}
+.cl-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(28px, 1fr));
+  gap: 3px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cl-strip a {
+  display: grid;
+  gap: 4px;
+  justify-items: center;
+  text-decoration: none;
+  font: 600 11px var(--f-mono);
+  color: var(--ink-soft);
+  min-height: 24px;
+}
+.cl-strip i {
+  display: block;
+  width: 100%;
+  height: 26px;
+  box-shadow: inset 0 0 0 2px var(--hair);
+}
+.cl-strip .done i {
+  background: var(--win, var(--ink-soft));
+  /* Тонкий контур: темні кольори команд (Red Bull #1B2B6B) у темній темі зливались із тлом (~1,3:1). */
+  box-shadow: inset 0 0 0 1px rgb(127 127 127 / 0.55);
+}
+.cl-strip .next i {
+  background: var(--yellow);
+  box-shadow: inset 0 0 0 3px var(--ink);
+}
+.cl-strip .next a {
+  color: var(--ink);
+}
+.cl-key,
+.cl-legend,
+.cl-cancel,
+.cl-tz {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+.cl-key .k {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.cl-key .k::before {
+  content: "";
+  width: 14px;
+  height: 12px;
+}
+.k-done::before {
+  background: var(--ink-soft);
+}
+.k-next::before {
+  background: var(--yellow);
+  box-shadow: inset 0 0 0 2px var(--ink);
+}
+.k-later::before {
+  box-shadow: inset 0 0 0 2px var(--hair);
+}
+.cl-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---------- етапи ---------- */
+.cl-sec {
+  border-bottom: var(--b) solid var(--rule);
+}
+.cl-sec > .wrap {
+  padding-block: 30px 34px;
+}
+.cl-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px 14px;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: var(--b) solid var(--rule);
+}
+.cl-head h2 {
+  font-size: clamp(22px, 2.6vw, 30px);
+}
+.cl-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.cl-chip {
+  min-height: 36px;
+  padding: 8px 11px;
+  font: 600 12.5px/1 var(--f-mono);
+  word-spacing: normal;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  box-shadow: inset 0 0 0 1.5px var(--cl-line);
+  cursor: pointer;
+}
+.cl-chip[aria-pressed="true"] {
+  color: var(--paper);
+  background: var(--ink);
+}
+.cl-count-st {
+  flex-basis: 100%;
+  margin: 0;
+  font: 12px var(--f-mono);
+  color: var(--ink-soft);
+}
+.cl-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cl-grid[data-f="ahead"] > li[data-state="done"],
+.cl-grid[data-f="done"] > li:not([data-state="done"]),
+.cl-grid[data-f="sprint"] > li[data-sprint="0"] {
+  display: none;
+}
+/* Посилання з ?f=: до гідратації не показувати нефільтрований перелік (як у «Командах»; CLS). */
+html[data-list-query] .cl-grid {
+  height: 100vh;
+  overflow: hidden;
+  visibility: hidden;
+  animation: list-reveal 0s linear 6s forwards;
+}
+.cl-card {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
+  padding: 12px 12px 14px;
+  background: var(--paper);
+  border-top: 6px solid var(--hair);
+  box-shadow: inset 0 0 0 1px var(--hair);
+  scroll-margin-top: 90px;
+}
+.cl-card.done {
+  border-top-color: var(--win, var(--ink-soft));
+}
+.cl-card.next {
+  grid-column: span 2;
+  border-top-color: var(--yellow);
+  box-shadow: inset 0 0 0 3px var(--ink);
+}
+.cl-card.later {
+  border-top-style: dashed;
+}
+.cl-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.cl-rnd {
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-size: 18px;
+}
+.cl-dt {
+  font: 12px var(--f-mono);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.cl-bd {
+  padding: 2px 5px;
+  font: 600 10px var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.cl-bd.spr {
+  background: var(--red);
+  color: #fff;
+}
+.cl-bd.ttl {
+  background: var(--yellow);
+  color: var(--on-yellow);
+}
+.cl-card h3 {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.25;
+}
+.cl-card h3 a {
+  text-decoration: none;
+}
+.cl-circ {
+  font-size: 13px;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.cl-res {
+  display: grid;
+  gap: 6px;
+  margin: 4px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--hair);
+}
+.cl-res > div {
+  display: grid;
+  grid-template-columns: 86px minmax(0, 1fr);
+  align-items: center;
+  gap: 6px;
+}
+.cl-res dt {
+  font: 10.5px var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.cl-res dd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin: 0;
+  min-width: 0;
+}
+.cl-card .cl-sess li {
+  border-top-color: var(--hair);
+  font-size: 13.5px;
+}
+.cl-ent {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  min-height: 26px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.cl-ent span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cl-av {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  background: var(--paper-2);
+}
+.cl-av.cl-ini {
+  display: inline-grid;
+  place-items: center;
+  font: 10px var(--f-mono);
+  color: var(--ink-soft);
+  box-shadow: inset 0 0 0 1.5px var(--hair);
+}
+.cl-team {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 24px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.cl-sq {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--c, var(--ink-soft));
+  box-shadow: 0 0 0 1px rgb(127 127 127 / 0.55);
+}
+.cl-sess abbr {
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .cl-card h3 a:hover,
+  .cl-circ:hover,
+  .cl-ent:hover span,
+  .cl-team:hover,
+  .cl-more:hover,
+  .cl-nbr:hover {
+    color: var(--blue-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+/* ---------- залік ---------- */
+.cl-more,
+.cl-nbr {
+  font: 600 13px var(--f-mono);
+  text-decoration: none;
+}
+.cl-nbr {
+  display: inline-block;
+  margin-top: 22px;
+}
+.cl-tables {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 28px;
+}
+.cl-tbl {
+  min-width: 0;
+  overflow-x: auto;
+}
+.cl-tbl:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.cl-tbl table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  border-top: 2px solid var(--rule);
+}
+.cl-tbl caption {
+  margin-bottom: 6px;
+  text-align: left;
+  font: 600 12px var(--f-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.cl-tbl th[scope="col"] {
+  padding: 8px 8px 6px 0;
+  text-align: left;
+  font: 600 10.5px var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.cl-tbl td,
+.cl-tbl tbody th {
+  padding: 6px 8px 6px 0;
+  text-align: left;
+  font-weight: 400;
+  border-top: 1px solid var(--hair);
+  vertical-align: middle;
+}
+.cl-tbl .cl-r {
+  text-align: right;
+}
+
+/* ---------- адаптив ---------- */
+@media (max-width: 1100px) {
+  .cl-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 900px) {
+  .cl-hero .wrap,
+  .cl-tables {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .cl-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .cl-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cl-card.next {
+    grid-column: auto;
+  }
+  .cl-strip {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  .cl-kf {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .cl-kf > div:nth-child(3) {
+    display: none;
+  }
+}

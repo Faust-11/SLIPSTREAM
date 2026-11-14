@@ -118,6 +118,8 @@ export type Contender = {
 export type CalendarRound = {
   round: number | null;
   date: string | null;
+  /** ref траси (сторінка /circuits/<slug>; календар поточного сезону, фаза 3i). */
+  circuit: string | null;
   place: string;
   gp: string;
   sprint: boolean;
@@ -328,6 +330,7 @@ export async function getSeasonPage(year: number, locale: Locale): Promise<Seaso
       return {
         round: r.round,
         date: r.date,
+        circuit: r.circuit,
         place: placeName(r.circuit, r.locality, locale),
         gp: gpName(r.name, locale),
         sprint: r.sprint,

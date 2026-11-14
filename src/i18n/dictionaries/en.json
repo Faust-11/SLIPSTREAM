@@ -980,5 +980,77 @@
     "layoutKey": "layout described above",
     "titlesEarlier": "{n} more earlier in the season.",
     "rankMore": "and {count} more with {n}"
+  },
+  "calendarPage": {
+    "metaDescription": "Formula 1 {season} calendar: all {n} rounds — results of those already run and session times in your time zone.",
+    "title": "Calendar",
+    "stamp": {
+      "one": "Season {season} · {done} of {total} round run",
+      "few": "Season {season} · {done} of {total} rounds run",
+      "many": "Season {season} · {done} of {total} rounds run",
+      "other": "Season {season} · {done} of {total} rounds run"
+    },
+    "stampOver": "Season {season} finished · {total} rounds",
+    "lead": "Every round of the season: results of the ones already run and session times for the ones ahead.",
+    "tzUtc": "Times in UTC.",
+    "tzLocal": "Times in your time zone ({tz}).",
+    "factsLabel": "Season in numbers",
+    "champion": "Champion",
+    "leader": "Championship leader",
+    "cup": "Constructors' Cup",
+    "cupLeader": "Cup leader",
+    "sprints": "Sprints",
+    "nextRace": "Next race · round {round}",
+    "countdownLabel": "Until the race starts",
+    "days": "days",
+    "hours": "hrs",
+    "minutes": "min",
+    "raceStarted": "Round {round} has started — results will appear after the next data update.",
+    "seasonOver": "Season {season} is over",
+    "stripLabel": "Rounds of the season",
+    "keyDone": "run · colour of the winner's team",
+    "keyNext": "next",
+    "keyLater": "ahead",
+    "cancelled": "Cancelled: {list}",
+    "rounds": "Rounds",
+    "filtersLabel": "Show rounds",
+    "filters": {
+      "all": "All · {n}",
+      "ahead": "Ahead · {n}",
+      "done": "Done · {n}",
+      "sprint": "Sprint weekends · {n}"
+    },
+    "count": {
+      "one": "{n} round",
+      "few": "{n} rounds",
+      "many": "{n} rounds",
+      "other": "{n} rounds"
+    },
+    "winner": "Winner",
+    "pole": "Pole",
+    "sprint": "Sprint",
+    "sprintTag": "Sprint",
+    "titleTag": "Title",
+    "standings": "Standings",
+    "driversTop": "Drivers · top ten",
+    "teamsTitle": "Constructors",
+    "fullStandings": "Full standings — season {season} ›",
+    "col": {
+      "pos": "Pos",
+      "driver": "Driver",
+      "team": "Team",
+      "points": "Pts"
+    },
+    "prevSeason": "‹ Season {year}",
+    "credits": "Driver portraits: authors and licences",
+    "sessionShort": {
+      "FP1": "FP1",
+      "FP2": "FP2",
+      "FP3": "FP3",
+      "Q": "Qualifying",
+      "SQ": "Sprint qualifying",
+      "SR": "Sprint",
+      "R": "Race"
+    }
   }
 }
