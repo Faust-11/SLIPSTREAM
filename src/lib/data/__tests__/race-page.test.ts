@@ -159,7 +159,8 @@ describe("getRacePage — хайлайт YouTube FORMULA 1 (запит кори�
     expect((await getRacePage(2024, 1, "uk"))!.video).toEqual({ id: "9Y5wMpKXNK4", title: "Race Highlights | 2024 Bahrain Grand Prix", hd: true });
     expect((await getRacePage(2026, 20, "uk"))!.video?.id).toBe("lkb5kqDJYXk");
   });
-  it("до 2024 відео немає — блок не показується", async () => {
-    expect((await getRacePage(2023, 1, "uk"))!.video).toBeNull();
+  it("2017–2023 — теж (формат «2019 … Grand Prix: Race Highlights» і новіший); до 2017 і з забороненим вбудовуванням — немає", async () => {
+    expect((await getRacePage(2022, 1, "uk"))!.video?.id).toBe("wIYPuzWCCSw");
+    expect((await getRacePage(2016, 1, "uk"))!.video).toBeNull();
   });
 });
