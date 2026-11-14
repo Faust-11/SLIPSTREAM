@@ -480,6 +480,16 @@ with psycopg.connect(DSN, autocommit=True) as conn:
           [held.get(k) for k in ("monza", "monaco", "silverstone", "spa", "yas_marina")] == [76, 72, 61, 59, 17],
           [held.get(k) for k in ("monza", "monaco", "silverstone", "spa", "yas_marina")])
     print("INFO  CIRCUITS circuit_index:", len(ci), "; країн:", len({cc for _, cc in ci.values()}))
+    # --- Календар (0014) ---
+    cal = q("select year, round, sessions from f1.calendar_sessions order by round")
+    n_cal = q("""select count(*) from f1.season_rounds where year = (select max(year) from f1.season_rounds where round is not null and not cancelled)
+                 and round is not null and not cancelled""")[0][0]
+    check("calendar_sessions: рядок на кожен нескасований етап поточного сезону", len(cal) == n_cal, (len(cal), n_cal))
+    held = {r[0] for r in q("""select round from f1.season_rounds where year = (select max(year) from f1.season_rounds) and winners is not null""")}
+    no_race = [r for y, r, s in cal if r in held and not any(x["k"] == "R" and x.get("at") for x in s)]
+    check("calendar_sessions: у кожної проведеної гонки є час гонки", not no_race, no_race)
+    future = [(r, [(x["k"], x.get("at"), x.get("real")) for x in s]) for y, r, s in cal if r not in held]
+    print("INFO  CALENDAR рік:", cal[0][0] if cal else None, "; етапів:", len(cal), "; майбутні етапи з сесіями:", future)
     n_pts = q("select count(*), count(distinct year) from f1.season_points")[0]
     print("INFO  SEASON PAGE season_points рядків / сезонів:", n_pts, "; season_rounds:", q("select count(*) from f1.season_rounds")[0][0],
           "; скасовані:", q("select year, name from f1.season_rounds where cancelled order by 1"))
