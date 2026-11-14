@@ -287,13 +287,15 @@ def main() -> None:
             year, rnd = (int(x) for x in args.round.split(":"))
             cur.execute("select season_year, number, id from f1.rounds where season_year = %s and number = %s", (year, rnd))
         else:
-            # Finished rounds (date passed) of the season of the latest finished round — not max(seasons): once the dump
-            # carries next year's calendar, the remaining rounds of the current season must still be topped up.
+            # Rounds up to today (UTC) of the season of the latest such round — not max(seasons): once the dump carries
+            # next year's calendar, the remaining rounds of the current season must still be topped up. Today included:
+            # the hourly race-weekend run (data-sync gate, 14.11) must pick up a Sunday race on Sunday; a round with no
+            # results in the API yet is simply skipped (topup_round adds nothing).
             today = dt.datetime.now(dt.timezone.utc).date()
             cur.execute("""select season_year, number, id from f1.rounds
                            where season_year = (select max(season_year) from f1.rounds
-                                                where number is not null and not is_cancelled and date < %s)
-                             and number is not null and not is_cancelled and date < %s
+                                                where number is not null and not is_cancelled and date <= %s)
+                             and number is not null and not is_cancelled and date <= %s
                            order by number""", (today, today))
         rounds = cur.fetchall()
         total = {}

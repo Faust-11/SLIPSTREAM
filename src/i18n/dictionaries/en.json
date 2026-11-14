@@ -734,7 +734,6 @@
     "sprintTag": "Sprint",
     "pole": "Pole: {names}",
     "sprintWin": "Sprint: {names}",
-    "decider": "Title decided",
     "half": "Half points",
     "dsqNote": "Disqualified: {names}",
     "cancelled": "Cancelled",
@@ -755,7 +754,8 @@
     "next": "Next season ›",
     "nbChampion": "Champion: {name}",
     "nbLeader": "Leader: {name}",
-    "credits": "Photo credits"
+    "credits": "Photo credits",
+    "deciderBy": "Title clinched by {name}"
   },
   "racePage": {
     "metaDescription": "{gp} {year}: round {round} of the Formula 1 championship. {who} Race and qualifying results, lap-by-lap positions, the weekend's sessions.",
@@ -935,8 +935,6 @@
     "opened": "Opened",
     "architect": "Architect",
     "capacity": "Capacity",
-    "factsSource": "Length, turns, lap record, opening, architect and capacity: English Wikipedia, article “{title}”,",
-    "factsSourceLink": "revision used",
     "strip": {
       "label": "Circuit in numbers",
       "races": "Grands Prix",
@@ -955,9 +953,7 @@
       "pole": "Pole",
       "fastest": "Fastest lap"
     },
-    "titleBadge": "Title",
     "currentKey": "current layout",
-    "titleKey": "the drivers' title was decided in this race",
     "fastestNote": "Fastest laps from {year}: earlier data in the source is incomplete.",
     "titlesTitle": "Titles decided here",
     "titlesSub": {
@@ -979,9 +975,7 @@
     "layoutSpan": "Layout used {from}–{to}",
     "layoutKey": "layout described above",
     "titlesEarlier": "{n} more earlier in the season.",
-    "rankMore": "and {count} more with {n}",
-    "factsDb": "Race laps come from race results (Jolpica database).",
-    "factsDbDistance": "Race laps come from race results (Jolpica database); distance ≈ laps × lap length."
+    "rankMore": "and {count} more with {n}"
   },
   "calendarPage": {
     "metaDescription": {
@@ -1042,7 +1036,6 @@
     "pole": "Pole",
     "sprint": "Sprint",
     "sprintTag": "Sprint",
-    "titleTag": "Drivers' title",
     "standings": "Standings",
     "driversTop": "Drivers · top ten",
     "teamsTitle": "Constructors",
@@ -1065,7 +1058,8 @@
       "R": "Race"
     },
     "roundK": "Round {round}",
-    "cardStarted": "The race has started — results appear after the next data update."
+    "cardStarted": "The race has started — results appear after the next data update.",
+    "titleRow": "Title"
   },
   "newsPage": {
     "metaDescription": "Formula 1 news: headlines from Formula 1, Motorsport.com and Autosport plus F1 journalists on Bluesky, refreshed every half hour.",

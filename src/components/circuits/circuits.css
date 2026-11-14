@@ -765,15 +765,6 @@ html[data-list-query] .site-foot {
   font: 12.5px var(--f-mono);
   color: var(--ink-soft);
 }
-.ct-badge {
-  padding: 2px 6px;
-  font: 600 10px var(--f-mono);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  background: var(--yellow);
-  color: var(--on-yellow);
-}
 .ct-key {
   display: flex;
   flex-wrap: wrap;

@@ -165,3 +165,12 @@ test("CLS < 0.1 (390 px); розмір HTML ≤ 100 КБ gzip", async ({ page, r
   const res = await request.get("/uk/calendar");
   expect(gzipSync(await res.body()).length).toBeLessThan(100 * 1024);
 });
+
+test("вирішальний етап (Мехіко): чемпіон на ім'я, без значка «Титул» біля переможця гонки (відгук користувача 14.11)", async ({ page }) => {
+  await page.goto("/uk/calendar");
+  const card = page.locator("#r19");
+  await expect(card.locator(".cl-res > div").first()).toContainText("Ферстаппен");
+  await expect(card.locator(".cl-title")).toContainText("Титул");
+  await expect(card.locator(".cl-title")).toContainText("Антонеллі");
+  await expect(page.locator(".cl-bd.ttl")).toHaveCount(0);
+});

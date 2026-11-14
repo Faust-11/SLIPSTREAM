@@ -447,7 +447,8 @@ export default async function SeasonPage(props: Props) {
                         <span className="note">{fill(t.dsqNote, { names: c.disqualified.map((d) => d.short).join(", ") })}</span>
                       )}
                       {c.half && <span className="note">{t.half}</span>}
-                      {c.decider && <span className="note">{t.decider}</span>}
+                      {/* Чемпіон на ім'я (відгук користувача 14.11: «Титул вирішено» біля переможця гонки плутав). */}
+                      {c.decider && page.champion && <span className="note">{fill(t.deciderBy, { name: page.champion.short })}</span>}
                     </>
                   ) : (
                     <span className="sub">{t.upcoming}</span>

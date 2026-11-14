@@ -294,16 +294,6 @@ export default async function CircuitPageView(props: Props) {
                     </div>
                   )}
                 </dl>
-                {f.source && (
-                  <p className="ct-src">
-                    {fill(t.factsSource, { title: f.source.title })}{" "}
-                    <a href={f.source.href} rel="noopener">
-                      {t.factsSourceLink}
-                    </a>
-                  </p>
-                )}
-                {/* Кола — з бази; дистанція — кола з бази × довжина з Вікіпедії: згадуємо, лише коли вона є (рев'ю PR #21). */}
-                {f.laps !== null && <p className="ct-src">{f.distanceKm !== null ? t.factsDbDistance : t.factsDb}</p>}
               </>
             ) : (
               <p className="ct-src">{t.noFacts}</p>
@@ -388,7 +378,6 @@ export default async function CircuitPageView(props: Props) {
                           <span>{joinNodes(r.winners.map((w) => <DriverLink key={w.id} d={w} lang={lang} />), " / ")}</span>
                           {r.winners[0]?.team && <TeamLink tm={r.winners[0].team} lang={lang} />}
                         </span>
-                        {r.title && <span className="ct-badge">{t.titleBadge}</span>}
                       </span>
                     </td>
                     <td className="ct-r num">{r.grid ? `P${r.grid}` : "—"}</td>
@@ -414,11 +403,6 @@ export default async function CircuitPageView(props: Props) {
               <span>
                 <i className="k-cur" aria-hidden="true" />
                 {page.onCalendar ? t.currentKey : t.layoutKey}
-              </span>
-            )}
-            {page.strip.titles > 0 && (
-              <span>
-                <span className="ct-badge">{t.titleBadge}</span> {t.titleKey}
               </span>
             )}
             {hasFastest && page.races.some((r) => r.year < FASTEST_LAP_FROM) && <span>{fill(t.fastestNote, { year: FASTEST_LAP_FROM })}</span>}

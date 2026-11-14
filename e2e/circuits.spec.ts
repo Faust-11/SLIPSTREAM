@@ -82,7 +82,9 @@ test("/uk/circuits/yas-marina: банер, цифри, смуга, гонки, �
   const rows = page.getByRole("table", { name: /Гонки чемпіонату на трасі/ }).locator("tbody tr");
   await expect(rows).toHaveCount(17);
   await expect(rows.first()).toContainText("2025");
-  await expect(page.locator(".ct-tbl .ct-badge")).toHaveCount(5);
+  // Плашки «Титул» у таблиці гонок немає (відгук користувача 14.11: поруч з переможцем гонки плутала — чемпіоном того
+  // року міг стати інший); вирішальні етапи — у розділі «Титули, вирішені тут» з чемпіоном.
+  await expect(page.locator(".ct-tbl .ct-badge")).toHaveCount(0);
   await expect(page.locator(".ct-dec")).toHaveCount(5);
   await expect(page.locator(".ct-rank").first().locator("li").first()).toContainText("Гамілтон");
   expect(errors).toEqual([]);
@@ -196,7 +198,8 @@ test("Лас-Вегас: факти з картки «Las Vegas Strip Circuit» 
 test("Caesars Palace: картки траси немає — кола з бази, підпис без дистанції", async ({ page }) => {
   await page.goto("/uk/circuits/las-vegas");
   await expect(page.locator(".ct-stats")).toContainText("75");
-  await expect(page.locator(".ct-stats .ct-src")).toHaveText("Кола в гонці — за результатами гонок (база Jolpica).");
+  // Підписи джерел під фактами прибрано (відгук користувача 14.11); джерело — у даних (circuit-facts.json, revid).
+  await expect(page.locator(".ct-stats .ct-src")).toHaveCount(0);
 });
 
 test("схема горизонтальна й займає ширину; на 768 px — одна колонка (без порожнечі поруч)", async ({ page }) => {

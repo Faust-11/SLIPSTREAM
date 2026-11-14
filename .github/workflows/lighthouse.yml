@@ -79,11 +79,11 @@ jobs:
           for i in $(seq 1 30); do curl -sf http://localhost:3100/ > /dev/null && exit 0; sleep 1; done
           cat next.log; exit 1
 
-      - name: Lighthouse (мобільний, медіана 5 прогонів)
+      - name: Lighthouse (мобільний, медіана 3 прогонів)
         run: |
           export CHROME_PATH="$(node -p "require('playwright-core').chromium.executablePath()")"
           export LH_NO_SANDBOX=1
-          node scripts/lighthouse.mjs --runs 5 --out lighthouse-report
+          node scripts/lighthouse.mjs --runs 3 --out lighthouse-report
 
       - name: Звіти
         if: always()

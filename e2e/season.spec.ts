@@ -33,7 +33,8 @@ test("календар 2025: 24 етапи, 6 спринтів, Лас-Вега�
   await expect(races.filter({ hasText: "Лас-Вегас" })).toContainText("Дискваліфіковано: Норріс, Піастрі");
   await expect(page.locator(".cal .decider")).toHaveCount(1);
   await expect(page.locator(".cal .decider")).toContainText("Абу-Дабі");
-  await expect(page.locator(".cal .decider")).toContainText("Титул вирішено");
+  // Чемпіон на ім'я (відгук користувача 14.11): у 2025 Абу-Дабі виграв не чемпіон — значок «Титул вирішено» плутав.
+  await expect(page.locator(".cal .decider")).toContainText("Титул оформив Норріс");
   await expect(races.first()).toContainText("Мельбурн");
 });
 
