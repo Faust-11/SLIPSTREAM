@@ -979,7 +979,8 @@
     "layoutSpan": "Конфігурація {from}–{to}",
     "layoutKey": "конфігурація, описана вище",
     "titlesEarlier": "Ще {n} — раніше в сезоні.",
-    "rankMore": "і ще {count} — по {n}"
+    "rankMore": "і ще {count} — по {n}",
+    "factsDb": "Кола в гонці й дистанція — за результатами гонок (база Jolpica)."
   },
   "calendarPage": {
     "metaDescription": {

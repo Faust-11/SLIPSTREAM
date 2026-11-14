@@ -492,23 +492,25 @@ html[data-list-query] .site-foot {
   margin: 0;
   padding-right: 32px;
 }
+/* Схема повернута під рамку ~1,7:1 (генератор) — займає всю ширину колонки; узбіччя й лінія товщі, як у макеті
+   «Яс-Марина» (узбіччя ≈ 4 % ширини, лінія ≈ 1,4 %). */
 .ct-map svg {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 460px;
+  max-height: 520px;
 }
 .ct-map .casing {
   fill: none;
   stroke: var(--grid);
-  stroke-width: 34;
+  stroke-width: 44;
   stroke-linejoin: round;
   stroke-linecap: round;
 }
 .ct-map .line {
   fill: none;
   stroke: var(--red);
-  stroke-width: 10;
+  stroke-width: 15;
   stroke-linejoin: round;
   stroke-linecap: round;
 }

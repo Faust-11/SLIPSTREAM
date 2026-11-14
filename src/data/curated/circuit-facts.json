@@ -86,7 +86,7 @@
   },
   "americas": {
    "title": "Circuit of the Americas",
-   "revid": 1384552572,
+   "revid": 1385656418,
    "layout": {
     "name": "Grand Prix Circuit (2012–present)",
     "years": [
@@ -677,7 +677,7 @@
   },
   "jeddah": {
    "title": "Jeddah Corniche Circuit",
-   "revid": 1385259479,
+   "revid": 1385584877,
    "layout": {
     "name": "Grand Prix Circuit (2021–present)",
     "years": [
@@ -764,9 +764,30 @@
    "turns": 17,
    "opened": "1923-05-26"
   },
+  "long_beach": {
+   "title": "Long Beach Street Circuit",
+   "revid": 1381878448,
+   "layout": {
+    "name": "Grand Prix Circuit (1983)",
+    "years": [
+     [
+      1983,
+      1983
+     ]
+    ]
+   },
+   "lengthKm": 3.275,
+   "turns": 18,
+   "opened": "1975-09-28",
+   "record": {
+    "ms": 88330,
+    "driver": "lauda",
+    "year": 1983
+   }
+  },
   "losail": {
    "title": "Lusail International Circuit",
-   "revid": 1385421472,
+   "revid": 1385586119,
    "layout": {
     "name": "Grand Prix Circuit (2023–present)",
     "years": [
@@ -838,7 +859,7 @@
   },
   "marina_bay": {
    "title": "Marina Bay Street Circuit",
-   "revid": 1379736858,
+   "revid": 1385585142,
    "layout": {
     "name": "Grand Prix Circuit (2025–present)",
     "years": [
@@ -862,7 +883,7 @@
   },
   "miami": {
    "title": "Miami International Autodrome",
-   "revid": 1379329992,
+   "revid": 1385585650,
    "layout": {
     "name": "Grand Prix Circuit (2022–present)",
     "years": [
@@ -1311,7 +1332,7 @@
   },
   "shanghai": {
    "title": "Shanghai International Circuit",
-   "revid": 1382528868,
+   "revid": 1385588040,
    "layout": {
     "name": "Grand Prix Circuit (2004–present)",
     "years": [
@@ -1470,6 +1491,31 @@
     "ms": 98683,
     "driver": "glock",
     "year": 2009
+   }
+  },
+  "vegas": {
+   "title": "Las Vegas Strip Circuit",
+   "revid": 1385486058,
+   "layout": {
+    "name": "Grand Prix Circuit (2023–present)",
+    "years": [
+     [
+      2023,
+      null
+     ]
+    ]
+   },
+   "lengthKm": 6.201,
+   "turns": 17,
+   "opened": "2023-11-16",
+   "architects": [
+    "Carsten Tilke"
+   ],
+   "capacity": 100000,
+   "record": {
+    "ms": 93365,
+    "driver": "max_verstappen",
+    "year": 2025
    }
   },
   "villeneuve": {

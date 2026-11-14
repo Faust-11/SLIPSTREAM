@@ -31,6 +31,9 @@ const UA = "Slipstream-data-loader/0.2 (non-commercial F1 fan site; batched, cac
 const MAX_KM = 3;
 const SIDE = 1000;
 const TOLERANCE = 1.5; // одиниць viewBox (з 1000): на картці списку (~280 px) — менше 0,5 px
+// Схема на сторінці траси (фаза 3j): до ~800 px завширшки — допуск менший, контур повернуто під горизонтальну рамку.
+const PAGE_TOLERANCE = 0.5;
+const PAGE_ASPECT = 1.7;
 const FREE = ["CC0", "Public domain", "PD", "CC BY", "CC BY-SA", "Attribution", "GFDL", "FAL", "Copyrighted free use"];
 
 /** Траса Jolpica → файл Commons (перегляд 13.11; причини відмови — у docs/data/review-2026-11-13-circuit-layouts.md). */
@@ -140,6 +143,46 @@ function toLayout(raw) {
   return { d: body + (closed ? "Z" : ""), w, h, points: pts.length };
 }
 
+/**
+ * Кут повороту (°, 0–179), за якого контур найбільше в рамці PAGE_ASPECT:1 (відгук користувача 14.11: витягнуті траси
+ * займали третину ширини — Яс-Марина, Лас-Вегас). Поворот навколо центру, напрям руху не змінюється.
+ */
+function bestRotation(raw) {
+  let best = { deg: 0, scale: -1 };
+  for (let deg = 0; deg < 180; deg++) {
+    const r = (deg * Math.PI) / 180;
+    const [c, s] = [Math.cos(r), Math.sin(r)];
+    let [x0, x1, y0, y1] = [Infinity, -Infinity, Infinity, -Infinity];
+    for (const [x, y] of raw) {
+      const X = x * c - y * s;
+      const Y = x * s + y * c;
+      x0 = Math.min(x0, X); x1 = Math.max(x1, X); y0 = Math.min(y0, Y); y1 = Math.max(y1, Y);
+    }
+    const scale = Math.min(PAGE_ASPECT / (x1 - x0), 1 / (y1 - y0));
+    // Рівні (±1 %) — менший кут: без зайвого повороту від півночі.
+    if (scale > best.scale * 1.01) best = { deg, scale };
+  }
+  return best.deg;
+}
+
+/**
+ * Детальна повернута схема для сторінки. Лінію старту й напрям руху НЕ позначаємо: f1-circuits не гарантує, що перша
+ * точка — старт, а порядок — напрям гонки (README мовчить; замір 14.11) — непідтверджене не малюємо.
+ */
+function toPageLayout(raw) {
+  const deg = bestRotation(raw);
+  const r = (deg * Math.PI) / 180;
+  const rot = raw.map(([x, y]) => [x * Math.cos(r) - y * Math.sin(r), x * Math.sin(r) + y * Math.cos(r)]);
+  const xs = rot.map((p) => p[0]);
+  const ys = rot.map((p) => p[1]);
+  const [x0, x1, y0, y1] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)];
+  const k = SIDE / Math.max(x1 - x0, y1 - y0);
+  const pts = simplify(rot.map(([x, y]) => [(x - x0) * k, (y - y0) * k]), PAGE_TOLERANCE);
+  const closed = Math.hypot(pts[0][0] - pts.at(-1)[0], pts[0][1] - pts.at(-1)[1]) < SIDE * 0.03;
+  const body = (closed ? pts.slice(0, -1) : pts).map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)} ${y.toFixed(1)}`).join("");
+  return { d: body + (closed ? "Z" : ""), w: Math.round((x1 - x0) * k), h: Math.round((y1 - y0) * k), rot: deg, points: pts.length };
+}
+
 function geoPoints(geometry) {
   const lines = geometry.type === "MultiLineString" ? geometry.coordinates : [geometry.coordinates];
   const all = lines.flat();
@@ -236,7 +279,7 @@ async function main() {
       continue;
     }
     if (layouts[best.ref]) throw new Error(`дві схеми f1-circuits для ${best.ref}`);
-    layouts[best.ref] = { ...toLayout(pts), source: "f1-circuits", file: f.properties.id, km: Number(best.d.toFixed(1)) };
+    layouts[best.ref] = { ...toLayout(pts), page: toPageLayout(pts), source: "f1-circuits", file: f.properties.id, km: Number(best.d.toFixed(1)) };
   }
 
   const files = Object.values(COMMONS);
@@ -270,7 +313,7 @@ async function main() {
       continue;
     }
     layouts[ref] = {
-      ...toLayout(got.pts), source: "commons", file,
+      ...toLayout(got.pts), page: toPageLayout(got.pts), source: "commons", file,
       credit: { page: ci.page, author: ci.author, license: ci.license },
       element: `${got.tag}${got.id ? "#" + got.id : ""} з ${got.total}`,
     };
@@ -283,9 +326,16 @@ async function main() {
     _about:
       "Схеми трас: шлях у viewBox 0 0 w h (довша сторона 1000). source = f1-circuits — нинішня конфігурація, " +
       `bacinger/f1-circuits@${SHA.slice(0, 7)} (MIT; дані © учасники OpenStreetMap, ODbL), північ угорі; ` +
-      "source = commons — файл Wikimedia Commons (автор і ліцензія — credit). Генератор: scripts/curated/circuit_layouts.mjs; " +
+      "source = commons — файл Wikimedia Commons (автор і ліцензія — credit). page — схема для сторінки траси: детальніша, " +
+      "повернута на rot° під горизонтальну рамку 1,7:1. " +
+      "Генератор: scripts/curated/circuit_layouts.mjs; " +
       "перегляд схем — docs/data/review-2026-11-13-circuit-layouts.md.",
-    layouts: Object.fromEntries(Object.entries(sorted).map(([k, v]) => [k, { d: v.d, w: v.w, h: v.h, source: v.source, ...(v.credit ? { credit: v.credit } : {}) }])),
+    layouts: Object.fromEntries(
+      Object.entries(sorted).map(([k, v]) => {
+        const page = { d: v.page.d, w: v.page.w, h: v.page.h, rot: v.page.rot };
+        return [k, { d: v.d, w: v.w, h: v.h, page, source: v.source, ...(v.credit ? { credit: v.credit } : {}) }];
+      }),
+    ),
   };
   await writeFile(OUT, JSON.stringify(json, null, 1) + "\n");
   await mkdir(SVG_DIR, { recursive: true });
@@ -306,7 +356,10 @@ async function main() {
   const review = arg("--review");
   if (review) {
     const cells = Object.entries(sorted)
-      .map(([k, v]) => `<figure><svg viewBox="-30 -30 ${v.w + 60} ${v.h + 60}"><path d="${v.d}"/></svg><figcaption>${k} · ${v.source} · ${v.file}</figcaption></figure>`)
+      .map(([k, v]) => {
+        const p = v.page;
+        return `<figure><svg viewBox="-30 -30 ${p.w + 60} ${p.h + 60}"><path d="${p.d}"/></svg><figcaption>${k} · ${v.source} · rot ${p.rot}° · ${v.file}</figcaption></figure>`;
+      })
       .join("");
     await writeFile(review, `<!doctype html><meta charset=utf-8><style>body{font:12px system-ui;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:8px}figure{margin:0;border:1px solid #ccc}svg{width:100%;aspect-ratio:200/124;display:block}path{fill:none;stroke:#111;stroke-width:8;stroke-linejoin:round}figcaption{padding:2px 4px}</style>${cells}`);
     console.log("перегляд:", review);

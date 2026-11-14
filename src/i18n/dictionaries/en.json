@@ -979,7 +979,8 @@
     "layoutSpan": "Layout used {from}–{to}",
     "layoutKey": "layout described above",
     "titlesEarlier": "{n} more earlier in the season.",
-    "rankMore": "and {count} more with {n}"
+    "rankMore": "and {count} more with {n}",
+    "factsDb": "Laps and race distance come from race results (Jolpica database)."
   },
   "calendarPage": {
     "metaDescription": {
