@@ -38,9 +38,9 @@ test("місцевий час: пояс браузера (Europe/Kyiv) — FP1 �
   const noJs = await browser.newContext({ javaScriptEnabled: false });
   const p2 = await noJs.newPage();
   await p2.goto("/uk/calendar");
-  await expect(p2.locator("#r21 .cl-sess time").first()).toContainText("00:30 UTC");
+  await expect(p2.locator("#r21 .cl-sess time").first()).toHaveText("пт, 20 лист. · 00:30");
   await expect(p2.locator(".cl-tz")).toHaveText("Час — UTC.");
-  // Без JS фільтр не працює — чипи сховано; на 320 px нічого не виходить за екран (час «… UTC» довший).
+  // Без JS фільтр не працює — чипи сховано; на 320 px нічого не виходить за екран.
   await expect(p2.locator(".cl-chips")).toBeHidden();
   await p2.setViewportSize({ width: 320, height: 800 });
   expect(await p2.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
