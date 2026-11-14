@@ -1064,5 +1064,40 @@
     },
     "roundK": "Round {round}",
     "cardStarted": "The race has started — results appear after the next data update."
+  },
+  "newsPage": {
+    "metaDescription": "Formula 1 news: headlines from Formula 1, Motorsport.com and Autosport plus F1 journalists on Bluesky, refreshed every half hour.",
+    "title": "News",
+    "titleAccent": "from the paddock",
+    "lead": "Headlines from Formula 1, Motorsport.com and Autosport, plus what F1 journalists are posting on Bluesky.",
+    "factsLabel": "News round-up",
+    "updated": "Updated",
+    "headlines": "Headlines",
+    "merged": {
+      "one": "{n} duplicate merged",
+      "few": "{n} duplicates merged",
+      "many": "{n} duplicates merged",
+      "other": "{n} duplicates merged"
+    },
+    "posts": "Posts",
+    "postsF1": "{f1} of {own} are about F1",
+    "nextRace": "Next race",
+    "tabsLabel": "Show",
+    "tabs": {
+      "all": "Everything",
+      "rss": "Outlets · {n}",
+      "bsky": "Journalists · {n}"
+    },
+    "outlets": "Outlets",
+    "journalists": "Journalists",
+    "also": "Also:",
+    "openBsky": "Open in Bluesky",
+    "more": "Show {n} more · {left} left",
+    "failed": "Not responding right now: {list}. Other sources as usual.",
+    "empty": "Couldn't load the news. Please try again a little later.",
+    "sources": "Where the news comes from",
+    "sourcesRss": "Outlets (RSS)",
+    "sourcesBsky": "Journalists (Bluesky)",
+    "rights": "Headlines and summaries belong to the outlets, posts to their authors. Every item links to the original."
   }
 }

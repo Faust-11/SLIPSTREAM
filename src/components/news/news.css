@@ -1,0 +1,419 @@
+/* Новини (фаза 4a). Класи — з префіксом nw-; спільні атоми сайту — .wrap, .display, .num. Банер — зелений розділу:
+   #1E8A63 (SECTION_HERO) лише для великого тексту (≈4,3:1 з білим), тут є дрібний — темніший #1A7A57 (≈5,3:1). */
+.nw-page {
+  --nw-hero: #1a7a57;
+  --nw-box: #0f4f38;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .nw-page {
+    --nw-hero: #166b4c;
+    --nw-box: #0a3826;
+  }
+}
+:root[data-theme="dark"] .nw-page {
+  --nw-hero: #166b4c;
+  --nw-box: #0a3826;
+}
+
+/* ---------- банер ---------- */
+.nw-hero {
+  background: var(--nw-hero);
+  color: #fff;
+  border-bottom: var(--b) solid var(--rule);
+}
+.nw-hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 18px 40px;
+  align-items: center;
+  padding-block: 36px 38px;
+}
+.nw-hero .wrap > * {
+  min-width: 0;
+}
+.nw-hero h1 {
+  font-size: clamp(34px, 5.4vw, 70px);
+}
+/* Акцент — завжди окремим рядком: висота заголовка не залежить від шрифту (урок CLS календаря 14.11). */
+.nw-hero h1 span {
+  display: block;
+  color: var(--yellow);
+}
+.nw-lead {
+  max-width: 54ch;
+  margin: 16px 0 0;
+  font-size: clamp(16px, 1.5vw, 18.5px);
+}
+.nw-upd {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  border-top: 2px solid #fff;
+}
+.nw-upd > div {
+  display: grid;
+  align-content: start;
+  gap: 3px;
+  min-width: 0;
+  padding: 10px 12px 0 0;
+}
+.nw-upd > div + div {
+  padding-left: 12px;
+  border-left: 1px solid rgb(255 255 255 / 0.4);
+}
+.nw-upd dt {
+  font: 10.5px var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.nw-upd dd {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+}
+.nw-upd b {
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.1;
+}
+.nw-upd small,
+.nw-upd .nw-time {
+  font: 12px var(--f-mono);
+}
+.nw-upd .nw-time {
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+}
+.nw-next {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 4px 12px;
+  padding: 12px 14px;
+  background: var(--nw-box);
+  color: #fff;
+  border: 2px solid #fff;
+  text-decoration: none;
+}
+.nw-next span {
+  font: 11px var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--yellow);
+}
+.nw-next time {
+  font: 13px var(--f-mono);
+}
+.nw-next:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+/* ---------- вкладки ---------- */
+/* Липка під шапкою лише на ширших екранах (на телефоні, як у «Командах», не забирає висоту). */
+.nw-bar {
+  z-index: 5;
+  background: var(--paper);
+  border-bottom: 2px solid var(--rule);
+}
+.nw-bar .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 16px;
+  padding-block: 10px;
+}
+.nw-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.nw-tab,
+.nw-more {
+  min-height: 36px;
+  padding: 9px 12px;
+  font: 600 13px/1 var(--f-mono);
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  box-shadow: inset 0 0 0 1.5px var(--rule);
+  cursor: pointer;
+}
+.nw-tab[aria-pressed="true"] {
+  color: var(--paper);
+  background: var(--ink);
+}
+html:not([data-js]) .nw-tabs,
+html:not([data-js]) .nw-more {
+  display: none;
+}
+.nw-failed {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+
+/* ---------- колонки ---------- */
+.nw-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+  padding-block: 26px 30px;
+}
+.nw-cols[data-v="rss"],
+.nw-cols[data-v="bsky"] {
+  grid-template-columns: minmax(0, 780px);
+}
+.nw-cols[data-v="rss"] .nw-col-bsky,
+.nw-cols[data-v="bsky"] .nw-col-rss {
+  display: none;
+}
+.nw-cols h2 {
+  margin-bottom: 4px;
+  padding-bottom: 10px;
+  font-size: clamp(20px, 2.2vw, 26px);
+  border-bottom: var(--b) solid var(--rule);
+}
+.nw-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* «Показати ще»: з JS записи після першої сторінки сховано, доки кнопка не поставить data-open (без JS — усі). */
+html[data-js] .nw-list > li[data-page]:not([data-open]) {
+  display: none;
+}
+.nw-more {
+  width: 100%;
+  margin: 14px 0 4px;
+}
+
+.nw-hl {
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--hair);
+}
+.nw-th {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--paper-2);
+}
+.nw-hb {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+.nw-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+}
+.nw-src {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: 600 11px var(--f-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.nw-src::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: var(--c);
+}
+.nw-time {
+  font: 11.5px var(--f-mono);
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.nw-hl h3 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.3;
+}
+.nw-hl h3 a {
+  text-decoration: none;
+}
+.nw-hl p {
+  margin: 0;
+  max-width: 68ch;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+}
+.nw-also a {
+  margin-left: 6px;
+  font: 600 12px var(--f-mono);
+  color: var(--blue-text);
+}
+
+.nw-po {
+  display: grid;
+  gap: 8px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--hair);
+}
+.nw-who {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+}
+.nw-pav {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  font: 600 12px var(--f-mono);
+  background: var(--paper-2);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1.5px var(--hair);
+}
+.nw-name {
+  display: grid;
+  min-width: 0;
+}
+.nw-name b,
+.nw-name span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nw-name b {
+  font-size: 14.5px;
+  line-height: 1.2;
+}
+.nw-name span {
+  font: 11.5px var(--f-mono);
+  color: var(--ink-soft);
+}
+.nw-text {
+  margin: 0;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+}
+.nw-open {
+  justify-self: end;
+  font: 600 12px var(--f-mono);
+  color: var(--blue-text);
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .nw-hl h3 a:hover,
+  .nw-open:hover,
+  .nw-also a:hover,
+  .nw-handles a:hover {
+    color: var(--blue-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .nw-next:hover b {
+    text-decoration: underline;
+  }
+}
+
+/* ---------- джерела ---------- */
+.nw-how {
+  border-top: var(--b) solid var(--rule);
+}
+.nw-how .wrap {
+  padding-block: 26px 34px;
+}
+.nw-how h2 {
+  margin-bottom: 14px;
+  font-size: clamp(20px, 2.2vw, 26px);
+}
+.nw-how-g {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+}
+.nw-how h3 {
+  margin: 0 0 8px;
+  font: 600 12px var(--f-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.nw-how ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13.5px;
+}
+.nw-url,
+.nw-handles {
+  font: 12px var(--f-mono);
+  overflow-wrap: anywhere;
+}
+.nw-handles {
+  margin: 0;
+  line-height: 1.8;
+}
+.nw-handles a {
+  text-decoration: none;
+}
+.nw-rights,
+.nw-empty {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.nw-empty {
+  font-size: 16px;
+}
+
+@media (min-width: 641px) {
+  .nw-bar {
+    position: sticky;
+    top: calc(64px + env(safe-area-inset-top, 0px));
+  }
+}
+
+/* ---------- адаптив ---------- */
+@media (max-width: 900px) {
+  .nw-hero .wrap,
+  .nw-cols,
+  .nw-how-g {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .nw-next {
+    grid-column: auto;
+  }
+  .nw-cols[data-v="all"] .nw-col-bsky {
+    padding-top: 6px;
+  }
+}
+@media (max-width: 640px) {
+  .nw-upd {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .nw-upd > div:nth-child(3) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .nw-next {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .nw-hl {
+    grid-template-columns: 110px minmax(0, 1fr);
+    gap: 12px;
+  }
+  .nw-hl .nw-hb > p:not(.nw-also) {
+    display: none;
+  }
+}

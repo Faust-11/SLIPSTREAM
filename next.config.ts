@@ -13,7 +13,8 @@ const csp = [
   // Обробники в атрибутах (<img onerror>) заборонені навіть при 'unsafe-inline' для <script>.
   "script-src-attr 'none'",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  // Прев'ю новин (фаза 4a, рішення 10.11): лише домени картинок видань — ті самі, що в src/lib/news/parse.ts IMAGE_HOSTS.
+  "img-src 'self' data: blob: https://media.formula1.com https://*.motorsport.com",
   "font-src 'self'",
   "connect-src 'self'",
   "object-src 'none'",
