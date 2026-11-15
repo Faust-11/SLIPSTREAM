@@ -2,6 +2,7 @@ import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
 import { localizedPath } from "@/i18n/paths";
 import type { Category, StoryCard as Card } from "@/lib/stories/content";
+import { FeaturedPhoto } from "./featured-photo";
 import { Meter, type MeterLabels } from "./meter";
 
 export type CardLabels = MeterLabels & { category: Record<Category, string>; read: string };
@@ -26,20 +27,30 @@ export function StoryCard({ c, locale, t, featured = false }: { c: Card; locale:
     <article className={featured ? "st-card st-feat" : "st-card"} data-cat={c.category} id={`story-${c.slug}`}>
       {c.hero && (
         <figure className="st-ph">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={c.hero.src}
-            srcSet={c.hero.srcSet}
-            sizes={featured ? "(width <= 900px) 100vw, 55vw" : "(width <= 640px) 100vw, 50vw"}
-            width={c.hero.width}
-            height={c.hero.height}
-            alt=""
-            // Завжди lazy: серверний <img> без lazy потрапляє в RSC-дані, і prefetch пункту меню «Історії» передзавантажував
-            // фото вибраної картки на кожній сторінці (smoke, 15.11; граблі №10). LCP списку — червоний банер, не фото.
-            loading="lazy"
-            decoding="async"
-            style={c.hero.focus ? { objectPosition: c.hero.focus } : undefined}
-          />
+          {featured ? (
+            <FeaturedPhoto
+              src={c.hero.src}
+              srcSet={c.hero.srcSet}
+              sizes="(width <= 900px) 100vw, 55vw"
+              width={c.hero.width}
+              height={c.hero.height}
+              style={c.hero.focus ? { objectPosition: c.hero.focus } : undefined}
+            />
+          ) : (
+            // Решта — lazy: серверний <img> без lazy потрапляє в RSC-дані й передзавантажується з prefetch меню (граблі №10).
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={c.hero.src}
+              srcSet={c.hero.srcSet}
+              sizes="(width <= 640px) 100vw, 50vw"
+              width={c.hero.width}
+              height={c.hero.height}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              style={c.hero.focus ? { objectPosition: c.hero.focus } : undefined}
+            />
+          )}
         </figure>
       )}
       <div className="st-txt">

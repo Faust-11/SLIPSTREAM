@@ -189,6 +189,12 @@ html[data-list-query] .st-list {
 .st-feat-wrap {
   margin-bottom: 30px;
 }
+/* Картки нижче першого екрана не розкладаються, доки не наблизяться (Lighthouse CI 15.11: styleLayout ~600 мс, TBT 577).
+   Висота-заглушка — заміряна висота картки (телефон ~520, дві колонки ~630); auto запам'ятовує справжню після показу. */
+.st-grid > li {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 630px;
+}
 .st-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -512,6 +518,12 @@ html:has(.st-toc) {
 }
 .st-ch {
   padding-bottom: 30px;
+}
+/* Глави після першої — без розкладки, доки не наблизяться (довга історія: 100+ виносок, styleLayout ~580 мс).
+   Перехід за якорем змісту й виноски рендерить ціль сам; DecadeSpy (IntersectionObserver) працює з content-visibility. */
+.st-body > .st-ch ~ .st-ch {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
 }
 .st-ch:focus {
   outline: none;
