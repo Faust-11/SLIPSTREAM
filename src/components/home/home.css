@@ -544,8 +544,12 @@
   text-decoration: underline dotted;
   cursor: help;
 }
+/* Ім'я пілота — заголовок рядка (th scope=row, рев'ю PR #25), але виглядає як звичайна клітинка, не як шапка таблиці. */
 .hm-tbl tbody th {
-  font-weight: inherit;
+  font: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+  color: inherit;
   text-align: start;
 }
 .hm-tbl td,
@@ -1088,6 +1092,9 @@
 @media (max-width: 860px) {
   .hm-rec-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+  .hm-rec {
+    padding-inline-end: 0;
   }
   .hm-rec + .hm-rec {
     margin-top: 18px;
