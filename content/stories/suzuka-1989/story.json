@@ -1,0 +1,752 @@
+{
+  "slug": "suzuka-1989",
+  "category": "sensation",
+  "years": [
+    1989
+  ],
+  "title": {
+    "uk": "Двоє з однієї команди, одна шикана",
+    "en": "Two teammates, one chicane"
+  },
+  "dek": {
+    "uk": "Сенна і Прост, обидва з McLaren, зіткнулися в Сузуці, коли на кону був титул. Сенна перетнув фініш першим, його дискваліфікували, і титул дістався Простові.",
+    "en": "Senna and Prost, both McLaren drivers, collided at Suzuka with the title at stake. Senna crossed the line first and was disqualified; the title went to Prost."
+  },
+  "kicker": {
+    "uk": "Суперництво",
+    "en": "Rivalry"
+  },
+  "race": "1989/15",
+  "featured": true,
+  "links": {
+    "seasons": [
+      1989,
+      1990
+    ],
+    "races": [
+      "1989/15",
+      "1990/15",
+      "1991/15"
+    ],
+    "drivers": [
+      "senna",
+      "prost",
+      "nannini",
+      "patrese",
+      "boutsen",
+      "piquet"
+    ],
+    "teams": [
+      "mclaren",
+      "benetton",
+      "williams",
+      "lotus",
+      "ferrari"
+    ],
+    "circuits": [
+      "suzuka"
+    ],
+    "stories": [
+      "jerez-1997",
+      "senna-donington-1993",
+      "abu-dhabi-2021"
+    ]
+  },
+  "checked": "2026-11-15",
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/suzuka-1989/m1-1280.webp",
+      "srcSet": "/img/stories/suzuka-1989/m1-1280.webp 1280w, /img/stories/suzuka-1989/m1-800.webp 800w, /img/stories/suzuka-1989/m1-480.webp 480w",
+      "width": 1280,
+      "height": 925,
+      "focus": "50% 50%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:1989_Belgian_GP_race_start_01.jpg",
+        "author": "madagascarica from Verneuil Grand, France",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Сенна попереду Проста на старті Гран-прі Бельгії, 27.08.1989.",
+        "en": "Senna ahead of Prost at the start of the Belgian GP, 27.08.1989."
+      },
+      "alt": {
+        "uk": "Дві червоно-білі McLaren ведуть пелотон мокрою трасою, з-під коліс здіймаються бризки.",
+        "en": "Two red and white McLarens lead the field on a wet track, throwing up spray."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Jolpica F1 API — 1989 Japanese Grand Prix results",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1989/15/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "A flash in Japan — 1989 Japanese Grand Prix race report",
+      "publisher": "Motor Sport",
+      "date": "1989-12",
+      "url": "https://www.motorsportmagazine.com/archive/article/december-1989/8/a-flash-in-japan/",
+      "kind": "primary",
+      "lang": "en",
+      "author": "David Tremayne"
+    },
+    {
+      "id": "s3",
+      "title": "Japanese GP, 1989 — race report",
+      "publisher": "GrandPrix.com",
+      "date": "1989-10-22",
+      "url": "https://www.grandprix.com/races/japanese-gp-1989.html",
+      "kind": "primary",
+      "lang": "en",
+      "author": "Joe Saward"
+    },
+    {
+      "id": "s5",
+      "title": "When F1's fiercest rivalry first overspilled",
+      "publisher": "Autosport",
+      "date": "2019-10-22",
+      "url": "https://www.autosport.com/f1/news/when-f1s-fiercest-rivalry-first-overspilled-5112973/5112973/",
+      "kind": "secondary",
+      "lang": "en",
+      "author": "Nigel Roebuck"
+    },
+    {
+      "id": "s6",
+      "title": "McLaren versus Jean-Marie Balestre",
+      "publisher": "GrandPrix.com",
+      "date": "1989-12-01",
+      "url": "https://www.grandprix.com/features/joe-saward/news-feature-mclaren-versus-jean-marie-balestre.html",
+      "kind": "primary",
+      "lang": "en",
+      "author": "Joe Saward"
+    },
+    {
+      "id": "s7",
+      "title": "Prost's Suzuka chicanery denies Senna the title (1989 Japanese GP flashback)",
+      "publisher": "RaceFans",
+      "date": "2014-10-22",
+      "url": "https://www.racefans.net/2014/10/22/1989-japanese-grand-prix-flashback/",
+      "kind": "secondary",
+      "lang": "en",
+      "author": "Keith Collantine"
+    },
+    {
+      "id": "s8",
+      "title": "Ron Dennis on Senna — part one: the early years",
+      "publisher": "Formula1.com",
+      "date": "2014-04-28",
+      "url": "https://www.formula1.com/en/latest/article/ron-dennis-on-senna-part-one-the-early-years.2RGW2Y0fPuZ5wQCydfooGQ",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "When Ayrton Senna was nearly banned from F1",
+      "publisher": "Motor Sport",
+      "date": "2020-02-15",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/when-ayrton-senna-was-nearly-banned-from-f1",
+      "kind": "secondary",
+      "lang": "en",
+      "author": "Graham Keilloh"
+    },
+    {
+      "id": "s10",
+      "title": "Ayrton Senna attacks Jean-Marie Balestre",
+      "publisher": "GrandPrix.com",
+      "date": "1991",
+      "url": "https://www.grandprix.com/features/joe-saward/news-feature-ayrton-senna-attacks-jean-marie-balestre.html",
+      "kind": "primary",
+      "lang": "en",
+      "author": "Joe Saward"
+    },
+    {
+      "id": "s11",
+      "title": "The other side of Senna — his rage at Prost after Suzuka 1990 crash",
+      "publisher": "Motor Sport",
+      "date": "1991-12",
+      "url": "https://www.motorsportmagazine.com/archive/article/december-1991/6/the-other-side-of-senna/",
+      "kind": "primary",
+      "lang": "en",
+      "author": "David Tremayne"
+    },
+    {
+      "id": "s12",
+      "title": "Jolpica F1 API — 1990 Japanese Grand Prix results",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1990/15/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "The FIA's International Court of Appeal: Final Answer? (Part III)",
+      "publisher": "Atlas F1",
+      "date": "2002-02-13",
+      "url": "https://atlasf1.autosport.com/2002/feb13/okeefe.html",
+      "kind": "secondary",
+      "lang": "en",
+      "author": "Richard O'Keefe"
+    },
+    {
+      "id": "s14",
+      "title": "When? — 1989 (the 1989 World Championship)",
+      "publisher": "8W Forix",
+      "date": "",
+      "url": "https://8w.forix.com/wc1989.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "Around and about, August 1989",
+      "publisher": "Motor Sport",
+      "date": "1989-08",
+      "url": "https://www.motorsportmagazine.com/archive/article/august-1989/7/around-and-about-august-1989/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "Prost 1989: counting results under the best-11 rule — our calculation from the 1989 results",
+      "publisher": "Slipstream (calculation from Jolpica F1 results)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1989/drivers/prost/results.json",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "Alain Prost — an interview with the new World Champion",
+      "publisher": "Motor Sport",
+      "date": "1990-01",
+      "url": "https://www.motorsportmagazine.com/archive/article/january-1990/57/alain-prost-2",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "Jolpica F1 API — 1989 drivers' championship standings (final)",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1989/driverStandings.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "Jolpica F1 API — 1989 drivers' standings after round 14 (Spanish GP)",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1989/14/driverStandings.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "Jolpica F1 API — 1989 season calendar",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1989/races.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "1989 Japanese Grand Prix — starting grid",
+      "publisher": "Formula1.com",
+      "date": "",
+      "url": "https://www.formula1.com/en/results/1989/races/557/japan/starting-grid",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "Italian GP, 1989 — race report",
+      "publisher": "GrandPrix.com",
+      "date": "1989-09-10",
+      "url": "https://www.grandprix.com/races/italian-gp-1989.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s24",
+      "title": "Food for thought — 1989 Italian Grand Prix race report",
+      "publisher": "Motor Sport",
+      "date": "1989-10",
+      "url": "https://www.motorsportmagazine.com/archive/article/october-1989/16/food-for-thought/",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Перед передостаннім етапом 1989 року Прост мав 76 залікових очок, Сенна 60. Сенні треба було виграти обидві гонки, що лишались.",
+      "sources": [
+        "s20",
+        "s5",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "На 47-му колі Сенна атакував у шикані, Прост повернув, і дві McLaren зчепилися.",
+      "sources": [
+        "s2",
+        "s6",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "Сенна повернувся на трасу, обминувши шикану, і фінішував першим.",
+      "sources": [
+        "s2",
+        "s3",
+        "s13",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "text": "Сенну дискваліфікували за пропуск шикани.",
+      "sources": [
+        "s2",
+        "s3",
+        "s5",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c5",
+      "text": "Апеляційний суд FIA залишив рішення в силі й додав штраф $100 000.",
+      "sources": [
+        "s3",
+        "s5",
+        "s13",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "Прост став чемпіоном.",
+      "sources": [
+        "s19",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c7",
+      "text": "У 1989 році Ален Прост і Айртон Сенна виступали за одну команду, McLaren-Honda. Залік рахувався за 11 найкращими результатами з 16 гонок.",
+      "sources": [
+        "s5",
+        "s7",
+        "s13",
+        "s21"
+      ],
+      "status": "ok",
+      "note": "Одна команда McLaren-Honda: s5, s13; 11 найкращих результатів: s5, s7; 16 гонок: s21."
+    },
+    {
+      "id": "c8",
+      "text": "Прост набрав за сезон 81 очко, але в залік ішли 76.",
+      "sources": [
+        "s7",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "Через це правило Простові вже нічого не давали треті місця: нові очки замінювали б його найгірший зарахований результат, 4 очки за третє місце в Хересі. Сенна мав 60 і жодних «зайвих» результатів. Дві перемоги по 9 очок дали б йому 78, на два більше, ніж у Проста.",
+      "sources": [
+        "s7",
+        "s5",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "Довіри між напарниками вже не було. За словами Проста, перед гонкою в Імолі вони домовилися не атакувати один одного до першого повороту, і на рестарті Сенна цю домовленість порушив. Сенна казав, що домовленості не було.",
+      "sources": [
+        "s8",
+        "s7",
+        "s18"
+      ],
+      "status": "dis",
+      "note": "s8 (Formula1.com) і s7 (RaceFans): Прост звинувачував Сенну в порушенні домовленості; s18 (Motor Sport, січень 1990): Сенна заперечував, Джон Гоган (Marlboro) був присутній і підтримав Проста.",
+      "label": {
+        "uk": "Домовленість в Імолі",
+        "en": "The Imola agreement"
+      },
+      "reader": {
+        "uk": "Прост і представник Marlboro Джон Гоган кажуть, що домовленість була; Сенна це заперечував.",
+        "en": "Prost and Marlboro's John Hogan say there was an agreement; Senna denied it."
+      }
+    },
+    {
+      "id": "c11",
+      "text": "У липні Прост оголосив, що йде з McLaren",
+      "sources": [
+        "s16",
+        "s7",
+        "s21"
+      ],
+      "status": "ok",
+      "note": "s16 (Motor Sport): оголосив на пресконференції на Гран-прі Франції; s7 (RaceFans): на домашній гонці; дата Гран-прі Франції 9 липня — s21."
+    },
+    {
+      "id": "c12",
+      "text": "а в Монці, на Гран-прі Італії, підтвердили, що його наступна команда Ferrari.",
+      "sources": [
+        "s23",
+        "s24"
+      ],
+      "status": "ok",
+      "note": "s23 (GrandPrix.com): у Монці Проста підтвердили у Ferrari; s24 (Motor Sport): на гонці в Монці він уже «справжній гонщик Ferrari 1990 року». Формулювання змінено 15.11 («незадовго до Монци» → «у Монці»)."
+    },
+    {
+      "id": "c13",
+      "text": "Сенна взяв поул з часом 1:38.041",
+      "sources": [
+        "s2",
+        "s22",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c14",
+      "text": "Прост був другим, на 1,730 с повільніше.",
+      "sources": [
+        "s22",
+        "s7"
+      ],
+      "status": "ok",
+      "note": "Прост 1:39.771 (s22, s7); різниця 1,730 с — різниця цих часів."
+    },
+    {
+      "id": "c15",
+      "text": "На старті Прост рушив краще й повів гонку.",
+      "sources": [
+        "s2",
+        "s3",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c16",
+      "text": "До 11-го кола його відрив був 4,9 с, обидва пілоти один раз заїхали на заміну шин, Прост на 21-му колі, Сенна на 23-му.",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c17",
+      "text": "Після зупинок Сенна почав скорочувати відставання. Скільки саме лишалося до 40-го кола, джерела пишуть по-різному: 0,42 с або близько секунди.",
+      "sources": [
+        "s2",
+        "s3"
+      ],
+      "status": "dis",
+      "note": "s2 (Motor Sport): 0,42 с; s3 (GrandPrix.com): близько секунди.",
+      "label": {
+        "uk": "Відставання Сенни на 40-му колі",
+        "en": "Senna's gap on lap 40"
+      },
+      "reader": {
+        "uk": "Motor Sport пише про 0,42 с, GrandPrix.com — про «близько секунди».",
+        "en": "Motor Sport says 0.42 s; GrandPrix.com says «about a second»."
+      }
+    },
+    {
+      "id": "c18",
+      "text": "На 47-му колі, за сім кіл до фінішу, Сенна пішов на обгін у шикані перед стартовою прямою. Прост закінчив лише 46 кіл, тому частина джерел називає «46-те».",
+      "sources": [
+        "s2",
+        "s6",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c19",
+      "text": "Сенна атакував з внутрішнього боку, Прост повернув на апекс, машини зчепилися, обидва двигуни заглохли, і McLaren зупинилися на в'їзді у відбійну зону.",
+      "sources": [
+        "s2",
+        "s3",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c20",
+      "text": "Прост після гонки: «Цього разу я сказав перед гонкою: якщо таке станеться, я не відчиню двері»",
+      "sources": [
+        "s2",
+        "s7"
+      ],
+      "status": "ok",
+      "note": "Дослівна цитата — s2 (Motor Sport); s7 (RaceFans) наводить ту саму заяву іншими словами: «Before the race here, I said that I was not going to leave the door open any longer.»"
+    },
+    {
+      "id": "c21",
+      "text": "Прост одразу вийшов з машини. Маршали штовхнули McLaren Сенни, він завів двигун на ходу і повернувся в гонку через відбійну зону, повз шикану.",
+      "sources": [
+        "s2",
+        "s3",
+        "s13",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "text": "Чи був цей поштовх законним, оцінюють по-різному: правила дозволяли його, якщо машина стоїть у небезпечному місці.",
+      "sources": [
+        "s7",
+        "s2"
+      ],
+      "status": "dis",
+      "note": "s7 (RaceFans): дозволено, якщо машина в небезпечному місці; s2 (Motor Sport): машина у відбійній зоні, поштовх уже не дозволявся.",
+      "label": {
+        "uk": "Законність поштовху",
+        "en": "Whether the push was legal"
+      },
+      "reader": {
+        "uk": "RaceFans вважає, що правила дозволяли поштовх; Motor Sport — що вже ні, бо машина стояла у відбійній зоні.",
+        "en": "RaceFans says the rules allowed the push; Motor Sport says not once the car sat in the escape road."
+      }
+    },
+    {
+      "id": "c23",
+      "text": "Сенна проїхав майже ціле коло з пошкодженим носовим обтічником, заїхав у бокси по новий і повернувся приблизно за 5 с позаду Алессандро Нанніні на Benetton.",
+      "sources": [
+        "s3",
+        "s2"
+      ],
+      "status": "ok",
+      "note": "s3: «rejoined only five seconds behind Nannini»; s2: після 49-го кола Нанніні попереду на 4,68 с."
+    },
+    {
+      "id": "c24",
+      "text": "Він обігнав Нанніні в тій самій шиканці на 51-му колі (за іншою версією на 50-му)",
+      "sources": [
+        "s2",
+        "s3"
+      ],
+      "status": "dis",
+      "note": "s2 (Motor Sport): 51-ше; s3 (GrandPrix.com): 50-те.",
+      "label": {
+        "uk": "Коло обгону Нанніні",
+        "en": "Lap of the pass on Nannini"
+      },
+      "reader": {
+        "uk": "51-ше коло за Motor Sport, 50-те — за GrandPrix.com.",
+        "en": "Lap 51 according to Motor Sport, lap 50 according to GrandPrix.com."
+      }
+    },
+    {
+      "id": "c25",
+      "text": "і першим перетнув фініш. На подіум його не пустили.",
+      "sources": [
+        "s7",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c26",
+      "text": "Сенна після гонки: «Хтось, хто там був, зачинив двері. Моральний переможець я»",
+      "sources": [
+        "s2"
+      ],
+      "status": "one",
+      "note": "У макеті ok; при перевірці 15.11 — лише один незалежний видавець (motor sport)."
+    },
+    {
+      "id": "c27",
+      "text": "Стюарди дискваліфікували Сенну за пропуск шикани: він повернувся на трасу не там, де з неї з'їхав.",
+      "sources": [
+        "s2",
+        "s3",
+        "s5",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c28",
+      "text": "За сам поштовх маршалів не карали. За даними Джо Сауорда, до Апеляційного суду потрапила інша версія рішення, з посиланням на статтю 63 Кодексу про безпеку.",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c29",
+      "text": "Перемога дісталася Нанніні, перша і єдина в його кар'єрі. Другим став Ріккардо Патрезе, третім Тьєрі Бутсен, обидва на Williams.",
+      "sources": [
+        "s1",
+        "s7",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c30",
+      "text": "Чи був президент FISA Жан-Марі Балестр у кімнаті стюардів, джерела розходяться. RaceFans пише, що він «приєднався до стюардів» (переклад Slipstream). 8W Forix переказує дві книги: за Гайнцем Прюллером, офіційні особи FISA запевняли, що Балестра з ними не було; за Террі Ловеллом, він заходив, але в рішенні участі не брав.",
+      "sources": [
+        "s7",
+        "s14"
+      ],
+      "status": "dis",
+      "note": "s7 (RaceFans): «the stewards were joined by Jean-Marie Balestre»; s14 (8W Forix): за Прюллером (Grand Prix Story 89, с. 240) офіційні FISA «swore there were 50 witnesses that Balestre wasn't with them»; за Ловеллом (Bernie's Game) — зайшов, але не брав участі. Версію «стюарди й Балестр заперечували» (лише Вікіпедія) прибрано 15.11.",
+      "label": {
+        "uk": "Балестр у кімнаті стюардів",
+        "en": "Balestre in the stewards' room"
+      },
+      "reader": {
+        "uk": "RaceFans пише, що Балестр «приєднався до стюардів». 8W Forix переказує дві книги: за Гайнцем Прюллером, офіційні особи FISA запевняли, що його з ними не було; за Террі Ловеллом, він заходив, але в рішенні участі не брав.",
+        "en": "RaceFans writes that Balestre «joined the stewards». 8W Forix cites two books: according to Heinz Prüller, FISA officials insisted he was not with them; according to Terry Lovell, he came in but took no part in the decision."
+      }
+    },
+    {
+      "id": "c31",
+      "text": "McLaren подала апеляцію того ж дня. Справу розглядав Міжнародний апеляційний суд FIA в Парижі, засідання відбулося в п'ятницю, 27 жовтня.",
+      "sources": [
+        "s6",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c32",
+      "text": "Суд не лише залишив дискваліфікацію, а й оштрафував Сенну на $100 000 і дав йому умовну дискваліфікацію на шість місяців, згадавши попередні порушення.",
+      "sources": [
+        "s3",
+        "s5",
+        "s13",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c33",
+      "text": "Рон Денніс про засідання Апеляційного суду: «Ми їхали захищатися у справі про крадіжку в магазині…»",
+      "sources": [
+        "s6"
+      ],
+      "status": "one",
+      "note": "У макеті ok; при перевірці 15.11 — лише один незалежний видавець (grandprix.com)."
+    },
+    {
+      "id": "c34",
+      "text": "22.10.1989: Гонка. Дискваліфікація, апеляція McLaren того ж дня.",
+      "sources": [
+        "s6",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c35",
+      "text": "27.10.1989: Апеляційний суд FIA, Париж.",
+      "sources": [
+        "s6",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c36",
+      "text": "кінець жовтня: Рішення: дискваліфікація в силі, $100 000, шість місяців умовно.",
+      "sources": [
+        "s3",
+        "s5",
+        "s13",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c37",
+      "text": "10.11.1989: Сенна на пресконференції в Бразилії звинувачує FISA і Балестра.",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c38",
+      "text": "07.12.1989: Всесвітня рада FIA: суперліцензії на 1990 рік не буде, поки Сенна не відкличе звинувачення.",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c39",
+      "text": "лютий 1990: McLaren сплачує штраф, FISA публікує заяву Сенни, він у списку учасників.",
+      "sources": [
+        "s9",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c40",
+      "text": "Прост став чемпіоном 1989 року, утретє в кар'єрі",
+      "sources": [
+        "s19",
+        "s18"
+      ],
+      "status": "ok",
+      "note": "Чемпіон 1989: s19, s18; «утретє»: s18 («his third World Championship»), звірено з Jolpica (чемпіон 1985 і 1986, 1987 — Піке, 1988 — Сенна)."
+    },
+    {
+      "id": "c41",
+      "text": "і перейшов у Ferrari. 21 жовтня 1990 року вони знову зустрілися в Сузуці, тепер у різних командах. Сенна стартував з поулу, Прост другим. Обидва зійшли в першому повороті першого кола після зіткнення, і титул дістався Сенні.",
+      "sources": [
+        "s12",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c42",
+      "text": "Ще через рік, 20 жовтня 1991 року в Сузуці, Сенна сказав, що вирішив заздалегідь: якщо Прост рушить краще, у першому повороті він не поступиться.",
+      "sources": [
+        "s10",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c43",
+      "text": "Сенна 20.10.1991 про Сузуку-1990: «…у першому повороті я піду до кінця, і хай краще не повертає»",
+      "sources": [
+        "s10"
+      ],
+      "status": "one",
+      "note": "У макеті ok; при перевірці 15.11 — лише один незалежний видавець (grandprix.com)."
+    }
+  ]
+}

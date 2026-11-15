@@ -5,9 +5,8 @@ import { noopSubscribe } from "@/components/calendar/clock";
 import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
 import { plural } from "@/lib/plural";
+import { STORY_FILTERS, type StoryFilter } from "@/lib/stories/filters";
 
-export const STORY_FILTERS = ["all", "scandal", "sensation", "history", "explainer", "tech"] as const;
-export type StoryFilter = (typeof STORY_FILTERS)[number];
 type PluralForms = Partial<Record<Intl.LDMLPluralRule, string>> & { other: string };
 
 function readUrlFilter(): StoryFilter {

@@ -24,6 +24,14 @@ BLOCK = re.compile(r"\[\[block:(b\d+)\]\]")
 DIRECTIVE = re.compile(r"^:::(tldr|timeline)\s*$")
 
 
+def publisher_key(name: str) -> str:
+    """Видавець для незалежності: «FIA (Stewards)» = FIA; власний розрахунок Slipstream з даних Jolpica = Jolpica."""
+    key = str(name).split("(")[0].strip().lower()
+    if key.startswith("slipstream") and "jolpica" in str(name).lower():
+        return "jolpica"
+    return key
+
+
 def words(text: str) -> int:
     text = MARK.sub("", text)
     text = re.sub(r"[#>*_`\[\]()]", " ", text)
@@ -59,6 +67,8 @@ def check(story_dir: Path) -> tuple[list[str], list[str], str]:
         if dup:
             errors.append(f"дублікати id {kind}: {sorted(dup)}")
     for s in sources:
+        if "wikipedia.org" in str(s.get("url", "")) or "wikipedia" in str(s.get("publisher", "")).lower():
+            errors.append(f"джерело {s.get('id')}: Вікіпедія — не джерело (README, правило 2)")
         if not str(s.get("url", "")).startswith("http"):
             errors.append(f"джерело {s.get('id')}: немає URL")
     known_src = set(src_ids)
@@ -78,7 +88,7 @@ def check(story_dir: Path) -> tuple[list[str], list[str], str]:
         if not cs:
             errors.append(f"{cid}: без джерел")
         # Незалежність — за видавцем: два документи FIA — одне джерело (README, правило статусу ok).
-        publishers = {str(by_id.get(x, {}).get("publisher", x)).split("(")[0].strip().lower() for x in cs}  # «FIA (Stewards)» = FIA
+        publishers = {publisher_key(by_id.get(x, {}).get("publisher", x)) for x in cs}
         if st == "ok" and len(publishers) < 2:
             errors.append(f"{cid}: статус ok, але незалежне джерело одне ({sorted(publishers)})")
         elif st == "one" and len(publishers) > 1:
