@@ -1,0 +1,403 @@
+/* Адмінка (фаза 7) — за макетом v2: темна панель зліва (колір шапки сайту), світла робоча зона, шрифти сайту
+   (Rubik Mono лише в заголовках екранів), кольори статусів — ті самі, що в історіях. Префікс ad-. */
+:root {
+  --ad-ok: #127a42;
+  --ad-one: #8c6200;
+  --ad-dis: #b8410c;
+  --ad-bad: #c2271a;
+  --ad-panel: #fbfbf9;
+  --ad-hair: #c6c9c0;
+  --ad-side-w: 232px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ad-ok: #4fd18b;
+    --ad-one: #f2c230;
+    --ad-dis: #ff8a50;
+    --ad-bad: #ff6b5b;
+    --ad-panel: #17191e;
+    --ad-hair: #2e3138;
+  }
+}
+
+.ad-body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--nf-body), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.ad-body .display {
+  font-family: var(--nf-display), "Arial Black", sans-serif;
+  word-spacing: -0.35em;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0;
+  text-wrap: balance;
+}
+.ad-body :focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+.ad-skip {
+  position: absolute;
+  left: 8px;
+  top: -48px;
+  z-index: 50;
+  padding: 10px 14px;
+  background: var(--yellow);
+  color: #16181d;
+  font-weight: 600;
+}
+.ad-skip:focus {
+  top: 8px;
+}
+
+.ad-app {
+  display: grid;
+  grid-template-columns: var(--ad-side-w) minmax(0, 1fr);
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+.ad-side {
+  background: var(--head-bg);
+  color: #f3f4f1;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 20px 14px calc(20px + env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 0px));
+}
+.ad-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 6px;
+  color: inherit;
+  text-decoration: none;
+}
+.ad-roundel {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 0 0 2px var(--head-bg), 0 0 0 4px var(--yellow);
+}
+.ad-roundel svg {
+  width: 100%;
+  height: 100%;
+}
+.ad-brand b {
+  display: block;
+  font-family: var(--nf-display), "Arial Black", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+.ad-brand small {
+  display: block;
+  font-family: var(--nf-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.ad-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ad-nav a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 10px;
+  border-left: 3px solid transparent;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+  opacity: 0.85;
+}
+.ad-nav a:hover {
+  opacity: 1;
+  background: rgb(255 255 255 / 0.06);
+}
+.ad-nav a[aria-current="page"] {
+  opacity: 1;
+  border-left-color: var(--yellow);
+  background: rgb(255 255 255 / 0.08);
+}
+.ad-me {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  padding: 12px 6px 0;
+  border-top: 1px solid rgb(255 255 255 / 0.14);
+}
+.ad-me-who b {
+  display: block;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.ad-me-who small {
+  display: block;
+  font-size: 12px;
+  opacity: 0.75;
+}
+.ad-me form {
+  grid-column: 1 / -1;
+}
+.ad-me .ad-btn {
+  width: 100%;
+  color: inherit;
+  box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / 0.35);
+}
+.ad-me .ad-btn:hover {
+  background: rgb(255 255 255 / 0.08);
+}
+.ad-av {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: #16181d;
+  font-weight: 700;
+}
+
+.ad-main {
+  min-width: 0;
+  padding: 28px max(16px, env(safe-area-inset-right, 0px)) 60px 32px;
+}
+.ad-main:focus {
+  outline: none;
+}
+.ad-view {
+  max-width: 1240px;
+}
+.ad-vh {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 20px;
+}
+.ad-vh h1 {
+  font-size: clamp(28px, 4vw, 44px);
+}
+.ad-crumb {
+  margin: 0 0 8px;
+  font-family: var(--nf-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.ad-lede {
+  margin: -6px 0 20px;
+  max-width: 70ch;
+  color: var(--ink-soft);
+}
+.ad-grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.ad-span2 {
+  grid-column: 1 / -1;
+}
+.ad-panel {
+  min-width: 0;
+  padding: 18px 18px 20px;
+  background: var(--ad-panel);
+  border: 1.5px solid var(--ad-hair);
+}
+.ad-panel h2 {
+  margin: 0 0 14px;
+  font-family: var(--nf-mono), ui-monospace, monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ad-note {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.ad-empty {
+  margin: 0;
+  color: var(--ink-soft);
+}
+.ad-mono {
+  font-family: var(--nf-mono), ui-monospace, monospace;
+  font-size: 12.5px;
+}
+
+.ad-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 0;
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font: 600 13px/1 var(--nf-body), system-ui, sans-serif;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.ad-btn:hover {
+  background: var(--paper-2);
+}
+.ad-btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: none;
+}
+.ad-btn-primary:hover {
+  background: var(--ink);
+  opacity: 0.88;
+}
+.ad-btn-ghost {
+  box-shadow: inset 0 0 0 1.5px var(--ad-hair);
+}
+.ad-btn-sm {
+  min-height: 32px;
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+.ad-chip {
+  display: inline-block;
+  padding: 3px 8px;
+  border: 1.5px solid currentColor;
+  font: 600 11px/1.2 var(--nf-mono), ui-monospace, monospace;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.ad-chip.is-ok {
+  color: var(--ad-ok);
+}
+.ad-chip.is-one {
+  color: var(--ad-one);
+}
+.ad-chip.is-bad {
+  color: var(--ad-bad);
+}
+
+.ad-att {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ad-att li {
+  display: grid;
+  gap: 3px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--ad-hair);
+}
+.ad-att li:last-child {
+  border-bottom: 0;
+}
+.ad-att b {
+  font-size: 14.5px;
+}
+.ad-att span {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+.ad-people {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+}
+.ad-people li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ad-people b {
+  display: block;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.ad-people small {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+/* Телефон і вузьке вікно: панель — смуга зверху, розділи — горизонтальна прокрутка. */
+@media (max-width: 860px) {
+  .ad-app {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ad-side {
+    position: sticky;
+    z-index: 20;
+    height: auto;
+    overflow: visible;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: calc(8px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 8px
+      max(16px, env(safe-area-inset-left, 0px));
+  }
+  .ad-brand span:last-child {
+    display: none;
+  }
+  .ad-nav {
+    flex-direction: row;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .ad-nav a {
+    border-left: 0;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+  }
+  .ad-nav a[aria-current="page"] {
+    border-bottom-color: var(--yellow);
+    background: none;
+  }
+  .ad-me {
+    margin: 0 0 0 auto;
+    padding: 0;
+    border: 0;
+    display: block;
+  }
+  .ad-me .ad-av,
+  .ad-me-who {
+    display: none;
+  }
+  .ad-me .ad-btn {
+    width: auto;
+  }
+  .ad-main {
+    padding: 20px max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px));
+  }
+  .ad-grid2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

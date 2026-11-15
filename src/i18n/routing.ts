@@ -5,7 +5,8 @@ import { defaultLocale, locales } from "./config";
  * не-сторінкові маршрути поза [lang] (API, /.well-known). Один список — next.config бере регулярку звідси.
  * afterFiles виконуються ДО динамічних маршрутів: шлях, якого тут немає, піде в /en/… (і стане 404).
  */
-export const NON_LOCALIZED_PREFIXES = [...locales, "_next", "_vercel", "api", ".well-known"] as const;
+// admin — адмінка (фаза 7, src/app/admin): без сесії src/proxy.ts сам переписує її на /en/admin/… (той самий 404).
+export const NON_LOCALIZED_PREFIXES = [...locales, "_next", "_vercel", "api", ".well-known", "admin"] as const;
 
 const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
