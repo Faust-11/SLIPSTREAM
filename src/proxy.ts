@@ -21,6 +21,14 @@ export async function proxy(request: NextRequest) {
   return NextResponse.rewrite(url);
 }
 
+// Лише запити з cookie сесії, з ключем входу чи зі станом входу; решту стороннього /admin/** переписує next.config.ts
+// (beforeFiles) — без заголовка x-middleware-rewrite, який додає rewrite у proxy. Тут rewrite лишається тільки для
+// підробленої/простроченої сесії чи хибного ключа.
 export const config = {
-  matcher: ["/admin", "/admin/:path*"],
+  matcher: [
+    { source: "/admin", has: [{ type: "cookie", key: "ss_admin" }] },
+    { source: "/admin/:path*", has: [{ type: "cookie", key: "ss_admin" }] },
+    { source: "/admin/auth/login", has: [{ type: "query", key: "key" }] },
+    { source: "/admin/auth/callback", has: [{ type: "cookie", key: "ss_admin_flow" }] },
+  ],
 };

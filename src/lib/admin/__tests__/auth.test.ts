@@ -110,3 +110,17 @@ describe("sameKey", () => {
     expect(sameKey("", "k".repeat(16))).toBe(false);
   });
 });
+
+describe("назви cookie у next.config.ts і src/proxy.ts (там — літерали: matcher і rewrites аналізуються статично)", () => {
+  it("збігаються з token.ts", async () => {
+    const { readFileSync } = await import("node:fs");
+    const { FLOW_COOKIE, SESSION_COOKIE } = await import("../token");
+    expect([SESSION_COOKIE, FLOW_COOKIE]).toEqual(["ss_admin", "ss_admin_flow"]);
+    for (const file of ["next.config.ts", "src/proxy.ts"]) {
+      const src = readFileSync(file, "utf8");
+      expect(src, file).toContain('key: "ss_admin" }');
+      expect(src, file).toContain('key: "ss_admin_flow" }');
+      expect(src, file).toContain('type: "query", key: "key"');
+    }
+  });
+});
