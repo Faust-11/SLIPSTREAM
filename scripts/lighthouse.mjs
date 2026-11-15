@@ -51,6 +51,13 @@ const BUDGET = { lcpMs: 2500, cls: 0.1, tbtMs: 400 };
 // (є 2025 — сторінки того самого шаблону).
 const PAGES = ["/", "/uk/teams", "/teams/ferrari", "/uk/drivers", "/uk/drivers/hamilton", "/uk/seasons", "/uk/seasons/2025", "/uk/seasons/2025/24", "/uk/circuits", "/circuits/yas-marina", "/uk/calendar", "/uk/news", "/uk/game"];
 const NOT_FOUND = "/uk/nope";
+// Лише змінені сторінки (LH_PAGES від scripts/lighthouse-pages.mjs у PR; рішення 15.11). «ALL» або не задано — усі + 404.
+const ONLY = (process.env.LH_PAGES ?? "ALL").trim();
+const SELECTED = ONLY === "ALL" ? PAGES : ONLY.split(/\s+/).filter((p) => PAGES.includes(p));
+if (ONLY !== "ALL" && SELECTED.length === 0) {
+  console.log("Змінених сторінок для Lighthouse немає.");
+  process.exit(0);
+}
 // Для 404 за визначенням: статус 404 (SEO) — не вада сторінки.
 const IGNORED_ON_404 = new Set(["http-status-code"]);
 
@@ -134,7 +141,7 @@ const summary = {
 };
 await mkdir(OUT, { recursive: true });
 
-for (const path of PAGES) {
+for (const path of SELECTED) {
   const url = new URL(path, BASE_URL).href;
   const lhrs = [];
   for (let i = 0; i < RUNS; i++) lhrs.push(await withRetry(navigationRun, url));
@@ -161,7 +168,7 @@ for (const path of PAGES) {
   await writeFile(join(OUT, `${path === "/" ? "_root" : path.replaceAll("/", "_")}.json`), JSON.stringify(medianRun, null, 1));
 }
 
-{
+if (ONLY === "ALL") {
   const url = new URL(NOT_FOUND, BASE_URL).href;
   const lhr = await snapshotRun(url);
   // У snapshot категорія performance неповна (без метрик завантаження) — не показуємо й не рахуємо.
