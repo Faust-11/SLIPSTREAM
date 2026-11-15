@@ -4989,12 +4989,18 @@
   "piquet": {
    "en": "Nelson Piquet",
    "uk": "Нельсон Соуту Піке",
-   "wikidata": "Q171346"
+   "wikidata": "Q171346",
+   "manual": {
+    "uk": "Нельсон Піке"
+   }
   },
   "piquet_jr": {
    "en": "Nelson Piquet Jr.",
    "uk": "Нельсон Анжело Піке",
-   "wikidata": "Q172838"
+   "wikidata": "Q172838",
+   "manual": {
+    "uk": "Нельсон Піке-молодший"
+   }
   },
   "pirocchi": {
    "en": "Renato Pirocchi",
