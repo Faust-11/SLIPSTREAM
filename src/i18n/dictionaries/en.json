@@ -1110,7 +1110,7 @@
     "lead": "One lap of a made-up circuit, roughly 25 to 45 seconds. Four circuits with their own character. Your best lap drives next to you as a ghost.",
     "how": {
       "a": "Pick a circuit below.",
-      "b": "Wait for the five red lights to go out, then throttle.",
+      "b": "Wait for the five red lights to go out, then throttle. Any earlier is a jump start, +1 s.",
       "c": "Beat the bot, then beat yourself. Off-track with all four wheels costs +1 s."
     },
     "circuits": "Circuits",
@@ -1146,7 +1146,7 @@
     "playLabel": "Game",
     "noscript": "The game needs JavaScript turned on.",
     "ready": "Ready to start?",
-    "readyP": "When the five red lights go out, hit the throttle. Leaving the track with all four wheels costs one second.",
+    "readyP": "When the five red lights go out, hit the throttle. Throttle before that is a jump start, +1 s. Leaving the track with all four wheels also costs +1 s.",
     "start": "Start · Space",
     "first": "First lap on this circuit",
     "newBest": "New best lap",
@@ -1190,6 +1190,9 @@
     "shareText": "Hot lap, {track}: {time}. Can you beat it?",
     "copied": "Link copied",
     "copyFail": "Could not copy",
-    "accountNote": "Records are kept in this browser only."
+    "accountNote": "Records are kept in this browser only.",
+    "jump": "Jump start · +1 s",
+    "jumpPen": "Jump start: +1 s.",
+    "restartBtn": "Restart the lap"
   }
 }
