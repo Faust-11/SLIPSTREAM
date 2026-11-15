@@ -28,13 +28,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-/** Лінійка років: одна точка на рік (кілька історій року — одна точка з числом); сусідні роки — у різних рядах. */
+/** Мінімальна відстань між точками одного ряду, % ширини лінійки (1100 px: точка 24 px + підпис ~26 px → ≥ 33 px). */
+const MIN_GAP = 3;
+
+/**
+ * Лінійка років: одна точка на рік (кілька історій року — одна точка з числом). Роки до 1950 (історія про витоки) —
+ * на лівому краю зі своїм підписом. Ряд — жадібно: точка йде в той ряд, де до попередньої точки цього ряду не ближче
+ * MIN_GAP; якщо тісно в обох — у той, де просторіше (code-review PR #36: 2019 і 2021 були в одному ряду за 29 px).
+ */
 function rulerPoints(cards: Card[]) {
   const byYear = new Map<number, Card[]>();
   for (const c of cards) if (c.year !== null) byYear.set(c.year, [...(byYear.get(c.year) ?? []), c]);
+  const last = [-Infinity, -Infinity];
   return [...byYear.entries()]
     .sort((a, b) => a[0] - b[0])
-    .map(([year, list], i) => ({ year, list, row: i % 2, x: ((year - FROM) / (TO - FROM)) * 100 }));
+    .map(([year, list]) => {
+      const x = Math.min(100, Math.max(0, ((year - FROM) / (TO - FROM)) * 100));
+      const row = x - last[0]! >= MIN_GAP ? 0 : x - last[1]! >= MIN_GAP ? 1 : x - last[0]! >= x - last[1]! ? 0 : 1;
+      last[row] = x;
+      return { year, list, row, x };
+    });
 }
 
 export default async function StoriesPage({ params }: Props) {
@@ -61,7 +74,7 @@ export default async function StoriesPage({ params }: Props) {
         "@type": "ListItem",
         position: i + 1,
         url: new URL(localizedPath(`/stories/${c.slug}`, lang), siteUrl()).href,
-        name: c.title.accent ? `${c.title.main}: ${c.title.accent}` : c.title.main,
+        name: c.title.full,
       })),
     },
   };
@@ -91,7 +104,7 @@ export default async function StoriesPage({ params }: Props) {
                       {p.list.length > 1 ? p.list.length : ""}
                     </span>
                     <span className="st-rlab num">{p.year}</span>
-                    <span className="sr-only">: {p.list.map((c) => (c.title.accent ? `${c.title.main}: ${c.title.accent}` : c.title.main)).join("; ")}</span>
+                    <span className="sr-only">: {p.list.map((c) => c.title.full).join("; ")}</span>
                   </a>
                 </li>
               ))}
@@ -116,13 +129,13 @@ export default async function StoriesPage({ params }: Props) {
           <div id="st-list" className="st-list">
             {featured && (
               <div className="st-feat-wrap" data-cat={featured.category}>
-                <StoryCard c={featured} locale={lang} t={cardLabels} featured eager />
+                <StoryCard c={featured} locale={lang} t={cardLabels} featured />
               </div>
             )}
             <ul className="st-grid" role="list">
-              {rest.map((c, i) => (
+              {rest.map((c) => (
                 <li key={c.slug} data-cat={c.category}>
-                  <StoryCard c={c} locale={lang} t={cardLabels} eager={!featured && i < 2} />
+                  <StoryCard c={c} locale={lang} t={cardLabels} />
                 </li>
               ))}
             </ul>

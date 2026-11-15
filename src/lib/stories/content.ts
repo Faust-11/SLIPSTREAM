@@ -56,7 +56,7 @@ export type StoryCard = {
   kicker: string | null;
   year: number | null;
   /** Заголовок до першої «: » і після (другий рядок, акцент); без двокрапки — accent null. */
-  title: { main: string; accent: string | null };
+  title: { main: string; accent: string | null; full: string };
   dek: string;
   place: string | null;
   featured: boolean;
@@ -102,7 +102,7 @@ function loadAll(): Loaded[] {
 
 export function splitTitle(title: string): StoryCard["title"] {
   const i = title.indexOf(": ");
-  return i === -1 ? { main: title, accent: null } : { main: title.slice(0, i), accent: title.slice(i + 2) };
+  return i === -1 ? { main: title, accent: null, full: title } : { main: title.slice(0, i), accent: title.slice(i + 2), full: title };
 }
 
 function meterOf(claims: RawClaim[]): Meter {
@@ -144,10 +144,12 @@ export function getStorySlugs(): string[] {
   return loadAll().map((s) => s.raw.slug);
 }
 
+// Картки — один раз на мову за збірку (66 сторінок × метадані й сторінка інакше перераховували слова 33 історій).
+const lists = new Map<Locale, StoryCard[]>();
 export function getStoryList(locale: Locale): StoryCard[] {
-  return loadAll()
-    .map((s) => card(s, locale))
-    .sort((a, b) => byYear(a, b, locale));
+  let list = lists.get(locale);
+  if (!list) lists.set(locale, (list = loadAll().map((s) => card(s, locale)).sort((a, b) => byYear(a, b, locale))));
+  return list;
 }
 
 /** Пов'язані: спершу з links.stories, далі — та сама рубрика за близькістю року, далі — будь-які за близькістю року. */

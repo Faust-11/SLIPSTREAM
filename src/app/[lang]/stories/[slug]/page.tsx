@@ -49,8 +49,7 @@ async function load(props: Props) {
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const { lang, story } = await load(props);
-  const title = story.title.accent ? `${story.title.main}: ${story.title.accent}` : story.title.main;
-  return pageMetadata({ locale: lang, path: `/stories/${story.slug}`, title, description: story.dek });
+  return pageMetadata({ locale: lang, path: `/stories/${story.slug}`, title: story.title.full, description: story.dek });
 }
 
 export default async function StoryPageRoute(props: Props) {
@@ -58,7 +57,7 @@ export default async function StoryPageRoute(props: Props) {
   const t = dict.storiesPage;
   const path = (p: string) => localizedPath(p, lang);
   const hero = story.hero;
-  const title = story.title.accent ? `${story.title.main}: ${story.title.accent}` : story.title.main;
+  const title = story.title.full;
   const stamp = [story.kicker ?? t.category[story.category], facts ? `${facts.gp} ${story.race!.year}` : null].filter(Boolean).join(" · ");
   const bodyLabels = { status: t.status, fnLabel: t.fnLabel };
   const cardLabels = { meterLabel: t.meterLabel, meterKeys: t.meterKeys, category: t.category, read: t.read };
@@ -207,7 +206,8 @@ export default async function StoryPageRoute(props: Props) {
               {story.sources.map((s) => (
                 <li key={s.n} id={`s${s.n}`} tabIndex={-1}>
                   <a href={s.url} rel="noopener" translate="no">
-                    {[s.publisher, s.date].filter(Boolean).join(", ")}: «{s.title}»{s.author ? ` (${s.author})` : ""}
+                    {[s.publisher, s.date].filter(Boolean).join(", ")}: {lang === "uk" ? `«${s.title}»` : `“${s.title}”`}
+                    {s.author ? ` (${s.author})` : ""}
                   </a>
                 </li>
               ))}

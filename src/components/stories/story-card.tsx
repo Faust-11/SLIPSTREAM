@@ -20,9 +20,8 @@ export function Tagline({ c, t }: { c: Card; t: CardLabels }) {
  * Картка історії. Посилання — лише заголовок (розтягнутий на всю картку через ::after), щоб назва посилання була
  * короткою, а не весь текст картки (модерн-настанова «Card»: окремі посилання всередині картки не потрібні).
  */
-export function StoryCard({ c, locale, t, featured = false, eager = false }: { c: Card; locale: Locale; t: CardLabels; featured?: boolean; eager?: boolean }) {
+export function StoryCard({ c, locale, t, featured = false }: { c: Card; locale: Locale; t: CardLabels; featured?: boolean }) {
   const href = localizedPath(`/stories/${c.slug}`, locale);
-  const Heading = featured ? "h2" : "h3";
   return (
     <article className={featured ? "st-card st-feat" : "st-card"} data-cat={c.category} id={`story-${c.slug}`}>
       {c.hero && (
@@ -35,8 +34,9 @@ export function StoryCard({ c, locale, t, featured = false, eager = false }: { c
             width={c.hero.width}
             height={c.hero.height}
             alt=""
-            loading={eager ? "eager" : "lazy"}
-            fetchPriority={eager ? "high" : undefined}
+            // Завжди lazy: серверний <img> без lazy потрапляє в RSC-дані, і prefetch пункту меню «Історії» передзавантажував
+            // фото вибраної картки на кожній сторінці (smoke, 15.11; граблі №10). LCP списку — червоний банер, не фото.
+            loading="lazy"
             decoding="async"
             style={c.hero.focus ? { objectPosition: c.hero.focus } : undefined}
           />
@@ -44,7 +44,8 @@ export function StoryCard({ c, locale, t, featured = false, eager = false }: { c
       )}
       <div className="st-txt">
         <Tagline c={c} t={t} />
-        <Heading className="display">
+        {/* Усі картки — h3 під заголовком розділу (h2), і вибрана теж: інакше решта «належали б» їй у структурі. */}
+        <h3 className="display">
           <a href={href} className="st-link">
             {c.title.main}
             {c.title.accent && (
@@ -54,7 +55,7 @@ export function StoryCard({ c, locale, t, featured = false, eager = false }: { c
               </>
             )}
           </a>
-        </Heading>
+        </h3>
         <p className="st-dek">{c.dek}</p>
         <Meter m={c.meter} locale={locale} t={t} compact />
         <p className="st-go" aria-hidden="true">
