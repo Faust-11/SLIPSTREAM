@@ -1,5 +1,5 @@
 import "server-only";
-import sharp from "sharp";
+import sharp, { type Metadata } from "sharp";
 import { MIN_SOURCE, planFormat, type FormatKind, type Variant } from "./formats";
 import type { Focus } from "./crop";
 
@@ -15,7 +15,7 @@ export type Rendered = Variant & { data: Uint8Array };
  * withMetadata(); орієнтацію з EXIF застосовуємо до кадрування (rotate()), щоб телефонні фото не лягли на бік.
  */
 export async function renderFormat(input: Uint8Array, kind: FormatKind, base: string, focus: Focus): Promise<Rendered[]> {
-  let meta: sharp.Metadata;
+  let meta: Metadata;
   const img = () => sharp(input, { limitInputPixels: MAX_PIXELS, failOn: "error" }).rotate();
   try {
     meta = await img().metadata();
