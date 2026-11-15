@@ -35,7 +35,7 @@ export function HotLap({ cards, labels: L, locale }: { cards: TrackCard[]; label
   const againRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    engine.setLabels({ react: L.react, s: L.s, off: L.off });
+    engine.setLabels({ react: L.react, s: L.s, off: L.off, jump: L.jump });
   }, [engine, L]);
 
   useEffect(() => {
@@ -100,10 +100,16 @@ export function HotLap({ cards, labels: L, locale }: { cards: TrackCard[]; label
     };
   };
 
+  /** Старт з кнопки: спершу показати всю сцену з сенсорними кнопками (на телефоні вона могла бути під краєм). */
+  const go = () => {
+    gameRef.current?.scrollIntoView({ block: "nearest" });
+    engine.start();
+  };
+
   const pick = (k: TrackKey) => {
     window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}#${k}`);
     engine.selectTrack(k);
-    document.getElementById("gm-play")?.scrollIntoView({ block: "start" });
+    gameRef.current?.scrollIntoView({ block: "start" });
     gameRef.current?.focus({ preventScroll: true });
   };
 
@@ -116,6 +122,7 @@ export function HotLap({ cards, labels: L, locale }: { cards: TrackCard[]; label
   if (result) {
     const diff = result.prevBest !== null ? result.t - result.prevBest : null;
     resultText =
+      (result.jump ? `${L.jumpPen} ` : "") +
       (result.pen ? `${fill(L.pen, { n: result.pen })} ` : "") +
       (diff !== null ? (diff < 0 ? fill(L.faster, { d: fmtSec(-diff) }) : fill(L.slower, { best: fmtLap(result.prevBest!), d: fmtSec(diff) })) : L.ghostNow);
     if (botTotal !== null) resultText += ` ${fill(result.t < botTotal ? L.botWin : L.botLose, { d: fmtSec(Math.abs(result.t - botTotal)) })}`;
@@ -216,6 +223,10 @@ export function HotLap({ cards, labels: L, locale }: { cards: TrackCard[]; label
                 <strong ref={kmhRef}>0</strong>
                 <span>{L.kmh}</span>
               </div>
+              {/* Сенсорний «заново» (на телефоні немає клавіші R): видно лише під час заїзду на (pointer: coarse). */}
+              <button type="button" className="gm-restart" aria-label={L.restartBtn} tabIndex={-1} onClick={go}>
+                ↺
+              </button>
               <div className="gm-touch">
                 <div>
                   <button type="button" aria-label={L.left} tabIndex={-1} {...touch(4)}>
@@ -245,7 +256,7 @@ export function HotLap({ cards, labels: L, locale }: { cards: TrackCard[]; label
                         <h2>{L.ready}</h2>
                         <p>{L.readyP}</p>
                         <div className="gm-btns">
-                          <button type="button" className="gm-btn is-go" onClick={engine.start} disabled={!mounted}>
+                          <button type="button" className="gm-btn is-go" onClick={go} disabled={!mounted}>
                             {L.start}
                           </button>
                         </div>
@@ -257,7 +268,7 @@ export function HotLap({ cards, labels: L, locale }: { cards: TrackCard[]; label
                         <div className="gm-result">{fmtLap(result.t)}</div>
                         <p>{resultText}</p>
                         <div className="gm-btns">
-                          <button type="button" className="gm-btn is-go" onClick={engine.start} ref={againRef}>
+                          <button type="button" className="gm-btn is-go" onClick={go} ref={againRef}>
                             {L.again}
                           </button>
                           <button type="button" className="gm-btn gm-side-btn" onClick={share}>

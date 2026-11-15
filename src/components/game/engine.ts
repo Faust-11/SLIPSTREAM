@@ -26,7 +26,8 @@ import { addLap, loadStore, saveStore, type StoredLap } from "@/lib/game/store";
 import { buildScenery, drawMini, drawScene, runPattern, type Scenery, type View } from "./scene";
 
 export type Phase = "ready" | "lights" | "run" | "done";
-export type Result = { t: number; pen: number; isBest: boolean; prevBest: number | null };
+/** pen — штрафи за межі траси; jump — фальстарт (+1 с, газ до згасання вогнів). */
+export type Result = { t: number; pen: number; jump: boolean; isBest: boolean; prevBest: number | null };
 export type Snapshot = {
   mounted: boolean;
   key: TrackKey;
@@ -38,7 +39,7 @@ export type Snapshot = {
   preferBot: boolean;
   cardBests: Partial<Record<TrackKey, number | null>>;
 };
-export type HudLabels = { react: string; s: string; off: string };
+export type HudLabels = { react: string; s: string; off: string; jump: string };
 export type Elements = {
   game: HTMLElement;
   view: HTMLCanvasElement;
@@ -99,7 +100,9 @@ function scenery(k: TrackKey): Scenery {
 /** Перевірений рекорд траси (повтор вводу) або null; підроблений стирається зі сховища. */
 function verifiedBest(k: TrackKey) {
   const store = loadStore(k);
-  const best = store.best ? verifyLap(cached(k).tr, store.best.inputs, store.best.total) : null;
+  const jumpT = store.best?.jump ? TPS : 0;
+  const lap = store.best ? verifyLap(cached(k).tr, store.best.inputs, store.best.total - jumpT) : null;
+  const best = lap ? { ...lap, total: lap.total + jumpT } : null;
   if (store.best && !best) {
     store.best = null;
     saveStore(k, store);
@@ -117,7 +120,9 @@ export class HotLapEngine {
   private snap: Snapshot = INITIAL;
   private listeners = new Set<() => void>();
   private el: Elements | null = null;
-  private labels: HudLabels = { react: "", s: "", off: "" };
+  private labels: HudLabels = { react: "", s: "", off: "", jump: "" };
+  /** Фальстарт у поточному заїзді: газ натиснуто, поки горіли вогні (+1 с до часу кола). */
+  private jump = false;
 
   private tr: Track = cached("lyman").tr;
   private sc: Scenery | null = null;
@@ -264,6 +269,7 @@ export class HotLapEngine {
     this.rec = [];
     this.lt = 0;
     this.reaction = null;
+    this.jump = false;
     this.lastDelta = 0;
     this.marked = [false, false, false];
     // Згасання вогнів: 5 ламп по 0,7 с + 0,5–1,5 с випадкової паузи (на час кола не впливає).
@@ -335,6 +341,7 @@ export class HotLapEngine {
     });
     el.delta.hidden = true;
     el.react.hidden = true;
+    el.react.className = "gm-chip";
     el.toast.hidden = true;
   }
   private markSector(k: 0 | 1 | 2) {
@@ -358,21 +365,27 @@ export class HotLapEngine {
   private finish() {
     this.phase = "done";
     const car = this.car;
-    const t = total(car);
+    const jumpT = this.jump ? TPS : 0;
+    const t = total(car) + jumpT;
     const k = this.tr.key;
     const stored = loadStore(k);
     // Попередній рекорд — кращий з пам'яті й сховища (інша вкладка могла записати швидший).
     const prev = [this.best?.total, stored.best?.total].filter((x): x is number => x !== undefined);
     const prevBest = prev.length ? Math.min(...prev) : null;
     const isBest = prevBest === null || t < prevBest;
-    const st = addLap(stored, { t, pen: car.pen, at: Date.now() }, isBest ? { inputs: rle(this.rec), total: t } : null, car.split);
+    const st = addLap(
+      stored,
+      { t, pen: car.pen + (this.jump ? 1 : 0), at: Date.now() },
+      isBest ? { inputs: rle(this.rec), total: t, ...(this.jump ? { jump: true as const } : {}) } : null,
+      car.split,
+    );
     if (isBest) this.best = { inputs: this.rec.slice(), total: t, split: [...car.split], at: car.at };
     this.sectors = st.sectors;
     saveStore(k, st);
     if (this.el) this.el.toast.hidden = true;
     this.toastT = 0;
     const bestTotal = this.best ? this.best.total : null;
-    this.emit({ laps: st.laps, bestTotal, cardBests: { ...this.snap.cardBests, [k]: bestTotal }, phase: "done", result: { t, pen: car.pen, isBest, prevBest } });
+    this.emit({ laps: st.laps, bestTotal, cardBests: { ...this.snap.cardBests, [k]: bestTotal }, phase: "done", result: { t, pen: car.pen, jump: this.jump, isBest, prevBest } });
   }
 
   private tick() {
@@ -380,10 +393,19 @@ export class HotLapEngine {
     const car = this.car;
     if (this.phase === "lights") {
       this.lt++;
+      if ((this.keys.kb | this.keys.touch) & 1) this.jump = true;
       const on = Math.min(5, Math.floor(this.lt / 84));
       el?.lights.querySelectorAll(".gm-lamp").forEach((l, i) => l.classList.toggle("is-on", i < on && this.lt < this.outTick));
       if (this.lt >= this.outTick) {
         this.phase = "run";
+        if (this.jump && el) {
+          el.react.hidden = false;
+          el.react.className = "gm-chip is-behind";
+          el.react.textContent = this.labels.jump;
+          el.toast.textContent = this.labels.jump;
+          el.toast.hidden = false;
+          this.toastT = TPS * 2;
+        }
         this.emit({ phase: "run" });
         window.setTimeout(() => {
           if (this.phase !== "lights" && this.el) this.el.lights.hidden = true;
@@ -395,7 +417,7 @@ export class HotLapEngine {
       const b = this.keys.kb | this.keys.touch;
       this.rec.push(b);
       step(this.tr, car, b);
-      if (this.reaction === null && b & 1) {
+      if (this.reaction === null && !this.jump && b & 1) {
         this.reaction = car.t;
         if (el) {
           el.react.hidden = false;
@@ -457,7 +479,8 @@ export class HotLapEngine {
     const sc = this.sc;
     if (!el || !sc) return false;
     const { car, view } = this;
-    const shown = this.phase === "run" ? car.t + car.pen * TPS : this.phase === "done" ? total(car) : 0;
+    const jumpT = this.jump ? TPS : 0;
+    const shown = this.phase === "run" ? car.t + car.pen * TPS + jumpT : this.phase === "done" ? total(car) + jumpT : 0;
     el.time.textContent = fmtLap(shown);
     el.kmh.textContent = String(Math.round(car.v * 3.6));
     const src = this.ghostSrc;

@@ -260,6 +260,11 @@
   -webkit-touch-callout: none;
   color: #eceff1;
 }
+/* Прокрутка до сцени — під липкою шапкою (64 + смуга 8). */
+.gm-game {
+  scroll-margin-top: 80px;
+  scroll-margin-bottom: 8px;
+}
 .gm-game.is-running {
   touch-action: none;
 }
@@ -535,13 +540,52 @@
 .gm-touch button.is-pressed {
   background: rgba(255, 196, 0, 0.55);
 }
+.gm-restart {
+  display: none;
+  position: absolute;
+  right: 12px;
+  top: calc(12px + var(--gm-mini, 132px) + 8px);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 20px;
+  background: rgba(20, 26, 31, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #f3f4f1;
+}
 @media (pointer: coarse) {
   .gm-touch {
     display: flex;
   }
+  .gm-game.is-running .gm-restart {
+    display: grid;
+    place-items: center;
+  }
   .gm-speed,
   .gm-trk {
     bottom: 90px;
+  }
+  /*
+   * Уся сцена разом з кнопками — у видимій частині екрана під шапкою (64 + смуга 8 + запас), зокрема телефон
+   * горизонтально (844×390: 16:9 дало б 457 px — кнопки під краєм екрана).
+   */
+  .gm-game {
+    max-height: calc(100vh - 88px);
+    max-height: calc(100dvh - 88px);
+  }
+}
+/* Вузькі телефони (≤ 360): 4 кнопки по 64 px (~296 px) не влазять у сцену 280 px — 56 px (ціль ≥ 44). */
+@media (pointer: coarse) and (max-width: 360px) {
+  .gm-touch button {
+    width: 56px;
+    height: 56px;
+  }
+  .gm-touch div {
+    gap: 8px;
+  }
+  .gm-speed,
+  .gm-trk {
+    bottom: 80px;
   }
 }
 
@@ -710,6 +754,9 @@
 @media (max-width: 640px) {
   .gm-game {
     aspect-ratio: 4 / 5;
+  }
+  .gm-game {
+    --gm-mini: 96px;
   }
   .gm-mini {
     width: 96px;

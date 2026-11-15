@@ -7,7 +7,8 @@ import type { TrackKey } from "./physics";
 
 export type StoredLap = { t: number; pen: number; at: number };
 /** sectors — найкращий час кожного сектора з усіх зарахованих кіл (для «фіолетового» в хронометражі). */
-export type TrackStore = { best: { inputs: string; total: number } | null; laps: StoredLap[]; sectors: [number, number, number] | null };
+/** best.jump — коло з фальстартом: total = час повтору вводу + 1 с (вогні до вводу не входять). */
+export type TrackStore = { best: { inputs: string; total: number; jump?: true } | null; laps: StoredLap[]; sectors: [number, number, number] | null };
 
 export const MAX_LAPS = 10;
 export const storeKey = (k: TrackKey) => `slipstream-hotlap-v2-${k}`;
@@ -25,7 +26,7 @@ export function parseStore(raw: string | null): TrackStore {
   try {
     const v = JSON.parse(raw) as Record<string, unknown>;
     const b = v?.best as Record<string, unknown> | null | undefined;
-    const best = b && typeof b.inputs === "string" && b.inputs.length < 200_000 && isInt(b.total, MAX_T) ? { inputs: b.inputs, total: b.total } : null;
+    const best = b && typeof b.inputs === "string" && b.inputs.length < 200_000 && isInt(b.total, MAX_T) ? { inputs: b.inputs, total: b.total, ...(b.jump === true ? { jump: true as const } : {}) } : null;
     const laps = Array.isArray(v?.laps)
       ? (v.laps as Record<string, unknown>[])
           .filter((l) => l && isInt(l.t, MAX_T) && isInt(l.pen, MAX_PEN) && isInt(l.at, MAX_DATE))
