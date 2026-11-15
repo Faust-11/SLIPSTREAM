@@ -12,7 +12,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const href = new URL(path, base).href;
     return path === "/" ? href.replace(/\/$/, "") : href;
   };
-  const paths = ["/", ...NAV.map((item) => item.href)];
+  // Службові сторінки (фаза 8) — не в меню, але в sitemap.
+  const paths = ["/", ...NAV.map((item) => item.href), "/about", "/sources"];
   return paths.flatMap((path) => {
     const languages = languageAlternates(path, abs);
     return locales.map((locale) => ({ url: abs(localizedPath(path, locale)), alternates: { languages } }));

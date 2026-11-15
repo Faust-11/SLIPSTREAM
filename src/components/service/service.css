@@ -1,0 +1,507 @@
+/*
+ * Службові сторінки «Про сайт» і «Джерела й ліцензії» (фаза 8, префікс sv-), макет
+ * https://claude.ai/artifact/RyhHaGGWe7EkWMv6HP1smo. Банер — сірий paper-2 (не колір розділу: службові сторінки не в меню),
+ * акцентний рядок h1 — --red-text (контраст як у тексті, ≥ 4,5 на paper-2 в обох темах).
+ */
+.sv-page {
+  /* Позначки перевірки — ті самі кольори, що в історіях (stories.css, .st-page). */
+  --sv-ok: #178a4c;
+  --sv-one: #b07a00;
+  --sv-dis: #c2410c;
+  --sv-dis-fg: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .sv-page {
+    --sv-ok: #4fd18b;
+    --sv-one: #f2c230;
+    --sv-dis: #ff8a50;
+    --sv-dis-fg: #16181d;
+  }
+}
+:root[data-theme="dark"] .sv-page {
+  --sv-ok: #4fd18b;
+  --sv-one: #f2c230;
+  --sv-dis: #ff8a50;
+  --sv-dis-fg: #16181d;
+}
+
+/* ---------- банер ---------- */
+.sv-hero {
+  background: var(--paper-2);
+  border-bottom: var(--b) solid var(--rule);
+}
+.sv-hero > .wrap {
+  display: grid;
+  gap: 14px;
+  padding-block: 40px 36px;
+}
+.sv-stamp {
+  justify-self: start;
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--f-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 7px 11px;
+}
+.sv-hero h1 {
+  font-size: clamp(30px, 5vw, 60px);
+}
+.sv-hero h1 span {
+  display: block;
+  color: var(--red-text);
+}
+.sv-lead {
+  margin: 4px 0 0;
+  font-size: clamp(16px, 1.6vw, 19px);
+  max-width: 58ch;
+  color: var(--ink-soft);
+}
+.sv-facts {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-top: 2px solid var(--rule);
+  margin: 22px 0 0;
+}
+.sv-facts > div {
+  padding: 14px 14px 4px 0;
+  min-width: 0;
+}
+.sv-facts > div + div {
+  padding-left: 14px;
+  border-left: 1px solid var(--hair);
+}
+.sv-facts dt {
+  font-family: var(--f-display);
+  word-spacing: -0.35em;
+  font-size: clamp(26px, 3.4vw, 40px);
+  line-height: 1;
+}
+.sv-facts dd {
+  margin: 6px 0 0;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+
+/* ---------- тіло: зміст + текст ---------- */
+.sv-body > .wrap {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 48px;
+  padding-block: 36px 56px;
+}
+.sv-idx {
+  position: sticky;
+  top: 84px;
+  align-self: start;
+  border-top: 2px solid var(--rule);
+  padding-top: 10px;
+}
+.sv-idx p {
+  margin: 0 0 6px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.sv-idx ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sv-idx a {
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  font-size: 14px;
+  text-decoration: none;
+}
+.sv-idx a:hover {
+  color: var(--blue-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sv-txt {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.sv-sec {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-margin-top: 80px;
+}
+.sv-sec h2 {
+  font-size: clamp(20px, 2.4vw, 28px);
+}
+.sv-sec p {
+  margin: 0;
+  max-width: 64ch;
+  font-size: 16.5px;
+  line-height: 1.6;
+}
+.sv-sec a {
+  color: var(--blue-text);
+  text-underline-offset: 3px;
+}
+.sv-sec .sv-soft,
+.sv-soft {
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
+/* що тут є */
+.sv-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 2px solid var(--rule);
+  max-width: 72ch;
+}
+.sv-list li {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--hair);
+}
+.sv-list a {
+  font-weight: 700;
+}
+.sv-list span {
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
+/* позначки перевірки */
+.sv-marks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 0;
+}
+.sv-marks li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+}
+.sv-mk {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font: 700 11px/1 var(--f-mono);
+  font-style: normal;
+}
+.sv-mk-ok {
+  background: var(--sv-ok);
+  color: var(--paper);
+}
+.sv-mk-one {
+  background: var(--sv-one);
+  color: var(--on-yellow);
+}
+.sv-mk-dis {
+  background: var(--sv-dis);
+  color: var(--sv-dis-fg);
+}
+
+/* що зберігає сайт */
+.sv-store {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 2px solid var(--rule);
+}
+.sv-store li {
+  padding: 14px 16px 14px 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sv-store li + li {
+  padding-left: 16px;
+  border-left: 1px solid var(--hair);
+}
+.sv-store b {
+  font-size: 15.5px;
+}
+.sv-store p {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+}
+.sv-tag {
+  align-self: flex-start;
+  margin-bottom: 6px;
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  box-shadow: inset 0 0 0 1.5px var(--rule);
+}
+
+/* контакт — темна поверхня (data-surface="dark": фокус жовтий, site.css) */
+.sv-contact {
+  background: var(--card);
+  color: var(--on-card);
+  padding: 20px 22px;
+  display: grid;
+  gap: 8px;
+  max-width: 640px;
+}
+.sv-sec .sv-contact p {
+  color: var(--on-card-soft);
+  font-size: 14.5px;
+}
+.sv-sec .sv-contact .sv-contact-k {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--yellow);
+}
+.sv-sec .sv-contact .sv-contact-v {
+  font-family: var(--f-mono);
+  font-size: 18px;
+  color: var(--on-card);
+}
+.sv-sec .sv-contact .sv-contact-v a {
+  color: inherit;
+}
+.sv-sec .sv-contact .sv-contact-pending {
+  color: var(--on-card);
+  font-weight: 600;
+}
+
+/* перелік джерел */
+.sv-reg {
+  overflow-x: auto;
+}
+.sv-reg:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.sv-reg table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+.sv-reg thead th {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: left;
+  padding: 10px 10px 8px 0;
+  border-bottom: 2px solid var(--rule);
+  white-space: nowrap;
+}
+.sv-reg tbody th,
+.sv-reg td {
+  padding: 12px 10px 12px 0;
+  border-bottom: 1px solid var(--hair);
+  vertical-align: top;
+  text-align: left;
+}
+.sv-reg tbody th {
+  font-weight: 700;
+  min-width: 150px;
+}
+.sv-reg tbody th small {
+  display: block;
+  font-weight: 400;
+  color: var(--ink-soft);
+  font-size: 13px;
+  margin-top: 2px;
+}
+.sv-lic {
+  display: inline-block;
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 3px 7px;
+  background: var(--paper-2);
+  white-space: nowrap;
+}
+
+/* графік ліцензій: один ряд, підпис і число біля стовпчика */
+.sv-bars {
+  display: grid;
+  gap: 6px;
+  max-width: 640px;
+  margin: 4px 0 0;
+}
+.sv-bar {
+  display: grid;
+  grid-template-columns: minmax(110px, 150px) minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+}
+.sv-bar dt {
+  font-family: var(--f-mono);
+  font-size: 12px;
+}
+.sv-bar dd {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.sv-bar i {
+  display: block;
+  width: var(--w);
+  min-width: 2px;
+  height: 14px;
+  background: var(--blue-text);
+  border-radius: 0 4px 4px 0;
+}
+.sv-bar span {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  flex: 0 0 auto;
+}
+
+/* автори фото */
+.sv-who {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.sv-who input {
+  flex: 1 1 260px;
+  max-width: 420px;
+  min-width: 0;
+  font: inherit;
+  font-size: 16px;
+  padding: 11px 13px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 2px solid var(--rule);
+  border-radius: 0;
+}
+.sv-who input:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.sv-who span {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.sv-credits {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--rule);
+  columns: 2;
+  column-gap: 36px;
+  /* 836 рядків нижче першого екрана — розкладка, коли наблизяться (як .st-grid > li). */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 14000px;
+}
+.sv-credits li {
+  break-inside: avoid;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--hair);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.sv-credits li[hidden] {
+  display: none;
+}
+.sv-credits a {
+  font-weight: 600;
+}
+.sv-kind {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.sv-by {
+  color: var(--ink-soft);
+}
+
+@media (width <= 1100px) {
+  .sv-facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .sv-facts > div:nth-child(4) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .sv-facts > div:nth-child(n + 4) {
+    border-top: 1px solid var(--hair);
+  }
+}
+@media (width <= 860px) {
+  .sv-body > .wrap {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .sv-idx {
+    position: static;
+  }
+  .sv-store {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sv-store li,
+  .sv-store li + li {
+    padding: 14px 0;
+    border-left: 0;
+    border-top: 1px solid var(--hair);
+  }
+  .sv-store li:first-child {
+    border-top: 0;
+  }
+  .sv-credits {
+    columns: 1;
+  }
+}
+@media (width <= 600px) {
+  .sv-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sv-facts > div,
+  .sv-facts > div + div {
+    padding: 12px 0 4px;
+    border-left: 0;
+    border-top: 1px solid var(--hair);
+  }
+  .sv-facts > div:nth-child(even) {
+    padding-left: 14px;
+    border-left: 1px solid var(--hair);
+  }
+  .sv-facts > div:nth-child(-n + 2) {
+    border-top: 0;
+  }
+  .sv-list li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+  .sv-bar {
+    grid-template-columns: 96px minmax(0, 1fr);
+  }
+}

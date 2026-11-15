@@ -1,0 +1,114 @@
+{
+  "about": {
+    "title": "About",
+    "description": "What Slipstream is, where the data comes from, how we check stories, what the site stores and how to get in touch.",
+    "stamp": "About",
+    "h1": ["Slipstream", "by fans, for fans"],
+    "lead": "An unofficial Formula 1 site in English and Ukrainian: results since 1950, drivers, teams, circuits, stories with sources and explainers for newcomers. No ads, and free.",
+    "facts": {
+      "seasons": "seasons, {first}–{last}",
+      "circuits": "circuits with maps and races",
+      "stories": "stories, every fact sourced",
+      "terms": "terms in the glossary",
+      "photos": "photos from Wikimedia Commons"
+    },
+    "idx": "On this page",
+    "what": {
+      "h": "What's here",
+      "items": [
+        { "href": "/seasons", "name": "Seasons and races", "p": "Every season since 1950: standings, calendar and the full result of every race with qualifying and a lap chart." },
+        { "href": "/drivers", "name": "Drivers and teams", "p": "Cards with careers, wins, titles and teammates." },
+        { "href": "/circuits", "name": "Circuits", "p": "Map, facts, winners and every race held at each circuit." },
+        { "href": "/stories", "name": "Stories", "p": "Scandals, upsets and how-it-works explainers with every fact checked." },
+        { "href": "/newbie", "name": "New to F1", "p": "The rules in plain words and a glossary whose terms pop up as hints in the texts." },
+        { "href": "/game", "name": "Play", "p": "A hot lap on four tracks against a bot." }
+      ]
+    },
+    "data": {
+      "h": "Where the data comes from",
+      "p": [
+        "Results, standings and the calendar come from the open Jolpica F1 database, the successor to Ergast. After a race the site checks for new results every hour on Sunday and into Monday morning, and again on Monday and Thursday.",
+        "News is headlines and links from Formula1.com, Motorsport.com and Autosport, plus posts by journalists on Bluesky. We show the headline, a short summary and a link to the original. Race videos come from the official FORMULA 1 YouTube channel."
+      ],
+      "more": "The full list of sources, licences and photo authors is on the “{page}” page."
+    },
+    "check": {
+      "h": "How we check stories",
+      "p1": "Every number, date and quote in a story has a footnote with its source. Each claim shows how well it is supported:",
+      "marks": { "ok": "two independent sources", "one": "one source", "dis": "sources disagree" },
+      "marksLabel": "Verification marks",
+      "p2": "When sources disagree we show both versions and explain who says what. We prefer FIA documents, official classifications, interviews with the people involved and contemporary press. Wikipedia is not used as a source. Every story shows the date it was checked.",
+      "p3": "The rules on the New to F1 page are checked against the 2026 FIA regulations, Pirelli documents and formula1.com; sources are listed under each section."
+    },
+    "store": {
+      "h": "What the site stores",
+      "items": [
+        { "tag": "No cookies", "name": "Visits", "p": "Anonymous Vercel Web Analytics statistics: how many times pages were opened and where visitors came from. No cookies and no data that identifies a person." },
+        { "tag": "In your browser", "name": "Theme and game records", "p": "Your light or dark theme and your best laps are kept only in your browser. They are never sent to the server." },
+        { "tag": "Other sites", "name": "News images and videos", "p": "News images and video previews load from the publishers' sites (formula1.com, motorsport.com, YouTube), so those sites see your request." }
+      ]
+    },
+    "unofficial": {
+      "h": "An unofficial site",
+      "p": "Slipstream is not affiliated with Formula 1, the FIA or any team. F1, FORMULA 1 and related marks are trademarks of Formula One Licensing B.V. Team names belong to their owners. There are no team or Formula 1 logos on the site."
+    },
+    "contact": {
+      "h": "Get in touch",
+      "label": "Errors, sources, photo credits",
+      "p": "Write to us if you have found a mistake in the data or a story, have a better source, or took a photo and want its credit changed or the photo removed.",
+      "pending": "The contact address will appear together with the site's domain."
+    }
+  },
+  "sources": {
+    "title": "Sources and licences",
+    "description": "Everything Slipstream takes from others: data, photos, circuit maps, fonts, news and videos, with licences and photo authors.",
+    "stamp": "Sources and licences",
+    "h1": ["Whose is it", "and on what terms"],
+    "lead": "Everything the site takes from others: data, photos, circuit maps, fonts, news and videos. For each source, its licence and what it requires of us.",
+    "facts": {
+      "photos": "photos from Wikimedia Commons",
+      "authors": "photo authors",
+      "layouts": "circuit maps",
+      "first": "the year results start",
+      "logos": "team or F1 logos"
+    },
+    "idx": "On this page",
+    "reg": {
+      "h": "Sources",
+      "cols": { "src": "Source", "what": "What we use", "lic": "Licence", "means": "What it means" },
+      "rows": [
+        { "name": "Jolpica F1", "href": "https://jolpi.ca", "sub": "successor to Ergast", "what": "Results, qualifying, standings and the calendar since {first}", "lic": "CC BY-NC-SA 4.0", "means": "We credit the source, use it non-commercially and share derived tables on the same terms" },
+        { "name": "Wikimedia Commons", "href": "https://commons.wikimedia.org", "sub": "{photos} files", "what": "Driver portraits and photos of races, teams, circuits and seasons", "lic": "CC BY, CC BY-SA, CC0, PD", "means": "Each photo's author and licence are in the list below and at the bottom of the page that shows it" },
+        { "name": "f1-circuits", "href": "https://github.com/bacinger/f1-circuits", "sub": "Tomislav Bacinger", "what": "Maps of {f1c} current circuits", "lic": "MIT", "means": "We keep the author's name and the licence text" },
+        { "name": "OpenStreetMap", "href": "https://www.openstreetmap.org/copyright", "sub": "OpenStreetMap contributors", "what": "Circuit geometry in f1-circuits", "lic": "ODbL 1.0", "means": "“© OpenStreetMap contributors” next to the maps" },
+        { "name": "Wikimedia Commons", "href": "https://commons.wikimedia.org", "sub": "maps", "what": "Maps of {commons} historic circuits", "lic": "CC BY-SA, PD", "means": "Author and licence are in the list of authors" },
+        { "name": "Rubik Mono One, IBM Plex", "href": "https://fonts.google.com", "sub": "Google Fonts", "what": "The site's typefaces", "lic": "SIL OFL 1.1", "means": "Free to use; the fonts themselves are not sold" },
+        { "name": "Formula1.com, Motorsport.com, Autosport", "href": null, "sub": "and journalists on Bluesky", "what": "Headlines, short summaries, links", "lic": "© publishers", "means": "We never copy articles, only the headline and a link to the original" },
+        { "name": "FORMULA 1 on YouTube", "href": "https://www.youtube.com/@Formula1", "sub": null, "what": "Links to official race highlights", "lic": "© Formula One", "means": "Videos play on YouTube; we show only a preview and a link" },
+        { "name": "FIA, Pirelli, formula1.com", "href": null, "sub": null, "what": "Rules for the New to F1 page", "lic": "documents", "means": "A link to the document under each section" },
+        { "name": "Stories", "href": "/stories", "sub": null, "what": "Slipstream's own texts", "lic": "own sources", "means": "Each story has its own dated list of sources" }
+      ]
+    },
+    "photos": {
+      "h": "Photos by licence",
+      "p": "{photos} Wikimedia Commons files by licence. “Other” groups licences used by fewer than 15 files.",
+      "chartLabel": "Number of photos by licence",
+      "other": "Other",
+      "pd": "Public domain"
+    },
+    "authors": {
+      "h": "Photo authors",
+      "p": "All {photos} files with author and licence; each link opens the file's page on Commons. Every page of the site also lists, at the bottom, the photos it shows.",
+      "search": "Search authors or photos",
+      "placeholder": "Search: author, driver, circuit…",
+      "count": "{n} of {total}",
+      "empty": "Nothing found.",
+      "kinds": { "driver": "Driver", "team": "Team", "season": "Season", "circuit": "Circuit", "layout": "Circuit map", "story": "Story" }
+    },
+    "marks": {
+      "h": "Trademarks",
+      "p": "F1, FORMULA 1, FIA FORMULA ONE WORLD CHAMPIONSHIP, GRAND PRIX and related marks are trademarks of Formula One Licensing B.V. Team names and colours are used only to identify teams in tables. There are no logos on the site.",
+      "contact": "Did you take a photo or hold the rights and want a credit changed or material removed? Write to the address on the “{page}” page and we will fix it."
+    }
+  }
+}
