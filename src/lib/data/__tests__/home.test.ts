@@ -114,10 +114,11 @@ describe("getHomePage — 2026 (фікстура db.yml)", () => {
     expect(p.records.cups.top.map((r) => r.who.id)).toEqual(["ferrari"]);
   });
 
-  it("залік — перша десятка пілотів поточного сезону після 20-го етапу; відлік — непроведені етапи 21–23", async () => {
+  it("залік — усі пілоти поточного сезону після 20-го етапу (прокручуваний список, як у макеті); відлік — етапи 21–23", async () => {
     const p = await getHomePage("uk");
     expect([p.phase, p.standings.season, p.standings.final, p.standings.afterRound]).toEqual(["running", 2026, false, 20]);
-    expect(p.standings.drivers).toHaveLength(10);
+    expect(p.standings.drivers.length).toBeGreaterThan(10);
+    expect(p.standings.drivers.map((r) => r.position).slice(0, 3)).toEqual([1, 2, 3]);
     expect(p.upcoming.map((r) => r.round)).toEqual([21, 22, 23]);
   });
 
@@ -127,7 +128,8 @@ describe("getHomePage — 2026 (фікстура db.yml)", () => {
       const p = await getHomePage("uk");
       expect([p.season, p.phase]).toEqual([2027, "ahead"]);
       expect([p.champion?.season, p.champion?.driver.id]).toEqual([2026, "antonelli"]);
-      expect([p.standings.season, p.standings.drivers.length]).toEqual([2026, 10]);
+      expect(p.standings.season).toBe(2026);
+      expect(p.standings.drivers.length).toBeGreaterThan(10);
       expect(p.last?.year).toBe(2026);
     } finally {
       ahead.on = false;

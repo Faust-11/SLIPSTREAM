@@ -1236,6 +1236,9 @@
     "countdownThen": "Next up — round {round}, {gp}:",
     "finalStandings": "Final {season} standings",
     "newsLoading": "Loading news…",
-    "morePosts": "All journalists' posts →"
+    "morePosts": "All journalists' posts →",
+    "recTabWins": "Wins",
+    "recTabTitles": "Titles",
+    "recTabCups": "Cups"
   }
 }

@@ -447,8 +447,13 @@ html:not([data-js]) .teams-count {
 }
 
 /* ---------- автори фото ---------- */
+/* Автори й ліцензії фото — найнижчий рядок підвалу на всіх сторінках (відгук користувача 15.11: окремий блок між
+   сторінкою й підвалом зі світлими «швами» не потрібен). У DOM лишається в main (сторінка знає свої фото, підвал — ні);
+   на екрані — одразу під підвалом: body — position: relative, блок — top: 100%. */
 .page-credits {
-  margin-top: 64px;
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
   background: var(--head-bg);
   color: var(--head-fg);
   border-top: 1px solid rgb(255 255 255 / 0.14);

@@ -26,7 +26,7 @@ test("/uk: герой, чемпіон, смуга сезону, остання �
   await expect(page.locator("#hm-next-h")).toHaveText("Гран-прі Лас-Вегаса");
   await expect(page.locator(".hm-count b").first()).toHaveText("6"); // 15.11 12:00 → 22.11 04:00 = 6 дн 16 год
   await expect(page.locator(".hm-map svg path")).toHaveCount(2);
-  await expect(page.locator("#hm-st-0 > li")).toHaveCount(10);
+  expect(await page.locator("#hm-st-0 > li").count()).toBeGreaterThan(10);
   await expect(page.locator(".hm-rec").nth(2).locator(".hm-rec-top")).toContainText("Ferrari");
   // Рішення 14.11: кнопка гри веде на /game; блоків «Історії» / «Новачкам» / «Гра» і кнопки прогнозу на головній немає.
   await expect(page.getByRole("link", { name: "Проїхати гаряче коло →" })).toHaveAttribute("href", "/uk/game");
@@ -107,11 +107,52 @@ test("гонка стартувала до оновлення даних: «ст
   await expect(page.locator(".hm-count b").first()).toHaveText("7"); // 22.11 05:00 → Катар 29.11 16:00 = 7 дн 11 год
 });
 
+test("чемпіонат і рекорди (1280): низ трьох списків рекордів = низ панелі заліку; «Повний залік» — рівні відступи (відгук 15.11)", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/uk");
+  const m = await page.evaluate(() => {
+    const r = (el: Element) => el.getBoundingClientRect();
+    const panel = r(document.getElementById("hm-st-0")!);
+    const link = r(document.querySelector(".hm-standings > .hm-more")!);
+    const col = r(document.querySelector(".hm-standings")!);
+    const lists = [...document.querySelectorAll(".hm-rec-list")].map((l) => r(l).bottom);
+    const rec = r(document.querySelector(".hm-records")!);
+    return { panelBottom: panel.bottom, above: link.top - panel.bottom, below: col.bottom - link.bottom, lists, recBottom: rec.bottom, colBottom: col.bottom };
+  });
+  expect(Math.abs(m.above - m.below)).toBeLessThanOrEqual(2);
+  for (const b of m.lists) expect(Math.abs(b - m.panelBottom)).toBeLessThanOrEqual(2);
+  expect(Math.abs(m.recBottom - m.colBottom)).toBeLessThanOrEqual(1);
+  // Списки прокручуються, як у макеті: у кожному рекордсменів більше, ніж уміщається.
+  for (const over of await page.locator(".hm-rec-list").evaluateAll((ls) => ls.map((l) => l.scrollHeight > l.clientHeight))) expect(over).toBe(true);
+});
+
+test("рекорди на телефоні — вкладки «Перемоги / Титули / Кубки» в одному блоці (відгук 15.11)", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/uk");
+  await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+  const tabs = page.locator(".hm-records .hm-tabs button");
+  await expect(tabs).toHaveCount(3);
+  await tabs.nth(2).click();
+  await expect(tabs.nth(2)).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator("#hm-rc-2 .hm-rec-top")).toBeInViewport();
+});
+
+test("автори фото — найнижчий рядок підвалу, без окремого блока між сторінкою й підвалом (відгук 15.11)", async ({ page }) => {
+  await page.goto("/uk");
+  const m = await page.evaluate(() => {
+    const c = document.querySelector(".page-credits")!.getBoundingClientRect();
+    const f = document.querySelector(".site-foot")!.getBoundingClientRect();
+    return { gap: c.top - f.bottom, docEnd: document.documentElement.scrollHeight - (c.bottom + window.scrollY) };
+  });
+  expect(Math.abs(m.gap)).toBeLessThanOrEqual(1);
+  expect(Math.abs(m.docEnd)).toBeLessThanOrEqual(1);
+});
+
 test.describe("без JavaScript", () => {
   test.use({ javaScriptEnabled: false });
   test("обидві панелі заліку — у серверній розмітці; відлік — «—»; новин немає, є посилання «Усі новини»", async ({ page }) => {
     await page.goto("/uk");
-    await expect(page.locator("#hm-st-0 > li")).toHaveCount(10);
+    expect(await page.locator("#hm-st-0 > li").count()).toBeGreaterThan(10);
     await expect(page.locator("#hm-st-1 > li").first()).toBeAttached();
     await expect(page.locator(".hm-count b").first()).toHaveText("—");
     await expect(page.getByRole("link", { name: "Усі новини →" })).toHaveAttribute("href", "/uk/news");

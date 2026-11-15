@@ -789,14 +789,40 @@
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.6fr);
 }
+/* Ритм нижнього краю (відгук користувача 15.11): «Повний залік» — однаковий відступ до списку й до низу блока;
+   рекорди мають знизу той самий «хвіст», тож нижні краї їхніх списків — на рівні низу панелі заліку. */
+.hm-champs {
+  --hm-tail-gap: 24px;
+  --hm-tail-line: 20px;
+  --hm-tail: calc(2 * var(--hm-tail-gap) + var(--hm-tail-line));
+}
 .hm-standings {
   min-width: 0;
-  padding: 0 36px 32px 0;
+  padding: 0 36px 0 0;
   border-inline-end: var(--b) solid var(--rule);
 }
 .hm-standings > .hm-more {
   display: inline-block;
-  margin-top: 16px;
+  margin-block: var(--hm-tail-gap);
+  line-height: var(--hm-tail-line);
+}
+/* Залік — увесь список у панелі ~10 рядків із прокруткою, як у макеті (.st-panel). */
+.hm-st-panel {
+  max-block-size: 510px;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  padding-inline-end: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+}
+/* Затухання внизу прокручуваного списку; дочитали до кінця — без маски (fades.tsx). */
+.hm-fade {
+  -webkit-mask-image: linear-gradient(180deg, #000 85%, transparent);
+  mask-image: linear-gradient(180deg, #000 85%, transparent);
+}
+.hm-fade[data-end] {
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 .hm-tabs {
   display: flex;
@@ -884,9 +910,11 @@
   font-size: 13px;
 }
 .hm-records {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
   margin-inline-end: calc(-1 * var(--hm-gutter));
-  padding: 0 var(--hm-gutter) 32px 36px;
+  padding: 0 var(--hm-gutter) var(--hm-tail) 36px;
   /* Той самий синій в обох темах: з --blue темної теми (#2f55f0) дрібні підписи мали 4,2:1 (рев'ю PR #25); #1d3fcc — 8,6. */
   background: #1d3fcc;
   color: #fff;
@@ -894,18 +922,28 @@
 .hm-records .hm-src {
   color: #fff;
 }
-.hm-rec-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.hm-records .hm-slider {
   border-top: var(--b) solid #fff;
 }
+/* Вкладки рекордів (телефон) — на синьому: білий текст, активна — жовта риска. */
+.hm-records .hm-tabs {
+  border-bottom-color: #fff;
+}
+.hm-records .hm-tabs button {
+  color: rgb(255 255 255 / 0.85);
+}
+.hm-records .hm-tabs button[aria-pressed="true"] {
+  color: #fff;
+  border-bottom-color: #ffe38a;
+}
+.hm-records .hm-tabs + .hm-slider {
+  border-top: 0;
+}
 .hm-rec {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
   padding: 18px 20px 0 0;
-}
-.hm-rec + .hm-rec {
-  padding-inline-start: 20px;
-  border-inline-start: var(--b2) solid rgb(255 255 255 / 0.4);
 }
 .hm-rec h3 {
   margin: 0 0 10px;
@@ -948,8 +986,45 @@
 }
 .hm-rec-list {
   margin: 0;
-  padding: 0;
+  padding: 0 6px 0 0;
   list-style: none;
+  max-block-size: 320px;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(255 255 255 / 0.5) transparent;
+}
+@media (min-width: 861px) {
+  /* Три колонки — вкладки не потрібні. */
+  .hm-records .hm-tabs {
+    display: none;
+  }
+  .hm-records .hm-slider {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    /* Базовий .hm-slider — align-items: flex-start (панелі перемикача); тут колонки тягнуться на всю висоту. */
+    align-items: stretch;
+    overflow: visible;
+  }
+  .hm-rec + .hm-rec {
+    padding-inline-start: 20px;
+    border-inline-start: var(--b2) solid rgb(255 255 255 / 0.4);
+  }
+}
+@media (min-width: 1101px) {
+  /* Поруч із заліком: висоту ряду задає залік (contain: size — довгі списки рекордів її не роздувають), колонки
+     рекордів тягнуться на всю висоту, списки прокручуються й закінчуються на рівні низу панелі заліку. */
+  .hm-records .hm-slider {
+    flex: 1 1 0;
+    min-block-size: 0;
+    contain: size;
+    grid-template-rows: minmax(0, 1fr);
+  }
+  .hm-rec-list {
+    flex: 1 1 0;
+    min-block-size: 0;
+    max-block-size: none;
+  }
 }
 /* Без номерів місць (відгук користувача 15.11: спільні місця 3, 3, 5 читались як плутанина) — порядок і число праворуч. */
 .hm-rec-list li {
@@ -1128,20 +1203,22 @@
   .hm-records {
     margin-inline-start: calc(-1 * var(--hm-gutter));
     padding-inline-start: var(--hm-gutter);
+    /* «Хвіст» під списками потрібен лише поруч із заліком (вирівнювання низу); тут — звичайний відступ. */
+    padding-block-end: 32px;
   }
 }
 @media (max-width: 860px) {
-  .hm-rec-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
   .hm-rec {
     padding-inline-end: 0;
   }
-  .hm-rec + .hm-rec {
-    margin-top: 18px;
-    padding-inline-start: 0;
-    border-inline-start: 0;
-    border-top: var(--b2) solid rgb(255 255 255 / 0.4);
+  /* Назву категорії вже показує вкладка — заголовок лишається для скрінрідера. */
+  .hm-rec h3 {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
   .hm-rail-cell > span.num {
     display: none;
