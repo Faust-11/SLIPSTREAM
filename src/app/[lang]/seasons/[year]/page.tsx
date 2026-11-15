@@ -9,6 +9,7 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";
 import { requireLocale } from "@/i18n/require-locale";
 import { getSeasonPage, getSeasonYears, type SeasonDriver, type SeasonTeamRef } from "@/lib/data/season-page";
+import { seasonPhotoAlt } from "@/lib/image-alt";
 import { plural } from "@/lib/plural";
 import { pageMetadata, siteUrl } from "@/lib/seo";
 
@@ -243,7 +244,7 @@ export default async function SeasonPage(props: Props) {
             sizes="100vw"
             width={hero.width}
             height={hero.height}
-            alt=""
+            alt={page.champion ? seasonPhotoAlt(dict.seasonsPage.photoAlt, page.champion.name, page.year, !page.inProgress || page.decided) : ""}
             fetchPriority="high"
             decoding="async"
             style={hero.focus ? { objectPosition: hero.focus } : undefined}
@@ -321,7 +322,7 @@ export default async function SeasonPage(props: Props) {
                           sizes="(width <= 860px) 100vw, 400px"
                           width={c.photo.width}
                           height={c.photo.height}
-                          alt=""
+                          alt={c.driver.name}
                           loading="lazy"
                           decoding="async"
                           style={c.photo.focus ? { objectPosition: c.photo.focus } : undefined}

@@ -10,6 +10,7 @@ import { requireLocale } from "@/i18n/require-locale";
 import { circuitSlug } from "@/lib/circuit-math";
 import { circuitBySlug, FASTEST_LAP_FROM, getCircuitPage, getCircuitRefs } from "@/lib/data/circuits";
 import type { SeasonDriver, SeasonTeamRef } from "@/lib/data/season-page";
+import { circuitPhotoAlt } from "@/lib/image-alt";
 import { plural } from "@/lib/plural";
 import { lapTime } from "@/lib/race-math";
 import { pageMetadata, siteUrl } from "@/lib/seo";
@@ -174,7 +175,7 @@ export default async function CircuitPageView(props: Props) {
             sizes="100vw"
             width={page.hero.width}
             height={page.hero.height}
-            alt=""
+            alt={circuitPhotoAlt(t.heroAlt, page.short, page.place)}
             fetchPriority="high"
             decoding="async"
             style={{ objectPosition: page.hero.focus }}

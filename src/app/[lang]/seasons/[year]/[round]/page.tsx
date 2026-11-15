@@ -14,6 +14,7 @@ import type { SeasonDriver, SeasonTeamRef } from "@/lib/data/season-page";
 import { circuitPath } from "@/lib/circuit-math";
 import { plural } from "@/lib/plural";
 import { gapTime, lapTime, raceTime } from "@/lib/race-math";
+import { circuitPhotoAlt } from "@/lib/image-alt";
 import { pageMetadata, siteUrl } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string; year: string; round: string }> };
@@ -281,7 +282,7 @@ export default async function RacePage(props: Props) {
         {hero && (
           // Банер — LCP: без lazy, fetchpriority=high (настанова «Optimize image priority»).
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={hero.src} srcSet={hero.srcSet} sizes="100vw" width={hero.width} height={hero.height} alt="" fetchPriority="high" decoding="async" style={hero.focus ? { objectPosition: hero.focus } : undefined} />
+          <img src={hero.src} srcSet={hero.srcSet} sizes="100vw" width={hero.width} height={hero.height} alt={circuitPhotoAlt(dict.circuitPage.heroAlt, page.short, page.place)} fetchPriority="high" decoding="async" style={hero.focus ? { objectPosition: hero.focus } : undefined} />
         )}
         <div className="wrap">
           {page.decider && <span className="rc-stamp">{t.stamp}</span>}
