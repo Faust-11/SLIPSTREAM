@@ -8,6 +8,9 @@ import "../globals.css";
 import "@/components/admin/admin.css";
 
 /** Адмінка (фаза 7) — окремий кореневий layout: лише українською, без шапки сайту, ніколи не індексується. */
+// Завжди на запит: доступ залежить від cookie й змінних середовища під час роботи, а не збірки.
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: { default: "Адмінка · Slipstream", template: "%s · Адмінка · Slipstream" },
   robots: { index: false, follow: false, nocache: true },

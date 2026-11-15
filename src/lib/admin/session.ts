@@ -14,9 +14,12 @@ import { SESSION_COOKIE, SESSION_TTL_S, signSession, verifySession } from "./tok
 export type Admin = { email: string };
 
 export const getAdmin = cache(async (): Promise<Admin | null> => {
+  // Спершу cookies(): це робить сторінку динамічною. Інакше без змінних адмінки під час збірки (CI, Vercel без них)
+  // сторінка рендерилась статично як 404 і лишалась такою й після налаштування (CI 15.11: next-error-h1 «404» після входу).
+  const token = (await cookies()).get(SESSION_COOKIE)?.value;
   const env = adminEnv();
   if (!env) return null;
-  return verifySession(env, (await cookies()).get(SESSION_COOKIE)?.value);
+  return verifySession(env, token);
 });
 
 /** Не адмін — 404 (адмінки «немає»), а не 401/403. */
