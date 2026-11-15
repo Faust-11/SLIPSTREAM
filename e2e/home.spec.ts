@@ -148,6 +148,17 @@ test("автори фото — найнижчий рядок підвалу, б
   expect(Math.abs(m.docEnd)).toBeLessThanOrEqual(1);
 });
 
+test("телефон — без окремого подіуму, таблиця одразу після банера; ПК — наступна гонка на червоній панелі (відгук 15.11)", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/uk");
+  await expect(page.locator(".hm-podium")).toBeHidden();
+  const gap = await page.evaluate(() => document.querySelector(".hm-tbl")!.getBoundingClientRect().top - document.querySelector(".hm-last .hm-banner")!.getBoundingClientRect().bottom);
+  expect(gap).toBeLessThan(24);
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await expect(page.locator(".hm-podium")).toBeVisible();
+  expect(await page.locator(".hm-next").evaluate((el) => getComputedStyle(el).backgroundColor)).toBe("rgb(180, 37, 24)");
+});
+
 test.describe("без JavaScript", () => {
   test.use({ javaScriptEnabled: false });
   test("обидві панелі заліку — у серверній розмітці; відлік — «—»; новин немає, є посилання «Усі новини»", async ({ page }) => {
