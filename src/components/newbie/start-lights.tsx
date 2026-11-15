@@ -111,7 +111,7 @@ export function StartLights({ t, locale }: { t: LightsLabels; locale: string }) 
       ) : (
         <p className="nb-nojs">{t.noJs}</p>
       )}
-      <p className="nb-out" role="status">
+      <p className="nb-res" role="status">
         {state === "arm" ? (
           t.wait
         ) : last === "jump" ? (

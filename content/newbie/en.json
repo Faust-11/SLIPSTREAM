@@ -104,7 +104,7 @@
     "cols": { "pos": "Pos", "driver": "Driver", "grid": "Grid", "pts": "Pts" },
     "cup": "For the constructors' championship both cars are added together: {list}.",
     "cupItem": "{team} {a} + {b} = {sum}",
-    "climb": "{driver} started {grid}th and finished {finish}.",
+    "climb": "{driver} started {grid} and finished {finish}.",
     "fastest": "{driver} set the fastest lap, yet {pos} place paid the usual {pts}.",
     "ptsForms": { "one": "{n} point", "few": "{n} points", "many": "{n} points", "other": "{n} points" }
   },
