@@ -1341,6 +1341,8 @@
     "deck": "Formula 1's big moments, told from race reports, FIA decisions and interviews. Every fact comes with its source.",
     "metaDescription": {
       "one": "{n} Formula 1 story with sources: scandals, upsets, history, tech.",
+      "few": "{n} Formula 1 stories with sources: scandals, upsets, history, tech.",
+      "many": "{n} Formula 1 stories with sources: scandals, upsets, history, tech.",
       "other": "{n} Formula 1 stories with sources: scandals, upsets, history, tech."
     },
     "ruler": "Stories on a 1950–2026 timeline",
@@ -1355,6 +1357,8 @@
     },
     "count": {
       "one": "{n} story",
+      "few": "{n} stories",
+      "many": "{n} stories",
       "other": "{n} stories"
     },
     "empty": "No stories in this section yet.",
@@ -1372,6 +1376,8 @@
     "minutes": "{n} min",
     "meterLabel": {
       "one": "claim checked",
+      "few": "claims checked",
+      "many": "claims checked",
       "other": "claims checked"
     },
     "meterKeys": {
