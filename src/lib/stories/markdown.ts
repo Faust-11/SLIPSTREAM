@@ -1,7 +1,8 @@
 /**
  * Розбирач тексту історій (content/stories/<slug>/{uk,en}.md) — лише підмножина формату README:
  * абзаци, `## ` глави, цитати `>` (1 рядок, або оригінал + переклад + `— хто · контекст`), `**жирний**`, `*курсив*`,
- * виноски `[^cN]`, фото `[[media:mN]]`, віджети `[[block:bN]]`, блоки `:::tldr` і `:::timeline`.
+ * виноски `[^cN]`, фото `[[media:mN]]`, віджети `[[block:bN]]`, блоки `:::tldr` і `:::timeline`,
+ * термін словника вручну `[[t:<id>|текст]]` (автоматичні — src/lib/glossary/mark.ts).
  * Результат — дерево даних; React-елементи будує сторінка (без сирого HTML — нічого не потрапляє в розмітку як є).
  */
 
@@ -9,7 +10,8 @@ export type Inline =
   | { t: "text"; v: string }
   | { t: "b"; c: Inline[] }
   | { t: "i"; c: Inline[] }
-  | { t: "fn"; claim: string };
+  | { t: "fn"; claim: string }
+  | { t: "term"; id: string; v: string };
 
 export type Block =
   | { type: "h2"; id: string; text: string }
@@ -25,13 +27,14 @@ const FN = /\[\^(c\d+)\]/g;
 /** Інлайн-розмітка: виноски, **жирний**, *курсив* (вкладеність — лише виноски всередині виділення). */
 export function parseInline(src: string): Inline[] {
   const out: Inline[] = [];
-  const re = /\*\*(.+?)\*\*|(?<![*\w])\*(?!\s)(.+?)(?<!\s)\*(?![*\w])|\[\^(c\d+)\]/g;
+  const re = /\*\*(.+?)\*\*|(?<![*\w])\*(?!\s)(.+?)(?<!\s)\*(?![*\w])|\[\^(c\d+)\]|\[\[t:([a-z0-9-]+)\|([^\]|]+)\]\]/g;
   let last = 0;
   for (const m of src.matchAll(re)) {
     if (m.index > last) out.push({ t: "text", v: src.slice(last, m.index) });
     if (m[1] !== undefined) out.push({ t: "b", c: parseFootnotes(m[1]) });
     else if (m[2] !== undefined) out.push({ t: "i", c: parseFootnotes(m[2]) });
-    else out.push({ t: "fn", claim: m[3]! });
+    else if (m[3] !== undefined) out.push({ t: "fn", claim: m[3] });
+    else out.push({ t: "term", id: m[4]!, v: m[5]! });
     last = m.index + m[0].length;
   }
   if (last < src.length) out.push({ t: "text", v: src.slice(last) });
@@ -144,6 +147,7 @@ export function parseStory(md: string): Block[] {
 export function countWords(md: string): number {
   const text = md
     .replace(FN, "")
+    .replace(/\[\[t:[a-z0-9-]+\|([^\]|]+)\]\]/g, "$1")
     .replace(/\[\[(media|block):\w+\]\]/g, "")
     .replace(/^:::.*$/gm, "")
     .replace(/[#>*_|]/g, " ");

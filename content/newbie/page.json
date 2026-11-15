@@ -1,0 +1,750 @@
+{
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "2026 Formula 1 Regulations – Section B [Sporting], Issue 09",
+      "publisher": "FIA",
+      "date": "2026-10-01",
+      "url": "https://www.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_b_sporting_-_iss_09_-_2026-10-01.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "2026 Formula 1 Regulations – Section B [Sporting], Issue 07",
+      "publisher": "FIA",
+      "date": "2026-06-25",
+      "url": "https://api.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_b_sporting_-_iss_07_-_2026-06-25.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "2026 Formula 1 Regulations – Section A [General Regulatory Provisions], Issue 03",
+      "publisher": "FIA",
+      "date": "2026-06-25",
+      "url": "https://www.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_a_general_provisions_-_iss_03_-_2026-06-25.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "2026 Formula 1 Regulations – Section C [Technical], Issue 21",
+      "publisher": "FIA",
+      "date": "2026-10-19",
+      "url": "https://www.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_c_technical_-_iss_21_-_2026-10-19.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "International Sporting Code – Appendix H 2026 (published 19/10/2026)",
+      "publisher": "FIA",
+      "date": "2026-10-19",
+      "url": "https://www.fia.com/system/files/documents/appendix_h_2026_published_19102026.pdf",
+      "kind": "primary",
+      "lang": "fr/en"
+    },
+    {
+      "id": "s6",
+      "title": "2026 Japanese Grand Prix – Competition Notes – Pirelli Preview (Doc 2)",
+      "publisher": "FIA (Race Director) / Pirelli",
+      "date": "2026-03-25",
+      "url": "https://www.fia.com/system/files/decision-document/2026_japanese_grand_prix_-_competition_notes_-_pirelli_preview.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "The beginner's guide to the F1 weekend",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/the-beginners-guide-to-the-formula-1-weekend.5RFZzGXNhEi9AEuMXwo987",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "The beginner's guide to the F1 Sprint",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/the-beginners-guide-to-the-f1-sprint.55yJBEiF7vYkZEwSV9lZJ9",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "The beginner's guide to F1 flags",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/the-beginners-guide-to-formula-1-flags.T5DqOqbWI6S4Va8Y5yMld",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "The beginner's guide to the 2026 Formula 1 regulations",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/the-beginners-guide-to-the-2026-regulations.6j0tS0hrHG2T01tpmK6XYz",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "F1 2026 regulations explained: The key terms for Formula 1's new-for-2026 rules",
+      "publisher": "Formula1.com",
+      "date": "2025-12-17",
+      "url": "https://www.formula1.com/en/latest/article/explained-the-new-key-terms-for-formula-1s-new-for-2026-rules.3T5BU6TC9quGcIpGzoWkY0",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Fastest lap point to be scrapped in 2025 after latest FIA World Motor Sport Council meeting",
+      "publisher": "Formula1.com",
+      "date": "2024-10-17",
+      "url": "https://www.formula1.com/en/latest/article/fastest-lap-point-to-be-scrapped-in-2025-after-latest-fia-world-motor-sport.4pUjDzWnGRN7KVWENLc1BY",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "What tyres will the teams and drivers have for the 2026 Japanese Grand Prix?",
+      "publisher": "Formula1.com",
+      "date": "2026-03-25",
+      "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-japanese-grand-prix.4V0p1BrC3PbEiWNzsivaSr",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "8 moments you missed at the 2025 Abu Dhabi Grand Prix",
+      "publisher": "Formula1.com",
+      "date": "2025-12-08",
+      "url": "https://www.formula1.com/en/latest/article/8-moments-you-missed-at-the-2025-abu-dhabi-grand-prix.5dTkUhVjZ3XUiyt0wIDZ4b",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "F1 Glossary A–E",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/f1-glossary-a-e.1MFONigMlQSbSQtpP7YCy2",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "F1 Glossary F–J",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/f1-glossary-f-j.2g6grJVxT6dFCDpSmgoCQX",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "F1 Glossary K–O",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/f1-glossary-k-o.6g2hrWHA2pyxbXoe8FT9Db",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "F1 Glossary P–T",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/f1-glossary-p-t.GBhLQtpeu9b8LrK5VM0F1",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "F1 Glossary U–Z",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/f1-glossary-u-z.5JSlDsnyvYmbK0TCjTs7KB",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "EXPLAINED: What does the maximum tyre stint length rule mean for the Qatar Grand Prix?",
+      "publisher": "Formula1.com",
+      "date": "2023-10-08",
+      "url": "https://www.formula1.com/en/latest/article/explained-what-does-the-maximum-tyre-stint-length-rule-mean-for-the-qatar.4q8iXkNgE3sLnIIASPV1sm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "The range of compounds for the 2026 season has been set",
+      "publisher": "Pirelli (press)",
+      "date": "2025-11-24",
+      "url": "https://press.pirelli.com/the-range-of-compounds-for-the-2026-season-has-been-set/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "Pirelli reveals 2026 F1 tyres: a fresh logo design and new compounds",
+      "publisher": "Pirelli (press)",
+      "date": "2025-12-09",
+      "url": "https://press.pirelli.com/pirelli-reveals-2026-f1-tyres-a-fresh-logo-design-and-new-compounds/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "Piastri ends Friday fastest at the Japanese Grand Prix",
+      "publisher": "Pirelli (press)",
+      "date": "2026-03-27",
+      "url": "https://press.pirelli.com/piastri-ends-friday-fastest-at-the-japanese-grand-prix/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s24",
+      "title": "Tyre compounds selected for Zandvoort, Monza and Madrid",
+      "publisher": "Pirelli (press)",
+      "date": "2026-07-28",
+      "url": "https://press.pirelli.com/tyre-compounds-selected-for-zandvoort-monza-and-madrid/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s25",
+      "title": "Pirelli Motorsport for Formula 1 (product page, 2026 range)",
+      "publisher": "Pirelli",
+      "date": null,
+      "url": "https://www.pirelli.com/tyres/en-ww/motorsport/car/formula-1",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s26",
+      "title": "How the F1 title is decided if multiple drivers are tied on equal points",
+      "publisher": "RacingNews365",
+      "date": "2025-12-07",
+      "url": "https://racingnews365.com/how-the-f1-title-is-decided-if-multiple-drivers-are-tied-on-equal-points",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s27",
+      "title": "Flags in F1: meaning",
+      "publisher": "RacingNews365",
+      "date": null,
+      "url": "https://racingnews365.com/flags-in-f1-meaning",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s28",
+      "title": "FIA confirms Q3 change in F1 2026 qualifying tweak",
+      "publisher": "PlanetF1",
+      "date": "2026-02-28",
+      "url": "https://www.planetf1.com/news/f1-2026-qualifying-format-change-fia-extra-minute-q3",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s29",
+      "title": "F1 jargon decoded: Breaking down what key Formula 1 words mean",
+      "publisher": "PlanetF1",
+      "date": "2024-08-18",
+      "url": "https://www.planetf1.com/news/f1-jargon-decoded-common-terms-glossary",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s30",
+      "title": "F1 Explained: A beginner's guide to all the key terms and definitions",
+      "publisher": "GPFans",
+      "date": "2024-02-23",
+      "url": "https://gpfans.com/en/f1-news/1010455/f1-terms-explained",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s31",
+      "title": "Farewell, then, DRS",
+      "publisher": "Motor Sport Magazine",
+      "date": "2025-12-19",
+      "url": "https://www.motorsportmagazine.com/archive/article/february-2026/10/farewell-then-drs",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s32",
+      "title": "AvaTrade explains the F1 rulebook: race starts",
+      "publisher": "Aston Martin Aramco F1 Team",
+      "date": "2023-08-23",
+      "url": "https://www.astonmartinf1.com/en-GB/news/feature/avatrade-explains-the-f1-rulebook-race-starts",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s33",
+      "title": "F1 rules explained: How many pit stops are required in a race?",
+      "publisher": "Motorsport Week",
+      "date": "2024-09-12",
+      "url": "https://motorsportweek.com/2024/09/12/f1-rules-explained-how-many-pit-stops-are-required-in-a-race",
+      "kind": "secondary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "section": "basics",
+      "text": "Ничья по очкам в чемпионате решается числом побед, затем вторых мест и т.д.",
+      "sources": [
+        "s3",
+        "s26"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "section": "basics",
+      "text": "Дистанция ГП — минимальное число полных кругов > 305 км; Монако — 260 км",
+      "sources": [
+        "s1",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "section": "basics",
+      "text": "Лимит гонки 2 часа; время остановки под красным флагом не входит",
+      "sources": [
+        "s1",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "section": "basics",
+      "text": "Старт — п’ять червоних вогнів, по одному щосекунди; гаснуть — старт (B5.7.2)",
+      "sources": [
+        "s1",
+        "s32"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c5",
+      "section": "weekend",
+      "text": "Обычный уикенд: FP1, FP2 — пт; FP3, квалификация — сб; гонка — вс",
+      "sources": [
+        "s1",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "section": "weekend",
+      "text": "Спринт-уикенд: FP1 + спринт-квалификация — пт; спринт + квалификация — сб; гонка — вс",
+      "sources": [
+        "s1",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c7",
+      "section": "weekend",
+      "text": "Q1 18 хв, Q2 15 хв, Q3 13 хв (B2.4.2c, Iss 09; у макеті було 12 — виправлено)",
+      "sources": [
+        "s1",
+        "s2",
+        "s7",
+        "s28"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "section": "weekend",
+      "text": "При 22 машинах после Q1 и Q2 выбывают по 6 (места 17–22 и 11–16)",
+      "sources": [
+        "s1",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "section": "weekend",
+      "text": "Спринт-квалификация 12/10/8 мин",
+      "sources": [
+        "s1",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "section": "points",
+      "text": "Очки ГП 25-18-15-12-10-8-6-4-2-1",
+      "sources": [
+        "s3",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "section": "points",
+      "text": "Спринт: 8…1 для первой восьмёрки",
+      "sources": [
+        "s3",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c12",
+      "section": "points",
+      "text": "Максимум 25 за уикенд или 33 со спринтом",
+      "sources": [
+        "s3",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "section": "points",
+      "text": "Очка за быстрейший круг нет",
+      "sources": [
+        "s3",
+        "s12",
+        "s16"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c14",
+      "section": "tyres",
+      "text": "Поставщик — Pirelli (единый)",
+      "sources": [
+        "s1",
+        "s22"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "section": "tyres",
+      "text": "5 типов: H белые, M жёлтые, S красные, Inter зелёные, Wet синие",
+      "sources": [
+        "s22",
+        "s19",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c16",
+      "section": "tyres",
+      "text": "Intermediate — для лёгкого дождя / подсыхающей трассы; Wet — для сильного дождя",
+      "sources": [
+        "s25",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c17",
+      "section": "tyres",
+      "text": "Сухих составов в 2026 — пять, C1–C5",
+      "sources": [
+        "s21",
+        "s22"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c18",
+      "section": "tyres",
+      "text": "На каждый ГП Pirelli выбирает три состава из пяти",
+      "sources": [
+        "s1",
+        "s24"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c19",
+      "section": "tyres",
+      "text": "Сузука 2026 = C1, C2, C3",
+      "sources": [
+        "s6",
+        "s13",
+        "s23"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c20",
+      "section": "tyres",
+      "text": "В сухой гонке обязательно два разных сухих состава",
+      "sources": [
+        "s1",
+        "s33"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c21",
+      "section": "tyres",
+      "text": "Правило двох складів не діє, якщо пілот у гонці їхав на проміжних або дощових шинах (B6.3.6)",
+      "sources": [
+        "s1",
+        "s33"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "section": "tyres",
+      "text": "Мягкие быстрее, но изнашиваются раньше; твёрдые медленнее, но живут дольше",
+      "sources": [
+        "s25"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c23",
+      "section": "tyres",
+      "text": "Спринт-квалификация: medium в SQ1–SQ2, soft в SQ3",
+      "sources": [
+        "s1",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c24",
+      "section": "flags",
+      "text": "Маршалы показывают флаги; световые панели дублируют сигналы",
+      "sources": [
+        "s5",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "section": "flags",
+      "text": "Зелёный: трасса свободна; в начале сессии и после зоны жёлтых",
+      "sources": [
+        "s5",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c26",
+      "section": "flags",
+      "text": "Жёлтый: опасность у трассы/частично на ней; сбросить, не обгонять",
+      "sources": [
+        "s5",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c27",
+      "section": "flags",
+      "text": "Двойной жёлтый: трасса заблокирована / работают маршалы; сильно сбросить, готовность остановиться",
+      "sources": [
+        "s5",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c28",
+      "section": "flags",
+      "text": "Красный: сессия остановлена; в гонке все медленно едут на пит-лейн и ждут",
+      "sources": [
+        "s5",
+        "s1",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c29",
+      "section": "flags",
+      "text": "Синій прапор: вас наздоганяють на коло — пропустіть; за ігнорування можливий штраф",
+      "sources": [
+        "s5",
+        "s9",
+        "s27"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c30",
+      "section": "flags",
+      "text": "Белый: впереди значительно более медленный автомобиль",
+      "sources": [
+        "s5",
+        "s9",
+        "s27"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c31",
+      "section": "flags",
+      "text": "Жёлтый с красными полосами: скользко (масло/вода)",
+      "sources": [
+        "s5",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c32",
+      "section": "flags",
+      "text": "Чёрно-белый диагональный: предупреждение за неспортивное поведение, с номером пилота",
+      "sources": [
+        "s5",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c33",
+      "section": "flags",
+      "text": "Чёрный с оранжевым кругом: опасная техническая неисправность, срочно в боксы",
+      "sources": [
+        "s5",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c34",
+      "section": "flags",
+      "text": "Чёрный: дисквалификация, сразу вернуться в гараж",
+      "sources": [
+        "s9",
+        "s27",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c35",
+      "section": "flags",
+      "text": "Клетчатый: конец сессии/гонки; машут, пока все не пересекут линию",
+      "sources": [
+        "s5",
+        "s9",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c36",
+      "section": "overtake",
+      "text": "Болиды 2026: подвижные крылья спереди и сзади + батарея, которой управляет пилот",
+      "sources": [
+        "s1",
+        "s4",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c37",
+      "section": "overtake",
+      "text": "Straight Mode: в заданных зонах элементы переднего и заднего крыла открываются, сопротивление падает; доступен каждому на каждом круге",
+      "sources": [
+        "s1",
+        "s4",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c38",
+      "section": "overtake",
+      "text": "Corner Mode: обычное положение крыльев с максимальной прижимной силой, вне зон Straight Mode",
+      "sources": [
+        "s1",
+        "s4",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c39",
+      "section": "overtake",
+      "text": "Overtake Mode: якщо в точці детекції відставання менше порогу (зазвичай 1 с, FIA задає на етап) — додаткова енергія на наступному колі",
+      "sources": [
+        "s4",
+        "s1",
+        "s11",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c40",
+      "section": "overtake",
+      "text": "Boost: кнопка на руле, отдаёт энергию батареи, работает где угодно, в атаке и защите",
+      "sources": [
+        "s4",
+        "s11",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c41",
+      "section": "overtake",
+      "text": "DRS — заслонка заднего крыла, открывалась при отставании < 1 с; 15 сезонов (2011–2025), убран в 2026",
+      "sources": [
+        "s31",
+        "s14",
+        "s10",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c42",
+      "section": "basics",
+      "text": "Із зупинками через червоний прапор гонка не може тривати довше трьох годин (B2.5.3b)",
+      "sources": [
+        "s1",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c43",
+      "section": "points",
+      "text": "Повні очки — лише якщо лідер проїхав щонайменше 75% дистанції (A2.2.1)",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    }
+  ]
+}
