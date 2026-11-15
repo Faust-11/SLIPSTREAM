@@ -1,0 +1,5 @@
+{
+ "_about": "Напрям руху гонки на трасах календаря 2026 (для анімації значка на схемі головної). Джерело — користувач 15.11.2026: проти годинникової стрілки — Маямі, Баку, Сінгапур, Остін, Бразилія, Лас-Вегас, Абу-Дабі (і Джидда — етап скасовано); решта трас календаря — за годинниковою. Траса без запису — без анімації (напрям невідомий).",
+ "ccw": ["miami", "baku", "marina_bay", "americas", "interlagos", "vegas", "yas_marina", "jeddah"],
+ "cw": ["albert_park", "shanghai", "suzuka", "villeneuve", "monaco", "catalunya", "red_bull_ring", "silverstone", "spa", "hungaroring", "zandvoort", "monza", "madring", "sepang", "rodriguez", "losail"]
+}

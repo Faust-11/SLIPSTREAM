@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
-import { getHomePage, latestKey, rankRecords } from "../home";
+import { pathClockwise } from "@/lib/circuit-math";
+import { getHomePage, latestKey, layoutMotion, rankRecords } from "../home";
 
 vi.mock("server-only", () => ({}));
 vi.mock("@/lib/data/db", async () => {
@@ -60,6 +61,23 @@ describe("rankRecords", () => {
   });
 });
 
+describe("pathClockwise / layoutMotion", () => {
+  // y донизу: (0,0) → (10,0) → (10,10) → (0,10) — на екрані за годинниковою стрілкою.
+  const cw = "M0 0L10 0L10 10L0 10Z";
+  const ccw = "M0 0L0 10L10 10L10 0Z";
+  it("знак площі: за годинниковою — true, проти — false, менше трьох точок — null", () => {
+    expect(pathClockwise(cw)).toBe(true);
+    expect(pathClockwise(ccw)).toBe(false);
+    expect(pathClockwise("M0 0L1 1")).toBeNull();
+  });
+  it("значок: напрям гонки = обхід шляху — forward, інакше reverse; траса без запису — null", () => {
+    expect(layoutMotion("vegas", ccw)).toBe("forward"); // Лас-Вегас — проти годинникової (користувач 15.11)
+    expect(layoutMotion("vegas", cw)).toBe("reverse");
+    expect(layoutMotion("monza", cw)).toBe("forward");
+    expect(layoutMotion("pescara", cw)).toBeNull();
+  });
+});
+
 describe("latestKey", () => {
   it("найпізніша гонка: рік, потім етап; порожньо — null", () => {
     expect(latestKey([{ year: 2025, round: 24 }, { year: 2026, round: 3 }, { year: 2026, round: 20 }])).toEqual({ year: 2026, round: 20 });
@@ -84,6 +102,8 @@ describe("getHomePage — 2026 (фікстура db.yml)", () => {
     expect([p.next?.round, p.next?.gp, p.next?.raceAt]).toEqual([21, "Гран-прі Лас-Вегаса", "2026-11-22T04:00:00+00:00"]);
     expect(p.next?.circuit?.slug).toBe("vegas");
     expect(p.next?.circuit?.layout?.d).toMatch(/^M/);
+    // Лас-Вегас — проти годинникової; значок рухається так, щоб збігтися з напрямом гонки (не null).
+    expect(["forward", "reverse"]).toContain(p.next?.circuit?.motion);
   });
 
   it("рекорди: перемоги — Гамільтон; титули — Шумахер і Гамільтон по 7; Кубки — Ferrari", async () => {

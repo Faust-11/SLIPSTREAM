@@ -62,17 +62,49 @@ test("перемикач заліку: «Команди» прокручує д�
 test("новини: клієнт підвантажує /api/news (знімок e2e/fixtures/news) — по 10 заголовків і постів, посилання назовні", async ({ page }) => {
   await page.goto("/uk");
   await expect(page.locator("#hm-nw-0 > li")).toHaveCount(10);
-  await expect(page.locator("#hm-nw-1 > li")).toHaveCount(10);
+  await expect(page.locator("#hm-nw-1 .hm-posts > li")).toHaveCount(10);
   await expect(page.locator("#hm-nw-0 a").first()).toHaveAttribute("href", /^https:\/\//);
   // Пост: доступна назва посилання — не лише час, а й автор.
   await expect(page.locator("#hm-nw-1 .hm-post-link").first()).toContainText("пост");
+  // Прев'ю видань — як на /news (відгук користувача 15.11).
+  await expect(page.locator("#hm-nw-0 img.hm-th").first()).toBeAttached();
+  // Прев'ю — мініатюра 112 px поруч із заголовком, а не на всю колонку; заголовок без підкреслення (лише при наведенні).
+  const look = await page.locator("#hm-nw-0 > li").first().evaluate((li) => ({
+    th: li.querySelector("img")!.getBoundingClientRect().width,
+    deco: getComputedStyle(li.querySelector(".hm-hl-t")!).textDecorationLine,
+  }));
+  expect(look.th).toBeLessThanOrEqual(120);
+  expect(look.deco).toBe("none");
+});
+
+test("широкий екран: колонка журналістів не нижча за заголовки — зайві пости сховані цілими (відгук 15.11)", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/uk");
+  await expect(page.locator("#hm-nw-0 > li")).toHaveCount(10);
+  await page.locator("#hm-nw-0 img").evaluateAll((imgs) => Promise.all(imgs.map((i) => ((i as HTMLImageElement).loading = "eager"))));
+  await expect
+    .poll(() =>
+      page.evaluate(() => {
+        const h = document.getElementById("hm-nw-0")!.getBoundingClientRect();
+        const posts = [...document.querySelectorAll<HTMLElement>("#hm-nw-1 .hm-posts > li:not([hidden])")];
+        return posts.length > 0 && posts.at(-1)!.getBoundingClientRect().bottom <= h.bottom + 1;
+      }),
+    )
+    .toBe(true);
+});
+
+test("схема наступної траси: значок рухається (animateMotion по тому самому шляху); «менше руху» — схований", async ({ page }) => {
+  await page.goto("/uk");
+  await expect(page.locator(".hm-map-car animateMotion mpath")).toHaveAttribute("href", "#hm-map-route");
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(page.locator(".hm-map-car")).toBeHidden();
 });
 
 test("гонка стартувала до оновлення даних: «стартувала», відлік — до етапу 22 (як календар)", async ({ page }) => {
   await page.clock.setFixedTime(new Date("2026-11-22T05:00:00Z"));
   await page.goto("/uk");
   await expect(page.locator(".hm-count-note")).toContainText("етап 22");
-  await expect(page.locator(".hm-count b").first()).toHaveText("6"); // 22.11 05:00 → 29.11 (Катар)
+  await expect(page.locator(".hm-count b").first()).toHaveText("7"); // 22.11 05:00 → Катар 29.11 16:00 = 7 дн 11 год
 });
 
 test.describe("без JavaScript", () => {

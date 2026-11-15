@@ -8,14 +8,14 @@ export const revalidate = 1800;
 const TAKE = 10;
 
 export type HomeNewsPayload = {
-  headlines: { id: string; source: string; title: string; url: string; publishedAt: string | null }[];
+  headlines: { id: string; source: string; title: string; url: string; image: string | null; publishedAt: string | null }[];
   posts: { id: string; name: string; handle: string; text: string; url: string; createdAt: string }[];
 };
 
 export async function GET() {
   const news = await getNews();
   const body: HomeNewsPayload = {
-    headlines: news.headlines.slice(0, TAKE).map((h) => ({ id: h.id, source: h.source, title: h.title, url: h.url, publishedAt: h.publishedAt })),
+    headlines: news.headlines.slice(0, TAKE).map((h) => ({ id: h.id, source: h.source, title: h.title, url: h.url, image: h.image, publishedAt: h.publishedAt })),
     posts: news.posts.slice(0, TAKE).map((p) => ({ id: p.id, name: p.name, handle: p.handle, text: p.text, url: p.url, createdAt: p.createdAt })),
   };
   return Response.json(body);
