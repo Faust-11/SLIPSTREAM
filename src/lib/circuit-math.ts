@@ -77,3 +77,19 @@ export function circuitSlug(ref: string): string {
 export function circuitPath(ref: string): string {
   return `/circuits/${circuitSlug(ref)}`;
 }
+
+/**
+ * Обхід замкненого контуру схеми (шлях «M x y L x y … Z» у координатах SVG, y донизу) — за годинниковою стрілкою на
+ * екрані? Знак площі за формулою шнурка: у системі з y донизу додатна — за годинниковою. Поворот схеми (rot) знака не
+ * змінює. null — менше трьох точок.
+ */
+export function pathClockwise(d: string): boolean | null {
+  const pts = [...d.matchAll(/[ML]\s*(-?[\d.]+)[ ,](-?[\d.]+)/g)].map((m) => [Number(m[1]), Number(m[2])] as const);
+  if (pts.length < 3) return null;
+  let a = 0;
+  pts.forEach(([x, y], i) => {
+    const [nx, ny] = pts[(i + 1) % pts.length]!;
+    a += x * ny - nx * y;
+  });
+  return a > 0;
+}

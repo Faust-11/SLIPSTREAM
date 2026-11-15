@@ -1,6 +1,8 @@
 import "server-only";
+import circuitDirections from "@/data/curated/circuit-directions.json";
 import circuitsJson from "@/data/curated/circuits.json";
 import type { Locale } from "@/i18n/config";
+import { pathClockwise } from "@/lib/circuit-math";
 import { getCalendarPage, type CalendarCard } from "./calendar";
 import { circuitBySlug, getCircuitPage, type CircuitLayout, type CreditItem } from "./circuits";
 import { driverPortrait, loadDriverIndex } from "./drivers";
@@ -72,6 +74,8 @@ export type HomeNext = {
     slug: string;
     name: string;
     layout: CircuitLayout["page"] | null;
+    /** Значок на схемі: рух уздовж шляху (forward) чи назустріч (reverse), щоб збігтися з напрямом гонки; null — напрям невідомий. */
+    motion: "forward" | "reverse" | null;
     lengthKm: number | null;
     turns: number | null;
     laps: number | null;
@@ -116,6 +120,15 @@ export type HomePage = {
 
 /** Скільки пілотів заліку на головній (решта — «Повний залік →»). */
 export const STANDINGS_TOP = 10;
+
+const DIRS = circuitDirections as { ccw: string[]; cw: string[] };
+/** Напрям гонки (circuit-directions.json, джерело — користувач 15.11) проти обходу шляху схеми → як рухати значок. */
+export function layoutMotion(ref: string, d: string | null): "forward" | "reverse" | null {
+  const want = DIRS.cw.includes(ref) ? true : DIRS.ccw.includes(ref) ? false : null;
+  const cw = d ? pathClockwise(d) : null;
+  if (want === null || cw === null) return null;
+  return cw === want ? "forward" : "reverse";
+}
 
 async function nextCircuitPage(card: CalendarCard | null, locale: Locale) {
   const ref = card?.circuitSlug ? await circuitBySlug(card.circuitSlug) : null;
@@ -202,6 +215,7 @@ export async function getHomePage(locale: Locale): Promise<HomePage> {
             slug: cp.slug,
             name: cp.short,
             layout: cp.layout?.page ?? null,
+            motion: layoutMotion(cp.ref, cp.layout?.page.d ?? null),
             lengthKm: cp.facts?.lengthKm ?? null,
             turns: cp.facts?.turns ?? null,
             laps: cp.facts?.laps ?? null,

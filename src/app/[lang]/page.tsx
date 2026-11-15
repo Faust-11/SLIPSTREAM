@@ -99,7 +99,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <ol className="hm-rec-list">
         {list.rest.map((r) => (
           <li key={key(r.who)}>
-            <span className="hm-rec-p num">{r.rank}</span>
             {who(r.who)}
             <span className="hm-rec-v num">{n(r.n)}</span>
           </li>
@@ -445,7 +444,21 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                       <figcaption>{t.mapHead}</figcaption>
                       <svg viewBox={`-40 -40 ${next.circuit.layout.w + 80} ${next.circuit.layout.h + 80}`} role="img" aria-label={next.circuit.name}>
                         <path className="hm-map-casing" d={next.circuit.layout.d} />
-                        <path className="hm-map-line" d={next.circuit.layout.d} />
+                        <path id="hm-map-route" className="hm-map-line" d={next.circuit.layout.d} />
+                        {/* Значок їде за напрямом гонки (circuit-directions.json, макет головної); «менше руху» — схований (CSS). */}
+                        {next.circuit.motion && (
+                          <circle className="hm-map-car" r={24}>
+                            <animateMotion
+                              dur="10s"
+                              repeatCount="indefinite"
+                              calcMode="linear"
+                              keyPoints={next.circuit.motion === "reverse" ? "1;0" : "0;1"}
+                              keyTimes="0;1"
+                            >
+                              <mpath href="#hm-map-route" />
+                            </animateMotion>
+                          </circle>
+                        )}
                       </svg>
                     </figure>
                   )}
@@ -597,6 +610,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               empty: t.newsEmpty,
               post: dict.newsPage.openBskyAuthor,
               sources: { f1: "Formula 1", motorsport: "Motorsport.com", autosport: "Autosport" },
+              morePosts: t.morePosts,
+              morePostsHref: path("/news?v=bsky"),
             }}
           />
         </div>

@@ -7,7 +7,7 @@
 `wiki` у src/data/curated/circuits.json (з дампу Jolpica). Зображення статті (API pageimages, лише вільні — pilicense=free)
 → SVG (схеми трас) не беремо → перевірка ліцензії на Commons (is_free: без NC/ND) і автор з Commons → мініатюра 1280 px
 (менші — локально) → public/img/circuits/<ref>-hero-*.webp → поля "hero" і "credit" траси в circuits.json.
-Вужчі за 960 px — без банера (на сторінці — темний банер). Ручні правки зберігаються: "hero.focusY", "rejected" (відкинуті переглядом файли), "manual"
+Вужчі за 960 px — без банера (на сторінці — темний банер). Ручні правки зберігаються: "hero.focusY", "rejected" (відкинуті переглядом файли), "file" (вибраний файл — перший кандидат), "manual"
 (фото, яке вибрав користувач, — скрипт його не перезаписує). ОДИН процес (ліміти Wikimedia).
 """
 from __future__ import annotations
@@ -89,6 +89,11 @@ def main() -> int:
     norm = lambda f: f.replace("_", " ").strip()  # noqa: E731 — pageimages віддає «_», P18 — пробіли
     rej = {ref: {norm(r["file"]) for r in v.get("rejected", [])} for ref, v in places.items()}
     cands = {ref: [f for f in (pageimg.get(v["wiki"]), p18.get(canon[v["wiki"]])) if f and norm(f) not in rej[ref]] for ref, v in places.items()}
+    # "file" — файл Commons, вибраний переглядом (14–15.11: Лас-Вегас — фото з макета головної, бо зображення статті — схема):
+    # іде першим кандидатом, з тими самими перевірками ліцензії й ширини.
+    for ref, v in places.items():
+        if v.get("file"):
+            cands[ref] = [v["file"], *[f for f in cands[ref] if norm(f) != norm(v["file"])]]
     info: dict[str, dict] = {}
     for part in tf.chunks(sorted({f for fs in cands.values() for f in fs if not f.lower().endswith(".svg")})):
         q = {"action": "query", "format": "json", "formatversion": "2", "prop": "imageinfo",
