@@ -43,7 +43,7 @@ export function deployState(status: { state: string } | null, committedAt: strin
   return { level: "bad", label: status ? "Збірка зависла" : "Збірка не почалась" };
 }
 
-export type RunInfo = { conclusion: string | null; status: string; at: string; url: string } | null;
+export type RunInfo = { conclusion: string | null; status: string; at: string; url: string; sha: string } | null;
 
 export function runLevel(run: RunInfo): Level {
   if (!run) return "bad";
@@ -91,17 +91,19 @@ export type GitHubState = {
   open: { number: number; title: string; url: string; draft: boolean }[];
 };
 
-type GhRun = { status: string; conclusion: string | null; created_at: string; html_url: string };
+type GhRun = { status: string; conclusion: string | null; created_at: string; html_url: string; head_sha: string };
 type GhPull = { number: number; title: string; html_url: string; draft: boolean; merged_at: string | null; labels: { name: string }[] };
 
-const toRun = (r: GhRun | undefined): RunInfo => (r ? { status: r.status, conclusion: r.conclusion, at: r.created_at, url: r.html_url } : null);
+const toRun = (r: GhRun | undefined): RunInfo => (r ? { status: r.status, conclusion: r.conclusion, at: r.created_at, url: r.html_url, sha: r.head_sha } : null);
 
 export async function loadGitHubState(gh: GitHub, now = Date.now()): Promise<GitHubState> {
   const [commit, status, sync, ci, closed, open] = await Promise.all([
     gh.request<{ sha: string; commit: { committer: { date: string } } }>("GET", "/commits/main"),
     gh.request<{ statuses: { context: string; state: string }[] }>("GET", "/commits/main/status"),
     gh.request<{ workflow_runs: GhRun[] }>("GET", "/actions/workflows/data-sync.yml/runs?per_page=1"),
-    gh.request<{ workflow_runs: GhRun[] }>("GET", "/actions/workflows/ci.yml/runs?branch=main&per_page=1"),
+    // Лише push у main: злиття токеном Actions (автозлиття адмінки) push-прогонів не запускають — тоді коміт main
+    // перевірено в PR, а тут видно старіший прогін (сторінка показує це через sha).
+    gh.request<{ workflow_runs: GhRun[] }>("GET", "/actions/workflows/ci.yml/runs?branch=main&event=push&per_page=1"),
     gh.request<GhPull[]>("GET", "/pulls?state=closed&sort=updated&direction=desc&per_page=50"),
     gh.request<GhPull[]>("GET", "/pulls?state=open&per_page=50"),
   ]);

@@ -1,4 +1,4 @@
-import { adminEnv } from "@/lib/admin/env";
+import { adminEnv, sameKey } from "@/lib/admin/env";
 import { startLogin } from "@/lib/admin/oidc";
 import { FLOW_COOKIE, FLOW_TTL_S, signFlow } from "@/lib/admin/token";
 import { siteUrl } from "@/lib/seo";
@@ -9,9 +9,10 @@ export const dynamic = "force-dynamic";
 const toAdmin = () => new Response(null, { status: 303, headers: { Location: new URL("/admin", siteUrl()).href, "Cache-Control": "no-store" } });
 
 /** Вхід адміна: перенаправлення на Google. */
-export async function GET(): Promise<Response> {
+export async function GET(request: Request): Promise<Response> {
   const env = adminEnv();
-  if (!env) return toAdmin();
+  // Те саме, що й у src/proxy.ts: межа безпеки — тут, proxy лише ховає.
+  if (!env || !sameKey(new URL(request.url).searchParams.get("key") ?? "", env.loginKey)) return toAdmin();
   try {
     const { url, flow } = await startLogin(env, siteUrl().origin);
     const cookie = [

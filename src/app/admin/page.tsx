@@ -92,8 +92,11 @@ export default async function AdminOverview({ searchParams }: { searchParams: Pr
                     <b>Перевірки main</b>
                     <small>CI: unit, формат історій, e2e</small>
                   </td>
-                  <td className="ad-mono">{gh?.ciMain ? when(gh.ciMain.at) : "—"}</td>
-                  <td>{gh ? <Chip level={runLevel(gh.ciMain)}>{runLabel(gh.ciMain)}</Chip> : <Chip level="one">невідомо</Chip>}</td>
+                  <td className="ad-mono">{gh?.ciMain ? `${gh.ciMain.sha.slice(0, 7)} · ${when(gh.ciMain.at)}` : "—"}</td>
+                  <td>
+                    {gh ? <Chip level={runLevel(gh.ciMain)}>{runLabel(gh.ciMain)}</Chip> : <Chip level="one">невідомо</Chip>}
+                    {gh?.ciMain && gh.ciMain.sha !== gh.main.sha && <small>Останній коміт main перевірено лише в PR</small>}
+                  </td>
                 </tr>
                 <tr>
                   <td>
@@ -125,7 +128,7 @@ export default async function AdminOverview({ searchParams }: { searchParams: Pr
             <ul className="ad-att">
               {o.attention.map((a) => (
                 <li key={a.title} className={`is-${a.level}`}>
-                  <b>{a.title}</b>
+                  <b>{a.href ? <a href={a.href}>{a.title}</a> : a.title}</b>
                   <span>{a.text}</span>
                 </li>
               ))}

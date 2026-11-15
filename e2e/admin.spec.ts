@@ -5,6 +5,7 @@ import { expectNoA11yViolations } from "./axe";
 const ADMIN = "owner@example.test";
 const IDP = "http://127.0.0.1:4455";
 const BASE = "http://localhost:3100";
+const LOGIN_KEY = "e2e-login-key-0123456789";
 
 // Проти прев'ю/проду (BASE_URL) — лише перевірки стороннього: фейкового провайдера там немає.
 const local = !process.env.BASE_URL;
@@ -15,7 +16,7 @@ async function asUser(context: BrowserContext, user: string) {
 
 async function login(page: Page, user = ADMIN) {
   await asUser(page.context(), user);
-  return page.goto("/admin/auth/login");
+  return page.goto(`/admin/auth/login?key=${LOGIN_KEY}`);
 }
 
 /** Текст 404 сайту — той самий, що для будь-якої неіснуючої адреси. */
@@ -30,6 +31,20 @@ test.describe("сторонній адмінки не бачить", () => {
     expect(reference.status).toBe(404);
     for (const path of ["/admin", "/admin/", "/admin/system", "/admin/photos", "/admin/auth/logout"]) {
       expect(await notFoundSnapshot(page, path), path).toEqual(reference);
+    }
+  });
+
+  test("без переходів за редиректами: /admin, вхід без ключа чи з чужим, повернення без стану — прямо 404, заголовки як у неіснуючої сторінки", async ({ request }) => {
+    // Заголовки, що різняться між будь-якими двома відповідями (час, розмір, кеш), не порівнюємо.
+    const VOLATILE = new Set(["date", "etag", "content-length", "x-vercel-id", "age", "x-vercel-cache", "server-timing"]);
+    const shape = async (path: string) => {
+      const res = await request.get(path, { maxRedirects: 0 });
+      return { status: res.status(), headers: Object.keys(res.headers()).filter((h) => !VOLATILE.has(h)).sort() };
+    };
+    const reference = await shape("/zzz-not-a-page");
+    expect(reference.status).toBe(404);
+    for (const path of ["/admin", "/admin/system", "/admin/auth/login", "/admin/auth/login?key=wrong-key-0123456789", "/admin/auth/callback?code=a&state=b"]) {
+      expect(await shape(path), path).toEqual(reference);
     }
   });
 
@@ -97,7 +112,7 @@ test.describe("вхід через Google", () => {
   });
 
   test("вхід скасовано на боці Google — 404", async ({ page }) => {
-    expect((await page.goto("/admin/auth/login"))?.status()).toBe(404);
+    expect((await page.goto(`/admin/auth/login?key=${LOGIN_KEY}`))?.status()).toBe(404);
   });
 
   test("вихід з чужого сайту (інший Origin) не спрацьовує", async ({ page }) => {
