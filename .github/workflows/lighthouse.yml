@@ -46,25 +46,46 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          # HEAD у PR — тестовий merge-коміт; перший батько — main, тож різниця PR = HEAD^1..HEAD.
+          fetch-depth: 2
+
+      # Лише сторінки, які змінює PR (рішення користувача 15.11): розділ → його сторінки; спільні файли — усі.
+      - name: Сторінки для Lighthouse
+        id: pages
+        env:
+          EVENT: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT" = "pull_request" ]; then
+            pages=$(git diff --name-only HEAD^1 HEAD | node scripts/lighthouse-pages.mjs)
+          else
+            pages=ALL
+          fi
+          echo "pages=$pages" >> "$GITHUB_OUTPUT"
+          echo "Сторінки: ${pages:-немає (лише тести, документація чи скрипти)}"
 
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .nvmrc
           cache: npm
 
-      - run: npm ci
+      - if: steps.pages.outputs.pages != ''
+        run: npm ci
       - name: Фейкова база (фікстура e2e/fixtures/db)
+        if: steps.pages.outputs.pages != ''
         run: |
           node scripts/dev/fake-postgrest.mjs > /tmp/fake-postgrest.log 2>&1 &
           for i in $(seq 1 30); do curl -sf -o /dev/null -H "apikey: x" -H "accept-profile: f1" http://127.0.0.1:54321/rest/v1/site_meta && exit 0; sleep 1; done
           cat /tmp/fake-postgrest.log; exit 1
-      - run: npm run build
+      - if: steps.pages.outputs.pages != ''
+        run: npm run build
 
       - name: Версія Playwright
+        if: steps.pages.outputs.pages != ''
         id: pw
         run: echo "version=$(node -p "require('@playwright/test/package.json').version")" >> "$GITHUB_OUTPUT"
 
       - name: Кеш браузерів Playwright
+        if: steps.pages.outputs.pages != ''
         id: pw-cache
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
@@ -72,30 +93,35 @@ jobs:
           key: playwright-${{ runner.os }}-${{ env.ImageOS }}-${{ steps.pw.outputs.version }}
 
       - name: Встановити Chromium
-        if: steps.pw-cache.outputs.cache-hit != 'true'
+        if: steps.pages.outputs.pages != '' && steps.pw-cache.outputs.cache-hit != 'true'
         run: npx playwright install chromium
 
       # Через apt (дзеркала Ubuntu): 11.11 DNS security.ubuntu.com на раннері падав і валив увесь прогін.
       # Образ раннера вже має бібліотеки Chrome; якщо чогось бракує — e2e/Lighthouse впадуть із явною помилкою.
       - name: Системні залежності Chromium
+        if: steps.pages.outputs.pages != ''
         continue-on-error: true
         timeout-minutes: 5
         run: npx playwright install-deps chromium
 
       - name: Сервер
+        if: steps.pages.outputs.pages != ''
         run: |
           npx next start -p 3100 > next.log 2>&1 &
           for i in $(seq 1 30); do curl -sf http://localhost:3100/ > /dev/null && exit 0; sleep 1; done
           cat next.log; exit 1
 
       - name: Lighthouse (мобільний, медіана 3 прогонів)
+        if: steps.pages.outputs.pages != ''
+        env:
+          LH_PAGES: ${{ steps.pages.outputs.pages }}
         run: |
           export CHROME_PATH="$(node -p "require('playwright-core').chromium.executablePath()")"
           export LH_NO_SANDBOX=1
           node scripts/lighthouse.mjs --runs 3 --out lighthouse-report
 
       - name: Звіти
-        if: always()
+        if: always() && steps.pages.outputs.pages != ''
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: lighthouse-report
