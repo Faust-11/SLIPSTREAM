@@ -952,11 +952,13 @@
   text-transform: uppercase;
   color: #ffe38a;
 }
+/* Число зверху, рекордсмени під ним — однаково в усіх колонках (відгук користувача 15.11: «7» з двома лідерами
+   праворуч стояло нижче за сусідні числа). */
 .hm-rec-top {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
   padding-bottom: 12px;
   border-bottom: var(--b2) solid rgb(255 255 255 / 0.4);
 }
@@ -969,7 +971,7 @@
 }
 .hm-rec-who {
   display: flex;
-  flex: 1 1 140px;
+  flex: none;
   flex-direction: column;
   gap: 6px;
   min-width: 0;
@@ -1010,6 +1012,17 @@
     padding-inline-start: 20px;
     border-inline-start: var(--b2) solid rgb(255 255 255 / 0.4);
   }
+  /* Спільні рядки трьох колонок (subgrid): заголовок / число з лідерами / список — розділювачі під лідерами на одній
+     лінії, навіть коли лідерів двоє (титули: Гамільтон і Шумахер). */
+  .hm-records .hm-slider {
+    grid-template-rows: auto auto minmax(0, 1fr);
+  }
+  .hm-rec {
+    display: grid;
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+  }
 }
 @media (min-width: 1101px) {
   /* Поруч із заліком: висоту ряду задає залік (contain: size — довгі списки рекордів її не роздувають), колонки
@@ -1018,7 +1031,6 @@
     flex: 1 1 0;
     min-block-size: 0;
     contain: size;
-    grid-template-rows: minmax(0, 1fr);
   }
   .hm-rec-list {
     flex: 1 1 0;

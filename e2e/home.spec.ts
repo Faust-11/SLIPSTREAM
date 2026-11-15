@@ -122,6 +122,14 @@ test("чемпіонат і рекорди (1280): низ трьох списк�
   expect(Math.abs(m.above - m.below)).toBeLessThanOrEqual(2);
   for (const b of m.lists) expect(Math.abs(b - m.panelBottom)).toBeLessThanOrEqual(2);
   expect(Math.abs(m.recBottom - m.colBottom)).toBeLessThanOrEqual(1);
+  // Числа рекордів і розділювачі під лідерами — на одній лінії в усіх трьох колонках (відгук 15.11: «7» з двома лідерами).
+  const tops = await page.locator(".hm-rec").evaluateAll((rs) =>
+    rs.map((r) => ({ num: r.querySelector(".hm-rec-top > b")!.getBoundingClientRect().top, sep: r.querySelector(".hm-rec-top")!.getBoundingClientRect().bottom })),
+  );
+  for (const t of tops) {
+    expect(Math.abs(t.num - tops[0]!.num)).toBeLessThanOrEqual(1);
+    expect(Math.abs(t.sep - tops[0]!.sep)).toBeLessThanOrEqual(1);
+  }
   // Списки прокручуються, як у макеті: у кожному рекордсменів більше, ніж уміщається.
   for (const over of await page.locator(".hm-rec-list").evaluateAll((ls) => ls.map((l) => l.scrollHeight > l.clientHeight))) expect(over).toBe(true);
 });
