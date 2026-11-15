@@ -136,12 +136,15 @@ for (const [w, h] of [
   });
 }
 
-test("фальстарт: газ під час вогнів — чип і тост «Фальстарт · +1 с»", async ({ page }) => {
+test("фальстарт: газ під час вогнів — болід рушає одразу, вогні гаснуть, чип «Фальстарт · +1 с»", async ({ page }) => {
   await page.goto("/uk/game");
   await page.getByRole("button", { name: "Старт · Пробіл" }).click();
   await expect(page.locator(".gm-lamp.is-on")).not.toHaveCount(0, { timeout: 10_000 });
   await page.keyboard.down("ArrowUp");
-  await expect(page.locator(".gm-hud .gm-chip.is-behind")).toHaveText("Фальстарт · +1 с", { timeout: 15_000 });
+  // Перша лампа — ~0,7 с, вогні без газу гаснуть не раніше 4 с: чип за 2,5 с можливий лише одразу після газу.
+  await expect(page.locator(".gm-hud .gm-chip.is-behind")).toHaveText("Фальстарт · +1 с", { timeout: 2_500 });
+  await expect(page.locator(".gm-lamp.is-on")).toHaveCount(0);
+  await expect(page.locator(".gm-speed strong")).not.toHaveText("0", { timeout: 2_000 });
   await page.keyboard.up("ArrowUp");
 });
 
