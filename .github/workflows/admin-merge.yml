@@ -1,8 +1,8 @@
 name: Автозлиття правок адмінки
 
 # Рішення користувача 15.11: правки контенту з адмінки (/admin) зливаються самі після зеленого CI. Лише PR з гілки
-# admin/* цього ж репозиторію, з міткою admin, не чернетка, без нових комітів після перевірки, і ТІЛЬКИ файли контенту
-# (content/stories/**, src/data/curated/*.json, public/img/**) — правило src/lib/admin/admin-paths.mjs. Будь-що інше —
+# admin/* цього ж репозиторію в main, з міткою admin, не чернетка, без нових комітів після перевірки, і ТІЛЬКИ файли
+# контенту (тексти історій, src/data/curated/*.json, public/img/**/*.webp) — правило src/lib/admin/admin-paths.mjs. Будь-що інше —
 # PR чекає ручного злиття.
 #
 # Безпека: workflow_run виконується з main і з токеном на запис — код PR тут НЕ запускається (checkout лише main,
@@ -51,8 +51,10 @@ jobs:
         run: |
           number=$(gh pr list -R "$GITHUB_REPOSITORY" --head "$BRANCH" --state open --json number -q '.[0].number')
           if [ -z "$number" ]; then echo "Відкритого PR для $BRANCH немає"; exit 0; fi
-          pr=$(gh pr view "$number" -R "$GITHUB_REPOSITORY" --json headRefName,headRefOid,isDraft,isCrossRepository,state,labels,files)
-          if ! echo "$pr" | node scripts/admin/merge-gate.mjs "$TESTED_SHA"; then
+          gh pr view "$number" -R "$GITHUB_REPOSITORY" --json headRefName,baseRefName,headRefOid,isDraft,isCrossRepository,state,labels > "$RUNNER_TEMP/pr.json"
+          # Файли — з REST: на відміну від `gh pr view --json files` там є previous_filename і статус (перейменування).
+          gh api "repos/$GITHUB_REPOSITORY/pulls/$number/files?per_page=100" > "$RUNNER_TEMP/files.json"
+          if ! node scripts/admin/merge-gate.mjs "$TESTED_SHA" "$RUNNER_TEMP/pr.json" "$RUNNER_TEMP/files.json"; then
             echo "PR #$number лишається на ручне злиття."
             exit 0
           fi
