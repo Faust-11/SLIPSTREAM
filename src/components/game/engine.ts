@@ -281,7 +281,7 @@ export class HotLapEngine {
     this.jump = false;
     this.lastDelta = 0;
     this.marked = [false, false, false];
-    // Згасання вогнів: 5 ламп по 0,7 с + 0,5–1,5 с випадкової паузи (на час кола не впливає).
+    // Згасання вогнів: 5 ламп по 0,7 с + 0,5–1,5 с випадкової паузи (на час кола не впливає; газ раніше — фальстарт).
     this.outTick = 5 * 84 + 60 + Math.floor(Math.random() * 120);
     this.phase = "lights";
     this.el.lights.hidden = false;
@@ -402,7 +402,12 @@ export class HotLapEngine {
     const car = this.car;
     if (this.phase === "lights") {
       this.lt++;
-      if ((this.keys.kb | this.keys.touch) & 1) this.jump = true;
+      // Фальстарт (рішення користувача 15.11): газ, поки горять вогні, — болід рушає одразу, вогні гаснуть, тост
+      // «Фальстарт · +1 с». Час кола йде від цієї миті, тож ранній газ виграшу не дає — лише +1 с.
+      if ((this.keys.kb | this.keys.touch) & 1 && this.lt < this.outTick) {
+        this.jump = true;
+        this.outTick = this.lt;
+      }
       const on = Math.min(5, Math.floor(this.lt / 84));
       el?.lights.querySelectorAll(".gm-lamp").forEach((l, i) => l.classList.toggle("is-on", i < on && this.lt < this.outTick));
       if (this.lt >= this.outTick) {

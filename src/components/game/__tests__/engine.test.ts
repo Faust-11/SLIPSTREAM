@@ -93,6 +93,8 @@ afterEach(() => {
   document.body.replaceChildren();
 });
 
+/** На якому кадрі вогнів почався заїзд (для перевірки фальстарту). */
+let jumpAt = 0;
 function driveBotLap(engine: HotLapEngine, key: keyof typeof TRACK_SPECS, jumpStart = false) {
   const inputs = unrle(TRACK_SPECS[key].botInputs);
   engine.start();
@@ -102,6 +104,7 @@ function driveBotLap(engine: HotLapEngine, key: keyof typeof TRACK_SPECS, jumpSt
     if (jumpStart) engine.press(1, guard > 100 && guard < 110);
     frame();
   }
+  jumpAt = guard;
   engine.press(15, false);
   expect(engine.getSnapshot().phase).toBe("run");
   let prev = 0;
@@ -159,6 +162,8 @@ describe("HotLapEngine", () => {
     const els = elements();
     const detach = engine.attach(els);
     driveBotLap(engine, "lyman", true);
+    // Болід рушив одразу після газу (тік 101 з 480 до згасання), а не чекав вогнів.
+    expect(jumpAt).toBe(101);
     expect(engine.getSnapshot().result).toEqual({ t: 3592 + 120, pen: 0, jump: true, isBest: true, prevBest: null });
     expect(els.react.textContent).toBe("JS");
     expect(els.time.textContent).toBe("0:30.933");
