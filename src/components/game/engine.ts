@@ -14,7 +14,6 @@ import {
   newCar,
   rle,
   sectorTimes,
-  simulate,
   step,
   total,
   verifyLap,
@@ -27,7 +26,7 @@ import { addLap, loadStore, saveStore, type StoredLap } from "@/lib/game/store";
 import { buildScenery, drawMini, drawScene, runPattern, type Scenery, type View } from "./scene";
 
 export type Phase = "ready" | "lights" | "run" | "done";
-export type Result = { t: number; pen: number; valid: boolean; isBest: boolean; prevBest: number | null };
+export type Result = { t: number; pen: number; isBest: boolean; prevBest: number | null };
 export type Snapshot = {
   mounted: boolean;
   key: TrackKey;
@@ -77,10 +76,42 @@ function setChip(el: HTMLElement, label: string, value: string) {
   el.replaceChildren(small, value);
 }
 
-function cardBest(k: TrackKey): number | null {
-  const st = loadStore(k);
-  return st.best && verifyLap(buildTrack(k), st.best.inputs, st.best.total) ? st.best.total : null;
+/**
+ * Кеш на трасу: геометрія, декор і коло бота рахуються один раз за відкриття сторінки (рев'ю PR #26: монтування
+ * з чотирма рекордами займало 160–220 мс в одній задачі). Коло бота — лениво (у простої або на старті).
+ */
+type Cached = { tr: Track; sc?: Scenery; bot?: Lap | null };
+const CACHE = new Map<TrackKey, Cached>();
+function cached(k: TrackKey): Cached {
+  let c = CACHE.get(k);
+  if (!c) CACHE.set(k, (c = { tr: buildTrack(k) }));
+  return c;
 }
+function botLap(k: TrackKey): Lap | null {
+  const c = cached(k);
+  if (c.bot === undefined) c.bot = verifyLap(c.tr, TRACK_SPECS[k].botInputs, TRACK_SPECS[k].botTicks, true);
+  return c.bot;
+}
+function scenery(k: TrackKey): Scenery {
+  const c = cached(k);
+  return (c.sc ??= buildScenery(c.tr));
+}
+/** Перевірений рекорд траси (повтор вводу) або null; підроблений стирається зі сховища. */
+function verifiedBest(k: TrackKey) {
+  const store = loadStore(k);
+  const best = store.best ? verifyLap(cached(k).tr, store.best.inputs, store.best.total) : null;
+  if (store.best && !best) {
+    store.best = null;
+    saveStore(k, store);
+  }
+  return { store, best };
+}
+/** Робота в простої (по одній трасі за задачу), щоб не займати головний потік довгою задачею. */
+const idle = (fn: () => void) =>
+  typeof window.requestIdleCallback === "function" ? window.requestIdleCallback(fn, { timeout: 2000 }) : window.setTimeout(fn, 50);
+
+/** Поле вводу — клавіші гри не перехоплюємо (порт фільтра макета). */
+const editable = (t: EventTarget | null) => t instanceof HTMLElement && (t.isContentEditable || !!t.closest("input, textarea, select"));
 
 export class HotLapEngine {
   private snap: Snapshot = INITIAL;
@@ -88,8 +119,11 @@ export class HotLapEngine {
   private el: Elements | null = null;
   private labels: HudLabels = { react: "", s: "", off: "" };
 
-  private tr: Track = buildTrack("lyman");
+  private tr: Track = cached("lyman").tr;
   private sc: Scenery | null = null;
+  private sectors: [number, number, number] | null = null;
+  private lastDelta = 0;
+  private alive = false;
   private run: CanvasPattern | string | null = null;
   private car: Car = newCar(this.tr);
   private ghost: Car | null = null;
@@ -141,10 +175,22 @@ export class HotLapEngine {
         // без сховища — Лиман
       }
     }
-    const cardBests: Snapshot["cardBests"] = {};
-    for (const t of TRACK_KEYS) cardBests[t] = cardBest(t);
-    this.emit({ cardBests, mounted: true });
+    this.alive = true;
+    this.emit({ mounted: true });
     this.selectTrack(k);
+    // Рекорди інших карток і коло бота поточної траси — у простої, по одній трасі за раз.
+    const queue: (() => void)[] = [() => botLap(this.tr.key)];
+    for (const t of TRACK_KEYS)
+      queue.push(() => {
+        if (t !== this.tr.key && this.snap.cardBests[t] === undefined) this.emit({ cardBests: { ...this.snap.cardBests, [t]: verifiedBest(t).best?.total ?? null } });
+      });
+    const next = () => {
+      const job = queue.shift();
+      if (!job || !this.alive) return;
+      job();
+      idle(next);
+    };
+    idle(next);
 
     const onHash = () => {
       const h = window.location.hash.slice(1);
@@ -179,22 +225,19 @@ export class HotLapEngine {
       cancelAnimationFrame(this.raf);
       this.raf = 0;
       this.el = null;
+      this.alive = false;
     };
   }
 
   // ---------- дії ----------
   selectTrack(k: TrackKey) {
-    this.tr = buildTrack(k);
-    this.sc = buildScenery(this.tr);
+    this.tr = cached(k).tr;
+    this.sc = scenery(k);
     this.run = null;
-    const store = loadStore(k);
-    this.best = store.best ? verifyLap(this.tr, store.best.inputs, store.best.total) : null;
-    if (store.best && !this.best) {
-      store.best = null;
-      saveStore(k, store);
-    }
-    const spec = TRACK_SPECS[k];
-    this.bot = verifyLap(this.tr, spec.botInputs, spec.botTicks, true);
+    const { store, best } = verifiedBest(k);
+    this.best = best;
+    this.sectors = store.sectors;
+    this.bot = CACHE.get(k)?.bot ?? null;
     this.car = newCar(this.tr);
     this.ghost = null;
     this.ghostSrc = null;
@@ -208,18 +251,20 @@ export class HotLapEngine {
       // без сховища мова просто повернеться на Лиман
     }
     const bestTotal = this.best ? this.best.total : null;
-    this.emit({ key: k, phase: "ready", result: null, laps: store.laps, bestTotal, botTotal: this.bot ? this.bot.total : null, cardBests: { ...this.snap.cardBests, [k]: bestTotal } });
+    this.emit({ key: k, phase: "ready", result: null, laps: store.laps, bestTotal, botTotal: TRACK_SPECS[k].botTicks, cardBests: { ...this.snap.cardBests, [k]: bestTotal } });
     this.kick();
   }
 
   start = () => {
     if (!this.el) return;
     this.car = newCar(this.tr);
+    this.bot ??= botLap(this.tr.key);
     this.ghostSrc = this.snap.preferBot ? this.bot : (this.best ?? this.bot);
     this.ghost = this.ghostSrc ? newCar(this.tr) : null;
     this.rec = [];
     this.lt = 0;
     this.reaction = null;
+    this.lastDelta = 0;
     this.marked = [false, false, false];
     // Згасання вогнів: 5 ламп по 0,7 с + 0,5–1,5 с випадкової паузи (на час кола не впливає).
     this.outTick = 5 * 84 + 60 + Math.floor(Math.random() * 120);
@@ -243,29 +288,33 @@ export class HotLapEngine {
   }
 
   // ---------- клавіатура ----------
-  private inGame() {
+  /** Фокус у грі. */
+  private focused() {
     const g = this.el?.game;
-    return (!!g && g.contains(document.activeElement)) || this.phase === "run" || this.phase === "lights";
+    return !!g && g.contains(document.activeElement);
   }
+  /**
+   * Керування (стрілки/WASD, Пробіл) — коли фокус у грі або йде заїзд; R і C — лише з фокусом у грі.
+   * У полях вводу клавіші не чіпаємо (рев'ю PR #26).
+   */
   private onKeyDown = (ev: KeyboardEvent) => {
-    if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
+    if (ev.metaKey || ev.ctrlKey || ev.altKey || editable(ev.target)) return;
+    const driving = this.phase === "run" || this.phase === "lights";
     const bit = MAP[ev.code];
     if (bit) {
-      if (this.inGame()) {
+      if (this.focused() || driving) {
         this.keys.kb |= bit;
         ev.preventDefault();
       }
     } else if (ev.code === "Space") {
       // На кнопках бічної колонки й «Поділитися» Пробіл натискає саму кнопку.
-      const onSideBtn = (ev.target as Element | null)?.closest?.(".gm-side-btn");
-      if (this.inGame() && (this.phase === "ready" || this.phase === "done") && !onSideBtn) {
-        ev.preventDefault();
-        this.start();
-      }
+      if ((ev.target as Element | null)?.closest?.(".gm-side-btn")) return;
+      if (this.focused() || driving) ev.preventDefault(); // у заїзді Пробіл не прокручує сторінку
+      if (this.focused() && !driving) this.start();
     } else if (ev.code === "KeyR") {
-      if (this.inGame()) this.start();
+      if (this.focused()) this.start();
     } else if (ev.code === "KeyC") {
-      if (this.inGame()) {
+      if (this.focused()) {
         this.view.camRotate = !this.view.camRotate;
         this.kick();
       }
@@ -293,30 +342,37 @@ export class HotLapEngine {
     const s = this.el?.sectors[k];
     if (!s) return;
     const mine = sectorTimes(this.car.split)[k];
-    const cls = this.best ? (mine < sectorTimes(this.best.split)[k] ? "is-purple" : "is-yellow") : "is-green";
+    // Фіолетовий — не гірше за рекорд сектора (найкращий час сектора з усіх кіл), жовтий — повільніше,
+    // зелений — сектор ще без рекорду (як у легенді).
+    const rec = this.sectors?.[k];
+    const cls = rec === undefined ? "is-green" : mine <= rec ? "is-purple" : "is-yellow";
     s.className = `gm-chip ${cls}`;
     setChip(s, `S${k + 1}`, fmtSec(mine));
   }
 
   // ---------- фізика ----------
+  /**
+   * Фініш. Повтор вводу тут не потрібен (живий болід — той самий детермінований step на тому самому вводі; макет
+   * повторював коло ще раз — 12–35 мс на кадрі фінішу, рев'ю PR #26). Повтор лишається на завантаженні рекорду.
+   */
   private finish() {
     this.phase = "done";
     const car = this.car;
     const t = total(car);
-    const check = simulate(this.tr, this.rec);
-    const valid = check.done && total(check) === t;
-    const isBest = valid && (!this.best || t < this.best.total);
-    const prevBest = this.best ? this.best.total : null;
     const k = this.tr.key;
-    let patch: Partial<Snapshot> = {};
-    if (valid) {
-      const st = addLap(loadStore(k), { t, pen: car.pen, at: Date.now() }, isBest ? { inputs: rle(this.rec), total: t } : null);
-      if (isBest) this.best = { inputs: this.rec.slice(), total: t, split: [...car.split], at: check.at };
-      saveStore(k, st);
-      const bestTotal = this.best ? this.best.total : null;
-      patch = { laps: st.laps, bestTotal, cardBests: { ...this.snap.cardBests, [k]: bestTotal } };
-    }
-    this.emit({ ...patch, phase: "done", result: { t, pen: car.pen, valid, isBest, prevBest } });
+    const stored = loadStore(k);
+    // Попередній рекорд — кращий з пам'яті й сховища (інша вкладка могла записати швидший).
+    const prev = [this.best?.total, stored.best?.total].filter((x): x is number => x !== undefined);
+    const prevBest = prev.length ? Math.min(...prev) : null;
+    const isBest = prevBest === null || t < prevBest;
+    const st = addLap(stored, { t, pen: car.pen, at: Date.now() }, isBest ? { inputs: rle(this.rec), total: t } : null, car.split);
+    if (isBest) this.best = { inputs: this.rec.slice(), total: t, split: [...car.split], at: car.at };
+    this.sectors = st.sectors;
+    saveStore(k, st);
+    if (this.el) this.el.toast.hidden = true;
+    this.toastT = 0;
+    const bestTotal = this.best ? this.best.total : null;
+    this.emit({ laps: st.laps, bestTotal, cardBests: { ...this.snap.cardBests, [k]: bestTotal }, phase: "done", result: { t, pen: car.pen, isBest, prevBest } });
   }
 
   private tick() {
@@ -395,11 +451,25 @@ export class HotLapEngine {
     if ((moving || easing) && this.visible) this.raf = requestAnimationFrame(this.frame);
   };
 
-  /** Малює кадр; повертає true, поки камера ще доводиться до напрямку боліда. */
+  /** HUD (час, км/год, дельта) і кадр сцени; повертає true, поки камера ще доводиться до напрямку боліда. */
   private render(dt: number): boolean {
     const el = this.el;
     const sc = this.sc;
     if (!el || !sc) return false;
+    const { car, view } = this;
+    const shown = this.phase === "run" ? car.t + car.pen * TPS : this.phase === "done" ? total(car) : 0;
+    el.time.textContent = fmtLap(shown);
+    el.kmh.textContent = String(Math.round(car.v * 3.6));
+    const src = this.ghostSrc;
+    // Дельта — раз на 12 тіків (0,1 с) незалежно від частоти кадрів (у макеті car.t % 12 міг «застрягти»).
+    if (this.phase === "run" && src && car.crossed && src.at[car.idx]! >= 0 && car.t - this.lastDelta >= 12) {
+      this.lastDelta = car.t;
+      const dl = car.t - src.at[car.idx]!;
+      el.delta.hidden = false;
+      el.delta.className = `gm-chip ${dl <= 0 ? "is-ahead" : "is-behind"}`;
+      el.delta.textContent = `${dl <= 0 ? "−" : "+"}${fmtSec(Math.abs(dl))}`;
+    }
+
     const cv = el.view;
     const ctx = cv.getContext("2d");
     if (!ctx) return false;
@@ -412,7 +482,6 @@ export class HotLapEngine {
       cv.height = H;
     }
     if (!this.run) this.run = runPattern(ctx, sc);
-    const { car, view } = this;
     const target = view.camRotate ? Math.atan2(car.hy, car.hx) : -Math.PI / 2;
     let d = target - view.camAng;
     while (d > Math.PI) d -= 2 * Math.PI;
@@ -424,17 +493,7 @@ export class HotLapEngine {
     const S = Math.round(el.mini.clientWidth * dpr);
     if (m && S > 0) {
       if (el.mini.width !== S) el.mini.width = el.mini.height = S;
-      drawMini(m, S, dpr, sc, car, this.ghost);
-    }
-    const shown = this.phase === "run" ? car.t + car.pen * TPS : this.phase === "done" ? total(car) : 0;
-    el.time.textContent = fmtLap(shown);
-    el.kmh.textContent = String(Math.round(car.v * 3.6));
-    const src = this.ghostSrc;
-    if (this.phase === "run" && src && car.crossed && src.at[car.idx]! >= 0 && car.t % 12 === 0) {
-      const dl = car.t - src.at[car.idx]!;
-      el.delta.hidden = false;
-      el.delta.className = `gm-chip ${dl <= 0 ? "is-ahead" : "is-behind"}`;
-      el.delta.textContent = `${dl <= 0 ? "−" : "+"}${fmtSec(Math.abs(dl))}`;
+      drawMini(m, S, dpr, sc, car, ghost);
     }
     return Math.abs(d) > 0.002;
   }
