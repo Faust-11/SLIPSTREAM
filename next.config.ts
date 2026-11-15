@@ -65,6 +65,12 @@ const nextConfig: NextConfig = {
     deviceSizes: [480, 640, 828, 1080],
   },
 
+  // Адмінка рендериться на запит і читає content/stories (Огляд; далі — редактор історій): файли — у функцію Vercel.
+  outputFileTracingIncludes: {
+    "/admin": ["./content/stories/**/*"],
+    "/admin/**": ["./content/stories/**/*"],
+  },
+
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

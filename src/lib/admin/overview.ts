@@ -1,10 +1,11 @@
 import "server-only";
+import { existsSync, readdirSync } from "node:fs";
+import { join } from "node:path";
 import circuitLayouts from "@/data/curated/circuit-layouts.json";
 import curatedTeams from "@/data/curated/teams.json";
 import { getCalendarPage, type CalendarCard } from "@/lib/data/calendar";
 import { getCircuitRefs } from "@/lib/data/circuits";
 import { getDriversIndex, type DriverRow } from "@/lib/data/drivers";
-import { getStory, getStorySlugs } from "@/lib/stories/content";
 import { ADMIN_LABEL, GitHub, githubEnv } from "./github";
 
 /**
@@ -129,8 +130,20 @@ export type Overview = {
   portraits: ReturnType<typeof missingPortraits>;
   github: GitHubState | null;
   githubError: boolean;
+  dbError: boolean;
   attention: Attention[];
 };
+
+/**
+ * Переклад історій — з файлів, а не з getStory: той бачить лише повні історії (story.json + uk.md + en.md), тож історія
+ * без en.md випала б і з лічильника, і з суми (code-review 7a: показувало б завжди 100%).
+ */
+export function storyTranslations(root = join(process.cwd(), "content/stories")): { en: boolean }[] {
+  if (!existsSync(root)) return [];
+  return readdirSync(root, { withFileTypes: true })
+    .filter((d) => d.isDirectory() && existsSync(join(root, d.name, "story.json")) && existsSync(join(root, d.name, "uk.md")))
+    .map((d) => ({ en: existsSync(join(root, d.name, "en.md")) }));
+}
 
 export function attentionList(o: Omit<Overview, "attention">): Attention[] {
   const out: Attention[] = [];
@@ -145,8 +158,12 @@ export function attentionList(o: Omit<Overview, "attention">): Attention[] {
     const d = o.github.main.deploy;
     if (d.level !== "ok") out.push({ level: d.level, title: `Прод: ${d.label.toLowerCase()}`, text: `Останній коміт main ${o.github.main.sha.slice(0, 7)} ще не на сайті.` });
     if (runLevel(o.github.dataSync) === "bad") out.push({ level: "bad", title: "Синхронізація даних не пройшла", text: "Останній прогін data-sync завершився помилкою.", href: o.github.dataSync?.url });
-    if (runLevel(o.github.ciMain) === "bad") out.push({ level: "bad", title: "CI на main червоний", text: "Остання перевірка main впала.", href: o.github.ciMain?.url });
+    // Лише якщо впав прогін саме останнього коміту main: автозлиття адмінки (токен Actions) push-прогонів не запускає —
+    // тоді коміт перевірено в PR, а старий червоний прогін не тривога (code-review 7a).
+    const ci = o.github.ciMain;
+    if (ci && ci.sha === o.github.main.sha && runLevel(ci) === "bad") out.push({ level: "bad", title: "CI на main червоний", text: "Перевірка останнього коміту main впала.", href: ci.url });
   }
+  if (o.dbError) out.push({ level: "bad", title: "База не відповідає", text: "Дані сезону й пілотів зараз недоступні — частина Огляду порожня." });
   if (o.site.lag) {
     out.push({ level: "bad", title: `Немає результату: етап ${o.site.lag.round}`, text: `${o.site.lag.gp} — ${o.site.lag.hours} год після старту, а в базі результату ще немає.` });
   }
@@ -157,21 +174,24 @@ export function attentionList(o: Omit<Overview, "attention">): Attention[] {
 
 export async function loadOverview(now = Date.now()): Promise<Overview> {
   const env = githubEnv();
+  // Збій бази не має ховати весь Огляд: саме тоді він найпотрібніший (code-review 7a).
   const [calendar, drivers, circuitRefs, github] = await Promise.all([
-    getCalendarPage("uk"),
-    getDriversIndex("uk"),
-    getCircuitRefs(),
+    getCalendarPage("uk").catch(() => null),
+    getDriversIndex("uk").catch(() => null),
+    getCircuitRefs().catch(() => null),
     env ? loadGitHubState(new GitHub(env), now).catch(() => "error" as const) : Promise.resolve(null),
   ]);
-  const stories = getStorySlugs().map((slug) => ({ en: getStory(slug, "en") !== null }));
-  const last = [...calendar.cards].reverse().find((c) => c.state === "done");
+  const last = calendar ? [...calendar.cards].reverse().find((c) => c.state === "done") : undefined;
   const base: Omit<Overview, "attention"> = {
     now,
-    site: { season: calendar.season, done: calendar.done, total: calendar.total, lastRace: last ? last.gp : null, lag: raceLag(calendar.cards, now) },
-    coverage: coverage(drivers, curatedTeams.teams, circuitRefs, circuitLayouts.layouts, stories),
-    portraits: missingPortraits(drivers),
+    site: calendar
+      ? { season: calendar.season, done: calendar.done, total: calendar.total, lastRace: last ? last.gp : null, lag: raceLag(calendar.cards, now) }
+      : { season: 0, done: 0, total: 0, lastRace: null, lag: null },
+    coverage: coverage(drivers ?? [], curatedTeams.teams, circuitRefs ?? [], circuitLayouts.layouts, storyTranslations()),
+    portraits: missingPortraits(drivers ?? []),
     github: github === "error" ? null : github,
     githubError: github === "error",
+    dbError: !calendar || !drivers || !circuitRefs,
   };
   return { ...base, attention: attentionList(base) };
 }

@@ -137,7 +137,7 @@ describe("publish", () => {
 
 describe("revertPublished — відкат правки адмінки", () => {
   /** Фейк: PR #50 (admin/photos-…, злитий як m1 з батьком b0); файли — sha за ref. */
-  function repo(opts: { onMain?: Record<string, string | null>; pr?: Record<string, unknown>; files?: unknown[] } = {}) {
+  function repo(opts: { onMain?: Record<string, string | null>; pr?: Record<string, unknown>; files?: unknown[]; open?: unknown[] } = {}) {
     const blobs: Record<string, Record<string, string | null>> = {
       b0: { "src/data/curated/teams.json": "t-old", "public/img/cars/old-480.webp": "img-old", "public/img/cars/new-480.webp": null },
       m1: { "src/data/curated/teams.json": "t-new", "public/img/cars/old-480.webp": null, "public/img/cars/new-480.webp": "img-new" },
@@ -163,6 +163,7 @@ describe("revertPublished — відкат правки адмінки", () => {
         const sha = blobs[u.searchParams.get("ref")!]?.[file];
         return sha ? reply({ sha }) : reply({ message: "Not Found" }, 404);
       }
+      if (path === "/pulls" && init.method === "GET") return reply(opts.open ?? []);
       if (path === "/pulls") return reply({ number: 51, html_url: "https://github.com/Faust-11/SLIPSTREAM/pull/51" }, 201);
       return reply({ sha: `sha-${++n}` }, 201);
     }) as unknown as typeof fetch;
@@ -192,9 +193,33 @@ describe("revertPublished — відкат правки адмінки", () => {
     ["не злита", { pr: { merged_at: null } }, "ще не злито"],
     ["кілька комітів", { pr: { commits: 2 } }, "кількох комітів"],
     ["файл поза контентом", { files: [{ filename: "src/proxy.ts", status: "modified" }] }, "поза контентом"],
+    ["відкат уже створено (подвійний клік)", { open: [{ title: "Відкат: Фото боліда · Cadillac", head: { ref: "admin/revert-1" } }] }, "уже створено"],
   ])("%s — відмова без нового PR", async (_, opts, reason) => {
     const { gh, calls } = repo(opts as Parameters<typeof repo>[0]);
     await expect(revertPublished(gh, 50)).rejects.toThrow(reason);
     expect(calls.some((c) => c.method === "POST")).toBe(false);
+  });
+});
+
+describe("publish — мітка не додалась", () => {
+  it("PR закрито, гілку видалено, помилка — далі (без PR-сироти без мітки)", async () => {
+    const calls: string[] = [];
+    let n = 0;
+    const fetchImpl = (async (url: string, init: RequestInit) => {
+      const path = new URL(url).pathname.replace("/repos/Faust-11/SLIPSTREAM", "");
+      calls.push(`${init.method} ${path}`);
+      const reply = (json: unknown, status = 201) => new Response(JSON.stringify(json), { status });
+      if (path === "/git/ref/heads/main") return reply({ object: { sha: "main-sha" } }, 200);
+      if (path === "/git/commits/main-sha") return reply({ tree: { sha: "t" } }, 200);
+      if (path === "/pulls") return reply({ number: 9, html_url: "u" });
+      if (path === "/issues/9/labels") return reply({ message: "forbidden" }, 403);
+      if (init.method === "PATCH" || init.method === "DELETE") return new Response(null, { status: init.method === "DELETE" ? 204 : 200 });
+      return reply({ sha: `s${++n}` });
+    }) as unknown as typeof fetch;
+    const gh = new GitHub({ api: "https://api.github.com", repo: "Faust-11/SLIPSTREAM", token: "t" }, fetchImpl);
+    await expect(
+      publish(gh, { section: "photos", title: "x", body: "", draft: false, files: [{ path: "src/data/curated/teams.json", content: "{}" }] }, new Date(Date.UTC(2026, 10, 15, 14))),
+    ).rejects.toThrow("403");
+    expect(calls.slice(-2)).toEqual(["PATCH /pulls/9", "DELETE /git/refs/heads/admin/photos-20261115-140000"]);
   });
 });
