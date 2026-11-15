@@ -29,7 +29,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         </a>
         <div className="ad-app">
           <aside className="ad-side">
-            <Link className="ad-brand" href="/admin" aria-label="Slipstream — адмінка, огляд">
+            <Link className="ad-brand" href="/admin">
               <span className="ad-roundel" aria-hidden="true">
                 <svg viewBox="0 0 64 64" dangerouslySetInnerHTML={{ __html: ROUNDEL_SVG }} />
               </span>
