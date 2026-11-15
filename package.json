@@ -19,7 +19,8 @@
     "next": "16.4.5",
     "oauth4webapi": "3.8.8",
     "react": "19.2.9",
-    "react-dom": "19.2.9"
+    "react-dom": "19.2.9",
+    "sharp": "0.35.5"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",
