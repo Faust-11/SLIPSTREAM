@@ -14,6 +14,7 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";
 import { requireLocale } from "@/i18n/require-locale";
 import { getHomePage, type RecordList } from "@/lib/data/home";
+import { circuitPhotoAlt, seasonPhotoAlt } from "@/lib/image-alt";
 import type { ResultRow } from "@/lib/data/race-page";
 import type { SeasonDriver, SeasonTeamRef } from "@/lib/data/season-page";
 import { plural } from "@/lib/plural";
@@ -170,6 +171,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 {champion.photo && (
                   <SeasonPhoto
                     src={champion.photo.src}
+                    alt={seasonPhotoAlt(dict.seasonsPage.photoAlt, champion.driver.name, champion.season, champion.decided)}
                     srcSet={champion.photo.srcSet}
                     sizes="(max-width: 1100px) 100vw, 420px"
                     width={champion.photo.width}
@@ -271,6 +273,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 {last.photo && (
                   <SeasonPhoto
                     src={last.photo.src}
+                    alt={circuitPhotoAlt(dict.circuitPage.heroAlt, last.short, last.place)}
                     srcSet={last.photo.srcSet}
                     sizes="(max-width: 1100px) 100vw, 60vw"
                     width={last.photo.width}
@@ -393,6 +396,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                   {next.circuit?.photo && (
                     <SeasonPhoto
                       src={next.circuit.photo.src}
+                      alt={circuitPhotoAlt(dict.circuitPage.heroAlt, next.circuit.name, next.circuit.place)}
                       srcSet={next.circuit.photo.srcSet}
                       sizes="(max-width: 1100px) 100vw, 40vw"
                       width={next.circuit.photo.width}
