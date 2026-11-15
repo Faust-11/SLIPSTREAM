@@ -89,13 +89,14 @@ export function branchName(section: string, now = new Date()): string {
 }
 
 /** Гілка від свіжого main + коміт + PR. Будь-який шлях поза дозволеними — помилка ДО першого запиту. */
-export async function publish(gh: GitHub, change: Draft, now = new Date()): Promise<Published> {
+/** parent — коміт main, від якого рахували зміни (відкат): гілка від нього, і якщо main пішов далі, конфлікт побачить злиття. */
+export async function publish(gh: GitHub, change: Draft, now = new Date(), parent?: string): Promise<Published> {
   if (change.files.length === 0) throw new Error("немає змін");
   for (const f of change.files) if (!isAdminPath(f.path)) throw new Error(`шлях поза контентом: ${f.path}`);
   if (new Set(change.files.map((f) => f.path)).size !== change.files.length) throw new Error("один файл двічі");
 
-  const main = await gh.request<{ object: { sha: string } }>("GET", "/git/ref/heads/main");
-  const base = await gh.request<{ tree: { sha: string } }>("GET", `/git/commits/${main.object.sha}`);
+  const mainSha = parent ?? (await gh.request<{ object: { sha: string } }>("GET", "/git/ref/heads/main")).object.sha;
+  const base = await gh.request<{ tree: { sha: string } }>("GET", `/git/commits/${mainSha}`);
   const tree = [];
   for (const f of change.files) {
     if ("sha" in f) {
@@ -112,7 +113,7 @@ export async function publish(gh: GitHub, change: Draft, now = new Date()): Prom
   const commit = await gh.request<{ sha: string }>("POST", "/git/commits", {
     message: `${change.title}\n\nАдмінка: ${change.section}.`,
     tree: newTree.sha,
-    parents: [main.object.sha],
+    parents: [mainSha],
     author: { ...AUTHOR, date: stamp },
     committer: { ...AUTHOR, date: stamp },
   });
@@ -150,11 +151,18 @@ async function blobSha(gh: GitHub, path: string, ref: string): Promise<string | 
  * пізнішу правку — таке робимо вручну).
  */
 export async function revertPublished(gh: GitHub, number: number, now = new Date()): Promise<Published> {
-  const pr = await gh.request<{ title: string; merged_at: string | null; merge_commit_sha: string | null; commits: number; labels: { name: string }[] }>(
-    "GET",
-    `/pulls/${number}`,
-  );
-  if (!pr.labels.some((l) => l.name === ADMIN_LABEL)) throw new RevertRefused("це не правка адмінки");
+  const pr = await gh.request<{
+    title: string;
+    merged_at: string | null;
+    merge_commit_sha: string | null;
+    commits: number;
+    labels: { name: string }[];
+    base: { ref: string };
+    head: { ref: string };
+  }>("GET", `/pulls/${number}`);
+  if (!pr.labels.some((l) => l.name === ADMIN_LABEL) || pr.base.ref !== "main" || !pr.head.ref.startsWith("admin/")) {
+    throw new RevertRefused("це не правка адмінки");
+  }
   if (!pr.merged_at || !pr.merge_commit_sha) throw new RevertRefused("правку ще не злито");
   if (pr.commits !== 1) throw new RevertRefused("правка з кількох комітів — відкат вручну");
   const merged = pr.merge_commit_sha;
@@ -164,12 +172,15 @@ export async function revertPublished(gh: GitHub, number: number, now = new Date
   const files = await gh.request<{ filename: string; status: string; previous_filename?: string }[]>("GET", `/pulls/${number}/files?per_page=100`);
   if (files.length >= 100) throw new RevertRefused("забагато файлів — відкат вручну");
 
+  // Стан main фіксуємо один раз: перевірка «не змінився» і новий коміт — від того самого коміту (рев'ю 7a: інакше
+  // правка, що встигла між ними, тихо перезаписувалась).
+  const main = (await gh.request<{ object: { sha: string } }>("GET", "/git/ref/heads/main")).object.sha;
   const changes: FileChange[] = [];
   for (const f of files) {
     const paths = f.previous_filename ? [f.filename, f.previous_filename] : [f.filename];
     for (const path of paths) {
       if (!isAdminPath(path)) throw new RevertRefused(`файл поза контентом: ${path}`);
-      const [onMain, afterEdit, beforeEdit] = await Promise.all([blobSha(gh, path, "main"), blobSha(gh, path, merged), blobSha(gh, path, before)]);
+      const [onMain, afterEdit, beforeEdit] = await Promise.all([blobSha(gh, path, main), blobSha(gh, path, merged), blobSha(gh, path, before)]);
       if (onMain !== afterEdit) throw new RevertRefused(`файл змінився після цієї правки: ${path}`);
       changes.push(beforeEdit ? { path, sha: beforeEdit } : { path, content: null });
     }
@@ -178,6 +189,7 @@ export async function revertPublished(gh: GitHub, number: number, now = new Date
     gh,
     { section: "revert", title: `Відкат: ${pr.title}`, body: `Відкат правки #${number} (файли — як до неї, коміт ${before.slice(0, 7)}).`, files: changes, draft: false },
     now,
+    main,
   );
 }
 

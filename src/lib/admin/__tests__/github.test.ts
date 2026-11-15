@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { describe, expect, it } from "vitest";
-import { GitHub, branchName, parseGitHubEnv, publish } from "../github";
+import { GitHub, branchName, parseGitHubEnv, publish, revertPublished } from "../github";
 import { isAdminPath } from "../paths";
 
 describe("isAdminPath — адмінка змінює лише контент", () => {
@@ -132,5 +132,69 @@ describe("publish", () => {
     await expect(publish(gh, { section: "photos", title: "x", body: "", draft: false, files: [] }, now)).rejects.toThrow("немає змін");
     const f = { path: "src/data/curated/teams.json", content: "x" };
     await expect(publish(gh, { section: "photos", title: "x", body: "", draft: false, files: [f, f] }, now)).rejects.toThrow("двічі");
+  });
+});
+
+describe("revertPublished — відкат правки адмінки", () => {
+  /** Фейк: PR #50 (admin/photos-…, злитий як m1 з батьком b0); файли — sha за ref. */
+  function repo(opts: { onMain?: Record<string, string | null>; pr?: Record<string, unknown>; files?: unknown[] } = {}) {
+    const blobs: Record<string, Record<string, string | null>> = {
+      b0: { "src/data/curated/teams.json": "t-old", "public/img/cars/old-480.webp": "img-old", "public/img/cars/new-480.webp": null },
+      m1: { "src/data/curated/teams.json": "t-new", "public/img/cars/old-480.webp": null, "public/img/cars/new-480.webp": "img-new" },
+    };
+    blobs.main1 = { ...blobs.m1, ...(opts.onMain ?? {}) };
+    const calls: { method: string; path: string; body: unknown }[] = [];
+    let n = 0;
+    const fetchImpl = (async (url: string, init: RequestInit) => {
+      const u = new URL(url);
+      const path = u.pathname.replace("/repos/Faust-11/SLIPSTREAM", "");
+      const body = init.body ? JSON.parse(String(init.body)) : undefined;
+      calls.push({ method: String(init.method), path: `${path}${u.search}`, body });
+      const reply = (json: unknown, status = 200) => new Response(JSON.stringify(json), { status });
+      if (path === "/pulls/50")
+        return reply({ title: "Фото боліда · Cadillac", merged_at: "2026-11-15T10:00:00Z", merge_commit_sha: "m1", commits: 1, labels: [{ name: "admin" }], base: { ref: "main" }, head: { ref: "admin/photos-1" }, ...(opts.pr ?? {}) });
+      if (path === "/pulls/50/files")
+        return reply(opts.files ?? [{ filename: "src/data/curated/teams.json", status: "modified" }, { filename: "public/img/cars/new-480.webp", previous_filename: "public/img/cars/old-480.webp", status: "renamed" }]);
+      if (path === "/git/commits/m1") return reply({ parents: [{ sha: "b0" }] });
+      if (path === "/git/ref/heads/main") return reply({ object: { sha: "main1" } });
+      if (path === "/git/commits/main1") return reply({ tree: { sha: "tree-main1" } });
+      if (path.startsWith("/contents/")) {
+        const file = decodeURIComponent(path.slice("/contents/".length));
+        const sha = blobs[u.searchParams.get("ref")!]?.[file];
+        return sha ? reply({ sha }) : reply({ message: "Not Found" }, 404);
+      }
+      if (path === "/pulls") return reply({ number: 51, html_url: "https://github.com/Faust-11/SLIPSTREAM/pull/51" }, 201);
+      return reply({ sha: `sha-${++n}` }, 201);
+    }) as unknown as typeof fetch;
+    return { gh: new GitHub({ api: "https://api.github.com", repo: "Faust-11/SLIPSTREAM", token: "t" }, fetchImpl), calls };
+  }
+
+  it("новий PR від того самого main: старі blob-и назад, нове перейменування прибрано", async () => {
+    const { gh, calls } = repo();
+    const res = await revertPublished(gh, 50, new Date(Date.UTC(2026, 10, 15, 15)));
+    expect(res.number).toBe(51);
+    const tree = calls.find((c) => c.path === "/git/trees")!.body as { base_tree: string; tree: unknown[] };
+    expect(tree.base_tree).toBe("tree-main1");
+    expect(tree.tree).toEqual([
+      { path: "src/data/curated/teams.json", mode: "100644", type: "blob", sha: "t-old" },
+      { path: "public/img/cars/new-480.webp", mode: "100644", type: "blob", sha: null },
+      { path: "public/img/cars/old-480.webp", mode: "100644", type: "blob", sha: "img-old" },
+    ]);
+    expect(calls.find((c) => c.path === "/git/commits")!.body).toMatchObject({ parents: ["main1"] });
+    expect(calls.find((c) => c.path === "/pulls")!.body).toMatchObject({ title: "Відкат: Фото боліда · Cadillac", draft: false });
+  });
+
+  it.each([
+    ["файл змінився після правки", { onMain: { "src/data/curated/teams.json": "t-later" } }, "змінився"],
+    ["не мітка admin", { pr: { labels: [] } }, "не правка адмінки"],
+    ["не з admin/*", { pr: { head: { ref: "phase7/admin" } } }, "не правка адмінки"],
+    ["не в main", { pr: { base: { ref: "release" } } }, "не правка адмінки"],
+    ["не злита", { pr: { merged_at: null } }, "ще не злито"],
+    ["кілька комітів", { pr: { commits: 2 } }, "кількох комітів"],
+    ["файл поза контентом", { files: [{ filename: "src/proxy.ts", status: "modified" }] }, "поза контентом"],
+  ])("%s — відмова без нового PR", async (_, opts, reason) => {
+    const { gh, calls } = repo(opts as Parameters<typeof repo>[0]);
+    await expect(revertPublished(gh, 50)).rejects.toThrow(reason);
+    expect(calls.some((c) => c.method === "POST")).toBe(false);
   });
 });

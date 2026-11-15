@@ -7,9 +7,11 @@ name: Автозлиття правок адмінки
 #
 # Безпека: workflow_run виконується з main і з токеном на запис — код PR тут НЕ запускається (checkout лише main,
 # правило — з main); дані події передаються через env, не підставляються в скрипт.
+# Злиття — лише коли ВСІ перевірки коміту зелені (CI, Lighthouse, DB, Vercel): запускається після кожної з них, а
+# спрацьовує та, що завершилась останньою (рев'ю 7a: DB перевіряє seed_curated.py --strict для src/data/curated).
 on:
   workflow_run:
-    workflows: [CI]
+    workflows: [CI, Lighthouse, DB]
     types: [completed]
 
 permissions:
@@ -35,6 +37,7 @@ jobs:
           ref: main
           persist-credentials: false
           sparse-checkout: |
+            .nvmrc
             src/lib/admin/admin-paths.mjs
             scripts/admin/merge-gate.mjs
           sparse-checkout-cone-mode: false
@@ -54,7 +57,9 @@ jobs:
           gh pr view "$number" -R "$GITHUB_REPOSITORY" --json headRefName,baseRefName,headRefOid,isDraft,isCrossRepository,state,labels > "$RUNNER_TEMP/pr.json"
           # Файли — з REST: на відміну від `gh pr view --json files` там є previous_filename і статус (перейменування).
           gh api "repos/$GITHUB_REPOSITORY/pulls/$number/files?per_page=100" > "$RUNNER_TEMP/files.json"
-          if ! node scripts/admin/merge-gate.mjs "$TESTED_SHA" "$RUNNER_TEMP/pr.json" "$RUNNER_TEMP/files.json"; then
+          gh api "repos/$GITHUB_REPOSITORY/commits/$TESTED_SHA/check-runs?per_page=100" > "$RUNNER_TEMP/checks.json"
+          gh api "repos/$GITHUB_REPOSITORY/commits/$TESTED_SHA/status" > "$RUNNER_TEMP/status.json"
+          if ! node scripts/admin/merge-gate.mjs "$TESTED_SHA" "$RUNNER_TEMP/pr.json" "$RUNNER_TEMP/files.json" "$RUNNER_TEMP/checks.json" "$RUNNER_TEMP/status.json"; then
             echo "PR #$number лишається на ручне злиття."
             exit 0
           fi

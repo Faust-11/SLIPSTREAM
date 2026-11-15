@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { SignJWT } from "jose";
 import { describe, expect, it } from "vitest";
-import { GOOGLE_ISSUER, parseAdminEnv, type AdminEnv } from "../env";
+import { GOOGLE_ISSUER, parseAdminEnv, sameKey, type AdminEnv } from "../env";
 import { SESSION_TTL_S, signFlow, signSession, verifyFlow, verifySession } from "../token";
 
 const BASE = {
@@ -9,6 +9,7 @@ const BASE = {
   ADMIN_AUTH_SECRET: "x".repeat(32),
   ADMIN_GOOGLE_CLIENT_ID: "client",
   ADMIN_GOOGLE_CLIENT_SECRET: "secret",
+  ADMIN_LOGIN_KEY: "k".repeat(16),
 };
 const env = parseAdminEnv(BASE) as AdminEnv;
 
@@ -28,6 +29,9 @@ describe("parseAdminEnv — помилка конфігурації = адмін
     ["фейк на Vercel", { ADMIN_OIDC_ISSUER: "http://localhost:4455", VERCEL: "1" }],
     ["http не на localhost", { ADMIN_OIDC_ISSUER: "http://10.0.0.1:4455" }],
     ["зламана адреса", { ADMIN_OIDC_ISSUER: "::" }],
+    ["без ключа входу", { ADMIN_LOGIN_KEY: undefined }],
+    ["короткий ключ входу", { ADMIN_LOGIN_KEY: "k".repeat(15) }],
+    ["зламана дата відкликання", { ADMIN_SESSIONS_AFTER: "вчора" }],
   ])("%s → null", (_, patch) => {
     expect(parseAdminEnv({ ...BASE, ...patch })).toBeNull();
   });
@@ -70,6 +74,12 @@ describe("сесія", () => {
     expect(await verifySession(env, undefined, now)).toBeNull();
   });
 
+  it("ADMIN_SESSIONS_AFTER: сесії, видані раніше, недійсні; пізніші — діють", async () => {
+    const revoked = parseAdminEnv({ ...BASE, ADMIN_SESSIONS_AFTER: new Date(now + 60_000).toISOString() }) as AdminEnv;
+    expect(await verifySession(revoked, await signSession(env, "owner@example.com", now), now + 120_000)).toBeNull();
+    expect(await verifySession(revoked, await signSession(env, "owner@example.com", now + 120_000), now + 130_000)).toEqual({ email: "owner@example.com" });
+  });
+
   it("сесія без iat (maxTokenAge) — недійсна", async () => {
     const token = await new SignJWT({ email: "owner@example.com" })
       .setProtectedHeader({ alg: "HS256" })
@@ -90,5 +100,13 @@ describe("стан входу", () => {
     expect(await verifyFlow(env, token, now + 60_000)).toEqual(flow);
     expect(await verifyFlow(env, token, now + 11 * 60_000)).toBeNull();
     expect(await verifyFlow(env, await signSession(env, "owner@example.com", now), now)).toBeNull();
+  });
+});
+
+describe("sameKey", () => {
+  it("лише повний збіг", () => {
+    expect(sameKey("k".repeat(16), "k".repeat(16))).toBe(true);
+    expect(sameKey("k".repeat(16), "k".repeat(15) + "x")).toBe(false);
+    expect(sameKey("", "k".repeat(16))).toBe(false);
   });
 });

@@ -7,6 +7,9 @@ import "server-only";
  * ADMIN_EMAILS          — e-mail адмінів через кому (Google, email_verified).
  * ADMIN_AUTH_SECRET     — ключ підпису сесії, ≥ 32 символи.
  * ADMIN_GOOGLE_CLIENT_ID / ADMIN_GOOGLE_CLIENT_SECRET — клієнт OAuth у Google Cloud Console.
+ * ADMIN_LOGIN_KEY       — ≥ 16 символів: вхід відкривається лише за адресою /admin/auth/login?key=<ключ> (без ключа —
+ *                         404, як будь-яка неіснуюча адреса; рев'ю 7a: інакше редирект на Google видавав адмінку).
+ * ADMIN_SESSIONS_AFTER  — необов'язково, ISO-дата: сесії, видані раніше, недійсні (вийти «на всіх пристроях»).
  * ADMIN_OIDC_ISSUER     — лише для e2e (фейковий провайдер на localhost); на Vercel дозволено тільки Google.
  */
 export const GOOGLE_ISSUER = "https://accounts.google.com";
@@ -19,6 +22,9 @@ export type AdminEnv = {
   clientSecret: string;
   secret: Uint8Array;
   admins: ReadonlySet<string>;
+  loginKey: string;
+  /** мс; сесії з iat раніше — недійсні. */
+  sessionsAfter: number;
 };
 
 const LOCAL_HOSTS = new Set(["localhost", "127.0.0.1", "[::1]"]);
@@ -33,7 +39,9 @@ export function parseAdminEnv(env: Record<string, string | undefined>): AdminEnv
   const secret = env.ADMIN_AUTH_SECRET ?? "";
   const clientId = env.ADMIN_GOOGLE_CLIENT_ID ?? "";
   const clientSecret = env.ADMIN_GOOGLE_CLIENT_SECRET ?? "";
-  if (admins.size === 0 || secret.length < 32 || !clientId || !clientSecret) return null;
+  const loginKey = env.ADMIN_LOGIN_KEY ?? "";
+  const sessionsAfter = env.ADMIN_SESSIONS_AFTER ? Date.parse(env.ADMIN_SESSIONS_AFTER) : 0;
+  if (admins.size === 0 || secret.length < 32 || !clientId || !clientSecret || loginKey.length < 16 || Number.isNaN(sessionsAfter)) return null;
 
   let issuer: URL;
   try {
@@ -53,7 +61,17 @@ export function parseAdminEnv(env: Record<string, string | undefined>): AdminEnv
     clientSecret,
     secret: new TextEncoder().encode(secret),
     admins,
+    loginKey,
+    sessionsAfter,
   };
+}
+
+/** Порівняння ключа входу без раннього виходу на першій розбіжності. */
+export function sameKey(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
 }
 
 export function adminEnv(): AdminEnv | null {

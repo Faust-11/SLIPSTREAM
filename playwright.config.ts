@@ -12,6 +12,7 @@ const FAKE_ADMIN_ENV = {
   ADMIN_GOOGLE_CLIENT_ID: "test-client",
   ADMIN_GOOGLE_CLIENT_SECRET: "test-secret",
   ADMIN_OIDC_ISSUER: `http://127.0.0.1:${OIDC_PORT}`,
+  ADMIN_LOGIN_KEY: "e2e-login-key-0123456789",
 };
 const externalBaseURL = process.env.BASE_URL;
 const baseURL = externalBaseURL ?? `http://localhost:${PORT}`;

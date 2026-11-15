@@ -55,9 +55,9 @@ describe("coverage, missingPortraits, runLevel", () => {
   });
   it("runLevel", () => {
     expect(runLevel(null)).toBe("bad");
-    expect(runLevel({ status: "in_progress", conclusion: null, at: "", url: "" })).toBe("one");
-    expect(runLevel({ status: "completed", conclusion: "success", at: "", url: "" })).toBe("ok");
-    expect(runLevel({ status: "completed", conclusion: "failure", at: "", url: "" })).toBe("bad");
+    expect(runLevel({ status: "in_progress", conclusion: null, at: "", url: "", sha: "a" })).toBe("one");
+    expect(runLevel({ status: "completed", conclusion: "success", at: "", url: "", sha: "a" })).toBe("ok");
+    expect(runLevel({ status: "completed", conclusion: "failure", at: "", url: "", sha: "a" })).toBe("bad");
   });
 });
 
@@ -74,7 +74,7 @@ describe("attentionList", () => {
     expect(attentionList(base)).toEqual([expect.objectContaining({ level: "one", title: "GitHub не підключено", href: "/admin/system" })]);
   });
   it("прод не зібрано, data-sync впав, етапу бракує, чемпіон без портрета", () => {
-    const run = (conclusion: string) => ({ status: "completed", conclusion, at: "", url: "u" });
+    const run = (conclusion: string) => ({ status: "completed", conclusion, at: "", url: "u", sha: "9b639f5abc" });
     const items = attentionList({
       ...base,
       site: { ...base.site, lag: { round: 21, gp: "Гран-прі Лас-Вегаса", hours: 5 } },
