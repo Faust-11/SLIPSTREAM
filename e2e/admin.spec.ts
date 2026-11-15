@@ -43,9 +43,13 @@ test.describe("сторонній адмінки не бачить", () => {
     };
     const reference = await shape("/zzz-not-a-page");
     expect(reference.status).toBe(404);
-    for (const path of ["/admin", "/admin/system", "/admin/auth/login", "/admin/auth/login?key=wrong-key-0123456789", "/admin/auth/callback?code=a&state=b"]) {
+    for (const path of ["/admin", "/admin/system", "/admin/auth/logout", "/admin/auth/login", "/admin/auth/callback?code=a&state=b"]) {
       expect(await shape(path), path).toEqual(reference);
     }
+    // Хибний ключ доходить до proxy (src/proxy.ts), і його rewrite додає x-middleware-rewrite — відмінність бачить лише
+    // той, хто вже знає параметр key (тобто про адмінку). Решта — та сама пряма 404 без редиректу.
+    const wrong = await shape("/admin/auth/login?key=wrong-key-0123456789");
+    expect(wrong).toEqual({ status: 404, headers: [...reference.headers, "x-middleware-rewrite"].sort() });
   });
 
   test("POST на сторінки адмінки і вихід без сесії — 404", async ({ request }) => {
