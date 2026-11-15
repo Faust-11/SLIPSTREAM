@@ -182,7 +182,8 @@ export function getStory(slug: string, locale: Locale): StoryPage | null {
   }
   const blocks = parseStory(self.md[locale]);
   const toc = blocks.flatMap((b) => (b.type === "h2" ? [{ id: b.id, text: b.text }] : []));
-  const raceKey = raw.race ?? raw.links?.races?.[0];
+  // Факти банера — лише коли історія про одну гонку і це явно вказано (race); links.races — просто посилання (Spygate ≠ Монако).
+  const raceKey = raw.race;
   const rm = raceKey ? /^(\d{4})\/(\d{1,2})$/.exec(raceKey) : null;
   const cards = getStoryList(locale);
   return {

@@ -1,0 +1,1005 @@
+{
+  "slug": "jerez-1997",
+  "category": "scandal",
+  "years": [
+    1997
+  ],
+  "title": {
+    "uk": "Фінал у Хересі",
+    "en": "The decider in Jerez"
+  },
+  "dek": {
+    "uk": "Шумахер і Вільнев приїхали на останню гонку з різницею в одне очко. На 48-му колі Шумахер повернув у суперника, вилетів і програв титул, а за місяць FIA виключила його з підсумків сезону.",
+    "en": "Schumacher and Villeneuve came to the last race one point apart. On lap 48 Schumacher turned into his rival, went off and lost the title, and a month later the FIA excluded him from the season's standings."
+  },
+  "kicker": {
+    "uk": "Фінал сезону",
+    "en": "Season finale"
+  },
+  "race": "1997/17",
+  "links": {
+    "seasons": [
+      1997,
+      1994
+    ],
+    "races": [
+      "1997/17",
+      "1997/16",
+      "1994/16"
+    ],
+    "drivers": [
+      "michael_schumacher",
+      "villeneuve",
+      "frentzen",
+      "damon_hill",
+      "hakkinen",
+      "coulthard",
+      "berger",
+      "fontana"
+    ],
+    "teams": [
+      "ferrari",
+      "williams",
+      "mclaren",
+      "sauber",
+      "benetton",
+      "arrows"
+    ],
+    "circuits": [
+      "jerez",
+      "suzuka",
+      "estoril",
+      "adelaide"
+    ],
+    "stories": [
+      "suzuka-1989",
+      "benetton-1994",
+      "abu-dhabi-2021"
+    ]
+  },
+  "checked": "2026-11-15",
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/jerez-1997/m1-1280.webp",
+      "srcSet": "/img/stories/jerez-1997/m1-1280.webp 1280w, /img/stories/jerez-1997/m1-800.webp 800w, /img/stories/jerez-1997/m1-480.webp 480w",
+      "width": 1280,
+      "height": 835,
+      "focus": "55% 50%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Michael_Schumacher_1997.jpg",
+        "author": "Cord Rodefeld from Ulm, Germany",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Міхаель Шумахер (Ferrari) на Гран-прі Німеччини 1997 року, Гоккенгайм.",
+        "en": "Michael Schumacher (Ferrari) at the 1997 German Grand Prix, Hockenheim."
+      },
+      "alt": {
+        "uk": "Червона Ferrari на трасі, пілот підняв руку з кокпіта; на передньому плані розмитий картатий прапор.",
+        "en": "A red Ferrari on track, the driver raising a hand from the cockpit; a blurred chequered flag in the foreground."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Jolpica F1 API — 1997 European Grand Prix results and laps",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1997/17/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "Jolpica F1 API — 1997 drivers' standings",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1997/driverStandings.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "Villeneuve takes title as Schumacher's attack gets him thrown out (1997 European Grand Prix)",
+      "publisher": "RaceFans",
+      "date": "2017-10-26",
+      "url": "https://www.racefans.net/2017/10/26/1997-european-grand-prix/",
+      "kind": "secondary",
+      "lang": "en",
+      "author": "Keith Collantine"
+    },
+    {
+      "id": "s4",
+      "title": "l'Unità, 27 ottobre 1997, p. 22",
+      "publisher": "l'Unità",
+      "date": "1997-10-27",
+      "url": "https://archivio.unita.news/assets/main/1997/10/27/page_022.pdf",
+      "kind": "primary",
+      "lang": "it"
+    },
+    {
+      "id": "s5",
+      "title": "l'Unità, 29 ottobre 1997, p. 16",
+      "publisher": "l'Unità",
+      "date": "1997-10-29",
+      "url": "https://archivio.unita.news/assets/main/1997/10/29/page_016.pdf",
+      "kind": "primary",
+      "lang": "it"
+    },
+    {
+      "id": "s6",
+      "title": "l'Unità, 12 novembre 1997, p. 17",
+      "publisher": "l'Unità",
+      "date": "1997-11-12",
+      "url": "https://archivio.unita.news/assets/main/1997/11/12/page_017.pdf",
+      "kind": "primary",
+      "lang": "it"
+    },
+    {
+      "id": "s7",
+      "title": "From Estoril to Jerez back to Estoril; TWR Arrows dealt another blow",
+      "publisher": "Atlas F1",
+      "date": "1997-05-15",
+      "url": "http://archive.atlasf1.com/news/1997/416.htm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "Villeneuve takes Suzuka pole but risks disqualification",
+      "publisher": "Atlas F1",
+      "date": "1997-10-11",
+      "url": "http://archive.atlasf1.com/news/1997/539.htm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "Title challenge ends at the next race: Jerez",
+      "publisher": "Atlas F1",
+      "date": "1997-10-12",
+      "url": "http://archive.atlasf1.com/news/1997/540.htm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "Mosley on Villeneuve: withdraw appeal; Berger to retire; Minardi drivers; Dome?; Stewart to test Stewart",
+      "publisher": "Atlas F1",
+      "date": "1997-10-15",
+      "url": "http://archive.atlasf1.com/news/1997/543.htm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "Villeneuve drops appeal",
+      "publisher": "Atlas F1",
+      "date": "1997-10-16",
+      "url": "http://archive.atlasf1.com/news/1997/544.htm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "First three set the same time (Europe GP)",
+      "publisher": "Atlas F1",
+      "date": "1997-10-25",
+      "url": "http://archive.atlasf1.com/news/1997/552.htm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "Villeneuve World Champion 1997; Hakkinen wins his first race",
+      "publisher": "Atlas F1",
+      "date": "1997-10-26",
+      "url": "http://archive.atlasf1.com/news/1997/553.htm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "Schumacher to face FIA council",
+      "publisher": "Atlas F1",
+      "date": "1997-10-27",
+      "url": "http://archive.atlasf1.com/news/1997/554.htm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Coulthard praises Williams at Senna trial; Schumacher admits mistake",
+      "publisher": "Atlas F1",
+      "date": "1997-10-28",
+      "url": "http://archive.atlasf1.com/news/1997/555.htm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "Top three at Williams testify; Schumacher has lost some fans",
+      "publisher": "Atlas F1",
+      "date": "1997-10-29",
+      "url": "http://archive.atlasf1.com/news/1997/556.htm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "Schumacher gets ready for hearing, Williams/McLaren deny allegations",
+      "publisher": "Atlas F1",
+      "date": "1997-11-09",
+      "url": "http://archive.atlasf1.com/news/1997/563.htm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "Schumacher loses his second place; Williams and McLaren cleared; Schumacher is next year's title favourite",
+      "publisher": "Atlas F1",
+      "date": "1997-11-11",
+      "url": "http://archive.atlasf1.com/news/1997/564.htm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "FIA decision brings up heavy criticism",
+      "publisher": "Atlas F1",
+      "date": "1997-11-12",
+      "url": "http://archive.atlasf1.com/news/1997/565.htm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "Villeneuve in trouble",
+      "publisher": "GrandPrix.com",
+      "date": "1997-10-13",
+      "url": "https://www.grandprix.com/news/villeneuve-in-trouble-2.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "The lost honor",
+      "publisher": "GrandPrix.com",
+      "date": "1997-11-03",
+      "url": "https://www.grandprix.com/ns/ns01331.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "Race-rigging or press manipulation?",
+      "publisher": "GrandPrix.com",
+      "date": "1997-11-10",
+      "url": "https://www.grandprix.com/ns/ns01347.html",
+      "kind": "primary",
+      "lang": "en",
+      "author": "Joe Saward"
+    },
+    {
+      "id": "s23",
+      "title": "Face-saving at the FIA",
+      "publisher": "GrandPrix.com",
+      "date": "1997-11-03",
+      "url": "https://www.grandprix.com/news/face-saving-at-the-fia.html",
+      "kind": "primary",
+      "lang": "en",
+      "author": "Joe Saward"
+    },
+    {
+      "id": "s24",
+      "title": "A decent decision",
+      "publisher": "GrandPrix.com",
+      "date": "1997-11-17",
+      "url": "https://www.grandprix.com/news/a-decent-decision.html",
+      "kind": "primary",
+      "lang": "en",
+      "author": "Joe Saward"
+    },
+    {
+      "id": "s25",
+      "title": "Schumacher loses championship runner-up crown",
+      "publisher": "BBC (BBC News)",
+      "date": "1997-11-11",
+      "url": "http://news.bbc.co.uk/2/hi/europe/29895.stm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s26",
+      "title": "Schumacher and F1 on trial",
+      "publisher": "BBC (BBC News, Sport)",
+      "date": "1997-11-11",
+      "url": "http://news.bbc.co.uk/2/hi/sport/29162.stm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s27",
+      "title": "F1 1997: the same old story?",
+      "publisher": "Motor Sport",
+      "date": "1997-12",
+      "url": "https://www.motorsportmagazine.com/archive/article/december-1997/38/f1-1997-same-old-story/",
+      "kind": "primary",
+      "lang": "en",
+      "author": "Nigel Roebuck"
+    },
+    {
+      "id": "s28",
+      "title": "David Coulthard on Mika Häkkinen: my greatest rival",
+      "publisher": "Motor Sport",
+      "date": "2021-06",
+      "url": "https://www.motorsportmagazine.com/archive/article/june-2021/56/david-coulthard-on-mika-hakkinen-my-greatest-rival",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s29",
+      "title": "Mika's silver service",
+      "publisher": "McLaren (heritage)",
+      "date": "2023-10-23",
+      "url": "https://www.mclaren.com/racing/heritage/formula-1/drivers/mika-hakkinen/mikas-silver-service/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s30",
+      "title": "Inside stories from F1's last title-deciding scandal",
+      "publisher": "The Race",
+      "date": "2021-12-12",
+      "url": "https://www.the-race.com/formula-1/inside-stories-from-f1s-last-title-deciding-scandal/",
+      "kind": "secondary",
+      "lang": "en",
+      "author": "Josh Suttill"
+    },
+    {
+      "id": "s31",
+      "title": "Portugal loses its Grand Prix",
+      "publisher": "The Irish Times",
+      "date": "1997-07-23",
+      "url": "https://www.irishtimes.com/sport/portugal-loses-its-grand-prix-1.91376",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s32",
+      "title": "Jolpica F1 API — 1994 Australian Grand Prix results",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1994/16/results.json",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Перед фіналом 1997 року Шумахер мав 78 очок, Вільнев 77.",
+      "sources": [
+        "s10",
+        "s11",
+        "s30",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "Шумахерові вистачало фінішувати попереду суперника, Вільневу треба було набрати очки й обійти Шумахера.",
+      "sources": [
+        "s4",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "На 48-му колі Вільнев атакував у повороті Dry Sac, Шумахер повернув у нього й опинився в гравії.",
+      "sources": [
+        "s3",
+        "s4",
+        "s27",
+        "s21"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "text": "Вільнев доїхав третім і став чемпіоном.",
+      "sources": [
+        "s2",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c5",
+      "text": "Всесвітня рада FIA виключила Шумахера з підсумків чемпіонату 1997 року, але залишила йому перемоги й не дала ні штрафу, ні бану.",
+      "sources": [
+        "s25",
+        "s18",
+        "s6",
+        "s3",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "Без штрафу й бану: перемоги Шумахерові залишили",
+      "sources": [
+        "s25",
+        "s18",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c7",
+      "text": "Фінал сезону 1997 року перенесли з Ештуріла в Херес: FIA заявила, що португальська траса не виконала вимог.",
+      "sources": [
+        "s7",
+        "s31"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "text": "Перед останньою гонкою Жак Вільнев (Williams) мав сім перемог, Міхаель Шумахер (Ferrari) п'ять.",
+      "sources": [
+        "s2",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "У Сузуці, за два тижні до фіналу, Вільнев не скинув швидкість під жовтими прапорами на суботній практиці. Це було його четверте таке порушення за рік, і умовна дискваліфікація з Монци набрала чинності.",
+      "sources": [
+        "s20",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "Williams подала апеляцію, Вільнев стартував і фінішував п'ятим, але 16 жовтня під тиском FIA команда апеляцію відкликала. Він втратив ці 2 очки: 77 проти 78 у Шумахера.",
+      "sources": [
+        "s10",
+        "s11",
+        "s30",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "text": "За рівності очок вище стояв би Вільнев, бо мав більше перемог. Отже, Шумахерові досить було фінішувати попереду Вільнева, а Вільневу треба було набрати очки й фінішувати попереду Шумахера.",
+      "sources": [
+        "s4",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c12",
+      "text": "Кубок конструкторів Williams уже виграла в Японії.",
+      "sources": [
+        "s9",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "У кваліфікації Вільнев, Шумахер і Гайнц-Гаральд Френтцен показали той самий час, 1:21.072, до тисячної.",
+      "sources": [
+        "s12",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c14",
+      "text": "Поул дістався Вільневу, бо він проїхав це коло першим.",
+      "sources": [
+        "s4"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c15",
+      "text": "Деймон Гілл на Arrows був четвертим, на 0,058 с повільніше.",
+      "sources": [
+        "s12",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c16",
+      "text": "Шумахер вийшов у лідери на старті, Френтцен обійшов Вільнева, а на початку гонки за командною тактикою пропустив його вперед.",
+      "sources": [
+        "s3",
+        "s4",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c17",
+      "text": "На якому саме колі, джерела пишуть по-різному, на 7-му чи 8-му.",
+      "sources": [
+        "s1",
+        "s4",
+        "s3"
+      ],
+      "status": "dis",
+      "note": "s4 (l'Unità) і s3 (RaceFans): 7-ме коло; s1 (Jolpica, дані кіл): 8-ме.",
+      "label": {
+        "uk": "Коли Френтцен пропустив Вільнева",
+        "en": "When Frentzen let Villeneuve by"
+      },
+      "reader": {
+        "uk": "На 7-му колі за l'Unità і RaceFans, на 8-му — за даними кіл Jolpica.",
+        "en": "Lap 7 according to l'Unità and RaceFans, lap 8 according to the Jolpica lap data."
+      }
+    },
+    {
+      "id": "c18",
+      "text": "Шумахер заїжджав у бокси на 22-му і 43-му колах, Вільнев на 23-му і 44-му.",
+      "sources": [
+        "s1",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c19",
+      "text": "Між першими зупинками гонку вів Френтцен і стримував Шумахера.",
+      "sources": [
+        "s1",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c20",
+      "text": "Норберто Фонтана на Sauber з мотором Ferrari пропустив Шумахера і потім затримав Вільнева, за оцінками на 2,5–3 секунди.",
+      "sources": [
+        "s22",
+        "s4",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c21",
+      "text": "У 2006 році Фонтана сказав, що це був наказ Жана Тодта; Sauber і Ferrari це заперечують.",
+      "sources": [
+        "s30"
+      ],
+      "status": "dis",
+      "note": "s30 (The Race): слова Фонтани 2006 року і заперечення Sauber та Ferrari; інших джерел у макеті немає.",
+      "label": {
+        "uk": "Наказ затримати Вільнева",
+        "en": "An order to hold Villeneuve up"
+      },
+      "reader": {
+        "uk": "Фонтана у 2006 році сказав, що наказ дав Жан Тодт. Sauber і Ferrari це заперечують.",
+        "en": "Fontana said in 2006 that the order came from Jean Todt. Sauber and Ferrari deny it."
+      }
+    },
+    {
+      "id": "c22",
+      "text": "За даними кіл, після першого кола Шумахер вів на 3,2 с, після 20-го на 5,2 с, а після 47-го вже менше ніж на пів секунди.",
+      "sources": [
+        "s1",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c23",
+      "text": "На 48-му колі Вільнев загальмував пізніше й пішов на обгін з внутрішнього боку шпильки Dry Sac. Шумахер повернув у нього: праве переднє колесо Ferrari вдарило в лівий понтон Williams. Ferrari застрягла в гравії, Вільнев поїхав далі.",
+      "sources": [
+        "s3",
+        "s4",
+        "s27",
+        "s21"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c24",
+      "text": "У протоколі в Шумахера 47 кіл і статус «зіткнення».",
+      "sources": [
+        "s1",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "Час удару джерела називають різний, 15:08 або 15:12.",
+      "sources": [
+        "s27",
+        "s4"
+      ],
+      "status": "dis",
+      "note": "s27 (Motor Sport): 15:08; s4 (l'Unità): 15:12.",
+      "label": {
+        "uk": "Час зіткнення",
+        "en": "Time of the collision"
+      },
+      "reader": {
+        "uk": "15:08 за Motor Sport, 15:12 за l'Unità.",
+        "en": "15:08 according to Motor Sport, 15:12 according to l'Unità."
+      }
+    },
+    {
+      "id": "c26",
+      "text": "Вільнев після гонки: «Або Міхаель заплющив очі, або в нього зісковзнули руки з керма»",
+      "sources": [
+        "s13"
+      ],
+      "status": "one",
+      "note": "У макеті ok; при перевірці 15.11 — лише один незалежний видавець (atlas f1)."
+    },
+    {
+      "id": "c27",
+      "text": "Шумахер після гонки: «Жак підрізав і навіть не намагався гальмувати. Звісно, я зачинив двері»",
+      "sources": [
+        "s14"
+      ],
+      "status": "one",
+      "note": "У макеті ok; при перевірці 15.11 — лише один незалежний видавець (atlas f1)."
+    },
+    {
+      "id": "c28",
+      "text": "Удар зірвав акумулятор Williams з кріплень, він тримався лише на дротах.",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c29",
+      "text": "Вільнев боявся поломки й скинув темп: на 48–50-му колах він їхав по 1:27–1:29, а McLaren по 1:25.",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "На 67-му колі Девід Култхард пропустив напарника Міку Хаккінена",
+      "sources": [
+        "s1",
+        "s22",
+        "s28",
+        "s29"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c31",
+      "text": "а на останньому колі Вільнев пропустив обидві McLaren. Хаккінен здобув першу перемогу в кар'єрі, Вільнев фінішував третім.",
+      "sources": [
+        "s1",
+        "s13",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c32",
+      "text": "З 81 очком він став чемпіоном світу.",
+      "sources": [
+        "s2",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c33",
+      "text": "8 листопада The Times опублікувала розшифровки радіо Williams і написала про змову з McLaren.",
+      "sources": [
+        "s22",
+        "s17",
+        "s26"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c34",
+      "text": "Записи поширювала Ferrari як частину захисту Шумахера.",
+      "sources": [
+        "s6",
+        "s17",
+        "s26"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c35",
+      "text": "Чи допомогла McLaren команді Williams, джерела розходяться. Офіційно ні: Всесвітня рада FIA обвинувачення в змові відхилила, бо «результат гонки не було підлаштовано» (переклад Slipstream).",
+      "sources": [
+        "s18",
+        "s24",
+        "s6",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c36",
+      "text": "Згодом це частково визнали. Култхард у 2021 році розповів, що Рон Денніс погодився за потреби допомогти Williams із титулом.",
+      "sources": [
+        "s28"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c37",
+      "text": "Джо Рамірес з McLaren згадує, що Патрік Гед підійшов до їхніх боксів і сказав: Жак не опиратиметься.",
+      "sources": [
+        "s29"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c38",
+      "text": "Стюарди в Хересі визнали зіткнення гоночним інцидентом.",
+      "sources": [
+        "s13",
+        "s14",
+        "s23",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c39",
+      "text": "Наступного дня FIA викликала Шумахера на позачергову Всесвітню раду.",
+      "sources": [
+        "s14",
+        "s23"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c40",
+      "text": "Спершу він звинувачував Вільнева",
+      "sources": [
+        "s14",
+        "s4",
+        "s30"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c41",
+      "text": "а 28 жовтня в Маранелло визнав помилку.",
+      "sources": [
+        "s15",
+        "s5",
+        "s21"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c42",
+      "text": "Шумахер у Маранелло, 28.10.1997: «Я людина, як і всі, і, на жаль, я помилився»",
+      "sources": [
+        "s15",
+        "s5",
+        "s21"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c43",
+      "text": "У Німеччині телеканал RTL провів опитування: з 63 081 глядача, що подзвонили, 28% сказали, що більше не підтримують Шумахера.",
+      "sources": [
+        "s16",
+        "s21"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c44",
+      "text": "11 листопада Всесвітня рада FIA зібралася в Слау біля Лондона.",
+      "sources": [
+        "s25",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c45",
+      "text": "Шумахера виключили з підсумкової таблиці чемпіонату 1997 року, другим став Френтцен.",
+      "sources": [
+        "s25",
+        "s18",
+        "s6",
+        "s3",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c46",
+      "text": "Результати гонок, п'ять перемог Шумахера та очки Ferrari в Кубку конструкторів залишилися.",
+      "sources": [
+        "s18",
+        "s6",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c47",
+      "text": "Штрафу й дискваліфікації на 1998 рік не було.",
+      "sources": [
+        "s25",
+        "s18",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c48",
+      "text": "Рада визнала дію навмисною, але не спланованою заздалегідь",
+      "sources": [
+        "s25",
+        "s18",
+        "s6",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c49",
+      "text": "і зобов'язала Шумахера взяти участь у кампанії FIA з безпеки на дорогах у 1998 році.",
+      "sources": [
+        "s3",
+        "s6",
+        "s19"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c50",
+      "text": "Її обсяг джерела описують по-різному.",
+      "sources": [
+        "s3",
+        "s6"
+      ],
+      "status": "dis",
+      "note": "s3 (RaceFans): сім днів у 1998 році; s6 (l'Unità): у семи європейських столицях.",
+      "label": {
+        "uk": "Обсяг кампанії з безпеки",
+        "en": "Size of the safety campaign"
+      },
+      "reader": {
+        "uk": "RaceFans пише про «сім днів у 1998 році», l'Unità — про кампанію «у семи європейських столицях».",
+        "en": "RaceFans says «seven days in 1998»; l'Unità says the campaign ran «in seven European capitals»."
+      }
+    },
+    {
+      "id": "c51",
+      "text": "Мослі, 11.11.1997: «Хоча дії були навмисними, вони не були заздалегідь спланованими»",
+      "sources": [
+        "s25",
+        "s18",
+        "s6",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c52",
+      "text": "Мослі назвав рішення «значно більшим, ніж ляпас по руках» (переклад Slipstream)",
+      "sources": [
+        "s18"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c53",
+      "text": "але частина преси вважала його надто м'яким.",
+      "sources": [
+        "s19"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c54",
+      "text": "26.10.1997: Гонка. Стюарди: гоночний інцидент, без наслідків.",
+      "sources": [
+        "s13",
+        "s14",
+        "s23",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c55",
+      "text": "27.10.1997: FIA за рапортом директора гонки викликає Шумахера на позачергову Всесвітню раду.",
+      "sources": [
+        "s14",
+        "s23"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c56",
+      "text": "28.10.1997: Маранелло: Шумахер визнає помилку.",
+      "sources": [
+        "s15",
+        "s5",
+        "s21"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c57",
+      "text": "08.11.1997: The Times публікує розшифровки радіо Williams і пише про змову з McLaren.",
+      "sources": [
+        "s22",
+        "s17",
+        "s26"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c58",
+      "text": "11.11.1997: Всесвітня рада FIA в Слау: Шумахера виключено з підсумків чемпіонату 1997 року.",
+      "sources": [
+        "s25",
+        "s18",
+        "s6",
+        "s3",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c59",
+      "text": "Британські звіти про Херес згадували фінал 1994 року в Аделаїді. Тоді Шумахер вів у Деймона Гілла одне очко, вони зіткнулися, обидва зійшли, і титул дістався Шумахерові.",
+      "sources": [
+        "s32",
+        "s25",
+        "s26"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c60",
+      "text": "Сам Шумахер порівняння з 1994 роком відкидав.",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c61",
+      "text": "Четвертим фінішував Герхард Бергер; це була його остання гонка в кар'єрі",
+      "sources": [
+        "s1",
+        "s13",
+        "s3"
+      ],
+      "status": "ok"
+    }
+  ]
+}

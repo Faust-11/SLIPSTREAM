@@ -1,0 +1,1154 @@
+{
+  "slug": "singapore-2008",
+  "category": "scandal",
+  "years": [
+    2008,
+    2009
+  ],
+  "title": {
+    "uk": "Аварія на замовлення",
+    "en": "The crash that was ordered"
+  },
+  "dek": {
+    "uk": "Нельсон Піке-молодший навмисно розбив машину, щоб викликати машину безпеки й допомогти напарникові Алонсо виграти. Правда випливла через рік, а суди тривають досі.",
+    "en": "Nelson Piquet Jr. crashed on purpose to bring out the safety car and help his teammate Alonso win. The truth came out a year later, and the court cases are still going."
+  },
+  "kicker": {
+    "uk": "Скандал",
+    "en": "Scandal"
+  },
+  "race": "2008/15",
+  "links": {
+    "seasons": [
+      2008,
+      2009
+    ],
+    "races": [
+      "2008/15"
+    ],
+    "drivers": [
+      "alonso",
+      "piquet_jr",
+      "massa",
+      "hamilton",
+      "rosberg",
+      "kubica",
+      "trulli",
+      "grosjean"
+    ],
+    "teams": [
+      "renault",
+      "ferrari",
+      "mclaren",
+      "williams",
+      "bmw-sauber",
+      "toyota",
+      "alpine"
+    ],
+    "circuits": [
+      "marina_bay"
+    ],
+    "stories": [
+      "hamilton-brazil-2008",
+      "spygate-2007",
+      "abu-dhabi-2021"
+    ]
+  },
+  "checked": "2026-11-15",
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/singapore-2008/m1-1280.webp",
+      "srcSet": "/img/stories/singapore-2008/m1-1280.webp 1280w, /img/stories/singapore-2008/m1-800.webp 800w, /img/stories/singapore-2008/m1-480.webp 480w",
+      "width": 1280,
+      "height": 722,
+      "focus": "50% 50%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:2008_Singapore_Grand_Prix_Massa_fuel.jpg",
+        "author": "chensiyuan; ptttf",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Бокси Ferrari під час інциденту зі шлангом заправки Масси, Гран-прі Сінгапуру, 28.09.2008.",
+        "en": "The Ferrari pit during Massa's fuel-hose incident, Singapore Grand Prix, 28.09.2008."
+      },
+      "alt": {
+        "uk": "Механіки Ferrari в червоному тісняться біля машини за сітчастою огорожею піт-лейну, ніч.",
+        "en": "Ferrari mechanics in red crowd around a car behind the pit-lane mesh fence at night."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/singapore-2008/m2-674.webp",
+      "srcSet": "/img/stories/singapore-2008/m2-674.webp 674w, /img/stories/singapore-2008/m2-480.webp 480w",
+      "width": 674,
+      "height": 1008,
+      "focus": "50% 40%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Piquet_2008_Singapore_GP.jpg",
+        "author": "Benjamin Chia",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Розбиту Renault Піке прибирають з траси, Сінгапур, 28.09.2008.",
+        "en": "Piquet's wrecked Renault is lifted away, Singapore, 28.09.2008."
+      },
+      "alt": {
+        "uk": "Кран піднімає розбиту машину Renault, поруч маршали в помаранчевому.",
+        "en": "A crane lifts a wrecked Renault while marshals in orange stand nearby."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/singapore-2008/m3-800.webp",
+      "srcSet": "/img/stories/singapore-2008/m3-800.webp 800w, /img/stories/singapore-2008/m3-480.webp 480w",
+      "width": 800,
+      "height": 1220,
+      "focus": "50% 25%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Flavio_Briatore_Chinese_GP_2008.jpg",
+        "author": "Bert van Dijk",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Флавіо Бріаторе на Гран-прі Китаю, 19.10.2008.",
+        "en": "Flavio Briatore at the Chinese GP, 19.10.2008."
+      },
+      "alt": {
+        "uk": "Чоловік у сорочці Renault і навушниках стоїть, схрестивши руки.",
+        "en": "A man in a Renault shirt and headphones stands with his arms folded."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Jolpica F1 API — 2008 Singapore Grand Prix results and laps",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2008/15/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "Jolpica F1 API — 2008 drivers' standings",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2008/driverStandings.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "WMSC decision on Renault F1, Singapore Grand Prix 2008 ('Singapore-gate' verdict)",
+      "publisher": "FIA World Motor Sport Council (full text published by Crash.net)",
+      "date": "2009-09-21",
+      "url": "https://www.crash.net/f1/news/152586/1/full-detailed-wmsc-singapore-gate-transcript",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "'Crashgate' revisited — F1's tainted 800th race",
+      "publisher": "Autosport",
+      "date": "2019-04-13",
+      "url": "https://www.autosport.com/f1/news/crashgate-revisited-f1s-tainted-800th-race-5112111/5112111/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "I was there when... 2008 Singapore GP",
+      "publisher": "Motor Sport",
+      "date": "2013-09-18",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/i-was-there-when-2008-singapore-gp",
+      "kind": "secondary",
+      "lang": "en",
+      "author": "Simon Arron"
+    },
+    {
+      "id": "s6",
+      "title": "2008 Singapore Grand Prix report",
+      "publisher": "Motor Sport",
+      "date": "2008-09-29",
+      "url": "https://www.motorsportmagazine.com/reports/f1/2008-singapore-grand-prix-report",
+      "kind": "primary",
+      "lang": "en",
+      "author": "Ed Foster"
+    },
+    {
+      "id": "s7",
+      "title": "Singapore GP, 2008 — race report",
+      "publisher": "GrandPrix.com",
+      "date": "2008-09-28",
+      "url": "https://www.grandprix.com/races/singapore-gp-2008.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "Singapore 2008: Alonso wins 'lost' race",
+      "publisher": "Crash.net",
+      "date": "2008-09-28",
+      "url": "https://crash.net/f1/race-report/63742/1/singapore-2008-alonso-wins-lost-race",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "F1 to scrap 'bad' pit lane rule",
+      "publisher": "BBC (BBC Sport)",
+      "date": "2009-01-27",
+      "url": "http://news.bbc.co.uk/sport2/hi/motorsport/formula_one/7854692.stm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "Nelson Piquet's FIA statement revealed",
+      "publisher": "GrandPrix.com",
+      "date": "2009-09-10",
+      "url": "https://www.grandprix.com/ns/ns21798.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "Transcript of Nelson Piquet Jr's statement to the FIA",
+      "publisher": "Crash.net",
+      "date": "2009-09-10",
+      "url": "https://www.crash.net/f1/news/152109/1/nelson-piquet-jrs-statement-to-the-fia-on-singapore",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "How the FIA found out about Crashgate at Brazil 2008 F1 finale, but could not act",
+      "publisher": "Autosport",
+      "date": "2023-04-05",
+      "url": "https://www.autosport.com/f1/news/how-the-fia-found-out-about-crashgate-at-brazil-2008-f1-finale-but-could-not-act/10453438/",
+      "kind": "secondary",
+      "lang": "en",
+      "author": "Jonathan Noble"
+    },
+    {
+      "id": "s13",
+      "title": "Analysis: how Renault case came to light",
+      "publisher": "Autosport",
+      "date": "2009-09-17",
+      "url": "https://www.autosport.com/f1/news/analysis-how-renault-case-came-to-light-4433137/4433137/",
+      "kind": "primary",
+      "lang": "en",
+      "author": "Jonathan Noble"
+    },
+    {
+      "id": "s14",
+      "title": "Renault give Grosjean his big chance",
+      "publisher": "RTÉ",
+      "date": "2009-08-18",
+      "url": "https://www.rte.ie/sport/motorsport/2009/0818/253456-renault/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Renault blames Briatore & Symonds",
+      "publisher": "BBC (BBC Sport)",
+      "date": "2009-09-16",
+      "url": "http://news.bbc.co.uk/sport2/hi/motorsport/formula_one/8261004.stm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "Renault and Briatore to take legal action against Piquets",
+      "publisher": "GrandPrix.com",
+      "date": "2009-09-11",
+      "url": "https://www.grandprix.com/news/renault-and-briatore-to-take-legal-action-against-piquets.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "Renault launch law suits",
+      "publisher": "Sky Sports",
+      "date": "2009-09-11",
+      "url": "https://www.skysports.com/f1/news/5549914/renault-launch-law-suits",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "Symonds will 'always regret' his actions",
+      "publisher": "Autosport",
+      "date": "2009-09-23",
+      "url": "https://www.autosport.com/f1/news/symonds-will-always-regret-his-actions-4433013/4433013/",
+      "kind": "primary",
+      "lang": "en",
+      "author": "Jonathan Noble"
+    },
+    {
+      "id": "s19",
+      "title": "Symonds expresses 'eternal regret' over 'misguided devotion'",
+      "publisher": "Crash.net",
+      "date": "2009-09-23",
+      "url": "https://www.crash.net/f1/news/152576/1/symonds-reveals-shame-but-insists-crash-piquets-idea",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "Renault handed suspended F1 ban",
+      "publisher": "BBC (BBC Sport)",
+      "date": "2009-09-21",
+      "url": "http://news.bbc.co.uk/sport2/hi/motorsport/formula_one/8266090.stm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "Piquet Jr 'sorry' for race-fixing",
+      "publisher": "BBC (BBC Sport)",
+      "date": "2009-09-21",
+      "url": "http://news.bbc.co.uk/sport2/hi/motorsport/formula_one/8267241.stm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "Suspended ban for Renault",
+      "publisher": "Sky Sports",
+      "date": "2009-09-21",
+      "url": "https://www.skysports.com/f1/news/5574160/suspended-ban-for-renault",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "Renault F1 team loses 2 sponsors for deliberate crash",
+      "publisher": "AP (via HeraldNet)",
+      "date": "2009-09-24",
+      "url": "https://www.heraldnet.com/2009/09/24/renault-f1-team-loses-2-sponsors-for-deliberate-crash/",
+      "kind": "primary",
+      "lang": "en",
+      "author": "Harold Heckle"
+    },
+    {
+      "id": "s24",
+      "title": "ING end Renault deal",
+      "publisher": "Sky Sports",
+      "date": "2009-09-24",
+      "url": "https://www.skysports.com/f1/news/5580790/ing-end-renault-deal",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s25",
+      "title": "Auto racing: Court overturns Briatore's ban, FIA may appeal",
+      "publisher": "AP (via The Honolulu Advertiser)",
+      "date": "2010-01-05",
+      "url": "https://archives-new.honoluluadvertiser.com/article/2010/Jan/05/br/hawaii100105020.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s26",
+      "title": "Flavio Briatore wins court case against FIA",
+      "publisher": "GrandPrix.com",
+      "date": "2010-01-05",
+      "url": "https://www.grandprix.com/ns/ns22016.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s27",
+      "title": "The FIA's reaction",
+      "publisher": "GrandPrix.com",
+      "date": "2010-01-05",
+      "url": "https://grandprix.com/news/the-fias-reaction.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s28",
+      "title": "Briatore ban overturned",
+      "publisher": "Sky Sports",
+      "date": "2010-01-05",
+      "url": "https://www.skysports.com/f1/news/5833258/briatore-ban-overturned",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s29",
+      "title": "Briatore's 'lifetime ban' now lasts only until end of 2012",
+      "publisher": "Adam Cooper's F1 Blog",
+      "date": "2010-04-12",
+      "url": "https://adamcooperf1.com/2010/04/12/briatores-lifetime-ban-now-lasts-only-until-end-of-2012/",
+      "kind": "primary",
+      "lang": "en",
+      "author": "Adam Cooper"
+    },
+    {
+      "id": "s30",
+      "title": "FIA reaches settlement with Flavio Briatore and Pat Symonds",
+      "publisher": "F1Technical",
+      "date": "2010-04-12",
+      "url": "https://www.f1technical.net/news/14614",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s31",
+      "title": "Ecclestone bricht Schweigen über F1-Skandal: Schumacher wäre alleiniger Rekordweltmeister",
+      "publisher": "F1-Insider",
+      "date": "2023-03-01",
+      "url": "https://f1-insider.com/formel-1-ecclestone-schumacher-rekord-53946/",
+      "kind": "primary",
+      "lang": "de",
+      "author": "Ralf Bach"
+    },
+    {
+      "id": "s32",
+      "title": "Ecclestone \"cannot remember\" key Crashgate interview",
+      "publisher": "RacingNews365",
+      "date": "2023-08-18",
+      "url": "https://racingnews365.com/ecclestone-cannot-remember-key-crashgate-interview",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s33",
+      "title": "Motor racing — Massa takes action against F1, FIA, Ecclestone in London High Court",
+      "publisher": "Reuters (via The Star)",
+      "date": "2024-03-12",
+      "url": "https://www.thestar.com.my/sport/motorsport/2024/03/12/motor-racing-massa-takes-action-against-f1-fia-ecclestone-in-london-high-court",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s34",
+      "title": "Massa and others (Respondents) v Formula One Management Limited (Appellant) — case UKSC/2026/0035",
+      "publisher": "The Supreme Court (UK)",
+      "date": "",
+      "url": "https://www.supremecourt.uk/cases/uksc-2026-0035",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s35",
+      "title": "Massa's £64m court claim over 2008 F1 title can go to trial - judge",
+      "publisher": "ESPN (PA)",
+      "date": "2025-11-20",
+      "url": "https://www.espn.co.uk/f1/story/_/id/47034566/felipe-massa-court-case-2008-f1-title-go-trial-judge",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s36",
+      "title": "Motor racing — Part of Massa's UK lawsuit against F1, FIA and Ecclestone can continue",
+      "publisher": "Reuters (via The Star)",
+      "date": "2025-11-20",
+      "url": "https://www.thestar.com.my/sport/motorsport/2025/11/20/motor-racing-part-of-massa039s-uk-lawsuit-against-f1-fia-and-ecclestone-can-continue",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s37",
+      "title": "Felipe Massa: courts order FIA, Bernie Ecclestone and Formula One Management to pay former Ferrari F1 driver £250,000",
+      "publisher": "Sky Sports",
+      "date": "2026-03-07",
+      "url": "https://www.skysports.com/f1/news/13516524/felipe-massa-courts-order-fia-bernie-ecclestone-and-formula-one-management-to-pay-former-ferrari-f1-driver-lb250-000",
+      "kind": "primary",
+      "lang": "en",
+      "author": "Amar Mehta"
+    },
+    {
+      "id": "s38",
+      "title": "Massa's £64m F1 lawsuit faces decisive Supreme Court hearing over 2008 title",
+      "publisher": "Grande Prêmio",
+      "date": "2026-10-21",
+      "url": "https://grandepremio.com/en/f1/massas-64m-f1-lawsuit-faces-decisive-supreme-court-hearing-over-2008-title/",
+      "kind": "primary",
+      "lang": "en",
+      "author": "JP Nascimento"
+    },
+    {
+      "id": "s39",
+      "title": "Oakes resigns as Alpine F1 Team Principal",
+      "publisher": "GrandPrix.com",
+      "date": "2025-05-07",
+      "url": "https://www.grandprix.com/news/oakes-resigns-as-alpine-f1-team-principal.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s40",
+      "title": "Oliver Oakes in shock Alpine resignation; Flavio Briatore takes charge",
+      "publisher": "PlanetF1",
+      "date": "2025-05-06",
+      "url": "https://www.planetf1.com/news/alpine-oliver-oakes-resigns-f1-flavio-briatore-takes-over",
+      "kind": "primary",
+      "lang": "en",
+      "author": "Elizabeth Blackstock"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Алонсо стартував 15-м і заїхав у бокси вже на 12-му колі.",
+      "sources": [
+        "s3",
+        "s20",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "Через два кола його напарник Піке навмисно розбив машину, виїхала машина безпеки, і Алонсо виграв.",
+      "sources": [
+        "s3",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "Алонсо виграв Гран-прі Сінгапуру 2008 року після виїзду машини безпеки",
+      "sources": [
+        "s1",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "text": "Через рік Піке розповів FIA, що аварію замовили керівники команди.",
+      "sources": [
+        "s3",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c5",
+      "text": "Renault отримала умовну дискваліфікацію, Бріаторе безстрокове, а Саймондс п'ятирічне відсторонення.",
+      "sources": [
+        "s20",
+        "s22",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "Гамілтон виграв титул з перевагою в одне очко над Массою.",
+      "sources": [
+        "s2"
+      ],
+      "status": "one",
+      "note": "У макеті ok; при перевірці 15.11 — лише один незалежний видавець (jolpica)."
+    },
+    {
+      "id": "c7",
+      "text": "Масса досі судиться, слухання у Верховному суді Великобританії призначене на лютий 2027 року.",
+      "sources": [
+        "s34",
+        "s38"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "text": "Гран-прі Сінгапуру 28 вересня 2008 року стало першою нічною гонкою Формули-1.",
+      "sources": [
+        "s1",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "Перед ним Гамілтон мав 78 очок, Масса 77, а Алонсо на Renault йшов сьомим з 28 очками.",
+      "sources": [
+        "s2",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "На тренуваннях Алонсо був швидким, але на початку другої частини кваліфікації в нього відмовила паливна система, і він стартував 15-м.",
+      "sources": [
+        "s3",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "text": "Renault залила йому дуже мало пального, лише на 12–15 кіл.",
+      "sources": [
+        "s3",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c12",
+      "text": "Алонсо заїхав у бокси вже на 12-му колі й повернувся останнім.",
+      "sources": [
+        "s3",
+        "s20",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "Через два кола його напарник Нельсон Піке-молодший врізався в стіну на виході з 17-го повороту.",
+      "sources": [
+        "s3",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c14",
+      "text": "Офіційне рішення FIA називає 14-те коло, частина звітів 13-те.",
+      "sources": [
+        "s3",
+        "s20",
+        "s7",
+        "s6"
+      ],
+      "status": "dis",
+      "note": "Джерела: s3, s20, s7, s6. Зведення макета (10.11): 14-те коло — рішення FIA (s3) і дані кіл; 13-те — у частині звітів.",
+      "label": {
+        "uk": "Коло аварії",
+        "en": "Lap of the crash"
+      },
+      "reader": {
+        "uk": "14-те за рішенням FIA і даними кіл; 13-те в деяких звітах.",
+        "en": "Lap 14 per the FIA decision and the lap data; lap 13 in some reports."
+      }
+    },
+    {
+      "id": "c15",
+      "text": "У 2008 році після виїзду машини безпеки піт-лейн закривали, доки всі не вишикуються за нею.",
+      "sources": [
+        "s3",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c16",
+      "text": "Суперники змогли заправитися лише пізніше, а Алонсо, який уже заправився, піднявся на п'яте місце.",
+      "sources": [
+        "s3",
+        "s20"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c17",
+      "text": "Росберг і Кубіца заїхали в закритий піт-лейн, бо в них закінчувалося пальне, і отримали штрафи.",
+      "sources": [
+        "s9",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "Які саме, джерела пишуть по-різному.",
+      "sources": [
+        "s9",
+        "s7",
+        "s6"
+      ],
+      "status": "dis",
+      "note": "s9 (BBC), s7 (GrandPrix.com): стоп-енд-гоу; s6 (Motor Sport): проїзд через піт-лейн.",
+      "label": {
+        "uk": "Штрафи Росберга й Кубіци",
+        "en": "Rosberg's and Kubica's penalties"
+      },
+      "reader": {
+        "uk": "Стоп-енд-гоу за BBC і GrandPrix.com або проїзд через піт-лейн за Motor Sport.",
+        "en": "Stop-go according to the BBC and GrandPrix.com, or drive-through according to Motor Sport."
+      }
+    },
+    {
+      "id": "c19",
+      "text": "Лідер Масса виїхав зі своєї зупинки разом зі шлангом заправки й зупинився наприкінці піт-лейну, поки механіки бігли його зняти.",
+      "sources": [
+        "s7",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c20",
+      "text": "Скількох механіків він зачепив, джерела пишуть по-різному.",
+      "sources": [
+        "s7",
+        "s6"
+      ],
+      "status": "dis",
+      "note": "s7 (GrandPrix.com): четверо; s6 (Motor Sport): один.",
+      "label": {
+        "uk": "Механіки Ferrari",
+        "en": "Ferrari mechanics"
+      },
+      "reader": {
+        "uk": "GrandPrix.com пише, що Масса «збив чотирьох», Motor Sport — що «зачепив одного» (переклад Slipstream).",
+        "en": "GrandPrix.com says Massa «knocked down four»; Motor Sport says he «took out one»."
+      }
+    },
+    {
+      "id": "c21",
+      "text": "Ярно Труллі лідирував до своєї зупинки на 33-му колі, а з 34-го попереду був Алонсо.",
+      "sources": [
+        "s5",
+        "s7",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "text": "Він виграв, Росберг став другим, Гамілтон третім. Масса фінішував 13-м без очок.",
+      "sources": [
+        "s1",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c23",
+      "text": "Ще в 2008 році батько пілота Нельсон Піке приватно сказав посадовцю FIA, що аварію могли підлаштувати. FIA вирішила, що доказів недостатньо.",
+      "sources": [
+        "s3",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c24",
+      "text": "26 липня 2009 року, у день Гран-прі Угорщини, він звернувся до FIA вже прямо.",
+      "sources": [
+        "s3",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "30 липня Піке-молодший дав у Парижі показання під присягою.",
+      "sources": [
+        "s3",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c26",
+      "text": "Лише після цього стало відомо, що його прибрали з команди, а 18 серпня Renault оголосила заміну.",
+      "sources": [
+        "s14",
+        "s13",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c27",
+      "text": "Піке-молодший у показаннях FIA: Саймондс у присутності Бріаторе запитав, чи готовий він пожертвувати гонкою, «викликавши машину безпеки»",
+      "sources": [
+        "s11",
+        "s10",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c28",
+      "text": "Місце обрали так, щоб туди довго діставатися кранам, і машину безпеки випустили напевно.",
+      "sources": [
+        "s3"
+      ],
+      "status": "one",
+      "note": "У макеті ok; при перевірці 15.11 — лише один незалежний видавець (fia world motor sport council)."
+    },
+    {
+      "id": "c29",
+      "text": "За телеметрією, Піке натиснув газ раніше й сильніше, а коли колеса забуксували, знову дав повний газ і тримав педаль.",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "Чия це була ідея, учасники розповідають по-різному. За словами Піке, у день гонки його покликали в кабінет Бріаторе, і Саймондс у присутності Бріаторе запропонував йому «викликати машину безпеки» (переклад Slipstream).",
+      "sources": [
+        "s11",
+        "s10",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c31",
+      "text": "Саймондс стверджував, що ідею напередодні, у суботу, запропонував сам Піке; на ключові запитання стюардів він не відповів.",
+      "sources": [
+        "s3",
+        "s18",
+        "s19"
+      ],
+      "status": "dis",
+      "note": "s3 (WMSC), s18 (Autosport), s19 (Crash.net): версія Саймондса; версія Піке — c30 (s11, s10, s3).",
+      "label": {
+        "uk": "Чия ідея",
+        "en": "Whose idea"
+      },
+      "reader": {
+        "uk": "Піке каже, що аварію запропонували Саймондс і Бріаторе. Саймондс стверджує, що ідея була самого Піке.",
+        "en": "Piquet says Symonds and Briatore proposed the crash. Symonds says the idea was Piquet's own."
+      }
+    },
+    {
+      "id": "c32",
+      "text": "Свідок X, співробітник Renault, чиє ім'я не розкрили, у суботу чув, як Саймондс говорив про план Бріаторе, і заперечував. Його показання стали ключовими для висновку про провину Бріаторе.",
+      "sources": [
+        "s3",
+        "s25"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c33",
+      "text": "Наприкінці серпня стюарди Гран-прі Бельгії опитали співробітників Renault.",
+      "sources": [
+        "s3",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c34",
+      "text": "11 вересня Renault і Бріаторе подали у Франції скаргу на обох Піке, але вже 16 вересня команда повідомила FIA, що звинувачень не заперечує, а Бріаторе й Саймондс пішли.",
+      "sources": [
+        "s16",
+        "s17",
+        "s3",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c35",
+      "text": "21 вересня 2009 року Всесвітня рада FIA дискваліфікувала Renault умовно, до кінця 2011 року. Бріаторе відсторонили безстроково, Саймондса на п'ять років; Піке мав імунітет, а Алонсо визнали непричетним.",
+      "sources": [
+        "s20",
+        "s22",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c36",
+      "text": "Штрафу команда не отримала, але оплатила розслідування й зробила значний внесок у проєкти FIA з безпеки.",
+      "sources": [
+        "s3",
+        "s20",
+        "s22"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c37",
+      "text": "FIA також заборонила видавати ліцензії командам, де працює Бріаторе, і продовжувати суперліцензії пілотам, яких він веде.",
+      "sources": [
+        "s22",
+        "s20"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c38",
+      "text": "Рішення WMSC: вони підірвали чесність спорту й наразили на небезпеку життя глядачів, офіційних осіб, учасників і самого Піке",
+      "sources": [
+        "s20",
+        "s22",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c39",
+      "text": "Піке-молодший, заява 21.09.2009: «Я гірко шкодую, що виконав наказ, який мені дали»",
+      "sources": [
+        "s21"
+      ],
+      "status": "one",
+      "note": "У макеті ok; при перевірці 15.11 — лише один незалежний видавець (bbc)."
+    },
+    {
+      "id": "c40",
+      "text": "24 вересня ING і Mutua Madrileña розірвали контракти з командою.",
+      "sources": [
+        "s23",
+        "s24"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c41",
+      "text": "5 січня 2010 року суд у Парижі визнав санкції проти Бріаторе й Саймондса незаконними: їм не дали нормально захиститися, рішення спиралося на анонімні показання, і обидва не мали ліцензій FIA. Самих фактів змови суд не розглядав.",
+      "sources": [
+        "s29",
+        "s26",
+        "s25"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c42",
+      "text": "Самих фактів змови суд у Парижі не розглядав",
+      "sources": [
+        "s25",
+        "s27"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c43",
+      "text": "Компенсація була символічною, про суми джерела пишуть по-різному.",
+      "sources": [
+        "s28",
+        "s25",
+        "s27"
+      ],
+      "status": "dis",
+      "note": "s28 (Sky): €15 000 і €5 000; s25 (AP): суми в доларах; s27 (GrandPrix.com, реакція FIA): основні вимоги відхилено.",
+      "label": {
+        "uk": "Компенсація 2010 року",
+        "en": "2010 damages"
+      },
+      "reader": {
+        "uk": "Sky пише про €15 000 і €5 000, AP подає суми в доларах; FIA наголошувала, що основні вимоги суд відхилив.",
+        "en": "Sky reports €15,000 and €5,000, AP gives the sums in dollars; the FIA stressed that the main claims were rejected."
+      }
+    },
+    {
+      "id": "c44",
+      "text": "12 квітня 2010 року сторони уклали мирову угоду: обидва визнали частку відповідальності й пообіцяли не обіймати оперативних посад у Формулі-1 до кінця 2012 року.",
+      "sources": [
+        "s29",
+        "s30"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c45",
+      "text": "30.07.2009: Піке-молодший дає FIA в Парижі показання під присягою.",
+      "sources": [
+        "s3",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c46",
+      "text": "18.08.2009: Renault оголошує, що Піке замінить Грожан.",
+      "sources": [
+        "s14",
+        "s13",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c47",
+      "text": "27–28.08.2009: Стюарди Гран-прі Бельгії опитують співробітників Renault.",
+      "sources": [
+        "s3",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c48",
+      "text": "11.09.2009: Renault і Бріаторе подають у Франції скаргу на обох Піке.",
+      "sources": [
+        "s16",
+        "s17",
+        "s3",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c49",
+      "text": "16.09.2009: Renault не заперечує звинувачень; Бріаторе й Саймондс ідуть з команди.",
+      "sources": [
+        "s16",
+        "s17",
+        "s3",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c50",
+      "text": "21.09.2009: Всесвітня рада FIA ухвалює рішення.",
+      "sources": [
+        "s20",
+        "s22",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c51",
+      "text": "24.09.2009: ING і Mutua Madrileña розривають контракти з командою.",
+      "sources": [
+        "s23",
+        "s24"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c52",
+      "text": "05.01.2010: Суд у Парижі скасовує санкції проти Бріаторе й Саймондса.",
+      "sources": [
+        "s29",
+        "s26",
+        "s25"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c53",
+      "text": "12.04.2010: Мирова угода з FIA.",
+      "sources": [
+        "s29",
+        "s30"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c54",
+      "text": "Гамілтон виграв чемпіонат 2008 року з 98 очками, Масса мав 97.",
+      "sources": [
+        "s2"
+      ],
+      "status": "one",
+      "note": "У макеті ok; при перевірці 15.11 — лише один незалежний видавець (jolpica)."
+    },
+    {
+      "id": "c55",
+      "text": "Якби результат Сінгапуру анулювали, Гамілтон втратив би свої 6 очок за третє місце, а Масса не втратив би нічого: 92 проти 97.",
+      "sources": [
+        "s2"
+      ],
+      "status": "one",
+      "note": "У макеті ok; при перевірці 15.11 — лише один незалежний видавець (jolpica)."
+    },
+    {
+      "id": "c56",
+      "text": "У березні 2023 року Берні Екклстоун сказав виданню F1-Insider, що він і Макс Мослі знали про аварію ще в сезоні 2008 року й вирішили нічого не робити, щоб захистити спорт.",
+      "sources": [
+        "s31",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c57",
+      "text": "Пізніше він казав, що не пам'ятає цього інтерв'ю.",
+      "sources": [
+        "s32"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c58",
+      "text": "У 2024 році Масса подав до Високого суду в Лондоні позов проти FIA, Formula One Management і Екклстоуна приблизно на £64 млн.",
+      "sources": [
+        "s33",
+        "s34"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c59",
+      "text": "Точну дату подання джерела називають різну.",
+      "sources": [
+        "s33",
+        "s34"
+      ],
+      "status": "dis",
+      "note": "s33 (Reuters): 11.03.2024; s34 (картка UKSC): 24.03.2024.",
+      "label": {
+        "uk": "Позов Масси",
+        "en": "Massa's claim"
+      },
+      "reader": {
+        "uk": "Подано 11.03.2024 за Reuters або 24.03.2024 за карткою справи у Верховному суді.",
+        "en": "Filed on 11.03.2024 according to Reuters, or 24.03.2024 according to the Supreme Court case page."
+      }
+    },
+    {
+      "id": "c60",
+      "text": "У листопаді 2025 року суддя відмовився переглядати підсумок чемпіонату, але дозволив продовжити частину позову.",
+      "sources": [
+        "s35",
+        "s36"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c61",
+      "text": "У березні 2026 року лишився тільки позов про змову, і питання права передали до Верховного суду Великобританії.",
+      "sources": [
+        "s37",
+        "s34"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c62",
+      "text": "Слухання там призначене на 2–3 лютого 2027 року.",
+      "sources": [
+        "s34",
+        "s38"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c63",
+      "text": "Суддя Джей, 20.11.2025: позов не може переписати підсумок чемпіонату пілотів 2008 року",
+      "sources": [
+        "s35",
+        "s36"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c64",
+      "text": "У травні 2025 року Флавіо Бріаторе, радник Alpine, тимчасово взяв на себе обов'язки керівника команди, що виросла з тієї самої Renault.",
+      "sources": [
+        "s39",
+        "s40"
+      ],
+      "status": "ok"
+    }
+  ]
+}
