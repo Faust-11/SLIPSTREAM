@@ -4,7 +4,7 @@ import { mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { mergeDecision } from "../admin-paths.mjs";
+import { mergeDecision, requiredChecks } from "../admin-paths.mjs";
 
 const PR = {
   headRefName: "admin/photos-20261115-142233",
@@ -20,7 +20,7 @@ const CHECKS = {
   check_runs: [
     { name: "check", status: "completed", conclusion: "success" },
     { name: "lighthouse", status: "completed", conclusion: "success" },
-    { name: "db", status: "completed", conclusion: "skipped" },
+    { name: "db", status: "completed", conclusion: "success" },
   ],
 };
 const STATUS = { statuses: [{ context: "Vercel", state: "success" }] };
@@ -74,7 +74,10 @@ describe("mergeDecision — автозлиття лише контенту", () 
     ["Lighthouse ще йде", { total_count: 2, check_runs: [...CHECKS.check_runs.slice(0, 1), run("lighthouse", "in_progress", null)] }, STATUS, "ще йдуть"],
     ["Vercel не зібрав прев'ю", CHECKS, { statuses: [{ context: "Vercel", state: "failure" }] }, "Vercel"],
     ["Vercel ще збирає", CHECKS, { statuses: [{ context: "Vercel", state: "pending" }] }, "Vercel"],
-    ["перевірок немає", { total_count: 0, check_runs: [] }, STATUS, "немає"],
+    ["перевірок немає", { total_count: 0, check_runs: [] }, STATUS, "check (немає успішної)"],
+    ["Lighthouse ще навіть не з'явився", { total_count: 2, check_runs: [CHECKS.check_runs[0]!, CHECKS.check_runs[2]!] }, STATUS, "lighthouse (немає успішної)"],
+    ["DB пропущено, а curated змінено", { ...CHECKS, check_runs: [...CHECKS.check_runs.slice(0, 2), run("db", "completed", "skipped")] }, STATUS, "db (немає успішної)"],
+    ["статусу Vercel ще немає", CHECKS, { statuses: [] }, "Vercel"],
     ["не всі перевірки на сторінці", { ...CHECKS, total_count: 150 }, STATUS, "не всі"],
   ])("%s — ні", (_, checks, status, reason) => {
     const res = mergeDecision({ pr: PR, files: FILES, checks, status, testedSha: "abc" });
@@ -100,5 +103,25 @@ describe("mergeDecision — автозлиття лише контенту", () 
     expect(cli(PR, FILES)).toBe(0);
     expect(cli(PR, [{ filename: "package.json", status: "modified" }])).toBe(1);
     expect(cli(PR, "{not json")).toBe(1);
+  });
+});
+
+describe("requiredChecks — за тригерами workflow", () => {
+  it("лише тексти історій (*.md) — тільки CI; curated — ще DB і Lighthouse; webp — CI і Lighthouse", () => {
+    expect(requiredChecks([{ filename: "content/stories/jerez-1997/uk.md" }])).toEqual(["check"]);
+    expect(requiredChecks([{ filename: "src/data/curated/teams.json" }])).toEqual(["check", "db", "lighthouse"]);
+    expect(requiredChecks([{ filename: "public/img/cars/a-480.webp" }])).toEqual(["check", "lighthouse"]);
+    expect(requiredChecks([{ filename: "public/img/cars/a.webp", previous_filename: "src/data/curated/x.json" }])).toEqual(["check", "db", "lighthouse"]);
+  });
+
+  it("тригери в workflow не розійшлись із правилом", async () => {
+    const { readFileSync } = await import("node:fs");
+    expect(readFileSync(".github/workflows/db.yml", "utf8")).toContain('- "src/data/curated/**"');
+    const lh = readFileSync(".github/workflows/lighthouse.yml", "utf8");
+    expect(lh).toContain('- "**/*.md"');
+    for (const ignored of lh.match(/paths-ignore:[\s\S]*?\n\s*\n|paths-ignore:[\s\S]*?workflow_dispatch/)![0].matchAll(/- "([^"]+)"/g)) {
+      // Жоден ігнорований шаблон, крім *.md, не має накривати файли адмінки (json, webp).
+      expect(["**/*.css", "e2e/**", "**/__tests__/**", "docs/**", "**/*.md", ".github/workflows/lighthouse.yml"]).toContain(ignored[1]);
+    }
   });
 });
