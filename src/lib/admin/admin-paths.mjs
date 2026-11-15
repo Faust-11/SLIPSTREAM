@@ -16,15 +16,18 @@ export function isAdminPath(path) {
 
 /** Статуси файлів REST API (pulls/{n}/files), які допускаємо: перейменування — лише коли обидва шляхи — контент. */
 const ALLOWED_STATUS = new Set(["added", "modified", "removed", "renamed"]);
+const OK_CONCLUSIONS = new Set(["success", "skipped", "neutral"]);
 
 /**
  * Чи можна злити PR адмінки без людини. Усі умови — з даних GitHub, не з коду PR.
  * @param {{ pr: { headRefName: string, baseRefName: string, headRefOid: string, isDraft: boolean,
  *   isCrossRepository: boolean, state: string, labels: { name: string }[] },
- *   files: { filename: string, previous_filename?: string, status: string }[], testedSha: string }} input
+ *   files: { filename: string, previous_filename?: string, status: string }[],
+ *   checks: { total_count: number, check_runs: { name: string, status: string, conclusion: string | null }[] },
+ *   status: { statuses: { context: string, state: string }[] }, testedSha: string }} input
  * @returns {{ ok: boolean, reason: string }}
  */
-export function mergeDecision({ pr, files, testedSha }) {
+export function mergeDecision({ pr, files, checks, status, testedSha }) {
   if (pr.state !== "OPEN") return { ok: false, reason: "PR не відкритий" };
   if (pr.baseRefName !== "main") return { ok: false, reason: "PR не в main" };
   if (!pr.headRefName.startsWith("admin/")) return { ok: false, reason: "гілка не admin/*" };
@@ -41,5 +44,13 @@ export function mergeDecision({ pr, files, testedSha }) {
     for (const p of [f.filename, f.previous_filename]) if (p !== undefined && !isAdminPath(p)) bad.push(p);
   }
   if (bad.length) return { ok: false, reason: `файли поза контентом: ${bad.join(", ")}` };
-  return { ok: true, reason: "лише контент, CI зелений" };
+  // Усі перевірки коміту: check runs (CI, Lighthouse, DB) і статуси (Vercel). Пропущені (skipped/neutral) — не помилка.
+  if (!checks || checks.total_count > checks.check_runs.length) return { ok: false, reason: "не всі перевірки видно" };
+  if (checks.check_runs.length === 0) return { ok: false, reason: "перевірок немає" };
+  const waiting = checks.check_runs.filter((c) => c.status !== "completed").map((c) => c.name);
+  if (waiting.length) return { ok: false, reason: `ще йдуть перевірки: ${waiting.join(", ")}` };
+  const failed = checks.check_runs.filter((c) => !OK_CONCLUSIONS.has(c.conclusion ?? "")).map((c) => c.name);
+  const badStatus = (status?.statuses ?? []).filter((s) => s.state !== "success").map((s) => `${s.context} (${s.state})`);
+  if (failed.length || badStatus.length) return { ok: false, reason: `перевірки не зелені: ${[...failed, ...badStatus].join(", ")}` };
+  return { ok: true, reason: "лише контент, усі перевірки зелені" };
 }

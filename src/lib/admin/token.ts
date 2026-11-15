@@ -37,6 +37,7 @@ export async function verifySession(env: AdminEnv, token: string | undefined, no
       maxTokenAge: SESSION_TTL_S,
     });
     const email = typeof payload.email === "string" ? payload.email.toLowerCase() : "";
+    if ((payload.iat ?? 0) * 1000 < env.sessionsAfter) return null;
     return env.admins.has(email) ? { email } : null;
   } catch {
     return null;
