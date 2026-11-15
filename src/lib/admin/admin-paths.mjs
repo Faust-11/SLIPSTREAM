@@ -19,6 +19,20 @@ const ALLOWED_STATUS = new Set(["added", "modified", "removed", "renamed"]);
 const OK_CONCLUSIONS = new Set(["success", "skipped", "neutral"]);
 
 /**
+ * Які перевірки мусять бути успішними — за тригерами workflow: CI (job `check`) — завжди; DB (job `db`) — коли змінено
+ * src/data/curated/** (db.yml, paths); Lighthouse (job `lighthouse`) — коли є хоч один файл не *.md (lighthouse.yml,
+ * paths-ignore). Змінили тригери — оновіть тут (тест src/lib/admin/__tests__/merge-gate.test.ts).
+ * @param {{ filename: string, previous_filename?: string }[]} files
+ */
+export function requiredChecks(files) {
+  const paths = files.flatMap((f) => [f.filename, f.previous_filename].filter((p) => p !== undefined));
+  const required = ["check"];
+  if (paths.some((p) => p.startsWith("src/data/curated/"))) required.push("db");
+  if (paths.some((p) => !p.endsWith(".md"))) required.push("lighthouse");
+  return required;
+}
+
+/**
  * Чи можна злити PR адмінки без людини. Усі умови — з даних GitHub, не з коду PR.
  * @param {{ pr: { headRefName: string, baseRefName: string, headRefOid: string, isDraft: boolean,
  *   isCrossRepository: boolean, state: string, labels: { name: string }[] },
@@ -44,13 +58,18 @@ export function mergeDecision({ pr, files, checks, status, testedSha }) {
     for (const p of [f.filename, f.previous_filename]) if (p !== undefined && !isAdminPath(p)) bad.push(p);
   }
   if (bad.length) return { ok: false, reason: `файли поза контентом: ${bad.join(", ")}` };
-  // Усі перевірки коміту: check runs (CI, Lighthouse, DB) і статуси (Vercel). Пропущені (skipped/neutral) — не помилка.
+  // Перевірки коміту. Обов'язкові — явним списком (відсутня = не зелена; security review 15.11: інакше перевірка, що ще
+  // не з'явилась, вважалась би пройденою). Решта присутніх — теж мають бути зеленими (skipped/neutral — не помилка).
   if (!checks || checks.total_count > checks.check_runs.length) return { ok: false, reason: "не всі перевірки видно" };
-  if (checks.check_runs.length === 0) return { ok: false, reason: "перевірок немає" };
-  const waiting = checks.check_runs.filter((c) => c.status !== "completed").map((c) => c.name);
+  const runs = checks.check_runs;
+  const waiting = runs.filter((c) => c.status !== "completed").map((c) => c.name);
   if (waiting.length) return { ok: false, reason: `ще йдуть перевірки: ${waiting.join(", ")}` };
-  const failed = checks.check_runs.filter((c) => !OK_CONCLUSIONS.has(c.conclusion ?? "")).map((c) => c.name);
-  const badStatus = (status?.statuses ?? []).filter((s) => s.state !== "success").map((s) => `${s.context} (${s.state})`);
-  if (failed.length || badStatus.length) return { ok: false, reason: `перевірки не зелені: ${[...failed, ...badStatus].join(", ")}` };
+  const failed = runs.filter((c) => !OK_CONCLUSIONS.has(c.conclusion ?? "")).map((c) => c.name);
+  const missing = requiredChecks(files).filter((name) => !runs.some((c) => c.name === name && c.conclusion === "success"));
+  const statuses = status?.statuses ?? [];
+  const badStatus = statuses.filter((s) => s.state !== "success").map((s) => `${s.context} (${s.state})`);
+  if (!statuses.some((s) => s.context === "Vercel" && s.state === "success")) badStatus.push("Vercel (немає успішної збірки)");
+  const problems = [...failed, ...missing.map((m) => `${m} (немає успішної)`), ...badStatus];
+  if (problems.length) return { ok: false, reason: `перевірки не зелені: ${[...new Set(problems)].join(", ")}` };
   return { ok: true, reason: "лише контент, усі перевірки зелені" };
 }
