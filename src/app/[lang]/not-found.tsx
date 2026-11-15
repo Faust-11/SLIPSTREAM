@@ -8,8 +8,9 @@ import { localizedPath } from "@/i18n/paths";
 // Явний notFound() зі сторінки (сервер віддає порожній HTML — vercel/next.js#62228; мова — після гідратації).
 // Невідомі адреси обробляє global-not-found.tsx.
 export default async function NotFound() {
+  // undefined — поза [lang] (другий кореневий layout — адмінка, src/app/admin); тут не буває, але типи це враховують.
   const value = await lang();
-  const locale = isLocale(value) ? value : defaultLocale;
+  const locale = value && isLocale(value) ? value : defaultLocale;
   const dict = await getDictionary(locale);
 
   return (
