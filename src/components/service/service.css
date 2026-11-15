@@ -147,8 +147,10 @@
   font-size: 16.5px;
   line-height: 1.6;
 }
+/* Посилання в тексті — з підкресленням: лише кольором вони не відрізнялись від .sv-soft (axe link-in-text-block, 1,06 : 1). */
 .sv-sec a {
   color: var(--blue-text);
+  text-decoration: underline;
   text-underline-offset: 3px;
 }
 .sv-sec .sv-soft,
@@ -416,9 +418,8 @@
   border-top: 2px solid var(--rule);
   columns: 2;
   column-gap: 36px;
-  /* 836 рядків нижче першого екрана — розкладка, коли наблизяться (як .st-grid > li). */
-  content-visibility: auto;
-  contain-intrinsic-size: auto 14000px;
+  /* Без content-visibility: заглушка висоти не збігалась зі справжньою (16–46 тис. px), і посилання змісту «Торгові марки»
+     на телефоні приземлялось посеред переліку (рев'ю PR #47). 836 простих рядків розкладаються швидко. */
 }
 .sv-credits li {
   break-inside: avoid;
@@ -481,6 +482,35 @@
   }
 }
 @media (width <= 600px) {
+  /* Перелік джерел на телефоні — картками: колонка «Що це означає» інакше ховалась за правим краєм (рев'ю PR #47). */
+  .sv-reg table,
+  .sv-reg tbody,
+  .sv-reg tr,
+  .sv-reg tbody th,
+  .sv-reg td {
+    display: block;
+  }
+  .sv-reg thead {
+    display: none;
+  }
+  .sv-reg tr {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--hair);
+  }
+  .sv-reg tbody th,
+  .sv-reg td {
+    border-bottom: 0;
+    padding: 2px 0;
+    min-width: 0;
+  }
+  .sv-reg td::before {
+    content: attr(data-label) ": ";
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
   /* Непарна остання цифра — на весь ряд (без порожньої половини, замір 320 px). */
   .sv-facts > div:last-child:nth-child(odd) {
     grid-column: 1 / -1;
