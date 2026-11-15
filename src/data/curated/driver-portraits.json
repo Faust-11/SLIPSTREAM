@@ -3292,7 +3292,15 @@
     "author": "File:Ayrton Senna 2.jpg: Instituto Ayrto",
     "license": "CC BY 2.0"
    },
-   "source": "mockup"
+   "source": "mockup",
+   "manual": {
+    "avatar": "/img/drivers/senna-manual-96.webp",
+    "credit": {
+     "page": "https://commons.wikimedia.org/wiki/File:Ayrton_Senna_8_-_Cropped.jpg",
+     "author": "Instituto Ayrton Senna",
+     "license": "CC BY 2.0"
+    }
+   }
   },
   "serafini": {
    "avatar": "/img/drivers/serafini-96.webp",
