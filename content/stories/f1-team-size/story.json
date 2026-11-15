@@ -446,7 +446,15 @@
         "s21"
       ],
       "status": "dis",
-      "note": "s20: «just under 50 people leaving the business» після консультацій із персоналом; s21: «Mercedes' restructure cost only 59 people their jobs»."
+      "note": "s20: «just under 50 people leaving the business» після консультацій із персоналом; s21: «Mercedes' restructure cost only 59 people their jobs».",
+      "label": {
+        "uk": "Скорочення в Mercedes",
+        "en": "Mercedes job cuts"
+      },
+      "reader": {
+        "uk": "GP Racing у 2021 році (стаття опублікована й на Autosport) писав, що після консультацій із персоналом із Mercedes пішли «трохи менше 50» людей. Crash.net пише, що реструктуризація коштувала роботи 59 людям.",
+        "en": "GP Racing in 2021 (the article also ran on Autosport) wrote that \"just under 50 people\" left Mercedes after consultation with staff. Crash.net says the restructure cost 59 people their jobs."
+      }
     },
     {
       "id": "c23",

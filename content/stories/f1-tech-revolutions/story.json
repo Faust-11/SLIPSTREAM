@@ -766,7 +766,15 @@
         "j5"
       ],
       "status": "dis",
-      "note": "s6 (Roebuck): у Спа-1968 «гран-прі-болід уперше поїхав з крилом» — на Ferrari Кріса Еймона; s8: Ferrari і Brabham мали крила на Гран-прі Бельгії 1968; s10: крила дебютували на Lotus 49B у Монако-1968; s2: Чапмен привіз ідею в Монако, а «справжній крок» — у Бельгії з Brabham і Ferrari"
+      "note": "s6 (Roebuck): у Спа-1968 «гран-прі-болід уперше поїхав з крилом» — на Ferrari Кріса Еймона; s8: Ferrari і Brabham мали крила на Гран-прі Бельгії 1968; s10: крила дебютували на Lotus 49B у Монако-1968; s2: Чапмен привіз ідею в Монако, а «справжній крок» — у Бельгії з Brabham і Ferrari",
+      "label": {
+        "uk": "Перше крило в гран-прі",
+        "en": "First wing in a grand prix"
+      },
+      "reader": {
+        "uk": "F1.com пише, що крила дебютували на Lotus 49B у Монако-1968; Autosport — що Чапмен привіз ідею в Монако, а справжній крок зробили в Бельгії Brabham і Ferrari. Найджел Роубак із Motor Sport вважає, що гран-прі-болід уперше поїхав із крилом у Спа-1968, на Ferrari Кріса Еймона, а Goodwood пише, що там крила мали Ferrari і Brabham.",
+        "en": "F1.com says wings debuted on the Lotus 49B at Monaco in 1968; Autosport that Chapman brought the idea to Monaco, while the real step came in Belgium with Brabham and Ferrari. Nigel Roebuck of Motor Sport holds that a grand prix car first raced with a wing at Spa in 1968, on Chris Amon's Ferrari, and Goodwood says both Ferrari and Brabham had wings there."
+      }
     },
     {
       "id": "c19",
@@ -1160,7 +1168,15 @@
         "s10"
       ],
       "status": "dis",
-      "note": "s21 (Lotus): Type 88 «перший болід Ф1 з карбоновим шасі, раніше за MP4/1»; s26: Lotus 88 так і не стартував у гонці. У тексті — обидві версії"
+      "note": "s21 (Lotus): Type 88 «перший болід Ф1 з карбоновим шасі, раніше за MP4/1»; s26: Lotus 88 так і не стартував у гонці. У тексті — обидві версії",
+      "label": {
+        "uk": "Перший карбоновий монокок",
+        "en": "First carbon-fibre monocoque"
+      },
+      "reader": {
+        "uk": "McLaren, Autosport і F1.com називають McLaren MP4/1 першим болідом із повністю карбоновим монококом. Lotus пише, що її Type 88 з карбоновим шасі з'явився раніше, але, як нагадує Autosport, у гонці він так і не стартував.",
+        "en": "McLaren, Autosport and F1.com call the McLaren MP4/1 the first car with a monocoque made entirely of carbon fibre. Lotus says its Type 88 with a carbon-fibre chassis came earlier, but, as Autosport notes, it never started a race."
+      }
     },
     {
       "id": "c62",
@@ -1358,7 +1374,15 @@
         "s35"
       ],
       "status": "dis",
-      "note": "s11 — молодший аеродинамік Масаюкі Мінагава; s34 — «один з інженерів Honda» з японської аерогрупи; s35 — «за повідомленнями» конструктори Super Aguri, які потім перейшли до Honda"
+      "note": "s11 — молодший аеродинамік Масаюкі Мінагава; s34 — «один з інженерів Honda» з японської аерогрупи; s35 — «за повідомленнями» конструктори Super Aguri, які потім перейшли до Honda",
+      "label": {
+        "uk": "Автор подвійного дифузора",
+        "en": "Who devised the double diffuser"
+      },
+      "reader": {
+        "uk": "F1.com називає автором ідеї молодшого аеродинаміка Масаюкі Мінагаву, Autosport — одного з інженерів японської аеродинамічної групи Honda. Motorsport.com із посиланням на повідомлення пише про колишніх конструкторів Super Aguri, які потім перейшли до Honda.",
+        "en": "F1.com credits junior aerodynamicist Masayuki Minagawa, Autosport one of the engineers in Honda's Japanese aerodynamics group. Motorsport.com, citing reports, points to former Super Aguri designers who later moved to Honda."
+      }
     },
     {
       "id": "c83",

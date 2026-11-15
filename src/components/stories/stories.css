@@ -1,0 +1,791 @@
+/* Розділ «Історії» (фаза 5) — за макетами «Історії» і «Сузука-1989»: червоний перший екран Ferrari, шкала перевірки,
+   лінійка років, картки, сторінка історії з бічною колонкою (шкала + зміст) і колонкою читання з виносками.
+   Префікс st- (не sr-: збігається з sr-only Tailwind). Контраст (замір 15.11): лід на червоному — білий (0.82 → 3.41 < 4.5),
+   акцентний рядок заголовка в темній темі — світліший, значок «?» у темній темі — темний текст. */
+
+.st-page {
+  --hero: #e8002d;
+  --hero-fg: #fff;
+  --hero-line: rgb(255 255 255 / 0.45);
+  --hero-ink: #16181d;
+  --ok: #178a4c;
+  --one: #b07a00;
+  --dis: #c2410c;
+  --dis-fg: #fff;
+  --quote-bg: #e6e8e2;
+}
+:root[data-theme="dark"] .st-page {
+  --hero: #b8001f;
+  --hero-ink: #ffd9de;
+  --ok: #4fd18b;
+  --one: #f2c230;
+  --dis: #ff8a50;
+  --dis-fg: #16181d;
+  --quote-bg: #1b1d22;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .st-page {
+    --hero: #b8001f;
+    --hero-ink: #ffd9de;
+    --ok: #4fd18b;
+    --one: #f2c230;
+    --dis: #ff8a50;
+    --dis-fg: #16181d;
+    --quote-bg: #1b1d22;
+  }
+}
+
+/* ---------- перший екран (список і історія) ---------- */
+.st-hero {
+  background: var(--hero);
+  color: var(--hero-fg);
+  border-bottom: var(--b) solid var(--rule);
+}
+.st-hero .wrap {
+  padding-block: 40px;
+}
+.st-hero a {
+  color: inherit;
+}
+.st-stamp {
+  display: inline-block;
+  margin: 0 0 16px;
+  padding: 7px 11px;
+  background: var(--yellow);
+  color: var(--on-yellow);
+  font: 600 12px/1.3 var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.st-hero h1 {
+  font-size: clamp(30px, 5vw, 64px);
+}
+.st-hero h1 > span:not(.sr-only) {
+  display: block;
+  color: var(--hero-ink);
+}
+.st-deck {
+  max-width: 62ch;
+  margin: 18px 0 0;
+  font-size: clamp(16px, 1.5vw, 19px);
+  line-height: 1.5;
+}
+
+/* ---------- лінійка років ---------- */
+.st-ruler-sec {
+  border-bottom: 2px solid var(--rule);
+}
+.st-ruler-scroll {
+  overflow-x: auto;
+  padding-block: 12px 8px;
+}
+.st-ruler-scroll:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.st-ruler {
+  position: relative;
+  min-width: 1100px;
+  height: 92px;
+  margin: 0 16px;
+  padding: 0;
+  list-style: none;
+  border-bottom: 3px solid var(--rule);
+}
+.st-rd {
+  position: absolute;
+  bottom: -14px;
+  left: var(--x);
+  transform: translateX(-50%);
+}
+.st-rd-b {
+  bottom: 30px;
+}
+.st-rd a {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.st-rdot {
+  order: 2;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--on-yellow);
+  box-shadow: inset 0 0 0 3px var(--ink);
+  font: 600 11px/1 var(--f-mono);
+}
+.st-rlab {
+  order: 1;
+  font: 600 11px/1 var(--f-mono);
+}
+.st-rd a:hover .st-rdot,
+.st-rd a:focus-visible .st-rdot {
+  background: var(--blue-text);
+  color: var(--paper);
+}
+.st-axis {
+  position: relative;
+  min-width: 1100px;
+  height: 18px;
+  margin: 18px 16px 0;
+}
+.st-axis span {
+  position: absolute;
+  left: var(--x);
+  transform: translateX(-50%);
+  font: 12px/1 var(--f-mono);
+  color: var(--ink-soft);
+}
+
+/* ---------- фільтр і список ---------- */
+html:not([data-js]) .st-chips,
+html:not([data-js]) .st-count {
+  display: none;
+}
+html[data-list-query] .st-list {
+  visibility: hidden;
+}
+.st-list-sec .wrap {
+  padding-block: 26px 46px;
+}
+.st-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.st-chip {
+  min-block-size: 36px;
+  padding: 8px 12px;
+  border: 2px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink);
+  font: 600 13px/1.2 var(--f-mono);
+  cursor: pointer;
+}
+.st-chip[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+.st-count {
+  margin: 12px 0 18px;
+  font: 13px/1.4 var(--f-mono);
+  color: var(--ink-soft);
+}
+.st-list[data-c="scandal"] [data-cat]:not([data-cat="scandal"]),
+.st-list[data-c="sensation"] [data-cat]:not([data-cat="sensation"]),
+.st-list[data-c="history"] [data-cat]:not([data-cat="history"]),
+.st-list[data-c="explainer"] [data-cat]:not([data-cat="explainer"]),
+.st-list[data-c="tech"] [data-cat]:not([data-cat="tech"]) {
+  display: none;
+}
+.st-feat-wrap {
+  margin-bottom: 30px;
+}
+.st-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- картка ---------- */
+.st-card {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  min-width: 0;
+}
+.st-ph {
+  margin: 0;
+}
+.st-ph img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 2px solid var(--rule);
+}
+.st-txt {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+.st-tagline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font: 12px/1.3 var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.st-yr {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--on-yellow);
+  box-shadow: inset 0 0 0 3px var(--ink);
+  font: 600 12px/1 var(--f-mono);
+  letter-spacing: 0;
+}
+.st-card h2,
+.st-card h3 {
+  font-size: 22px;
+  line-height: 1.08;
+}
+.st-link {
+  color: var(--ink);
+  text-decoration: none;
+}
+.st-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.st-card:hover .st-link,
+.st-link:focus-visible {
+  color: var(--blue-text);
+}
+.st-acc {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--f-body);
+  font-size: 0.72em;
+  font-weight: 600;
+  line-height: 1.25;
+  text-transform: none;
+  word-spacing: normal;
+}
+.st-dek {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.st-go {
+  justify-self: start;
+  margin: 0;
+  padding: 10px 14px;
+  background: var(--ink);
+  color: var(--paper);
+  font: 600 13px/1.2 var(--f-mono);
+}
+.st-feat {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 0;
+  border: var(--b) solid var(--rule);
+}
+.st-feat .st-ph img {
+  height: 100%;
+  min-height: 300px;
+  aspect-ratio: auto;
+  border: 0;
+}
+.st-feat .st-txt {
+  padding: 24px 26px;
+  border-left: var(--b) solid var(--rule);
+}
+.st-feat h2 {
+  font-size: clamp(22px, 2.6vw, 32px);
+}
+.st-feat .st-dek {
+  font-size: 16px;
+}
+
+/* ---------- шкала перевірки ---------- */
+.st-meter {
+  display: grid;
+  gap: 8px;
+}
+.st-mhead {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0;
+}
+.st-mhead b {
+  font-size: 28px;
+}
+.st-mhead span {
+  font: 12px/1.3 var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.st-mbar {
+  display: flex;
+  height: 12px;
+  gap: 2px;
+}
+.st-mbar i {
+  display: block;
+  min-width: 4px;
+}
+.st-ok {
+  background: var(--ok);
+}
+.st-one {
+  background: var(--one);
+}
+.st-dis {
+  background: var(--dis);
+}
+.st-mkeys {
+  display: grid;
+  gap: 3px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+.st-mkeys li {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.st-sw {
+  align-self: center;
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+}
+.st-mkeys b {
+  min-width: 2ch;
+  font-family: var(--f-mono);
+  text-align: right;
+}
+.st-meter-sm .st-mhead b {
+  font-size: 22px;
+}
+.st-meter-sm .st-mkeys {
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: 4px 14px;
+  font-size: 12px;
+}
+
+/* ---------- сторінка історії: перший екран ---------- */
+.st-s-hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+  padding-block: 32px 40px;
+}
+.st-s-hero:not(.has-photo) .wrap {
+  grid-template-columns: minmax(0, 1fr);
+}
+.st-s-hero h1 {
+  font-size: clamp(28px, 4.4vw, 56px);
+}
+.st-s-hero-txt {
+  min-width: 0;
+}
+.st-crumbs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+  font: 12px/1.3 var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.st-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  margin: 26px 0 0;
+  border-top: 2px solid var(--hero-fg);
+}
+.st-facts div {
+  min-width: 0;
+  padding: 10px 12px 0 0;
+}
+.st-facts div + div {
+  padding-left: 12px;
+  border-left: 1px solid var(--hero-line);
+}
+.st-facts dt {
+  font: 10.5px/1.3 var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.st-facts dd {
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.st-s-hero-ph {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+.st-s-hero-ph img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 3px solid var(--hero-fg);
+}
+.st-s-hero-ph figcaption {
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+/* ---------- бічна колонка й текст ---------- */
+.st-s-grid {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+  padding-block: 36px 24px;
+}
+.st-side {
+  position: sticky;
+  top: calc(84px + env(safe-area-inset-top, 0px));
+  display: grid;
+  gap: 18px;
+  padding-top: 14px;
+  border-top: var(--b) solid var(--rule);
+}
+.st-mnote {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+.st-toc ol {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--rule);
+  scroll-target-group: auto;
+}
+.st-toc a {
+  display: block;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--hair);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.st-toc a:hover {
+  color: var(--blue-text);
+}
+/* Поточна глава — не лише кольором: жовта риска зліва й відступ. */
+.st-toc a:is(:target-current, [aria-current="true"]) {
+  padding-left: 9px;
+  color: var(--blue-text);
+  box-shadow: inset 3px 0 0 var(--yellow);
+}
+html:has(.st-toc) {
+  scroll-padding-top: 84px;
+}
+.st-body {
+  min-width: 0;
+  max-width: 720px;
+}
+.st-ch {
+  padding-bottom: 30px;
+}
+.st-ch:focus {
+  outline: none;
+}
+.st-ch h2 {
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: var(--b) solid var(--rule);
+  font-size: clamp(20px, 2.3vw, 27px);
+}
+.st-ch > p {
+  max-width: 68ch;
+  margin: 0 0 14px;
+  font-size: 17px;
+  line-height: 1.68;
+}
+.st-fn {
+  margin-left: 1px;
+  font: 600 10.5px/0 var(--f-mono);
+  white-space: nowrap;
+}
+.st-fn a {
+  display: inline-block;
+  min-width: 1.4em;
+  padding: 0 1px;
+  color: var(--blue-text);
+  text-align: center;
+  text-decoration: none;
+}
+.st-fn a:hover {
+  text-decoration: underline;
+}
+.st-m {
+  display: inline-grid;
+  place-items: center;
+  width: 13px;
+  height: 13px;
+  margin-right: 1px;
+  border-radius: 50%;
+  font: 700 9px/1 var(--f-mono);
+  font-style: normal;
+  vertical-align: 1px;
+}
+.st-m-one {
+  background: var(--one);
+  color: var(--on-yellow);
+}
+.st-m-dis {
+  background: var(--dis);
+  color: var(--dis-fg);
+}
+.st-pull {
+  margin: 22px 0 24px;
+  padding: 18px 20px 16px;
+  background: var(--quote-bg);
+  border-left: 6px solid var(--yellow);
+}
+.st-pull blockquote {
+  margin: 0;
+}
+.st-q-orig {
+  margin: 0;
+  font-size: clamp(17px, 1.8vw, 20px);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.45;
+}
+.st-q-tr {
+  margin: 8px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.st-pull figcaption {
+  margin-top: 10px;
+  font: 12px/1.4 var(--f-mono);
+  color: var(--ink-soft);
+}
+.st-inph {
+  display: grid;
+  gap: 6px;
+  margin: 18px 0 22px;
+}
+.st-inph img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 540px;
+  object-fit: cover;
+  border: 2px solid var(--rule);
+}
+.st-inph figcaption,
+.st-note {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+.st-tldr {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+  counter-reset: t;
+}
+.st-tldr li {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 10px;
+  font-size: 16.5px;
+  line-height: 1.55;
+  counter-increment: t;
+}
+.st-tldr li::before {
+  content: counter(t);
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--on-yellow);
+  font: 600 12px/1 var(--f-mono);
+}
+.st-tl {
+  display: grid;
+  margin: 18px 0;
+  padding: 0;
+  list-style: none;
+  border-left: 3px solid var(--rule);
+}
+.st-tl li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 14px;
+  padding: 0 0 14px 18px;
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+.st-tl li::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: -8px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: inset 0 0 0 3px var(--rule);
+}
+.st-tl-date {
+  padding-top: 2px;
+  font: 600 13px/1.4 var(--f-mono);
+}
+.st-dzs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 24px;
+}
+.st-dz {
+  padding: 10px 0;
+  border-top: 1px solid var(--hair);
+}
+.st-dz b {
+  display: block;
+  font-size: 14px;
+}
+.st-dz p {
+  margin: 4px 0 0;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.st-dz-src a {
+  color: var(--blue-text);
+}
+.st-srcs {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-left: 28px;
+  font-size: 14px;
+}
+.st-srcs li {
+  padding-left: 4px;
+  overflow-wrap: anywhere;
+  scroll-margin-top: 90px;
+}
+.st-srcs a {
+  color: var(--ink);
+  text-underline-offset: 3px;
+}
+.st-srcs li:target {
+  background: var(--yellow);
+  color: var(--on-yellow);
+}
+.st-srcs li:target a {
+  color: var(--on-yellow);
+}
+
+/* ---------- ще історії ---------- */
+.st-more {
+  border-top: var(--b) solid var(--rule);
+}
+.st-more .wrap {
+  padding-block: 30px 44px;
+}
+.st-sec-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+  padding-bottom: 10px;
+  border-bottom: var(--b) solid var(--rule);
+}
+.st-sec-head h2 {
+  font-size: clamp(22px, 2.6vw, 30px);
+}
+.st-sec-head a {
+  color: var(--blue-text);
+  font-weight: 600;
+}
+
+/* ---------- адаптивність ---------- */
+@media (width <= 1100px) {
+  .st-s-grid {
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 32px;
+  }
+}
+@media (width <= 900px) {
+  .st-s-hero .wrap,
+  .st-s-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .st-side {
+    position: static;
+  }
+  .st-toc ol {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 12px;
+  }
+  .st-feat {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .st-feat .st-ph img {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+  .st-feat .st-txt {
+    border-top: var(--b) solid var(--rule);
+    border-left: 0;
+  }
+}
+@media (width <= 640px) {
+  .st-grid,
+  .st-dzs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .st-toc ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .st-ch > p {
+    font-size: 16px;
+  }
+  .st-tl li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+  .st-feat .st-txt {
+    padding: 18px 16px;
+  }
+  .st-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .st-facts div:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .st-meter-sm .st-mkeys {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

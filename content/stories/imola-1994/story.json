@@ -393,7 +393,15 @@
         "s14"
       ],
       "status": "dis",
-      "note": "s5: влучило в чотирьох людей; s11: троє глядачів і поліцейський, легкі травми; s14: дев'ятеро глядачів, один важко"
+      "note": "s5: влучило в чотирьох людей; s11: троє глядачів і поліцейський, легкі травми; s14: дев'ятеро глядачів, один важко",
+      "label": {
+        "uk": "Постраждалі на трибуні",
+        "en": "Injured in the grandstand"
+      },
+      "reader": {
+        "uk": "GrandPrix.com пише, що уламки влучили в чотирьох людей, Motor Sport — у трьох глядачів і поліцейського, усі з легкими травмами. RaceFans називає дев'ятьох постраждалих глядачів, одного з них — важко.",
+        "en": "GrandPrix.com says debris struck four people, Motor Sport three spectators and a policeman, all with minor injuries. RaceFans says nine spectators were hurt, one of them seriously."
+      }
     },
     {
       "id": "c14",
@@ -421,7 +429,15 @@
         "s5"
       ],
       "status": "dis",
-      "note": "s11 і s14: сьоме коло; s5: «на початку шостого кола» (у таблиці — 5 завершених кіл, як і в s1)"
+      "note": "s11 і s14: сьоме коло; s5: «на початку шостого кола» (у таблиці — 5 завершених кіл, як і в s1)",
+      "label": {
+        "uk": "Коло аварії Сенни",
+        "en": "Lap of Senna's crash"
+      },
+      "reader": {
+        "uk": "Motor Sport і RaceFans пишуть, що Сенна розбився на сьомому колі. GrandPrix.com — що «на початку шостого кола».",
+        "en": "Motor Sport and RaceFans say Senna crashed on lap seven. GrandPrix.com says it was \"at the start of lap six\"."
+      }
     },
     {
       "id": "c17",
@@ -779,7 +795,15 @@
         "s18"
       ],
       "status": "dis",
-      "note": "s21: 1995, з 400 до 550 мм; s18: «Raised cockpit sides were mandated in 1996»"
+      "note": "s21: 1995, з 400 до 550 мм; s18: «Raised cockpit sides were mandated in 1996»",
+      "label": {
+        "uk": "Рік підняття бортів кокпіту",
+        "en": "Year cockpit sides were raised"
+      },
+      "reader": {
+        "uk": "Motorsport.com пише, що борти кокпіту підняли 1995 року — з 400 до 550 мм. Autosport — що вищі борти стали обов'язковими 1996 року.",
+        "en": "Motorsport.com says the cockpit sides were raised in 1995, from 400 to 550mm. Autosport says raised cockpit sides were mandated in 1996."
+      }
     },
     {
       "id": "c58",

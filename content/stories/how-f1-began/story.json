@@ -360,7 +360,15 @@
         "s7"
       ],
       "status": "dis",
-      "note": "s1: CSI проголосувала 1946-го, правила формально діють з 1947-го; s6: «International Formula» складено навесні 1946-го для змагань з 1947-го; s7 (Гайем): CSI зібралася в жовтні 1947-го й оголосила правила на 1948–1953."
+      "note": "s1: CSI проголосувала 1946-го, правила формально діють з 1947-го; s6: «International Formula» складено навесні 1946-го для змагань з 1947-го; s7 (Гайем): CSI зібралася в жовтні 1947-го й оголосила правила на 1948–1953.",
+      "label": {
+        "uk": "Коли затвердили формулу",
+        "en": "When the formula was adopted"
+      },
+      "reader": {
+        "uk": "Дейвід Тремейн на Formula1.com пише, що CSI проголосувала за нову формулу 1946 року, а формально правила діють з 1947-го; Goodwood — що їх склали навесні 1946-го для змагань з 1947-го. У книжці Пітера Гайема, уривок з якої опублікував RaceFans, сказано, що CSI зібралася в жовтні 1947 року й оголосила правила на 1948–1953 роки.",
+        "en": "David Tremayne on Formula1.com writes that the CSI voted for the new formula in 1946, with the rules formally in force from 1947; Goodwood that they were drawn up in spring 1946 for racing from 1947. Peter Higham's book, in an extract published by RaceFans, says the CSI met in October 1947 and announced rules for 1948–1953."
+      }
     },
     {
       "id": "c19",
@@ -439,7 +447,15 @@
         "s10"
       ],
       "status": "dis",
-      "note": "s9: «an estimated 150,000»; s10: 200 000."
+      "note": "s9: «an estimated 150,000»; s10: 200 000.",
+      "label": {
+        "uk": "Кількість глядачів",
+        "en": "Crowd size"
+      },
+      "reader": {
+        "uk": "Motorsport.com пише про приблизно 150 тисяч глядачів, агенція PA в публікації PlanetF1 — про 200 тисяч.",
+        "en": "Motorsport.com puts the crowd at an estimated 150,000, the PA news agency, in a piece published by PlanetF1, at 200,000."
+      }
     },
     {
       "id": "c27",
@@ -540,7 +556,15 @@
         "s1"
       ],
       "status": "dis",
-      "note": "s9: «£1750 in prize money up for grabs»; s1: за оцінкою, загальний фонд навряд чи перевищив £1000, переможцю — близько £350."
+      "note": "s9: «£1750 in prize money up for grabs»; s1: за оцінкою, загальний фонд навряд чи перевищив £1000, переможцю — близько £350.",
+      "label": {
+        "uk": "Призовий фонд",
+        "en": "Prize money"
+      },
+      "reader": {
+        "uk": "Motorsport.com пише про £1 750 призового фонду. Дейвід Тремейн на Formula1.com вважає, що весь фонд навряд чи перевищував £1 000, а переможець отримав близько £350.",
+        "en": "Motorsport.com writes of £1,750 in prize money. David Tremayne on Formula1.com reckons the whole fund was unlikely to have exceeded £1,000, with around £350 going to the winner."
+      }
     },
     {
       "id": "c37",

@@ -464,7 +464,15 @@
         "s2"
       ],
       "status": "dis",
-      "note": "Formula1.com (a2): на тренуваннях 30 с, у гонці 52 с, після виїзду 51 с позаду Ferrari; RaceFans (a1): 1 хв 16 с на місці, 48 с позаду; Motor Sport (a3): «close to a minute behind»."
+      "note": "Formula1.com (a2): на тренуваннях 30 с, у гонці 52 с, після виїзду 51 с позаду Ferrari; RaceFans (a1): 1 хв 16 с на місці, 48 с позаду; Motor Sport (a3): «close to a minute behind».",
+      "label": {
+        "uk": "Зупинка Фанхіо",
+        "en": "Fangio's pit stop"
+      },
+      "reader": {
+        "uk": "Formula1.com пише, що на тренуваннях механіки впоралися за 30 секунд, у гонці — за 52, і Фанхіо виїхав за 51 секунду позаду Ferrari. RaceFans — що він простояв 1 хв 16 с і відстав на 48 секунд, Motor Sport — що відставання становило майже хвилину.",
+        "en": "Formula1.com says the mechanics managed 30 seconds in practice but 52 in the race, and Fangio rejoined 51 seconds behind the Ferraris. RaceFans says he was stationary for 1min 16s and fell 48 seconds behind, Motor Sport that he was close to a minute behind."
+      }
     },
     {
       "id": "c4",
@@ -734,7 +742,15 @@
         "s29"
       ],
       "status": "dis",
-      "note": "Formula1.com (2019): близько £250 000 за штуку; The Race (2021): «up to £200,000»."
+      "note": "Formula1.com (2019): близько £250 000 за штуку; The Race (2021): «up to £200,000».",
+      "label": {
+        "uk": "Ціна переднього домкрата",
+        "en": "Front jack price"
+      },
+      "reader": {
+        "uk": "Formula1.com у 2019 році писав, що передній домкрат коштує близько £250 000, The Race у 2021-му — «до £200 000».",
+        "en": "Formula1.com said in 2019 that a front jack cost around £250,000, The Race in 2021 \"up to £200,000\"."
+      }
     },
     {
       "id": "c34",

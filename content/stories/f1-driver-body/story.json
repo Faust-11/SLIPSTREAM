@@ -292,7 +292,15 @@
         "s7"
       ],
       "status": "dis",
-      "note": "F1.com і Aston Martin дають «до/понад 6 g», Brembo для найважчих гальмувань 2025 року — 4,7–4,9 g. У тексті — обидві версії."
+      "note": "F1.com і Aston Martin дають «до/понад 6 g», Brembo для найважчих гальмувань 2025 року — 4,7–4,9 g. У тексті — обидві версії.",
+      "label": {
+        "uk": "Перевантаження на гальмуванні",
+        "en": "Peak braking g-force"
+      },
+      "reader": {
+        "uk": "F1.com пише про перевантаження до 6 g на гальмуванні, Aston Martin — про понад 6 g на гальмуванні й у деяких поворотах. Brembo за власними симуляціями сезону 2025 дає нижчі піки: 4,7 g у першому повороті Монци і 4,9 g у сьомому повороті Сінгапуру.",
+        "en": "F1.com writes of up to 6 g under braking, Aston Martin of more than 6 g under braking and in some corners. Brembo, from its own simulations of the 2025 season, gives lower peaks: 4.7 g at Turn 1 in Monza and 4.9 g at Turn 7 in Singapore."
+      }
     },
     {
       "id": "c3",
@@ -321,7 +329,15 @@
         "s5"
       ],
       "status": "dis",
-      "note": "Mercedes: максимум календаря 2024 — «over 5G»; Aston Martin: «in excess of 6 g in some high-speed corners»."
+      "note": "Mercedes: максимум календаря 2024 — «over 5G»; Aston Martin: «in excess of 6 g in some high-speed corners».",
+      "label": {
+        "uk": "Бічні перевантаження",
+        "en": "Lateral g-forces"
+      },
+      "reader": {
+        "uk": "Mercedes пише, що найбільше бічне перевантаження календаря 2024 року — понад 5 g у першому повороті Судзуки. Aston Martin — що в деяких швидких поворотах воно перевищує 6 g.",
+        "en": "Mercedes says the highest lateral load on the 2024 calendar is more than 5 g at Turn 1 in Suzuka. Aston Martin says it exceeds 6 g in some high-speed corners."
+      }
     },
     {
       "id": "c6",
@@ -418,7 +434,15 @@
         "s18"
       ],
       "status": "dis",
-      "note": "Різні пілоти, роки й оцінки: від 2,5 до ~5 кг."
+      "note": "Різні пілоти, роки й оцінки: від 2,5 до ~5 кг.",
+      "label": {
+        "uk": "Втрата ваги в Сінгапурі",
+        "en": "Weight loss in Singapore"
+      },
+      "reader": {
+        "uk": "Пілоти називають різні цифри: П'єр Гаслі у 2022 році — до 2,5 кг, Джордж Расселл у 2024-му — 4 кг, Ніко Гюлькенберг того ж року — 3 кг (за F1.com і GrandPrix.com). RacingNews365 пише, що втратити там близько 5 кг — звична справа.",
+        "en": "Drivers give different figures: Pierre Gasly in 2022 up to 2.5 kg, George Russell in 2024 4 kg, Nico Hülkenberg the same year 3 kg (according to F1.com and GrandPrix.com). RacingNews365 writes that losing around 5 kg there is not uncommon."
+      }
     },
     {
       "id": "c17",
@@ -522,7 +546,15 @@
         "s5"
       ],
       "status": "dis",
-      "note": "Різні методики вимірювання; 0,16 с Алонсо — нижче за діапазон McLaren."
+      "note": "Різні методики вимірювання; 0,16 с Алонсо — нижче за діапазон McLaren.",
+      "label": {
+        "uk": "Час реакції на старті",
+        "en": "Start reaction time"
+      },
+      "reader": {
+        "uk": "McLaren пише, що звичайна людина реагує за 0,15–0,2 секунди, а реакція пілота на старті разом із відпусканням зчеплення зазвичай становить 0,2–0,3 секунди. Aston Martin наводить для Фернандо Алонсо середні 0,16 секунди на старті — менше за діапазон McLaren; команди міряють по-різному.",
+        "en": "McLaren writes that an ordinary person reacts in 0.15–0.2 seconds, and that a driver's start reaction including the clutch release is usually 0.2–0.3 seconds. Aston Martin gives Fernando Alonso an average of 0.16 seconds at the start, below McLaren's range; the teams measure in different ways."
+      }
     },
     {
       "id": "c28",

@@ -427,7 +427,15 @@
         "s23"
       ],
       "status": "dis",
-      "note": "Benetton у своїй заяві (s12) і Браун пізніше (s18) стверджували, що фільтр зняли з дозволу технічного делегата FIA Чарлі Вайтінга. На слуханні захист (адвокат Джордж Карман) заявив, що фільтр зняв молодший співробітник без відома керівництва (s16), і Всесвітня рада прийняла цю версію (s23)."
+      "note": "Benetton у своїй заяві (s12) і Браун пізніше (s18) стверджували, що фільтр зняли з дозволу технічного делегата FIA Чарлі Вайтінга. На слуханні захист (адвокат Джордж Карман) заявив, що фільтр зняв молодший співробітник без відома керівництва (s16), і Всесвітня рада прийняла цю версію (s23).",
+      "label": {
+        "uk": "Хто дозволив зняти фільтр",
+        "en": "Who allowed the filter's removal"
+      },
+      "reader": {
+        "uk": "Benetton у своїй заяві, а згодом Росс Браун в інтерв'ю Motor Sport стверджували, що фільтр зняли з дозволу технічного делегата FIA Чарлі Вайтінга. На слуханні у Всесвітній раді захист заявив, що фільтр зняв молодший співробітник без відома керівництва (так пишуть Motor Sport і RaceFans), і рада прийняла цю версію.",
+        "en": "Benetton's statement, and later Ross Brawn speaking to Motor Sport, said the filter was removed with the permission of FIA technical delegate Charlie Whiting. At the World Motor Sport Council hearing the defence said a junior employee had removed it without management's knowledge (as Motor Sport and RaceFans report), and the council accepted that version."
+      }
     },
     {
       "id": "c19",

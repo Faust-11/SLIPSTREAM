@@ -238,7 +238,15 @@
         "s8"
       ],
       "status": "dis",
-      "note": "Grandprix.com (1991): 6 місяців за володіння CS-газом і 18 — за напад; RacingNews365: 18 місяців; PlanetF1: два роки ув'язнення"
+      "note": "Grandprix.com (1991): 6 місяців за володіння CS-газом і 18 — за напад; RacingNews365: 18 місяців; PlanetF1: два роки ув'язнення",
+      "label": {
+        "uk": "Термін для Гашо",
+        "en": "Gachot's sentence"
+      },
+      "reader": {
+        "uk": "Grandprix.com пише, що Бертран Гашо отримав 18 місяців за напад і шість — за володіння газом. RacingNews365 пише про 18 місяців ув'язнення, PlanetF1 — про два роки.",
+        "en": "Grandprix.com says Bertrand Gachot got 18 months for the assault and six for possessing the gas. RacingNews365 reports an 18-month jail term, PlanetF1 two years."
+      }
     },
     {
       "id": "c4",
@@ -384,7 +392,15 @@
         "s11"
       ],
       "status": "dis",
-      "note": "Jolpica, Grandprix.com, Formula1.com, Autosport і RacingNews365 — зчеплення; офіційний сайт michael-schumacher.de (2016) пише про перемикання передач, що «пішло димом»"
+      "note": "Jolpica, Grandprix.com, Formula1.com, Autosport і RacingNews365 — зчеплення; офіційний сайт michael-schumacher.de (2016) пише про перемикання передач, що «пішло димом»",
+      "label": {
+        "uk": "Причина сходу Шумахера",
+        "en": "Why Schumacher retired"
+      },
+      "reader": {
+        "uk": "База результатів Jolpica, Grandprix.com, Formula1.com, Autosport і RacingNews365 називають причиною зчеплення. Офіційний сайт Міхаеля Шумахера у 2016 році писав про перемикання передач, яке «пішло димом».",
+        "en": "The Jolpica results database, Grandprix.com, Formula1.com, Autosport and RacingNews365 all blame the clutch. Michael Schumacher's official website wrote in 2016 that the gearshift had gone up in smoke."
+      }
     },
     {
       "id": "c20",
