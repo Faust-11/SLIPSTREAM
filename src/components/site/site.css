@@ -12,6 +12,7 @@ button {
 
 /* Футер притиснутий до низу навіть на коротких сторінках. */
 body {
+  position: relative;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
@@ -418,10 +419,6 @@ html:not([data-hydrated]) .mnav-btn {
   background: var(--head-bg);
   color: var(--head-fg);
   margin-top: 64px;
-}
-/* Сторінка закінчується темним блоком (автори фото) — футер впритул, без світлого «шва» між ними. */
-main:has(> .page-credits:last-child) + .site-foot {
-  margin-top: 0;
 }
 .site-foot .wrap {
   padding-block: 36px 40px;

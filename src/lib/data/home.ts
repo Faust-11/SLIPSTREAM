@@ -13,9 +13,9 @@ import { getTeamsIndex } from "./teams";
 
 // Головна (фаза 4b, docs/plans/2026-11-14-phase4b-home.md): лише блоки з живими даними; усе — з наявних завантажувачів.
 
-/** До якого місця показуємо рекорди (рівні на межі — усі): 8 — колонки однакової висоти без внутрішньої прокрутки
- *  (макет мав прокрутку до 12-го; на 10-му Кубки дають 6 команд по одному). */
-export const RECORD_RANK_MAX = 8;
+/** До якого місця показуємо рекорди (рівні на межі — усі). Списки прокручуються в колонках однієї висоти, як у макеті
+ *  (відгук користувача 15.11: більше рекордсменів, нижній край — на рівні заліку). */
+export const RECORD_RANK_MAX = 20;
 /** Перша десятка останньої гонки (макет). */
 export const RESULTS_TOP = 10;
 /** Переможців траси наступної гонки («Тут вигравали»). */
@@ -117,9 +117,6 @@ export type HomePage = {
   };
   credits: { photos: CreditItem[]; portraits: CreditItem[] };
 };
-
-/** Скільки пілотів заліку на головній (решта — «Повний залік →»). */
-export const STANDINGS_TOP = 10;
 
 const DIRS = circuitDirections as { ccw: string[]; cw: string[] };
 /** Напрям гонки (circuit-directions.json, джерело — користувач 15.11) проти обходу шляху схеми → як рухати значок. */
@@ -235,7 +232,7 @@ export async function getHomePage(locale: Locale): Promise<HomePage> {
     season: statSeason,
     final: !(seasonPage?.inProgress ?? false),
     afterRound: calendar.started ? calendar.done : (seasonPage?.rounds ?? 0),
-    drivers: (seasonPage?.drivers ?? []).slice(0, STANDINGS_TOP),
+    drivers: seasonPage?.drivers ?? [],
     teams: seasonPage?.teams ?? null,
   };
 

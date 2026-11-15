@@ -1228,6 +1228,9 @@
     "countdownThen": "Далі — етап {round}, {gp}:",
     "finalStandings": "Підсумок сезону {season}",
     "newsLoading": "Завантажуємо новини…",
-    "morePosts": "Усі пости журналістів →"
+    "morePosts": "Усі пости журналістів →",
+    "recTabWins": "Перемоги",
+    "recTabTitles": "Титули",
+    "recTabCups": "Кубки"
   }
 }
