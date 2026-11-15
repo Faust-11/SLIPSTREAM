@@ -74,7 +74,8 @@ export class GitHub {
   }
 }
 
-export type FileChange = { path: string; content: string | Uint8Array | null };
+/** content — новий вміст (null — видалити файл); sha — повернути наявний blob (відкат, без завантаження файлу). */
+export type FileChange = { path: string; content: string | Uint8Array | null } | { path: string; sha: string };
 export type Draft = { section: string; title: string; body: string; files: FileChange[]; draft: boolean };
 export type Published = { number: number; url: string; branch: string };
 
@@ -97,7 +98,9 @@ export async function publish(gh: GitHub, change: Draft, now = new Date()): Prom
   const base = await gh.request<{ tree: { sha: string } }>("GET", `/git/commits/${main.object.sha}`);
   const tree = [];
   for (const f of change.files) {
-    if (f.content === null) {
+    if ("sha" in f) {
+      tree.push({ path: f.path, mode: "100644", type: "blob", sha: f.sha });
+    } else if (f.content === null) {
       tree.push({ path: f.path, mode: "100644", type: "blob", sha: null });
     } else {
       const blob = await gh.request<{ sha: string }>("POST", "/git/blobs", { content: toBase64(f.content), encoding: "base64" });
@@ -124,4 +127,62 @@ export async function publish(gh: GitHub, change: Draft, now = new Date()): Prom
   });
   await gh.request("POST", `/issues/${pr.number}/labels`, { labels: [ADMIN_LABEL] });
   return { number: pr.number, url: pr.html_url, branch };
+}
+
+// ---------------------------------------------------------------------------------------------------------------
+
+export class RevertRefused extends Error {}
+
+const contentsPath = (path: string) => `/contents/${path.split("/").map(encodeURIComponent).join("/")}`;
+
+async function blobSha(gh: GitHub, path: string, ref: string): Promise<string | null> {
+  try {
+    return (await gh.request<{ sha: string }>("GET", `${contentsPath(path)}?ref=${encodeURIComponent(ref)}`)).sha;
+  } catch (e) {
+    if (e instanceof GitHubError && e.status === 404) return null;
+    throw e;
+  }
+}
+
+/**
+ * Відкат злитої правки адмінки = новий PR, що повертає файли до стану перед нею (той самий конвеєр: CI → автозлиття).
+ * Відмова, якщо PR не з адмінки, не злитий, з кількох комітів або якийсь файл змінився після нього (відкат стер би
+ * пізнішу правку — таке робимо вручну).
+ */
+export async function revertPublished(gh: GitHub, number: number, now = new Date()): Promise<Published> {
+  const pr = await gh.request<{ title: string; merged_at: string | null; merge_commit_sha: string | null; commits: number; labels: { name: string }[] }>(
+    "GET",
+    `/pulls/${number}`,
+  );
+  if (!pr.labels.some((l) => l.name === ADMIN_LABEL)) throw new RevertRefused("це не правка адмінки");
+  if (!pr.merged_at || !pr.merge_commit_sha) throw new RevertRefused("правку ще не злито");
+  if (pr.commits !== 1) throw new RevertRefused("правка з кількох комітів — відкат вручну");
+  const merged = pr.merge_commit_sha;
+  const commit = await gh.request<{ parents: { sha: string }[] }>("GET", `/git/commits/${merged}`);
+  const before = commit.parents[0]?.sha;
+  if (!before) throw new RevertRefused("немає попереднього коміту");
+  const files = await gh.request<{ filename: string; status: string; previous_filename?: string }[]>("GET", `/pulls/${number}/files?per_page=100`);
+  if (files.length >= 100) throw new RevertRefused("забагато файлів — відкат вручну");
+
+  const changes: FileChange[] = [];
+  for (const f of files) {
+    const paths = f.previous_filename ? [f.filename, f.previous_filename] : [f.filename];
+    for (const path of paths) {
+      if (!isAdminPath(path)) throw new RevertRefused(`файл поза контентом: ${path}`);
+      const [onMain, afterEdit, beforeEdit] = await Promise.all([blobSha(gh, path, "main"), blobSha(gh, path, merged), blobSha(gh, path, before)]);
+      if (onMain !== afterEdit) throw new RevertRefused(`файл змінився після цієї правки: ${path}`);
+      changes.push(beforeEdit ? { path, sha: beforeEdit } : { path, content: null });
+    }
+  }
+  return publish(
+    gh,
+    { section: "revert", title: `Відкат: ${pr.title}`, body: `Відкат правки #${number} (файли — як до неї, коміт ${before.slice(0, 7)}).`, files: changes, draft: false },
+    now,
+  );
+}
+
+/** Vercel Deploy Hook — лише адреса Vercel (ADMIN_VERCEL_DEPLOY_HOOK, сервер). */
+export function deployHookUrl(env: Record<string, string | undefined> = process.env): string | null {
+  const url = env.ADMIN_VERCEL_DEPLOY_HOOK ?? "";
+  return url.startsWith("https://api.vercel.com/v1/integrations/deploy/") ? url : null;
 }
