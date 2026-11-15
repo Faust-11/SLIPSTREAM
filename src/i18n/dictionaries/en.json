@@ -1227,6 +1227,7 @@
     },
     "countdownThen": "Next up — round {round}, {gp}:",
     "finalStandings": "Final {season} standings",
-    "newsLoading": "Loading news…"
+    "newsLoading": "Loading news…",
+    "morePosts": "All journalists' posts →"
   }
 }

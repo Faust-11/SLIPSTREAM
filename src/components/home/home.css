@@ -101,6 +101,8 @@
 .hm-team {
   display: inline-flex;
   align-items: center;
+  /* Ціль ≥ 24 px (WCAG 2.5.8): у заліку посилання команди переносяться під ім'я — без цього сусідні цілі ближчі за 24 px. */
+  min-block-size: 24px;
   gap: 7px;
   font-size: 12.5px;
   color: var(--ink-soft);
@@ -709,6 +711,17 @@
   stroke-linejoin: round;
   stroke-linecap: round;
 }
+/* Значок, що їде схемою (макет головної); напрям — circuit-directions.json. */
+.hm-map-car {
+  fill: var(--yellow);
+  stroke: var(--ink);
+  stroke-width: 7;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hm-map-car {
+    display: none;
+  }
+}
 .hm-map-line {
   fill: none;
   stroke: var(--red);
@@ -756,6 +769,9 @@
 }
 .hm-past a {
   color: var(--blue-text);
+  /* Посилання в тексті — не лише кольором (axe link-in-text-block). */
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .hm-over h2 {
   font-size: clamp(24px, 3vw, 32px);
@@ -935,9 +951,10 @@
   padding: 0;
   list-style: none;
 }
+/* Без номерів місць (відгук користувача 15.11: спільні місця 3, 3, 5 читались як плутанина) — порядок і число праворуч. */
 .hm-rec-list li {
   display: grid;
-  grid-template-columns: 22px minmax(0, 1fr) 34px;
+  grid-template-columns: minmax(0, 1fr) 34px;
   align-items: center;
   gap: 8px;
   padding: 8px 0;
@@ -946,12 +963,6 @@
 }
 .hm-rec-list li:last-child {
   border-bottom: 0;
-}
-.hm-rec-p {
-  font-family: var(--f-display);
-  word-spacing: -0.35em;
-  font-size: 12px;
-  opacity: 0.85;
 }
 .hm-rec-v {
   text-align: end;
@@ -988,6 +999,23 @@
   padding: 12px 0;
   text-decoration: none;
 }
+.hm-hl a.hm-hl-th {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  column-gap: 14px;
+  align-items: start;
+}
+.hm-hl-th .hm-th {
+  grid-row: 1 / span 2;
+}
+.hm-th {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--paper-2);
+}
 .hm-hl a:hover .hm-hl-t {
   color: var(--blue-text);
   text-decoration: underline;
@@ -1002,6 +1030,15 @@
   font: 500 11px var(--f-mono);
   letter-spacing: 0.04em;
   color: var(--ink-soft);
+}
+.hm-posts {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.hm-posts-col > .hm-more {
+  display: inline-block;
+  margin-top: 12px;
 }
 .hm-posts li {
   display: grid;
@@ -1023,6 +1060,10 @@
 }
 .hm-post-link {
   justify-self: start;
+}
+/* Пости, що не вмістились у висоту колонки заголовків (news.tsx), — сховані цілими; display: grid вище інакше перебив би hidden. */
+.hm-posts li[hidden] {
+  display: none;
 }
 @media (min-width: 1101px) {
   /* Дві колонки новин на широкому екрані: обидві вкладки видно одразу, перемикач не потрібен. */

@@ -1283,6 +1283,18 @@
    "short": {
     "uk": "Лас-Вегас",
     "en": "Las Vegas"
+   },
+   "file": "2024 Las Vegas Grand Prix at the Sphere - Friday, November 22, Orbi.jpg",
+   "hero": {
+    "src": "/img/circuits/vegas-hero-1280.webp",
+    "srcSet": "/img/circuits/vegas-hero-1280.webp 1280w, /img/circuits/vegas-hero-800.webp 800w, /img/circuits/vegas-hero-480.webp 480w",
+    "width": 1280,
+    "height": 960
+   },
+   "credit": {
+    "page": "https://commons.wikimedia.org/wiki/File:2024_Las_Vegas_Grand_Prix_at_the_Sphere_-_Friday%2C_November_22%2C_Orbi.jpg",
+    "author": "Nascar9919",
+    "license": "CC BY 4.0"
    }
   },
   "villeneuve": {

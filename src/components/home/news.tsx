@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { HomeNewsPayload } from "@/app/api/news/route";
 import { Ago } from "@/components/news/ago";
 import type { Locale } from "@/i18n/config";
@@ -15,6 +15,8 @@ export type HomeNewsLabels = {
   empty: string;
   post: string;
   sources: Record<string, string>;
+  morePosts: string;
+  morePostsHref: string;
 };
 
 /**
@@ -23,6 +25,33 @@ export type HomeNewsLabels = {
  */
 export function HmNews({ locale, labels }: { locale: Locale; labels: HomeNewsLabels }) {
   const [data, setData] = useState<HomeNewsPayload | null | "error">(null);
+  const hl = useRef<HTMLUListElement>(null);
+  const posts = useRef<HTMLUListElement>(null);
+
+  // Колонки / вкладки однієї висоти (відгук користувача 15.11: журналісти закінчувались значно нижче, а на телефоні
+  // висоту перемикача задавала довша панель — під заголовками лишалась порожнеча): пости, що не вміщаються у висоту
+  // списку заголовків, ховаємо цілими (не обрізаємо посередині); решта — на /news.
+  useEffect(() => {
+    const h = hl.current;
+    const p = posts.current;
+    if (!h || !p) return;
+    const fit = () => {
+      const items = [...p.children] as HTMLElement[];
+      items.forEach((li) => (li.hidden = false));
+      const limit = h.getBoundingClientRect().height;
+      const top = p.getBoundingClientRect().top;
+      let shown = 0;
+      for (const li of items) {
+        const fits = li.getBoundingClientRect().bottom - top <= limit;
+        if (!fits && shown > 0) li.hidden = true;
+        else shown++;
+      }
+    };
+    fit();
+    const ro = new ResizeObserver(fit);
+    ro.observe(h);
+    return () => ro.disconnect();
+  }, [data]);
 
   useEffect(() => {
     let alive = true;
@@ -47,10 +76,15 @@ export function HmNews({ locale, labels }: { locale: Locale; labels: HomeNewsLab
   }
   return (
     <HmSlider id="hm-nw" label={labels.tabs} tabs={[labels.headlines, labels.posts]}>
-      <ul className="hm-panel hm-hl" id="hm-nw-0" aria-label={labels.headlines}>
+      <ul ref={hl} className="hm-panel hm-hl" id="hm-nw-0" aria-label={labels.headlines}>
         {data.headlines.map((h) => (
           <li key={h.id}>
-            <a href={h.url} rel="noopener" target="_blank">
+            <a href={h.url} rel="noopener" target="_blank" className={h.image ? "hm-hl-th" : undefined}>
+              {h.image && (
+                // Прев'ю видання — як на /news (рішення 10.11): сторонній домен із CSP img-src, декоративне — заголовок поруч.
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="hm-th" src={h.image} alt="" width={480} height={270} loading="lazy" decoding="async" referrerPolicy="no-referrer" />
+              )}
               <span className="hm-hl-t">{h.title}</span>
               <span className="hm-hl-m">
                 {labels.sources[h.source] ?? h.source}
@@ -65,7 +99,8 @@ export function HmNews({ locale, labels }: { locale: Locale; labels: HomeNewsLab
           </li>
         ))}
       </ul>
-      <ul className="hm-panel hm-posts" id="hm-nw-1" aria-label={labels.posts}>
+      <div className="hm-panel hm-posts-col" id="hm-nw-1">
+      <ul ref={posts} className="hm-posts" aria-label={labels.posts}>
         {data.posts.map((p) => (
           <li key={p.id}>
             <span className="hm-post-who">
@@ -79,6 +114,10 @@ export function HmNews({ locale, labels }: { locale: Locale; labels: HomeNewsLab
           </li>
         ))}
       </ul>
+      <a className="hm-more" href={labels.morePostsHref}>
+        {labels.morePosts}
+      </a>
+      </div>
     </HmSlider>
   );
 }
