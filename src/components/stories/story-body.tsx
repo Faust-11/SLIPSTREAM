@@ -50,7 +50,8 @@ function Photo({ id, story }: { id: string; story: StoryPage }) {
   const m = story.media[id];
   if (!m) return null;
   return (
-    <figure className="st-inph">
+    // Вертикальне фото — повністю, без обрізання (обличчя різались кадром 540 px); горизонтальне — з кадром і фокусом.
+    <figure className={m.height > m.width ? "st-inph st-inph-port" : "st-inph"}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={m.src}
@@ -106,7 +107,10 @@ export function StoryBody({ story, t }: { story: StoryPage; t: BodyLabels }) {
           <ol key={i} className="st-tldr" role="list">
             {b.items.map((it, j) => (
               <li key={j}>
-                <InlineText c={it} story={story} t={t} />
+                {/* Один елемент сітки: інакше кожен шматок тексту й виноска стають окремою клітинкою (рев'ю 15.11). */}
+                <span>
+                  <InlineText c={it} story={story} t={t} />
+                </span>
               </li>
             ))}
           </ol>

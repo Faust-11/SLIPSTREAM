@@ -9,6 +9,9 @@ import { useEffect } from "react";
  * Спроба брати стан з `a:target-current` після `scrollend` (як у настанові) у e2e не проставляла aria-current
  * після переходу за якорем (12.11) — тому спостерігач один для всіх браузерів.
  */
+/** Ідентифікатор цілі посилання: hash закодований (кирилиця глав історій — %D0…), id — ні (рев'ю PR #36). */
+const idOf = (a: HTMLAnchorElement) => decodeURIComponent(a.hash.slice(1));
+
 export function DecadeSpy({ navId }: { navId: string }) {
   useEffect(() => {
     const nav = document.getElementById(navId);
@@ -23,12 +26,12 @@ export function DecadeSpy({ navId }: { navId: string }) {
     };
     const io = new IntersectionObserver(
       (entries) => {
-        for (const e of entries) if (e.isIntersecting) mark(links.find((a) => a.hash === `#${e.target.id}`) ?? null);
+        for (const e of entries) if (e.isIntersecting) mark(links.find((a) => idOf(a) === e.target.id) ?? null);
       },
       { rootMargin: "-40% 0px -55% 0px" },
     );
     for (const a of links) {
-      const target = document.getElementById(a.hash.slice(1));
+      const target = document.getElementById(idOf(a));
       if (target) io.observe(target);
     }
     return () => io.disconnect();

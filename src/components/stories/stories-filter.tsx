@@ -29,7 +29,15 @@ export function StoriesFilter({ listId, counts, locale, labels }: {
   const c = picked ?? fromUrl;
   useEffect(() => {
     const list = document.getElementById(listId);
-    if (list) list.dataset.c = c;
+    if (list) {
+      list.dataset.c = c;
+      // Непарна кількість карток у сітці — остання на всю ширину (без порожньої половини рядка).
+      const items = [...list.querySelectorAll<HTMLElement>(".st-grid > li")];
+      const shown = items.filter((li) => c === "all" || li.dataset.cat === c);
+      items.forEach((li) => li.classList.remove("st-wide"));
+      if (shown.length % 2 === 1 && shown.length > 1) shown[shown.length - 1]!.classList.add("st-wide");
+      else if (shown.length === 1) shown[0]!.classList.add("st-wide");
+    }
     // Посилання з ?c=: до гідратації список сховано (themeScriptSource), щоб не блимав нефільтрований перелік.
     document.documentElement.removeAttribute("data-list-query");
   }, [c, listId]);

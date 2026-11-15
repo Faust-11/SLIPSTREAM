@@ -116,7 +116,24 @@ def check(story_dir: Path) -> tuple[list[str], list[str], str]:
         marks[lang] = set(MARK.findall(text))
         blocks[lang] = BLOCK.findall(text)
         opened = 0
+        inside = False
+        prev_quote = False
         for line in text.splitlines():
+            stripped = line.strip()
+            # Розмітка, якої розбирач сайту не знає (рев'ю PR #36): на сторінці вона була б сирим текстом.
+            if stripped.startswith("###") or (stripped.startswith("#") and not stripped.startswith("## ")):
+                errors.append(f"{lang}.md: заголовок не рівня ## ({stripped[:40]})")
+            if re.search(r"(?<!\[)\[[^\]^\[]+\]\([^)]+\)", line):
+                errors.append(f"{lang}.md: посилання [текст](url) не підтримується ({stripped[:40]})")
+            if DIRECTIVE.match(stripped):
+                inside = True
+            elif stripped == ":::":
+                inside = False
+            elif re.match(r"^\s*([-*]|\d+\.)\s", line) and not inside:
+                errors.append(f"{lang}.md: список поза блоком :::tldr/:::timeline ({stripped[:40]})")
+            if stripped == ">" and prev_quote:
+                errors.append(f"{lang}.md: порожній рядок «>» усередині цитати")
+            prev_quote = line.startswith(">")
             # Фото й віджети — лише окремим рядком (так їх розпізнає розбирач сайту src/lib/stories/markdown.ts).
             if (MEDIA.search(line) or BLOCK.search(line)) and not re.fullmatch(r"\s*\[\[(media|block):\w+\]\]\s*", line):
                 errors.append(f"{lang}.md: [[media/block]] не окремим рядком ({line.strip()[:40]})")

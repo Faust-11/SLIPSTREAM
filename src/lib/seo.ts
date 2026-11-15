@@ -50,13 +50,20 @@ export function pageMetadata({
   path,
   title,
   description,
+  image,
+  article,
 }: {
   locale: Locale;
   path: string;
   title: string;
   description: string;
+  /** Фото для прев'ю в соцмережах (шлях від кореня сайту). */
+  image?: { src: string; width: number; height: number; alt: string };
+  /** Стаття (історії): og:type=article і дата оновлення. */
+  article?: { modified: string | null };
 }): Metadata {
   const url = localizedPath(path, locale);
+  const images = image ? [{ url: new URL(image.src, siteUrl()).href, width: image.width, height: image.height, alt: image.alt }] : undefined;
   return {
     title,
     description,
@@ -64,8 +71,10 @@ export function pageMetadata({
       canonical: url,
       languages: languageAlternates(path),
     },
+    ...(images ? { twitter: { card: "summary_large_image", images } } : {}),
     openGraph: {
-      type: "website",
+      ...(images ? { images } : {}),
+      ...(article ? { type: "article" as const, ...(article.modified ? { modifiedTime: article.modified } : {}) } : { type: "website" as const }),
       siteName: "Slipstream",
       title,
       description,

@@ -1293,7 +1293,8 @@
       "raceValue": "{gp}, round {n} of {total}",
       "date": "Date",
       "circuit": "Circuit",
-      "read": "Read"
+      "read": "Read",
+      "claims": "Claims"
     },
     "toc": "Chapters",
     "disputed": "Where the sources disagree",
