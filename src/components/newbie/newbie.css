@@ -454,6 +454,10 @@
 .nb-bars-s {
   height: 84px;
 }
+/* Найнижчий стовпчик вміщує цифру (6 px + рядок): «1» спринту не вилазить за базову лінію. */
+.nb-bars > div:not(.nb-nil) {
+  min-height: 24px;
+}
 .nb-bars-s > div,
 .nb-bars-s > div:first-child {
   background: var(--paper-2);
@@ -827,6 +831,11 @@
   background: linear-gradient(90deg, color-mix(in srgb, var(--yellow) 28%, transparent), transparent);
   box-shadow: inset 4px 0 0 var(--yellow);
   padding-left: 12px;
+}
+/* Підсвічений запис — визначення кольором ink: ink-soft на жовтому градієнті в темній темі давав 4,0 : 1 (рев'ю PR #42). */
+.nb-gl-item:target dd,
+.nb-gl-item:target .nb-gl-alt {
+  color: var(--ink);
 }
 .nb-gl dt {
   display: flex;

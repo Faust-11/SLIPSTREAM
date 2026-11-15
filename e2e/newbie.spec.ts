@@ -92,4 +92,8 @@ test("en: /newbie англійською, сортування словника 
   const names = await page.locator(".nb-gl dt > span:first-child").allTextContents();
   const clean = names.map((n) => n.replace(/^[«“"]/, ""));
   expect(clean).toEqual([...clean].sort(new Intl.Collator("en", { sensitivity: "base" }).compare));
+  for (const colorScheme of ["light", "dark"] as const) {
+    await page.emulateMedia({ colorScheme });
+    await expectNoA11yViolations(page);
+  }
 });

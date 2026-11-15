@@ -61,11 +61,13 @@ const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 /**
  * Форма слова → регулярний вираз: `*` — до 5 літер закінчення («поул*» → поул, поулу, поулом), пробіл — будь-які пробіли.
- * Форма з великими літерами (DRS, VSC) — з урахуванням регістру; решта — без (перша літера речення).
+ * Форма з великими літерами (DRS, VSC) або з «=» на початку («=pole»: не «the Pole» — національність) — з урахуванням
+ * регістру; решта — без (перша літера речення).
  * Межі — не літера/цифра/апостроф/дефіс з обох боків: «поул*» не зачепить «поул-позицію» (для неї окрема форма).
  */
 export function formSource(form: string): string {
   return form
+    .replace(/^=/, "")
     .split("*")
     .map((part) => part.split(/\s+/).map(escape).join("\\s+"))
     .join("\\p{L}{0,5}");
@@ -86,8 +88,9 @@ export function termMatchers(locale: Locale): Matcher[] {
       .filter((t) => t.auto && t[locale].forms.length > 0)
       .map((t) => {
         const forms = [...t[locale].forms].sort((a, b) => b.length - a.length);
-        const cs = forms.filter((f) => /\p{Lu}/u.test(f));
-        const ci = forms.filter((f) => !/\p{Lu}/u.test(f));
+        const strict = (f: string) => f.startsWith("=") || /\p{Lu}/u.test(f);
+        const cs = forms.filter(strict);
+        const ci = forms.filter((f) => !strict(f));
         const re = (fs: string[], flags: string) => new RegExp(`${B_BEFORE}(?:${fs.map(formSource).join("|")})${B_AFTER}`, flags);
         return { id: t.id, res: [...(ci.length ? [re(ci, "iu")] : []), ...(cs.length ? [re(cs, "u")] : [])] };
       });

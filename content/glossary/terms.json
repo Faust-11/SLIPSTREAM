@@ -219,7 +219,7 @@
     },
     {
       "id": "pits",
-      "auto": true,
+      "auto": false,
       "uk": {
         "term": "Бокси",
         "def": "Гаражі команд і зона перед ними, де болід обслуговують.",
@@ -331,7 +331,9 @@
         "def": "First place on the grid. It goes to the fastest driver in qualifying.",
         "forms": [
           "pole position*",
-          "pole"
+          "pole-sitter*",
+          "pole-position*",
+          "=pole"
         ]
       },
       "orig": "Pole position",
@@ -346,14 +348,14 @@
       "auto": true,
       "uk": {
         "term": "Стартова решітка",
-        "def": "Розмічені місця на стартовій прямій, де боліди стоять перед гонкою.",
+        "def": "Розмічені місця на стартовій прямій, де боліди стоять перед гонкою. Місце на ній (колонка «Старт» у протоколі) визначає кваліфікація.",
         "forms": [
           "стартов* решітк*"
         ]
       },
       "en": {
         "term": "Grid",
-        "def": "The marked slots on the start straight where the cars line up before the race.",
+        "def": "The marked slots on the start straight where the cars line up before the race. A driver's slot (the “Grid” column in results) is set by qualifying.",
         "forms": [
           "starting grid*"
         ]
@@ -733,7 +735,13 @@
         "term": "Стюарди",
         "def": "Судді гонки. Розглядають інциденти й призначають штрафи.",
         "forms": [
-          "стюард*"
+          "стюард",
+          "стюарди",
+          "стюардів",
+          "стюардам",
+          "стюардами",
+          "стюардах",
+          "стюардові"
         ]
       },
       "en": {
@@ -907,7 +915,8 @@
         "def": "The result is cancelled for breaking the rules.",
         "forms": [
           "DSQ",
-          "disqualif*"
+          "disqualif*",
+          "disqualification*"
         ]
       },
       "orig": "Disqualified",

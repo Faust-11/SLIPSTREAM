@@ -149,7 +149,11 @@ def main() -> int:
             f = d / f"{lang}.md"
             if not f.exists():
                 continue
-            found = MANUAL.findall(f.read_text(encoding="utf-8"))
+            text = f.read_text(encoding="utf-8")
+            found = MANUAL.findall(text)
+            for line in text.splitlines():
+                if line.startswith("## ") and MANUAL.search(line):
+                    errors.append(f"stories/{d.name}/{lang}.md: мітка [[t:…]] у заголовку «{line[3:40]}» — заголовки не розмічаються")
             marks[lang] = sorted(set(found))
             for tid in found:
                 if tid not in ids:

@@ -41,12 +41,13 @@ export function parseInline(src: string): Inline[] {
   return out;
 }
 
+/** Усередині **жирного** / *курсиву*: виноски й ручні мітки термінів (рев'ю PR #42: мітка в жирному виходила сирою). */
 function parseFootnotes(src: string): Inline[] {
   const out: Inline[] = [];
   let last = 0;
-  for (const m of src.matchAll(FN)) {
+  for (const m of src.matchAll(/\[\^(c\d+)\]|\[\[t:([a-z0-9-]+)\|([^\]|]+)\]\]/g)) {
     if (m.index > last) out.push({ t: "text", v: src.slice(last, m.index) });
-    out.push({ t: "fn", claim: m[1]! });
+    out.push(m[1] !== undefined ? { t: "fn", claim: m[1] } : { t: "term", id: m[2]!, v: m[3]! });
     last = m.index + m[0].length;
   }
   if (last < src.length) out.push({ t: "text", v: src.slice(last) });
