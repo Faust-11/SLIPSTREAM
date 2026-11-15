@@ -1162,6 +1162,63 @@
   color: #4fd18b;
 }
 
+/* Наступна гонка на ПК — червона панель (відгук користувача 15.11: відокремити від минулої гонки поруч).
+   #b42518 — глибший за --red: білий текст 6,5:1, приглушений (85 %) 5,1:1, жовтий роундел 4,1:1 (заміри). */
+@media (min-width: 1101px) {
+  .hm-next {
+    --hm-next-bg: #b42518;
+    --hm-on: #fff;
+    --hm-on-soft: rgb(255 255 255 / 0.85);
+    --focus: var(--yellow);
+    margin-inline-end: calc(-1 * var(--hm-gutter));
+    padding-inline-end: var(--hm-gutter);
+    background: var(--hm-next-bg);
+    color: var(--hm-on);
+  }
+  .hm-banner-next {
+    margin-inline: -36px calc(-1 * var(--hm-gutter));
+  }
+  .hm-roundel-next {
+    background: var(--yellow);
+    color: var(--on-yellow);
+    box-shadow: 0 0 0 5px var(--hm-next-bg);
+  }
+  .hm-next .hm-when span,
+  .hm-next .hm-when .cl-tz,
+  .hm-next .hm-count span,
+  .hm-next .hm-count-note,
+  .hm-next .hm-count-started,
+  .hm-next .hm-map figcaption,
+  .hm-next .hm-spec dt,
+  .hm-next .hm-past b {
+    color: var(--hm-on-soft);
+  }
+  .hm-next .hm-count,
+  .hm-next .hm-count > div + div,
+  .hm-next .hm-count-started {
+    border-color: var(--hm-on);
+  }
+  .hm-next .hm-spec {
+    border-color: var(--hm-on);
+  }
+  .hm-next .hm-spec > div + div {
+    border-inline-start-color: rgb(255 255 255 / 0.35);
+  }
+  .hm-next .hm-map {
+    background: rgb(0 0 0 / 0.18);
+  }
+  .hm-next .hm-map-casing {
+    stroke: rgb(255 255 255 / 0.2);
+  }
+  .hm-next .hm-map-line {
+    stroke: #fff;
+  }
+  .hm-next .hm-past a,
+  .hm-next .hm-more {
+    color: var(--hm-on);
+  }
+}
+
 /* ---------- адаптив ---------- */
 @media (max-width: 1100px) {
   .hm-hero .wrap,
@@ -1234,6 +1291,10 @@
   }
 }
 @media (max-width: 600px) {
+  /* Телефон: окремий подіум не потрібен — перша трійка вже вгорі таблиці (відгук користувача 15.11). */
+  .hm-podium {
+    display: none;
+  }
   .hm-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
