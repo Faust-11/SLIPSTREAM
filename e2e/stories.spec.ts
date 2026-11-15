@@ -16,7 +16,7 @@ test("/uk/stories: усі історії, вибрана — Сузука-1989, 
   await page.goto("/uk/stories");
   await expect(page.locator("h1")).toContainText("Моменти, про які");
   await expect(page.locator(".st-card")).toHaveCount(stories.length);
-  await expect(page.locator(".st-feat h2")).toContainText("Двоє з однієї команди");
+  await expect(page.locator(".st-feat h3")).toContainText("Двоє з однієї команди");
   // Кожна точка лінійки веде до наявної картки.
   const hrefs = await page.locator(".st-ruler a").evaluateAll((as) => as.map((a) => (a as HTMLAnchorElement).hash));
   expect(hrefs.length).toBeGreaterThan(15);

@@ -61,16 +61,20 @@ export function slugify(text: string, used: Set<string>): string {
       .replace(/[^\p{L}\p{N}-]/gu, "")
       .replace(/-+/g, "-")
       .replace(/^-|-$/g, "") || "ch";
-  let id = base;
+  let id = /^(s\d+|story-.*)$/.test(base) ? `ch-${base}` : base;
   for (let i = 2; used.has(id); i++) id = `${base}-${i}`;
   used.add(id);
   return id;
 }
 
+/** Ідентифікатори, які сторінка історії вже займає (розділи, заголовки) — глави їх не отримують. */
+const RESERVED = ["disputed", "disputed-h", "sources", "sources-h", "st-toc", "st-more-h"];
+
 export function parseStory(md: string): Block[] {
   const lines = md.replace(/\r\n?/g, "\n").split("\n");
   const blocks: Block[] = [];
-  const used = new Set<string>();
+  // Глави не можуть збігтися з id сторінки (розділи, джерела s1…, картки story-…): «## Sources» → sources-2.
+  const used = new Set<string>(RESERVED);
   let para: string[] = [];
   const flush = () => {
     if (para.length) blocks.push({ type: "p", c: parseInline(para.join(" ")) });

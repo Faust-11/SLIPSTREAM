@@ -46,8 +46,13 @@ describe("розбирач тексту історій", () => {
   });
 
   it("заголовок у два рядки — за першою «: »", () => {
-    expect(splitTitle("Spygate: шпигунство")).toEqual({ main: "Spygate", accent: "шпигунство" });
-    expect(splitTitle("Без двокрапки")).toEqual({ main: "Без двокрапки", accent: null });
+    expect(splitTitle("Spygate: шпигунство")).toEqual({ main: "Spygate", accent: "шпигунство", full: "Spygate: шпигунство" });
+    expect(splitTitle("Без двокрапки")).toEqual({ main: "Без двокрапки", accent: null, full: "Без двокрапки" });
+  });
+
+  it("глава не займає id сторінки: «## Sources» → sources-2, «## S1» → ch-s1 (code-review PR #36)", () => {
+    const ids = parseStory("## Sources\n\n## Disputed\n\n## S1\n").flatMap((b) => (b.type === "h2" ? [b.id] : []));
+    expect(ids).toEqual(["sources-2", "disputed-2", "ch-s1"]);
   });
 });
 

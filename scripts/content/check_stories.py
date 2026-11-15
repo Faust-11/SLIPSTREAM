@@ -117,7 +117,10 @@ def check(story_dir: Path) -> tuple[list[str], list[str], str]:
         blocks[lang] = BLOCK.findall(text)
         opened = 0
         for line in text.splitlines():
-            if DIRECTIVE.match(line):
+            # Фото й віджети — лише окремим рядком (так їх розпізнає розбирач сайту src/lib/stories/markdown.ts).
+            if (MEDIA.search(line) or BLOCK.search(line)) and not re.fullmatch(r"\s*\[\[(media|block):\w+\]\]\s*", line):
+                errors.append(f"{lang}.md: [[media/block]] не окремим рядком ({line.strip()[:40]})")
+            if DIRECTIVE.match(line.strip()):
                 opened += 1
             elif line.strip() == ":::":
                 opened -= 1

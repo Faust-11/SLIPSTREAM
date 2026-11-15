@@ -307,7 +307,7 @@ html[data-list-query] .st-list {
   padding: 24px 26px;
   border-left: var(--b) solid var(--rule);
 }
-.st-feat h2 {
+.st-feat h3 {
   font-size: clamp(22px, 2.6vw, 32px);
 }
 .st-feat .st-dek {
