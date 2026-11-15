@@ -9,8 +9,9 @@ export type CreditsLabels = { search: string; placeholder: string; count: string
 
 /**
  * Пошук у зведеному переліку авторів фото (836 рядків). Перелік рендерить сервер (`<ul id=listId>`), тут — лише поле й
- * фільтр по тексту рядків у DOM: інакше всі рядки вдруге їхали б у RSC-даних гідратації (і без data-k-дублів тексту —
- * HTML /uk/sources 128 → менше КБ gzip). Ключі рядків рахуються один раз. Без JS — увесь перелік, поля немає.
+ * фільтр по тексту рядків у DOM (+ data-alt — підпис іншою мовою, щоб «Hamilton» знаходився на /uk/sources). Дані рядків
+ * не передаються пропсами — інакше вони були б у RSC-даних ще й як пропси клієнтського компонента. Ключі рахуються один раз.
+ * Без JS — увесь перелік, поля немає.
  */
 export function CreditsSearch({ listId, emptyId, total, t }: { listId: string; emptyId: string; total: number; t: CreditsLabels }) {
   const hydrated = useHydrated();
@@ -23,7 +24,7 @@ export function CreditsSearch({ listId, emptyId, total, t }: { listId: string; e
   useEffect(() => {
     const list = document.getElementById(listId);
     if (!list) return;
-    keys.current ??= new Map(Array.from(list.children).map((li) => [li, normKey(li.textContent ?? "")]));
+    keys.current ??= new Map(Array.from(list.children).map((li) => [li, normKey(`${li.textContent ?? ""} ${(li as HTMLElement).dataset.alt ?? ""}`)]));
     let c = 0;
     for (const li of Array.from(list.children) as HTMLElement[]) {
       const hit = !dq || (keys.current.get(li) ?? "").includes(dq);

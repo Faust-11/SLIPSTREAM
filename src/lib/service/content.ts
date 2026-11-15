@@ -21,3 +21,11 @@ export function contactEmail(): string | null {
   const v = process.env.SITE_CONTACT_EMAIL?.trim();
   return v && /^[^\s@<>"]+@[^\s@<>"]+\.[a-z]{2,}$/i.test(v) ? v : null;
 }
+
+/**
+ * Аналітика відвідувань (Vercel Web Analytics) — увімкнена лише з SITE_ANALYTICS=on (фаза 8, Task 3b). Доти пункт
+ * «Відвідування» в «Що зберігає сайт» не показується: не стверджуємо того, чого ще немає (рев'ю PR #47).
+ */
+export function analyticsEnabled(): boolean {
+  return process.env.SITE_ANALYTICS === "on";
+}

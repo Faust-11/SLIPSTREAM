@@ -7,7 +7,7 @@ import seasonsJson from "@/data/curated/seasons.json";
 import teamsJson from "@/data/curated/teams.json";
 import type { Locale } from "@/i18n/config";
 import { getStoryList, getStoryMedia } from "@/lib/stories/content";
-import { driverName, loadDriverIndex } from "./drivers";
+import { driverName, driverPortrait, loadDriverIndex } from "./drivers";
 
 /**
  * Зведений перелік авторів фото сайту для сторінки «Джерела й ліцензії» (фаза 8): усі файли Wikimedia Commons з
@@ -16,7 +16,8 @@ import { driverName, loadDriverIndex } from "./drivers";
  * Числа сторінки (файли, автори, ліцензії, схеми) рахуються звідси, а не пишуться в текст.
  */
 export type CreditKind = "driver" | "team" | "season" | "circuit" | "layout" | "story";
-export type SiteCredit = { kind: CreditKind; label: string; href: string; author: string; license: string };
+/** alt — підпис іншою мовою (латиниця для uk): пошук «Hamilton» на /uk/sources. */
+export type SiteCredit = { kind: CreditKind; label: string; alt: string | null; href: string; author: string; license: string };
 type Credit = { page: string; author: string; license: string };
 
 const isCredit = (x: unknown): x is Credit =>
@@ -32,33 +33,50 @@ function creditsIn(x: unknown, out: Credit[] = []): Credit[] {
 
 const isCommons = (c: Credit) => c.page.startsWith("https://commons.wikimedia.org/");
 
+/** Автор з даних: подвоєння з розбору Commons («Unknown authorUnknown author») — один раз. */
+export function cleanAuthor(a: string): string {
+  const t = a.trim();
+  const m = /^(.{3,}?)\1$/.exec(t);
+  return m ? m[1]!.trim() : t;
+}
+/** Невідомий автор — не рахується серед «відомих авторів». */
+export const isUnknownAuthor = (a: string) => /^(unknown|neznámý|unbekannt|anonym)/i.test(cleanAuthor(a));
+
 export async function getSiteCredits(locale: Locale): Promise<SiteCredit[]> {
   const index = await loadDriverIndex();
   const byId = new Map(index.map((r) => [r.id, r]));
   const places = (circuitsJson as unknown as { places: Record<string, { uk?: string; en?: string }> }).places;
   const place = (id: string) => places[id]?.[locale] ?? id;
   const curated = (curatedDriversJson as unknown as { drivers: Record<string, { name: Record<Locale, string> }> }).drivers;
-  const dname = (id: string) => {
+  const other: Locale = locale === "uk" ? "en" : "uk";
+  const dname = (id: string, l: Locale = locale) => {
     const r = byId.get(id);
-    return curated[id]?.name[locale] ?? (r ? driverName(id, r.forename, r.surname, locale) : id);
+    return curated[id]?.name[l] ?? (r ? driverName(id, r.forename, r.surname, l) : id);
   };
+  const placeAlt = (id: string) => places[id]?.[other] ?? null;
 
   const out: SiteCredit[] = [];
   const seen = new Set<string>();
-  const add = (kind: CreditKind, label: string, node: unknown) => {
+  const add = (kind: CreditKind, label: string, node: unknown, alt: string | null = null) => {
     for (const c of creditsIn(node)) {
       if (!isCommons(c) || seen.has(c.page)) continue;
       seen.add(c.page);
-      out.push({ kind, label, href: c.page, author: c.author, license: c.license });
+      out.push({ kind, label, alt: alt && alt !== label ? alt : null, href: c.page, author: cleanAuthor(c.author), license: c.license });
     }
   };
 
-  for (const [id, d] of Object.entries(curated)) add("driver", dname(id), d);
-  for (const [id, d] of Object.entries((driverPortraitsJson as unknown as { drivers: Record<string, unknown> }).drivers)) add("driver", dname(id), d);
+  for (const [id, d] of Object.entries(curated)) add("driver", dname(id), d, dname(id, other));
+  // Портрети — лише той, що сайт справді показує (driverPortrait: кураторський → ручний → макет), а не всі варіанти з
+  // JSON: у Сенни є ручний портрет, і старий файл потрапляв у перелік, хоча на сайті його немає (рев'ю PR #47).
+  for (const id of Object.keys((driverPortraitsJson as unknown as { drivers: Record<string, unknown> }).drivers)) {
+    if (curated[id]) continue;
+    const p = driverPortrait(id);
+    if (p) add("driver", dname(id), p.credit, dname(id, other));
+  }
   for (const t of (teamsJson as unknown as { teams: { name: string }[] }).teams) add("team", t.name, t);
   for (const [year, s] of Object.entries((seasonsJson as unknown as { seasons: Record<string, unknown> }).seasons)) add("season", year, s);
-  for (const [id, p] of Object.entries(places)) add("circuit", place(id), p);
-  for (const [id, l] of Object.entries((circuitLayoutsJson as unknown as { layouts: Record<string, unknown> }).layouts)) add("layout", place(id), l);
+  for (const [id, p] of Object.entries(places)) add("circuit", place(id), p, placeAlt(id));
+  for (const [id, l] of Object.entries((circuitLayoutsJson as unknown as { layouts: Record<string, unknown> }).layouts)) add("layout", place(id), l, placeAlt(id));
   const titles = new Map(getStoryList(locale).map((c) => [c.slug, c.title.full]));
   for (const { slug, media } of getStoryMedia()) add("story", titles.get(slug) ?? slug, media);
 

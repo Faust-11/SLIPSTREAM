@@ -5,7 +5,8 @@ import { ServiceBody, ServiceHero, ServiceSection } from "@/components/service/s
 import { fill } from "@/i18n/fill";
 import { localizedPath } from "@/i18n/paths";
 import { requireLocale } from "@/i18n/require-locale";
-import { getSiteCredits, layoutCounts, licenseCounts } from "@/lib/data/credits";
+import { getSiteCredits, isUnknownAuthor, layoutCounts, licenseCounts } from "@/lib/data/credits";
+import { plural } from "@/lib/plural";
 import { loadSeasonIndex } from "@/lib/data/seasons";
 import { serviceText } from "@/lib/service/content";
 import { pageMetadata, siteUrl } from "@/lib/seo";
@@ -39,7 +40,8 @@ export default async function SourcesPage({ params }: Props) {
   const nf = new Intl.NumberFormat(lang === "uk" ? "uk" : "en-GB");
   const first = Math.min(...seasons.map((s) => s.year));
   const photos = credits.length;
-  const authors = new Set(credits.map((c) => c.author)).size;
+  // Відомі автори: без «Unknown…» (рев'ю PR #47: число завищували варіанти «невідомий»).
+  const authors = new Set(credits.filter((c) => !isUnknownAuthor(c.author)).map((c) => c.author)).size;
   const layouts = layoutCounts();
   const lic = licenseCounts(credits);
   const max = Math.max(...lic.map((l) => l.n));
@@ -62,9 +64,9 @@ export default async function SourcesPage({ params }: Props) {
         h1={t.h1}
         lead={t.lead}
         facts={[
-          { n: nf.format(photos), label: t.facts.photos },
-          { n: nf.format(authors), label: t.facts.authors },
-          { n: nf.format(layouts.total), label: t.facts.layouts },
+          { n: nf.format(photos), label: plural(photos, lang, t.facts.photos) },
+          { n: nf.format(authors), label: plural(authors, lang, t.facts.authors) },
+          { n: nf.format(layouts.total), label: plural(layouts.total, lang, t.facts.layouts) },
           { n: String(first), label: t.facts.first },
           { n: "0", label: t.facts.logos },
         ]}
@@ -79,8 +81,11 @@ export default async function SourcesPage({ params }: Props) {
         ]}
       >
         <ServiceSection id="reg" title={t.reg.h}>
-          <div className="sv-reg" role="region" aria-labelledby="reg-h" tabIndex={0}>
+          <div className="sv-reg" role="region" aria-labelledby="reg-cap" tabIndex={0}>
             <table>
+              <caption id="reg-cap" className="sr-only">
+                {t.reg.caption}
+              </caption>
               <thead>
                 <tr>
                   <th scope="col">{t.reg.cols.src}</th>
@@ -102,11 +107,11 @@ export default async function SourcesPage({ params }: Props) {
                       )}
                       {r.sub && <small>{fill(r.sub, vars)}</small>}
                     </th>
-                    <td>{fill(r.what, vars)}</td>
-                    <td>
+                    <td data-label={t.reg.cols.what}>{fill(r.what, vars)}</td>
+                    <td data-label={t.reg.cols.lic}>
                       <span className="sv-lic">{r.lic}</span>
                     </td>
-                    <td>{r.means}</td>
+                    <td data-label={t.reg.cols.means}>{r.means}</td>
                   </tr>
                 ))}
               </tbody>
@@ -135,7 +140,7 @@ export default async function SourcesPage({ params }: Props) {
           <CreditsSearch listId="sv-credits" emptyId="sv-credits-empty" total={photos} t={t.authors} />
           <ul className="sv-credits" id="sv-credits" role="list">
             {credits.map((c) => (
-              <li key={c.href}>
+              <li key={c.href} data-alt={c.alt ?? undefined}>
                 <span className="sv-kind">{t.authors.kinds[c.kind]}</span>{" "}
                 <a href={c.href} rel="noopener">
                   {c.label}
