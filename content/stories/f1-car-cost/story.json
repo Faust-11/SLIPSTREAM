@@ -1,0 +1,648 @@
+{
+  "slug": "f1-car-cost",
+  "category": "explainer",
+  "years": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "title": {
+    "uk": "Скільки коштує болід Формули-1",
+    "en": "How much does an F1 car cost?"
+  },
+  "dek": {
+    "uk": "Офіційної ціни в машини немає. Є оцінки деталей, які розходяться в рази, регламентована ціна двигуна для клієнтів і ліміт бюджету, що рахує зовсім інше.",
+    "en": "An F1 car has no official price. There are part-by-part estimates that differ several times over, a regulated engine price for customers, and a cost cap that measures something else entirely."
+  },
+  "links": {
+    "seasons": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "races": [
+      "2013/10",
+      "2021/2"
+    ],
+    "drivers": [
+      "hamilton",
+      "bottas",
+      "mick_schumacher",
+      "fangio"
+    ],
+    "teams": [
+      "mercedes",
+      "red-bull",
+      "haas",
+      "williams",
+      "marussia"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "t1",
+      "title": "How much does an F1 car cost?",
+      "publisher": "Motor Sport Magazine",
+      "date": "2025-01-14",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/how-much-does-an-f1-car-cost",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "t2",
+      "title": "Revealed: The staggering cost of a modern day Formula 1 car",
+      "publisher": "PlanetF1",
+      "date": "2023-08-03",
+      "url": "https://www.planetf1.com/news/formula-1-car-cost-revealed",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "t3",
+      "title": "Insider's guide: How is an F1 car made?",
+      "publisher": "Motorsport.com",
+      "date": "2023-02-19",
+      "url": "https://www.motorsport.com/f1/news/how-is-an-f1-car-made/7626323/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "t4",
+      "title": "How much does an F1 car cost, and other F1 questions answered",
+      "publisher": "Autosport",
+      "date": "2024-04-03",
+      "url": "https://www.autosport.com/f1/news/how-much-does-an-f1-car-cost-and-other-f1-questions-answered-4983337/4983337/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "t5",
+      "title": "2025 Formula 1 Technical Regulations, Issue 03 (Appendix: power unit maximum supply price)",
+      "publisher": "FIA",
+      "date": "2025-04-07",
+      "url": "https://www.fia.com/sites/default/files/documents/fia_2025_formula_1_technical_regulations_-_issue_03_-_2025-04-07.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "t6",
+      "title": "Manufacturers agree customer cost cap",
+      "publisher": "Autosport",
+      "date": "2016-01-19",
+      "url": "https://www.autosport.com/f1/news/122535/manufacturers-agree-customer-cost-cap",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "t7",
+      "title": "FIA confirms revised engine regulations for 2017",
+      "publisher": "Formula1.com",
+      "date": "2016-04-29",
+      "url": "https://www.formula1.com/en/latest/article/fia-confirms-revised-engine-regulations-for-2017.203pJhtyFuGlugGOeAQXhu",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "t8",
+      "title": "2026 F1 Regulations — Section A: General Regulatory Provisions, Issue 03 (Appendix A7 §1.4; Appendix A9)",
+      "publisher": "FIA",
+      "date": "2026-06-25",
+      "url": "https://www.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_a_general_provisions_-_iss_03_-_2026-06-25.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "t9",
+      "title": "FIA agreement on TPC testing in F1, but will power unit costs double in 2026?",
+      "publisher": "Autosport",
+      "date": "2025-07-30",
+      "url": "https://www.autosport.com/f1/news/fia-agreement-on-tpc-testing-in-f1-but-will-power-unit-costs-double-in-2026/10746613/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "t10",
+      "title": "Schumacher crash damage cost Haas up to half a million dollars",
+      "publisher": "RaceFans",
+      "date": "2021-05-23",
+      "url": "https://www.racefans.net/2021/05/23/schumacher-crash-damage-cost-haas-up-to-half-a-million-dollars/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "t11",
+      "title": "How a million pound crash highlighted F1's money squeeze",
+      "publisher": "Motorsport.com",
+      "date": "2021-04-26",
+      "url": "https://www.motorsport.com/all/news/bottas-million-pound-crash-cost-cap-analysis/6433103/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "t12",
+      "title": "The brutal cost of Williams's shocking F1 crash streak",
+      "publisher": "The Race",
+      "date": "2024-04-09",
+      "url": "https://www.the-race.com/formula-1/williams-f1-crash-cost-chassis-albon-sargeant/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "t13",
+      "title": "EXPLAINED: What is the F1 cost cap and why has it gone up?",
+      "publisher": "Formula1.com",
+      "date": "2026-04-10",
+      "url": "https://www.formula1.com/en/latest/article/explained-what-is-the-f1-cost-cap-and-why-has-it-gone-up.2tYtDIe5SbE5utjThctBT3",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "t14",
+      "title": "All to know about the F1 cost cap",
+      "publisher": "Autosport",
+      "date": "2025-10-28",
+      "url": "https://www.autosport.com/f1/news/formula-1-cost-cap-what-is-it-and-how-does-it-work/10379447/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "t15",
+      "title": "2026 F1 Regulations — Section D: Financial Regulations (F1 Teams), Issue 07 (Art. D4.1.2, D5.1.1)",
+      "publisher": "FIA",
+      "date": "2026-06-25",
+      "url": "https://api.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_d_financial_-_f1_teams_-_iss_07_-_2026-06-25.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "t16",
+      "title": "2026 F1 Regulations — Section E: Financial Regulations (PU Manufacturers), Issue 05 (Art. E2.3.1)",
+      "publisher": "FIA",
+      "date": "2026-05-07",
+      "url": "https://www.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_e_financial_-_pu_manufacturers_-_iss_05_-_2026-05-07.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "t17",
+      "title": "Lewis Hamilton's first race-winning Mercedes F1 car sold for astonishing $18.8 million",
+      "publisher": "Crash.net",
+      "date": "2024-01-23",
+      "url": "https://www.crash.net/f1/news/1041151/1/hamilton-s-first-racewinning-mercedes-f1-car-sold-astonishing-188-million",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "t18",
+      "title": "Most valuable Grand Prix car ever sold: the 1954 Mercedes-Benz W 196 R Stromlinienwagen sells for €51,155,000",
+      "publisher": "RM Sotheby's",
+      "date": "2025-02-01",
+      "url": "https://rmsothebys.com/media-center/press-releases/most-valuable-grand-prix-car-ever-sold-the-1954-mercedes-benz-w-196-r-stromlinienwagen-sells-for-51-155-000",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "t19",
+      "title": "Mercedes streamliner sells for €51m, becoming most expensive F1 car ever auctioned",
+      "publisher": "Motor Sport Magazine",
+      "date": "2025-02-01",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/mercedes-streamliner-set-to-become-most-expensive-f1-car-ever-sold-at-auction/",
+      "kind": "secondary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Команди не розкривають цін на деталі, усі цифри — оцінки; Пет Саймондс (колишній технічний директор Ф1), що допомагав Motor Sport із кошторисом: «It's terribly difficult».",
+      "sources": [
+        "t1",
+        "t4"
+      ],
+      "status": "ok",
+      "note": "Цитата — лише t1; про закритість цін — t1 і t4."
+    },
+    {
+      "id": "c2",
+      "text": "Загальна вартість машини (оцінки): Red Bull 2022 — ~€15 млн; Motor Sport 2025 — $20,62 млн; Motorsport.com 2023 — «guesstimate» ~£6 млн.",
+      "sources": [
+        "t2",
+        "t1",
+        "t3"
+      ],
+      "status": "dis",
+      "note": "Оцінки розходяться більш ніж утричі; t3 сам застерігає, що незрозуміло, що входить у суму. У тексті — всі три."
+    },
+    {
+      "id": "c3",
+      "text": "Силова установка — найдорожча частина машини.",
+      "sources": [
+        "t4",
+        "t3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "text": "Технічний регламент FIA 2025: максимальна ціна постачання силової установки клієнту — €15 млн.",
+      "sources": [
+        "t5",
+        "t4"
+      ],
+      "status": "ok",
+      "note": "t5 — первинний текст («maximum price of fifteen million euros»); t4 називає €15 млн стандартною платою за регламентом."
+    },
+    {
+      "id": "c5",
+      "text": "Motor Sport (01.2025): регламент передбачає €12 млн, а клієнти фактично платять близько €15 млн.",
+      "sources": [
+        "t1",
+        "t5"
+      ],
+      "status": "dis",
+      "note": "t1 пише про €12 млн у регламенті; текст регламенту 2025 (t5) — €15 млн. €12 млн фігурувало в домовленості 2016 року (t6). У тексті — обидві версії."
+    },
+    {
+      "id": "c6",
+      "text": "Січень 2016: виробники погодилися знизити ціну постачання до €12 млн за сезон; менші команди платили €20–25 млн на рік.",
+      "sources": [
+        "t6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c7",
+      "text": "FIA, квітень 2016: ціну для клієнтів знижують на €1 млн у 2017 (порівняно з 2016) і ще на €3 млн з 2018.",
+      "sources": [
+        "t7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c8",
+      "text": "Регламент 2026 (Section A, Appendix A7 §1.4): максимальна ціна постачання — €22 млн з індексацією; з 2027 — €20,75 млн (Appendix A9).",
+      "sources": [
+        "t8"
+      ],
+      "status": "one",
+      "note": "Первинний документ FIA; незалежного медійного підтвердження цих сум не знайдено."
+    },
+    {
+      "id": "c9",
+      "text": "Autosport (07.2025, джерела в паддоку): один великий постачальник попередив клієнтів, що ціни у 2026 зростуть удвічі.",
+      "sources": [
+        "t9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c10",
+      "text": "Вартість однієї силової установки (оцінки): Red Bull 2022 — ~€10 млн; Motorsport.com 2023 — ~£3,5 млн за один агрегат і ~£12 млн на рік за кілька; Motor Sport 2025 — ~€15 млн «за один двигун».",
+      "sources": [
+        "t2",
+        "t3",
+        "t1"
+      ],
+      "status": "dis",
+      "note": "Різні методики: ціна сезонного постачання (кілька агрегатів, див. t3, t5) проти собівартості одного агрегату."
+    },
+    {
+      "id": "c11",
+      "text": "Монокок — суцільна оболонка навколо пілота, зазвичай із 12 шарів карбонового полотна.",
+      "sources": [
+        "t1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c12",
+      "text": "Вартість монокока (оцінки): Motor Sport 2025 — £500 тис. ($707 тис.); PlanetF1 2023 — ~€580 тис. (£500 тис.) за оцінками команд; Motorsport.com 2023 — ~£1 млн.",
+      "sources": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "status": "dis",
+      "note": "Діапазон £500 тис. – £1 млн."
+    },
+    {
+      "id": "c13",
+      "text": "Коробка напівавтоматична, 8 передач уперед і 1 назад; частина команд купує, частина робить сама.",
+      "sources": [
+        "t1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c14",
+      "text": "Вартість коробки (оцінки): Motor Sport 2025 — £250 тис.; Саймондс 2021 (через PlanetF1) — ~€320 тис. (£275 тис.); Autosport 2024 — ~$400 тис.; Motorsport.com 2023 — £750 тис.",
+      "sources": [
+        "t1",
+        "t2",
+        "t4",
+        "t3"
+      ],
+      "status": "dis",
+      "note": "Діапазон £250 тис. – £750 тис."
+    },
+    {
+      "id": "c15",
+      "text": "Саймондс: «A Marussia front wing was £33,000»; для сучасного — «I'd definitely go with at least £100,000».",
+      "sources": [
+        "t1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c16",
+      "text": "Переднє антикрило: Штайнер (Haas, 2021) — «the front wing alone is a hundred and fifty thousand» (доларів); Motorsport.com 2023 — £150 тис.; Motor Sport 2025 — £100 тис.",
+      "sources": [
+        "t10",
+        "t3",
+        "t1"
+      ],
+      "status": "dis",
+      "note": "Валюта у цитаті Штайнера не названа; RaceFans подає суми в доларах. Діапазон ~£100–150 тис."
+    },
+    {
+      "id": "c17",
+      "text": "Заднє антикрило з DRS (Motor Sport, 2025) — £61–108 тис. ($85–150 тис.).",
+      "sources": [
+        "t1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c18",
+      "text": "Кермо: карбон, силіконові накладки, складна електроніка; оцінки — Motor Sport 2025 £35 тис. ($50 тис.), PlanetF1 (Саймондс 2021) €50 тис. (£43 тис.), Motorsport.com 2023 £50 тис.",
+      "sources": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "status": "dis",
+      "note": "Діапазон £35–50 тис."
+    },
+    {
+      "id": "c19",
+      "text": "Гало ~£12 тис. ($17 тис.), паливний бак ~£22 тис. ($31 тис.) — Motor Sport 2025.",
+      "sources": [
+        "t1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c20",
+      "text": "Шини: €600 за шину (Ізола через Саймондса); комплект ~$3000 (Motor Sport).",
+      "sources": [
+        "t1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c21",
+      "text": "Кошторис Motor Sport охоплює лише виготовлення, без досліджень і розробки.",
+      "sources": [
+        "t1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c22",
+      "text": "Ліміт бюджету: $145 млн (2021), $140 млн (2022), $135 млн (2023 і далі до 2025).",
+      "sources": [
+        "t13",
+        "t14",
+        "t4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c23",
+      "text": "Ліміт 2026: $215 млн за ≤24 етапів, +$1,8 млн за кожен понад 24, з індексацією; ілюстративно £170,09 млн / €198,66 млн.",
+      "sources": [
+        "t15",
+        "t13"
+      ],
+      "status": "ok",
+      "note": "Перерахунок у фунти та євро — лише t15."
+    },
+    {
+      "id": "c24",
+      "text": "Зростання ліміту зумовлене перенесенням раніше виключених витрат; загалом приблизно нейтральне.",
+      "sources": [
+        "t13",
+        "t14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "Виключення з ліміту: маркетинг, оплата пілотів і їхні поїздки, троє найбільш оплачуваних осіб, HR/фінанси/юристи, нерухомість, бонуси в межах стелі, внески FIA, постачання силової установки в межах максимальної ціни.",
+      "sources": [
+        "t15",
+        "t14",
+        "t13"
+      ],
+      "status": "ok",
+      "note": "Повний перелік — t15, ст. D5.1.1."
+    },
+    {
+      "id": "c26",
+      "text": "Деталі машини («from the steering wheel to the wheel nuts») і запчастини входять у ліміт.",
+      "sources": [
+        "t14",
+        "t13"
+      ],
+      "status": "ok",
+      "note": "Цитата — t14."
+    },
+    {
+      "id": "c27",
+      "text": "Ліміт для виробників силових установок: $95 млн (2023–2025), $190 млн з 2026.",
+      "sources": [
+        "t16",
+        "t13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c28",
+      "text": "На 2026 спершу планували $130 млн для виробників двигунів.",
+      "sources": [
+        "t13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c29",
+      "text": "Mercedes оцінила рахунок за аварію Боттаса в Імолі 2021 приблизно в £1 млн.",
+      "sources": [
+        "t11"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "Штайнер оцінив ремонт після аварії Міка Шумахера (2021) у $300–500 тис.",
+      "sources": [
+        "t10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c31",
+      "text": "Три аварії Williams на початку 2024 обійдуться більш ніж у $2 млн (оцінка The Race).",
+      "sources": [
+        "t12"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c32",
+      "text": "Mercedes W04 (перемога Гамілтона, Угорщина 2013) продано RM Sotheby's у Лас-Вегасі під час Гран-прі Лас-Вегаса 2023 за $17,1 млн + 10% комісії (~$18,8 млн, £15,1 млн).",
+      "sources": [
+        "t17",
+        "t4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c33",
+      "text": "Переднє антикрило — одна з найскладніших частин; Саймондс: жодна частина не ускладнилася з 2016 року більше.",
+      "sources": [
+        "t1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c34",
+      "text": "Підлога ~£100 тис. ($141 тис.), гідравліка ~£123 тис. ($170 тис.) — Motor Sport 2025.",
+      "sources": [
+        "t1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c35",
+      "text": "Mercedes Фанхіо 1954 року продано на Goodwood Festival of Speed 2013 за £19,6 млн — тодішній рекорд для машини Ф1 (за Autosport).",
+      "sources": [
+        "t4"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c36",
+      "text": "Витрати на аварії команди покривають у межах ліміту бюджету.",
+      "sources": [
+        "t11",
+        "t14"
+      ],
+      "status": "ok",
+      "note": "t11: витрати на аварії «absorbed by the teams», «a factor of the cost cap»; t14: запчастини в ліміті."
+    },
+    {
+      "id": "c37",
+      "text": "Mercedes-Benz W 196 R Stromlinienwagen 1954 року продано на аукціоні RM Sotheby's у Штутгарті 1 лютого 2025 року за €51,155 млн — найдорожча машина Гран-прі, будь-коли продана на аукціоні.",
+      "sources": [
+        "t18",
+        "t19"
+      ],
+      "status": "ok"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/f1-car-cost/m1-1280.webp",
+      "srcSet": "/img/stories/f1-car-cost/m1-1280.webp 1280w, /img/stories/f1-car-cost/m1-800.webp 800w, /img/stories/f1-car-cost/m1-480.webp 480w",
+      "width": 1280,
+      "height": 853,
+      "focus": "45% 55%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:F1_Monocoque_Chassis_at_Formula_1_Exhibition,_London.jpg",
+        "author": "Hullian111",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Голий карбоновий монокок боліда Формули-1 на виставці Formula 1 Exhibition у Лондоні, 2025 рік.",
+        "en": "The bare carbon-fibre monocoque of a Formula 1 car at the Formula 1 Exhibition in London, 2025."
+      },
+      "alt": {
+        "uk": "Чорна карбонова капсула боліда без коліс і обшивки на білому подіумі.",
+        "en": "A black carbon-fibre car tub without wheels or bodywork on a white plinth."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/f1-car-cost/m2-800.webp",
+      "srcSet": "/img/stories/f1-car-cost/m2-800.webp 800w, /img/stories/f1-car-cost/m2-480.webp 480w",
+      "width": 800,
+      "height": 533,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Mercedes-AMG_F1_M10_EQ_Power+_at_Formula_1_Exhibition,_London.jpg",
+        "author": "Hullian111",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Силова установка Mercedes-AMG F1 M10 EQ Power+ сезону 2019 на виставці Formula 1 Exhibition у Лондоні.",
+        "en": "The 2019 Mercedes-AMG F1 M10 EQ Power+ power unit at the Formula 1 Exhibition in London."
+      },
+      "alt": {
+        "uk": "Двигун із турбіною та батарея на виставковому стенді.",
+        "en": "An engine with its turbocharger and a battery pack on an exhibition stand."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/f1-car-cost/m3-800.webp",
+      "srcSet": "/img/stories/f1-car-cost/m3-800.webp 800w, /img/stories/f1-car-cost/m3-480.webp 480w",
+      "width": 800,
+      "height": 533,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:McLaren_MCL36A_Front_Wing_at_Formula_1_Exhibition,_London.jpg",
+        "author": "Hullian111",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Переднє антикрило McLaren MCL36A на виставці Formula 1 Exhibition у Лондоні.",
+        "en": "A McLaren MCL36A front wing at the Formula 1 Exhibition in London."
+      },
+      "alt": {
+        "uk": "Помаранчево-чорне переднє антикрило з кількома елементами на підставці.",
+        "en": "An orange and black multi-element front wing on a stand."
+      }
+    },
+    {
+      "id": "m4",
+      "role": "inline",
+      "src": "/img/stories/f1-car-cost/m4-800.webp",
+      "srcSet": "/img/stories/f1-car-cost/m4-800.webp 800w, /img/stories/f1-car-cost/m4-480.webp 480w",
+      "width": 800,
+      "height": 600,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Alpine_F1_steering_wheel.jpg",
+        "author": "Declan M Martin",
+        "license": "Public domain"
+      },
+      "caption": {
+        "uk": "Технік Alpine показує глядачам кермо боліда, Гран-прі США, Остін, 22 жовтня 2021 року.",
+        "en": "An Alpine technician shows spectators the car's steering wheel, United States Grand Prix, Austin, 22 October 2021."
+      },
+      "alt": {
+        "uk": "Кермо боліда з екраном і десятками кнопок і перемикачів у руках техніка.",
+        "en": "A racing steering wheel with a screen and dozens of buttons and dials held by a technician."
+      }
+    }
+  ]
+}

@@ -1,0 +1,734 @@
+{
+  "slug": "panis-monaco-1996",
+  "category": "sensation",
+  "years": [
+    1996
+  ],
+  "title": {
+    "uk": "Монако-1996: Паніс, Ligier і три машини під прапором",
+    "en": "Monaco 1996: Panis, Ligier and three cars at the flag"
+  },
+  "dek": {
+    "uk": "Мокра траса, два десятки сходів і переможець із 14-го місця. Остання перемога Ligier і єдина в кар'єрі Олів'є Паніса.",
+    "en": "A wet track, a race of attrition and a winner from 14th on the grid. Ligier's last victory and the only one of Olivier Panis's career."
+  },
+  "links": {
+    "seasons": [
+      1996
+    ],
+    "races": [
+      "1996/6"
+    ],
+    "drivers": [
+      "panis",
+      "coulthard",
+      "herbert",
+      "frentzen",
+      "michael_schumacher",
+      "damon_hill",
+      "alesi",
+      "irvine",
+      "laffite"
+    ],
+    "teams": [
+      "ligier",
+      "mclaren",
+      "sauber",
+      "prost"
+    ],
+    "circuits": [
+      "monaco"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Jolpica F1 API — 1996 Monaco Grand Prix results",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1996/6/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "Jolpica F1 API — 1996 Monaco Grand Prix, lap 75 timings",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1996/6/laps/75/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "Monaco GP 1996 — race report and results",
+      "publisher": "GrandPrix.com",
+      "date": "1996-05-19",
+      "url": "https://www.grandprix.com/races/monaco-gp-1996.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "News, May 20, 1996",
+      "publisher": "GrandPrix.com",
+      "date": "1996-05-20",
+      "url": "https://www.grandprix.com/ns/ns00604.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "Monaco Grand Prix 1996 — race notes and quotes",
+      "publisher": "Atlas F1 (archive)",
+      "date": "1996-05",
+      "url": "https://archive.atlasf1.com/news/1996/150.htm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "Panis wins Monaco Grand Prix (compiled from wire services)",
+      "publisher": "The Spokesman-Review",
+      "date": "1996-05-20",
+      "url": "https://www.spokesman.com/stories/1996/may/20/panis-wins-monaco-grand-prix/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "Field of Dreams (Mark Skewis)",
+      "publisher": "Motor Sport",
+      "date": "1996-07",
+      "url": "https://www.motorsportmagazine.com/archive/article/july-1996/18/field-of-dreams/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "'An out-of-body experience' – Panis on his improbable Monaco GP win",
+      "publisher": "Motor Sport",
+      "date": "2026-05-19",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/an-out-of-body-experience-panis-on-his-improbable-monaco-gp-win/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "When only three drivers finished at Monaco in F1's craziest race ever",
+      "publisher": "RacingNews365",
+      "date": "",
+      "url": "https://racingnews365.com/when-only-three-drivers-finished-at-monaco-in-f1s-craziest-race-ever",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "Prost takes over Ligier",
+      "publisher": "GrandPrix.com",
+      "date": "1997-02-17",
+      "url": "https://www.grandprix.com/news/prost-takes-over-ligier.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "Prost takes over at Ligier",
+      "publisher": "The Irish Times",
+      "date": "1997-02-14",
+      "url": "https://www.irishtimes.com/sport/prost-takes-over-at-ligier-1.42851",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Jolpica F1 API — Ligier wins and seasons",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/constructors/ligier/results/1/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "Jolpica F1 API — Olivier Panis wins",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/drivers/panis/results/1/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "Olivier Panis at 30: how Monaco's unlikeliest winner went from 14th to F1 glory (interview by Matt Bishop)",
+      "publisher": "Motor Sport",
+      "date": "2026-04-28",
+      "url": "https://www.motorsportmagazine.com/archive/article/june-2026/122/olivier-panis-at-30-how-monacos-unlikeliest-winner-went-from-14th-to-f1-glory/",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Гран-прі Монако 1996 — 19 травня, шостий етап сезону",
+      "sources": [
+        "s1",
+        "s6"
+      ],
+      "status": "ok",
+      "note": "s6 — звіт у понеділок 20 травня про недільну гонку."
+    },
+    {
+      "id": "c2",
+      "text": "Уранці в неділю пройшла злива, перед стартом траса підсихала; усі, крім Йоса Ферстаппена, стартували на дощових шинах, Ферстаппен — на сліках",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c3",
+      "text": "Поул — Міхаель Шумахер (Ferrari); Деймон Гілл — 2-й, Жан Алезі — 3-й на старті",
+      "sources": [
+        "s1",
+        "s6"
+      ],
+      "status": "ok",
+      "note": "s6 підтверджує поул Шумахера; позиції Гілла й Алезі — s1."
+    },
+    {
+      "id": "c4",
+      "text": "Паніс стартував 14-м",
+      "sources": [
+        "s1",
+        "s7",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c5",
+      "text": "Кваліфікацію Панісу зіпсував електричний збій",
+      "sources": [
+        "s8",
+        "s14"
+      ],
+      "status": "one",
+      "note": "s8 і s14 — один матеріал Motor Sport (інтерв'ю Метта Бішопа), рахуємо як одне джерело."
+    },
+    {
+      "id": "c6",
+      "text": "Цитата Паніса: «My engineers were upset — one of the Japanese guys was even crying.»",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c7",
+      "text": "Кількість стартерів: 22 чи 21",
+      "sources": [
+        "s6",
+        "s9",
+        "s3",
+        "s1"
+      ],
+      "status": "dis",
+      "note": "s6 («22 cars that started») і s9 («grid of 22») пишуть про 22. s3: Андреа Монтерміні розбив Forti на виході з тунелю й «would not start», у таблиці — ns, тобто стартувала 21 машина. s1 вносить Монтерміні в протокол із 0 кіл і статусом «Injury»."
+    },
+    {
+      "id": "c8",
+      "text": "Шумахер розбився на першому колі",
+      "sources": [
+        "s1",
+        "s3",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "Цитата Шумахера: «It was a stupidity. It was a driving mistake, I am also capable of making mistakes.»",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c10",
+      "text": "На першому колі також зійшли Барікелло, Ферстаппен, Ламі і Фізікелла",
+      "sources": [
+        "s1",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "text": "Гілл лідирував і до 21-го кола відірвався майже на 25 секунд",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c12",
+      "text": "Гілл зійшов через відмову двигуна, проїхавши 40 кіл (трохи за половину дистанції)",
+      "sources": [
+        "s1",
+        "s3",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "Цитата Гілла: «I thought I had it. I had a good grip on the race, enough fuel to finish and a good gap on Jean Alesi.»",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c14",
+      "text": "Паніс всупереч інженерам попросив повний бак, щоб довше проїхати перший відрізок",
+      "sources": [
+        "s8",
+        "s14",
+        "s3"
+      ],
+      "status": "ok",
+      "note": "«Всупереч інженерам» — s8/s14 (одне інтерв'ю); важкий паливний старт — також s3."
+    },
+    {
+      "id": "c15",
+      "text": "Паніс обігнав Едді Ірвайна на шпильці Loews у боротьбі за 3-тє місце; машини торкнулися",
+      "sources": [
+        "s3",
+        "s8",
+        "s14",
+        "s9"
+      ],
+      "status": "ok",
+      "note": "«За третє місце» — лише s14; дотик і коло 35 — лише s3."
+    },
+    {
+      "id": "c16",
+      "text": "Цитата Паніса про розворот на оливі Гілла: «I did a 360-degree spin, I hit nothing, and I got going again.»",
+      "sources": [
+        "s8",
+        "s14"
+      ],
+      "status": "one",
+      "note": "Одне інтерв'ю (s8/s14); що олива від мотора Гілла — s14."
+    },
+    {
+      "id": "c17",
+      "text": "Алезі (Benetton) зійшов через поломку підвіски після 60 кіл; Паніс вийшов у лідери",
+      "sources": [
+        "s1",
+        "s3",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "Жака Вільнева вибив Лука Бадоер",
+      "sources": [
+        "s3"
+      ],
+      "status": "one",
+      "note": "s1 дає обом статус «Collision» (Вільнев — 66 кіл, Бадоер — 60), але не каже, що вони зіткнулися між собою."
+    },
+    {
+      "id": "c19",
+      "text": "Наприкінці Ірвайна розвернуло, і Міка Сало та Міка Хаккінен врізалися в його Ferrari",
+      "sources": [
+        "s3"
+      ],
+      "status": "one",
+      "note": "s1: усі троє — статус «Collision» (Сало і Хаккінен — 70 кіл, Ірвайн — 68)."
+    },
+    {
+      "id": "c20",
+      "text": "Гонку обмежив двогодинний ліміт: 75 кіл замість запланованих 78",
+      "sources": [
+        "s5",
+        "s7",
+        "s8",
+        "s9",
+        "s1"
+      ],
+      "status": "ok",
+      "note": "Ліміт — s5, s7, s9; 75 кіл — s1; цифра 78 — лише s8."
+    },
+    {
+      "id": "c21",
+      "text": "Френтцен (Sauber) у момент фінішу стояв у боксах, маючи 74 кола",
+      "sources": [
+        "s3",
+        "s1"
+      ],
+      "status": "ok",
+      "note": "s3: «In Pits At Checkered Flag»; s1: 74 кола, статус «Withdrew». s3 і s7 при цьому рахують його серед чотирьох машин, що ще їхали в останні кола."
+    },
+    {
+      "id": "c22",
+      "text": "Фінішний прапор отримали лише три машини: Паніс, Култхард, Герберт",
+      "sources": [
+        "s2",
+        "s6",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c23",
+      "text": "Скільки пілотів класифіковано: сім чи три",
+      "sources": [
+        "s1",
+        "s3",
+        "s8"
+      ],
+      "status": "dis",
+      "note": "s1: класифіковано сім — Френтцен 4-й, Сало 5-й, Хаккінен 6-й, Ірвайн 7-й. s3 теж ставить Сало п'ятим, а Хаккінена шостим. s8 називає Паніса «першим із лише трьох класифікованих»."
+    },
+    {
+      "id": "c24",
+      "text": "Култхард програв Панісу 4,828 с і тиснув в останніх колах",
+      "sources": [
+        "s1",
+        "s3",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "Цитата Паніса: «There was a lot of pressure at the end from David.»",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c26",
+      "text": "Култхард їхав у позиченому шоломі Шумахера, бо його власний запотівав",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c27",
+      "text": "Герберт фінішував третім, нікого не обігнавши",
+      "sources": [
+        "s3",
+        "s1"
+      ],
+      "status": "ok",
+      "note": "Третє місце — s1 і s3; «overtook no-one» — лише s3."
+    },
+    {
+      "id": "c28",
+      "text": "Під кінець у Паніса закінчувалося пальне; бак після фінішу виявився порожнім",
+      "sources": [
+        "s8",
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c29",
+      "text": "Цитати Паніса: «As I crossed the line I gave a cry of joy into the intercom.» / «I'm delighted to win for Ligier.»",
+      "sources": [
+        "s7",
+        "s5"
+      ],
+      "status": "one",
+      "note": "Дві різні цитати, кожна з одного джерела: перша — s7, друга — s5."
+    },
+    {
+      "id": "c30",
+      "text": "Перша перемога Ligier з 1981 року, коли Жак Лаффіт виграв Гран-прі Канади",
+      "sources": [
+        "s6",
+        "s7",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c31",
+      "text": "Перший француз, який виграв у Монако на французькій машині, з часів Рене Дрейфюса (Bugatti, 1930)",
+      "sources": [
+        "s3",
+        "s4"
+      ],
+      "status": "one",
+      "note": "Обидва тексти — GrandPrix.com, тож це одне джерело."
+    },
+    {
+      "id": "c32",
+      "text": "Перемога в Монако — єдина в кар'єрі Паніса у Ф1",
+      "sources": [
+        "s13",
+        "s9",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c33",
+      "text": "На час Монако команда мала проблеми з грошима, ходили чутки про закриття; 85% належало Флавіо Бріаторе",
+      "sources": [
+        "s4"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c34",
+      "text": "У лютому 1997 Ален Прост купив Ligier у Бріаторе, команда стала Prost Grand Prix",
+      "sources": [
+        "s10",
+        "s11"
+      ],
+      "status": "ok",
+      "note": "Бріаторе як продавця називає лише s10."
+    },
+    {
+      "id": "c35",
+      "text": "Монако-1996 — дев'ята й остання перемога Ligier; 1996 — останній сезон команди під цією назвою",
+      "sources": [
+        "s12",
+        "s10",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c36",
+      "text": "Паніс показав найкращий час у недільному warm-up",
+      "sources": [
+        "s5",
+        "s14"
+      ],
+      "status": "ok",
+      "note": "s5: «takes the fastest time with 1:23.860» у warm-up."
+    },
+    {
+      "id": "c37",
+      "text": "Паніс пообіцяв засмученим інженерам очки в неділю («Don't worry. Tomorrow we'll score points.»), визнав, що здебільшого заради настрою",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c38",
+      "text": "Машина Паніса — Ligier JS43 з двигуном Mugen-Honda",
+      "sources": [
+        "s6",
+        "s14"
+      ],
+      "status": "ok",
+      "note": "Mugen-Honda — s6 і s14; індекс JS43 — лише s14 (підпис до фото)."
+    },
+    {
+      "id": "c39",
+      "text": "Цитата Джанкарло Мінарді: «In 12 years of F1 I have never seen anything like this»",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c40",
+      "text": "Паніс відмовився від дозаправки, просив цільову витрату на коло; рано перемикав, не вмикав шосту, котився накатом через портову шикану",
+      "sources": [
+        "s8",
+        "s14"
+      ],
+      "status": "one",
+      "note": "Одне інтерв'ю Motor Sport (s8/s14)."
+    },
+    {
+      "id": "c41",
+      "text": "Френтцен на 18-му колі на Сент-Девот вдарив Ferrari Ірвайна ззаду й міняв носовий обтічник",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c42",
+      "text": "Motor Sport (1996): якби Sauber поставила Френтцену сліки, коли він просив, він міг би виграти",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c43",
+      "text": "Цитата Култхарда: «It was just a case of getting the car home and getting points»",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c44",
+      "text": "Бріаторе купив Ligier на початку 1994; Паніс отримав дворічний контракт на 1995–1996",
+      "sources": [
+        "s10",
+        "s14"
+      ],
+      "status": "ok",
+      "note": "Дату купівлі (початок 1994) дає s10; контракт — s14."
+    },
+    {
+      "id": "c45",
+      "text": "Час переможця — 2:00:45.629",
+      "sources": [
+        "s1",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c46",
+      "text": "Прост уклав контракт на двигуни Peugeot (з 1998 року)",
+      "sources": [
+        "s10",
+        "s11"
+      ],
+      "status": "ok",
+      "note": "«З 1998 року, на три роки» — s11; s10 — контракт підписано в день схвалення FIA."
+    },
+    {
+      "id": "c47",
+      "text": "На піт-стопі Панісу долили зовсім трохи пального; після гонки він не знав, що його дозаправляли",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c48",
+      "text": "Педро Дініс (Ligier) зійшов після 5 кіл через трансмісію",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c49",
+      "text": "Алезі заїжджав у бокси на перевірку на 54-му колі",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c50",
+      "text": "Ligier виступала з 1976; до Монако-1996 мала 8 перемог, 6 з них — Лаффіт",
+      "sources": [
+        "s12"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c51",
+      "text": "Прост (тоді з McLaren) у Монако: хотів би власну команду; «To make a competitive team is very difficult»",
+      "sources": [
+        "s4"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c52",
+      "text": "За GrandPrix.com, у кваліфікації (до проблем із мотором) Паніс вважав машину справді швидкою, здатною на місце в шістці",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c53",
+      "text": "Паніс отримав 10 очок; старт із 14-го місця — сьомий ряд",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/panis-monaco-1996/m1-1280.webp",
+      "srcSet": "/img/stories/panis-monaco-1996/m1-1280.webp 1280w, /img/stories/panis-monaco-1996/m1-800.webp 800w, /img/stories/panis-monaco-1996/m1-480.webp 480w",
+      "width": 1280,
+      "height": 866,
+      "focus": "45% 60%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Grand_Prix_Monaco96_131954710.jpg",
+        "author": "Steve Gregory from Bradley Stoke, UK",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Прогрівне коло перед Гран-прі Монако, 19 травня 1996 року. Ligier Олів'є Паніса частково схований за Sauber Джонні Герберта.",
+        "en": "The formation lap before the Monaco Grand Prix, 19 May 1996. Olivier Panis's Ligier is partly hidden behind Johnny Herbert's Sauber."
+      },
+      "alt": {
+        "uk": "Вид згори на вулиці Монако з болідами, трибунами й гаванню з яхтами.",
+        "en": "An elevated view of the Monaco streets with cars, grandstands and a harbour full of yachts."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/panis-monaco-1996/m2-800.webp",
+      "srcSet": "/img/stories/panis-monaco-1996/m2-800.webp 800w, /img/stories/panis-monaco-1996/m2-480.webp 480w",
+      "width": 800,
+      "height": 600,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Ligier_JS43_front-left_Honda_Collection_Hall.jpg",
+        "author": "Morio",
+        "license": "CC BY-SA 3.0"
+      },
+      "caption": {
+        "uk": "Ligier JS43 Олів'є Паніса сезону 1996 у Honda Collection Hall, 2014 рік.",
+        "en": "Olivier Panis's 1996 Ligier JS43 at the Honda Collection Hall, 2014."
+      },
+      "alt": {
+        "uk": "Синій болід Ligier із номером 9 у музейному залі.",
+        "en": "A blue Ligier car numbered 9 in a museum hall."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/panis-monaco-1996/m3-800.webp",
+      "srcSet": "/img/stories/panis-monaco-1996/m3-800.webp 800w, /img/stories/panis-monaco-1996/m3-480.webp 480w",
+      "width": 800,
+      "height": 800,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Monaco_GP_1996_winners_trophy_Honda_Collection_Hall.jpg",
+        "author": "Morio",
+        "license": "CC BY-SA 3.0"
+      },
+      "caption": {
+        "uk": "Кубок переможця Гран-прі Монако 1996 року, вручений Олів'є Панісу, у Honda Collection Hall, 2014 рік.",
+        "en": "The 1996 Monaco Grand Prix winner's trophy, awarded to Olivier Panis, at the Honda Collection Hall, 2014."
+      },
+      "alt": {
+        "uk": "Срібний кубок із ручками на дерев'яному постаменті.",
+        "en": "A silver two-handled cup on a wooden base."
+      }
+    }
+  ]
+}

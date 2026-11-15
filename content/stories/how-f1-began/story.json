@@ -1,0 +1,811 @@
+{
+  "slug": "how-f1-began",
+  "category": "history",
+  "years": [
+    1906,
+    1946,
+    1947,
+    1950
+  ],
+  "title": {
+    "uk": "Як народилася Формула-1: від Ле-Мана-1906 до Сільверстоуна-1950",
+    "en": "How Formula 1 began: from Le Mans 1906 to Silverstone 1950"
+  },
+  "dek": {
+    "uk": "Дводенна гонка біля Ле-Мана, чемпіонат, де перемагав той, хто набрав найменше, повоєнний «набір правил» і король на колишньому аеродромі. Звідки взялися Гран-прі, назва «Формула-1» і перший чемпіон світу.",
+    "en": "A two-day race near Le Mans, a championship won by whoever scored the fewest points, a post-war 'set of rules' and a king at a former airfield. Where Grands Prix, the name 'Formula 1' and the first world champion came from."
+  },
+  "links": {
+    "seasons": [
+      1950,
+      1960
+    ],
+    "races": [
+      "1950/1",
+      "1950/3",
+      "1950/7"
+    ],
+    "drivers": [
+      "farina",
+      "fagioli",
+      "fangio",
+      "reg_parnell",
+      "parsons",
+      "jack_brabham"
+    ],
+    "teams": [
+      "alfa-romeo",
+      "ferrari",
+      "talbot",
+      "maserati"
+    ],
+    "circuits": [
+      "silverstone",
+      "indianapolis",
+      "monza"
+    ],
+    "stories": [
+      "f1-points-history",
+      "f1-tech-revolutions"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Why is it called Formula 1 – and 12 other questions about the championship's origins (David Tremayne)",
+      "publisher": "Formula 1 (formula1.com)",
+      "date": "2020-05-13",
+      "url": "https://www.formula1.com/en/latest/article/why-is-it-called-formula-1-and-12-other-questions-about-the-championships.1GHeel6u4jga6hMpX2eFs1",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "TREMAYNE: How Hungarian driver Ferenc Szisz became Grand Prix racing's first winner",
+      "publisher": "Formula 1 (formula1.com)",
+      "date": "2025-08-03",
+      "url": "https://www.formula1.com/en/latest/article/tremayne-how-hungarian-driver-ferenc-szisz-became-grand-prix-racings-first.5Ignx5bxIe3PTxYajoANCa",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "Track visit: Le Mans 1906 (Marcus Simmons)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2024-03-20",
+      "url": "https://www.motorsportmagazine.com/archive/article/july-2006/62/track-test-le-mans-1906/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "1906 French Grand Prix — race database",
+      "publisher": "Motor Sport Magazine (database)",
+      "date": "",
+      "url": "https://www.motorsportmagazine.com/archive/database/races/2571-1906-french-grand-prix",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "Today's Photo Story — ACF Grand Prix in 1906, the first race at Le Mans",
+      "publisher": "Automobile Club de l'Ouest (24h-lemans.com)",
+      "date": "2016-11-28",
+      "url": "https://www.24h-lemans.com/en/news/todays-photo-story-acf-grand-prix-in-1906-the-first-race-at-le-mans-44383",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "The first F1 race: 1946 Turin Grand Prix (Simon Ostler)",
+      "publisher": "Goodwood Road & Racing",
+      "date": "2025-05-21",
+      "url": "https://www.goodwood.com/grr/f1/the-first-f1-race-1946-turin-grand-prix/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "Extract: The birth of the F1 world championship, 70 years ago today (Peter Higham, 'Formula 1 Car by Car 1950-59')",
+      "publisher": "RaceFans",
+      "date": "2020-05-13",
+      "url": "https://www.racefans.net/2020/05/13/extract-the-birth-of-the-f1-world-championship-70-years-ago-today/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "F1's first grand prix revisited on landmark 75th birthday",
+      "publisher": "RacingNews365",
+      "date": "2025-05-13",
+      "url": "https://racingnews365.com/f1s-first-grand-prix-revisted-on-landmark-75th-birthday",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "Remembering F1's first world championship race 70 years on (Adam Cooper)",
+      "publisher": "Motorsport.com",
+      "date": "2020-05-13",
+      "url": "https://www.motorsport.com/f1/news/first-f1-race-silverstone-1950/4791619/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "70 years on: F1's first World Championship race",
+      "publisher": "PA Media (via PlanetF1)",
+      "date": "2020-05-13",
+      "url": "https://www.planetf1.com/features/first-world-championship-race",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "1950 F1 World Championship — overview",
+      "publisher": "Motor Sport Magazine (database)",
+      "date": "",
+      "url": "https://www.motorsportmagazine.com/database/championships/1950-f1-world-championship",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "1950 British Grand Prix — results",
+      "publisher": "Jolpica F1 API",
+      "date": "1950-05-13",
+      "url": "https://api.jolpi.ca/ergast/f1/1950/1/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "1950 season — race winners",
+      "publisher": "Jolpica F1 API",
+      "date": "1950",
+      "url": "https://api.jolpi.ca/ergast/f1/1950/results/1/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "1950 season — final drivers' standings",
+      "publisher": "Jolpica F1 API",
+      "date": "1950",
+      "url": "https://api.jolpi.ca/ergast/f1/1950/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "1960 season — calendar",
+      "publisher": "Jolpica F1 API",
+      "date": "1960",
+      "url": "https://api.jolpi.ca/ergast/f1/1960/races/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "Explained: F1's points system and how drivers earned points in the past (Thomas Maher)",
+      "publisher": "PlanetF1",
+      "date": "2025-01-04",
+      "url": "https://www.planetf1.com/news/explained-f1-points-system-and-how-drivers-earned-points-in-the-past",
+      "kind": "secondary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Гран-прі Автомобільного клубу Франції 1906 року вважають першим Гран-прі; Сіс — перший переможець Гран-прі",
+      "sources": [
+        "s3",
+        "s2"
+      ],
+      "status": "ok",
+      "note": "s3: «historically regarded as the first ever grand prix»; s2: «Grand Prix racing's first winner»."
+    },
+    {
+      "id": "c2",
+      "text": "Гонку провели біля Ле-Мана 26–27 червня 1906 року",
+      "sources": [
+        "s5",
+        "s3"
+      ],
+      "status": "ok",
+      "note": "s3: старт о 6:00 у вівторок 26 червня, фініш Сіса після полудня в середу."
+    },
+    {
+      "id": "c3",
+      "text": "Гонка прийшла на зміну Кубку Гордона Беннетта; дистанцію подвоїли й розклали на два дні",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c4",
+      "text": "Довжина кола — близько 64 миль (≈103 км)",
+      "sources": [
+        "s3",
+        "s4"
+      ],
+      "status": "one",
+      "note": "Обидва — Motor Sport (стаття й база): 64 / 64,11 милі. Переведення в км — наше."
+    },
+    {
+      "id": "c5",
+      "text": "Загальна дистанція — 769 миль (понад 1 200 км)",
+      "sources": [
+        "s4"
+      ],
+      "status": "one",
+      "note": "Переведення в км — наше (769 миль ≈ 1 238 км)."
+    },
+    {
+      "id": "c6",
+      "text": "Стартували 32 машини (із 34 заявлених)",
+      "sources": [
+        "s4"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c7",
+      "text": "Найшвидше коло — Поль Бара (Richard-Brasier), у середньому понад 73 милі/год",
+      "sources": [
+        "s4",
+        "s3"
+      ],
+      "status": "one",
+      "note": "Обидва — Motor Sport: 52 хв 25,4 с, ~73 милі/год."
+    },
+    {
+      "id": "c8",
+      "text": "Переміг угорець Ференц Сіс на Renault",
+      "sources": [
+        "s2",
+        "s5",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "Сіс виграв, провівши в гонці трохи більше ніж 12 годин",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c10",
+      "text": "Наццаро відстав на 32 хвилини, Клеман — ще на три",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c11",
+      "text": "Знімні обода Michelin: заміна за 4 хвилини проти 15 для шини з камерою",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c12",
+      "text": "З 1931 року AIACR проводила чемпіонат Європи",
+      "sources": [
+        "s1",
+        "s8"
+      ],
+      "status": "ok",
+      "note": "s1: 1931–1939; s8: 1931–1938. Кінцевий рік у тексті не вказано."
+    },
+    {
+      "id": "c13",
+      "text": "Тремейн: «чемпіонат світу в усьому, крім назви»; очки: 4 за >75% дистанції, до 7 за ≤25%, перемагав той, у кого найменше; чемпіони Нуволарі, Карраччола, Роземаєр; обірвала Друга світова",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c14",
+      "text": "1946 року CSI, спортивна гілка AIACR, почала відбудовувати автоспорт і обговорювати нову формулу Гран-прі",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c15",
+      "text": "«Формула» — набір правил/клас; спершу офіційної назви не було, пропонували Formula Internationale, Formula A, Formula I",
+      "sources": [
+        "s1",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c16",
+      "text": "Обрали назву «Формула-1» як головну, найвищу формулу",
+      "sources": [
+        "s1",
+        "s7"
+      ],
+      "status": "ok",
+      "note": "s7: «Originally known as Formula A but soon renamed Formula 1»."
+    },
+    {
+      "id": "c17",
+      "text": "Двигуни: атмосферні до 4,5 л або 1,5 л з нагнітачем",
+      "sources": [
+        "s1",
+        "s6",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "Коли затвердили формулу",
+      "sources": [
+        "s1",
+        "s6",
+        "s7"
+      ],
+      "status": "dis",
+      "note": "s1: CSI проголосувала 1946-го, правила формально діють з 1947-го; s6: «International Formula» складено навесні 1946-го для змагань з 1947-го; s7 (Гайем): CSI зібралася в жовтні 1947-го й оголосила правила на 1948–1953."
+    },
+    {
+      "id": "c19",
+      "text": "Гран-прі Турина 1946 року — перша гонка за новими правилами; переміг Акілле Варці на Alfa Romeo 158",
+      "sources": [
+        "s6",
+        "s8"
+      ],
+      "status": "ok",
+      "note": "Переможця називає лише s6; s6 уточнює, що офіційно санкціонованою гонкою F1 вона не була."
+    },
+    {
+      "id": "c20",
+      "text": "Ідею офіційного чемпіонату світу приписують маркізу Антоніо Брівіо, італійському делегатові у FIA",
+      "sources": [
+        "s1",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c21",
+      "text": "Перший етап чемпіонату світу — Гран-прі Британії в Сільверстоуні, субота, 13 травня 1950",
+      "sources": [
+        "s1",
+        "s8",
+        "s9",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "text": "Гонка мала почесну назву Гран-прі Європи",
+      "sources": [
+        "s1",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c23",
+      "text": "Сільверстоун — колишній аеродром часів Другої світової",
+      "sources": [
+        "s1",
+        "s8",
+        "s9"
+      ],
+      "status": "ok",
+      "note": "s1: аеродром відкрито 1943-го; s8: колишня база RAF для бомбардувальників Wellington."
+    },
+    {
+      "id": "c24",
+      "text": "Були присутні король Георг VI, королева Єлизавета й принцеса Маргарет",
+      "sources": [
+        "s1",
+        "s8",
+        "s10",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "Перший візит чинного монарха на перегони; прізвисько «Royal Silverstone»",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c26",
+      "text": "Кількість глядачів",
+      "sources": [
+        "s9",
+        "s10"
+      ],
+      "status": "dis",
+      "note": "s9: «an estimated 150,000»; s10: 200 000."
+    },
+    {
+      "id": "c27",
+      "text": "На старт вийшла 21 машина: 4 Alfa Romeo, 5 Talbot-Lago, 6 Maserati, 4 ERA, 2 Alta",
+      "sources": [
+        "s1",
+        "s12"
+      ],
+      "status": "ok",
+      "note": "s12: склад за командами збігається (Maserati Фрая/Шоу-Тейлора і ERA Ролта/Вокера — по одній машині на двох)."
+    },
+    {
+      "id": "c28",
+      "text": "Ferrari на першу гонку не приїхала",
+      "sources": [
+        "s1",
+        "s7"
+      ],
+      "status": "ok",
+      "note": "s7: Ferrari знялася за пару тижнів до гонки."
+    },
+    {
+      "id": "c29",
+      "text": "Alfa Romeo виставила чотири машини 158 «Alfetta»",
+      "sources": [
+        "s1",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c30",
+      "text": "«Три F» — Фаріна, Фаджолі, Фанхіо; четверту машину віддали Реджу Парнеллу замість травмованого Санезі",
+      "sources": [
+        "s9",
+        "s7",
+        "s1"
+      ],
+      "status": "ok",
+      "note": "s7 подає Фаджолі як заміну Санезі в основному складі, а Парнелла — як четверту машину; s1 і s9 — Парнелл замість Санезі."
+    },
+    {
+      "id": "c31",
+      "text": "Усі чотири Alfa Romeo — у першому ряду, Фаріна на поулі",
+      "sources": [
+        "s10",
+        "s7",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c32",
+      "text": "Фанхіо зійшов за вісім кіл до фінішу через масляну магістраль",
+      "sources": [
+        "s7",
+        "s10",
+        "s12"
+      ],
+      "status": "ok",
+      "note": "s12: зійшов після 62 з 70 кіл, «Oil leak»."
+    },
+    {
+      "id": "c33",
+      "text": "Фаріна виграв 70-колову гонку на 2,6 с попереду Фаджолі",
+      "sources": [
+        "s12",
+        "s9"
+      ],
+      "status": "ok",
+      "note": "s10 (PA) пише 2,5 с."
+    },
+    {
+      "id": "c34",
+      "text": "Парнелл фінішував третім, збивши на трасі зайця",
+      "sources": [
+        "s9",
+        "s10",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c35",
+      "text": "Фаріна отримав 9 очок: 8 за перемогу і 1 за найшвидше коло",
+      "sources": [
+        "s12",
+        "s8",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c36",
+      "text": "Призовий фонд",
+      "sources": [
+        "s9",
+        "s1"
+      ],
+      "status": "dis",
+      "note": "s9: «£1750 in prize money up for grabs»; s1: за оцінкою, загальний фонд навряд чи перевищив £1000, переможцю — близько £350."
+    },
+    {
+      "id": "c37",
+      "text": "Перший чемпіонат — сім етапів: Британія, Монако, США, Швейцарія, Бельгія, Франція, Італія",
+      "sources": [
+        "s1",
+        "s9",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c38",
+      "text": "Американським етапом був «Індіанаполіс 500»",
+      "sources": [
+        "s1",
+        "s9",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c39",
+      "text": "Тремейн: «політичний хід» для міжнародного присмаку; перетину пілотів майже не було до Бребема на Cooper 1961 року",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c40",
+      "text": "«Індіанаполіс 500» входив до чемпіонату світу до 1960 року",
+      "sources": [
+        "s1",
+        "s7",
+        "s15"
+      ],
+      "status": "ok",
+      "note": "s7: 11 років офіційно в чемпіонаті; s15: 1960 — ще етап чемпіонату."
+    },
+    {
+      "id": "c41",
+      "text": "1950 року «Індіанаполіс 500» виграв Джонні Парсонс (Kurtis Kraft)",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c42",
+      "text": "Усі шість європейських етапів 1950 року виграли пілоти Alfa Romeo",
+      "sources": [
+        "s13",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c43",
+      "text": "Фаріна і Фанхіо мали по три перемоги",
+      "sources": [
+        "s11",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c44",
+      "text": "Титул вирішився у фіналі в Монці, де переміг Фаріна",
+      "sources": [
+        "s1",
+        "s10",
+        "s11",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c45",
+      "text": "Фаріна — 30 очок, Фанхіо — 27, Фаджолі — 24; Фаріна — перший чемпіон світу",
+      "sources": [
+        "s14",
+        "s10",
+        "s8"
+      ],
+      "status": "ok",
+      "note": "s10: Фаріна виграв титул з перевагою в три очки."
+    },
+    {
+      "id": "c46",
+      "text": "Чемпіонат конструкторів з'явився 1958 року",
+      "sources": [
+        "s1",
+        "s16"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c47",
+      "text": "Alfa Romeo пропустила 1949 рік після загибелі Варці, Вімія й Троссі",
+      "sources": [
+        "s1",
+        "s7"
+      ],
+      "status": "ok",
+      "note": "s7: Троссі помер від раку."
+    },
+    {
+      "id": "c48",
+      "text": "158 «Alfetta» сконструював Джоаккіно Коломбо як довоєнну машину класу вуатюреток",
+      "sources": [
+        "s7",
+        "s11"
+      ],
+      "status": "ok",
+      "note": "s7: для вуатюреток 1938 року."
+    },
+    {
+      "id": "c50",
+      "text": "BRM V16 ще не була готова; Реймонд Мейс провів демонстраційний проїзд під час уїкенду Гран-прі Британії",
+      "sources": [
+        "s1",
+        "s7"
+      ],
+      "status": "ok",
+      "note": "Про демонстрацію Мейса — лише s7."
+    },
+    {
+      "id": "c52",
+      "text": "1950: очки першій п'ятірці 8-6-4-3-2 плюс 1 за найшвидше коло",
+      "sources": [
+        "s1",
+        "s7",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c53",
+      "text": "«Три F» мінялися місцями під час дозаправок; Фаріна лідирував близько 63 із 70 кіл",
+      "sources": [
+        "s9"
+      ],
+      "status": "one",
+      "note": "s7: троє мінялися лідерством на перших 20 колах."
+    },
+    {
+      "id": "c54",
+      "text": "Король поїхав до фінішу й не вручав нагород",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c55",
+      "text": "На Гран-прі Італії Фаріна отримав вдосконалену машину 159",
+      "sources": [
+        "s11",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c56",
+      "text": "У Монці дебютувала Ferrari 375 (4,5 л, атмосферний), Аскарі другий на машині Серафіні; Motor Sport: у 1951-му Alfa чекав серйозний суперник",
+      "sources": [
+        "s11"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c57",
+      "text": "1949 року підтвердили старт чемпіонату світу 1950-го з визначенням чемпіона наприкінці сезону",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/how-f1-began/m1-1280.webp",
+      "srcSet": "/img/stories/how-f1-began/m1-1280.webp 1280w, /img/stories/how-f1-began/m1-800.webp 800w, /img/stories/how-f1-began/m1-480.webp 480w",
+      "width": 1280,
+      "height": 916,
+      "focus": "50% 55%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Szisz_sur_Renault_au_virage_de_Cherré_(Grand_Prix_de_l'ACF,_26_-_27_juin)_1906_-_btv1b532088317.jpg",
+        "author": "Agence Rol",
+        "license": "Public domain"
+      },
+      "caption": {
+        "uk": "Ференц Сіс на Renault у повороті Шерре під час Гран-прі Автомобільного клубу Франції, 26–27 червня 1906 року.",
+        "en": "Ferenc Szisz in his Renault at the Cherré bend during the Automobile Club de France Grand Prix, 26–27 June 1906."
+      },
+      "alt": {
+        "uk": "Стара чорно-біла світлина: гоночний автомобіль на запиленій дорозі вздовж будинків і рекламних щитів.",
+        "en": "An old black-and-white photo of a racing car on a dusty road lined with houses and advertising boards."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/how-f1-began/m2-800.webp",
+      "srcSet": "/img/stories/how-f1-began/m2-800.webp 800w, /img/stories/how-f1-began/m2-480.webp 480w",
+      "width": 800,
+      "height": 930,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:1950_Alfa_Romeo_158_(54834195044).jpg",
+        "author": "David Merrett from Daventry, England",
+        "license": "CC BY 4.0"
+      },
+      "caption": {
+        "uk": "Alfa Romeo 158 1950 року — машина, на якій Джузеппе Фаріна виграв перший чемпіонат світу. Silverstone Festival, серпень 2025 року.",
+        "en": "A 1950 Alfa Romeo 158, the car that took Giuseppe Farina to the first world championship. Silverstone Festival, August 2025."
+      },
+      "alt": {
+        "uk": "Червоний гоночний автомобіль 1950-х з номером 41 на капоті, вигляд спереду.",
+        "en": "A red 1950s racing car with the number 41 on its nose, seen from the front."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/how-f1-began/m3-800.webp",
+      "srcSet": "/img/stories/how-f1-began/m3-800.webp 800w, /img/stories/how-f1-began/m3-480.webp 480w",
+      "width": 800,
+      "height": 600,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Indy500winningcar1950.JPG",
+        "author": "Doctorindy",
+        "license": "CC BY-SA 3.0"
+      },
+      "caption": {
+        "uk": "Машина, на якій Джонні Парсонс виграв «Індіанаполіс 500» 1950 року, у музеї Індіанаполіс Мотор Спідвей, травень 2011 року.",
+        "en": "The car in which Johnnie Parsons won the 1950 Indianapolis 500, at the Indianapolis Motor Speedway museum, May 2011."
+      },
+      "alt": {
+        "uk": "Жовтий гоночний автомобіль 1950 року в музейній залі серед інших машин.",
+        "en": "A yellow 1950 racing car in a museum hall among other cars."
+      }
+    },
+    {
+      "id": "m4",
+      "role": "inline",
+      "src": "/img/stories/how-f1-began/m4-800.webp",
+      "srcSet": "/img/stories/how-f1-began/m4-800.webp 800w, /img/stories/how-f1-began/m4-480.webp 480w",
+      "width": 800,
+      "height": 408,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:1950_Italian_Grand_Prix_-_Farina_(Alfa_Romeo)_ahead_Ascari_(Ferrari)_at_Porfido_bends.jpg",
+        "author": "Unknown author",
+        "license": "Public domain"
+      },
+      "caption": {
+        "uk": "Джузеппе Фаріна (Alfa Romeo) попереду Альберто Аскарі (Ferrari) на Гран-прі Італії в Монці, 3 вересня 1950 року.",
+        "en": "Giuseppe Farina (Alfa Romeo) ahead of Alberto Ascari (Ferrari) at the Italian Grand Prix, Monza, 3 September 1950."
+      },
+      "alt": {
+        "uk": "Чорно-біла світлина: два гоночні автомобілі в повороті, позаду глядачі.",
+        "en": "A black-and-white photo of two racing cars in a corner, with spectators behind."
+      }
+    }
+  ]
+}

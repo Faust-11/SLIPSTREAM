@@ -1,0 +1,743 @@
+{
+  "slug": "hamilton-brazil-2008",
+  "category": "sensation",
+  "years": [
+    2008
+  ],
+  "title": {
+    "uk": "Бразилія-2008: титул в останньому повороті",
+    "en": "Brazil 2008: a title decided at the last corner"
+  },
+  "dek": {
+    "uk": "Феліпе Масса виграв удома й на лічені секунди став чемпіоном. Потім пізній дощ, Тімо Глок на сухих шинах і обгін Льюїса Гамілтона на Junção вирішили сезон з різницею в одне очко.",
+    "en": "Felipe Massa won at home and for a matter of seconds was champion. Then late rain, Timo Glock on dry tyres and Lewis Hamilton's pass at Junção settled the season by a single point."
+  },
+  "links": {
+    "seasons": [
+      2008,
+      2007,
+      2010,
+      2026
+    ],
+    "races": [
+      "2008/18",
+      "2010/19",
+      "2026/19"
+    ],
+    "drivers": [
+      "hamilton",
+      "massa",
+      "glock",
+      "vettel",
+      "alonso",
+      "raikkonen",
+      "trulli",
+      "kubica",
+      "coulthard",
+      "piquet_jr",
+      "antonelli"
+    ],
+    "teams": [
+      "mclaren",
+      "ferrari",
+      "toyota",
+      "toro-rosso",
+      "renault",
+      "bmw-sauber",
+      "red-bull",
+      "mercedes"
+    ],
+    "circuits": [
+      "interlagos"
+    ],
+    "stories": [
+      "vettel-monza-2008",
+      "spygate-2007",
+      "abu-dhabi-2021"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Jolpica F1 API — 2008 Brazilian Grand Prix results (incl. drivers' dates of birth)",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2008/18/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "Jolpica F1 API — 2008 Brazilian Grand Prix, lap 67 timings",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2008/18/laps/67/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "Jolpica F1 API — 2008 Brazilian Grand Prix, lap 69 timings",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2008/18/laps/69/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "Jolpica F1 API — 2008 Brazilian Grand Prix, lap 71 timings",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2008/18/laps/71/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "Jolpica F1 API — 2008 driver standings after round 17",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2008/17/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "Jolpica F1 API — 2008 final driver standings",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2008/18/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "Jolpica F1 API — 2008 Brazilian Grand Prix, lap 63 timings",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2008/18/laps/63/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "Brazilian GP 2008 — race report, quotes and results",
+      "publisher": "GrandPrix.com",
+      "date": "2008-11-02",
+      "url": "https://www.grandprix.com/races/brazilian-gp-2008.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "7. 2008 Brazilian GP: Hamilton takes F1 title at the final corner (The 75 Greatest Grands Prix)",
+      "publisher": "Motor Sport",
+      "date": "2025-03-18",
+      "url": "https://www.motorsportmagazine.com/special-article/the-75-greatest-grands-prix/130/7-2008-brazilian-gp-hamilton-takes-f1-title-at-the-final-corner/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "Hamilton leaves it late for Brazil F1 title glory",
+      "publisher": "Crash.net",
+      "date": "",
+      "url": "https://www.crash.net/f1/news/64197/1/lewis-hamilton-is-2008-f1-world-champion",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "F1's youngest World Champions as Antonelli smashes the record",
+      "publisher": "Formula 1 (formula1.com)",
+      "date": "2026-11-03",
+      "url": "https://www.formula1.com/en/latest/article/f1s-youngest-world-champions-as-antonelli-smashes-the-record.4otUr4h4wmWd6VmIEaNjzV",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Kimi Antonelli makes F1 history — where he ranks among youngest world champions (Lewis Larkam)",
+      "publisher": "Crash.net",
+      "date": "2026-11-02",
+      "url": "https://www.crash.net/f1/feature/1107916/1/kimi-antonelli-makes-f1-history-where-he-ranks-among-youngest-world-champions",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "Youngest F1 World Champions: Antonelli, Vettel, Hamilton and more",
+      "publisher": "Silverstone",
+      "date": "",
+      "url": "https://www.silverstone.co.uk/news/who-are-f1s-youngest-world-champions",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "Jolpica F1 API — 2026 race calendar (Mexico City GP, round 19, 1 November)",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2026/races/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s30",
+      "title": "Driver: Sebastian Vettel (date of birth 1987-07-03)",
+      "publisher": "Jolpica F1 API",
+      "date": "2026-11-15",
+      "url": "https://api.jolpi.ca/ergast/f1/drivers/vettel/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s31",
+      "title": "2010 Abu Dhabi Grand Prix — results (date 2010-11-14)",
+      "publisher": "Jolpica F1 API",
+      "date": "2026-11-15",
+      "url": "https://api.jolpi.ca/ergast/f1/2010/19/results/",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Гран-прі Бразилії 2008 — 2 листопада, 18-й, останній етап сезону, Інтерлагос",
+      "sources": [
+        "s1",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "Перед гонкою: Гамілтон 94 очки, Масса 87",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c3",
+      "text": "Навіть у разі перемоги Масси Гамілтонові вистачало п'ятого місця",
+      "sources": [
+        "s8",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c32",
+      "text": "2007 року, у дебютному сезоні, Гамілтон програв титул Ряйкконену на останньому етапі в Сан-Паулу",
+      "sources": [
+        "s11",
+        "s10"
+      ],
+      "status": "ok",
+      "note": "s11: новачок 2007 року, Ряйкконен випередив його на останньому етапі; s10: титул «вислизнув у Сан-Паулу рівно 12 місяців тому»."
+    },
+    {
+      "id": "c5",
+      "text": "Історія з чорним котом і цитата Гамілтона «Where I come from, black cats are lucky.»",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c4",
+      "text": "Старт: Масса — поул, Труллі — 2-й, Ряйкконен — 3-й, Гамілтон — 4-й",
+      "sources": [
+        "s1",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "Дощ перед стартом, старт відклали на 10 хвилин для заміни шин",
+      "sources": [
+        "s9",
+        "s10"
+      ],
+      "status": "ok",
+      "note": "10 хвилин — s9; відкладений старт — обидва."
+    },
+    {
+      "id": "c8",
+      "text": "На першому колі зійшли Култхард (остання гонка кар'єри) і Піке; машина безпеки / нейтралізація",
+      "sources": [
+        "s1",
+        "s8",
+        "s9",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "Траса підсохла, усі перейшли на сліки",
+      "sources": [
+        "s9",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c42",
+      "text": "McLaren тримала Гамілтона до 11-го кола (на два кола задовго); він відкотився на 7-ме, потім повернувся на 5-те",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c10",
+      "text": "Масса вів гонку, Гамілтон відбивався від Феттеля",
+      "sources": [
+        "s9",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "text": "За 18 кіл до фінішу: Масса на ~10 с попереду Алонсо, Феттель за 2,2 с від Гамілтона",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c12",
+      "text": "За кілька кіл до фінішу знову дощ, майже всі заїхали по шини для мокрої траси",
+      "sources": [
+        "s8",
+        "s9",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c47",
+      "text": "Глок перед тим їхав сьомим і, за GrandPrix.com, «had nothing really to lose»",
+      "sources": [
+        "s8",
+        "s7"
+      ],
+      "status": "ok",
+      "note": "Оцінка «нічого втрачати» — s8; сьоме місце до зупинок — s8 і s7 (63-тє коло)."
+    },
+    {
+      "id": "c13",
+      "text": "Toyota лишила Глока й Труллі на сухих шинах; Глок — четвертий, Гамілтон — п'ятий",
+      "sources": [
+        "s8",
+        "s9",
+        "s10",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c43",
+      "text": "Кубіца відіграв коло в Феттеля, а за поворот — у Гамілтона, і Феттель проскочив слідом",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c14",
+      "text": "На 69-му колі (за два кола до фінішу) Феттель обійшов Гамілтона, той — шостий",
+      "sources": [
+        "s3",
+        "s9",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "text": "За таких позицій чемпіоном ставав Масса",
+      "sources": [
+        "s10",
+        "s8"
+      ],
+      "status": "ok",
+      "note": "s10: «as the situation stood, Massa would be crowned world champion»; s8: Гамілтон «could not afford to let Vettel go ahead»."
+    },
+    {
+      "id": "c16",
+      "text": "Цитата Гамілтона: «My tyres were shot. There was nothing I could do, I was trying to keep the car on the track.»",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c17",
+      "text": "Перед останнім колом Гамілтон за 0,754 с від Феттеля і 13,144 с від Глока",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c26",
+      "text": "Цитата Глока: «It was almost impossible to stay on the track. I had no idea who was behind me and didn't see where Lewis overtook.»",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c18",
+      "text": "Масса переміг, Алонсо — 2-й (+13,298 с), Ряйкконен — 3-й",
+      "sources": [
+        "s1",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c30",
+      "text": "Родина й команда Масси раділи, але радість тривала лічені секунди",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c19",
+      "text": "Гамілтон фінішував через 38,907 с після Масси",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c20",
+      "text": "На Junção, останньому повороті, Феттель і Гамілтон обійшли Глока",
+      "sources": [
+        "s8",
+        "s9",
+        "s10"
+      ],
+      "status": "ok",
+      "note": "Гамілтон і Феттель у s8: «in the last corner» / «just at the last corner»; s9 — Junção, останній поворот перед підйомом до фінішу."
+    },
+    {
+      "id": "c21",
+      "text": "Останнє коло Глока 1:44.731, Гамілтона 1:26.126; Toyota втратила понад 18 с",
+      "sources": [
+        "s4",
+        "s10"
+      ],
+      "status": "ok",
+      "note": "Часи кола — s4 (різниця 18,6 с — наш підрахунок); s10: «lost a full 18 seconds over the final lap»."
+    },
+    {
+      "id": "c22",
+      "text": "Гамілтон — п'ятий, Глок — шостий",
+      "sources": [
+        "s1",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c44",
+      "text": "Цитата Гамілтона: «I couldn't believe it when I saw him at the exit of Turn 10. I knew I had to pass him in the final few corners.»",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c24",
+      "text": "Цитата Гамілтона: «I managed to pass him in the last corner. I can only thank God. My heart was about to explode.»",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c25",
+      "text": "Гамілтон перепитував «Do I have it?» і почув відповідь, заходячи в перший поворот",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c23",
+      "text": "Підсумок: Гамілтон 98, Масса 97 — різниця в одне очко",
+      "sources": [
+        "s6",
+        "s8",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c37",
+      "text": "Перемог за сезон: Масса 6, Гамілтон 5",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c36",
+      "text": "Без того обгону Бразилія мала б першого чемпіона за 17 років",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c45",
+      "text": "Масса не стримав емоцій, сидячи в машині в закритому парку",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c46",
+      "text": "На подіумі Масса стояв гордо й стримував сльози",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c49",
+      "text": "Цитата Масси: «The race was just perfect. We did everything perfectly.»",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c34",
+      "text": "Цитата Масси: «When I crossed the line the positions meant I was going to be champion, but then I was told Lewis had passed Glock.»",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c41",
+      "text": "GrandPrix.com: Масса прийняв поразку з гідністю, рідкісною в сучасному спорті",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c29",
+      "text": "Цитата Масси: «I know how to win and I know how to lose.»",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c27",
+      "text": "Цитата Глока: «People who think I would decide the championship or I would let Lewis pass, they do not have a real idea about racing.»",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c38",
+      "text": "Глок: заїжджати не було сенсу, втратили б ще більше часу",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c28",
+      "text": "Цитата Феттеля: «I was definitely not aware that I might be influencing the World Championship.»",
+      "sources": [
+        "s8"
+      ],
+      "status": "one",
+      "note": "s9 наводить близьку за змістом, але іншу за формулюванням цитату («had no idea I might be influencing the championship outcome»)."
+    },
+    {
+      "id": "c48",
+      "text": "Цитата Феттеля: «It was hard to know who was a backmarker or not…»",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c31",
+      "text": "Гамілтон — наймолодший на той момент чемпіон: 23 роки і 300 днів",
+      "sources": [
+        "s1",
+        "s11",
+        "s12",
+        "s13",
+        "s8"
+      ],
+      "status": "ok",
+      "note": "Вік підраховано за датою народження з s1 (7.01.1985) на 2.11.2008 = 23 р. 300 дн.; так само s11, s12, s13."
+    },
+    {
+      "id": "c35",
+      "text": "Титул — лише в другому сезоні Гамілтона у Ф1",
+      "sources": [
+        "s13",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c33",
+      "text": "2010 року на Гран-прі Абу-Дабі Феттель у 23 роки став наймолодшим чемпіоном",
+      "sources": [
+        "s11",
+        "s12",
+        "s13"
+      ],
+      "status": "ok",
+      "note": "Кількість днів джерела дають по-різному: s11 — 23 р. 133 дн., s12 і s13 — 23 р. 134 дн.; у тексті лише «23 роки»."
+    },
+    {
+      "id": "c39",
+      "text": "Рекорд Феттеля протримався 16 років: Антонеллі (Mercedes) закріпив титул 3-м місцем на Гран-прі Мехіко 1.11.2026 у 20 років і 68 днів",
+      "sources": [
+        "s11",
+        "s12",
+        "s13",
+        "s14"
+      ],
+      "status": "ok",
+      "note": "Мехіко і 3-тє місце — s11, s13; 20 р. 68 дн. — s11, s12, s13; «16 років» — s12, s13 («record that had stood since… 2010»); дата етапу — s14."
+    },
+    {
+      "id": "c50",
+      "text": "GrandPrix.com: такого фіналу не зняв би навіть Голлівуд — сценаристів висміяли б",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c40",
+      "text": "Motor Sport поставив гонку 7-ю у списку 75 найкращих гран-прі",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c51",
+      "text": "Вік Феттеля в день титулу (Абу-Дабі, 14.11.2010): 23 роки і 134 дні — розрахунок Slipstream за датою народження 03.07.1987.",
+      "sources": [
+        "s30",
+        "s31"
+      ],
+      "status": "one",
+      "note": "Обидва записи — Jolpica (один видавець); у пресі трапляється і 133 дні."
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/hamilton-brazil-2008/m1-1280.webp",
+      "srcSet": "/img/stories/hamilton-brazil-2008/m1-1280.webp 1280w, /img/stories/hamilton-brazil-2008/m1-800.webp 800w, /img/stories/hamilton-brazil-2008/m1-480.webp 480w",
+      "width": 1280,
+      "height": 853,
+      "focus": "40% 30%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Hamilton_Brazil_2008_celebrations.jpg",
+        "author": "diogo dubiella from Rio de Janeiro, Brazil",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Льюїс Гамілтон святкує чемпіонський титул із командою McLaren, Гран-прі Бразилії, 2 листопада 2008 року.",
+        "en": "Lewis Hamilton celebrates the world title with the McLaren team at the Brazilian Grand Prix, 2 November 2008."
+      },
+      "alt": {
+        "uk": "Усміхнений пілот у кепці серед механіків у помаранчевих футболках.",
+        "en": "A smiling driver in a cap among mechanics in orange shirts."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/hamilton-brazil-2008/m2-800.webp",
+      "srcSet": "/img/stories/hamilton-brazil-2008/m2-800.webp 800w, /img/stories/hamilton-brazil-2008/m2-480.webp 480w",
+      "width": 800,
+      "height": 533,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Felipe_Massa_2008_Brazilian_Grand_Prix.jpg",
+        "author": "diogo dubiella from Brazil",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Феліпе Масса на Ferrari, переможець Гран-прі Бразилії 2008 року.",
+        "en": "Felipe Massa in his Ferrari, winner of the 2008 Brazilian Grand Prix."
+      },
+      "alt": {
+        "uk": "Червоний болід Ferrari на тлі жовто-червоних смуг.",
+        "en": "A red Ferrari car against yellow and red stripes."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/hamilton-brazil-2008/m3-800.webp",
+      "srcSet": "/img/stories/hamilton-brazil-2008/m3-800.webp 800w, /img/stories/hamilton-brazil-2008/m3-480.webp 480w",
+      "width": 800,
+      "height": 1200,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Hamilton_and_Father_Brazil_2008.jpg",
+        "author": "diogo dubiella from Rio de Janeiro, Brazil",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Льюїс Гамілтон із батьком Ентоні після Гран-прі Бразилії, 2 листопада 2008 року.",
+        "en": "Lewis Hamilton with his father Anthony after the Brazilian Grand Prix, 2 November 2008."
+      },
+      "alt": {
+        "uk": "Чорно-біла світлина: двоє усміхнених чоловіків, один у формі McLaren.",
+        "en": "A black-and-white photo of two smiling men, one in McLaren team kit."
+      }
+    },
+    {
+      "id": "m4",
+      "role": "inline",
+      "src": "/img/stories/hamilton-brazil-2008/m4-800.webp",
+      "srcSet": "/img/stories/hamilton-brazil-2008/m4-800.webp 800w, /img/stories/hamilton-brazil-2008/m4-480.webp 480w",
+      "width": 800,
+      "height": 1200,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Massa_Brazil_2008_Podium.jpg",
+        "author": "diogo dubiella from Rio de Janeiro, Brazil",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Феліпе Масса на подіумі Гран-прі Бразилії, 2 листопада 2008 року.",
+        "en": "Felipe Massa on the Brazilian Grand Prix podium, 2 November 2008."
+      },
+      "alt": {
+        "uk": "Пілот у червоному комбінезоні зі спини на подіумі з пляшкою шампанського.",
+        "en": "A driver in red overalls, seen from behind on the podium, holding a bottle of champagne."
+      }
+    }
+  ]
+}

@@ -1,0 +1,642 @@
+{
+  "slug": "benetton-1994",
+  "category": "scandal",
+  "years": [
+    1994
+  ],
+  "title": {
+    "uk": "Benetton-1994: титул під слідством",
+    "en": "Benetton 1994: a title under investigation"
+  },
+  "dek": {
+    "uk": "Прихований пункт меню в програмі, ігнорований чорний прапор, пожежа в боксах і стерта дошка під днищем. Як Міхаель Шумахер виграв свій перший титул з перевагою в одне очко — між засіданнями FIA.",
+    "en": "A hidden menu option in the software, an ignored black flag, a pit-lane fire and a worn plank under the floor. How Michael Schumacher won his first title by a single point, in between FIA hearings."
+  },
+  "links": {
+    "seasons": [
+      1994
+    ],
+    "races": [
+      "1994/3",
+      "1994/8",
+      "1994/9",
+      "1994/11",
+      "1994/12",
+      "1994/13",
+      "1994/14",
+      "1994/15",
+      "1994/16"
+    ],
+    "drivers": [
+      "michael_schumacher",
+      "damon_hill",
+      "verstappen",
+      "hakkinen"
+    ],
+    "teams": [
+      "benetton",
+      "williams",
+      "mclaren"
+    ],
+    "circuits": [
+      "imola",
+      "silverstone",
+      "hockenheimring",
+      "spa",
+      "monza",
+      "estoril",
+      "jerez",
+      "suzuka",
+      "adelaide"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "1994 season — race winners by round",
+      "publisher": "Jolpica F1 API",
+      "date": "1994",
+      "url": "https://api.jolpi.ca/ergast/f1/1994/results/1/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "1994 British Grand Prix — results (round 8)",
+      "publisher": "Jolpica F1 API",
+      "date": "1994-07-10",
+      "url": "https://api.jolpi.ca/ergast/f1/1994/8/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "1994 German Grand Prix — results (round 9)",
+      "publisher": "Jolpica F1 API",
+      "date": "1994-07-31",
+      "url": "https://api.jolpi.ca/ergast/f1/1994/9/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "1994 Belgian Grand Prix — results (round 11)",
+      "publisher": "Jolpica F1 API",
+      "date": "1994-08-28",
+      "url": "https://api.jolpi.ca/ergast/f1/1994/11/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "1994 driver standings after round 13 (Portugal)",
+      "publisher": "Jolpica F1 API",
+      "date": "1994-09-25",
+      "url": "https://api.jolpi.ca/ergast/f1/1994/13/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "1994 driver standings after round 15 (Japan)",
+      "publisher": "Jolpica F1 API",
+      "date": "1994-11-06",
+      "url": "https://api.jolpi.ca/ergast/f1/1994/15/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "1994 Australian Grand Prix — results (round 16)",
+      "publisher": "Jolpica F1 API",
+      "date": "1994-11-13",
+      "url": "https://api.jolpi.ca/ergast/f1/1994/16/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "1994 final driver and constructor standings",
+      "publisher": "Jolpica F1 API",
+      "date": "1994-11-13",
+      "url": "https://api.jolpi.ca/ergast/f1/1994/constructorStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "FIA disciplinary ruling press release (World Motor Sport Council, Paris, 26 July 1994)",
+      "publisher": "FIA via Motorsport.com",
+      "date": "1994-07-26",
+      "url": "https://au.motorsport.com/f1/news/fia-disciplinary-ruling-press-release/1652102/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "International Court of Appeal: ONS for Michael Schumacher v. WMSC decision of 26 July 1994 (hearing of 30 August 1994)",
+      "publisher": "FIA",
+      "date": "1994-08-30",
+      "url": "https://www.fia.com/sites/default/files/judgements/1994-ica-AUGUST30.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "Benetton launch control: FIA press release (Hockenheim, 29 July 1994)",
+      "publisher": "FIA via Motorsport.com",
+      "date": "1994-07-29",
+      "url": "https://au.motorsport.com/f1/news/benetton-launch-control-fia-press-release/1652202/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Benetton press release on the Hockenheim refuelling fire",
+      "publisher": "Benetton via Motorsport.com",
+      "date": "1994-08",
+      "url": "https://au.motorsport.com/f1/news/benetton-press-release/1652389/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "Benetton in the dock",
+      "publisher": "Motor Sport",
+      "date": "1994-09",
+      "url": "https://www.motorsportmagazine.com/archive/page/september-1994/15",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "The month in Motor Sport",
+      "publisher": "Motor Sport",
+      "date": "1994-09",
+      "url": "https://www.motorsportmagazine.com/archive/article/september-1994/4/month-motor-sport/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Diary of a somebody (pp. 20–21)",
+      "publisher": "Motor Sport",
+      "date": "1994-10",
+      "url": "https://www.motorsportmagazine.com/archive/article/october-1994/20/diary-of-a-somebody/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "Diary of a somebody — page 21 (same article as s15)",
+      "publisher": "Motor Sport",
+      "date": "1994-10",
+      "url": "https://www.motorsportmagazine.com/archive/page/october-1994/21",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "As thick as a plank (Belgian GP report)",
+      "publisher": "Motor Sport",
+      "date": "1994-10",
+      "url": "https://www.motorsportmagazine.com/archive/article/october-1994/10/as-thick-as-a-plank/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "That was 1994: season recap with Ross Brawn",
+      "publisher": "Motor Sport",
+      "date": "2004-12",
+      "url": "https://www.motorsportmagazine.com/archive/article/december-2004/42/that-was-1994/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "Pit flashpoint",
+      "publisher": "Motor Sport",
+      "date": "2004-12",
+      "url": "https://www.motorsportmagazine.com/archive/article/december-2004/49/pit-flashpoint",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "British GP, 1994 — race report",
+      "publisher": "Grandprix.com",
+      "date": "1994-07-10",
+      "url": "https://www.grandprix.com/gpe/rr556.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "German GP, 1994 — race report",
+      "publisher": "Grandprix.com",
+      "date": "1994-07-31",
+      "url": "https://www.grandprix.com/gpe/rr557.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "Belgian GP, 1994 — race report",
+      "publisher": "Grandprix.com",
+      "date": "1994-08-28",
+      "url": "https://www.grandprix.com/gpe/rr559.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "Benetton bounce back as Schumacher and Verstappen deliver double podium (Keith Collantine)",
+      "publisher": "RaceFans",
+      "date": "2014-08-14",
+      "url": "https://www.racefans.net/?p=270298",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s24",
+      "title": "Why F1's first plank DSQ was far more controversial (Glenn Freeman)",
+      "publisher": "The Race",
+      "date": "2023-10-24",
+      "url": "https://www.the-race.com/formula-1/f1s-latest-plank-dsq-is-nothing-like-the-first/",
+      "kind": "secondary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Із перших семи гонок 1994 року Шумахер виграв шість (усі, крім Іспанії, де переміг Гілл).",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c2",
+      "text": "Після Гран-прі Сан-Марино FIA запросила в Benetton вихідний код (1 травня), команда надала його лише 18 липня, посилаючись на конфіденційність і консультації з Ford та Cosworth.",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c3",
+      "text": "26 липня 1994 року Всесвітня рада оштрафувала Benetton і McLaren на 100 000 доларів кожну за ненадання вихідного коду одразу; доказів використання заборонених систем не було, тож результатів не змінювали.",
+      "sources": [
+        "s9",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "text": "FIA (29 липня 1994): LDRA знайшла в програмі Benetton контроль старту, який вмикався з ноутбука, якщо прогорнути меню за десятий пункт до пункту 13 (не видимого на екрані); найкращі докази свідчать, що в Сан-Марино його не використовували; інакше раду попросили б виключити команду з чемпіонату.",
+      "sources": [
+        "s11",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c5",
+      "text": "Твердження Benetton, що для активації потрібна перекомпіляція коду, FIA назвала «untrue».",
+      "sources": [
+        "s11"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c6",
+      "text": "Росс Браун (2004): «it was impossible to use Option 13».",
+      "sources": [
+        "s18"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c7",
+      "text": "10 липня 1994 року на прогрівному колі Гран-прі Британії Шумахер щонайменше двічі обігнав Гілла (поул); стюарди призначили 5-секундний stop-and-go.",
+      "sources": [
+        "s10",
+        "s20"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "text": "Штраф повідомили усно о 14:27 і офіційно о 14:31; чорний прапор із номером 5 показували три кола; Шумахер відбув штраф лише за вказівкою команди, проїхавши щонайменше 14 кіл після повідомлення.",
+      "sources": [
+        "s10",
+        "s20"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "Шумахер фінішував другим; стюарди оштрафували Benetton на 25 000 доларів.",
+      "sources": [
+        "s14",
+        "s20"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "26 липня Всесвітня рада виключила Шумахера з результатів Гран-прі Британії, дискваліфікувала на дві гонки й оштрафувала Benetton на 500 000 доларів.",
+      "sources": [
+        "s9",
+        "s10",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "text": "Керівнику гонки (Clerk of the Course) П'єру Омоньє призупинили суперліцензію на рік.",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c12",
+      "text": "30 серпня 1994 року Міжнародний апеляційний суд FIA підтвердив рішення; Шумахер визнав, що бачив табличку з номером 5; ігнорування чорного прапора суд назвав «one of the most serious breaches of the Sporting Code»; дискваліфікація діє на два Гран-прі після рішення суду.",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c13",
+      "text": "Шумахер пропустив Гран-прі Італії та Португалії; обидва виграв Гілл.",
+      "sources": [
+        "s15",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c14",
+      "text": "Браун (2004): «the black flag is sacrosanct: even if it was unjustified, we had to respect it».",
+      "sources": [
+        "s18"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c15",
+      "text": "31 липня на 15-му колі Гран-прі Німеччини під час дозаправки Ферстаппена спалахнула пожежа; механіки й пілот отримали легкі опіки.",
+      "sources": [
+        "s21",
+        "s3",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c16",
+      "text": "10 серпня FIA заявила, що з паливозаправної установки Benetton прибрали фільтр і це спричинило пожежу; Benetton стверджувала, що мала дозвіл, і звинувачувала клапан.",
+      "sources": [
+        "s14",
+        "s23"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c17",
+      "text": "За висновком FIA, зняття фільтра збільшувало швидкість подачі пального більш ніж на 12%, що могло скоротити піт-стоп.",
+      "sources": [
+        "s23"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c18",
+      "text": "Хто і з чийого дозволу зняв фільтр.",
+      "sources": [
+        "s12",
+        "s18",
+        "s16",
+        "s23"
+      ],
+      "status": "dis",
+      "note": "Benetton у своїй заяві (s12) і Браун пізніше (s18) стверджували, що фільтр зняли з дозволу технічного делегата FIA Чарлі Вайтінга. На слуханні захист (адвокат Джордж Карман) заявив, що фільтр зняв молодший співробітник без відома керівництва (s16), і Всесвітня рада прийняла цю версію (s23)."
+    },
+    {
+      "id": "c19",
+      "text": "На слуханні в середу, 7 вересня 1994 року, Benetton не покарали.",
+      "sources": [
+        "s15",
+        "s23"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c20",
+      "text": "Мослі: рішення ухвалили «in the interests of the sport, and in fairness to the other teams who wanted a decision», інакше розгляд затягнувся б до 19 жовтня; пізніше: «Maybe we were too easy on Wednesday».",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c21",
+      "text": "Дерев'яну дошку під днищем запровадили з Гран-прі Німеччини 1994 року; Спа стала третьою гонкою з новим правилом.",
+      "sources": [
+        "s21",
+        "s24"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "text": "28 серпня в Спа Шумахер фінішував першим; дошка мала товщину 10 мм і до кінця гонки мала зберегти щонайменше 9 мм, а на ділянці близько 80 см виміряли 7,4 мм.",
+      "sources": [
+        "s17",
+        "s24",
+        "s22"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c23",
+      "text": "На 19-му колі Шумахер розвернувся й проїхав по поребрику.",
+      "sources": [
+        "s17",
+        "s24"
+      ],
+      "status": "ok",
+      "note": "Motor Sport (s17) називає місце розвороту Пуон, The Race (s24) — Фань. У тексті поворот не названо."
+    },
+    {
+      "id": "c24",
+      "text": "Benetton пояснювала знос розворотом; стюарди вирішили, що характер і розташування зносу не відповідають сліду розвороту.",
+      "sources": [
+        "s24"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c25",
+      "text": "Шумахера дискваліфікували, перемогу віддали Гіллу; Гілл дізнався про перемогу в аеропорту Брюсселя.",
+      "sources": [
+        "s4",
+        "s17",
+        "s22"
+      ],
+      "status": "ok",
+      "note": "Деталь про аеропорт — лише в s17."
+    },
+    {
+      "id": "c26",
+      "text": "Апеляцію Benetton щодо дискваліфікації в Спа відхилили.",
+      "sources": [
+        "s15",
+        "s24"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c27",
+      "text": "За Motor Sport, Benetton вийшла з апеляційного суду FIA 7 вересня; відрив Шумахера від Гілла залишився 21 очко замість 35.",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c28",
+      "text": "Дискваліфікації коштували Шумахеру 16 очок: 6 за друге місце в Сільверстоуні й 10 за перемогу в Спа (система 1994 року: 10–6–4–3–2–1).",
+      "sources": [
+        "s2",
+        "s4",
+        "s18"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c29",
+      "text": "Після Гран-прі Португалії: Шумахер 76, Гілл 75.",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "Шумахер виграв у Хересі 16 жовтня, Гілл — у Японії; перед Аделаїдою 92 проти 91.",
+      "sources": [
+        "s1",
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c31",
+      "text": "13 листопада в Аделаїді Шумахер вдарився об стіну й зіткнувся з Гіллом; обидва зійшли після 35 кіл; Шумахер — чемпіон з перевагою в одне очко (92–91).",
+      "sources": [
+        "s7",
+        "s18"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c32",
+      "text": "Кубок конструкторів 1994 року виграла Williams: 118 очок проти 103 у Benetton.",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c33",
+      "text": "Браун (2004): «I was very frustrated because it tainted a fantastic achievement».",
+      "sources": [
+        "s18"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c34",
+      "text": "Benetton заперечувала, що пожежу спричинило зняття фільтра (команда говорила про клапан і допуски в паливному шлангу).",
+      "sources": [
+        "s12",
+        "s19"
+      ],
+      "status": "ok"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/benetton-1994/m1-1280.webp",
+      "srcSet": "/img/stories/benetton-1994/m1-1280.webp 1280w, /img/stories/benetton-1994/m1-800.webp 800w, /img/stories/benetton-1994/m1-480.webp 480w",
+      "width": 1280,
+      "height": 692,
+      "focus": "50% 55%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Michael_Schumacher_1994_Silverstone_4.jpg",
+        "author": "Martin Lee",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Міхаель Шумахер на Benetton B194 у повороті Вудкот, Гран-прі Великої Британії 1994 року, Сільверстоун.",
+        "en": "Michael Schumacher in the Benetton B194 at Woodcote, 1994 British Grand Prix, Silverstone."
+      },
+      "alt": {
+        "uk": "Зелено-блакитний болід Benetton у русі, розмитий фон.",
+        "en": "A green and light blue Benetton car at speed against a blurred background."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/benetton-1994/m2-800.webp",
+      "srcSet": "/img/stories/benetton-1994/m2-800.webp 800w, /img/stories/benetton-1994/m2-480.webp 480w",
+      "width": 800,
+      "height": 553,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Jos_Verstappen_-_Benetton_194_at_the_1994_British_Grand_Prix_(32418607501).jpg",
+        "author": "Martin Lee from London, UK",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Йос Ферстаппен на Benetton B194, Гран-прі Великої Британії 1994 року, Сільверстоун.",
+        "en": "Jos Verstappen in the Benetton B194, 1994 British Grand Prix, Silverstone."
+      },
+      "alt": {
+        "uk": "Зелено-блакитний болід Benetton крупним планом на трасі.",
+        "en": "A green and light blue Benetton car close up on track."
+      }
+    },
+    {
+      "id": "m4",
+      "role": "inline",
+      "src": "/img/stories/benetton-1994/m4-800.webp",
+      "srcSet": "/img/stories/benetton-1994/m4-800.webp 800w, /img/stories/benetton-1994/m4-480.webp 480w",
+      "width": 800,
+      "height": 533,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Damon_Hill_1994_Silverstone.jpg",
+        "author": "Martin Lee",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Деймон Гілл на Williams FW16, Гран-прі Великої Британії 1994 року, Сільверстоун.",
+        "en": "Damon Hill in the Williams FW16, 1994 British Grand Prix, Silverstone."
+      },
+      "alt": {
+        "uk": "Синьо-білий болід Williams крупним планом, пілот у темному шоломі.",
+        "en": "A blue and white Williams car close up, the driver in a dark helmet."
+      }
+    }
+  ]
+}

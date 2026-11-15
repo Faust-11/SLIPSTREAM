@@ -1,0 +1,597 @@
+{
+  "slug": "red-bull-cost-cap-2021",
+  "category": "scandal",
+  "years": [
+    2021,
+    2022
+  ],
+  "title": {
+    "uk": "Перше перевищення: як Red Bull порушила бюджетний ліміт-2021",
+    "en": "The first overspend: how Red Bull broke the 2021 budget cap"
+  },
+  "dek": {
+    "uk": "У перший рік ліміту витрат FIA знайшла в звіті чемпіонської команди «незначне перевищення». Сім мільйонів доларів штрафу, мінус 10% аеродинамічних тестів і суперечка про те, чи був це обман.",
+    "en": "In the cost cap's first year, the FIA found a 'minor overspend' in the champion team's accounts. A $7m fine, a 10% cut in aero testing and a row over whether it amounted to cheating."
+  },
+  "links": {
+    "seasons": [
+      2021,
+      2022,
+      2023
+    ],
+    "races": [],
+    "drivers": [
+      "max_verstappen",
+      "hamilton"
+    ],
+    "teams": [
+      "red-bull",
+      "aston-martin",
+      "williams",
+      "mclaren",
+      "mercedes"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "k1",
+      "title": "FIA officially approves major F1 rules overhaul",
+      "publisher": "The Race",
+      "date": "2020-05-27",
+      "url": "https://www.the-race.com/formula-1/fia-officially-approves-major-f1-rules-overhaul/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "k2",
+      "title": "$145m cost cap approved for F1 in 2021, with more limits on testing and development",
+      "publisher": "Motor Sport Magazine",
+      "date": "2020-05-27",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/145m-cost-cap-approved-for-f1-in-2021-with-more-limits-on-testing-and-development",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "k3",
+      "title": "F1's new rules explained: lower cost cap, sliding scale aero and more",
+      "publisher": "Autocar India",
+      "date": "2020-05-28",
+      "url": "https://www.autocarindia.com/motor-sports-news-amp/f1s-new-rules-explained-lower-cost-cap-sliding-scale-aero-and-more-417440",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "k4",
+      "title": "FIA completes review under the 2021 FIA Formula 1 Financial Regulations",
+      "publisher": "FIA",
+      "date": "2022-10-10",
+      "url": "https://api.fia.com/news/fia-completes-review-under-2021-fia-formula-1-financial-regulations",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "k5",
+      "title": "FIA finds Red Bull guilty of 'minor' overspend of 2021 budget cap (Laurence Edmondson)",
+      "publisher": "ESPN",
+      "date": "2022-10-10",
+      "url": "https://africa.espn.com/f1/story/_/id/34768732/fia-finds-red-bull-guilty-minor-overspend-2021-budget-cap",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "k6",
+      "title": "Red Bull budget-cap breach amounts to cheating, says McLaren boss (Reuters)",
+      "publisher": "The Irish Times / Reuters",
+      "date": "2022-10-17",
+      "url": "https://www.irishtimes.com/sport/2022/10/17/red-bull-budget-cap-breach-amounts-to-cheating-says-mclaren-boss",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "k7",
+      "title": "In full: Brown's letter to the FIA",
+      "publisher": "Speedcafe",
+      "date": "2022-10-18",
+      "url": "https://speedcafe.com/in-full-browns-letter-to-the-fia/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "k8",
+      "title": "RBR Public Summary ABA / Article 6.32",
+      "publisher": "FIA (Cost Cap Administration)",
+      "date": "2022-10-28",
+      "url": "https://api.fia.com/sites/default/files/rbr_public_summary_aba_-_article_6.32_1.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "k9",
+      "title": "Accepted Breach Agreement between Red Bull Racing Team and the FIA for Breach of the 2021 FIA Formula One Financial Regulations",
+      "publisher": "FIA",
+      "date": "2022-10-28",
+      "url": "https://www.fia.com/news/accepted-breach-agreement-between-red-bull-racing-team-and-fia-breach-2021-fia-formula-one",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "k10",
+      "title": "AMR Public Summary ABA / Article 6.32",
+      "publisher": "FIA (Cost Cap Administration)",
+      "date": "2022-10-28",
+      "url": "https://www.fia.com/sites/default/files/amr_public_summary_aba_-_article_6.32_0.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "k11",
+      "title": "Aston Martin's F1 budget cap breach penalty announced",
+      "publisher": "The Race",
+      "date": "2022-10-28",
+      "url": "https://www.the-race.com/formula-1/aston-martins-cost-cap-breach-penalty-announced/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "k12",
+      "title": "Red Bull chief Christian Horner says team 'begrudgingly' accept 2021 F1 cost cap breach punishment",
+      "publisher": "Sky Sports",
+      "date": "2022-10-29",
+      "url": "https://www.skysports.com/f1/news/12433/12732660/red-bull-chief-christian-horner-says-team-begrudgingly-accept-2021-f1-cost-cap-breach-punishment",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "k13",
+      "title": "Horner on why he feels Red Bull's Cost Cap breach penalties were 'draconian' – and why his team have accepted them",
+      "publisher": "Formula1.com",
+      "date": "2022-10-28",
+      "url": "https://www.formula1.com/en/latest/article.horner-on-why-he-feels-red-bulls-cost-cap-breach-penalties-were-draconian.nKSHAWUlivKZ4iANOKgSP.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "k14",
+      "title": "Christian Horner: Red Bull budget-cap penalty 'could cost half a second a lap'",
+      "publisher": "PlanetF1",
+      "date": "2022-10-28",
+      "url": "https://www.planetf1.com/news/christian-horner-cost-cap-penalty",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "k15",
+      "title": "Red Bull results, 2023 season",
+      "publisher": "Jolpica F1 API",
+      "date": "2023-11-26",
+      "url": "https://api.jolpi.ca/ergast/f1/2023/constructors/red_bull/results/?limit=100",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "k16",
+      "title": "2021 final driver standings",
+      "publisher": "Jolpica F1 API",
+      "date": "2021-12-12",
+      "url": "https://api.jolpi.ca/ergast/f1/2021/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "k17",
+      "title": "Red Bull breached F1 budget cap, penalty not yet decided (Scott Mitchell-Malm, Matt Beer)",
+      "publisher": "The Race",
+      "date": "2022-10-10",
+      "url": "https://www.the-race.com/formula-1/red-bull-breached-f1-budget-cap-penalty-not-yet-decided/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "k18",
+      "title": "Red Bull fined $7 million for overspending F1 cost cap (AP)",
+      "publisher": "Associated Press via MyNorthwest",
+      "date": "2022-10-28",
+      "url": "https://sports.mynorthwest.com/?p=1684481",
+      "kind": "secondary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Ліміт витрат на 2021 рік — $145 млн; Всесвітня рада з автоспорту затвердила його 27 травня 2020 року, знизивши з початково запланованих $175 млн через пандемію COVID-19.",
+      "sources": [
+        "k1",
+        "k2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "Зарплати пілотів у ліміт не входять.",
+      "sources": [
+        "k2",
+        "k3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "Поза лімітом також маркетинг і зарплати трьох найвищих керівників команди.",
+      "sources": [
+        "k3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c4",
+      "text": "Далі ліміт мав знижуватися: $140 млн у 2022-му і $135 млн у 2023–2025 роках.",
+      "sources": [
+        "k1",
+        "k2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c5",
+      "text": "2021 рік — перший рік повного застосування фінансового регламенту, який FIA сама називає «very complex set of rules».",
+      "sources": [
+        "k8",
+        "k10"
+      ],
+      "status": "one",
+      "note": "Обидва — документи FIA."
+    },
+    {
+      "id": "c6",
+      "text": "У сезоні-2021 особистий титул виграв Ферстаппен (Red Bull), випередивши Гамілтона на 8 очок (395,5 проти 387,5).",
+      "sources": [
+        "k16"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c7",
+      "text": "10 жовтня 2022 FIA оголосила підсумки перевірки (без суми перевищення): дев'ять команд вклалися в ліміт-2021; сертифікати відповідності отримали сім із десяти; Red Bull — процедурне порушення й незначне перевищення (<5%), Aston Martin — процедурне порушення.",
+      "sources": [
+        "k4",
+        "k5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "text": "Williams мала раніше процедурне порушення, урегульоване угодою з FIA в травні 2022 року.",
+      "sources": [
+        "k4",
+        "k5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "Red Bull відреагувала «with surprise and disappointment» і заявила, що її звіт був нижче ліміту.",
+      "sources": [
+        "k5",
+        "k6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "Зак Браун (McLaren) 12 жовтня 2022 написав президентові FIA Мохаммеду бен Сулаєму, що перевищення «constitute cheating»; команд він не називав.",
+      "sources": [
+        "k6",
+        "k7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "text": "Браун вважав, що команда, яка перевищила ліміт, «has gained an unfair advantage» — і в поточній машині, і в розробці наступної; пропонував спортивні санкції, зокрема скорочення CFD і аеротруби на 20% за незначне перевищення, і зменшення ліміту наступного року на суму перевищення плюс додатковий штраф.",
+      "sources": [
+        "k6",
+        "k7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c12",
+      "text": "Угоду про визнання порушення (ABA) з Red Bull підписано 26 жовтня, оголошено 28 жовтня 2022.",
+      "sources": [
+        "k8",
+        "k9",
+        "k13"
+      ],
+      "status": "ok",
+      "note": "Дата підписання — з документів FIA; день оголошення підтверджує також k13."
+    },
+    {
+      "id": "c13",
+      "text": "Red Bull задекларувала релевантні витрати £114 293 000; FIA встановила, що команда неправильно виключила або скоригувала £5 607 000.",
+      "sources": [
+        "k8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c14",
+      "text": "Ліміт-2021 для Red Bull у документі — £118 036 000; перевищення — £1 864 000, тобто 1,6%.",
+      "sources": [
+        "k8"
+      ],
+      "status": "one",
+      "note": "FIA наводить суму лише у фунтах; доларові оцінки в пресі розходяться — див. c27."
+    },
+    {
+      "id": "c15",
+      "text": "Серед 13 пунктів — кейтеринг, бонуси, використання силових установок, витрати на відрядження, техобслуговування, помилка в перерахунку витрат Red Bull Powertrains.",
+      "sources": [
+        "k8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c16",
+      "text": "Якби Red Bull правильно врахувала умовний податковий кредит (£1 431 348), перевищення становило б £432 652 (0,37%).",
+      "sources": [
+        "k8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c17",
+      "text": "Санкції: штраф $7 млн протягом 30 днів і скорочення аеродинамічних тестів (аеротруба і CFD) на 10% на 12 місяців; Red Bull також оплачує витрати адміністрації.",
+      "sources": [
+        "k8",
+        "k12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "FIA визнала, що немає «no accusation or evidence» недобросовісності, нечесності чи шахрайства з боку Red Bull.",
+      "sources": [
+        "k8",
+        "k13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c19",
+      "text": "Рішення остаточне й оскарженню не підлягає.",
+      "sources": [
+        "k8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c20",
+      "text": "Aston Martin підписала ABA 25 жовтня 2022; її витрати були нижче ліміту, порушення — процедурне (12 неправильно врахованих статей, серед них нова штаб-квартира, симулятор, аеротруба, кейтеринг); штраф $450 000.",
+      "sources": [
+        "k10",
+        "k11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c21",
+      "text": "Горнер: «We accept the penalties, begrudgingly, but we accept them».",
+      "sources": [
+        "k13",
+        "k12"
+      ],
+      "status": "ok",
+      "note": "У k13 опечатка «penatlies [sic]»."
+    },
+    {
+      "id": "c22",
+      "text": "Горнер назвав покарання «draconian».",
+      "sources": [
+        "k12",
+        "k13",
+        "k14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c23",
+      "text": "Горнер оцінив втрату від скорочення аеротестів у 0,25–0,5 с на колі.",
+      "sources": [
+        "k12",
+        "k13",
+        "k14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c24",
+      "text": "Горнер назвав предметами суперечки з FIA податок, кейтеринг і лікарняні.",
+      "sources": [
+        "k13",
+        "k18"
+      ],
+      "status": "ok",
+      "note": "k13: податок, кейтеринг, лікарняні; k18 (AP): кейтеринг і виплати хворому співробітнику."
+    },
+    {
+      "id": "c25",
+      "text": "Горнер: «no intent», «certainly no cheating involved», команді, мабуть, «due an apology» від суперників.",
+      "sources": [
+        "k12"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c26",
+      "text": "У 2023 році Red Bull виграла 21 гонку з 22.",
+      "sources": [
+        "k15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c27",
+      "text": "У доларах перевищення подавали по-різному: AP — $1,8 млн, Sky Sports — $2,2 млн.",
+      "sources": [
+        "k18",
+        "k12",
+        "k8"
+      ],
+      "status": "dis",
+      "note": "FIA (k8) дає £1 864 000. AP (k18): «overspending by $1.8 million» — схоже, це фунтова цифра з доларовим знаком; Sky (k12): «$2.2m», ймовірно, перерахунок фунтів у долари. У тексті наведено обидві версії й первинну суму у фунтах."
+    },
+    {
+      "id": "c28",
+      "text": "За незначне перевищення регламент передбачав, серед іншого, віднімання очок, усунення від окремих сесій (не гонок), обмеження аеротестів і зниження ліміту.",
+      "sources": [
+        "k17"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c29",
+      "text": "Williams сплатила $25 000 за запізніле подання звіту (процедурне порушення).",
+      "sources": [
+        "k17"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "Горнер: «had the person died, and thankfully they didn't, the cost would have been excluded» — про лікарняні виплати співробітнику.",
+      "sources": [
+        "k18"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c31",
+      "text": "Горнер: «Not one penny was spent on performance».",
+      "sources": [
+        "k18"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c32",
+      "text": "Копію листа Браун надіслав Стефано Доменікалі.",
+      "sources": [
+        "k7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c33",
+      "text": "Горнер: покарання дає перевагу суперникам, «which is why they were pushing so hard for a draconian penalty».",
+      "sources": [
+        "k13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c34",
+      "text": "Керівник Alpine Отмар Сафнауер сказав, що настав час припинити звинувачення.",
+      "sources": [
+        "k12"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c35",
+      "text": "Багато суперників вимагали суворих покарань — аж до позбавлення Ферстаппена титулу-2021.",
+      "sources": [
+        "k18"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/red-bull-cost-cap-2021/m1-1280.webp",
+      "srcSet": "/img/stories/red-bull-cost-cap-2021/m1-1280.webp 1280w, /img/stories/red-bull-cost-cap-2021/m1-800.webp 800w, /img/stories/red-bull-cost-cap-2021/m1-480.webp 480w",
+      "width": 1280,
+      "height": 853,
+      "focus": "50% 55%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Red_Bull_Racing_factory_entrance.jpg",
+        "author": "Morio",
+        "license": "CC BY-SA 3.0"
+      },
+      "caption": {
+        "uk": "Вхід на базу Red Bull Racing у Мілтон-Кінзі, березень 2013 року.",
+        "en": "The entrance to the Red Bull Racing factory in Milton Keynes, March 2013."
+      },
+      "alt": {
+        "uk": "Скляна будівля з великим логотипом бика на синьо-жовтій стіні.",
+        "en": "A glass building with a large charging-bull logo on a blue and yellow wall."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/red-bull-cost-cap-2021/m2-800.webp",
+      "srcSet": "/img/stories/red-bull-cost-cap-2021/m2-800.webp 800w, /img/stories/red-bull-cost-cap-2021/m2-480.webp 480w",
+      "width": 800,
+      "height": 450,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._33_Verstappen_(side).jpg",
+        "author": "Lukas Raich",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Макс Ферстаппен на Red Bull RB16B, Гран-прі Австрії, Шпільберг, 2 липня 2021 року.",
+        "en": "Max Verstappen in the Red Bull RB16B, Austrian Grand Prix, Spielberg, 2 July 2021."
+      },
+      "alt": {
+        "uk": "Темно-синій болід Red Bull із номером 33 на трасі збоку.",
+        "en": "A dark blue Red Bull car numbered 33 on track, side view."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/red-bull-cost-cap-2021/m3-800.webp",
+      "srcSet": "/img/stories/red-bull-cost-cap-2021/m3-800.webp 800w, /img/stories/red-bull-cost-cap-2021/m3-480.webp 480w",
+      "width": 800,
+      "height": 532,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:DSC_3922_(51857724446).jpg",
+        "author": "United Autosports",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Зак Браун на перегонах «24 години Дейтони», січень 2022 року.",
+        "en": "Zak Brown at the 24 Hours of Daytona, January 2022."
+      },
+      "alt": {
+        "uk": "Усміхнений чоловік у темній куртці на тлі розмитих трибун.",
+        "en": "A smiling man in a dark jacket against blurred grandstands."
+      }
+    },
+    {
+      "id": "m4",
+      "role": "inline",
+      "src": "/img/stories/red-bull-cost-cap-2021/m4-800.webp",
+      "srcSet": "/img/stories/red-bull-cost-cap-2021/m4-800.webp 800w, /img/stories/red-bull-cost-cap-2021/m4-480.webp 480w",
+      "width": 800,
+      "height": 600,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Horner_at_F1_Live_in_London.jpg",
+        "author": "Ben Sutherland",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Крістіан Горнер на F1 Live на Трафальгарській площі в Лондоні, 12 липня 2017 року.",
+        "en": "Christian Horner at F1 Live in Trafalgar Square, London, 12 July 2017."
+      },
+      "alt": {
+        "uk": "Чоловік у темній куртці на сцені біля мікрофонної стійки.",
+        "en": "A man in a dark jacket on stage next to a microphone stand."
+      }
+    }
+  ]
+}

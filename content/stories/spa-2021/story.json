@@ -1,0 +1,686 @@
+{
+  "slug": "spa-2021",
+  "category": "scandal",
+  "years": [
+    2021,
+    2022,
+    2023
+  ],
+  "title": {
+    "uk": "Спа-2021: гонка, якої не було",
+    "en": "Spa 2021: the race that never was"
+  },
+  "dek": {
+    "uk": "Три години дощу, кілька кіл за машиною безпеки й половина очок. Як найкоротша гонка в історії Формули-1 залишила глядачів без грошей і змусила переписати правила.",
+    "en": "Three hours of rain, a few laps behind the safety car and half points. How the shortest race in Formula 1 history left fans without a refund and forced a rewrite of the rules."
+  },
+  "links": {
+    "seasons": [
+      2021,
+      2022
+    ],
+    "races": [
+      "2021/12",
+      "2022/18"
+    ],
+    "drivers": [
+      "max_verstappen",
+      "russell",
+      "hamilton",
+      "perez",
+      "leclerc"
+    ],
+    "teams": [
+      "red-bull",
+      "williams",
+      "mercedes"
+    ],
+    "circuits": [
+      "spa",
+      "suzuka"
+    ],
+    "stories": [
+      "abu-dhabi-2021",
+      "f1-points-history"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "2021 Belgian Grand Prix — race results (round 12)",
+      "publisher": "Jolpica F1 API",
+      "date": "2021-08-29",
+      "url": "https://api.jolpi.ca/ergast/f1/2021/12/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "2021 Belgian Grand Prix — Final Race Classification (Document 43)",
+      "publisher": "FIA (Stewards)",
+      "date": "2021-08-29",
+      "url": "https://www.fia.com/sites/default/files/decision-document/2021%20Belgian%20Grand%20Prix%20-%20Final%20Race%20Classification.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "Verstappen takes win and Russell first podium in shortest ever Grand Prix as heavy rain hits Spa",
+      "publisher": "Formula1.com",
+      "date": "2021-08-29",
+      "url": "https://www.formula1.com/en/latest/article/verstappen-takes-victory-in-severely-shortened-rain-affected-belgian-gp-as.4AqGhiKQfFaqr7KZjyDjPZ",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "F1 stewards use rare power to 'temporarily stop' Belgian GP",
+      "publisher": "The Race",
+      "date": "2021-08-29",
+      "url": "https://the-race.com/formula-1/f1-stewards-use-rare-power-to-temporarily-stop-belgian-gp/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "Belgian Grand Prix suspended due to heavy rain",
+      "publisher": "RaceFans",
+      "date": "2021-08-29",
+      "url": "https://www.racefans.net/?p=460403",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "Officials had 'no ability' to postpone Belgian GP",
+      "publisher": "Speedcafe",
+      "date": "2021-08-30",
+      "url": "https://speedcafe.com/officials-had-no-ability-to-postpone-belgian-gp/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "F1 to discuss Spa spectator refunds",
+      "publisher": "GrandPrix.com",
+      "date": "2021-08-30",
+      "url": "https://www.grandprix.com/news/f1-to-discuss-spa-spectator-refunds.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "Belgian GP F1 fans get compensation – but is it enough?",
+      "publisher": "The Race",
+      "date": "2021-12-22",
+      "url": "https://the-race.com/formula-1/belgian-gp-f1-fans-get-compensation-but-is-it-enough/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "FIA changes F1 points rules after Belgian GP washout",
+      "publisher": "Autosport",
+      "date": "2022-02-14",
+      "url": "https://www.autosport.com/f1/news/fia-changes-f1-points-rules-after-belgian-gp-washout/8170151/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "F1 breaks 30-year-old record for shortest-ever race",
+      "publisher": "RaceFans",
+      "date": "2021-08-30",
+      "url": "https://www.racefans.net/?p=460357",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "Belgian GP on record as the shortest ever F1 race",
+      "publisher": "Motorsport Week",
+      "date": "2021-08-30",
+      "url": "https://motorsportweek.com/2021/08/30/belgian-gp-on-record-as-the-shortest-ever-f1-race",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "'Money talks' – Hamilton says F1 made bad choice in Belgian",
+      "publisher": "Cyprus Mail",
+      "date": "2021-08-30",
+      "url": "https://cyprus-mail.com/2021/08/30/money-talks-hamilton-says-f1-made-bad-choice-in-belgian",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "Prize draw but no refunds for F1 fans who attended Belgian GP washout",
+      "publisher": "Crash.net",
+      "date": "2021-12-21",
+      "url": "https://www.crash.net/f1/news/994885/1/no-refunds-f1-fans-who-attended-belgian-gp-washout",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "Hamilton wants F1 to pay it back with 'free' Spa race",
+      "publisher": "PlanetF1",
+      "date": "2021-08-30",
+      "url": "https://www.planetf1.com/news/lewis-hamilton-wants-free-spa-grand-prix",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Belgian GP fans enraged over 2021 race payoff package",
+      "publisher": "F1i",
+      "date": "2021-12-21",
+      "url": "https://f1i.com/news/429287-belgian-gp-fans-enraged-over-2021-race-payoff-package.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "F1 Commission approves changes to Sporting Regulations regarding points for shortened races",
+      "publisher": "Formula1.com",
+      "date": "2022-02-14",
+      "url": "https://www.formula1.com/en/latest/article/f1-commission-approves-changes-to-sporting-regulations-regarding-points-for.10aFBCNICC0dajLVnOAzia",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "F1's new plan for points in shortened races after Spa farce",
+      "publisher": "The Race",
+      "date": "2022-02-14",
+      "url": "https://www.the-race.com/formula-1/f1s-new-plan-for-points-in-shortened-races-after-spa-farce/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "Formula One alters shortened-race rule after Max Verstappen's title confusion at 2022 Japanese GP",
+      "publisher": "Sky Sports",
+      "date": "2023-02-21",
+      "url": "https://www.skysports.com/f1/news/12433/12816819/formula-one-alters-shortened-race-rule-after-max-verstappens-title-confusion-at-2022-japanese-gp",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "2022 Japanese Grand Prix — race results (round 18)",
+      "publisher": "Jolpica F1 API",
+      "date": "2022-10-09",
+      "url": "https://api.jolpi.ca/ergast/f1/2022/18/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "2023 FIA Formula One World Championship — Formula 1 Commission Meeting 21.02.23",
+      "publisher": "FIA",
+      "date": "2023-02-21",
+      "url": "https://www.fia.com/news/2023-fia-formula-one-world-championship-formula-1-commission-meeting-210223",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Гран-прі Бельгії 2021 — 12-й етап сезону, 29 серпня 2021, Спа-Франкоршам",
+      "sources": [
+        "s1",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "Стартова решітка: Ферстаппен — поул, Расселл (Williams) — другий, Гамілтон — третій",
+      "sources": [
+        "s1",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "Старт був запланований на 15:00 за місцевим часом",
+      "sources": [
+        "s3",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "text": "Перес розбив машину дорогою на стартову решітку (у Ле-Комб, за F1.com), за пів години до старту",
+      "sources": [
+        "s3",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c5",
+      "text": "Старт відклали на 10 і ще на 15 хвилин (разом 25); о 15:25 машина безпеки вивела пілотів на трасу",
+      "sources": [
+        "s3",
+        "s4",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "Цитати Ферстаппена («I think it's wet, but for me it's fine to race») і Леклера («we have absolutely no visibility») під час перших кіл за машиною безпеки",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c7",
+      "text": "На другому колі за машиною безпеки процедуру старту призупинили, червоний прапор показали до офіційного початку гонки",
+      "sources": [
+        "s4",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "text": "Red Bull полагодила машину Переса під час перерви, і Масі дозволив йому стартувати з піт-лейну",
+      "sources": [
+        "s3",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "Тригодинне вікно рахувалося від запланованого старту о 15:00, тож гонка мала закінчитися до 18:00",
+      "sources": [
+        "s4",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "О 17:00 стюарди тимчасово зупинили гонку «на підставі форс-мажору» за Міжнародним спортивним кодексом FIA; після відновлення на гонку лишалася година",
+      "sources": [
+        "s4",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "text": "Масі: «There is no ability to postpone the race until tomorrow»",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c12",
+      "text": "Доменікалі: перенести на понеділок не можна, бо маршали — волонтери і багатьом треба на роботу",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c13",
+      "text": "О 18:17 машини знову виїхали з піт-лейну за машиною безпеки",
+      "sources": [
+        "s3",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c14",
+      "text": "Скільки кіл проїхали після рестарту",
+      "sources": [
+        "s3",
+        "s8",
+        "s6",
+        "s9",
+        "s10",
+        "s2"
+      ],
+      "status": "dis",
+      "note": "Formula1.com (s3) і The Race (s8) пишуть про три кола за машиною безпеки; Speedcafe (s6) і Autosport (s9) — про два; RaceFans (s10): прогрівальне коло й одне коло до скасування старту, потім ще два кола після рестарту. За протоколом FIA (s2), лідер тричі перетнув контрольну лінію."
+    },
+    {
+      "id": "c15",
+      "text": "О 18:45 оголосили, що гонку не відновлять",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c16",
+      "text": "Масі: «It was to see what the conditions are like»; «Then the weather came in again and got the better of us»",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c17",
+      "text": "Результат за статтею 51.14 — на кінець 1-го кола (передостаннього перед колом із сигналом зупинки); очки — за статтею 6.5, бо лідер тричі перетнув контрольну лінію",
+      "sources": [
+        "s2",
+        "s10",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "Тодішнє правило: якщо лідер проїхав два кола або менше — очок немає; менше 75% дистанції — половина очок",
+      "sources": [
+        "s6",
+        "s4",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c19",
+      "text": "Офіційно гонка — 1 коло, 6,880 км; час Ферстаппена 3:27.071",
+      "sources": [
+        "s2",
+        "s1",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c20",
+      "text": "Повне коло — 7,004 км; різниця 124 м через зсув між лінією старту й фінішу",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c21",
+      "text": "Очки: Ферстаппен 12,5, Расселл 9, Гамілтон 7,5; половину очок отримала перша десятка",
+      "sources": [
+        "s2",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "text": "Для Расселла це перший подіум у Формулі-1",
+      "sources": [
+        "s3",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c23",
+      "text": "Перес фінішував 19-м; Стролл отримав 10 с штрафу за зміну машини під час зупинки гонки і став 20-м",
+      "sources": [
+        "s2",
+        "s1",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c24",
+      "text": "Найкоротша гонка в історії; попередній рекорд — Гран-прі Австралії 1991 року (зупинили, не відновили; 14 кіл за RaceFans)",
+      "sources": [
+        "s10",
+        "s11",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "За RaceFans, половину очок присудили ушосте за 1047 етапів чемпіонату",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c26",
+      "text": "Ферстаппен: «Of course, it's a win but it's not how you want to win»",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c27",
+      "text": "Гамілтон: «Money talks»; «I think the sport made a bad choice today»",
+      "sources": [
+        "s7",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c28",
+      "text": "Гамілтон: «Today was a farce and the only people to lose out are the fans who have paid good money to watch us race»",
+      "sources": [
+        "s12",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c29",
+      "text": "Гамілтон: фанатам варто повернути гроші, а якщо ні — дати безкоштовну гонку; «I'd absolutely come back»",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "Доменікалі: «It had nothing to do with money or politics. We get the entry fee regardless of whether the grand prix is driven or not»",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c31",
+      "text": "Глядачі чекали під дощем понад три години",
+      "sources": [
+        "s15",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c32",
+      "text": "У грудні 2021 промоутер Spa Grand Prix повідомив власникам квитків, що гроші не повернуть",
+      "sources": [
+        "s13",
+        "s8",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c33",
+      "text": "Компенсація: розіграш 170 квитків на 2022 рік (100 срібних, 50 золотих, 20 VIP), запрошення на захід у четвер, по одному абонементу F1 TV на квиток",
+      "sources": [
+        "s8",
+        "s13",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c34",
+      "text": "Відповісти на пропозицію треба було до кінця січня 2022",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c35",
+      "text": "Глядач у коментарі RTL: «I paid €900 for a mockery of a Grand Prix, and I'm being offered an entry into a prize draw. Are they kidding?»",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c36",
+      "text": "14 лютого 2022 Комісія Формули-1 схвалила зміни; їх мала затвердити Всесвітня рада з автоспорту FIA",
+      "sources": [
+        "s16",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c37",
+      "text": "Очок немає, якщо лідер не проїхав щонайменше двох кіл без машини безпеки чи віртуальної машини безпеки",
+      "sources": [
+        "s16",
+        "s17",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c38",
+      "text": "Шкала: >2 кіл і <25% — 6-4-3-2-1; 25–50% — 13-10-8-6-5-4-3-2-1; 50–75% — 19-14-12-9-8-6-5-3-2-1",
+      "sources": [
+        "s16",
+        "s17",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c39",
+      "text": "За новими правилами Гран-прі Бельгії 2021 не дало б жодного очка",
+      "sources": [
+        "s17",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c40",
+      "text": "Гран-прі Японії 2022 зупинили після двох кіл, відновили більш ніж через дві години; з 53 запланованих кіл проїхали 28",
+      "sources": [
+        "s18"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c41",
+      "text": "Ферстаппен у Японії 2022 отримав повні 25 очок за 28 кіл, і цього вистачило на титул",
+      "sources": [
+        "s19",
+        "s18"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c42",
+      "text": "FIA тоді пояснила: знижені очки стосувалися лише гонок, які зупинили й не відновили",
+      "sources": [
+        "s18"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c43",
+      "text": "21 лютого 2023 Комісія Формули-1 схвалила формулювання «to ensure that shorter races have reduced points even if they don't finish with a suspended race»",
+      "sources": [
+        "s20",
+        "s18"
+      ],
+      "status": "ok"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/spa-2021/m1-1280.webp",
+      "srcSet": "/img/stories/spa-2021/m1-1280.webp 1280w, /img/stories/spa-2021/m1-800.webp 800w, /img/stories/spa-2021/m1-480.webp 480w",
+      "width": 1280,
+      "height": 853,
+      "focus": "50% 55%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:2021_6_Hours_of_Spa-Francorchamps_-_Raidillon.jpg",
+        "author": "United Autosports",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Підйом Raidillon на трасі Спа-Франкоршам під час «6 годин Спа», травень 2021 року.",
+        "en": "The Raidillon climb at Spa-Francorchamps during the 6 Hours of Spa, May 2021."
+      },
+      "alt": {
+        "uk": "Підйом траси з червоно-жовтими поребриками, на схилі будинки й бокси.",
+        "en": "An uphill stretch of track with red and yellow kerbs, houses and pit buildings on the hillside."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/spa-2021/m2-800.webp",
+      "srcSet": "/img/stories/spa-2021/m2-800.webp 800w, /img/stories/spa-2021/m2-480.webp 480w",
+      "width": 800,
+      "height": 533,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Red_Bull_RB16B_at_Formula_1_Exhibition,_London_01.jpg",
+        "author": "Hullian111",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Red Bull RB16B 2021 року — машина Макса Ферстаппена — на виставці Formula 1 Exhibition у Лондоні, 2025 рік.",
+        "en": "The 2021 Red Bull RB16B, Max Verstappen's car, at the Formula 1 Exhibition in London, 2025."
+      },
+      "alt": {
+        "uk": "Темно-синій болід Red Bull на виставці, навколо відвідувачі.",
+        "en": "A dark blue Red Bull car on display, with visitors around it."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/spa-2021/m3-800.webp",
+      "srcSet": "/img/stories/spa-2021/m3-800.webp 800w, /img/stories/spa-2021/m3-480.webp 480w",
+      "width": 800,
+      "height": 450,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._63_Russell.jpg",
+        "author": "Lukas Raich",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Джордж Расселл на Williams FW43B на Гран-прі Австрії, 2 липня 2021 року.",
+        "en": "George Russell in the Williams FW43B at the Austrian Grand Prix, 2 July 2021."
+      },
+      "alt": {
+        "uk": "Біло-синій болід Williams з номером 63 на трасі.",
+        "en": "A white and blue Williams car with the number 63 on track."
+      }
+    }
+  ]
+}

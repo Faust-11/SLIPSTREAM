@@ -1,0 +1,889 @@
+{
+  "slug": "pit-stop-evolution",
+  "category": "explainer",
+  "years": [
+    1957,
+    1982,
+    1983,
+    1984,
+    1993,
+    1994,
+    2010,
+    2013,
+    2016,
+    2018,
+    2019,
+    2021,
+    2023,
+    2025,
+    2026
+  ],
+  "title": {
+    "uk": "Від хвилини до 1,8 секунди: як еволюціонував піт-стоп",
+    "en": "From a minute to 1.8 seconds: how the pit stop evolved"
+  },
+  "dek": {
+    "uk": "Фанхіо стояв у боксах майже хвилину, Brabham заправлялася з пивних кегів, а McLaren міняє чотири колеса швидше, ніж ви дочитаєте це речення. Історія піт-стопу — від дозаправок до рекордів і травм.",
+    "en": "Fangio sat in the pits for almost a minute, Brabham refuelled from beer kegs, and McLaren changes four wheels faster than you can finish this sentence. The story of the pit stop, from refuelling to records and injuries."
+  },
+  "links": {
+    "seasons": [
+      1957,
+      1982,
+      1983,
+      1994,
+      2013,
+      2016,
+      2018,
+      2019,
+      2021,
+      2023
+    ],
+    "races": [
+      "1957/6",
+      "1982/13",
+      "1993/12",
+      "1994/9",
+      "2013/9",
+      "2013/18",
+      "2016/8",
+      "2018/2",
+      "2019/10",
+      "2019/11",
+      "2019/20",
+      "2023/17",
+      "2021/12"
+    ],
+    "drivers": [
+      "fangio",
+      "hawthorn",
+      "collins",
+      "patrese",
+      "piquet",
+      "verstappen",
+      "webber",
+      "massa",
+      "gasly",
+      "max_verstappen",
+      "norris",
+      "piastri",
+      "raikkonen"
+    ],
+    "teams": [
+      "maserati",
+      "ferrari",
+      "brabham",
+      "benetton",
+      "red-bull",
+      "williams",
+      "mclaren",
+      "mercedes",
+      "racing-bulls"
+    ],
+    "circuits": [
+      "nurburgring",
+      "red_bull_ring",
+      "spa",
+      "hockenheimring",
+      "americas",
+      "baku",
+      "silverstone",
+      "interlagos",
+      "losail",
+      "bahrain"
+    ],
+    "stories": [
+      "benetton-1994",
+      "spa-2021",
+      "f1-team-size",
+      "f1-tech-revolutions"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "F1's best drives #5: Fangio's race of a lifetime",
+      "publisher": "Formula1.com",
+      "date": "2019-04-07",
+      "url": "https://www.formula1.com/en/latest/article.f1s-best-drives-5-fangios-race-of-a-lifetime.7nylVrZzpxCiNgcfdbb01J.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "4 – 1957 German GP",
+      "publisher": "Motor Sport Magazine",
+      "date": "2016-10-09",
+      "url": "https://motorsportmagazine.com/articles/single-seaters/f1/4-1957-german-gp",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "1957 German Grand Prix — race results (round 6)",
+      "publisher": "Jolpica F1 API",
+      "date": "1957-08-04",
+      "url": "https://api.jolpi.ca/ergast/f1/1957/6/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "A brief history of pit stops in F1",
+      "publisher": "RaceFans",
+      "date": "2008-08-29",
+      "url": "https://www.racefans.net/?p=8933",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "Doug Nye (on Brabham's 1982 mid-race refuelling stops), Motor Sport, November 2007",
+      "publisher": "Motor Sport Magazine",
+      "date": "2007-11-01",
+      "url": "https://www.motorsportmagazine.com/archive/article/november-2007/122/doug-nye",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "The History of the Pit Stop: An Interview With Gordon Murray",
+      "publisher": "Silodrome",
+      "date": "2018-06-03",
+      "url": "https://silodrome.com/history-of-the-pit-stop-interview-with-gordon-murray",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "1982 Austrian Grand Prix — race results (round 13)",
+      "publisher": "Jolpica F1 API",
+      "date": "1982-08-15",
+      "url": "https://api.jolpi.ca/ergast/f1/1982/13/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "Brabham BT52: Piquet back in his 1983 title-winner",
+      "publisher": "RaceFans",
+      "date": "2013-07-14",
+      "url": "https://www.racefans.net/?p=90595",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "1983 drivers' championship standings",
+      "publisher": "Jolpica F1 API",
+      "date": "1983-10-15",
+      "url": "https://api.jolpi.ca/ergast/f1/1983/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "F1's ultimate economy run (1984)",
+      "publisher": "McLaren Racing",
+      "date": "2020-03-25",
+      "url": "https://www.mclaren.com/racing/heritage/formula-1/drivers/alain-prost/f1s-ultimate-economy-run-1984/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "F1 in reverse again: V8s and refuelling set to come back from bans?",
+      "publisher": "Motor Sport Magazine",
+      "date": "2026-07-08",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/f1-in-reverse-again-v8s-and-refuelling-set-to-come-back-from-bans/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Why F1 will be better without refuelling",
+      "publisher": "RaceFans",
+      "date": "2009-05-03",
+      "url": "https://www.racefans.net/?p=20600",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "Why was refuelling banned in F1? History of refuelling and previous accidents",
+      "publisher": "Autosport",
+      "date": "2023-11-21",
+      "url": "https://www.autosport.com/f1/news/why-was-refuelling-banned-in-f1-history-of-refuelling-and-previous-accidents/10549718/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "The full list of cost-cutting measures (WMSC decisions, 12 December 2008)",
+      "publisher": "Autosport",
+      "date": "2008-12-12",
+      "url": "https://www.autosport.com/f1/news/the-full-list-of-cost-cutting-measures-4426773/4426773/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Decisions of the WMSC (extraordinary meeting, 29 April 2009)",
+      "publisher": "F1technical.net",
+      "date": "2009-04-30",
+      "url": "https://f1technical.net/news/12304",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "DHL Fastest Pit Stop Award (2026 season data)",
+      "publisher": "DHL",
+      "date": "2026-11-15",
+      "url": "https://inmotion.dhl/en/formula-1/fastest-pit-stop-award",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "DHL Fastest Pit Stop Award 2016 — Formula 1 Grand Prix of Europe",
+      "publisher": "DHL",
+      "date": "2016-06-19",
+      "url": "https://inmotion.dhl/en/formula-1/article/dhl-fastest-pit-stop-award-2016-formula-1-grand-prix-of-europe",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "Williams equals record pitstop time of 1.92 seconds in Baku",
+      "publisher": "Motorsport Week",
+      "date": "2016-06-20",
+      "url": "https://www.motorsportweek.com/2016/06/20/12264/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "Williams equal F1 pit stop world record in Baku",
+      "publisher": "GrandPrix247",
+      "date": "2016-06-21",
+      "url": "https://www.grandprix247.com/formula-1-news/williams-equal-f1-pit-stop-world-record-in-baku",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "DHL Fastest Pit Stop Award — historic season overviews 2018–2025",
+      "publisher": "DHL",
+      "date": "2026-11-15",
+      "url": "https://inmotion.dhl/formula-1/fastest-pit-stop-award/overview",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "WATCH: Red Bull break pit stop world record – again!",
+      "publisher": "Formula1.com",
+      "date": "2019-07-30",
+      "url": "https://www.formula1.com/en/latest/article/watch-red-bull-break-pit-stop-world-record-again.6AL3UFdSF3DUPUK2pYGjQA",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "WATCH: Red Bull break their own world record pitstop time in Brazil",
+      "publisher": "GPFans",
+      "date": "2019-11-19",
+      "url": "https://www.gpfans.com/en/articles/47747/watch-red-bull-break-their-own-world-record-pitstop-time-in-brazil/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "WATCH: McLaren set new F1 pit stop record with spectacularly quick tyre change in Qatar",
+      "publisher": "Formula1.com",
+      "date": "2023-10-09",
+      "url": "https://www.formula1.com/en/latest/article/watch-mclaren-set-new-f1-pit-stop-record-with-spectacularly-quick-tyre.5ZBn7RJxE9iTVmSGfeeVHm",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s24",
+      "title": "Watch McLaren's incredible world record pit stop",
+      "publisher": "Top Gear",
+      "date": "2023-10-10",
+      "url": "https://www.topgear.com/car-news/formula-one/watch-mclarens-incredible-world-record-pit-stop",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s25",
+      "title": "Fastest Formula One pit stop",
+      "publisher": "Guinness World Records",
+      "date": "2023-10-08",
+      "url": "https://www.guinnessworldrecords.com/world-records/108666-fastest-formula-one-pit-stop",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s26",
+      "title": "DHL Fastest Pit Stop Award 2025",
+      "publisher": "DHL",
+      "date": "2025-12-07",
+      "url": "https://inmotion.dhl/formula-1/fastest-pit-stop-award-2025",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s27",
+      "title": "Box, Box | The Pit Stop Explained",
+      "publisher": "Mercedes-AMG Petronas F1 Team",
+      "date": "2023-05-13",
+      "url": "https://mercedesamgf1.com/news/box-box-pitstop-explained",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s28",
+      "title": "Gone in 1.88s: Putting together the perfect F1 pit stop",
+      "publisher": "Formula1.com",
+      "date": "2019-10-06",
+      "url": "https://www.formula1.com/en/latest/article/gone-in-1-88s-putting-together-the-perfect-f1-pit-stop.3lLKnEoPKdJgACsUn9IltC",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s29",
+      "title": "New F1 pitstop rules could hit a decisive Red Bull advantage",
+      "publisher": "The Race",
+      "date": "2021-06-25",
+      "url": "https://the-race.com/formula-1/new-f1-pitstop-rules-could-hit-a-decisive-red-bull-advantage/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s30",
+      "title": "German GP: Red Bull fined for cameraman wheel incident",
+      "publisher": "Autosport",
+      "date": "2013-07-07",
+      "url": "https://www.autosport.com/f1/news/108657/red-bull-fined-over-wheel-incident",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s31",
+      "title": "F1 reacts quickly to injured cameraman incident",
+      "publisher": "GrandPrix.com",
+      "date": "2013-07-09",
+      "url": "https://www.grandprix.com/news/f1-reacts-quickly-to-injured-cameraman-incident.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s32",
+      "title": "FIA reinforces F1 safety after pit lane incident at German Grand Prix",
+      "publisher": "FIA",
+      "date": "2013-07-09",
+      "url": "https://www.fia.com/news/fia-reinforces-f1-safety",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s33",
+      "title": "Ferrari fined €50,000 for Bahrain F1 pit lane incident",
+      "publisher": "Crash.net",
+      "date": "2018-04-08",
+      "url": "https://www.crash.net/f1/news/893351/1/ferrari-fined-50000-bahrain-f1-pit-lane-incident",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s34",
+      "title": "F1 Gives Ferrari Team Huge Fine For Pit Stop That Snapped A Mechanic's Leg",
+      "publisher": "Jalopnik",
+      "date": "2018-04-09",
+      "url": "https://www.jalopnik.com/f1-gives-ferrari-team-huge-fine-for-pit-stop-that-snapp-1825104247/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s35",
+      "title": "Injured Ferrari mechanic gives thumbs up from hospital after Bahrain Grand Prix accident (AFP)",
+      "publisher": "The National",
+      "date": "2018-04-09",
+      "url": "https://www.thenationalnews.com/sport/f1/injured-ferrari-mechanic-gives-thumbs-up-from-hospital-after-bahrain-grand-prix-accident-involving-kimi-raikkonen-1.720005",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s36",
+      "title": "Minimum reaction times dropped from FIA clampdown on pit stops",
+      "publisher": "RaceFans",
+      "date": "2021-07-18",
+      "url": "https://www.racefans.net/2021/07/18/minimum-reaction-times-dropped-from-fia-clampdown-on-pit-stops/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s37",
+      "title": "F1 pit stop rule changes delayed",
+      "publisher": "Speedcafe",
+      "date": "2021-07-22",
+      "url": "https://speedcafe.com/f1-pit-stop-rule-changes-delayed/",
+      "kind": "secondary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Гран-прі Німеччини 4 серпня 1957 на Нюрбургринзі: Maserati запланувала Фанхіо піт-стоп, він стартував з половиною бака, а Ferrari Готорна й Коллінза їхали без зупинок",
+      "sources": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "Фанхіо заїхав у бокси після 12-го з 22 кіл, маючи близько пів хвилини переваги",
+      "sources": [
+        "s2",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "Тривалість зупинки Фанхіо і відставання після неї",
+      "sources": [
+        "s1",
+        "s4",
+        "s2"
+      ],
+      "status": "dis",
+      "note": "Formula1.com (a2): на тренуваннях 30 с, у гонці 52 с, після виїзду 51 с позаду Ferrari; RaceFans (a1): 1 хв 16 с на місці, 48 с позаду; Motor Sport (a3): «close to a minute behind»."
+    },
+    {
+      "id": "c4",
+      "text": "Фанхіо виграв Гран-прі Німеччини 1957",
+      "sources": [
+        "s3",
+        "s1",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c5",
+      "text": "Даг Най (Motor Sport): у 1961–1982 роках будь-яка зупинка посеред гонки вважалася такою, що руйнує шанси на перемогу",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c6",
+      "text": "Турбомотори BMW у Brabham були ненажерливими; ідея — стартувати з половиною бака на м'якших шинах і дозаправитися посеред гонки",
+      "sources": [
+        "s5",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c7",
+      "text": "Дозаправка в гонці існувала й раніше, але як стратегію її не використовували",
+      "sources": [
+        "s4",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "text": "Мюррей: перші підігрівачі шин — з фанери, заправні установки під тиском — зі старих пивних кегів",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c9",
+      "text": "На Гран-прі Великої Британії 1982 Brabham привезла балони з пальним і бортові домкрати, але обидві машини вибули до зупинки; у Франції теж",
+      "sources": [
+        "s5",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "Уперше план реалізували на Гран-прі Австрії 15 серпня 1982",
+      "sources": [
+        "s5",
+        "s4",
+        "s6",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "text": "Патрезе заїхав після 24 кіл; 4 колеса й 24 галони пального за 15,6 с, лідерство зберіг",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c12",
+      "text": "Патрезе згодом зійшов через двигун",
+      "sources": [
+        "s7",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "BT52 (1983) отримав менший бак під дозаправку; за RaceFans, Мюррей був єдиним конструктором, який створив машину з баком половинного об'єму",
+      "sources": [
+        "s8",
+        "s4"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c14",
+      "text": "Нельсон Піке на Brabham став чемпіоном 1983 року",
+      "sources": [
+        "s9",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "text": "З 1984 дозаправку заборонили, водночас запровадили ліміт пального 220 л",
+      "sources": [
+        "s10",
+        "s4",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c16",
+      "text": "1993: Benetton поміняла колеса Патрезе на Гран-прі Бельгії (17-те коло) за 3,2 с",
+      "sources": [
+        "s4"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c17",
+      "text": "У жовтні 1993 Всесвітня рада з автоспорту FIA оголосила повернення дозаправок з 1994",
+      "sources": [
+        "s12",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "Гран-прі Німеччини 1994: пальне облило машину Йоса Ферстаппена, вона загорілася, полум'я охопило пілота й механіків",
+      "sources": [
+        "s13",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c19",
+      "text": "12 грудня 2008 Всесвітня рада з автоспорту в Монако серед заходів зі скорочення витрат ухвалила заборону дозаправок з 2010",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c20",
+      "text": "29 квітня 2009 на позачерговому засіданні в Парижі заборону підтвердили; причини — витрати на перевезення обладнання і стимул до економії пального",
+      "sources": [
+        "s15",
+        "s12",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c21",
+      "text": "Премію DHL Fastest Pit Stop Award заснували в 2015 році",
+      "sources": [
+        "s16"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c22",
+      "text": "Red Bull — 1,923 с (Веббер, Гран-прі США 2013); Williams — 1,92 с (Масса, Гран-прі Європи 2016 у Баку), рекорд повторено",
+      "sources": [
+        "s17",
+        "s18",
+        "s19"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c23",
+      "text": "2019: Red Bull — 1,91 с (Гаслі, Велика Британія), 1,88 с (Ферстаппен, Німеччина), 1,82 с (Ферстаппен, Бразилія)",
+      "sources": [
+        "s20",
+        "s21",
+        "s22"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c24",
+      "text": "McLaren — 1,80 с, Норріс, 27-ме коло, Гран-прі Катару 8 жовтня 2023, попередній рекорд 1,82",
+      "sources": [
+        "s23",
+        "s24",
+        "s25"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "У Катарі 2023 кожен комплект шин можна було проїхати не більше 18 кіл",
+      "sources": [
+        "s24"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c26",
+      "text": "F1.com: рекорд встановили, хоча машини й шини з 2019 стали більшими",
+      "sources": [
+        "s23"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c27",
+      "text": "Станом на листопад 2026 рекорд 1,80 с не побитий (Guinness; найкращі сезонні результати DHL 2024–2026 повільніші)",
+      "sources": [
+        "s25",
+        "s16",
+        "s20"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c28",
+      "text": "Найшвидші стопи сезонів за DHL: 2024 — 1,90 с; 2025 — 1,91 с (McLaren, Піастрі, Монца); 2026 після Гран-прі Бразилії — 1,99 с (Racing Bulls, Ліндблад, Угорщина)",
+      "sources": [
+        "s20",
+        "s16"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c29",
+      "text": "Премію DHL Red Bull вигравала у 2018–2024; у 2025 — Ferrari (найшвидший стоп 10 разів за 24 гонки); у 2026 після Гран-прі Бразилії лідирує Mercedes",
+      "sources": [
+        "s20",
+        "s26",
+        "s16"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "Mercedes: у піт-стопі беруть участь до 22 людей, 12 із них міняють колеса, по троє на колесо",
+      "sources": [
+        "s27"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c31",
+      "text": "F1.com (2019): піт-екіпаж Williams — 23 особи",
+      "sources": [
+        "s28"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c32",
+      "text": "Mercedes: близько 60 тренувальних піт-стопів за вікенд",
+      "sources": [
+        "s27"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c33",
+      "text": "Вартість переднього домкрата",
+      "sources": [
+        "s28",
+        "s29"
+      ],
+      "status": "dis",
+      "note": "Formula1.com (2019): близько £250 000 за штуку; The Race (2021): «up to £200,000»."
+    },
+    {
+      "id": "c34",
+      "text": "Гран-прі Німеччини 2013: колесо з машини Веббера вдарило оператора FOM Пола Аллена; Red Bull оштрафовано на €30 000",
+      "sources": [
+        "s30",
+        "s31"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c35",
+      "text": "FIA після інциденту: у піт-лейні під час гонок і кваліфікацій лише маршали й персонал команд, шоломи для механіків на піт-стопі, ліміт у піт-лейні під час гонки — 80 км/год замість 100",
+      "sources": [
+        "s32"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c36",
+      "text": "Бахрейн 2018: Ряйкконена випустили до заміни лівого заднього колеса, механік Франческо Чигаріні зламав велику й малу гомілкові кістки; Ferrari оштрафовано на €50 000; цитата стюардів",
+      "sources": [
+        "s33",
+        "s34",
+        "s35"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c37",
+      "text": "2021: регламент вимагав, щоб датчики діяли лише пасивно; нова технічна директива мала не допустити виїзду з незатягнутим колесом",
+      "sources": [
+        "s29",
+        "s36"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c38",
+      "text": "Спершу директива вимагала 0,2 с між опусканням домкрата і зеленим світлом; її пом'якшили й перенесли з Гран-прі Угорщини на Гран-прі Бельгії 2021",
+      "sources": [
+        "s29",
+        "s36",
+        "s37"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c39",
+      "text": "Горнер: «Seeing pit stops sub-two-seconds is a remarkable feat and we should be encouraging it, not trying to control it»",
+      "sources": [
+        "s36"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c40",
+      "text": "Дозаправки заборонені з 2010; влітку 2026 президент FIA бен Сулаєм сказав, що їхнє повернення вивчають (разом з ідеєю V8 з 2031): «The refuelling we are studying as we speak»",
+      "sources": [
+        "s11"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/pit-stop-evolution/m1-1280.webp",
+      "srcSet": "/img/stories/pit-stop-evolution/m1-1280.webp 1280w, /img/stories/pit-stop-evolution/m1-800.webp 800w, /img/stories/pit-stop-evolution/m1-480.webp 480w",
+      "width": 1280,
+      "height": 839,
+      "focus": "50% 50%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Fangio_pit_stop_Nurburgring_1957.jpg",
+        "author": "Willy Pragher",
+        "license": "CC BY 3.0"
+      },
+      "caption": {
+        "uk": "Піт-стоп лідера Хуана-Мануеля Фанхіо по пальне й шини на Гран-прі Німеччини, Нюрбургринг, 4 серпня 1957 року.",
+        "en": "Race leader Juan Manuel Fangio stops for fuel and fresh tyres at the German Grand Prix, Nürburgring, 4 August 1957."
+      },
+      "alt": {
+        "uk": "Чорно-біла світлина: механіки біля машини перед боксами, над ними трибуна з глядачами.",
+        "en": "A black-and-white photo of mechanics around a car in front of the pits, with a packed grandstand above."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/pit-stop-evolution/m2-800.webp",
+      "srcSet": "/img/stories/pit-stop-evolution/m2-800.webp 800w, /img/stories/pit-stop-evolution/m2-480.webp 480w",
+      "width": 800,
+      "height": 452,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Nelson_Piquet_driving_Brabham_BT52_2013_Goodwood_Festival_of_Speed.jpg",
+        "author": "Jake Archibald",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Нельсон Піке за кермом Brabham BT52 на Goodwood Festival of Speed, 2013 рік.",
+        "en": "Nelson Piquet driving the Brabham BT52 at the Goodwood Festival of Speed, 2013."
+      },
+      "alt": {
+        "uk": "Синьо-білий болід Brabham на швидкості.",
+        "en": "A blue and white Brabham car at speed."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/pit-stop-evolution/m3-800.webp",
+      "srcSet": "/img/stories/pit-stop-evolution/m3-800.webp 800w, /img/stories/pit-stop-evolution/m3-480.webp 480w",
+      "width": 800,
+      "height": 536,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Alonso_Renault_Pitstop_Chinese_GP_2008.jpg",
+        "author": "Bert van Dijk",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Піт-стоп Фернандо Алонсо (Renault) на Гран-прі Китаю, 19 жовтня 2008 року.",
+        "en": "Fernando Alonso (Renault) makes a pit stop at the Chinese Grand Prix, 19 October 2008."
+      },
+      "alt": {
+        "uk": "Вигляд згори: механіки оточили помаранчево-синій болід Renault у піт-лейні.",
+        "en": "Overhead view of mechanics surrounding an orange and blue Renault car in the pit lane."
+      }
+    },
+    {
+      "id": "m4",
+      "role": "inline",
+      "src": "/img/stories/pit-stop-evolution/m4-800.webp",
+      "srcSet": "/img/stories/pit-stop-evolution/m4-800.webp 800w, /img/stories/pit-stop-evolution/m4-480.webp 480w",
+      "width": 800,
+      "height": 421,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Pit_Stop_Practice_at_Williams_(14845909054).jpg",
+        "author": "pedrik",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Бригада Williams чекає на машину під час тренування піт-стопів, за ними спостерігає Френк Вільямс, 2014 рік.",
+        "en": "The Williams pit crew waits for the car during pit-stop practice, watched by Frank Williams, 2014."
+      },
+      "alt": {
+        "uk": "Механіки в шоломах чекають біля боксу за огорожею піт-лейну.",
+        "en": "Helmeted mechanics wait by the garage behind the pit-lane fence."
+      }
+    }
+  ]
+}

@@ -1,0 +1,726 @@
+{
+  "slug": "indianapolis-2005",
+  "category": "scandal",
+  "years": [
+    2005
+  ],
+  "title": {
+    "uk": "Індіанаполіс-2005: гонка на шість машин",
+    "en": "Indianapolis 2005: the six-car Grand Prix"
+  },
+  "dek": {
+    "uk": "Шини Michelin не витримували останнього віражу, переговори про шикану провалилися, і 14 машин після прогрівного кола заїхали в бокси. Як Ф-1 освистали в Америці і чим це закінчилося.",
+    "en": "Michelin's tyres could not cope with the final banking, talks over a chicane collapsed, and 14 cars peeled into the pits after the formation lap. How F1 was booed in America, and what came of it."
+  },
+  "links": {
+    "seasons": [
+      2005,
+      2006,
+      2007,
+      2012
+    ],
+    "races": [
+      "2005/9",
+      "2006/10",
+      "2007/7",
+      "2012/19"
+    ],
+    "drivers": [
+      "michael_schumacher",
+      "ralf_schumacher",
+      "barrichello",
+      "monteiro",
+      "karthikeyan",
+      "albers",
+      "friesacher",
+      "trulli",
+      "zonta",
+      "heidfeld",
+      "raikkonen",
+      "alonso"
+    ],
+    "teams": [
+      "ferrari",
+      "jordan",
+      "minardi",
+      "toyota",
+      "mclaren",
+      "renault",
+      "bar",
+      "williams",
+      "sauber",
+      "red-bull"
+    ],
+    "circuits": [
+      "indianapolis",
+      "americas"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "2005 United States Grand Prix — results (round 9)",
+      "publisher": "Jolpica F1 API",
+      "date": "2005-06-19",
+      "url": "https://api.jolpi.ca/ergast/f1/2005/9/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "Retrospective: How the 2005 United States GP farce unfolded (Adam Cooper)",
+      "publisher": "Autosport",
+      "date": "2020-06-19",
+      "url": "https://www.autosport.com/f1/news/retrospective-how-the-2005-united-states-gp-farce-unfolded-4981799/4981799/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "Letters exchanged between Michelin, FIA",
+      "publisher": "Autosport",
+      "date": "2005-06-19",
+      "url": "https://www.autosport.com/f1/news/45069/letters-exchanged-between-michelin-fia",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "June 19, 2005 — Michelin/FIA correspondence and impasse",
+      "publisher": "GrandPrix.com",
+      "date": "2005-06-19",
+      "url": "https://www.grandprix.com/ns/ns15061.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "Grand Prix of USA 2005 — Friday press release",
+      "publisher": "Toyota F1",
+      "date": "2005-06-17",
+      "url": "https://toyotagazooracing.com/archive/ms/public/en/gp2005/09_usa/release/2_press.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "Ralf hits the wall",
+      "publisher": "GrandPrix.com",
+      "date": "2005-06-17",
+      "url": "https://www.grandprix.com/news/ralf-hits-the-wall.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "Ralf has to wait for medical clearance",
+      "publisher": "GrandPrix.com",
+      "date": "2005-06-18",
+      "url": "https://www.grandprix.com/news/ralf-has-to-wait-for-medical-clearance.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "Schumacher claims hollow win (Reuters)",
+      "publisher": "Dawn / Reuters",
+      "date": "2005-06-21",
+      "url": "https://www.dawn.com/news/amp/144505",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "Controversy at U.S. Grand Prix (This Day in History, June 19)",
+      "publisher": "History.com",
+      "date": "",
+      "url": "https://www.history.com/this-day-in-history/june-19/controversy-at-u-s-grand-prix",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "IMS to review F1 future at Indy",
+      "publisher": "Autosport",
+      "date": "2005-06-19",
+      "url": "https://www.autosport.com/f1/news/45112/ims-to-review-f1-future-at-indy",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "FIA statement on US GP",
+      "publisher": "FIA (via Motorsport.com)",
+      "date": "2005-06-21",
+      "url": "https://au.motorsport.com/f1/news/fia-statement-on-us-gp/1245083/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Joint statement by 19 drivers (dated 23 June 2005)",
+      "publisher": "Motorsport.com",
+      "date": "2005-06-30",
+      "url": "https://au.motorsport.com/f1/news/joint-statement-by-19-drivers/1248243/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "The blame game — 2005 United States GP at Indianapolis (Anne Proffit)",
+      "publisher": "Motorsport.com",
+      "date": "2005-06-21",
+      "url": "https://www.motorsport.com/f1/news/the-blame-game-2005-united-states-gp-at-indianapolis/611836/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "Race incidents from Indianapolis",
+      "publisher": "GrandPrix.com",
+      "date": "2005-06-19",
+      "url": "https://www.grandprix.com/news/race-incidents-from-indianapolis.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Tiago Monteiro: the only man who cheered at the 2005 US Grand Prix (Damien Smith)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2020-06-19",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/tiago-monteiro-the-only-man-who-cheered-at-the-2005-us-grand-prix",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "Michelin offers US GP tickets refund",
+      "publisher": "Autosport",
+      "date": "2005-06-28",
+      "url": "https://www.autosport.com/f1/news/45286/michelin-offers-us-gp-tickets-refund",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "Michelin offers to reimburse F1 race spectators",
+      "publisher": "Modern Tire Dealer",
+      "date": "2005-06-28",
+      "url": "https://www.moderntiredealer.com/articles/6594-michelin-offers-to-reimburse-f1-race-spectators",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "World Council decision (June 29, 2005)",
+      "publisher": "GrandPrix.com",
+      "date": "2005-06-29",
+      "url": "https://www.grandprix.com/news/world-council-decision.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "FIA Senate absolves Michelin teams",
+      "publisher": "Autosport",
+      "date": "2005-07-14",
+      "url": "https://www.autosport.com/f1/news/45682/fia-senate-absolves-michelin-teams",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "FIA issues new statement re Michelin teams",
+      "publisher": "Pitpass (FIA statement)",
+      "date": "2005-07-14",
+      "url": "https://pitpass.com/25213/FIA-issues-new-statement-re-Michelin-teams",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "FIA cancels US GP verdict",
+      "publisher": "Autosport",
+      "date": "2005-07-22",
+      "url": "https://www.autosport.com/f1/news/fia-cancels-us-gp-verdict-5329649/5329649/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "US GP class action lawsuit dismissed",
+      "publisher": "Autosport",
+      "date": "2006-06-17",
+      "url": "https://www.autosport.com/f1/news/52474/us-gp-class-action-lawsuit-dismissed",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "IMS statement on 2008",
+      "publisher": "Indianapolis Motor Speedway (via Motorsport.com)",
+      "date": "2007-07-12",
+      "url": "https://au.motorsport.com/f1/news/ims-statement-on-2008/2202036/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s24",
+      "title": "Goodbye Indianapolis",
+      "publisher": "GrandPrix.com",
+      "date": "2007-07-12",
+      "url": "https://grandprix.com/news/goodbye-indianapolis.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s25",
+      "title": "Races at Indianapolis; 2008–2012 calendars",
+      "publisher": "Jolpica F1 API",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/circuits/indianapolis/races/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s26",
+      "title": "Tiago Monteiro — all results",
+      "publisher": "Jolpica F1 API",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/drivers/monteiro/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s27",
+      "title": "Michael Schumacher — 2005 wins",
+      "publisher": "Jolpica F1 API",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2005/drivers/michael_schumacher/results/1/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s28",
+      "title": "2012 season calendar",
+      "publisher": "Jolpica F1 API",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2012/races/",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Гран-прі США 2005 — 9-й етап сезону, 19 червня 2005, Індіанаполіс",
+      "sources": [
+        "s1",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "У п'ятницю 17 червня Зонта (Toyota) вилетів у 5-му повороті за кілька хвилин до аварії Ральфа; Toyota підозрювала шини в обох випадках",
+      "sources": [
+        "s5",
+        "s6",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "Ральф Шумахер розбився в останньому повороті там само, де й 2004 року; цитата «I was approaching the last corner…» — з пресрелізу Toyota",
+      "sources": [
+        "s5",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "text": "Останній поворот (13-й) — похилий віраж перед стартовою прямою",
+      "sources": [
+        "s2",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c5",
+      "text": "Ральфа відвезли до лікарні (розмиття в очах); у кваліфікації й гонці замість нього виступив Зонта",
+      "sources": [
+        "s7",
+        "s5",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "Лист Michelin 18.06 (Дюпаск'є, Шоррок) Вайтінгу: першопричину не встановлено, повної певності щодо кваліфікаційних шин немає; гонку треба їхати на кваліфікаційних шинах",
+      "sources": [
+        "s3",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c7",
+      "text": "Відповідь Вайтінга 19.06: «We are very surprised…»; варіанти — інші шини зі штрафом або заміни з міркувань безпеки; шикана неприйнятна",
+      "sources": [
+        "s3",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "text": "Команди Michelin просили шикану перед 13-м поворотом; FIA відмовила, бо це зміна траси без процедур безпеки",
+      "sources": [
+        "s11",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "FIA заявила, що пропонувала контроль швидкості з покаранням; команди Michelin погоджувалися лише за умови, що сповільнять і машини на Bridgestone",
+      "sources": [
+        "s11"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c10",
+      "text": "Спільна заява пілотів: обмеження швидкості в 13-му повороті «impossible to comply with and impossible to police»",
+      "sources": [
+        "s12"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c11",
+      "text": "Мослі: гонка з шиканою не буде залікова (FIA відкличе своїх офіційних осіб)",
+      "sources": [
+        "s2",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c12",
+      "text": "Ferrari не підтримала шикану",
+      "sources": [
+        "s2",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "Jordan і Minardi спершу підтримали команди Michelin; Стоддарт пояснив старт Minardi тим, що Jordan порушила домовленість",
+      "sources": [
+        "s2",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c14",
+      "text": "Поул — Ярно Труллі (Toyota)",
+      "sources": [
+        "s1",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "text": "Після прогрівного кола 14 машин на Michelin, зокрема Труллі, заїхали в бокси; стартували 6",
+      "sources": [
+        "s1",
+        "s2",
+        "s13",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c16",
+      "text": "Сім із десяти команд відмовилися від гонки",
+      "sources": [
+        "s8",
+        "s22"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c17",
+      "text": "Кількість глядачів",
+      "sources": [
+        "s8",
+        "s9"
+      ],
+      "status": "dis",
+      "note": "Reuters (s8): близько 120 000 глядачів; History.com (s9): близько 100 000. У тексті подано обидві оцінки."
+    },
+    {
+      "id": "c18",
+      "text": "Публіка освистувала, на трасу кидали пляшки й бляшанки",
+      "sources": [
+        "s8",
+        "s2",
+        "s10",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c19",
+      "text": "Результат: Шумахер, Барікелло, Монтейру і Картікеян (+1 коло), Алберс і Фрізахер (+2 кола)",
+      "sources": [
+        "s1",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c20",
+      "text": "Єдина перемога Міхаеля Шумахера в сезоні 2005",
+      "sources": [
+        "s27"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c21",
+      "text": "Монтейру стартував 17-м, фінішував 3-м; це його перший і єдиний подіум у Ф-1",
+      "sources": [
+        "s1",
+        "s26",
+        "s15"
+      ],
+      "status": "ok",
+      "note": "Старт із 17-го місця і «перший подіум» — s15 і s1; «єдиний» — за всіма результатами в s26."
+    },
+    {
+      "id": "c22",
+      "text": "Похмурий Шумахер не бризкав шампанським у натовп",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c23",
+      "text": "Гайдфельд: «I am sorry, but we didn't have a choice»",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c24",
+      "text": "Джої Чітвуд (президент IMS): траса «monumentally disappointed», переоцінить участь у Ф-1; не пригадує, щоб на трасу щось кидали на заходах IMS",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c25",
+      "text": "28.06.2005 Michelin пообіцяла повернути гроші за квитки й викупити 20 000 квитків на 2006 рік; юридично не зобов'язана",
+      "sources": [
+        "s16",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c26",
+      "text": "Michelin не учасник, карати можна лише команди; 29.06 WMSC: винні за двома пунктами (нема придатних шин — з пом'якшувальними обставинами; безпідставна відмова стартувати при праві на піт-лейн), три звинувачення відкинуто, покарання відкладено до 14.09",
+      "sources": [
+        "s18",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c27",
+      "text": "14.07 Сенат FIA у Монако: нові докази від шести команд, контрактний обов'язок слухатися постачальника шин, рекомендація скасувати вердикт",
+      "sources": [
+        "s19",
+        "s20"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c28",
+      "text": "22.07 WMSC переважною більшістю прийняла рекомендацію, вердикти скасовано",
+      "sources": [
+        "s21"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c29",
+      "text": "Колективний позов проти FOM, Michelin та IMS відхилила федеральна суддя (червень 2006)",
+      "sources": [
+        "s22"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "Гонка в Індіанаполісі пройшла ще 2006 і 2007; 12.07.2007 IMS оголосила, що 2008 гонки не буде після восьми поспіль з 2000; цитата Тоні Джорджа; причина — внесок за проведення (за GrandPrix.com)",
+      "sources": [
+        "s23",
+        "s24",
+        "s25"
+      ],
+      "status": "ok",
+      "note": "Причину (завеликий внесок) називає лише s24, у тексті подано з посиланням на GrandPrix.com."
+    },
+    {
+      "id": "c31",
+      "text": "Наступний Гран-прі США — листопад 2012, Остін (у календарях 2008–2011 гонки в США немає — перевірено за Jolpica)",
+      "sources": [
+        "s28"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c32",
+      "text": "Монтейру святкував з механіками й фанатами Jordan; цитата «This was our moment»",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c33",
+      "text": "Michelin відвезла 26 шин на базу в Акроні (Огайо); поїздка нічого нового не дала, повернулися близько 6-ї ранку неділі",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c34",
+      "text": "Шинні загородження почали переносити з 10-го повороту для шикани; Вайтінг попередив про втрату омологації і скасування гонки; загородження повернули",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c35",
+      "text": "FIA у заяві послалася на свій лист від 1 червня 2005: шини мають бути надійними за будь-яких обставин",
+      "sources": [
+        "s11",
+        "s13"
+      ],
+      "status": "ok",
+      "note": "Формулювання про надійність шин — із заяви FIA (s11); s13 підтверджує лист від 1 червня (цитує інший його фрагмент)."
+    },
+    {
+      "id": "c36",
+      "text": "Michelin: пропонувала рішення, зокрема шикану, які вважала безпечними; спортивна влада їх відкинула",
+      "sources": [
+        "s17"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/indianapolis-2005/m1-1280.webp",
+      "srcSet": "/img/stories/indianapolis-2005/m1-1280.webp 1280w, /img/stories/indianapolis-2005/m1-800.webp 800w, /img/stories/indianapolis-2005/m1-480.webp 480w",
+      "width": 1280,
+      "height": 960,
+      "focus": "35% 35%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Michelin_Suck_2005_United_States_GP_(20414559).jpg",
+        "author": "Ryosuke Yagi",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Вболівальники з табличками «Albers + Friesacher, Minardi F1» і «Michelin suck» на трибуні Гран-прі США, Індіанаполіс, 19 червня 2005 року.",
+        "en": "Fans holding signs reading “Albers + Friesacher, Minardi F1” and “Michelin suck” in the grandstand at the United States Grand Prix, Indianapolis, 19 June 2005."
+      },
+      "alt": {
+        "uk": "Глядачі на трибуні тримають саморобні таблички, одна з малюнком боліда Minardi.",
+        "en": "Spectators in a grandstand hold up handmade signs, one with a drawing of a Minardi car."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/indianapolis-2005/m2-800.webp",
+      "srcSet": "/img/stories/indianapolis-2005/m2-800.webp 800w, /img/stories/indianapolis-2005/m2-480.webp 480w",
+      "width": 800,
+      "height": 600,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Michelin_tyre_2005_United_States_GP_(19879074).jpg",
+        "author": "Ryosuke Yagi",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Шина Michelin на Гран-прі США, Індіанаполіс, 16 червня 2005 року.",
+        "en": "A Michelin tyre at the United States Grand Prix, Indianapolis, 16 June 2005."
+      },
+      "alt": {
+        "uk": "Гоночна шина Michelin крупним планом із маркуванням на боковині.",
+        "en": "A close-up of a Michelin racing tyre with markings on the sidewall."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/indianapolis-2005/m3-800.webp",
+      "srcSet": "/img/stories/indianapolis-2005/m3-800.webp 800w, /img/stories/indianapolis-2005/m3-480.webp 480w",
+      "width": 800,
+      "height": 417,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Monteiro_and_Karthikeyan_in_USGP_Drivers'_Parade.jpg",
+        "author": "Rdsmith4",
+        "license": "CC BY-SA 2.5"
+      },
+      "caption": {
+        "uk": "Пілоти Jordan Тьягу Монтейру й Нараїн Картікеян на параді пілотів Гран-прі США 2005 року.",
+        "en": "Jordan drivers Tiago Monteiro and Narain Karthikeyan in the drivers' parade at the 2005 United States Grand Prix."
+      },
+      "alt": {
+        "uk": "Двоє пілотів машуть глядачам із відкритого ретроавтомобіля на трасі.",
+        "en": "Two drivers wave to spectators from an open vintage car on the track."
+      }
+    },
+    {
+      "id": "m4",
+      "role": "inline",
+      "src": "/img/stories/indianapolis-2005/m4-800.webp",
+      "srcSet": "/img/stories/indianapolis-2005/m4-800.webp 800w, /img/stories/indianapolis-2005/m4-480.webp 480w",
+      "width": 800,
+      "height": 558,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Blame_Mosley_banner.jpg",
+        "author": "Rdsmith4",
+        "license": "CC BY-SA 2.5"
+      },
+      "caption": {
+        "uk": "Двоє вболівальників із банером «Blame Mosley» («Винен Мослі») на Гран-прі США 2005 року.",
+        "en": "Two fans holding a “Blame Mosley” banner at the 2005 United States Grand Prix."
+      },
+      "alt": {
+        "uk": "Двоє чоловіків розтягують саморобний банер із написом «Blame Mosley» біля огорожі.",
+        "en": "Two men stretch out a handmade banner reading “Blame Mosley” by a fence."
+      }
+    }
+  ]
+}

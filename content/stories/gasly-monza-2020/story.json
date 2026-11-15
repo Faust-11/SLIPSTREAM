@@ -1,0 +1,913 @@
+{
+  "slug": "gasly-monza-2020",
+  "category": "sensation",
+  "years": [
+    2020
+  ],
+  "title": {
+    "uk": "Монца-2020: Гаслі, червоний прапор і закритий піт-лейн",
+    "en": "Monza 2020: Gasly, a red flag and a closed pit lane"
+  },
+  "dek": {
+    "uk": "Через рік після пониження з Red Bull П'єр Гаслі виграв Гран-прі Італії для тієї самої команди з Фаенци, яка 2008 року перемогла тут із Феттелем.",
+    "en": "A year after being demoted by Red Bull, Pierre Gasly won the Italian Grand Prix for the same Faenza team that had won here with Vettel in 2008."
+  },
+  "links": {
+    "seasons": [
+      2020,
+      2008,
+      2019
+    ],
+    "races": [
+      "2020/8",
+      "2008/14"
+    ],
+    "drivers": [
+      "gasly",
+      "sainz",
+      "stroll",
+      "hamilton",
+      "leclerc",
+      "giovinazzi",
+      "kevin_magnussen",
+      "vettel",
+      "bottas",
+      "kvyat",
+      "albon",
+      "max_verstappen",
+      "panis",
+      "raikkonen"
+    ],
+    "teams": [
+      "alphatauri",
+      "toro-rosso",
+      "minardi",
+      "mclaren",
+      "racing-point",
+      "mercedes",
+      "ferrari",
+      "red-bull"
+    ],
+    "circuits": [
+      "monza"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "2020 Italian Grand Prix — race results (round 8)",
+      "publisher": "Jolpica F1 API",
+      "date": "2020-09-06",
+      "url": "https://api.jolpi.ca/ergast/f1/2020/8/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "2020 Italian Grand Prix — qualifying results",
+      "publisher": "Jolpica F1 API",
+      "date": "2020-09-05",
+      "url": "https://api.jolpi.ca/ergast/f1/2020/8/qualifying/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "2020 Italian Grand Prix — Gasly lap-by-lap positions",
+      "publisher": "Jolpica F1 API",
+      "date": "2020-09-06",
+      "url": "https://api.jolpi.ca/ergast/f1/2020/8/drivers/gasly/laps/?limit=100",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "2020 Italian Grand Prix — Hamilton lap-by-lap positions",
+      "publisher": "Jolpica F1 API",
+      "date": "2020-09-06",
+      "url": "https://api.jolpi.ca/ergast/f1/2020/8/drivers/hamilton/laps/?limit=100",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "2020 Italian Grand Prix — pit stops",
+      "publisher": "Jolpica F1 API",
+      "date": "2020-09-06",
+      "url": "https://api.jolpi.ca/ergast/f1/2020/8/pitstops/?limit=100",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "Driver: Pierre Gasly (date of birth)",
+      "publisher": "Jolpica F1 API",
+      "date": "2026-11-15",
+      "url": "https://api.jolpi.ca/ergast/f1/drivers/gasly/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "2020 Italian Grand Prix — Offence — Car 44 — Entering closed pit lane (Document 44)",
+      "publisher": "FIA Stewards",
+      "date": "2020-09-06",
+      "url": "https://www.fia.com/sites/default/files/decision-document/2020%20Italian%20Grand%20Prix%20-%20Offence%20-%20Car%2044%20-%20Entering%20closed%20pit%20lane.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "2020 Italian Grand Prix — Offence — Car 99 — Entering the closed pit lane (Document 45)",
+      "publisher": "FIA Stewards",
+      "date": "2020-09-06",
+      "url": "https://www.fia.com/sites/default/files/decision-document/2020%20Italian%20Grand%20Prix%20-%20Offence%20-%20Car%2099%20-%20Entering%20the%20closed%20pit%20lane..pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "2020 Italian Grand Prix — Final Race Classification (Document 54)",
+      "publisher": "FIA Stewards",
+      "date": "2020-09-06",
+      "url": "https://www.fia.com/sites/default/files/decision-document/2020%20Italian%20Grand%20Prix%20-%20Final%20Race%20Classification.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "Italian Grand Prix 2020 race report: Gasly takes maiden win in Monza thriller from Sainz as penalty leaves Hamilton 7th",
+      "publisher": "Formula 1",
+      "date": "2020-09-06",
+      "url": "https://www.formula1.com/en/latest/article.gasly-takes-maiden-win-in-monza-thriller-from-sainz-as-penalty-leaves.2wjQyiSgOy8ggwcJlWHhsi.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "What the teams said — race day in Italy 2020",
+      "publisher": "Formula 1",
+      "date": "2020-09-06",
+      "url": "https://www.formula1.com/en/latest/article/what-the-teams-said-race-day-in-italy-2020.1vsCZXDd5QWW4XKZ6EdDn9",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Tost praises 'fantastic' race from Gasly — but scotches talk of imminent Red Bull return",
+      "publisher": "Formula 1",
+      "date": "2020-09-07",
+      "url": "https://www.formula1.com/en/latest/article/tost-praises-fantastic-race-from-gasly-but-scotches-talk-of-imminent-red.7cWEuQj0gDAmFI4eC49aO",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "2008 vs 2020: Comparing Vettel and Gasly's emotional first F1 wins at Monza",
+      "publisher": "Formula 1",
+      "date": "2020-09-07",
+      "url": "https://www.formula1.com/en/latest/article/2008-vs-2020-comparing-vettel-and-gaslys-emotional-first-f1-wins-at-monza.45wjBBvSrEHjKzMdkD1N3H",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "Italian GP 2020 — race notes",
+      "publisher": "GrandPrix.com",
+      "date": "2020-09-06",
+      "url": "https://www.grandprix.com/races/italian-gp-2020-race-notes.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "2020 Italian Grand Prix race report: Gasly holds Sainz at bay in manic Monza race (Chris Medland)",
+      "publisher": "Motor Sport",
+      "date": "2020-09-06",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/2020-italian-grand-prix-race-report-gasly-holds-sainz-at-bay-in-manic-monza-race",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "10 things we learned from the 2020 Italian Grand Prix (Luke Smith)",
+      "publisher": "Autosport",
+      "date": "2020-09-07",
+      "url": "https://www.autosport.com/f1/news/10-things-we-learned-from-the-2020-italian-grand-prix-4979306/4979306/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "What did we learn from the Italian Grand Prix? (Balazs Szabo)",
+      "publisher": "F1technical",
+      "date": "2020-09-08",
+      "url": "https://f1technical.net/news/22811",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "Gasly \"struggling to believe\" shock breakthrough win (Will Wood)",
+      "publisher": "RaceFans",
+      "date": "2020-09-06",
+      "url": "https://www.racefans.net/2020/09/06/gasly-struggling-to-believe-shock-breakthrough-win/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "Gasly struggling to realise Monza win (Luke Smith)",
+      "publisher": "Motorsport.com",
+      "date": "2020-09-06",
+      "url": "https://au.motorsport.com/f1/news/gasly-struggling-realise-win-monza/4869868/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "Lewis Hamilton laments 'severe' penalty as Pierre Gasly wins Italian Grand Prix (Philip Duncan, PA)",
+      "publisher": "Yahoo Sports / PA Media",
+      "date": "2020-09-06",
+      "url": "https://sports.yahoo.com/lewis-hamilton-laments-severe-penalty-182732498.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "Albon to replace Gasly at Red Bull from Belgium",
+      "publisher": "Formula 1",
+      "date": "2019-08-12",
+      "url": "https://www.formula1.com/en/latest/article/albon-to-replace-gasly-at-red-bull-from-belgium.5f9BkwxuJ5TF86EPKqqwJa",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "Toro Rosso's name change to AlphaTauri confirmed in provisional 2020 entry list",
+      "publisher": "Formula 1",
+      "date": "2019-11-30",
+      "url": "https://www.formula1.com/en/latest/article.toro-rossos-name-change-to-alpha-tauri-confirmed-in-provisional-2020-entry.5tIxtPAMsY8MACQAyvg41j.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "F1: Alpha Tauri celebrates maiden win at Italian GP",
+      "publisher": "ANSA",
+      "date": "2020-09-07",
+      "url": "https://ansa.it/english/news/2020/09/07/f1-alpha-tauri-celebrates-maiden-win-at-italian-gp_455af2ab-eaa5-4aae-881a-e2594ea2e012.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s24",
+      "title": "Italian GP 2008 — race notes: Vettel wins rain-soaked Italian GP from pole",
+      "publisher": "GrandPrix.com",
+      "date": "2008-09-14",
+      "url": "https://www.grandprix.com/races/italian-gp-2008-race-notes-vettel-wins-rain-soaked-italian-gp-from-pole.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s25",
+      "title": "2008 Italian Grand Prix report (Nigel Roebuck)",
+      "publisher": "Motor Sport",
+      "date": "2008-09-15",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/2008-italian-grand-prix-report",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s26",
+      "title": "2020 Italian Grand Prix — Stroll lap-by-lap positions",
+      "publisher": "Jolpica F1 API",
+      "date": "2020-09-06",
+      "url": "https://api.jolpi.ca/ergast/f1/2020/8/drivers/stroll/laps/?limit=100",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Гран-прі Італії 2020 — 8-й етап сезону, Монца, 6 вересня 2020.",
+      "sources": [
+        "s1",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "Гамілтон стартував з поула і лідирував до свого піт-стопу.",
+      "sources": [
+        "s2",
+        "s4",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "Гаслі стартував десятим.",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c4",
+      "text": "Феттель (Ferrari) зійшов на 6-му колі через відмову гальм.",
+      "sources": [
+        "s9",
+        "s14",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c5",
+      "text": "Гаслі заїхав на піт-стоп на 19-му колі, за коло до машини безпеки.",
+      "sources": [
+        "s5",
+        "s11",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "На 20-му колі Haas Магнуссена зупинився на виході з Параболіки, виїхала машина безпеки, яка знищила ~13-секундну перевагу Гамілтона над Сайнсом.",
+      "sources": [
+        "s10",
+        "s14"
+      ],
+      "status": "ok",
+      "note": "Перевага в 13 с — лише s10."
+    },
+    {
+      "id": "c7",
+      "text": "Піт-лейн закрили для евакуації машини о 15:41:47; повідомлення з'явилося на сторінці хронометражу, одночасно ввімкнулися сигнали закриття на світлових панелях 16 і 17.",
+      "sources": [
+        "s7",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "text": "Гамілтон заїхав на піт-лейн о 15:41:59 — через 12 секунд після закриття.",
+      "sources": [
+        "s7",
+        "s20"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "Джовінацці заїхав на закритий піт-лейн о 15:42:54 і отримав такий самий штраф.",
+      "sources": [
+        "s8",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "Штраф — 10 секунд «стоп-енд-гоу» за порушення статті 28.14 спортивного регламенту; стюарди зазначили, що штраф обов'язковий.",
+      "sources": [
+        "s7",
+        "s10",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "text": "Леклер розбився в Параболіці на 24-му колі, невдовзі після рестарту; не постраждав.",
+      "sources": [
+        "s10",
+        "s9",
+        "s15"
+      ],
+      "status": "ok",
+      "note": "GrandPrix.com (s14) пише про 25-те коло; фінальна класифікація FIA (s9) фіксує 23 повні кола Леклера, F1.com (s10) — 24-те коло."
+    },
+    {
+      "id": "c12",
+      "text": "Гонку зупинили червоним прапором для ремонту бар'єра в Параболіці.",
+      "sources": [
+        "s10",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "Зупинка тривала 25 хвилин.",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c14",
+      "text": "Рестарт — з місця, на 28-му колі з 53.",
+      "sources": [
+        "s10",
+        "s14",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "text": "Гаслі обійшов Стролла в першому повороті після рестарту.",
+      "sources": [
+        "s11",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c16",
+      "text": "Гамілтон рушив першим на рестарті й відбув штраф наприкінці 28-го кола.",
+      "sources": [
+        "s10",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c17",
+      "text": "Гамілтон повернувся останнім, штраф коштував йому близько 30 секунд.",
+      "sources": [
+        "s4",
+        "s15",
+        "s10"
+      ],
+      "status": "ok",
+      "note": "30 с — s10; останнє місце — s15 і покільні позиції s4 (17-й з 17 машин на трасі на 29-му колі)."
+    },
+    {
+      "id": "c18",
+      "text": "Гаслі лідирував з 28-го по 53-тє коло.",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c19",
+      "text": "Сайнс прорвався на друге місце; за 10 кіл до фінішу відставав менш як на 3 с.",
+      "sources": [
+        "s10",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c20",
+      "text": "Сайнс по радіо: «I want this win».",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c21",
+      "text": "Гаслі виграв з перевагою 0,415 с над Сайнсом; Стролл третій, +3,358 с.",
+      "sources": [
+        "s1",
+        "s9",
+        "s14"
+      ],
+      "status": "ok",
+      "note": "Motor Sport (s15) у таблиці дає +0,418 с; офіційна класифікація FIA (s9) — 0,415 с."
+    },
+    {
+      "id": "c22",
+      "text": "Гамілтон фінішував сьомим і показав найшвидше коло гонки 1:22.746.",
+      "sources": [
+        "s9",
+        "s1"
+      ],
+      "status": "ok",
+      "note": "Найшвидше коло 1:22.746 (34-те коло) — з офіційної класифікації FIA (s9); Jolpica (s1) теж ставить Гамілтона першим за найшвидшим колом. Обидва джерела спираються на офіційний хронометраж."
+    },
+    {
+      "id": "c23",
+      "text": "Гаслі: «It's unbelievable».",
+      "sources": [
+        "s19",
+        "s10"
+      ],
+      "status": "ok",
+      "note": "PA (s20) передає як «Honestly, it is unbelievable»."
+    },
+    {
+      "id": "c24",
+      "text": "Гаслі про останні кола: «almost shunted 10 times».",
+      "sources": [
+        "s11"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c25",
+      "text": "Гаслі про команду: «They gave me my first opportunity in F1, they gave me my first podium».",
+      "sources": [
+        "s19"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c26",
+      "text": "Гаслі — перший француз-переможець Гран-прі після Олів'є Паніса (Монако, 1996).",
+      "sources": [
+        "s10",
+        "s14",
+        "s15",
+        "s18"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c27",
+      "text": "Гаслі став 109-м переможцем Гран-прі в історії чемпіонату світу.",
+      "sources": [
+        "s14",
+        "s16",
+        "s18"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c28",
+      "text": "Перша перемога команди, що не є Mercedes, Ferrari чи Red Bull, після Гран-прі Австралії 2013 (Ряйкконен, Lotus).",
+      "sources": [
+        "s16",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c29",
+      "text": "Перший подіум без пілотів Mercedes, Ferrari і Red Bull після Гран-прі Угорщини 2012.",
+      "sources": [
+        "s16",
+        "s17"
+      ],
+      "status": "ok",
+      "note": "F1.com (s10) формулює обережніше: уперше в турбогібридну еру."
+    },
+    {
+      "id": "c30",
+      "text": "2019 року Гаслі перевели в Red Bull, а 12 серпня 2019-го оголосили, що з Гран-прі Бельгії його замінить Албон, а Гаслі повернеться в Toro Rosso.",
+      "sources": [
+        "s21",
+        "s16"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c31",
+      "text": "Гаслі прибрали з Red Bull після 12 гонок.",
+      "sources": [
+        "s16"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c32",
+      "text": "На момент рішення Гаслі мав 63 очки проти 181 у Ферстаппена.",
+      "sources": [
+        "s21"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c33",
+      "text": "Перший подіум Гаслі — Гран-прі Бразилії 2019 за Toro Rosso.",
+      "sources": [
+        "s22",
+        "s19"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c34",
+      "text": "З 2020 року Toro Rosso (колишня Minardi) виступає як AlphaTauri — назва від модного бренду Red Bull.",
+      "sources": [
+        "s22",
+        "s23"
+      ],
+      "status": "ok",
+      "note": "Походження назви від бренду одягу — s22."
+    },
+    {
+      "id": "c35",
+      "text": "Команда базується у Фаенці.",
+      "sources": [
+        "s23",
+        "s22"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c36",
+      "text": "Монца-2020 — друга перемога команди і перша після Феттеля на Монці 2008 року.",
+      "sources": [
+        "s10",
+        "s14",
+        "s23",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c37",
+      "text": "Тост: «Twelve years after the great victory in Monza in 2008 with Sebastian Vettel…».",
+      "sources": [
+        "s11"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c38",
+      "text": "Тост: «We had good luck with the red flag».",
+      "sources": [
+        "s12"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c39",
+      "text": "Джанкарло Мінарді (ANSA): «Yesterday there were parades of thrilled fans in Faenza and around the works».",
+      "sources": [
+        "s23"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c40",
+      "text": "Гамілтон: «I take responsibility for that».",
+      "sources": [
+        "s11"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c41",
+      "text": "Гаслі (нар. 7 лютого 1996) у день гонки було 24 роки.",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c42",
+      "text": "Обидві Ferrari (Феттель і Леклер) зійшли.",
+      "sources": [
+        "s9",
+        "s1",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c43",
+      "text": "Франц Тост — керівник AlphaTauri у 2020 році.",
+      "sources": [
+        "s11"
+      ],
+      "status": "one",
+      "note": "s13 (теж Formula 1) називає Тоста «AlphaTauri boss»."
+    },
+    {
+      "id": "c44",
+      "text": "2008 року Феттель виграв на Монці з поула під дощем.",
+      "sources": [
+        "s24",
+        "s25"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c45",
+      "text": "Під час червоного прапора Гамілтон ходив до стюардів, і йому показали онборд-відео з табличками закриття.",
+      "sources": [
+        "s20"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c46",
+      "text": "Гамілтон пояснив, що стежив за дельтою машини безпеки на дисплеї і не побачив табличок про закритий піт-лейн.",
+      "sources": [
+        "s11",
+        "s20"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c47",
+      "text": "Сайнс вважав, що без червоного прапора міг би виграти.",
+      "sources": [
+        "s11"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c48",
+      "text": "Гаслі: «I've been through so much in the space of 18 months».",
+      "sources": [
+        "s19"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c49",
+      "text": "Для Стролла це другий подіум у кар'єрі.",
+      "sources": [
+        "s10",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c50",
+      "text": "Найкращий серед пілотів Mercedes, Ferrari і Red Bull — Боттас, п'ятий.",
+      "sources": [
+        "s9",
+        "s1",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c51",
+      "text": "Друге місце — найкращий результат Сайнса в кар'єрі на той момент.",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c52",
+      "text": "Гаслі: «my tyres were completely gone» в останніх колах.",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c53",
+      "text": "Квят фінішував дев'ятим; обидві AlphaTauri набрали очки.",
+      "sources": [
+        "s9",
+        "s1",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c54",
+      "text": "Під машиною безпеки Гамілтону поставили середні шини.",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c55",
+      "text": "AlphaTauri стартувала на рестарті на середніх шинах, а Стролл не зміг швидко прогріти свої.",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c56",
+      "text": "Гаслі: «I'm not someone who gives up on anything, I always fought for everything in my life until I made it to F1».",
+      "sources": [
+        "s11"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c57",
+      "text": "Тост: «Pierre drove a fantastic race without any mistakes».",
+      "sources": [
+        "s12"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c58",
+      "text": "Мінарді: «and there was also a touch of pride with respect to Ferrari».",
+      "sources": [
+        "s23"
+      ],
+      "status": "one",
+      "note": "У тексті ANSA — «a touch o pride» (друкарська помилка джерела)."
+    },
+    {
+      "id": "c59",
+      "text": "Порядок на рестарті: Гамілтон, Стролл, Гаслі.",
+      "sources": [
+        "s10",
+        "s4",
+        "s3",
+        "s26"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c60",
+      "text": "Стролл до червоного прапора не заїжджав на піт-стоп і фактично отримав безкоштовну зупинку під час перерви.",
+      "sources": [
+        "s10",
+        "s15",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c61",
+      "text": "Гамілтон отримав також 2 штрафні бали — разом 8 за 12 місяців.",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/gasly-monza-2020/m1-1280.webp",
+      "srcSet": "/img/stories/gasly-monza-2020/m1-1280.webp 1280w, /img/stories/gasly-monza-2020/m1-800.webp 800w, /img/stories/gasly-monza-2020/m1-480.webp 480w",
+      "width": 1280,
+      "height": 835,
+      "focus": "50% 55%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Pierre_Gasly-Alpha_Tauri_AT01_(2)_(cropped).jpg",
+        "author": "Alberto-g-rovi",
+        "license": "CC BY 3.0"
+      },
+      "caption": {
+        "uk": "П'єр Гаслі на AlphaTauri AT01 під час передсезонних тестів у Барселоні, 20 лютого 2020 року.",
+        "en": "Pierre Gasly in the AlphaTauri AT01 during pre-season testing in Barcelona, 20 February 2020."
+      },
+      "alt": {
+        "uk": "Біло-темно-синій болід AlphaTauri на трасі збоку.",
+        "en": "A white and dark blue AlphaTauri car on track, side view."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/gasly-monza-2020/m2-800.webp",
+      "srcSet": "/img/stories/gasly-monza-2020/m2-800.webp 800w, /img/stories/gasly-monza-2020/m2-480.webp 480w",
+      "width": 800,
+      "height": 533,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Pierre_Gasly,_Toro_Rosso-Honda_STR14,_2019_Italian_Grand_Prix,_Monza,_6th_September.jpg",
+        "author": "Interceptor73",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "П'єр Гаслі на Toro Rosso STR14, Гран-прі Італії 2019 року, Монца, 6 вересня.",
+        "en": "Pierre Gasly in the Toro Rosso STR14, 2019 Italian Grand Prix, Monza, 6 September."
+      },
+      "alt": {
+        "uk": "Темно-синій болід Toro Rosso проходить поворот біля зелених шин-відбійників.",
+        "en": "A dark blue Toro Rosso car rounds a corner next to green tyre barriers."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/gasly-monza-2020/m3-800.webp",
+      "srcSet": "/img/stories/gasly-monza-2020/m3-800.webp 800w, /img/stories/gasly-monza-2020/m3-480.webp 480w",
+      "width": 800,
+      "height": 600,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Honda_RACING_Gallery_2020_AlphaTauri_AT01_Pierre_Gasly.jpg",
+        "author": "BWard 1997",
+        "license": "CC BY 4.0"
+      },
+      "caption": {
+        "uk": "AlphaTauri AT01 П'єра Гаслі сезону 2020 у Honda RACING Gallery, Сузука, вересень 2024 року.",
+        "en": "Pierre Gasly's 2020 AlphaTauri AT01 at the Honda RACING Gallery, Suzuka, September 2024."
+      },
+      "alt": {
+        "uk": "Білий болід AlphaTauri на подіумі в темному виставковому залі.",
+        "en": "A white AlphaTauri car on a plinth in a dark exhibition hall."
+      }
+    }
+  ]
+}

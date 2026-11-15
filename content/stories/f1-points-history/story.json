@@ -1,0 +1,1032 @@
+{
+  "slug": "f1-points-history",
+  "category": "history",
+  "years": [
+    1950,
+    1954,
+    1960,
+    1961,
+    1964,
+    1988,
+    1991,
+    2003,
+    2010,
+    2014,
+    2019,
+    2021,
+    2022,
+    2025
+  ],
+  "title": {
+    "uk": "Від 8 до 25: як змінювалися очки у Формулі-1",
+    "en": "From 8 to 25: how Formula 1 points have changed"
+  },
+  "dek": {
+    "uk": "Чотири найкращі результати із семи, сьома частина очка, подвійні очки в Абу-Дабі й половина очок за гонку без жодного гоночного кола. Як F1 понад 75 років переписує свою арифметику.",
+    "en": "Four best results out of seven, a seventh of a point, double points in Abu Dhabi and half points for a race without a single racing lap. How F1 has kept rewriting its arithmetic for more than 75 years."
+  },
+  "links": {
+    "seasons": [
+      1950,
+      1964,
+      1988,
+      1991,
+      2002,
+      2003,
+      2010,
+      2014,
+      2019,
+      2021,
+      2022,
+      2024,
+      2025
+    ],
+    "races": [
+      "1954/5",
+      "2014/19",
+      "2019/1",
+      "2021/12",
+      "2022/18",
+      "2024/18"
+    ],
+    "drivers": [
+      "fagioli",
+      "hill",
+      "surtees",
+      "prost",
+      "senna",
+      "michael_schumacher",
+      "barrichello",
+      "raikkonen",
+      "hamilton",
+      "rosberg",
+      "bottas",
+      "ricciardo",
+      "norris",
+      "max_verstappen",
+      "russell"
+    ],
+    "teams": [
+      "mercedes",
+      "red-bull",
+      "mclaren",
+      "ferrari",
+      "racing-bulls"
+    ],
+    "circuits": [
+      "silverstone",
+      "yas_marina",
+      "albert_park",
+      "spa",
+      "suzuka",
+      "marina_bay"
+    ],
+    "stories": [
+      "how-f1-began"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "F1 points system: how it works, and what's changed (Edward Hardy)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2025-01-15",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/f1-points-system-how-it-works-and-what-has-changed",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "Explained: F1's points system and how drivers earned points in the past (Thomas Maher)",
+      "publisher": "PlanetF1",
+      "date": "2025-01-04",
+      "url": "https://www.planetf1.com/news/explained-f1-points-system-and-how-drivers-earned-points-in-the-past",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "History of the F1 points system with proposed structure for 2025",
+      "publisher": "Autosport",
+      "date": "2024-04-25",
+      "url": "https://www.autosport.com/f1/news/history-of-the-f1-points-system-with-proposed-structure-for-2025/10603210/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "From 8 points for a win to 25: Every F1 scoring system (Keith Collantine)",
+      "publisher": "RaceFans",
+      "date": "2009-12-22",
+      "url": "https://www.racefans.net/2009/12/22/every-formula-1-points-system-1950-2010/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "F1 points system: How are points awarded in 2025?",
+      "publisher": "Crash.net",
+      "date": "2025-08-31",
+      "url": "https://www.crash.net/f1/news/1011764/1/f1-points-system-how-does-point-scoring-work-how-many-points-race-win",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "Teams agree to points system tweak (Jonathan Noble)",
+      "publisher": "Autosport",
+      "date": "2010-01-25",
+      "url": "https://www.autosport.com/f1/news/81048/teams-agree-to-points-system-tweak",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "F1 set to formalise points system",
+      "publisher": "Reuters (via Al Jazeera)",
+      "date": "2010-02-02",
+      "url": "https://www.aljazeera.com/sports/2010/2/2/f1-set-to-formalise-points-system",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "2010 F1 rules published: FIA changes post-race penalties and fuel declarations (Keith Collantine)",
+      "publisher": "RaceFans",
+      "date": "2010-02-12",
+      "url": "https://www.racefans.net/2010/02/12/2010-f1-rules-published-fia-changes-post-race-penalties-and-fuel-declarations/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "F1's controversial double-points finale set to be scrapped in 2015",
+      "publisher": "Sky Sports",
+      "date": "2014-11-27",
+      "url": "https://www1.skysports.com/f1/news/12433/9581551/f1s-controversial-double-points-finale-to-be-scrapped-in-2015",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "Formula One Scraps Double Points, Reviews Safety",
+      "publisher": "Associated Press (via Claims Journal)",
+      "date": "2014-12-05",
+      "url": "https://www.claimsjournal.com/news/international/2014/12/05/258622.htm",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "Standing restarts and double points officially canned by FIA (with the text of the FIA WMSC decisions)",
+      "publisher": "Adam Cooper's F1 Blog",
+      "date": "2014-12-03",
+      "url": "https://adamcooperf1.com/2014/12/03/standing-restarts-and-double-points-officially-canned-by-fia/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Championship point for fastest race lap returns to Formula 1",
+      "publisher": "FIA",
+      "date": "2019-03-11",
+      "url": "https://www.fia.com/news/championship-point-fastest-race-lap-returns-formula-1",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "Formula One to scrap fastest-lap bonus point from next season",
+      "publisher": "RTÉ",
+      "date": "2024-10-17",
+      "url": "https://www.rte.ie/sport/motorsport/2024/1017/1476082-f1-to-scrap-fastest-lap-bonus-point-from-next-season",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "The FIA has scrapped F1's fastest lap bonus point for 2025",
+      "publisher": "Top Gear",
+      "date": "2024-10-18",
+      "url": "https://www.topgear.com/car-news/formula-one/fia-has-scrapped-f1s-fastest-lap-bonus-point-2025",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "The rule anomaly behind Verstappen's confusing F1 coronation (Matt Beer)",
+      "publisher": "The Race",
+      "date": "2022-10-09",
+      "url": "https://the-race.com/formula-1/the-rule-anomaly-behind-verstappens-confusing-f1-coronation/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "Confusion as Verstappen declared champion after shortened Suzuka race (Keith Collantine)",
+      "publisher": "RaceFans",
+      "date": "2022-10-09",
+      "url": "https://www.racefans.net/2022/10/09/confusion-as-verstappen-declared-champion-after-shortened-suzuka-race/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "Verstappen wins chaotic, rain-shortened Japanese GP to clinch title",
+      "publisher": "Sky Sports (via CNBC)",
+      "date": "2022-10-09",
+      "url": "https://www.cnbc.com/2022/10/09/verstappen-wins-chaotic-rain-shortened-japanese-gp-to-clinch-title-.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "F1 tweaks flawed points rule, eases radio restrictions and approves new rain tyres (Keith Collantine)",
+      "publisher": "RaceFans",
+      "date": "2023-02-21",
+      "url": "https://www.racefans.net/2023/02/21/f1-tweaks-flawed-points-rule-eases-radio-restrictions-and-approves-new-rain-tyres/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "F1 rewrites the rule on shortened races",
+      "publisher": "Reuters (via TimesLIVE)",
+      "date": "2023-02-22",
+      "url": "https://www.timeslive.co.za/motoring/motorsport/2023-02-22-f1-rewrites-the-rule-on-shortened-races/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "1950 — final drivers' standings",
+      "publisher": "Jolpica F1 API",
+      "date": "1950",
+      "url": "https://api.jolpi.ca/ergast/f1/1950/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "1954 British Grand Prix — results",
+      "publisher": "Jolpica F1 API",
+      "date": "1954-07-17",
+      "url": "https://api.jolpi.ca/ergast/f1/1954/5/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "1960 Argentine Grand Prix — results",
+      "publisher": "Jolpica F1 API",
+      "date": "1960-02-07",
+      "url": "https://api.jolpi.ca/ergast/f1/1960/1/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "1961 Monaco Grand Prix — results",
+      "publisher": "Jolpica F1 API",
+      "date": "1961-05-14",
+      "url": "https://api.jolpi.ca/ergast/f1/1961/1/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s24",
+      "title": "1964 — final drivers' standings",
+      "publisher": "Jolpica F1 API",
+      "date": "1964",
+      "url": "https://api.jolpi.ca/ergast/f1/1964/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s25",
+      "title": "1988 — final drivers' standings",
+      "publisher": "Jolpica F1 API",
+      "date": "1988",
+      "url": "https://api.jolpi.ca/ergast/f1/1988/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s26",
+      "title": "1991 — race winners",
+      "publisher": "Jolpica F1 API",
+      "date": "1991",
+      "url": "https://api.jolpi.ca/ergast/f1/1991/results/1/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s27",
+      "title": "2002 — race winners",
+      "publisher": "Jolpica F1 API",
+      "date": "2002",
+      "url": "https://api.jolpi.ca/ergast/f1/2002/results/1/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s28",
+      "title": "2002 — final drivers' standings",
+      "publisher": "Jolpica F1 API",
+      "date": "2002",
+      "url": "https://api.jolpi.ca/ergast/f1/2002/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s29",
+      "title": "2003 Australian Grand Prix — results",
+      "publisher": "Jolpica F1 API",
+      "date": "2003-03-09",
+      "url": "https://api.jolpi.ca/ergast/f1/2003/1/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s30",
+      "title": "2003 — final drivers' standings",
+      "publisher": "Jolpica F1 API",
+      "date": "2003",
+      "url": "https://api.jolpi.ca/ergast/f1/2003/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s31",
+      "title": "2014 Abu Dhabi Grand Prix — results",
+      "publisher": "Jolpica F1 API",
+      "date": "2014-11-23",
+      "url": "https://api.jolpi.ca/ergast/f1/2014/19/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s32",
+      "title": "2019 Australian Grand Prix — results",
+      "publisher": "Jolpica F1 API",
+      "date": "2019-03-17",
+      "url": "https://api.jolpi.ca/ergast/f1/2019/1/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s33",
+      "title": "2021 British Grand Prix — sprint results",
+      "publisher": "Jolpica F1 API",
+      "date": "2021-07-17",
+      "url": "https://api.jolpi.ca/ergast/f1/2021/10/sprint/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s34",
+      "title": "2022 Emilia Romagna Grand Prix — sprint results",
+      "publisher": "Jolpica F1 API",
+      "date": "2022-04-23",
+      "url": "https://api.jolpi.ca/ergast/f1/2022/4/sprint/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s35",
+      "title": "2021 Belgian Grand Prix — results",
+      "publisher": "Jolpica F1 API",
+      "date": "2021-08-29",
+      "url": "https://api.jolpi.ca/ergast/f1/2021/12/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s36",
+      "title": "2022 Japanese Grand Prix — results",
+      "publisher": "Jolpica F1 API",
+      "date": "2022-10-09",
+      "url": "https://api.jolpi.ca/ergast/f1/2022/18/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s37",
+      "title": "2024 Singapore Grand Prix — results",
+      "publisher": "Jolpica F1 API",
+      "date": "2024-09-22",
+      "url": "https://api.jolpi.ca/ergast/f1/2024/18/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s38",
+      "title": "2026 Brazilian Grand Prix — results",
+      "publisher": "Jolpica F1 API",
+      "date": "2026-11-08",
+      "url": "https://api.jolpi.ca/ergast/f1/2026/20/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s39",
+      "title": "1991 United States Grand Prix — results",
+      "publisher": "Jolpica F1 API",
+      "date": "1991-03-10",
+      "url": "https://api.jolpi.ca/ergast/f1/1991/1/results/",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "1950: очки першій п'ятірці — 8-6-4-3-2",
+      "sources": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "1950-ті: очко за найшвидше коло незалежно від місця на фініші",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c3",
+      "text": "1950–1953: у залік ішли чотири найкращі результати",
+      "sources": [
+        "s2",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "text": "Фаджолі 1950: 28 очок набрав, у заліку 24, третє місце",
+      "sources": [
+        "s1",
+        "s20"
+      ],
+      "status": "ok",
+      "note": "s20: 24 очки, 3-тє місце; 28 — лише s1."
+    },
+    {
+      "id": "c5",
+      "text": "Правило найкращих результатів діяло до 1990 року",
+      "sources": [
+        "s1",
+        "s3",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "Гран-прі Британії 1954: найкращий час (1:50) у семи пілотів, кожен отримав 1/7 очка; серед них Фанхіо, Аскарі, Мосс, Готорн",
+      "sources": [
+        "s4",
+        "s21"
+      ],
+      "status": "ok",
+      "note": "s21: дробові очки (x,14) у Гонсалеса, Готорна, Марімона, Фанхіо. Час 1:50 — лише s4."
+    },
+    {
+      "id": "c7",
+      "text": "До 1958 року пілоти, які ділили машину, ділили й очки",
+      "sources": [
+        "s4"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c8",
+      "text": "1960: очки отримує й шосте місце; бонус за найшвидше коло скасовано",
+      "sources": [
+        "s4",
+        "s2",
+        "s22"
+      ],
+      "status": "ok",
+      "note": "s22: 6-те місце — 1 очко (Айрленд, Аргентина-1960)."
+    },
+    {
+      "id": "c9",
+      "text": "1961: дев'ять очок за перемогу",
+      "sources": [
+        "s2",
+        "s3",
+        "s4",
+        "s23"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "1961: у заліку конструкторів за перемогу — вісім очок",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c11",
+      "text": "Шкала з дев'ятьма очками за перемогу діяла до 1990 року — найдовший період без змін",
+      "sources": [
+        "s1",
+        "s4"
+      ],
+      "status": "ok",
+      "note": "s2 датує цю шкалу 1962–1990 (через різницю 1961 року в заліку конструкторів)."
+    },
+    {
+      "id": "c12",
+      "text": "1979: вісім найкращих результатів — чотири з перших семи гонок і чотири з останніх восьми",
+      "sources": [
+        "s2",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "1981–1990: у залік ішли 11 найкращих результатів; у сезоні бувало 16 гонок",
+      "sources": [
+        "s2",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c14",
+      "text": "1964: Гілл набрав на очко більше, але викинув п'яте місце в Бельгії; Сертіс — чемпіон, 40:39",
+      "sources": [
+        "s1",
+        "s3",
+        "s24"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "text": "1988: Прост набрав 105 очок, Сенна — 94",
+      "sources": [
+        "s1",
+        "s3"
+      ],
+      "status": "ok",
+      "note": "s3: Прост набрав на 11 очок більше (105−94=11)."
+    },
+    {
+      "id": "c16",
+      "text": "1988: у залік ішли 11 найкращих результатів; Сенна — чемпіон з 90 очками, Прост — 87",
+      "sources": [
+        "s1",
+        "s4",
+        "s25"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c17",
+      "text": "1988: Прост викинув 18 очок, Сенна — чотири",
+      "sources": [
+        "s4"
+      ],
+      "status": "one",
+      "note": "s3: Сенна викинув на 14 очок менше — узгоджується."
+    },
+    {
+      "id": "c18",
+      "text": "1991: правило найкращих результатів скасовано, перемога — 10 очок; шкала діяла до 2002 року",
+      "sources": [
+        "s1",
+        "s4",
+        "s3",
+        "s2",
+        "s39"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c19",
+      "text": "Сенна виграв перші чотири гонки 1991 року",
+      "sources": [
+        "s4",
+        "s26"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c20",
+      "text": "2002: Шумахер оформив титул на Гран-прі Франції 21 липня, за шість етапів до кінця",
+      "sources": [
+        "s4",
+        "s27"
+      ],
+      "status": "ok",
+      "note": "s27: Гран-прі Франції — 11-й етап із 17."
+    },
+    {
+      "id": "c21",
+      "text": "2002: перевага Шумахера — 67 очок (144 проти 77 у Баррікелло)",
+      "sources": [
+        "s1",
+        "s28"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "text": "2003: очки першій вісімці — 10-8-6-5-4-3-2-1",
+      "sources": [
+        "s2",
+        "s5",
+        "s29"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c23",
+      "text": "Зміну 2003 року пов'язують із домінуванням Шумахера; різниця між першим і другим — два очки",
+      "sources": [
+        "s1",
+        "s4",
+        "s3"
+      ],
+      "status": "ok",
+      "note": "s3: до 2010 року різниця між першим і другим — два очки."
+    },
+    {
+      "id": "c24",
+      "text": "2003: Шумахер виграв шостий титул з перевагою у два очки над Ряйкконеном",
+      "sources": [
+        "s1",
+        "s30"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "Грудень 2009: FIA оголосила шкалу 25-20-15-10-8-6-5-3-2-1",
+      "sources": [
+        "s6",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c26",
+      "text": "Січень 2010: Sporting Working Group схвалила різницю в сім очок між першим і другим",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c27",
+      "text": "Горнер: «never be afraid of change so long as it is a change for the better»",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c28",
+      "text": "Лютий 2010: затверджено 25-18-15-12-10-8-6-4-2-1 — «race to win»; 12 лютого FIA опублікувала регламент",
+      "sources": [
+        "s7",
+        "s8",
+        "s1"
+      ],
+      "status": "ok",
+      "note": "Цитата «race to win» — s7 (заява FIA); s1: зміна мала заохочувати «race-to-win»."
+    },
+    {
+      "id": "c29",
+      "text": "Подвійні очки за фінал оголосили в грудні 2013 року",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "AP: подвійні очки запровадив Берні Екклстоун, щоб утримати телеаудиторію до фіналу",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c31",
+      "text": "Екклстоун хотів подвоювати очки в трьох останніх гонках",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c32",
+      "text": "Гамілтон виграв Абу-Дабі-2014 і отримав 50 очок",
+      "sources": [
+        "s31",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c33",
+      "text": "AP: Гамілтон міг втратити титул через подвійні очки, якби Росберг виграв, а Гамілтон фінішував третім",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c34",
+      "text": "Подвійні очки не вплинули на чемпіона: Гамілтон виграв би й без них",
+      "sources": [
+        "s1",
+        "s3",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c35",
+      "text": "На початку грудня 2014 WMSC скасувала подвійні очки",
+      "sources": [
+        "s11",
+        "s10",
+        "s1"
+      ],
+      "status": "ok",
+      "note": "s11 наводить текст рішення від 3 грудня 2014."
+    },
+    {
+      "id": "c36",
+      "text": "FIA, 11.03.2019: очко за найшвидше коло пілоту з першої десятки і його команді; WMSC 7 березня, одностайне e-голосування; +21 очко за сезон",
+      "sources": [
+        "s12"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c37",
+      "text": "Востаннє бонус за коло давали 1959 року",
+      "sources": [
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c38",
+      "text": "Першим бонус отримав Боттас: 26 очок в Австралії-2019",
+      "sources": [
+        "s32"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c39",
+      "text": "За бонусом полювали пізнім піт-стопом на свіжих шинах, маючи запас позаду",
+      "sources": [
+        "s1",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c40",
+      "text": "Сінгапур-2024: Ріккардо (RB) пізнім піт-стопом забрав бонус у Норріса, що допомогло Ферстаппену",
+      "sources": [
+        "s1",
+        "s13",
+        "s14",
+        "s37"
+      ],
+      "status": "ok",
+      "note": "s37: Норріс отримав 25 очок без бонусу."
+    },
+    {
+      "id": "c41",
+      "text": "Жовтень 2024: FIA оголосила, що з 2025 року бонусу за коло не буде",
+      "sources": [
+        "s13",
+        "s14",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c42",
+      "text": "Спринти з 2021 року на трьох етапах, очки 3-2-1",
+      "sources": [
+        "s1",
+        "s2",
+        "s3",
+        "s33"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c43",
+      "text": "2022: спринт — очки першій вісімці, від 8 до 1",
+      "sources": [
+        "s1",
+        "s3",
+        "s34"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c44",
+      "text": "До 2022: очки дають, якщо пройдено два кола; менше 75% дистанції — половина очок",
+      "sources": [
+        "s1",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c45",
+      "text": "Бельгія-2021: через дощ кілька кіл лише за машиною безпеки",
+      "sources": [
+        "s1",
+        "s15",
+        "s3"
+      ],
+      "status": "ok",
+      "note": "Кількість кіл у джерелах різна (s1 — два, s15 — три, s35 — класифіковано одне), тому в тексті без числа."
+    },
+    {
+      "id": "c46",
+      "text": "Ферстаппен — 12,5 очка, Расселл — 9, без жодного гоночного кола",
+      "sources": [
+        "s35",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c47",
+      "text": "З 2022: очки лише за кола в гоночних умовах; до 25% — 6-4-3-2-1 (п'ятірка), 25–50% — 13 переможцю, дев'ятка; 50–75% — 19 переможцю, десятка",
+      "sources": [
+        "s3",
+        "s5",
+        "s15",
+        "s1"
+      ],
+      "status": "ok",
+      "note": "s15: «under racing conditions»; s1: «under green flag conditions»."
+    },
+    {
+      "id": "c48",
+      "text": "Сузука-2022: червоний прапор, рестарт; трохи більше половини дистанції",
+      "sources": [
+        "s15",
+        "s16",
+        "s17",
+        "s19"
+      ],
+      "status": "ok",
+      "note": "Кількість кіл: s17 — 29 з 53, s19 і s36 — 28."
+    },
+    {
+      "id": "c49",
+      "text": "Команди чекали 19 очок за перемогу, нарахували повні",
+      "sources": [
+        "s15",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c50",
+      "text": "Речник FIA: «The rules regarding the reduced points allocation (article 6.5) only apply in the event of race suspension that cannot be resumed»",
+      "sources": [
+        "s16"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c51",
+      "text": "Ферстаппен отримав 25 очок і вдруге став чемпіоном за чотири гонки до кінця",
+      "sources": [
+        "s17",
+        "s19",
+        "s36"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c52",
+      "text": "Лютий 2023: Комісія F1 змінила формулювання — «ensure that shorter races have reduced points even if they don't finish with a suspended race»",
+      "sources": [
+        "s18",
+        "s19"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c53",
+      "text": "Autosport (квітень 2024): пропозиція давати очки першим 12",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c54",
+      "text": "Брандл: «Points must be hard won and treasured. Valued. Not some kind of lucky dip where everyone wins a prize.»",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c55",
+      "text": "Бразилія-2026: переможцю 25, очки лише першій десятці, бонусу за коло немає",
+      "sources": [
+        "s38"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/f1-points-history/m1-1280.webp",
+      "srcSet": "/img/stories/f1-points-history/m1-1280.webp 1280w, /img/stories/f1-points-history/m1-800.webp 800w, /img/stories/f1-points-history/m1-480.webp 480w",
+      "width": 1280,
+      "height": 834,
+      "focus": "50% 35%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Collins_Fangio_and_Hawthorn_podium_Nurburgring_1957.jpg",
+        "author": "Willy Pragher",
+        "license": "CC BY 3.0"
+      },
+      "caption": {
+        "uk": "Подіум Гран-прі Німеччини 1957 року на Нюрбургринзі: Пітер Коллінз (третій), переможець Хуан-Мануель Фанхіо і Майк Готорн (другий).",
+        "en": "The 1957 German Grand Prix podium at the Nürburgring: Peter Collins (third), winner Juan Manuel Fangio and Mike Hawthorn (second)."
+      },
+      "alt": {
+        "uk": "Чорно-біла світлина: пілоти в тісному натовпі під банером Гран-прі Німеччини.",
+        "en": "A black-and-white photo of drivers in a tight crowd under a German Grand Prix banner."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/f1-points-history/m2-800.webp",
+      "srcSet": "/img/stories/f1-points-history/m2-800.webp 800w, /img/stories/f1-points-history/m2-480.webp 480w",
+      "width": 800,
+      "height": 453,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Mschumacher_2002.jpg",
+        "author": "Mathieu Felten",
+        "license": "CC BY 2.5"
+      },
+      "caption": {
+        "uk": "Міхаель Шумахер на Ferrari F2002, Гран-прі Франції, липень 2002 року.",
+        "en": "Michael Schumacher in the Ferrari F2002 at the French Grand Prix, July 2002."
+      },
+      "alt": {
+        "uk": "Червоний болід Ferrari на трасі.",
+        "en": "A red Ferrari car on track."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/f1-points-history/m3-800.webp",
+      "srcSet": "/img/stories/f1-points-history/m3-800.webp 800w, /img/stories/f1-points-history/m3-480.webp 480w",
+      "width": 800,
+      "height": 533,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:2022_Japanese_Grand_Prix_Award_Ceremony_1.jpg",
+        "author": "Japan Tourism Agency (国土交通省 観光庁)",
+        "license": "CC BY 4.0"
+      },
+      "caption": {
+        "uk": "Церемонія нагородження Гран-прі Японії 2022 року, Сузука, 9 жовтня.",
+        "en": "The award ceremony of the 2022 Japanese Grand Prix, Suzuka, 9 October."
+      },
+      "alt": {
+        "uk": "Сцена подіуму під логотипом F1, над нею прапори Мексики, Нідерландів і Монако.",
+        "en": "A podium stage under the F1 logo, with the flags of Mexico, the Netherlands and Monaco above it."
+      }
+    }
+  ]
+}

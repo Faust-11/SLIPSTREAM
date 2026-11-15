@@ -1,0 +1,775 @@
+{
+  "slug": "brawn-gp-2009",
+  "category": "sensation",
+  "years": [
+    2008,
+    2009
+  ],
+  "title": {
+    "uk": "Brawn GP: чемпіони, яких не мало бути",
+    "en": "Brawn GP: the champions that weren't supposed to exist"
+  },
+  "dek": {
+    "uk": "У грудні 2008-го Honda кинула команду напризволяще. За рік та сама команда під іншою назвою виграла обидва титули й пішла до Mercedes.",
+    "en": "In December 2008 Honda walked away from its team. A year later the same team, under a new name, had won both titles and been sold to Mercedes."
+  },
+  "links": {
+    "seasons": [
+      2008,
+      2009
+    ],
+    "races": [
+      "2009/1",
+      "2009/7",
+      "2009/16"
+    ],
+    "drivers": [
+      "button",
+      "barrichello",
+      "vettel"
+    ],
+    "teams": [
+      "brawn",
+      "honda",
+      "mercedes",
+      "red-bull",
+      "toyota",
+      "williams"
+    ],
+    "circuits": [
+      "albert_park",
+      "interlagos"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Statement by Takeo Fukui, President and CEO, Honda Motor Co., Ltd.",
+      "publisher": "Honda Motor Co.",
+      "date": "2008-12-05",
+      "url": "https://global.honda/en/newsroom/news/2008/c081205eng.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "Honda confirm immediate F1 pull out",
+      "publisher": "Autosport",
+      "date": "2008-12-05",
+      "url": "https://www.autosport.com/f1/news/72322/honda-confirm-immediate-f1-pull-out",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "Honda will accept 'small price' for team",
+      "publisher": "Autosport",
+      "date": "2008-12-06",
+      "url": "https://www.autosport.com/f1/news/72359/honda-will-accept-mall-price-for-team",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "Honda F1 chief hopeful of buyer rescuing team (Associated Press, Rob Harris)",
+      "publisher": "HeraldNet / AP",
+      "date": "2008-12-05",
+      "url": "https://www.heraldnet.com/2008/12/05/honda-f1-chief-hopeful-of-buyer-rescuing-team/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "Honda Announces Sale of the Honda Racing F1 Team",
+      "publisher": "Honda Motor Co.",
+      "date": "2009-03-06",
+      "url": "https://global.honda/en/newsroom/news/2009/c090306eng.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "Brawn GP arrives",
+      "publisher": "GrandPrix.com",
+      "date": "2009-03-06",
+      "url": "https://grandprix.com/news/brawn-gp-arrives.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "Brawn GP takes Honda F1's place on the 2009 F1 grid – official",
+      "publisher": "RaceFans",
+      "date": "2009-03-06",
+      "url": "https://www.racefans.net/?p=18725",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "Extra funding needed to secure Brawn GP's future",
+      "publisher": "Motor Sport",
+      "date": "2009-05",
+      "url": "https://www.motorsportmagazine.com/archive/article/may-2009/11/extra-funding-needed-secure-brawn-gps-future/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "Brawn £100m better off after Merc sale",
+      "publisher": "Crash.net",
+      "date": "2011-03",
+      "url": "https://www.crash.net/f1/news/167211/1/brawn-100m-better-off-after-merc-sale",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "Brawn nets £100 million from Brawn/Merc sale",
+      "publisher": "Motorsport Week",
+      "date": "2011-03-07",
+      "url": "https://www.motorsportweek.com/2011/03/07/2747/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "FIA declares double diffusers legal",
+      "publisher": "Autosport",
+      "date": "2009-04-15",
+      "url": "https://www.autosport.com/f1/news/74475/fia-declares-double-diffusers-legal",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Trio cleared over diffusers",
+      "publisher": "Sky Sports",
+      "date": "2009-04-16",
+      "url": "https://www.skysports.com/f1/news/5190760/trio-cleared-over-diffusers",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "Full diffuser decision of the FIA Court of Appeal",
+      "publisher": "F1Technical",
+      "date": "2009-04-20",
+      "url": "https://www.f1technical.net/news/12191",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "Banned: Why double diffusers were outlawed (Matt Somerfield, Giorgio Piola)",
+      "publisher": "Motorsport.com",
+      "date": "2021-10-18",
+      "url": "https://www.motorsport.com/f1/news/banned-f1-tech-double-diffusers/4793556/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "The untold stories of Brawn GP – Busting the myth of the double diffuser (Laurence Edmondson)",
+      "publisher": "ESPN",
+      "date": "2023-11-16",
+      "url": "https://www.espn.co.uk/f1/story/_/id/28167450/busting-myth-brawn-gp-legendary-double-diffuser",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "The complete 2009 Australian GP review",
+      "publisher": "Autosport",
+      "date": "2009-03-29",
+      "url": "https://www.autosport.com/f1/feature/2062/the-complete-2009-australian-gp-review",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "Australian GP 2009 – race report",
+      "publisher": "GrandPrix.com",
+      "date": "2009-03-29",
+      "url": "https://www.grandprix.com/races/australian-gp-2009.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "The five times an F1 team won its debut race",
+      "publisher": "RacingNews365",
+      "date": "",
+      "url": "https://racingnews365.com/the-five-times-an-f1-team-won-its-debut-race",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "Button clinches title as Webber wins",
+      "publisher": "Autosport",
+      "date": "2009-10-18",
+      "url": "https://www.autosport.com/f1/news/79574/button-clinches-title-as-webber-wins",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "Button crowned world champion (Brazilian GP)",
+      "publisher": "RTÉ Sport",
+      "date": "2009-10-18",
+      "url": "https://www.rte.ie/sport/motorsport/2009/1018/256233-buttonj",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "Brawn hails 'sensational' Button",
+      "publisher": "Motor Sport",
+      "date": "2009-12",
+      "url": "https://www.motorsportmagazine.com/archive/page/december-2009/10",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "Mercedes announces Mercedes Grand Prix",
+      "publisher": "GrandPrix.com",
+      "date": "2009-11-16",
+      "url": "https://www.grandprix.com/ns/ns21982.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "Brawn introduces Mercedes Grand Prix",
+      "publisher": "F1Technical",
+      "date": "2009-11-16",
+      "url": "https://www.f1technical.net/news/13786",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s24",
+      "title": "Aabar in buyout of Brawn GP race team",
+      "publisher": "The National",
+      "date": "2009-11-17",
+      "url": "https://www.thenationalnews.com/sport/other-sport/aabar-in-buyout-of-brawn-gp-race-team-1.503078",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s25",
+      "title": "Jolpica F1 API — Brawn results 2009",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2009/constructors/brawn/results/?limit=100",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s26",
+      "title": "Jolpica F1 API — 2009 driver and constructor standings",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2009/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s27",
+      "title": "Jolpica F1 API — 2008 constructor standings",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2008/constructorStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s28",
+      "title": "Jolpica F1 API — 1954 French GP results (also checked: 1950/1, 1977/1)",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1954/4/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s29",
+      "title": "Jolpica F1 API — 2009 constructor standings",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2009/constructorStandings/",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "5 грудня 2008 року Honda оголосила про вихід з Ф1; сезон 2008 — останній",
+      "sources": [
+        "s1",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "Причина за словами Такео Фукуі — погіршення умов для світового автопрому, потреба захистити основний бізнес",
+      "sources": [
+        "s1",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "Команда базувалася в Бреклі й мала близько 700 працівників",
+      "sources": [
+        "s4"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c4",
+      "text": "Honda виставила команду на продаж",
+      "sources": [
+        "s1",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c5",
+      "text": "У 2008 році Honda набрала 14 очок і посіла 9-те місце серед конструкторів",
+      "sources": [
+        "s27"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c6",
+      "text": "Цитата Фукуі: «Just to make the team possible to exist, a small price tag is acceptable.»",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c7",
+      "text": "За джерелами Autosport, фінансування команди гарантували лише до березня 2009",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c8",
+      "text": "Керівник команди Росс Браун і CEO Нік Фрай; Браун — колишній керівник Honda Racing F1",
+      "sources": [
+        "s2",
+        "s5",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "6 березня 2009 Honda оголосила про продаж усіх акцій Honda Racing F1 Team Россу Брауну",
+      "sources": [
+        "s5",
+        "s6",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "Honda суми не розкривала; Motor Sport писав про «номінальну» плату, пізніше преса називала £1",
+      "sources": [
+        "s5",
+        "s8",
+        "s9",
+        "s10"
+      ],
+      "status": "ok",
+      "note": "Офіційно ціна не оголошена (s5). «Nominal fee» — s8 (травень 2009). Конкретно «£1» — s9 і s10, обидва 2011 року, першоджерело цифри не назване."
+    },
+    {
+      "id": "c11",
+      "text": "У викупі брали участь п'ятеро директорів Honda Racing, серед них CEO Нік Фрай",
+      "sources": [
+        "s8",
+        "s10"
+      ],
+      "status": "ok",
+      "note": "s8 — «п'ятеро директорів, зокрема Фрай»; s10 — «викуп менеджментом разом із Ніком Фраєм»."
+    },
+    {
+      "id": "c12",
+      "text": "Honda залишила «солідний посаг»; разом із виплатами FOM він фінансував команду на перших порах",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c13",
+      "text": "Двигуни — Mercedes-Benz High Performance Engines (Бріксворт), такі самі, як у McLaren і Force India",
+      "sources": [
+        "s6",
+        "s7",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c14",
+      "text": "Mercedes обрали замість Ferrari, бо він краще пасував до конструкції Honda RA109",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c15",
+      "text": "Пілоти — Дженсон Баттон і Рубенс Барікелло",
+      "sources": [
+        "s6",
+        "s25"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c16",
+      "text": "Цитата Брауна: «The journey ahead will be challenging but exciting»",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c17",
+      "text": "Лазівка: регламент обмежував розміри дифузора, але канали дозволяли повітрю йти у верхній ярус",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c18",
+      "text": "Подвійний дифузор на старті 2009 мали Brawn BGP 001, Toyota TF109 і Williams FW31",
+      "sources": [
+        "s11",
+        "s12",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c19",
+      "text": "За словами Джона Оуена, концепцію запропонував японський аеродинамік Масаюкі Мінагава («Міна»)",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c20",
+      "text": "За Оуеном, зняття подвійного дифузора перед першою гонкою коштувало б лише 0,3 с на колі",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c21",
+      "text": "Стюарди Гран-прі Австралії 26 березня 2009 визнали машини відповідними регламенту",
+      "sources": [
+        "s13",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "text": "Апелянти — Ferrari, Red Bull і Renault; BMW Sauber і McLaren їх підтримали",
+      "sources": [
+        "s11",
+        "s13",
+        "s12"
+      ],
+      "status": "dis",
+      "note": "s11 і s13 (повний текст рішення): апелянти Red Bull, Renault, Ferrari, а McLaren і BMW Sauber — на їхньому боці. s12 (Sky Sports) зараховує BMW Sauber до тих, хто подав апеляцію."
+    },
+    {
+      "id": "c23",
+      "text": "Слухання в Парижі; 15 квітня 2009 Міжнародний апеляційний суд FIA відхилив апеляції",
+      "sources": [
+        "s11",
+        "s12"
+      ],
+      "status": "ok",
+      "note": "Дату 15 квітня (середа) дає s11 (опубліковано того дня); s12 — «оголошено в середу», слухання у вівторок."
+    },
+    {
+      "id": "c24",
+      "text": "Цитата суду: «the Stewards were correct to find that the cars in question comply with the applicable regulations»",
+      "sources": [
+        "s11",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "Лазівку остаточно закрили з початку сезону 2011",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c26",
+      "text": "29 березня 2009, Мельбурн: Баттон — поул і перемога, Барікелло — другий у кваліфікації й гонці",
+      "sources": [
+        "s25",
+        "s16",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c27",
+      "text": "Дебютну гонку вигравали лише 5 команд; дубль на дебюті до Brawn востаннє — Mercedes, Гран-прі Франції 1954",
+      "sources": [
+        "s18",
+        "s28"
+      ],
+      "status": "one",
+      "note": "Перелік п'яти команд (Alfa Romeo 1950, Kurtis Kraft 1950, Mercedes 1954, Wolf 1977, Brawn 2009) — лише s18. За Jolpica (s28) серед них дубль робили Alfa Romeo 1950 і Mercedes 1954; Wolf 1977 — одна машина."
+    },
+    {
+      "id": "c28",
+      "text": "Баттон виграв 6 із перших 7 гонок (Австралія, Малайзія, Бахрейн, Іспанія, Монако, Туреччина), у Китаї — 3-й",
+      "sources": [
+        "s25",
+        "s21",
+        "s18"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c29",
+      "text": "Барікелло виграв Гран-прі Європи (Валенсія) та Італії (Монца)",
+      "sources": [
+        "s25"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "Цитата Фрая: «At the beginning of the year if someone had said sign up for two or three wins, we would have taken the money»",
+      "sources": [
+        "s21"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c31",
+      "text": "18 жовтня 2009, Бразилія: Баттон стартував 14-м, фінішував 5-м і став чемпіоном; Brawn виграла Кубок конструкторів",
+      "sources": [
+        "s19",
+        "s20",
+        "s25"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c32",
+      "text": "Цитата Баттона: «When I first jumped in a car 21 years ago I never expected to be world champion»",
+      "sources": [
+        "s20"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c33",
+      "text": "Цитата Брауна про Баттона: «he drove a sensational race»",
+      "sources": [
+        "s21"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c34",
+      "text": "Підсумок: Баттон 95 очок, Феттель 84; Brawn 172, Red Bull 153,5; Brawn — 8 перемог у 17 гонках",
+      "sources": [
+        "s26",
+        "s29",
+        "s25"
+      ],
+      "status": "one",
+      "note": "Усе — з бази Jolpica (одне джерело даних)."
+    },
+    {
+      "id": "c35",
+      "text": "16 листопада 2009 Daimler і Aabar оголосили про купівлю 75,1% Brawn GP (45,1% і 30%), 24,9% лишилось у попередніх власників",
+      "sources": [
+        "s22",
+        "s23",
+        "s24"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c36",
+      "text": "Команду перейменовано на Mercedes Grand Prix",
+      "sources": [
+        "s22",
+        "s23",
+        "s24"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c37",
+      "text": "Росс Браун лишався керівником команди",
+      "sources": [
+        "s23"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c38",
+      "text": "Інтерес до команди проявили троє потенційних покупців",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c39",
+      "text": "Цитата Фрая: «This team is one of the best funded, has the best assets, the best resources in the pit lane.»",
+      "sources": [
+        "s4"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c40",
+      "text": "Мельбурн-2009: обидва пілоти Brawn помилялися, дубль здавався малоймовірним; на 55-му колі зіткнулися Феттель і Кубіца",
+      "sources": [
+        "s16",
+        "s17"
+      ],
+      "status": "ok",
+      "note": "Номер кола (55) — лише s17; s16 підтверджує помилки, «малоймовірний дубль» і зіткнення Феттеля з Кубіцою."
+    },
+    {
+      "id": "c41",
+      "text": "Бразилія-2009: Барікелло стартував з поулу і фінішував 8-м",
+      "sources": [
+        "s25"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c42",
+      "text": "Екклстоун оцінював утримання команди приблизно у 200 млн фунтів на рік (2008)",
+      "sources": [
+        "s4"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/brawn-gp-2009/m1-1280.webp",
+      "srcSet": "/img/stories/brawn-gp-2009/m1-1280.webp 1280w, /img/stories/brawn-gp-2009/m1-800.webp 800w, /img/stories/brawn-gp-2009/m1-480.webp 480w",
+      "width": 1280,
+      "height": 853,
+      "focus": "55% 60%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Button_2009_British_Grand_Prix.jpg",
+        "author": "Jane Belinda Smith from Peterborough, Cambridgeshire, England",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Дженсон Баттон на Brawn BGP 001 вирушає на прогрівне коло, Гран-прі Великої Британії, Сільверстоун, 21 червня 2009 року.",
+        "en": "Jenson Button in the Brawn BGP 001 heads off on the formation lap, British Grand Prix, Silverstone, 21 June 2009."
+      },
+      "alt": {
+        "uk": "Білий болід Brawn із салатовими смугами на стартовій прямій.",
+        "en": "A white Brawn car with fluorescent yellow-green stripes on the start straight."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/brawn-gp-2009/m2-800.webp",
+      "srcSet": "/img/stories/brawn-gp-2009/m2-800.webp 800w, /img/stories/brawn-gp-2009/m2-480.webp 480w",
+      "width": 800,
+      "height": 543,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Brawn_BGP_001_Barcelona_4.jpg",
+        "author": "Jose Mª Izquierdo Galiot",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Brawn BGP 001 на тестах у Барселоні, 10 березня 2009 року.",
+        "en": "The Brawn BGP 001 at testing in Barcelona, 10 March 2009."
+      },
+      "alt": {
+        "uk": "Переднє антикрило й передні колеса білого боліда Brawn крупним планом.",
+        "en": "Close-up of the front wing and front wheels of a white Brawn car."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/brawn-gp-2009/m3-800.webp",
+      "srcSet": "/img/stories/brawn-gp-2009/m3-800.webp 800w, /img/stories/brawn-gp-2009/m3-480.webp 480w",
+      "width": 800,
+      "height": 600,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Brawn_BGP_001_front_wings_and_motor_hood.JPG",
+        "author": "Homonihilis",
+        "license": "CC BY 3.0"
+      },
+      "caption": {
+        "uk": "Передні антикрила й кришка двигуна Brawn BGP 001 перед боксом команди, позаду — машина Дженсона Баттона. Гран-прі Туреччини 2009 року, п'ятниця.",
+        "en": "Brawn BGP 001 front wings and engine cover in front of the team garage, with Jenson Button's car behind. 2009 Turkish Grand Prix, Friday."
+      },
+      "alt": {
+        "uk": "Запасні антикрила й кришка двигуна на підставках перед гаражем, у глибині — болід.",
+        "en": "Spare wings and an engine cover on stands in front of a garage, with a car inside."
+      }
+    },
+    {
+      "id": "m4",
+      "role": "inline",
+      "src": "/img/stories/brawn-gp-2009/m4-800.webp",
+      "srcSet": "/img/stories/brawn-gp-2009/m4-800.webp 800w, /img/stories/brawn-gp-2009/m4-480.webp 480w",
+      "width": 800,
+      "height": 269,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Interlagos_-big.jpg",
+        "author": "Rivers085",
+        "license": "CC BY-SA 3.0"
+      },
+      "caption": {
+        "uk": "Головна пряма Інтерлагоса з трибуни M під час п'ятничної практики Гран-прі Бразилії 2009 року (фрагмент панорами).",
+        "en": "Interlagos main straight seen from grandstand M during Friday practice for the 2009 Brazilian Grand Prix (panorama, cropped)."
+      },
+      "alt": {
+        "uk": "Широка панорама траси з трибунами й боксами під хмарним небом.",
+        "en": "A wide panorama of the circuit with grandstands and pit buildings under a cloudy sky."
+      }
+    }
+  ]
+}

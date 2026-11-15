@@ -1,0 +1,725 @@
+{
+  "slug": "button-canada-2011",
+  "category": "sensation",
+  "years": [
+    2011
+  ],
+  "title": {
+    "uk": "Канада-2011: чотири години, шість заїздів на піт-лейн і пів кола в лідерах",
+    "en": "Canada 2011: four hours, six trips down the pit lane and half a lap in the lead"
+  },
+  "dek": {
+    "uk": "Злива в Монреалі, дві години під червоним прапором, зіткнення з напарником і з Ferrari, останнє місце за 30 кіл до фінішу. Як Дженсон Баттон виграв найдовшу гонку в історії Формули-1 на останньому колі.",
+    "en": "A Montreal downpour, two hours under the red flag, collisions with his team-mate and a Ferrari, last place with 30 laps to go. How Jenson Button won the longest race in Formula 1 history on the final lap."
+  },
+  "links": {
+    "seasons": [
+      2011
+    ],
+    "races": [
+      "2011/7"
+    ],
+    "drivers": [
+      "button",
+      "vettel",
+      "hamilton",
+      "alonso",
+      "webber",
+      "michael_schumacher",
+      "heidfeld",
+      "kobayashi"
+    ],
+    "teams": [
+      "mclaren",
+      "red-bull",
+      "ferrari",
+      "mercedes"
+    ],
+    "circuits": [
+      "villeneuve"
+    ],
+    "stories": [
+      "brawn-gp-2009",
+      "senna-donington-1993"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Jolpica F1 API — 2011 Canadian Grand Prix results",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2011/7/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "Jolpica F1 API — 2011 Canadian Grand Prix, lap positions (Button, Vettel)",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2011/7/drivers/button/laps/?limit=100",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "Formula 1 Grand Prix du Canada 2011 — Race result",
+      "publisher": "Formula1.com",
+      "date": "2011-06-12",
+      "url": "https://www.formula1.com/en/results/2011/races/34/canada/race-result",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "Formula 1 Grand Prix du Canada 2011 — Pit stop summary",
+      "publisher": "Formula1.com",
+      "date": "2011-06-12",
+      "url": "https://www.formula1.com/en/results/2011/races/34/canada/pit-stop-summary",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "Formula 1 Grand Prix du Canada 2011 — Starting grid and fastest laps",
+      "publisher": "Formula1.com",
+      "date": "2011-06-12",
+      "url": "https://www.formula1.com/en/results/2011/races/34/canada/starting-grid",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "The day Button won a four-hour F1 race after six pitstops (Adam Cooper)",
+      "publisher": "Motorsport.com",
+      "date": "2023-04-05",
+      "url": "https://www.motorsport.com/f1/news/canadian-gp-2011-retro-button/4805881/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "2011 Canadian GP - Jenson Button beats Sebastian Vettel on the last lap (René Fagnan)",
+      "publisher": "Motorsport.com",
+      "date": "2017-06-05",
+      "url": "https://au.motorsport.com/f1/news/2011-canadian-gp-button-beats-vettel-last-lap-913184/3029753/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "The Canadian GP thriller F1 loves to celebrate but can no longer replicate (Keith Collantine)",
+      "publisher": "RaceFans",
+      "date": "2023-06-13",
+      "url": "https://www.racefans.net/2023/06/13/the-canadian-gp-thriller-f1-loves-to-celebrate-but-can-no-longer-replicate/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "Tearful Button clinches Canadian thriller (AFP)",
+      "publisher": "AFP (Mail & Guardian)",
+      "date": "2011-06-13",
+      "url": "https://mg.co.za/2011-06-13-tearful-button-clinches-canadian-thriller/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "Button wins rain-soaked Canadian GP",
+      "publisher": "Fox Sports",
+      "date": "2011-06-12",
+      "url": "https://www.foxsports.com/stories/motor/button-wins-rain-soaked-canadian-gp",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "Button takes dramatic Canada win on Pirelli PZero tyres",
+      "publisher": "Pirelli",
+      "date": "2011-06-13",
+      "url": "https://press.pirelli.com/button-takes-dramatic-canada-win-on-pirelli-pzero-tyres/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Button steals last minute victory in an epic rain interrupted Canadian Grand Prix",
+      "publisher": "The Checkered Flag",
+      "date": "2011-06-12",
+      "url": "https://www.thecheckeredflag.co.uk/2011/06/button-steals-last-minute-victory-in-an-epic-rain-interrupted-canadian-grand-prix/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "Remembering Canada 2011 - Is Button's most-famous F1 win overhyped? (Luke Smith)",
+      "publisher": "Autosport",
+      "date": "2020-06-13",
+      "url": "https://www.autosport.com/f1/news/149951/is-buttonEURTMs-mostfamous-f1-win-overhyped",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "Canadian GP 2011 — race report and FIA drivers' press conference transcript",
+      "publisher": "Grandprix.com",
+      "date": "2011-06-12",
+      "url": "https://www.grandprix.com/gpe/rr846.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Five things you didn't know about the Canadian Grand Prix",
+      "publisher": "Mercedes-AMG F1",
+      "date": "2026-05-19",
+      "url": "https://www.mercedesamgf1.com/news/five-things-you-didnt-know-about-the-canadian-grand-prix",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "Maximum race time reduced to 3 hours",
+      "publisher": "Pitpass",
+      "date": "2020-12-18",
+      "url": "https://www.pitpass.com/68931/Maximum-race-time-reduced-to-3-hours",
+      "kind": "secondary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Гран-прі Канади 2011 року, 7-й етап сезону: 12 червня, Монреаль, 70 кіл",
+      "sources": [
+        "s1",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "Поул — Феттель (Red Bull), Алонсо другий на старті, Баттон сьомий",
+      "sources": [
+        "s1",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "Через дощ гонку почали за машиною безпеки, перші чотири кола — за нею; дощові шини були обов'язкові",
+      "sources": [
+        "s14",
+        "s6",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "text": "Перша мокра гонка відтоді, як Pirelli стала постачальником шин Формули-1",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c5",
+      "text": "Гамілтон після виходу з останньої шикани спробував пройти Баттона на прямій старт-фініш; машини зіткнулися, Гамілтон зійшов, проїхавши 7 кіл",
+      "sources": [
+        "s14",
+        "s6",
+        "s13",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "Цитата Баттона на пресконференції: «Я нічого не бачив, коли він був поруч зі мною. Я нічого не бачив у дзеркалах»",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c7",
+      "text": "Баттон вибачився перед Гамілтоном",
+      "sources": [
+        "s14",
+        "s9",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "text": "Після зіткнення Баттон заїхав у бокси (перший заїзд — 8-ме коло) і поставив проміжні шини",
+      "sources": [
+        "s14",
+        "s4",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "Баттон отримав штрафний проїзд по піт-лейну за перевищення швидкості за машиною безпеки; відбув його на 13-му колі",
+      "sources": [
+        "s14",
+        "s9",
+        "s6",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "На 19-му колі Баттон знову заїхав у бокси — по нові дощові шини",
+      "sources": [
+        "s14",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "text": "Злива посилилася, і гонку зупинили червоним прапором на 25-му колі (за іншими даними — на 24-му)",
+      "sources": [
+        "s8",
+        "s7",
+        "s12",
+        "s13",
+        "s11",
+        "s6"
+      ],
+      "status": "dis",
+      "note": "RaceFans, Motorsport.com (Fagnan), The Checkered Flag і Autosport пишуть про 25-те коло; Pirelli і Motorsport.com (Cooper) — про 24-те. У Jolpica час 25-го кола включає зупинку (2:05:03)."
+    },
+    {
+      "id": "c12",
+      "text": "Перерва тривала близько двох годин",
+      "sources": [
+        "s8",
+        "s9",
+        "s11",
+        "s13",
+        "s14",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "Ті, хто лишався на перших дощових шинах, безкоштовно змінили їх під червоним прапором",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c14",
+      "text": "Четвертий заїзд Баттона — на 35-му колі, на вживані проміжні шини",
+      "sources": [
+        "s4",
+        "s6",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "text": "Через два кола після четвертого заїзду Баттон зіткнувся з Алонсо в першій шикані; Ferrari розвернуло, вона застрягла на поребрику, Алонсо зійшов",
+      "sources": [
+        "s14",
+        "s10",
+        "s13",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c16",
+      "text": "Баттон пошкодив машину й заїхав у бокси вп'яте (37-ме коло) під машиною безпеки, яку викликав цей інцидент",
+      "sources": [
+        "s14",
+        "s6",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c17",
+      "text": "Після цього Баттон був 21-м і останнім (кола 37–40)",
+      "sources": [
+        "s14",
+        "s6",
+        "s13",
+        "s9",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "До фінішу лишалося 30 кіл",
+      "sources": [
+        "s14",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c19",
+      "text": "Після сутички з Алонсо Баттон відставав від Феттеля більш ніж на 1 хв 40 с",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c20",
+      "text": "Машина безпеки виїжджала ще кілька разів (зокрема через Алонсо й аварію Гайдфельда), і це допомогло Баттону скоротити відставання",
+      "sources": [
+        "s13",
+        "s6",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c21",
+      "text": "На 51-му колі — шостий і останній заїзд Баттона, на суперм'які шини для сухої траси",
+      "sources": [
+        "s14",
+        "s4",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "text": "Усього шість заїздів на піт-лейн: п'ять піт-стопів і один штрафний проїзд; разом 2 хв 21 с на піт-лейні",
+      "sources": [
+        "s4",
+        "s6",
+        "s12",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c23",
+      "text": "Гайдфельд після контакту з Кобаясі врізався в стіну, знову машина безпеки; потім — 10 кіл спринту",
+      "sources": [
+        "s14",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c24",
+      "text": "До 65-го кола Баттон обійшов Веббера й Міхаеля Шумахера і став другим, приблизно за 3 с від Феттеля",
+      "sources": [
+        "s14",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "Найшвидше коло гонки — Баттон, 1:16.956 на 69-му колі",
+      "sources": [
+        "s5",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c26",
+      "text": "Феттель вів гонку майже від старту до останнього кола",
+      "sources": [
+        "s14",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c27",
+      "text": "На останньому колі Феттель, намагаючись не пустити Баттона в зону DRS, натиснув занадто сильно, зачепив мокру частину траси й втратив задню вісь",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c28",
+      "text": "Феттель: «Це однозначно моя вина. Я трохи заблокував задні колеса»",
+      "sources": [
+        "s14",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c29",
+      "text": "Баттон: «У гонці на 70 кіл я лідирував пів кола»",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "Баттон виграв з відривом 2,709 с; Веббер третій, Шумахер четвертий",
+      "sources": [
+        "s1",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c31",
+      "text": "Загальний час переможця — 4:04:39.537",
+      "sources": [
+        "s1",
+        "s3",
+        "s14"
+      ],
+      "status": "ok",
+      "note": "AFP (s9) дає 4:04:37.037; офіційна класифікація Formula1.com і Jolpica — 4:04:39.537"
+    },
+    {
+      "id": "c32",
+      "text": "Канада-2011 — найдовша гонка в історії Формули-1",
+      "sources": [
+        "s13",
+        "s15",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c33",
+      "text": "Після цієї гонки (з 2012-го) тривалість гонки обмежили чотирма годинами, з 2021-го — трьома",
+      "sources": [
+        "s8",
+        "s16"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c34",
+      "text": "Mercedes-AMG F1 (2026): цей рекорд не можна побити через зміни в регламенті FIA",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c35",
+      "text": "Баттон: «Це були дуже емоційні три години чи скільки там минуло від старту»; «Чудова перемога і, можливо, моя найкраща»",
+      "sources": [
+        "s14",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c36",
+      "text": "RaceFans: за нинішніми правилами (ліміт 3 години) гонка завершилася б після 31 кола замість 70, Баттон був би 10-м",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c37",
+      "text": "Гамілтон одразу після першого рестарту в другому повороті зачепив і розвернув Веббера (з 4-го на 14-те місце); Веббер: «Здається, Льюїс думав, що картатий прапор — у третьому повороті»",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c38",
+      "text": "Шумахер витіснив Гамілтона на шпильці, Баттон став шостим",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c39",
+      "text": "Алонсо не отримав безкоштовної заміни шин під червоним прапором; його слова: «Нам зовсім не щастило»",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c40",
+      "text": "Баттон лишився на одному колі з лідером і відіграв втрачене за машиною безпеки; Grandprix.com: якби Ferrari Алонсо не застрягла на поребрику, Баттон не зміг би виграти",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c41",
+      "text": "Autosport: періоди машини безпеки загалом зекономили Баттону понад дві хвилини",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c42",
+      "text": "Петров (5-те місце) зупинявся двічі, 47 с на піт-лейні; Баттон: «Здавалося, що я провів у боксах більше часу, ніж на прямій старт-фініш»",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c43",
+      "text": "За 15 кіл до фінішу Баттон четвертий — позаду Феттеля, Шумахера й Веббера",
+      "sources": [
+        "s14",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c44",
+      "text": "Феттель після рестарту тримав відрив близько 4 с і не тиснув: «Мабуть, я був занадто обережним»",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c45",
+      "text": "Баттон: без DRS шансів у нього не було б",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c46",
+      "text": "Шумахер засмутився, що не здобув першого подіуму після повернення",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c47",
+      "text": "RaceFans: гонку широко вважають однією з найкращих в історії Формули-1",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c48",
+      "text": "Пол Хембері (Pirelli): «один з найзахопливіших і найнепередбачуваніших гран-прі, які ми бачили цього сезону»",
+      "sources": [
+        "s11"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/button-canada-2011/m1-1280.webp",
+      "srcSet": "/img/stories/button-canada-2011/m1-1280.webp 1280w, /img/stories/button-canada-2011/m1-800.webp 800w, /img/stories/button-canada-2011/m1-480.webp 480w",
+      "width": 1280,
+      "height": 853,
+      "focus": "40% 55%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:2011_Canadian_GP_-_Winner.jpg",
+        "author": "Mark McArdle from Canada",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "McLaren переможця Дженсона Баттона на Гран-прі Канади, Монреаль, 12 червня 2011 року.",
+        "en": "Winner Jenson Button's McLaren at the Canadian Grand Prix, Montreal, 12 June 2011."
+      },
+      "alt": {
+        "uk": "Сріблясто-червоний болід McLaren на трасі між смугами трави.",
+        "en": "A silver and red McLaren on track between strips of grass."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/button-canada-2011/m2-800.webp",
+      "srcSet": "/img/stories/button-canada-2011/m2-800.webp 800w, /img/stories/button-canada-2011/m2-480.webp 480w",
+      "width": 800,
+      "height": 533,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:2011_Canadian_GP_-_Start.jpg",
+        "author": "Mark McArdle from Canada",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Мокра траса на початку Гран-прі Канади, 12 червня 2011 року.",
+        "en": "A wet track early in the Canadian Grand Prix, 12 June 2011."
+      },
+      "alt": {
+        "uk": "Боліди здіймають бризки на мокрій трасі.",
+        "en": "Cars throw up spray on a wet track."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/button-canada-2011/m3-800.webp",
+      "srcSet": "/img/stories/button-canada-2011/m3-800.webp 800w, /img/stories/button-canada-2011/m3-480.webp 480w",
+      "width": 800,
+      "height": 533,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:2011_Canadian_GP_-_Race_stop.jpg",
+        "author": "Mark McArdle from Canada",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Боліди стоять на піт-лейні під дощем після червоного прапора, Гран-прі Канади, 12 червня 2011 року.",
+        "en": "Cars halted in the pit lane in the rain after the red flag, Canadian Grand Prix, 12 June 2011."
+      },
+      "alt": {
+        "uk": "Сірий дощовий день, машини вишикувані на прямій біля боксів.",
+        "en": "A grey rainy day, with cars lined up on the straight by the pits."
+      }
+    },
+    {
+      "id": "m4",
+      "role": "inline",
+      "src": "/img/stories/button-canada-2011/m4-800.webp",
+      "srcSet": "/img/stories/button-canada-2011/m4-800.webp 800w, /img/stories/button-canada-2011/m4-480.webp 480w",
+      "width": 800,
+      "height": 533,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:2011_Canadian_GP_-_restart.jpg",
+        "author": "Mark McArdle from Canada",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Боліди в повороті на заключному етапі Гран-прі Канади, 12 червня 2011 року.",
+        "en": "Cars through a corner in the closing stages of the Canadian Grand Prix, 12 June 2011."
+      },
+      "alt": {
+        "uk": "Група болідів проходить поворот біля червоно-білих поребриків.",
+        "en": "A pack of cars rounds a corner by red and white kerbs."
+      }
+    }
+  ]
+}

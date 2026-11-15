@@ -1,0 +1,650 @@
+{
+  "slug": "abu-dhabi-2021",
+  "category": "scandal",
+  "years": [
+    2021,
+    2022
+  ],
+  "title": {
+    "uk": "Абу-Дабі-2021: одне коло, яке вирішило чемпіонат",
+    "en": "Abu Dhabi 2021: the one lap that decided a championship"
+  },
+  "dek": {
+    "uk": "Аварія Латіфі, рішення директора гонки щодо відставших машин і обгін Ферстаппена на останньому колі. Як фінал сезону-2021 став найгучнішою суддівською історією сучасної Формули-1 і чим він закінчився для Майкла Масі.",
+    "en": "Latifi's crash, the race director's call on lapped cars and Verstappen's last-lap pass. How the 2021 finale became modern Formula 1's loudest officiating row, and what it cost Michael Masi."
+  },
+  "links": {
+    "seasons": [
+      2021,
+      2022
+    ],
+    "races": [
+      "2021/22"
+    ],
+    "drivers": [
+      "max_verstappen",
+      "hamilton",
+      "latifi",
+      "perez",
+      "sainz",
+      "norris",
+      "alonso",
+      "ocon",
+      "leclerc",
+      "vettel",
+      "ricciardo",
+      "stroll",
+      "mick_schumacher"
+    ],
+    "teams": [
+      "red-bull",
+      "mercedes",
+      "williams"
+    ],
+    "circuits": [
+      "yas_marina"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "2021 Abu Dhabi Grand Prix — Decision — Mercedes Protest Art. 48.8 (Document 57)",
+      "publisher": "FIA (Stewards)",
+      "date": "2021-12-12",
+      "url": "https://www.fia.com/sites/default/files/decision-document/2021%20Abu%20Dhabi%20Grand%20Prix%20-%20Decision%20-%20Mercedes%20Protest%20Art.%2048.8.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "2021 Abu Dhabi Grand Prix — Decision — Mercedes Protest Art. 48.12 (Document 58)",
+      "publisher": "FIA (Stewards)",
+      "date": "2021-12-12",
+      "url": "https://www.fia.com/sites/default/files/doc_58_-_2021_abu_dhabi_grand_prix_-_decision_-_mercedes_protest_art._48.12.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "FIA Executive Summary Report to the World Motor Sport Council: analysis and clarification exercise following the 2021 Abu Dhabi Grand Prix",
+      "publisher": "FIA",
+      "date": "2022-03-19",
+      "url": "https://www.fia.com/sites/default/files/2021_f1_abu_dhabi_grand_prix_-_report_to_the_wmsc_-_19_march_2022_0.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "2021 Abu Dhabi Grand Prix — race results",
+      "publisher": "Jolpica F1 API",
+      "date": "2021-12-12",
+      "url": "https://api.jolpi.ca/ergast/f1/2021/22/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "2021 driver standings after round 21",
+      "publisher": "Jolpica F1 API",
+      "date": "2021-12-05",
+      "url": "https://api.jolpi.ca/ergast/f1/2021/21/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "Max Verstappen beats Lewis Hamilton to F1 world title on last lap in Abu Dhabi (Giles Richards)",
+      "publisher": "The Guardian (syndicated by Yahoo Sports)",
+      "date": "2021-12-12",
+      "url": "https://uk.sports.yahoo.com/news/max-verstappen-beats-lewis-hamilton-144018876.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "Verstappen passes Hamilton on last lap for title after huge drama",
+      "publisher": "Sky Sports",
+      "date": "2021-12-13",
+      "url": "https://www.skysports.com/f1/news/15740/12493844/verstappen-passes-hamilton-on-last-lap-for-title-after-huge-drama",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "Abu Dhabi GP: Verstappen passes Hamilton on last lap to clinch F1 title (Alex Kalinauckas)",
+      "publisher": "Motorsport.com",
+      "date": "2021-12-12",
+      "url": "https://www.motorsport.com/f1/news/abu-dhabi-f1-gp-race-report-verstappen-hamilton/6877919/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "F1 – Verstappen takes Formula 1 Drivers' title with victory in dramatic Abu Dhabi Grand Prix",
+      "publisher": "FIA",
+      "date": "2021-12-12",
+      "url": "https://www.fia.com/news/f1-verstappen-takes-formula-1-drivers-title-victory-dramatic-abu-dhabi-grand-prix",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "Verstappen wins F1 championship in dramatic final race",
+      "publisher": "Al Jazeera",
+      "date": "2021-12-12",
+      "url": "https://www.aljazeera.com/news/2021/12/12/verstappen-wins-f1-championship-in-dramatic-final-race",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "Lewis Hamilton said 'this has been manipulated' in radio message",
+      "publisher": "Sky Sports",
+      "date": "2021-12-14",
+      "url": "https://www.skysports.com/f1/news/12433/12494989/hamilton-said-this-has-been-manipulated-in-radio-message",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Wolff involved in radio altercation with FIA race director after dramatic F1 finale",
+      "publisher": "GPFans",
+      "date": "2021-12-12",
+      "url": "https://www.gpfans.com/en/f1-news/73469/wolff-involved-in-radio-altercation-with-fia-race-director-after-dramatic-f1-finale/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "Motor racing-Wolff says radio access to Masi should be restricted (Reuters)",
+      "publisher": "Reuters via Devdiscourse",
+      "date": "2021-12-16",
+      "url": "https://www.devdiscourse.com/article/sports-games/1850317-motor-racing-wolff-says-radio-access-to-masi-should-be-restricted",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "Mercedes withdraw Abu Dhabi appeal",
+      "publisher": "Sky Sports",
+      "date": "2021-12-17",
+      "url": "https://www.skysports.com/f1/news/12433/12496216/mercedes-withdraw-abu-dhabi-appeal",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Mercedes statement on Abu Dhabi GP appeal",
+      "publisher": "Motorsport.com",
+      "date": "2021-12-16",
+      "url": "https://www.motorsport.com/f1/news/mercedes-statement-abu-dhabi-gp-appeal/6885780/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "FIA President Mohammed Ben Sulayem opens the way to a new step forward in Formula 1 refereeing",
+      "publisher": "FIA",
+      "date": "2022-02-17",
+      "url": "https://www.fia.com/news/fia-president-mohammed-ben-sulayem-opens-way-new-step-forward-formula-1-refereeing",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "Michael Masi: Formula 1 race director replaced after controversial 2021 season finale (AP)",
+      "publisher": "Euronews / AP",
+      "date": "2022-02-17",
+      "url": "https://www.euronews.com/2022/02/17/michael-masi-formula-1-race-director-replaced-after-controversial-2021-season-finale",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "FIA releases 'executive summary' of Abu Dhabi GP report (Matt Beer)",
+      "publisher": "The Race",
+      "date": "2022-03-19",
+      "url": "https://www.the-race.com/formula-1/fia-releases-executive-summary-of-abu-dhabi-gp-report/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "FIA admits 'human error' but says Masi acted 'in good faith' (Scott Mitchell-Malm)",
+      "publisher": "The Race",
+      "date": "2022-03-19",
+      "url": "https://the-race.com/formula-1/fia-admits-human-error-but-says-masi-acted-in-good-faith",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "Formula One finally publish report on controversial 2021 season finale",
+      "publisher": "The Irish Times",
+      "date": "2022-03-19",
+      "url": "https://irishtimes.com/sport/other-sports/formula-one-finally-publish-report-on-controversial-2021-season-finale-1.4831407",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "2021 final driver standings",
+      "publisher": "Jolpica F1 API",
+      "date": "2021-12-12",
+      "url": "https://api.jolpi.ca/ergast/f1/2021/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "2021 final constructor standings",
+      "publisher": "Jolpica F1 API",
+      "date": "2021-12-12",
+      "url": "https://api.jolpi.ca/ergast/f1/2021/constructorStandings/",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Перед фіналом Ферстаппен і Гамілтон мали однаково по 369,5 очка.",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c2",
+      "text": "Гонка 12 грудня 2021 року на трасі Яс-Марина, 58 кіл; Ферстаппен стартував з поулу, Гамілтон — другим.",
+      "sources": [
+        "s4",
+        "s7",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "Гамілтон обійшов Ферстаппена на старті й за шість кіл до фінішу мав близько 12 секунд переваги.",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c4",
+      "text": "На 53-му колі Латіфі (Williams) розбився на виході з 14-го повороту; випустили автомобіль безпеки.",
+      "sources": [
+        "s3",
+        "s6",
+        "s8"
+      ],
+      "status": "ok",
+      "note": "s3 і s6 називають коло 53; s8 — «за шість кіл до кінця» 58-колової гонки, що збігається."
+    },
+    {
+      "id": "c5",
+      "text": "Ферстаппен заїхав у бокси по нові м'які шини, Гамілтон лишився на трасі на старих жорстких.",
+      "sources": [
+        "s3",
+        "s7",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "Евакуація машини Латіфі затяглася, зокрема тому, що в неї загорілися гальма.",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c7",
+      "text": "На 56-му колі дирекція гонки оголосила, що відставшим машинам не дозволять обганяти.",
+      "sources": [
+        "s3",
+        "s6",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "text": "Горнер по радіо: «Why aren't we getting these lapped cars out of the way?» і «You only need one racing lap».",
+      "sources": [
+        "s3",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "На 57-му колі дозволили обігнати автомобіль безпеки лише п'ятьом відставшим машинам, що стояли між Гамілтоном і Ферстаппеном.",
+      "sources": [
+        "s3",
+        "s6",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "Ці п'ять машин — Норріс, Алонсо, Окон, Леклер, Феттель; ще три відставші (Ріккардо, Стролл, Мік Шумахер) лишилися позаду Ферстаппена; загалом відставших було вісім.",
+      "sources": [
+        "s3",
+        "s2"
+      ],
+      "status": "one",
+      "note": "Обидва документи — FIA (звіт для WMSC і рішення стюардів), тому рахуємо як одне джерело."
+    },
+    {
+      "id": "c11",
+      "text": "Вольфф по радіо до Масі: «Michael, this isn't right».",
+      "sources": [
+        "s3",
+        "s6",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c12",
+      "text": "Автомобіль безпеки пішов у бокси в кінці 57-го кола, гонку відновили на одне останнє коло.",
+      "sources": [
+        "s3",
+        "s7",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "На останньому колі Ферстаппен обійшов Гамілтона в 5-му повороті й першим перетнув фініш.",
+      "sources": [
+        "s3",
+        "s7",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c14",
+      "text": "Гамілтон по радіо на останньому колі: «This has been manipulated».",
+      "sources": [
+        "s3",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "text": "Вольфф вимагав повернути результат на коло назад; Масі відповів: «Toto, it's called a motor race».",
+      "sources": [
+        "s12",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c16",
+      "text": "Підсумок сезону: Ферстаппен 395,5 очка, Гамілтон 387,5.",
+      "sources": [
+        "s21"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c17",
+      "text": "Ферстаппен став першим чемпіоном світу з Нідерландів.",
+      "sources": [
+        "s7",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "Гамілтон не здобув рекордний восьмий титул.",
+      "sources": [
+        "s7",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c19",
+      "text": "Кубок конструкторів-2021 виграла Mercedes.",
+      "sources": [
+        "s7",
+        "s22"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c20",
+      "text": "Mercedes подала два протести: за статтею 48.8 (обгін під автомобілем безпеки) і за статтею 48.12 (процедура з відставшими).",
+      "sources": [
+        "s1",
+        "s2",
+        "s3",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c21",
+      "text": "Перший протест відхилили: стюарди визнали, що Ферстаппен на дуже короткий час опинився трохи попереду, але повернувся назад і на лінії не був першим.",
+      "sources": [
+        "s1",
+        "s7"
+      ],
+      "status": "ok",
+      "note": "Формулювання — з s1; сам факт відхилення обох протестів підтверджує s7."
+    },
+    {
+      "id": "c22",
+      "text": "Red Bull на слуханні доводила, що «any» не означає «all», що стаття 48.13 переважає 48.12 і що директор гонки має «overriding authority» над автомобілем безпеки.",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c23",
+      "text": "Масі пояснив стюардам, що команди давно погодилися: гонку бажано завершувати під зеленим прапором.",
+      "sources": [
+        "s2",
+        "s3"
+      ],
+      "status": "one",
+      "note": "Обидва документи — FIA."
+    },
+    {
+      "id": "c24",
+      "text": "Другий протест відхилили о 23:03: стаття 48.12 «may not have been applied fully», але 48.13 її переважає; переписати класифікацію на передостаннє коло означало б заднім числом скоротити гонку.",
+      "sources": [
+        "s2",
+        "s3"
+      ],
+      "status": "one",
+      "note": "Обидва документи — FIA; сам факт відхилення підтверджують s6 і s7."
+    },
+    {
+      "id": "c25",
+      "text": "О 23:22 Mercedes заявила про намір оскаржити рішення; кінцевий строк апеляції — 16 грудня 2021.",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c26",
+      "text": "16 грудня Mercedes відкликала апеляцію: «We will hold the FIA accountable for this process and we hereby withdraw our appeal».",
+      "sources": [
+        "s3",
+        "s14",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c27",
+      "text": "17 лютого 2022 президент FIA Мохаммед бен Сулаєм оголосив, що Масі запропонують іншу посаду в FIA, а директорами гонки по черзі будуть Нільс Віттіх і Едуардо Фрейтас за підтримки Гербі Блеша.",
+      "sources": [
+        "s16",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c28",
+      "text": "Тоді ж оголосили віртуальну дирекцію гонки на зразок футбольного VAR і прибрали з ефіру прямі радіорозмови команд із директором гонки.",
+      "sources": [
+        "s16",
+        "s18"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c29",
+      "text": "Масі обіймав посаду директора гонки після смерті Чарлі Вайтінга в березні 2019 року.",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "19 березня 2022 FIA оприлюднила висновки: через людську помилку не всім відставшим дозволили обігнати; процес визначення відставших був ручним.",
+      "sources": [
+        "s19",
+        "s20"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c31",
+      "text": "За висновком FIA, директор гонки діяв сумлінно (in good faith).",
+      "sources": [
+        "s19",
+        "s20"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c32",
+      "text": "Директор гонки відкликав автомобіль безпеки, не давши йому пройти додаткове коло, що суперечило регламенту.",
+      "sources": [
+        "s20",
+        "s18"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c33",
+      "text": "Результати гонки й чемпіонату FIA назвала «valid, final and cannot now be changed».",
+      "sources": [
+        "s3",
+        "s18"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c34",
+      "text": "Звіт визнав, що радіозвернення керівників команд у фінальних колах відволікали директора гонки.",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c35",
+      "text": "Для 2022 року створили програму, що автоматично формує список відставших, а в регламенті «any» замінили на «all».",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c36",
+      "text": "Звіт FIA відзначив, що на директорові гонки накопичилося забагато ролей, а статті 48.12 і 48.13 могли тлумачитися по-різному.",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c37",
+      "text": "Горнер під час гонки: «We're going to need a miracle to turn this around».",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c38",
+      "text": "Гамілтон привітав Ферстаппена в закритому парку.",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c39",
+      "text": "На слуханні другого протесту від Red Bull були Вітлі, Горнер і Ньюї; о 20:50 оголосили перерву, о 21:30 слухання продовжили в присутності директора гонки.",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/abu-dhabi-2021/m1-1280.webp",
+      "srcSet": "/img/stories/abu-dhabi-2021/m1-1280.webp 1280w, /img/stories/abu-dhabi-2021/m1-800.webp 800w, /img/stories/abu-dhabi-2021/m1-480.webp 480w",
+      "width": 1280,
+      "height": 681,
+      "focus": "55% 50%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:2021_United_States_Grand_Prix_23_(cropped).jpg",
+        "author": "rsyphotography",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Red Bull Макса Ферстаппена і Mercedes Льюїса Гамілтона на Гран-прі США, Остін, 24 жовтня 2021 року.",
+        "en": "Max Verstappen's Red Bull and Lewis Hamilton's Mercedes at the United States Grand Prix, Austin, 24 October 2021."
+      },
+      "alt": {
+        "uk": "Темно-синій Red Bull і чорний Mercedes один за одним у повороті.",
+        "en": "A dark blue Red Bull and a black Mercedes one behind the other in a corner."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/abu-dhabi-2021/m2-800.webp",
+      "srcSet": "/img/stories/abu-dhabi-2021/m2-800.webp 800w, /img/stories/abu-dhabi-2021/m2-480.webp 480w",
+      "width": 800,
+      "height": 600,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Abu_Dhabi_Grand_Prix_Mexicans_support_Checo_Perez_F1.jpg",
+        "author": "Ginodemeneghi",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Мексиканські вболівальники з прапором на підтримку Серхіо Переса на трибуні Гран-прі Абу-Дабі, 12 грудня 2021 року.",
+        "en": "Mexican fans with a flag supporting Sergio Pérez in the grandstand at the Abu Dhabi Grand Prix, 12 December 2021."
+      },
+      "alt": {
+        "uk": "Чоловіки на трибуні тримають прапор Мексики з написом «Checo».",
+        "en": "Men in a grandstand hold a Mexican flag reading “Checo”."
+      }
+    }
+  ]
+}

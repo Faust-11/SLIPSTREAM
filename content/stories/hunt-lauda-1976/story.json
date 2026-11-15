@@ -1,0 +1,831 @@
+{
+  "slug": "hunt-lauda-1976",
+  "category": "sensation",
+  "years": [
+    1976
+  ],
+  "title": {
+    "uk": "Хант проти Лауди, 1976: титул, вирішений одним очком",
+    "en": "Hunt v Lauda, 1976: a title settled by one point"
+  },
+  "dek": {
+    "uk": "Вогонь на Нюрбургринзі, повернення через шість тижнів, перемоги, які то забирали, то повертали, і злива на Фудзі. Як Джеймс Хант обійшов Нікі Лауду на одне очко.",
+    "en": "Fire at the Nürburgring, a comeback six weeks later, wins taken away and handed back, and a deluge at Fuji. How James Hunt beat Niki Lauda by a single point."
+  },
+  "links": {
+    "seasons": [
+      1976
+    ],
+    "races": [
+      "1976/4",
+      "1976/9",
+      "1976/10",
+      "1976/13",
+      "1976/16"
+    ],
+    "drivers": [
+      "hunt",
+      "lauda",
+      "merzario",
+      "ertl",
+      "lunger",
+      "edwards",
+      "mario_andretti",
+      "reutemann",
+      "stewart"
+    ],
+    "teams": [
+      "mclaren",
+      "ferrari"
+    ],
+    "circuits": [
+      "jarama",
+      "brands_hatch",
+      "nurburgring",
+      "monza",
+      "fuji"
+    ],
+    "stories": [
+      "imola-1994",
+      "f1-safety-revolution"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "1976 driver standings (final)",
+      "publisher": "Jolpica F1 API",
+      "date": "1976-10-24",
+      "url": "https://api.jolpi.ca/ergast/f1/1976/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "1976 Japanese Grand Prix — results (round 16)",
+      "publisher": "Jolpica F1 API",
+      "date": "1976-10-24",
+      "url": "https://api.jolpi.ca/ergast/f1/1976/16/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "1976 Italian Grand Prix — results (round 13)",
+      "publisher": "Jolpica F1 API",
+      "date": "1976-09-12",
+      "url": "https://api.jolpi.ca/ergast/f1/1976/13/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "1976 British Grand Prix — results (round 9)",
+      "publisher": "Jolpica F1 API",
+      "date": "1976-07-18",
+      "url": "https://api.jolpi.ca/ergast/f1/1976/9/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "1976 German Grand Prix — results (round 10)",
+      "publisher": "Jolpica F1 API",
+      "date": "1976-08-01",
+      "url": "https://api.jolpi.ca/ergast/f1/1976/10/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "1976 constructor standings (final)",
+      "publisher": "Jolpica F1 API",
+      "date": "1976-10-24",
+      "url": "https://api.jolpi.ca/ergast/f1/1976/constructorStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "Niki Lauda — 1976 results by round",
+      "publisher": "Jolpica F1 API",
+      "date": "1976-10-24",
+      "url": "https://api.jolpi.ca/ergast/f1/1976/drivers/lauda/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "James Hunt — 1976 results by round",
+      "publisher": "Jolpica F1 API",
+      "date": "1976-10-24",
+      "url": "https://api.jolpi.ca/ergast/f1/1976/drivers/hunt/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "1976 driver standings after round 15",
+      "publisher": "Jolpica F1 API",
+      "date": "1976-10-10",
+      "url": "https://api.jolpi.ca/ergast/f1/1976/15/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "1975 driver standings (final)",
+      "publisher": "Jolpica F1 API",
+      "date": "1975-10-05",
+      "url": "https://api.jolpi.ca/ergast/f1/1975/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s24",
+      "title": "1977 driver standings (final)",
+      "publisher": "Jolpica F1 API",
+      "date": "1977-10-23",
+      "url": "https://api.jolpi.ca/ergast/f1/1977/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "Spanish GP 1976 — race report",
+      "publisher": "GrandPrix.com",
+      "date": "1976-05-02",
+      "url": "https://www.grandprix.com/races/spanish-gp-1976.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "British GP 1976 — race report",
+      "publisher": "GrandPrix.com",
+      "date": "1976-07-18",
+      "url": "https://www.grandprix.com/races/british-gp-1976.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "German GP 1976 — race report",
+      "publisher": "GrandPrix.com",
+      "date": "1976-08-01",
+      "url": "https://www.grandprix.com/races/german-gp-1976.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "Italian GP 1976 — race report",
+      "publisher": "GrandPrix.com",
+      "date": "1976-09-12",
+      "url": "https://www.grandprix.com/races/italian-gp-1976.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Japanese GP 1976 — race report",
+      "publisher": "GrandPrix.com",
+      "date": "1976-10-24",
+      "url": "https://www.grandprix.com/races/japanese-gp-1976.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "Niki Lauda's incredible comeback from fiery Nürburgring crash (Nigel Roebuck, F1 Legends; November 2006 issue)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2006-11-01",
+      "url": "https://www.motorsportmagazine.com/archive/page/november-2006/28",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "1976 Canadian Grand Prix race report (Alan Henry)",
+      "publisher": "Motor Sport Magazine",
+      "date": "1976-11-01",
+      "url": "https://www.motorsportmagazine.com/archive/article/november-1976/58/canadian-grand-prix-11/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "Grand Prix Gold: Japan 1976 (Pete Lyons)",
+      "publisher": "Autosport",
+      "date": "2009-10-02",
+      "url": "https://www.autosport.com/f1/news/grand-prix-gold-japan-1976-5080356/5080356/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "Obituary: Niki Lauda 1949–2019 (Adam Cooper)",
+      "publisher": "Autosport",
+      "date": "2019-05-21",
+      "url": "https://www.autosport.com/f1/feature/9158/obituary-niki-lauda--19492019",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "F1's Best Drives #7 – Lauda's barely believable Monza comeback (David Tremayne)",
+      "publisher": "Formula 1 (formula1.com)",
+      "date": "2019-04-05",
+      "url": "https://www.formula1.com/en/latest/article/f1s-best-drives-7-laudas-barely-believable-monza-comeback.2unsQDzPIUws9wefP9N27Y",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "Fuji finale: James' 1976 championship, part 4",
+      "publisher": "McLaren",
+      "date": "2016-10-24",
+      "url": "https://www.mclaren.com/racing/heritage/formula-1/drivers/james-hunt/fuji-finale-james-1976-championship-part-4-2147777/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "James Hunt's 1976 championship season (Adam Wilkins)",
+      "publisher": "Goodwood Road & Racing",
+      "date": "2025-10-08",
+      "url": "https://www.goodwood.com/grr/f1/james-hunts-1976-championship-season/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "50 years ago: Niki Lauda's crash",
+      "publisher": "Nürburgring",
+      "date": "2026-08-01",
+      "url": "https://immobilien.nuerburgring.de/news/vor-50-jahren-der-unfall-von-niki-lauda?locale=en",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Лауда — чемпіон 1975 року, перший титул Ferrari з 1964-го",
+      "sources": [
+        "s19",
+        "s10"
+      ],
+      "status": "ok",
+      "note": "s10: Лауда 1-й у 1975-му; «перший з 1964-го» — лише s19"
+    },
+    {
+      "id": "c2",
+      "text": "Із перших шести гонок 1976 Лауда виграв чотири: Бразилія, ПАР, Бельгія, Монако",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c3",
+      "text": "Хант виграв в Іспанії, машину визнали зашироку (1,8 см) і перемогу забрали; відновили після апеляції в липні",
+      "sources": [
+        "s11",
+        "s22"
+      ],
+      "status": "ok",
+      "note": "1,8 см — лише s22; «у липні» — s11, «через два місяці» — s22"
+    },
+    {
+      "id": "c4",
+      "text": "Брендс-Гетч: у першому повороті зіткнулися Ferrari, McLaren Ханта підкинуло; червоний прапор; механіки відремонтували машину; Хант на 45-му колі обігнав Лауду й виграв; у Лауди почалися проблеми з перемиканням передач",
+      "sources": [
+        "s12"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c5",
+      "text": "Протести проти участі Ханта відхилили, Ferrari подала апеляцію",
+      "sources": [
+        "s12",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "Незадовго до Гран-прі Канади Ханта дискваліфікували з Гран-прі Британії, перемога — Лауді",
+      "sources": [
+        "s17",
+        "s22",
+        "s4"
+      ],
+      "status": "ok",
+      "note": "s12 датує рішення вереснем; Гран-прі Канади — 3 жовтня"
+    },
+    {
+      "id": "c7",
+      "text": "Гран-прі Німеччини — 1 серпня 1976, Нюрбургринг (Нордшляйфе)",
+      "sources": [
+        "s23",
+        "s16",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "text": "Пілоти були незадоволені безпекою Нюрбургринга, але стартували",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c9",
+      "text": "На другому колі в Бергверку Лауда втратив контроль над Ferrari 312T2; машина пробила огорожу, вдарилася в насип і в полум'ї відскочила на трасу",
+      "sources": [
+        "s23",
+        "s13"
+      ],
+      "status": "ok",
+      "note": "Бергверк — також s16"
+    },
+    {
+      "id": "c10",
+      "text": "У машину врізалися Ертль і Лангер; разом з Едвардсом і Мерцаріо вони витягали Лауду з вогню",
+      "sources": [
+        "s13",
+        "s16",
+        "s20"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "text": "Мерцаріо сунув руки у вогонь, щоб розстебнути замок пасків",
+      "sources": [
+        "s16"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c12",
+      "text": "Опіки й отруєння продуктами горіння; університетська клініка в Мангеймі",
+      "sources": [
+        "s16",
+        "s13",
+        "s20"
+      ],
+      "status": "ok",
+      "note": "s13: спершу Аденау, потім Мангейм; s20 — опіки й вдихання полум'я, без назви лікарні"
+    },
+    {
+      "id": "c13",
+      "text": "Лауді вже уділили останнє причастя",
+      "sources": [
+        "s16",
+        "s19",
+        "s20"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c14",
+      "text": "Гонку перезапустили, виграв Хант",
+      "sources": [
+        "s13",
+        "s16",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "text": "Гонка 1976 — остання на Нордшляйфе («for the time being»); у березні 1977 після інспекції представники пілотів вирішили, що гонок вищого рівня там більше не буде",
+      "sources": [
+        "s23"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c16",
+      "text": "Лауда пропустив Австрію й Нідерланди; Хант — 4-й в Австрії, переміг у Нідерландах",
+      "sources": [
+        "s16",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c17",
+      "text": "Ferrari найняла Ройтемана й виставила в Монці три машини",
+      "sources": [
+        "s14",
+        "s20"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "Лауда повернувся в Монці через шість тижнів після аварії",
+      "sources": [
+        "s14",
+        "s19",
+        "s20"
+      ],
+      "status": "ok",
+      "note": "s20 — «сорок два дні»; s16 і s22 — 40 днів до першого дня тренувань (10 вересня)"
+    },
+    {
+      "id": "c19",
+      "text": "Цитата Лауди про перший день тренувань у Монці: «It was like a pilot reacting to every air pocket… Not the way you should feel.»",
+      "sources": [
+        "s20"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c20",
+      "text": "Лауда кваліфікувався п'ятим і фінішував четвертим",
+      "sources": [
+        "s14",
+        "s16",
+        "s20",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c21",
+      "text": "Джекі Стюарт: «It was the most courageous thing I have ever witnessed in sport.»",
+      "sources": [
+        "s16"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c22",
+      "text": "Паливо McLaren перевищило октановий ліміт, часи Ханта анулювали, він стартував з кінця; на 12-му колі вилетів",
+      "sources": [
+        "s14",
+        "s22",
+        "s3"
+      ],
+      "status": "ok",
+      "note": "колo вильоту — s14; s3: «Spun off», 11 кіл"
+    },
+    {
+      "id": "c23",
+      "text": "Хант виграв Гран-прі Канади й США",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c24",
+      "text": "Перед Японією Лауда випереджав Ханта на три очки, 68 проти 65",
+      "sources": [
+        "s15",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "Гран-прі Японії — Фудзі, 24 жовтня 1976, фінал сезону",
+      "sources": [
+        "s2",
+        "s15"
+      ],
+      "status": "ok",
+      "note": "дата — s2; s15 — фінал на Фудзі"
+    },
+    {
+      "id": "c26",
+      "text": "Поул — Андретті (Lotus), Хант другий, Лауда третій",
+      "sources": [
+        "s15",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c27",
+      "text": "У день гонки — злива й туман",
+      "sources": [
+        "s15",
+        "s22",
+        "s18"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c28",
+      "text": "Старт відклали приблизно на 90 хвилин",
+      "sources": [
+        "s18"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c29",
+      "text": "Хант повів; Лауда на другому колі заїхав у бокси й зійшов",
+      "sources": [
+        "s15",
+        "s21",
+        "s22"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c30",
+      "text": "Лауда: «It's just like murder to be racing out there. I'm not going to do it.»",
+      "sources": [
+        "s18"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c31",
+      "text": "Також добровільно зійшли Фіттіпальді, Пачі й Перкінс",
+      "sources": [
+        "s15",
+        "s21",
+        "s18"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c32",
+      "text": "Траса підсихала, Хант втрачав темп; ліва передня шина зруйнувалася, піт-стоп 27 с, повернувся п'ятим",
+      "sources": [
+        "s21",
+        "s18",
+        "s15"
+      ],
+      "status": "ok",
+      "note": "ліва передня і 27 с — s21, s18; s15 пише про «схожу проблему», як у Депайє"
+    },
+    {
+      "id": "c33",
+      "text": "Хант обігнав суперників і фінішував третім з відставанням на коло; переміг Андретті",
+      "sources": [
+        "s15",
+        "s2",
+        "s21"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c34",
+      "text": "Хант фінішував, думаючи, що програв титул",
+      "sources": [
+        "s15",
+        "s21"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c35",
+      "text": "Хант: «I was absolutely determined not to think I was World Champion and then be disappointed.»",
+      "sources": [
+        "s21"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c36",
+      "text": "Хант — чемпіон з перевагою в одне очко: 69 проти 68",
+      "sources": [
+        "s1",
+        "s18",
+        "s19",
+        "s22"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c37",
+      "text": "Хант: «I think Niki made absolutely the right decision.»",
+      "sources": [
+        "s18"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c38",
+      "text": "Ferrari виграла Кубок конструкторів 1976",
+      "sources": [
+        "s15",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c39",
+      "text": "За сезон Хант виграв шість гонок, Лауда — п'ять",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c40",
+      "text": "1977 року Лауда знову став чемпіоном",
+      "sources": [
+        "s19",
+        "s24"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c41",
+      "text": "McLaren пояснювала зайву ширину розширенням шин у гонці й подала апеляцію; команду оштрафували на $3000",
+      "sources": [
+        "s11"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c42",
+      "text": "На Нюрбургринзі поул — Хант, Лауда другий",
+      "sources": [
+        "s13",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c43",
+      "text": "Кілька днів після аварії Лауда боровся за життя",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c44",
+      "text": "Стан Лауди різко покращився, за тиждень йому робили пересадку шкіри",
+      "sources": [
+        "s16"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c45",
+      "text": "Кріс Еймон відмовився виходити на рестарт",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c46",
+      "text": "Через дощ у п'ятницю Хант, Масс і Вотсон без суботніх часів формально не кваліфікувались; їх допустили, бо інші, хто не пройшов відбір, поїхали, а Гай Едвардс поступився місцем",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c47",
+      "text": "Гран-прі Італії 1976 виграв Ронні Петерсон (March)",
+      "sources": [
+        "s3",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c48",
+      "text": "Довго сперечалися, чи стартувати; частина пілотів була проти, але гонку провели",
+      "sources": [
+        "s15",
+        "s18"
+      ],
+      "status": "ok",
+      "note": "s18: «drivers were split»; s15: пілоти погодились, хоча дехто був незадоволений"
+    },
+    {
+      "id": "c49",
+      "text": "Пізніше Лауда не приховував, що просто не хотів їхати в таких умовах",
+      "sources": [
+        "s19",
+        "s21"
+      ],
+      "status": "ok",
+      "note": "s19 — «made no attempt to disguise…»; s21 — Лауда заявив, що умови занадто небезпечні"
+    },
+    {
+      "id": "c50",
+      "text": "На 62-му колі Ханта обігнали Депайє й Андретті",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c51",
+      "text": "Маєр: «I kept shouting at him, 'James, you've won!' He couldn't hear us. It took him two or three minutes to calm down enough for it to sink in.»",
+      "sources": [
+        "s21"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c52",
+      "text": "1984 року Лауда виграв третій титул, випередивши Проста на пів очка",
+      "sources": [
+        "s19"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c53",
+      "text": "На 22-му колі Брамбілла атакував за лідерство й розвернувся; Масс ішов другим (дубль McLaren), але на 36-му колі розбився",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c54",
+      "text": "Андретті: «I was determined to not do anything stupid today.»",
+      "sources": [
+        "s18"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/hunt-lauda-1976/m1-1280.webp",
+      "srcSet": "/img/stories/hunt-lauda-1976/m1-1280.webp 1280w, /img/stories/hunt-lauda-1976/m1-800.webp 800w, /img/stories/hunt-lauda-1976/m1-480.webp 480w",
+      "width": 1280,
+      "height": 852,
+      "focus": "45% 65%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:LaudaNiki19760731Ferrari312T2.jpg",
+        "author": "Lothar Spurzem",
+        "license": "CC BY-SA 2.0 de"
+      },
+      "caption": {
+        "uk": "Нікі Лауда на Ferrari 312 T2 у тренуваннях Гран-прі Німеччини на Нюрбургринзі, 31 липня 1976 року.",
+        "en": "Niki Lauda in the Ferrari 312 T2 during practice for the German Grand Prix, Nürburgring, 31 July 1976."
+      },
+      "alt": {
+        "uk": "Червоно-білий болід Ferrari з номером 1 у повороті.",
+        "en": "A red and white Ferrari car with the number 1 in a corner."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/hunt-lauda-1976/m2-800.webp",
+      "srcSet": "/img/stories/hunt-lauda-1976/m2-800.webp 800w, /img/stories/hunt-lauda-1976/m2-480.webp 480w",
+      "width": 800,
+      "height": 857,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Hunt_Wins_09.jpg",
+        "author": "Gillfoto",
+        "license": "CC BY-SA 3.0"
+      },
+      "caption": {
+        "uk": "Джеймс Хант після перемоги на Гран-прі Великої Британії в Брендс-Гетчі 1976 року — пізніше його дискваліфікували. Кубок тримає менеджер McLaren Тедді Маєр.",
+        "en": "James Hunt after winning the 1976 British Grand Prix at Brands Hatch, a win later taken away by disqualification. McLaren team manager Teddy Mayer holds the cup."
+      },
+      "alt": {
+        "uk": "Пілот у червоному комбінезоні поруч із чоловіком, який тримає кубок.",
+        "en": "A driver in red overalls next to a man holding a trophy."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/hunt-lauda-1976/m3-800.webp",
+      "srcSet": "/img/stories/hunt-lauda-1976/m3-800.webp 800w, /img/stories/hunt-lauda-1976/m3-480.webp 480w",
+      "width": 800,
+      "height": 531,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Hunt_at_1976_Dutch_Grand_Prix.jpg",
+        "author": "Bert Verhoeff / Anefo",
+        "license": "CC BY-SA 3.0 nl"
+      },
+      "caption": {
+        "uk": "Джеймс Хант на McLaren у тренуваннях Гран-прі Нідерландів у Зандворті, 27 серпня 1976 року.",
+        "en": "James Hunt in his McLaren during practice for the Dutch Grand Prix, Zandvoort, 27 August 1976."
+      },
+      "alt": {
+        "uk": "Чорно-біла світлина: болід McLaren з номером 11 у піт-лейні, навколо люди.",
+        "en": "A black-and-white photo of the McLaren number 11 in the pit lane, surrounded by people."
+      }
+    }
+  ]
+}

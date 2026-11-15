@@ -1,0 +1,550 @@
+{
+  "slug": "f1-team-size",
+  "category": "explainer",
+  "years": [
+    2019,
+    2020,
+    2021,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "title": {
+    "uk": "Скільки людей працює в команді Формули-1",
+    "en": "How many people work in an F1 team"
+  },
+  "dek": {
+    "uk": "Від кількох сотень у Haas до понад тисячі в Mercedes: хто ці люди, скільки з них їде на гонку, хто міняє колеса в піт-стопі і як стеля бюджету змінила штат.",
+    "en": "From a few hundred at Haas to well over a thousand at Mercedes: who these people are, how many travel to races, who changes the wheels at a pit stop and how the budget cap reshaped the workforce."
+  },
+  "links": {
+    "seasons": [
+      2020,
+      2021,
+      2023,
+      2025,
+      2026
+    ],
+    "races": [
+      "2023/17"
+    ],
+    "drivers": [
+      "norris"
+    ],
+    "teams": [
+      "mercedes",
+      "red-bull",
+      "williams",
+      "haas",
+      "mclaren",
+      "ferrari",
+      "aston-martin"
+    ],
+    "stories": [
+      "f1-budget-cap"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Insider's guide: Who does what in an F1 team?",
+      "publisher": "Motorsport.com",
+      "date": "2023-02-19",
+      "url": "https://www.motorsport.com/f1/news/insiders-guide-f1-team-who-does-what/8025042/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "Mercedes-Benz Grand Prix Limited – Group of companies' accounts made up to 31 December 2025 (note 4: staff numbers and costs)",
+      "publisher": "Companies House (UK)",
+      "date": "2026-06-07",
+      "url": "https://find-and-update.company-information.service.gov.uk/company/00787446/filing-history/MzUyNTE3NDg5NWFkaXF6a2N4/document?format=pdf&download=0",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "Mercedes AMG High Performance Powertrains Limited – Full accounts made up to 31 December 2025 (notes 1.10, 4)",
+      "publisher": "Companies House (UK)",
+      "date": "2026-07-10",
+      "url": "https://find-and-update.company-information.service.gov.uk/company/01760288/filing-history/MzUzMDMxODc5NmFkaXF6a2N4/document?format=pdf&download=0",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "Red Bull Technology Limited – Group of companies' accounts made up to 31 December 2025 (note 8: staff costs)",
+      "publisher": "Companies House (UK)",
+      "date": "2026-10-05",
+      "url": "https://find-and-update.company-information.service.gov.uk/company/05202976/filing-history/MzU0ODkwNTg3MmFkaXF6a2N4/document?format=pdf&download=0",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "Red Bull Racing Ltd – Full accounts made up to 31 December 2025 (note 2: consolidated into Red Bull Technology Ltd)",
+      "publisher": "Companies House (UK)",
+      "date": "2026-10-05",
+      "url": "https://find-and-update.company-information.service.gov.uk/company/03120645/filing-history/MzU0ODkwNTg2NGFkaXF6a2N4/document?format=pdf&download=0",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "Williams Grand Prix Engineering Limited – Group of companies' accounts made up to 31 December 2025 (note 4: particulars of employees)",
+      "publisher": "Companies House (UK)",
+      "date": "2026-09-22",
+      "url": "https://find-and-update.company-information.service.gov.uk/company/01297497/filing-history/MzU0NTg3NDA5M2FkaXF6a2N4/document?format=pdf&download=0",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "Revealed: What Toyota really wants to gain from its Haas F1 partnership (Thomas Maher)",
+      "publisher": "PlanetF1",
+      "date": "2025-12-17",
+      "url": "https://www.planetf1.com/news/ayao-komatsu-how-toyota-and-haas-partnership-evolves-in-f1-2026",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "What's the state of play at F1's smallest team? (Jake Boxall-Legge)",
+      "publisher": "Autosport",
+      "date": "2026-11-04",
+      "url": "https://www.autosport.com/f1/news/whats-the-state-of-play-at-f1s-smallest-team-/10866900/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "Insight: The trackside engineers",
+      "publisher": "Mercedes-AMG Petronas F1 Team",
+      "date": null,
+      "url": "https://mercedesamgf1.com/news/insight-the-trackside-engineers",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "2025 Formula 1 Sporting Regulations, Issue 5 (Article 23)",
+      "publisher": "FIA",
+      "date": "2025-04-30",
+      "url": "https://www.fia.com/system/files/documents/fia_2025_formula_1_sporting_regulations_-_issue_5_-_2025-04-30.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "FIA 2026 F1 Regulations – Section B: Sporting, Issue 07 (Article B9)",
+      "publisher": "FIA",
+      "date": "2026-06-25",
+      "url": "https://api.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_b_sporting_-_iss_07_-_2026-06-25.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "FIA confirms various temporary changes for 2026 F1 season (Jack Oliver Smith)",
+      "publisher": "Motorsport Week",
+      "date": "2025-12-10",
+      "url": "https://www.motorsportweek.com/2025/12/10/fia-confirms-various-temporary-changes-for-2026-f1-season/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "Rule tweak allows more team personnel at races (Adam Cooper)",
+      "publisher": "Motorsport.com",
+      "date": "2020-08-26",
+      "url": "https://www.motorsport.com/f1/news/rule-tweak-allows-more-team-personnel-at-races/4863166/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "Insider's guide: Why are F1 pit stops so fast?",
+      "publisher": "Motorsport.com",
+      "date": "2022-02-08",
+      "url": "https://www.motorsport.com/f1/news/insiders-guide-why-are-f1-pit-stops-so-fast/6816459/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Gone in 1.88s: Putting together the perfect F1 pit stop (Lawrence Barretto)",
+      "publisher": "Formula1.com",
+      "date": "2019-10-06",
+      "url": "https://www.formula1.com/en/latest/article/gone-in-1-88s-putting-together-the-perfect-f1-pit-stop.3lLKnEoPKdJgACsUn9IltC",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "Fastest Formula One pit stop",
+      "publisher": "Guinness World Records",
+      "date": null,
+      "url": "https://www.guinnessworldrecords.com/world-records/108666-fastest-formula-one-pit-stop",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "McLaren breaks pit stop world record with 1.80-second tire change at Qatar GP (Andrew Gutman)",
+      "publisher": "Carscoops",
+      "date": "2023-10-11",
+      "url": "https://www.carscoops.com/2023/10/mclaren-breaks-pit-stop-world-record-with-1-80-second-tire-change-at-qatar-gp/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "Mercedes-Benz Grand Prix Limited – Full accounts made up to 31 December 2021 (note 5: employees)",
+      "publisher": "Companies House (UK)",
+      "date": "2022-10-07",
+      "url": "https://find-and-update.company-information.service.gov.uk/company/00787446/filing-history/MzM1NDA0Njg3OWFkaXF6a2N4/document?format=pdf&download=0",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "Mercedes F1 sees 2021 profits increase by US$61m (Cian Brittle)",
+      "publisher": "BlackBook Motorsport",
+      "date": "2022-10-10",
+      "url": "https://www.blackbookmotorsport.com/?p=6060",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "How the cost cap is putting new pressures on F1's top teams (Mark Gallagher, GP Racing)",
+      "publisher": "Autosport",
+      "date": "2021-07-04",
+      "url": "https://www.autosport.com/f1/news/how-the-cost-cap-is-putting-new-pressures-on-f1s-top-teams/6623571/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "Explained: Red Bull made 154 redundancies due to F1 cost cap (James Dielhenn)",
+      "publisher": "Crash.net",
+      "date": "2024-01-23",
+      "url": "https://www.crash.net/f1/news/1018911/1/explained-red-bull-made-154-redundancies-due-f1-cost-cap",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "Wolff and Horner reveal \"pain\" of axing staff to accommodate F1 budget cap (Ian Parkes)",
+      "publisher": "GPFans",
+      "date": "2021-04-02",
+      "url": "https://www.gpfans.com/en/f1-news/63321/wolff-and-horner-reveal-pain-of-axing-staff-to-accommodate-f1-budget-cap/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "Formula 1 Financial Regulations, Issue 22 (Article 3: exclusions)",
+      "publisher": "FIA",
+      "date": "2024-12-11",
+      "url": "https://api.fia.com/sites/default/files/fia_formula_1_financial_regulations_-_issue_22_-_2024-12-11.pdf",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "За Motorsport.com, команда Формули-1 напряму залучає від 300 до 1 200 людей (оцінка).",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c2",
+      "text": "Mercedes-Benz Grand Prix Ltd: середня кількість працівників у 2025 р. — 1 348 (998 проєктування/виробництво/інженерія, 350 адміністрація); у 2024 р. — 1 323.",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c3",
+      "text": "Mercedes AMG High Performance Powertrains: у 2025 р. у середньому 886 працівників (796 виробництво, 90 адміністрація; 2024 — 925); постачає силові установки Mercedes, McLaren, Aston Martin і Williams, веде R&D для дорожніх машин.",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c4",
+      "text": "Група Red Bull Technology (консолідує Red Bull Racing Ltd): у 2025 р. у середньому 1 100 працівників (456 гонки й виробництво, 341 адміністрація, 303 проєктування); у 2024 р. — 969.",
+      "sources": [
+        "s4",
+        "s5"
+      ],
+      "status": "one",
+      "note": "s4 і s5 — звіти однієї групи; s5 лише підтверджує консолідацію."
+    },
+    {
+      "id": "c5",
+      "text": "Williams Grand Prix Engineering (група): у 2025 р. у середньому 1 151 працівник (765 R&D, 300 адміністрація й підтримка, 86 маркетинг); у 2024 р. — 949.",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c6",
+      "text": "Haas — найменша команда: за два роки штат виріс із 230 до приблизно 380 (PlanetF1, грудень 2025); «близько 400» людей (Autosport, листопад 2026).",
+      "sources": [
+        "s7",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c7",
+      "text": "Типова база: конструкторське бюро з 3–4 аеродинамічними підгрупами, симуляція (понад 100 000 віртуальних км на рік), виробництво, випробування, цех підготовки машин.",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c8",
+      "text": "У Mercedes стратеги працюють у Race Support Room у Брекклі.",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c9",
+      "text": "На гонки їздить близько 75 людей (оцінка Motorsport.com).",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c10",
+      "text": "Ліміт операційного персоналу: 58 у 2025 р., 60 у 2026 р.; підвищення — щоб команди могли ефективно працювати з машинами нового покоління.",
+      "sources": [
+        "s10",
+        "s11",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "text": "Ліміт діє від 29 годин до FP1 до 2 годин після старту гонки; від 45 хв до першого прогрівального кола до 15 хв після старту — без обмежень.",
+      "sources": [
+        "s10",
+        "s11"
+      ],
+      "status": "one",
+      "note": "Обидва документи — FIA (одне джерело)."
+    },
+    {
+      "id": "c12",
+      "text": "Не вважаються операційним персоналом: гонщики, персонал гостинності, маркетингу, медіа, охорони, водії вантажівок.",
+      "sources": [
+        "s11"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c13",
+      "text": "Додатково 16 винятків на сезон для стажерів; один стажер — не більше трьох етапів.",
+      "sources": [
+        "s10",
+        "s11"
+      ],
+      "status": "one",
+      "note": "Обидва документи — FIA (одне джерело)."
+    },
+    {
+      "id": "c14",
+      "text": "У 2020 р. (етапи без глядачів) — 80 людей на команду, включно з 60 операційними; з Гран-прі Бельгії — 90.",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c15",
+      "text": "У Mercedes на трасі працює близько 15–20 інженерів; гоночний інженер — зв'язок між командою і гонщиком; інженер з продуктивності працює з ним у парі; є інженери з електроніки й силової установки.",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c16",
+      "text": "У піт-стопі задіяно понад 20 людей: 2 домкрати, 4 гайковерти, 4 знімають і 4 ставлять колеса, 2 тримають машину, 2 на передньому крилі, 1 контролює випуск.",
+      "sources": [
+        "s14",
+        "s15"
+      ],
+      "status": "ok",
+      "note": "s14 перелічує 19 ролей, але пише «понад 20»; s15 — бригада Williams із 23 людей разом із запасними."
+    },
+    {
+      "id": "c17",
+      "text": "Бригада Williams (2019) — 23 людини разом із запасними.",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c18",
+      "text": "Механіки піт-стопу мають інші основні обов'язки в команді.",
+      "sources": [
+        "s14",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c19",
+      "text": "Перед сезоном 2019 Williams зробила понад 1 200 тренувальних піт-стопів на стенді.",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c20",
+      "text": "Рекорд піт-стопу — 1,80 с, McLaren, Ландо Норріс, Гран-прі Катару, 8 жовтня 2023 р.",
+      "sources": [
+        "s16",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c21",
+      "text": "Mercedes-Benz Grand Prix Ltd: 1 063 (2020) → 1 004 (2021); проєктування/виробництво/інженерія 906 → 831, адміністрація 157 → 173.",
+      "sources": [
+        "s18",
+        "s19"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "text": "Скільки людей пішло з Mercedes через стелю: «трохи менше 50» (GP Racing, 2021) чи 59 (Crash.net).",
+      "sources": [
+        "s20",
+        "s21"
+      ],
+      "status": "dis",
+      "note": "s20: «just under 50 people leaving the business» після консультацій із персоналом; s21: «Mercedes' restructure cost only 59 people their jobs»."
+    },
+    {
+      "id": "c23",
+      "text": "За даними Motorsport-Total.com (переказ Crash.net), у 2020–2021 рр. Red Bull Racing і Red Bull Technologies скоротили 154 людини, не всі з них працювали на команду F1.",
+      "sources": [
+        "s21"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c24",
+      "text": "Крістіан Горнер (квітень 2021): штат «у межах 800», «біль скорочень» узимку; Тото Вольфф: у Mercedes так само, «You cannot secure your capability in terms of people if you suddenly have to operate under a drastic cost cap».",
+      "sources": [
+        "s22"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c25",
+      "text": "Фінансовий регламент не враховує в стелі витрати на діяльність поза F1 і роботу відділів кадрів, фінансів і юристів.",
+      "sources": [
+        "s23"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c26",
+      "text": "У 2021 р. 30 співробітників Mercedes працювали над яхтою для Кубка Америки; Ferrari переводила фахівців Скудерії на дорожні машини.",
+      "sources": [
+        "s20"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/f1-team-size/m1-1280.webp",
+      "srcSet": "/img/stories/f1-team-size/m1-1280.webp 1280w, /img/stories/f1-team-size/m1-800.webp 800w, /img/stories/f1-team-size/m1-480.webp 480w",
+      "width": 1280,
+      "height": 853,
+      "focus": "45% 45%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Haas_F1_Team_2017_United_States_GP_(38000068891).jpg",
+        "author": "Curt Smith from Bellevue, WA, USA",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Піт-стоп Haas на Гран-прі США, Остін, 22 жовтня 2017 року.",
+        "en": "A Haas pit stop at the United States Grand Prix, Austin, 22 October 2017."
+      },
+      "alt": {
+        "uk": "Понад двадцять механіків у сірих комбінезонах і шоломах обступили болід на піт-лейні, вигляд згори.",
+        "en": "More than twenty mechanics in grey overalls and helmets surround a car in the pit lane, seen from above."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/f1-team-size/m2-800.webp",
+      "srcSet": "/img/stories/f1-team-size/m2-800.webp 800w, /img/stories/f1-team-size/m2-480.webp 480w",
+      "width": 800,
+      "height": 533,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Wind_Tunnel_Models_at_Formula_1_Exhibition,_London.jpg",
+        "author": "Hullian111",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Масштабні моделі боліда й деталей для випробувань в аеродинамічній трубі на виставці Formula 1 Exhibition у Лондоні, 2025 рік.",
+        "en": "Scale models of a car and components used for wind tunnel testing, at the Formula 1 Exhibition in London, 2025."
+      },
+      "alt": {
+        "uk": "Зменшена модель чорного боліда на підлозі й деталі моделей на стіні.",
+        "en": "A scaled-down black car model on the floor and model parts mounted on the wall."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/f1-team-size/m3-800.webp",
+      "srcSet": "/img/stories/f1-team-size/m3-800.webp 800w, /img/stories/f1-team-size/m3-480.webp 480w",
+      "width": 800,
+      "height": 542,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Pitstop_Practice_(4948946798).jpg",
+        "author": "Nic Redhead from Birmingham, UK",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Механіки Red Bull Racing тренують піт-стопи перед Гран-прі Бельгії, Спа, 26 серпня 2010 року.",
+        "en": "Red Bull Racing mechanics practise pit stops ahead of the Belgian Grand Prix, Spa, 26 August 2010."
+      },
+      "alt": {
+        "uk": "Механіки в темно-синьому стоять біля боліда Red Bull перед боксом.",
+        "en": "Mechanics in dark blue stand around a Red Bull car in front of the garage."
+      }
+    }
+  ]
+}

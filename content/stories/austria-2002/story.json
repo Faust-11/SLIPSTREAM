@@ -1,0 +1,708 @@
+{
+  "slug": "austria-2002",
+  "category": "scandal",
+  "years": [
+    2001,
+    2002,
+    2003,
+    2010,
+    2011
+  ],
+  "title": {
+    "uk": "Австрія-2002: перемога, яку віддали по радіо",
+    "en": "Austria 2002: the win given away over the radio"
+  },
+  "dek": {
+    "uk": "Рубенс Барікелло лідирував усю гонку і за кілька метрів до фінішу пропустив Міхаеля Шумахера за наказом Ferrari. Свист трибун, подіум навиворіт, мільйонний штраф і заборона командних наказів, яка протрималася вісім сезонів.",
+    "en": "Rubens Barrichello led the whole race and, a few metres from the line, let Michael Schumacher through on Ferrari's orders. Jeering grandstands, an upside-down podium, a million-dollar fine and a ban on team orders that lasted eight seasons."
+  },
+  "links": {
+    "seasons": [
+      2001,
+      2002,
+      2007,
+      2010
+    ],
+    "races": [
+      "2002/6",
+      "2001/6",
+      "2002/11",
+      "2007/17",
+      "2010/11"
+    ],
+    "drivers": [
+      "michael_schumacher",
+      "barrichello",
+      "montoya",
+      "ralf_schumacher",
+      "coulthard",
+      "massa",
+      "alonso",
+      "raikkonen",
+      "senna"
+    ],
+    "teams": [
+      "ferrari",
+      "williams",
+      "mclaren",
+      "renault"
+    ],
+    "circuits": [
+      "red_bull_ring",
+      "hockenheimring"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "2002 Austrian Grand Prix — results (round 6)",
+      "publisher": "Jolpica F1 API",
+      "date": "2002-05-12",
+      "url": "https://api.jolpi.ca/ergast/f1/2002/6/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "2002 driver standings after round 6",
+      "publisher": "Jolpica F1 API",
+      "date": "2002-05-12",
+      "url": "https://api.jolpi.ca/ergast/f1/2002/6/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "Austrian GP, 2002 — race report",
+      "publisher": "Grandprix.com",
+      "date": "2002-05-12",
+      "url": "https://www.grandprix.com/gpe/rr686.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "Lap by lap: Austrian GP",
+      "publisher": "BBC Sport",
+      "date": "2002-05-12",
+      "url": "http://news.bbc.co.uk/sport1/hi/motorsport/formula_one/1982854.stm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "Fury over stitch-up for Schumacher victory (Alan Henry)",
+      "publisher": "The Guardian",
+      "date": "2002-05-13",
+      "url": "https://www.theguardian.com/sport/2002/may/13/formulaone.formulaone2002",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "A gift for Schumacher: the Austrian Grand Prix (Susanna Loof, AP)",
+      "publisher": "Associated Press via Lawrence Journal-World",
+      "date": "2002-05-13",
+      "url": "https://www2.ljworld.com/news/2002/may/13/a_gift_for/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "Ferrari's Austria debacle",
+      "publisher": "Autosport",
+      "date": "2002-06-01",
+      "url": "https://www.autosport.com/f1/news/ferraris-austria-debacle-5042553/5042553/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "Modern Times: Schumacher's Spielberg gift (Simon Taylor)",
+      "publisher": "Motor Sport",
+      "date": "2002-07",
+      "url": "https://www.motorsportmagazine.com/archive/page/july-2002/20",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "The full statement by the World Council",
+      "publisher": "Autosport (FIA statement)",
+      "date": "2002-06-26",
+      "url": "https://www.autosport.com/f1/news/the-full-statement-by-the-world-council-5060280/5060280/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "Ferrari, Schumacher, Barrichello fined $1 million (AP)",
+      "publisher": "ESPN",
+      "date": "2002-06-26",
+      "url": "https://www.espn.com/rpm/f1/2002/0626/1399089.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "The F1 Commission in detail",
+      "publisher": "Grandprix.com",
+      "date": "2002-10-28",
+      "url": "https://www.grandprix.com/news/the-f1-commission-in-detail.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Stewards get new powers to act on driving standards",
+      "publisher": "RaceFans",
+      "date": "2010-12-13",
+      "url": "https://www.racefans.net/?p=40806",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "F1 Team Orders Ban Is Lifted",
+      "publisher": "Grandprix.com",
+      "date": "2010-12-10",
+      "url": "https://www.grandprix.com/news/f1-team-orders-ban-is-lifted.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "Team orders rule dropped as FIA relies on 151c (Adam Cooper)",
+      "publisher": "Adam Cooper's F1 Blog",
+      "date": "2010-12-10",
+      "url": "https://adamcooperf1.com/2010/12/10/team-orders-rule-dropped-as-fia-relies-on-151c/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Team orders ban deleted from F1 rulebook",
+      "publisher": "RTÉ Sport",
+      "date": "2010-12-10",
+      "url": "https://www.rte.ie/sport/motorsport/2010/1210/274030-formula1",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "Ferrari fined for German Grand Prix finish",
+      "publisher": "UPI",
+      "date": "2010-07-25",
+      "url": "https://www.upi.com/Sports_News/2010/07/25/Ferrari-fined-for-German-Grand-Prix-finish/UPI-90181280073558/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "Ferrari fined $100,000 for team orders",
+      "publisher": "Speedcafe",
+      "date": "2010-07-26",
+      "url": "https://speedcafe.com/ferrari-fined-100000-for-team-orders/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "The truth will out (Barrichello on Fantástico)",
+      "publisher": "Grandprix.com",
+      "date": "2008-11-25",
+      "url": "https://www.grandprix.com/ns/ns20995.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "Rubens: I was told to consider my contract",
+      "publisher": "Crash.net",
+      "date": "2022-03-30",
+      "url": "https://www.crash.net/f1/news/64387/1/rubens-i-was-told-to-consider-my-contract",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "Barrichello reveals Ferrari threat of 2002 (GMM, citing Globo)",
+      "publisher": "Nextgen-Auto",
+      "date": "2012-05-10",
+      "url": "https://motorsport.nextgen-auto.com/en/formula-1/Barrichello-reveals-Ferrari-threat-of-2002,41501.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "How Rubens Barrichello 'embarrassed' Ferrari in F1 team orders fiasco (Todt on the High Performance Podcast)",
+      "publisher": "Crash.net",
+      "date": "2026-04-25",
+      "url": "https://www.crash.net/f1/news/1093293/1/how-rubens-barrichello-embarrassed-ferrari-f1-team-orders-fiasco",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "Austria '02: How Ferrari team orders controversy embarrassed F1 (Edward Hardy)",
+      "publisher": "Motor Sport",
+      "date": "2022-05-12",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/austria-02-how-ferrari-team-orders-controversy-embarrassed-f1",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "Barrichello still waiting for pay-back from Schumacher",
+      "publisher": "Grandprix.com",
+      "date": "2001-05-14",
+      "url": "https://www.grandprix.com/news/barrichello-still-waiting-for-pay-back-from-schumacher.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s24",
+      "title": "Unhappy Rubens to talk team orders with Ferrari",
+      "publisher": "Autosport",
+      "date": "2001-05-13",
+      "url": "https://www.autosport.com/f1/news/unhappy-rubens-to-talk-team-orders-with-ferrari-5004875/5004875/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s25",
+      "title": "2001 Austrian Grand Prix — results (round 6)",
+      "publisher": "Jolpica F1 API",
+      "date": "2001-05-13",
+      "url": "https://api.jolpi.ca/ergast/f1/2001/6/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s26",
+      "title": "2002 season — race winners by round",
+      "publisher": "Jolpica F1 API",
+      "date": "2002",
+      "url": "https://api.jolpi.ca/ergast/f1/2002/results/1/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s27",
+      "title": "When Ferrari team orders decision triggered furious fan response (Henry Valantine)",
+      "publisher": "PlanetF1",
+      "date": "2025-06-25",
+      "url": "https://www.planetf1.com/features/austrian-grand-prix-2002-ferrari-team-orders-controversy",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s28",
+      "title": "2002 driver standings after round 11 (French GP)",
+      "publisher": "Jolpica F1 API",
+      "date": "2002-07-21",
+      "url": "https://api.jolpi.ca/ergast/f1/2002/11/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s29",
+      "title": "2002 final driver standings",
+      "publisher": "Jolpica F1 API",
+      "date": "2002-10-13",
+      "url": "https://api.jolpi.ca/ergast/f1/2002/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Гран-прі Австрії 2002 року відбувся 12 травня на A1-Ring у Шпільберзі; це шостий етап сезону.",
+      "sources": [
+        "s1",
+        "s3",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "До Австрії Міхаель Шумахер виграв чотири з п'яти гонок сезону 2002.",
+      "sources": [
+        "s26",
+        "s22"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "Барікелло стартував з поула й лідирував майже всю гонку.",
+      "sources": [
+        "s3",
+        "s4",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "text": "Барікелло зробив піт-стоп на 61-му колі, Шумахер — на 62-му, після чого Барікелло повернувся в лідери.",
+      "sources": [
+        "s4",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c5",
+      "text": "За словами Жана Тодта, пілотам повідомили про обмін позиціями на 63-му колі з 71.",
+      "sources": [
+        "s3",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "На останнє коло Барікелло пішов з перевагою близько секунди, пригальмував після останнього повороту; Шумахер виграв з перевагою 0,182 с.",
+      "sources": [
+        "s1",
+        "s4",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c7",
+      "text": "Глядачі освистали результат.",
+      "sources": [
+        "s4",
+        "s5",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "text": "На подіумі Барікелло стояв на верхній сходинці під німецький гімн, під італійський — обидва; Шумахер узяв кубок у канцлера Австрії Вольфганга Шюсселя, не привітавшись із ним, і віддав його Барікелло.",
+      "sources": [
+        "s9",
+        "s10",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "Барікелло: «I was asked to move over. It was a team decision and I have to respect it.»",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c10",
+      "text": "Шумахер сказав, що не відчуває радості від цієї перемоги; цитата за Guardian: «But obviously I don't take a lot of joy from the victory.»",
+      "sources": [
+        "s5",
+        "s6"
+      ],
+      "status": "ok",
+      "note": "Зміст підтверджують обидва джерела; дослівне формулювання різниться (AP: «I take no joy from this victory»). У тексті — версія Guardian."
+    },
+    {
+      "id": "c11",
+      "text": "Тодт про реакцію трибун: «I am not really bothered. Sometimes difficult decisions have to be taken.»",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c12",
+      "text": "Аргумент Ferrari: у 1997, 1998 і 1999 роках команда програвала чемпіонат в останній гонці.",
+      "sources": [
+        "s5",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "Браун: обмін можна було замаскувати піт-стопами, але зробити це потай означало б «taken credit away from Rubens».",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c14",
+      "text": "Наказ приніс Шумахеру чотири додаткові очки.",
+      "sources": [
+        "s3",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "text": "Після Австрії: Шумахер 54 очки, Монтойя 27, Барікелло 12 (четвертий).",
+      "sources": [
+        "s2",
+        "s3",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c16",
+      "text": "Незадовго до гонки Барікелло підписав новий контракт з Ferrari до кінця 2004 року.",
+      "sources": [
+        "s5",
+        "s27"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c17",
+      "text": "У 2001 році в Австрії Барікелло за наказом команди на останньому колі пропустив Шумахера на друге місце; переміг Култхард.",
+      "sources": [
+        "s23",
+        "s24",
+        "s25"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "Бріаторе (Renault): «It was absolutely disgraceful»; Патрік Гед (Williams): «It was a cynical manoeuvre».",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c19",
+      "text": "У 2008 році в програмі Fantástico Барікелло сказав, що на останньому колі отримав ультиматум: «I was told to think about my contract».",
+      "sources": [
+        "s18",
+        "s19"
+      ],
+      "status": "ok",
+      "note": "Обидва видання переказують одне інтерв'ю Fantástico; переклади інших фраз різняться, тож переклад зроблено незалежно."
+    },
+    {
+      "id": "c20",
+      "text": "У 2012 році (Globo) Барікелло назвав фінал «eight laps of war» і сказав, що кричав по радіо, що не пропустить Шумахера.",
+      "sources": [
+        "s20",
+        "s22"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c21",
+      "text": "Коли ухвалили рішення про обмін: під час гонки чи до старту.",
+      "sources": [
+        "s3",
+        "s7",
+        "s21"
+      ],
+      "status": "dis",
+      "note": "У 2002 році Тодт казав, що пілотам повідомили на 63-му колі після останніх піт-стопів (s3, s7). У 2026 році в подкасті High Performance він заявив, що домовленість існувала до гонки (s21)."
+    },
+    {
+      "id": "c22",
+      "text": "Тодт (2026): «if you are in front of Michael before the last pit stop, you must let Michael go»; Рубенс нібито не хотів виконувати домовлене, що й спричинило збентеження.",
+      "sources": [
+        "s21"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c23",
+      "text": "26 червня 2002 року Всесвітня рада FIA не покарала Ferrari за командні накази: пілоти за контрактом мали їх виконувати, а право команди визначати порядок фінішу рада назвала «long-standing and traditional».",
+      "sources": [
+        "s9",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c24",
+      "text": "За порушення церемонії подіуму (стаття 170) Ferrari, Шумахера і Барікелло спільно оштрафували на 1 млн доларів США; половину — одразу, половину умовно на рік.",
+      "sources": [
+        "s9",
+        "s10"
+      ],
+      "status": "ok",
+      "note": "Motor Sport (s22) пише «$1 million each», але офіційна заява FIA (s9) і AP (s10) — один спільний штраф. У тексті — версія FIA."
+    },
+    {
+      "id": "c25",
+      "text": "Мослі: «What happened in Austria was bad from a sporting point of view», але законних підстав карати не було.",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c26",
+      "text": "За словами Мослі, FIA отримала більше факсів і листів, ніж після загибелі Айртона Сенни в 1994 році.",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c27",
+      "text": "28 жовтня 2002 року Комісія Ф-1 заборонила командні накази, що впливають на результат гонки («Team orders which interfere with a race result are prohibited»), з сезону 2003.",
+      "sources": [
+        "s11",
+        "s12",
+        "s22"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c28",
+      "text": "Шумахер став чемпіоном 2002 року після Гран-прі Франції 21 липня (96 очок проти 34 у Монтойї за шість етапів до кінця); фінал сезону — 144 проти 77 у Барікелло.",
+      "sources": [
+        "s28",
+        "s29"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c29",
+      "text": "На Гран-прі Бразилії 2007 року Масса поступився можливою перемогою Ряйкконену через піт-стопи, і той став чемпіоном.",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "Гоккенгайм-2010: Смедлі передав Массі «Fernando is faster than you. Can you confirm you understood that message?»; Алонсо пройшов його на 49-му колі.",
+      "sources": [
+        "s16"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c31",
+      "text": "Стюарди Гран-прі Німеччини 2010 року оштрафували Ferrari на 100 000 доларів за командні накази.",
+      "sources": [
+        "s15",
+        "s16",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c32",
+      "text": "10 грудня 2010 року Всесвітня рада в Монако видалила статтю 39.1 про заборону командних наказів; дискредитацію спорту й далі карають за статтею 151c Міжнародного спортивного кодексу.",
+      "sources": [
+        "s13",
+        "s14",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c33",
+      "text": "Williams Монтойї та Ральфа Шумахера фінішували третім і четвертим, більш ніж за 17 секунд після Ferrari.",
+      "sources": [
+        "s1",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c34",
+      "text": "Шумахер показав найшвидше коло гонки на останніх колах, наздоганяючи Барікелло.",
+      "sources": [
+        "s3",
+        "s4"
+      ],
+      "status": "ok",
+      "note": "Grandprix.com дає найшвидше коло 1:09.298 на 68-му колі; BBC у текстовій трансляції згадує його на 69-му колі. У тексті номер кола не вказано."
+    },
+    {
+      "id": "c35",
+      "text": "Шумахер: перед гонкою казав «I don't believe that there is going to be a team strategy involved», а потім йому раптом сказали, що Рубенс пропустить.",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/austria-2002/m1-1280.webp",
+      "srcSet": "/img/stories/austria-2002/m1-1280.webp 1280w, /img/stories/austria-2002/m1-800.webp 800w, /img/stories/austria-2002/m1-480.webp 480w",
+      "width": 1280,
+      "height": 820,
+      "focus": "40% 60%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Torino_Museo_Nazionale_dell'Automobile_112.jpg",
+        "author": "Zairon",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Демонстраційний екземпляр Ferrari F2002 у Національному музеї автомобіля в Турині, 2020 рік.",
+        "en": "A Ferrari F2002 show car at the National Automobile Museum in Turin, 2020."
+      },
+      "alt": {
+        "uk": "Червоний болід Ferrari в музейній експозиції на тлі зображення полум'я.",
+        "en": "A red Ferrari car in a museum display against a backdrop of flames."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/austria-2002/m2-698.webp",
+      "srcSet": "/img/stories/austria-2002/m2-698.webp 698w, /img/stories/austria-2002/m2-480.webp 480w",
+      "width": 698,
+      "height": 514,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:2002_Austrian_GP.jpg",
+        "author": "Paddy Briggs",
+        "license": "Public domain"
+      },
+      "caption": {
+        "uk": "Рубенс Барікелло пропускає Міхаеля Шумахера на фінішній прямій Гран-прі Австрії, 12 травня 2002 року.",
+        "en": "Rubens Barrichello makes way for Michael Schumacher on the finishing straight at the Austrian Grand Prix, 12 May 2002."
+      },
+      "alt": {
+        "uk": "Дві червоні Ferrari на фінішній прямій, на передньому плані — маршали й фотографи біля огорожі.",
+        "en": "Two red Ferraris on the finishing straight, with marshals and photographers at the fence in the foreground."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/austria-2002/m3-800.webp",
+      "srcSet": "/img/stories/austria-2002/m3-800.webp 800w, /img/stories/austria-2002/m3-480.webp 480w",
+      "width": 800,
+      "height": 800,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Austrian_GP_2002_2nd_position_trophy_2019_Michael_Schumacher_Private_Collection.jpg",
+        "author": "Morio",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Кубок за друге місце Гран-прі Австрії 2002 року в приватній колекції Міхаеля Шумахера (знімок 2019 року).",
+        "en": "The 2002 Austrian Grand Prix second-place trophy in Michael Schumacher's private collection (photographed in 2019)."
+      },
+      "alt": {
+        "uk": "Срібний кубок на темному постаменті у вітрині.",
+        "en": "A silver cup on a dark base in a display case."
+      }
+    }
+  ]
+}
