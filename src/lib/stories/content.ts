@@ -115,14 +115,24 @@ function photo(m: RawMedia, locale: Locale): Photo {
   return { id: m.id, src: m.src, srcSet: m.srcSet, width: m.width, height: m.height, focus: m.focus ?? null, caption: m.caption[locale], alt: m.alt[locale], credit: m.credit };
 }
 
+/**
+ * Рік і місце картки (рев'ю 15.11): історія про одну гонку — її рік і траса; скандал чи сенсація без гонки — перший рік
+ * історії, без місця; огляди (історія, техніка, розбори) — без року й місця (інакше «Жінки у Ф1 — 1958 · Спа»).
+ */
+function yearOf(raw: RawStory): number | null {
+  if (raw.race) return Number(raw.race.slice(0, 4));
+  if ((raw.category === "scandal" || raw.category === "sensation") && raw.years?.length) return Math.min(...raw.years);
+  return null;
+}
+
 function card({ raw, md }: Loaded, locale: Locale): StoryCard {
   const hero = raw.media?.find((m) => m.role === "hero");
-  const circuit = raw.links?.circuits?.[0];
+  const circuit = raw.race ? raw.links?.circuits?.[0] : undefined;
   return {
     slug: raw.slug,
     category: raw.category,
     kicker: raw.kicker?.[locale] ?? null,
-    year: raw.years?.length ? Math.min(...raw.years) : null,
+    year: yearOf(raw),
     title: splitTitle(raw.title[locale]),
     dek: raw.dek[locale],
     place: circuit ? (places[circuit]?.[locale] ?? null) : null,
@@ -159,7 +169,7 @@ function related(self: Loaded, all: StoryCard[], n = 4): StoryCard[] {
     if (c && c.slug !== self.raw.slug && !out.some((o) => o.slug === c.slug) && out.length < n) out.push(c);
   };
   for (const slug of self.raw.links?.stories ?? []) add(all.find((c) => c.slug === slug));
-  const year = self.raw.years?.length ? Math.min(...self.raw.years) : null;
+  const year = yearOf(self.raw) ?? (self.raw.years?.length ? Math.min(...self.raw.years) : null);
   const dist = (c: StoryCard) => (year === null || c.year === null ? 1000 : Math.abs(c.year - year));
   for (const c of [...all].filter((c) => c.category === self.raw.category).sort((a, b) => dist(a) - dist(b))) add(c);
   for (const c of [...all].sort((a, b) => dist(a) - dist(b))) add(c);
