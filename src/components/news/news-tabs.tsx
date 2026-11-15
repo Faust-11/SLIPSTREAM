@@ -22,10 +22,12 @@ export function NewsTabs({ targetId, counts, labels }: { targetId: string; count
   const v = picked ?? fromUrl;
   useEffect(() => {
     const el = document.getElementById(targetId);
-    if (el) el.dataset.v = v;
+    // Під час гідратації v — серверне «all»: брати вкладку з адреси, інакше один кадр «Усе» — колонка постів
+    // обмежена й зі смугою прокрутки, потім знову «Журналісти» (CLS 0,11–0,24 на ?v=bsky, CI PR #41).
+    if (el) el.dataset.v = picked ?? readUrlView();
     // Вкладку з адреси до першого кадру ставив ThemeScript (html[data-nw-v]); далі стан — у контейнері.
     document.documentElement.removeAttribute("data-nw-v");
-  }, [v, targetId]);
+  }, [v, picked, targetId]);
   const pick = (next: NewsView) => {
     setPicked(next);
     const params = new URLSearchParams(window.location.search);
