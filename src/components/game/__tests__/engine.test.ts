@@ -83,12 +83,16 @@ afterEach(() => {
   document.body.replaceChildren();
 });
 
-function driveBotLap(engine: HotLapEngine, key: keyof typeof TRACK_SPECS) {
+function driveBotLap(engine: HotLapEngine, key: keyof typeof TRACK_SPECS, jumpStart = false) {
   const inputs = unrle(TRACK_SPECS[key].botInputs);
   engine.start();
-  // Вогні: 5 × 84 + 60 тіків (Math.random = 0).
+  // Вогні: 5 × 84 + 60 тіків (Math.random = 0). Фальстарт — газ на 10 тіків, поки горять вогні.
   let guard = 0;
-  while (engine.getSnapshot().phase === "lights" && guard++ < 1000) frame();
+  while (engine.getSnapshot().phase === "lights" && guard++ < 1000) {
+    if (jumpStart) engine.press(1, guard > 100 && guard < 110);
+    frame();
+  }
+  engine.press(15, false);
   expect(engine.getSnapshot().phase).toBe("run");
   let prev = 0;
   for (const b of inputs) {
@@ -104,7 +108,7 @@ function driveBotLap(engine: HotLapEngine, key: keyof typeof TRACK_SPECS) {
 describe("HotLapEngine", () => {
   it("коло бота на Лимані через рушій: 0:29.933, перше коло = рекорд, збережено ввід, повтор зараховано", () => {
     const engine = new HotLapEngine();
-    engine.setLabels({ react: "R", s: "s", off: "+1" });
+    engine.setLabels({ react: "R", s: "s", off: "+1", jump: "JS" });
     const els = elements();
     const detach = engine.attach(els);
     expect(engine.getSnapshot()).toMatchObject({ mounted: true, key: "lyman", phase: "ready", bestTotal: null });
@@ -112,7 +116,7 @@ describe("HotLapEngine", () => {
     driveBotLap(engine, "lyman");
     const snap = engine.getSnapshot();
     expect(snap.phase).toBe("done");
-    expect(snap.result).toEqual({ t: 3592, pen: 0, isBest: true, prevBest: null });
+    expect(snap.result).toEqual({ t: 3592, pen: 0, jump: false, isBest: true, prevBest: null });
     expect(snap.bestTotal).toBe(3592);
     expect(snap.cardBests.lyman).toBe(3592);
     expect(snap.laps).toHaveLength(1);
@@ -124,7 +128,7 @@ describe("HotLapEngine", () => {
 
     // Друге таке саме коло: сектори = рекорду → фіолетові; рекорд не новий.
     driveBotLap(engine, "lyman");
-    expect(engine.getSnapshot().result).toEqual({ t: 3592, pen: 0, isBest: false, prevBest: 3592 });
+    expect(engine.getSnapshot().result).toEqual({ t: 3592, pen: 0, jump: false, isBest: false, prevBest: 3592 });
     expect(els.sectors.map((s) => s.className)).toEqual(["gm-chip is-purple", "gm-chip is-purple", "gm-chip is-purple"]);
     expect(engine.getSnapshot().laps).toHaveLength(2);
     // Дельта до привида (рекорд) оновлювалась: те саме коло — у межах кількох тіків (дельта рахується від
@@ -138,6 +142,29 @@ describe("HotLapEngine", () => {
     again.attach(elements());
     expect(again.getSnapshot().bestTotal).toBe(3592);
   }, 30_000); // два повні кола (~7 200 тіків) — під навантаженням машини довше за 5 с за замовчуванням
+
+  it("фальстарт: +1 с до часу кола, позначка в сховищі, рекорд з позначкою перевіряється повтором", () => {
+    const engine = new HotLapEngine();
+    engine.setLabels({ react: "R", s: "s", off: "+1", jump: "JS" });
+    const els = elements();
+    const detach = engine.attach(els);
+    driveBotLap(engine, "lyman", true);
+    expect(engine.getSnapshot().result).toEqual({ t: 3592 + 120, pen: 0, jump: true, isBest: true, prevBest: null });
+    expect(els.react.textContent).toBe("JS");
+    expect(els.time.textContent).toBe("0:30.933");
+    const stored = JSON.parse(localStorage.getItem(storeKey("lyman"))!);
+    expect(stored.best).toMatchObject({ total: 3712, jump: true });
+    expect(stored.laps[0]).toMatchObject({ t: 3712, pen: 1 });
+    detach();
+    const again = new HotLapEngine();
+    again.attach(elements());
+    expect(again.getSnapshot().bestTotal).toBe(3712);
+    // Без позначки той самий час не проходить повтор (3712 ≠ 3592) — рекорд відкидається.
+    localStorage.setItem(storeKey("lyman"), JSON.stringify({ ...stored, best: { inputs: stored.best.inputs, total: 3712 } }));
+    const forged = new HotLapEngine();
+    forged.attach(elements());
+    expect(forged.getSnapshot().bestTotal).toBeNull();
+  }, 30_000);
 
   it("підроблений рекорд у сховищі відкидається і стирається", () => {
     localStorage.setItem(storeKey("port"), JSON.stringify({ best: { inputs: TRACK_SPECS.port.botInputs, total: 100 }, laps: [] }));
