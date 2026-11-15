@@ -53,6 +53,8 @@ export type HomeLast = {
   rounds: number;
   gp: string;
   place: string;
+  /** Коротка назва траси — для alt банера (circuitPhotoAlt, як на сторінці гонки). */
+  short: string;
   date: string | null;
   laps: number | null;
   photo: SeasonPhoto | null;
@@ -73,6 +75,8 @@ export type HomeNext = {
   circuit: null | {
     slug: string;
     name: string;
+    /** Місце траси (alt банера: circuitPhotoAlt). */
+    place: string;
     layout: CircuitLayout["page"] | null;
     /** Значок на схемі: рух уздовж шляху (forward) чи назустріч (reverse), щоб збігтися з напрямом гонки; null — напрям невідомий. */
     motion: "forward" | "reverse" | null;
@@ -186,6 +190,7 @@ export async function getHomePage(locale: Locale): Promise<HomePage> {
       rounds: race.rounds,
       gp: race.gp,
       place: race.place,
+      short: race.short,
       date: race.date,
       laps: winner?.laps ?? null,
       photo: race.hero.photo,
@@ -211,6 +216,7 @@ export async function getHomePage(locale: Locale): Promise<HomePage> {
         ? {
             slug: cp.slug,
             name: cp.short,
+            place: cp.place,
             layout: cp.layout?.page ?? null,
             motion: layoutMotion(cp.ref, cp.layout?.page.d ?? null),
             lengthKm: cp.facts?.lengthKm ?? null,
