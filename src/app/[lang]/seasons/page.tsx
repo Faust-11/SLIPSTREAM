@@ -8,6 +8,7 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";
 import { requireLocale } from "@/i18n/require-locale";
 import { getSeasonsIndex, type SeasonCard } from "@/lib/data/seasons";
+import { seasonPhotoAlt } from "@/lib/image-alt";
 import { plural } from "@/lib/plural";
 import { pageMetadata, siteUrl } from "@/lib/seo";
 
@@ -51,6 +52,7 @@ export default async function SeasonsPage({ params }: Props) {
   const card = (c: SeasonCard, pos: number) => {
     const first = pos === 1;
     const titleId = `season-${c.year}`;
+    const alt = c.driver ? seasonPhotoAlt(t.photoAlt, c.driver.name, c.year, !c.inProgress || c.decided) : "";
     return (
       <li key={c.year} className={first ? "slot pole" : "slot"} data-pos={`P${pos}`} style={c.color ? ({ "--team": c.color } as CSSProperties) : undefined}>
         <article className="car" aria-labelledby={titleId}>
@@ -63,6 +65,7 @@ export default async function SeasonsPage({ params }: Props) {
               sizes={SIZES}
               width={c.photo.width}
               height={c.photo.height}
+              alt={alt}
               priority={first}
               eager
               style={c.photo.focus ? { objectPosition: c.photo.focus } : undefined}
@@ -77,7 +80,7 @@ export default async function SeasonsPage({ params }: Props) {
               sizes={SIZES}
               width={c.photo.width}
               height={c.photo.height}
-              alt=""
+              alt={alt}
               style={c.photo.focus ? { objectPosition: c.photo.focus } : undefined}
               decoding="async"
               loading="lazy"

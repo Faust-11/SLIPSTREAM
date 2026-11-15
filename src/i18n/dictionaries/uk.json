@@ -594,7 +594,11 @@
       "many": "{done} з {n} етапів",
       "other": "{done} з {n} етапу"
     },
-    "seasonLink": "Сезон {year}"
+    "seasonLink": "Сезон {year}",
+    "photoAlt": {
+      "champion": "{name} — чемпіон {year}",
+      "leader": "{name} — лідер сезону {year}"
+    }
   },
   "seasonPage": {
     "metaDescription": "Сезон {year} Формули-1: {who}. Битва за титул після кожного етапу, календар з переможцями й поулами, підсумкові заліки пілотів і конструкторів.",
@@ -980,7 +984,11 @@
     "layoutSpan": "Конфігурація {from}–{to}",
     "layoutKey": "конфігурація, описана вище",
     "titlesEarlier": "Ще {n} — раніше в сезоні.",
-    "rankMore": "і ще {count} — по {n}"
+    "rankMore": "і ще {count} — по {n}",
+    "heroAlt": {
+      "full": "Траса «{short}», {place}",
+      "short": "Траса «{short}»"
+    }
   },
   "calendarPage": {
     "metaDescription": {

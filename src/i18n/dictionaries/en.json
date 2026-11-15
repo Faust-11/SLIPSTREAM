@@ -594,7 +594,11 @@
       "many": "{done} of {n} rounds",
       "other": "{done} of {n} rounds"
     },
-    "seasonLink": "Season {year}"
+    "seasonLink": "Season {year}",
+    "photoAlt": {
+      "champion": "{name}, {year} champion",
+      "leader": "{name}, {year} championship leader"
+    }
   },
   "seasonPage": {
     "metaDescription": "The {year} Formula 1 season: {who}. The title fight after every round, the calendar with winners and poles, and the final drivers' and constructors' standings.",
@@ -980,7 +984,11 @@
     "layoutSpan": "Layout used {from}–{to}",
     "layoutKey": "layout described above",
     "titlesEarlier": "{n} more earlier in the season.",
-    "rankMore": "and {count} more with {n}"
+    "rankMore": "and {count} more with {n}",
+    "heroAlt": {
+      "full": "{short} circuit, {place}",
+      "short": "{short} circuit"
+    }
   },
   "calendarPage": {
     "metaDescription": {

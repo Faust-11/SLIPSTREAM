@@ -27,7 +27,7 @@ import { loadSeasonIndex } from "./seasons";
 import { gpName } from "./team-page";
 import type { Credit, L10n, RacePageRow, RaceQualiJson, RaceResultJson, SeasonPointsDbRow } from "./types";
 
-type CuratedCircuit = L10n & { wiki?: string; hero?: { src: string; srcSet: string; width: number; height: number; focusY?: number }; credit?: Credit };
+type CuratedCircuit = L10n & { short?: L10n; wiki?: string; hero?: { src: string; srcSet: string; width: number; height: number; focusY?: number }; credit?: Credit };
 const circuits = (circuitsJson as unknown as { places: Record<string, CuratedCircuit> }).places;
 
 /** Рядки f1.race_page за ключем «рік/етап» — один запит на збірку. */
@@ -98,6 +98,8 @@ export type RacePage = {
   rounds: number;
   gp: string;
   place: string;
+  /** Коротка назва траси (circuits.json → short), для alt банера. */
+  short: string;
   circuit: string | null;
   firstDate: string | null;
   date: string | null;
@@ -328,6 +330,7 @@ export async function getRacePage(year: number, round: number, locale: Locale): 
     rounds: index.find((s) => s.year === year)?.rounds ?? seasonRounds.length,
     gp: gpName(meta.name, locale),
     place: placeName(meta.circuit, meta.locality, locale),
+    short: c?.short?.[locale] ?? placeName(meta.circuit, meta.locality, locale),
     circuit: meta.circuit,
     firstDate: firstAt ? firstAt.slice(0, 10) : meta.date,
     date: meta.date,
