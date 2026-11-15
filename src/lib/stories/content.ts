@@ -154,6 +154,11 @@ function byYear(a: StoryCard, b: StoryCard, locale: Locale): number {
   return a.title.main.localeCompare(b.title.main, locale);
 }
 
+/** Фото історій (з кредитами) — для зведеного переліку авторів на сторінці «Джерела й ліцензії». */
+export function getStoryMedia(): { slug: string; media: RawMedia[] }[] {
+  return loadAll().map((s) => ({ slug: s.raw.slug, media: s.raw.media ?? [] }));
+}
+
 export function getStorySlugs(): string[] {
   return loadAll().map((s) => s.raw.slug);
 }
