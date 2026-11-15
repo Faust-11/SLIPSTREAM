@@ -46,7 +46,7 @@ test("гра «Старт»: натискання до згасання вогн
   await go.click();
   await expect(page.locator(".nb-pod.nb-on").first()).toBeVisible({ timeout: 2500 });
   await page.getByRole("button", { name: /Чекайте/ }).click();
-  await expect(page.locator(".nb-out")).toContainText("Фальстарт");
+  await expect(page.locator(".nb-res")).toContainText("Фальстарт");
   await expect(page.getByRole("button", { name: "Ще раз" })).toBeVisible();
 });
 
