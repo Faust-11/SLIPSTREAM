@@ -111,7 +111,6 @@
 }
 .gm-play {
   padding-bottom: 44px;
-  scroll-margin-top: 72px;
 }
 .gm-sec-head {
   border-bottom: var(--b) solid var(--rule);
@@ -260,9 +259,8 @@
   -webkit-touch-callout: none;
   color: #eceff1;
 }
-/* Прокрутка до сцени — під липкою шапкою (64 + смуга 8). */
+/* Прокрутка до сцени: відступ під липку шапку вже дає html { scroll-padding-top: 80px } (site.css) — тут лише низ. */
 .gm-game {
-  scroll-margin-top: 80px;
   scroll-margin-bottom: 8px;
 }
 .gm-game.is-running {
@@ -554,6 +552,9 @@
   color: #f3f4f1;
 }
 @media (pointer: coarse) {
+  .gm-key-hint {
+    display: none;
+  }
   .gm-touch {
     display: flex;
   }
@@ -572,6 +573,28 @@
   .gm-game {
     max-height: calc(100vh - 88px);
     max-height: calc(100dvh - 88px);
+  }
+}
+/* Невисокий екран (телефон горизонтально): «заново» — внизу по центру між групами кнопок, бо під мінікартою
+   воно налазило на спідометр (замір 844×390). */
+@media (pointer: coarse) and (max-height: 520px) {
+  /* Мінікарта 132 px на сцені ~290 px налазила на спідометр (замір 844×390, 667×375). */
+  .gm-game {
+    --gm-mini: 96px;
+  }
+  .gm-mini {
+    width: 96px;
+    height: 96px;
+  }
+  .gm-hud {
+    max-width: calc(100% - 96px - 36px);
+  }
+  .gm-restart {
+    top: auto;
+    right: auto;
+    left: 50%;
+    bottom: max(20px, env(safe-area-inset-bottom, 0px));
+    transform: translateX(-50%);
   }
 }
 /* Вузькі телефони (≤ 360): 4 кнопки по 64 px (~296 px) не влазять у сцену 280 px — 56 px (ціль ≥ 44). */
