@@ -53,70 +53,33 @@
   margin: 16px 0 0;
   font-size: clamp(16px, 1.5vw, 18.5px);
 }
-.nw-upd {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin: 0;
-  border-top: 2px solid #fff;
-}
-.nw-upd > div {
-  display: grid;
-  align-content: start;
-  gap: 3px;
-  min-width: 0;
-  padding: 10px 12px 0 0;
-}
-.nw-upd > div + div {
-  padding-left: 12px;
-  border-left: 1px solid rgb(255 255 255 / 0.4);
-}
-.nw-upd dt {
-  font: 10.5px var(--f-mono);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.nw-upd dd {
-  display: grid;
-  gap: 2px;
-  margin: 0;
-}
-.nw-upd b {
-  font-family: var(--f-display);
-  word-spacing: -0.35em;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 1.1;
-}
-.nw-upd small,
-.nw-upd .nw-time {
-  font: 12px var(--f-mono);
-}
-.nw-upd .nw-time {
-  font-weight: 600;
-  font-size: 14px;
-  color: #fff;
-  white-space: nowrap;
-}
+/* Плашка наступної гонки — праворуч від заголовка, по центру висоти банера, і вища, ніж була під цифрами збору
+   (відгук користувача 15.11: цифри «Оновлено / Заголовків / Постів» прибрано, плашку — вище й більшою). */
 .nw-next {
   grid-column: 2;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: baseline;
-  gap: 4px 12px;
-  padding: 12px 14px;
+  gap: 8px 16px;
+  padding: 20px 22px;
   background: var(--nw-box);
   color: #fff;
   border: 2px solid #fff;
   text-decoration: none;
 }
 .nw-next span {
-  font: 11px var(--f-mono);
+  grid-column: 1 / -1;
+  font: 12px var(--f-mono);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--yellow);
 }
+.nw-next b {
+  font-size: clamp(18px, 1.9vw, 22px);
+  line-height: 1.2;
+}
 .nw-next time {
-  font: 13px var(--f-mono);
+  font: 14px var(--f-mono);
 }
 .nw-next:focus-visible {
   outline: 3px solid var(--yellow);
@@ -142,8 +105,7 @@
   flex-wrap: wrap;
   gap: 6px;
 }
-.nw-tab,
-.nw-more {
+.nw-tab {
   min-height: 36px;
   padding: 9px 12px;
   font: 600 13px/1 var(--f-mono);
@@ -157,8 +119,7 @@
   color: var(--paper);
   background: var(--ink);
 }
-html:not([data-js]) .nw-tabs,
-html:not([data-js]) .nw-more {
+html:not([data-js]) .nw-tabs {
   display: none;
 }
 .nw-failed {
@@ -198,13 +159,64 @@ html[data-nw-v="bsky"] .nw-col-rss {
   padding: 0;
   list-style: none;
 }
-/* «Показати ще»: з JS записи після першої сторінки сховано, доки кнопка не поставить data-open (без JS — усі). */
+/* Сторінки заголовків: з JS видно лише записи з data-open (сторінку обирає NewsPager; без JS — усі). */
 html[data-js] .nw-list > li[data-page]:not([data-open]) {
   display: none;
 }
-.nw-more {
-  width: 100%;
-  margin: 14px 0 4px;
+.nw-pager {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+.nw-pg {
+  min-width: 40px;
+  min-height: 36px;
+  padding: 8px 10px;
+  font: 600 13px/1 var(--f-mono);
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  box-shadow: inset 0 0 0 1.5px var(--rule);
+  cursor: pointer;
+}
+.nw-pg[aria-pressed="true"] {
+  color: var(--paper);
+  background: var(--ink);
+}
+html:not([data-js]) .nw-pager {
+  display: none;
+}
+/* Пости — прокручуваний список. Поруч із заголовками (≥ 901 px, вкладка «Усе») — рівно висотою колонки заголовків:
+   contain: size не дає списку постів збільшувати рядок сітки, flex розтягує його на решту колонки. Вужче — до 640 px. */
+.nw-po-list {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  padding-right: 6px;
+}
+.nw-po-list:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
+}
+.nw-cols[data-v="all"] .nw-po-list {
+  max-block-size: 640px;
+}
+@media (min-width: 901px) {
+  html:not([data-nw-v]) .nw-cols[data-v="all"] {
+    align-items: stretch;
+  }
+  html:not([data-nw-v]) .nw-cols[data-v="all"] .nw-col-bsky {
+    display: flex;
+    flex-direction: column;
+    min-block-size: 0;
+  }
+  html:not([data-nw-v]) .nw-cols[data-v="all"] .nw-po-list {
+    flex: 1 1 0;
+    min-block-size: 0;
+    max-block-size: none;
+    contain: size;
+  }
 }
 
 .nw-hl {
@@ -421,15 +433,9 @@ html[data-js] .nw-list > li[data-page]:not([data-open]) {
   }
 }
 @media (max-width: 640px) {
-  .nw-upd {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .nw-upd > div:nth-child(3) {
-    padding-left: 0;
-    border-left: 0;
-  }
   .nw-next {
     grid-template-columns: minmax(0, 1fr);
+    padding: 16px 18px;
   }
   .nw-hl {
     grid-template-columns: 110px minmax(0, 1fr);

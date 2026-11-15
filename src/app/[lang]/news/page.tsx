@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
+import { HmFades } from "@/components/home/fades";
 import { Ago } from "@/components/news/ago";
-import { MoreButton } from "@/components/news/more-button";
 import { NewsTabs } from "@/components/news/news-tabs";
 import { NextRaceLink, type NextRaceItem } from "@/components/news/next-race-link";
+import { NewsPager } from "@/components/news/pager";
 import { fill } from "@/i18n/fill";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";
 import { requireLocale } from "@/i18n/require-locale";
 import { getCalendarPage } from "@/lib/data/calendar";
 import { BSKY_HANDLES, getNews, RSS_SOURCES, type Headline, type Post, type SourceKey } from "@/lib/data/news";
-import { plural } from "@/lib/plural";
 import { pageMetadata } from "@/lib/seo";
 
 // ISR: новини збираються щонайбільше раз на 30 хв (рішення користувача 14.11; кеш fetch — той самий).
@@ -18,16 +18,14 @@ export const revalidate = 1800;
 
 type Props = { params: Promise<{ lang: string }> };
 
-/** Записів на сторінку списку до «Показати ще» (макет: 12 заголовків / 20 постів). */
-const HEADLINES_STEP = 12;
-const POSTS_STEP = 20;
+/** Заголовків на сторінку — не більше 12 (макет); сторінки рівні: 49 → 5 × 10, а не 4 × 12 + 1. */
+const HEADLINES_MAX = 12;
 
 const SOURCE: Record<SourceKey, { name: string; color: string }> = {
   f1: { name: "Formula 1", color: "#E10600" },
   motorsport: { name: "Motorsport.com", color: "#FF8000" },
   autosport: { name: "Autosport", color: "#2F7BD9" },
 };
-const fmt = { uk: new Intl.NumberFormat("uk"), en: new Intl.NumberFormat("en") };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const lang = requireLocale((await params).lang);
@@ -48,14 +46,15 @@ export default async function NewsPage({ params }: Props) {
   const dict = await getDictionary(lang);
   const t = dict.newsPage;
   const [news, calendar] = await Promise.all([getNews(), getCalendarPage(lang)]);
-  const n = (v: number) => fmt[lang].format(v);
   const upcoming: NextRaceItem[] = calendar.cards
     .filter((c) => c.state !== "done" && c.raceTimed && c.raceAt)
     .map((c) => ({ round: c.round, gp: c.gp, raceAt: c.raceAt!, href: localizedPath(`/calendar#r${c.round}`, lang) }));
   const empty = news.headlines.length === 0 && news.posts.length === 0;
+  const hlPages = Math.max(1, Math.ceil(news.headlines.length / HEADLINES_MAX));
+  const hlStep = Math.max(1, Math.ceil(news.headlines.length / hlPages));
 
   const headline = (h: Headline, i: number) => (
-    <li key={h.id} className="nw-hl" data-page={Math.floor(i / HEADLINES_STEP) || undefined}>
+    <li key={h.id} className="nw-hl" data-page={Math.floor(i / hlStep)} data-open={i < hlStep ? "" : undefined}>
       {h.image ? (
         // Прев'ю видання (рішення 10.11): сторонній домен із CSP img-src; лише декоративне — посилання поруч.
         // eslint-disable-next-line @next/next/no-img-element
@@ -90,8 +89,8 @@ export default async function NewsPage({ params }: Props) {
     </li>
   );
 
-  const post = (p: Post, i: number) => (
-    <li key={p.id} className="nw-po" data-page={Math.floor(i / POSTS_STEP) || undefined}>
+  const post = (p: Post) => (
+    <li key={p.id} className="nw-po">
       <div className="nw-who">
         <span className="nw-pav" aria-hidden="true">
           {initials(p.name)}
@@ -112,8 +111,6 @@ export default async function NewsPage({ params }: Props) {
     </li>
   );
 
-  const hlPages = Math.ceil(news.headlines.length / HEADLINES_STEP);
-  const poPages = Math.ceil(news.posts.length / POSTS_STEP);
 
   return (
     <div className="nw-page">
@@ -133,28 +130,6 @@ export default async function NewsPage({ params }: Props) {
             </h1>
             <p className="nw-lead">{t.lead}</p>
           </div>
-          <dl className="nw-upd" aria-label={t.factsLabel}>
-            <div>
-              <dt>{t.updated}</dt>
-              <dd>
-                <Ago iso={news.fetchedAt} locale={lang} />
-              </dd>
-            </div>
-            <div>
-              <dt>{t.headlines}</dt>
-              <dd>
-                <b className="num">{n(news.headlines.length)}</b>
-                {news.stats.merged > 0 && <small>{fill(plural(news.stats.merged, lang, t.merged), { n: news.stats.merged })}</small>}
-              </dd>
-            </div>
-            <div>
-              <dt>{t.posts}</dt>
-              <dd>
-                <b className="num">{n(news.posts.length)}</b>
-                {news.stats.own > 0 && <small>{fill(t.postsF1, { f1: n(news.stats.f1), own: n(news.stats.own) })}</small>}
-              </dd>
-            </div>
-          </dl>
           {upcoming.length > 0 && <NextRaceLink rounds={upcoming} locale={lang} label={t.nextRace} />}
         </div>
       </section>
@@ -185,18 +160,20 @@ export default async function NewsPage({ params }: Props) {
               <ol className="nw-list" id="nw-rss">
                 {news.headlines.map(headline)}
               </ol>
-              <MoreButton listId="nw-rss" pages={hlPages} step={HEADLINES_STEP} total={news.headlines.length} label={t.more} />
+              <NewsPager listId="nw-rss" pages={hlPages} label={t.pagesLabel} />
             </section>
             <section className="nw-col-bsky" aria-labelledby="nw-bsky-h">
               <h2 className="display" id="nw-bsky-h">
                 {t.journalists}
               </h2>
-              <ol className="nw-list" id="nw-bsky">
+              {/* Пости — прокруткою в межах висоти колонки заголовків (відгук користувача 15.11: колонки однієї висоти). */}
+              <ol className="nw-list nw-po-list hm-fade" id="nw-bsky" tabIndex={0} aria-labelledby="nw-bsky-h">
                 {news.posts.map(post)}
               </ol>
-              <MoreButton listId="nw-bsky" pages={poPages} step={POSTS_STEP} total={news.posts.length} label={t.more} />
             </section>
           </div>
+          {/* Затухання внизу прокручуваного списку постів — та сама підказка «є ще», що й на головній. */}
+          <HmFades />
         </>
       )}
 

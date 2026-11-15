@@ -18,7 +18,6 @@ test("/uk/news: заголовки трьох видань, пости журн�
   const res = await page.goto("/uk/news");
   expect(res?.status()).toBe(200);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(/^Новини\s+з паддоку$/);
-  if (SNAPSHOT) await expect(page.locator(".nw-upd")).toContainText("2 дублі склеєно");
   await expect(page.locator(".nw-src").filter({ hasText: "Formula 1" }).first()).toBeVisible();
   await expect(page.locator(".nw-src").filter({ hasText: "Motorsport.com" }).first()).toBeVisible();
   await expect(page.locator(".nw-next")).toHaveAttribute("href", SNAPSHOT ? "/uk/calendar#r21" : /^\/uk\/calendar#r\d+$/);
@@ -68,29 +67,37 @@ test("посилання з ?v=bsky: одна колонка з першого �
   expect(await page.evaluate(() => (window as unknown as { __cls: number }).__cls)).toBeLessThan(0.02);
 });
 
-test("доступність: посилання на пости названо автором; «Показати ще» переводить фокус на перший новий запис", async ({ page }) => {
+test("доступність: посилання на пости названо автором", async ({ page }) => {
   await page.goto("/uk/news");
   await expect(page.locator(".nw-open").first()).toHaveAccessibleName(/^Відкрити в Bluesky — пост \S.+$/);
-  await page.locator(".nw-col-bsky .nw-more").click();
-  await expect(page.locator("#nw-bsky > li").nth(20)).toBeFocused();
 });
 
-test("«Показати ще»: 12 → 24 заголовки, 20 → 40 постів, потім кнопки немає", async ({ page }) => {
+test("сторінки заголовків і колонки однієї висоти: пости прокручуються в межах колонки заголовків (1280 px)", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/uk/news");
-  const hl = page.locator("#nw-rss > li:visible");
-  const po = page.locator("#nw-bsky > li:visible");
-  await expect(hl).toHaveCount(12);
-  await expect(po).toHaveCount(20);
-  await page.locator(".nw-col-rss .nw-more").click();
-  await expect(hl).toHaveCount(24);
+  await expect(page.locator("html[data-hydrated]")).toBeAttached();
   const total = SNAPSHOT ? 48 : await page.locator("#nw-rss > li").count();
-  await expect(page.locator(".nw-col-rss .nw-more")).toHaveText(`Показати ще ${Math.min(12, total - 24)} · лишилось ${total - 24}`);
-  await page.locator(".nw-col-bsky .nw-more").click();
-  await expect(po).toHaveCount(SNAPSHOT ? 40 : Math.min(40, await page.locator("#nw-bsky > li").count()));
-  await expect(page.locator(".nw-col-bsky .nw-more")).toHaveCount(0);
+  const pages = Math.ceil(total / 12);
+  const step = Math.ceil(total / pages);
+  const hl = page.locator("#nw-rss > li:visible");
+  await expect(hl).toHaveCount(step);
+  await expect(page.locator(".nw-pg")).toHaveCount(pages);
+  // Усі пости в розмітці й доступні прокруткою.
+  await expect(page.locator("#nw-bsky > li")).toHaveCount(SNAPSHOT ? 40 : await page.locator("#nw-bsky > li").count());
+  const bottoms = async () =>
+    page.evaluate(() => [".nw-col-rss", ".nw-col-bsky"].map((s) => Math.round(document.querySelector(s)!.getBoundingClientRect().bottom)));
+  const [a, b] = await bottoms();
+  expect(Math.abs(a! - b!)).toBeLessThanOrEqual(1);
+  const list = page.locator("#nw-bsky");
+  expect(await list.evaluate((e) => e.scrollHeight > e.clientHeight)).toBe(true);
+  await page.locator(".nw-pg").last().click();
+  await expect(page.locator(".nw-pg").last()).toHaveAttribute("aria-pressed", "true");
+  await expect(hl).toHaveCount(total - step * (pages - 1));
+  const [c, d] = await bottoms();
+  expect(Math.abs(c! - d!)).toBeLessThanOrEqual(1);
 });
 
-test("без JS: усі записи видно, вкладок і «Показати ще» немає, час — UTC", async ({ browser }) => {
+test("без JS: усі записи видно, вкладок і сторінок немає, час — UTC", async ({ browser }) => {
   const ctx = await browser.newContext({ javaScriptEnabled: false });
   const page = await ctx.newPage();
   await page.goto("/uk/news");
@@ -98,8 +105,7 @@ test("без JS: усі записи видно, вкладок і «Показ�
   await expect(page.locator("#nw-rss > li:visible")).toHaveCount(SNAPSHOT ? 48 : await page.locator("#nw-rss > li").count());
   await expect(page.locator("#nw-bsky > li:visible")).toHaveCount(SNAPSHOT ? 40 : await page.locator("#nw-bsky > li").count());
   await expect(page.locator(".nw-tabs")).toBeHidden();
-  await expect(page.locator(".nw-more")).toHaveCount(2);
-  await expect(page.locator(".nw-more").first()).toBeHidden();
+  await expect(page.locator(".nw-pager")).toBeHidden();
   await expect(page.locator(".nw-hl .nw-time").first()).toContainText("UTC");
   await page.setViewportSize({ width: 320, height: 800 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);

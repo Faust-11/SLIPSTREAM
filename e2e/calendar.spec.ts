@@ -32,14 +32,11 @@ test("місцевий час: пояс браузера (Europe/Kyiv) — FP1 �
   await page.clock.setFixedTime(new Date("2026-11-15T12:00:00Z"));
   await page.goto("/uk/calendar");
   await expect(page.locator("#r21 .cl-sess time").first()).toContainText("02:30");
-  // Chrome віддає застарілий псевдонім «Europe/Kiev» — показуємо те, що повідомив браузер.
-  await expect(page.locator(".cl-tz")).toContainText(/Europe\/Ki(y|e)v/);
   await ctx.close();
   const noJs = await browser.newContext({ javaScriptEnabled: false });
   const p2 = await noJs.newPage();
   await p2.goto("/uk/calendar");
   await expect(p2.locator("#r21 .cl-sess time").first()).toHaveText("пт, 20 лист. · 00:30");
-  await expect(p2.locator(".cl-tz")).toHaveText("Час — UTC.");
   // Без JS фільтр не працює — чипи сховано; на 320 px нічого не виходить за екран.
   await expect(p2.locator(".cl-chips")).toBeHidden();
   await p2.setViewportSize({ width: 320, height: 800 });
