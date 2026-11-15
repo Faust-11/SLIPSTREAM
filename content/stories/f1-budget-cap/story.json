@@ -1,0 +1,571 @@
+{
+  "slug": "f1-budget-cap",
+  "category": "explainer",
+  "years": [
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "title": {
+    "uk": "Стеля бюджету: скільки команді можна витратити і чому",
+    "en": "The budget cap: how much a team may spend, and why"
+  },
+  "dek": {
+    "uk": "З 2021 року команди Формули-1 живуть із лімітом витрат. Розбираємо, звідки взялася сума, як вона змінювалася, що в неї не входить і що буває за перевищення.",
+    "en": "Since 2021, Formula 1 teams have lived under a spending limit. Where the number came from, how it has changed, what sits outside it and what happens if you break it."
+  },
+  "links": {
+    "seasons": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "teams": [
+      "red-bull",
+      "mercedes",
+      "ferrari",
+      "aston-martin",
+      "williams"
+    ],
+    "stories": [
+      "red-bull-cost-cap-2021"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "FIA Formula 1 World Championship – Cost reduction",
+      "publisher": "FIA",
+      "date": "2015-10-26",
+      "url": "https://www.fia.com/news/fia-formula-1-world-championship-cost-reduction",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "F1's new 2021 rules finally approved",
+      "publisher": "Autosport",
+      "date": "2019-10-31",
+      "url": "https://www.autosport.com/f1/news/146910/f1-new-2021-rules-finally-approved",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "Cost cap has 'teeth' and breaches could cost title – Brawn (Adam Cooper)",
+      "publisher": "Motorsport.com",
+      "date": "2019-10-31",
+      "url": "https://www.motorsport.com/all/news/cost-cap-teeth-cost-title-brawn-2021/4590108/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "2021 FIA Formula One Financial Regulations, published on 6 March 2020",
+      "publisher": "FIA",
+      "date": "2020-03-06",
+      "url": "https://www.fia.com/sites/default/files/financial_regulations_06.03.20_clean_published_fia_website_0.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "World Motor Sport Council approves changes to 2020, 2021 and 2022 FIA Formula 1 Regulations",
+      "publisher": "FIA",
+      "date": "2020-05-27",
+      "url": "https://www.fia.com/news/world-motor-sport-council-approves-changes-2020-2021-and-2022-fia-formula-1-regulations",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "The 2021 F1 cost cap explained – what has changed and why",
+      "publisher": "Formula1.com",
+      "date": "2020-05-27",
+      "url": "https://www.formula1.com/en/latest/article/the-2021-f1-cost-cap-explained-what-has-changed-and-why.5O1Te8udKLmkUl4PyVZtUJ",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "2021 Formula 1 Financial Regulations, Issue 5",
+      "publisher": "FIA",
+      "date": "2021-04-30",
+      "url": "https://www.fia.com/sites/default/files/2021_formula_1_financial_regulations_-_iss_5_-_2020-04-30.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "Formula 1 Financial Regulations, Issue 22",
+      "publisher": "FIA",
+      "date": "2024-12-11",
+      "url": "https://api.fia.com/sites/default/files/fia_formula_1_financial_regulations_-_issue_22_-_2024-12-11.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "FIA Formula 1 Commission Meeting 8 July 2022 – Statement",
+      "publisher": "FIA",
+      "date": "2022-07-08",
+      "url": "https://www.fia.com/node/42202",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "F1 agrees to budget cap increase for 2022 amid inflation pressure (Luke Smith)",
+      "publisher": "Autosport",
+      "date": "2022-07-09",
+      "url": "https://autosport.com/all/news/f1-agrees-to-budget-cap-increase-for-2022-amid-inflation-pressure/10334852/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "What is Formula 1's cost cap? What it covers, penalties and more",
+      "publisher": "Motor Sport Magazine",
+      "date": "2025-10-28",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/what-is-the-f1-cost-cap",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "FIA 2026 F1 Regulations – Section D: Financial Regulations (F1 Teams), Issue 07",
+      "publisher": "FIA",
+      "date": "2026-06-25",
+      "url": "https://api.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_d_financial_-_f1_teams_-_iss_07_-_2026-06-25.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "FIA reveal concessions to F1 teams ahead of major cost cap change",
+      "publisher": "RacingNews365",
+      "date": "2025-09-24",
+      "url": "https://racingnews365.com/fia-reveal-concessions-to-f1-teams-ahead-of-major-cost-cap-change",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "Future regulations across multiple categories confirmed during the World Motor Sport Council",
+      "publisher": "FIA",
+      "date": "2024-10-17",
+      "url": "https://api.fia.com/news/future-regulations-across-multiple-categories-confirmed-during-world-motor-sport-council",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "FIA Insights: Counting the cost – how the FIA is managing Formula 1's Financial Regulations",
+      "publisher": "FIA",
+      "date": "2023-07-20",
+      "url": "https://www.fia.com/news/fia-insights-counting-cost-how-fia-managing-formula-1s-financial-regulations-2023",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "Red Bull enter Agreement with FIA over breach of 2021 Financial Regulations",
+      "publisher": "Formula1.com",
+      "date": "2022-10-28",
+      "url": "https://www.formula1.com/en/latest/article/red-bull-enter-agreement-with-fia-over-breach-of-2021-financial-regulations.2ccVAHxnUpChqHSIDGMXmg",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "FIA hands Red Bull $7m fine, aero testing reduction for cost cap breach (Luke Smith)",
+      "publisher": "Autosport",
+      "date": "2022-10-28",
+      "url": "https://www.autosport.com/f1/news/fia-hands-red-bull-7m-fine-aero-testing-reduction-for-cost-cap-breach/10391599/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "FIA confirm all 10 F1 teams operated below cost cap in 2022",
+      "publisher": "Formula1.com",
+      "date": "2023-09-05",
+      "url": "https://www.formula1.com/en/latest/article.fia-confirm-all-10-f1-teams-operated-below-cost-cap-in-2022.1MSZ7OgE8XF6GTMBLH4LxS.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "FIA completes its review of compliance with the 2023 FIA Formula 1 Financial Regulations",
+      "publisher": "FIA",
+      "date": "2024-09-11",
+      "url": "https://www.fia.com/news/fia-completes-its-review-compliance-2023-fia-formula-1-financial-regulations",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "FIA completes its review of compliance with the 2024 FIA Formula 1 Financial Regulations",
+      "publisher": "FIA",
+      "date": "2025-10-28",
+      "url": "https://www.fia.com/news/fia-completes-its-review-compliance-2024-fia-formula-1-financial-regulations",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "FIA 2026 F1 Regulations – Section E: Financial Regulations (Power Unit Manufacturers), Issue 05",
+      "publisher": "FIA",
+      "date": "2026-05-07",
+      "url": "https://www.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_e_financial_-_pu_manufacturers_-_iss_05_-_2026-05-07.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "Williams fined USD25,000 for procedural breach of Financial Regulations",
+      "publisher": "Formula1.com",
+      "date": "2022-06-07",
+      "url": "https://www.formula1.com/en/latest/article.williams-fined-usd25-000-for-procedural-breach-of-financial-regulations.X7vMAEFkh8FNMe5BSyQ3N.html",
+      "kind": "secondary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "У жовтні 2015 року FIA повідомила, що вивчала глобальну стелю витрат, але висновки не були остаточними; Ferrari застосувала вето проти граничної ціни на двигуни для клієнтів.",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c2",
+      "text": "31 жовтня 2019 року представили правила 2021 року з першою в історії F1 стелею витрат — $175 млн на рік.",
+      "sources": [
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "$175 млн — для сезону з 21 гонки; за кожну додаткову гонку +$1 млн.",
+      "sources": [
+        "s3",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "text": "Цитата президента FIA Жана Тодта: «$175m is still a high figure, plus all the extras around, but we consider it as a first step».",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c5",
+      "text": "Цитата Росса Брауна («Formula 1 boss»): «But this has teeth. If you fraudulently breach the financial regulations, you will be losing your championship».",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c6",
+      "text": "27 травня 2020 року Всесвітня рада FIA (електронне голосування) знизила стелю до $145 млн (2021), $140 млн (2022) і $135 млн (2023–2025) з розрахунку на 21 гонку.",
+      "sources": [
+        "s5",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c7",
+      "text": "Причина зниження — потреба скорочувати витрати й захистити спорт під час пандемії COVID-19.",
+      "sources": [
+        "s5",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "text": "Мета стелі — конкурентніший чемпіонат, рівніші умови й фінансова стабільність команд; FIA описує регламент як інструмент для скорочення розриву між командами.",
+      "sources": [
+        "s6",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "У регламенті 2021 року (вип. 5) кожна гонка понад 21 додавала $1,2 млн, кожна недостача — віднімала $1,2 млн.",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c10",
+      "text": "У редакції, чинній з 2024 року, база — $135 млн за 21 гонку, крок — $1,8 млн за кожну гонку понад чи менше 21.",
+      "sources": [
+        "s8",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "text": "Липень 2022: Комісія F1 погодила індексацію 3,1% за 2022 рік із накопиченням від 2023-го; підтримали FIA, F1 і 9 команд.",
+      "sources": [
+        "s9",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c12",
+      "text": "Індексація за регламентом — середня річна інфляція країн G7 за даними МВФ, з накопиченням.",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c13",
+      "text": "Етап, скасований менш ніж за три місяці до старту, вважається проведеним для розрахунку стелі.",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c14",
+      "text": "Поза стелею — оплата гонщиків, трьох найбільш оплачуваних співробітників і маркетинг.",
+      "sources": [
+        "s8",
+        "s6",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "text": "Також виключені: перельоти й готелі на гонки й тести, нерухомість, кадри/фінанси/юристи, внески FIA, постачання силової установки в межах граничної ціни; бонуси — частково, до межі.",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c16",
+      "text": "Виключені зарплати на час декретної/батьківської відпустки та лікарняного (з 2021 року; рішення ради FIA травня 2020).",
+      "sources": [
+        "s5",
+        "s8",
+        "s6"
+      ],
+      "status": "ok",
+      "note": "s5 і s8 — документи FIA (одне джерело); незалежне підтвердження — s6 (Formula1.com)."
+    },
+    {
+      "id": "c17",
+      "text": "З 2026 року стеля — $215 млн для сезону до 24 гонок, плюс $1,8 млн за кожну гонку понад 24.",
+      "sources": [
+        "s12",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "У регламенті 2026 року за кожен спринт понад шість враховані витрати команди зменшуються на $300 тис.",
+      "sources": [
+        "s12"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c19",
+      "text": "FIA (жовтень 2024): загальний рівень стелі «по суті» дорівнює чинному; Федеріко Лоді: до бази додано накопичену інфляцію і витрати, раніше поза периметром; «there is not really an increase of capital, it is just a different way to perform the calculation».",
+      "sources": [
+        "s14",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c20",
+      "text": "Повний звіт подають до 31 березня наступного року (150–200 сторінок), аудити на базах — з травня; у 2023 році фінансовим регулюванням F1 у FIA займалися 10 людей на повну ставку проти 4 роком раніше.",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c21",
+      "text": "Перевищення стелі менш ніж на 5% — незначне порушення, на 5% і більше — суттєве.",
+      "sources": [
+        "s8",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "text": "Санкції: за незначне — штраф, догана, зняття очок, обмеження тестів, зниження стелі; за суттєве — обов'язкове зняття очок у Кубку конструкторів, можливе виключення з чемпіонату.",
+      "sources": [
+        "s8",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c23",
+      "text": "Red Bull за 2021 рік перевищив стелю на £1,864 млн (1,6%), отримав штраф $7 млн і скорочення аеродинамічних тестів на 10%.",
+      "sources": [
+        "s16",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c24",
+      "text": "За 2022 рік усі 10 команд вклалися в стелю, яка становила $140 млн.",
+      "sources": [
+        "s18"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c25",
+      "text": "За 2023 рік FIA визнала всі 10 команд такими, що дотрималися регламенту.",
+      "sources": [
+        "s19"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c26",
+      "text": "За 2024 рік: 9 команд у відповідності, процедурне порушення AMR (Aston Martin) «дуже незначного характеру» без перевищення стелі.",
+      "sources": [
+        "s20",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c27",
+      "text": "Цитата Федеріко Лоді: «rules are there to be respected and we have to do what we have to do».",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c28",
+      "text": "Для виробників силових установок діє окремий фінансовий регламент з окремою стелею.",
+      "sources": [
+        "s21",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c29",
+      "text": "Стеля для виробника силових установок у регламенті 2026 року — $190 млн на рік з індексацією (від першого сезону виробника); $148,5 млн у три роки перед ним.",
+      "sources": [
+        "s21"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "Williams оштрафували на $25 000 за те, що команда не дотрималася дедлайну 31 березня 2022 року для подачі звітності.",
+      "sources": [
+        "s22"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/f1-budget-cap/m1-1280.webp",
+      "srcSet": "/img/stories/f1-budget-cap/m1-1280.webp 1280w, /img/stories/f1-budget-cap/m1-800.webp 800w, /img/stories/f1-budget-cap/m1-480.webp 480w",
+      "width": 1280,
+      "height": 864,
+      "focus": "50% 65%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Fédération_Internationale_de_l'Automobile_headquarters,_Place_de_la_Concorde,_Paris,_France_-_20111023.jpg",
+        "author": "Phanuruch8555",
+        "license": "CC BY 3.0"
+      },
+      "caption": {
+        "uk": "Штаб-квартира FIA на площі Згоди в Парижі, жовтень 2011 року.",
+        "en": "FIA headquarters on the Place de la Concorde in Paris, October 2011."
+      },
+      "alt": {
+        "uk": "Палац із колонадою на площі в променях вечірнього сонця, над ним прапори.",
+        "en": "A colonnaded palace on a square in evening sunlight, with flags above it."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/f1-budget-cap/m2-800.webp",
+      "srcSet": "/img/stories/f1-budget-cap/m2-800.webp 800w, /img/stories/f1-budget-cap/m2-480.webp 480w",
+      "width": 800,
+      "height": 947,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Ross_Brawn_Goodwood_Festival_of_Speed_2016_001.jpg",
+        "author": "Matthew Lamb",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Росс Браун на Goodwood Festival of Speed, 25 червня 2016 року.",
+        "en": "Ross Brawn at the Goodwood Festival of Speed, 25 June 2016."
+      },
+      "alt": {
+        "uk": "Чоловік в окулярах і білій сорочці з бейджем на шнурку.",
+        "en": "A man in glasses and a white shirt with a lanyard pass."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/f1-budget-cap/m3-800.webp",
+      "srcSet": "/img/stories/f1-budget-cap/m3-800.webp 800w, /img/stories/f1-budget-cap/m3-480.webp 480w",
+      "width": 800,
+      "height": 533,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Wind_Tunnel_Model_Car_at_Formula_1_Exhibition,_London.jpg",
+        "author": "Hullian111",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Масштабна модель боліда для аеродинамічної труби на виставці Formula 1 Exhibition у Лондоні, 2025 рік.",
+        "en": "A scale car model used for wind tunnel testing, at the Formula 1 Exhibition in London, 2025."
+      },
+      "alt": {
+        "uk": "Зменшена модель чорного боліда на сірому подіумі.",
+        "en": "A scaled-down black car model on a grey plinth."
+      }
+    }
+  ]
+}

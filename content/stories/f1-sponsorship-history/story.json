@@ -1,0 +1,639 @@
+{
+  "slug": "f1-sponsorship-history",
+  "category": "explainer",
+  "years": [
+    1964,
+    1968,
+    1972,
+    1974,
+    1996,
+    1997,
+    2005,
+    2008,
+    2010,
+    2019,
+    2022,
+    2026
+  ],
+  "title": {
+    "uk": "Як реклама потрапила на машини Формули-1",
+    "en": "How advertising got onto Formula 1 cars"
+  },
+  "dek": {
+    "uk": "До 1968 року машини фарбували в кольори країн. Потім прийшли тютюнові гроші, а після заборон на їхнє місце стали банки, технологічні компанії й нафтовики.",
+    "en": "Until 1968, cars wore the colours of their countries. Then came tobacco money, and after the bans, banks, tech firms and oil companies took its place."
+  },
+  "links": {
+    "seasons": [
+      1964,
+      1968,
+      1972,
+      1974,
+      1996,
+      1997,
+      2008,
+      2010,
+      2019,
+      2022,
+      2026
+    ],
+    "races": [
+      "1968/1",
+      "1968/2",
+      "1972/3",
+      "2010/5"
+    ],
+    "drivers": [
+      "hill",
+      "clark",
+      "love",
+      "tingle",
+      "emerson_fittipaldi",
+      "surtees"
+    ],
+    "teams": [
+      "lotus",
+      "brabham",
+      "brm",
+      "mclaren",
+      "ferrari",
+      "red-bull",
+      "aston-martin",
+      "williams",
+      "audi",
+      "alpine",
+      "racing-bulls"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "From yellow, to blue and burgundy: why Scuderia Ferrari only race in red across Formula 1…",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/a-history-of-ferraris-iconic-racing-liveries-in-f1-rosso-corsa-and-all-the-times-they-havent-raced-in-red.5gK8REBWYiX2h36Hv2Jcir",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "The times Ferrari raced in F1 without their iconic red livery (James Elson)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2025-07-19",
+      "url": "https://www.motorsportmagazine.com/articles/history/blue-yellow-and-green-when-ferrari-didnt-race-in-red/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "When F1 had its first tobacco spat (Paul Fearnley)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2019-03-07",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/when-f1-had-its-first-tobacco-spat/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "Fag cash (letter from David Cole)",
+      "publisher": "Motor Sport Magazine",
+      "date": "1997-04",
+      "url": "https://www.motorsportmagazine.com/archive/article/april-1997/14/fag-cash/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "Continental Notes, February 1968 (Denis Jenkinson)",
+      "publisher": "Motor Sport Magazine",
+      "date": "1968-02",
+      "url": "https://www.motorsportmagazine.com/archive/article/february-1968/9/continental-notes-february-1968/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "How F1 picked up the habit",
+      "publisher": "Motor Sport Magazine",
+      "date": "2015-07",
+      "url": "https://www.motorsportmagazine.com/archive/article/july-2015/136/how-f1-picked-habit/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "Smoke and heat: Lotus in the JPS days",
+      "publisher": "Motor Sport Magazine",
+      "date": "2022-10",
+      "url": "https://www.motorsportmagazine.com/archive/article/october-2022/92/smoke-and-heat/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "Spanish Grand Prix race report (Jarama, 12 May 1968)",
+      "publisher": "Motor Sport Magazine",
+      "date": "1968-06",
+      "url": "https://www.motorsportmagazine.com/archive/article/june-1968/13/spanish-grand-prix-6/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "Notes on the Cars at Jarama",
+      "publisher": "Motor Sport Magazine",
+      "date": "1968-06",
+      "url": "https://www.motorsportmagazine.com/archive/article/june-1968/17/notes-on-the-cars-at-jarama-5/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "Jolpica F1 API: 1968 season calendar and results",
+      "publisher": "Jolpica (Ergast)",
+      "date": null,
+      "url": "https://api.jolpi.ca/ergast/f1/1968.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "Five times the Lotus 72 won against the odds (Paul Fearnley)",
+      "publisher": "Goodwood Road & Racing",
+      "date": "2020-02-25",
+      "url": "https://www.goodwood.com/grr/f1/five-times-the-lotus-72-won-against-the-odds",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Jolpica F1 API: 1972 race winners",
+      "publisher": "Jolpica (Ergast)",
+      "date": null,
+      "url": "https://api.jolpi.ca/ergast/f1/1972/results/1.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "Marlboro in Formula 1: King size allies (Mark Hughes)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2022-03",
+      "url": "https://www.motorsportmagazine.com/archive/article/march-2022/98/marlboro-in-formula-1-king-size-allies/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "News feature: White and red all over (David Tremayne)",
+      "publisher": "GrandPrix.com",
+      "date": "2001-02-21",
+      "url": "https://www.grandprix.com/features/david-tremayne/news-feature-white-and-red-all-over.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Up in smoke: end of the Marlboro money that lit up F1 (Mark Hughes)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2022-02-03",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/up-in-smoke-end-of-the-marlboro-money-that-lit-up-f1/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "Directive 2003/33/EC of the European Parliament and of the Council of 26 May 2003 (tobacco advertising and sponsorship)",
+      "publisher": "legislation.gov.uk (EU-derived legislation)",
+      "date": "2003-05-26",
+      "url": "https://www.legislation.gov.uk/eudr/2003/33/data.htm?view=plain",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "Ban on cross-border tobacco advertising and sponsorship",
+      "publisher": "European Commission (DG Health)",
+      "date": null,
+      "url": "https://health.ec.europa.eu/tobacco/ban-cross-border-tobacco-advertising-and-sponsorship_en",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "Formula One drops all cigarette ads",
+      "publisher": "Autocar",
+      "date": "2008-04-17",
+      "url": "https://zephr.autocar.co.uk/car-news/motorsport/f1-drops-cigarette-ads",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "Ferrari removes barcode design (Jonathan Noble)",
+      "publisher": "Autosport",
+      "date": "2010-05-06",
+      "url": "https://www.autosport.com/f1/news/83346/ferrari-removes-barcode-design",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "Ferrari to remove 'subliminal' advert from livery",
+      "publisher": "The Irish Times",
+      "date": "2010-05-06",
+      "url": "https://www.irishtimes.com/news/ferrari-to-remove-subliminal-advert-from-livery-1.1246097",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "Ferrari F1 team removes Mission Winnow branding for Australian GP (Jamie Klein, Franco Nugnes)",
+      "publisher": "Autosport",
+      "date": "2019-03-05",
+      "url": "https://www.autosport.com/f1/news/ferrari-f1-team-removes-mission-winnow-branding-for-australian-gp-5280371/5280371/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "2026 Classifications (constructors' standings)",
+      "publisher": "FIA",
+      "date": null,
+      "url": "https://www.fia.com/events/fia-formula-one-world-championship/season-2026/2026-classifications",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "McLaren banks Mastercard as 2026 F1 title partner (Filip Cleeren)",
+      "publisher": "Autosport",
+      "date": "2025-08-28",
+      "url": "https://www.autosport.com/f1/news/mclaren-banks-mastercard-as-2026-f1-title-partner/10753853/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s24",
+      "title": "GALLERY: Going for Gold – F1's greatest gilt-edged liveries",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/going-for-gold.6ejsVpuzzGi0OEkUs0gaI",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s25",
+      "title": "Jolpica F1 API: 1964 drivers' standings",
+      "publisher": "Jolpica (Ergast)",
+      "date": null,
+      "url": "https://api.jolpi.ca/ergast/f1/1964/driverStandings/1.json",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "До епохи спонсорських лівреї машини розрізняли за кольорами країн: Італія — червоний, Франція — синій, Британія — зелений, Німеччина — білий; зв'язок кольорів і країн — з 1900-х.",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c2",
+      "text": "Енцо Феррарі (за повідомленнями — на знак протесту через омологацію) виставив Ferrari на два останні етапи 1964 року в синьо-білих кольорах North American Racing Team.",
+      "sources": [
+        "s1",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "CSI FIA наприкінці 1967 року дозволила таку рекламу у відповідь на офіційний відхід Esso та інших; із сезону 1968 правила дозволили спонсорів на машинах.",
+      "sources": [
+        "s3",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "text": "1 січня 1968 року на Гран-прі ПАР у К'ялямі Джон Лав (Brabham-Repco) і Сем Тінгл (LDS) стартували в кольорах сигаретного бренду Gunston; Team Gunston створено наприкінці 1967 року для місцевих гонок.",
+      "sources": [
+        "s3",
+        "s4"
+      ],
+      "status": "one",
+      "note": "Обидва джерела — Motor Sport Magazine (один видавець), тому статус one."
+    },
+    {
+      "id": "c5",
+      "text": "Колін Чепмен домовився з John Player & Sons про фінансування Team Lotus, щоб замінити дохід, втрачений через відхід Esso (Motor Sport, лютий 1968).",
+      "sources": [
+        "s5",
+        "s3"
+      ],
+      "status": "one",
+      "note": "Обидва джерела — Motor Sport Magazine (один видавець), тому статус one."
+    },
+    {
+      "id": "c6",
+      "text": "Цитата Дениса Дженкінсона (лютий 1968): «What we have known as Team Lotus for many years is now called the “Gold Leaf Lotus Team” … and the cars are to be painted red, white and gold like packets of twenty».",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c7",
+      "text": "Дженкінсон сумнівався, як буде обійдено міжнародну схему кольорів FIA.",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c8",
+      "text": "Кольори Gold Leaf уперше з'явилися в Тасманійській серії на початку 1968 року: машину Кларка перефарбували для гонки на аеродромі Віграм (Крайстчерч), приблизно через три тижні після К'ялямі.",
+      "sources": [
+        "s3",
+        "s6"
+      ],
+      "status": "one",
+      "note": "Обидва джерела — Motor Sport Magazine (один видавець), тому статус one."
+    },
+    {
+      "id": "c9",
+      "text": "Сума першої угоди Gold Leaf: £95 000 за сезон чи «спочатку £85 000».",
+      "sources": [
+        "s6",
+        "s7"
+      ],
+      "status": "dis",
+      "note": "s6 (2015): «the deal cost £95,000 for the season»; s7 (2022): Gold Leaf sponsorship «initially to the tune of £85,000». Обидва — Motor Sport, різні автори."
+    },
+    {
+      "id": "c10",
+      "text": "Гран-прі Іспанії в Харамі 12 травня 1968 року — другий етап сезону і перший етап чемпіонату світу, на який вийшла Gold Leaf Team Lotus; переміг Ґрем Гілл на Lotus.",
+      "sources": [
+        "s8",
+        "s9",
+        "s10",
+        "s3"
+      ],
+      "status": "ok",
+      "note": "«Перший у чемпіонаті» виведено: перший етап (ПАР, 1 січня) відбувся до дебюту Gold Leaf у Віграмі (s3), другим був Гран-прі Іспанії (s8, s10), на якому заявлена Gold Leaf Team Lotus (s9)."
+    },
+    {
+      "id": "c11",
+      "text": "1972 року машини Lotus перефарбували в чорно-золоті кольори нового бренду Imperial Tobacco — John Player Special.",
+      "sources": [
+        "s7",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c12",
+      "text": "Перемоги на Гран-прі Іспанії 1972 року (Емерсон Фіттіпальді) стали першими в Гран-прі для чорно-золотої лівреї JPS.",
+      "sources": [
+        "s11",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "У 1972 році кольори Marlboro вперше з'явилися на машині F1 — BRM.",
+      "sources": [
+        "s13",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c14",
+      "text": "Marlboro спонсорувала McLaren з 1974 по 1996 рік; партнерство завершилося Гран-прі Японії 13 жовтня 1996 року; Тремейн називає його найдовшим союзом марки й спонсора.",
+      "sources": [
+        "s13",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "text": "Marlboro McLaren виграли дев'ять чемпіонатів пілотів і сім Кубків конструкторів.",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c16",
+      "text": "Marlboro була спонсором Ferrari з 1984 року, а з 1997-го — титульним.",
+      "sources": [
+        "s15",
+        "s13"
+      ],
+      "status": "one",
+      "note": "s13 і s15 — один автор (Марк Г'юз) і одне видання."
+    },
+    {
+      "id": "c17",
+      "text": "Директива 2003/33/ЄС від 26 травня 2003 року забороняє спонсорство подій за участі кількох держав ЄС або з транскордонним ефектом; транспонувати — до 31 липня 2005 року. Єврокомісія наводить як приклад гонки Формули-1.",
+      "sources": [
+        "s16",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "У 2008 році Ferrari виступала без логотипів Marlboro навіть у Бахрейні, де їх дозволяв закон; контракт із Philip Morris діяв до 2011 року; McLaren, Renault і Honda вже відмовилися від тютюнових спонсорів.",
+      "sources": [
+        "s18"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c19",
+      "text": "Зв'язок із Marlboro підтримували шевроном і штрихкодом на кожусі двигуна.",
+      "sources": [
+        "s13",
+        "s19"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c20",
+      "text": "У травні 2010 року після звинувачень у прихованій рекламі Marlboro Ferrari прибрала штрихкод починаючи з Гран-прі Іспанії (Барселона), «to remove all speculation».",
+      "sources": [
+        "s19",
+        "s20"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c21",
+      "text": "Mission Winnow (Philip Morris) з'явився на Ferrari наприкінці 2018 року; на Гран-прі Австралії 2019 року логотипи зняли на тлі розслідування в Австралії.",
+      "sources": [
+        "s21"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c22",
+      "text": "У 2022 році Mission Winnow зник з машин Ferrari — кінець титульного спонсорства Philip Morris.",
+      "sources": [
+        "s13",
+        "s15"
+      ],
+      "status": "one",
+      "note": "Обидва тексти — Марк Г'юз, Motor Sport."
+    },
+    {
+      "id": "c23",
+      "text": "Назви команд у класифікації FIA 2026: Mercedes-AMG Petronas Formula One Team, Scuderia Ferrari HP, Oracle Red Bull Racing, McLaren Mastercard F1 Team, Visa Cash App Racing Bulls, BWT Alpine, TGR Haas F1 Team, Audi Revolut F1 Team, Atlassian Williams F1 Team, Aston Martin Aramco, Cadillac Formula One Team.",
+      "sources": [
+        "s22"
+      ],
+      "status": "one",
+      "note": "На сторінці FIA є друкарські помилки («Forumla», «Hass»); у тексті — правильне написання."
+    },
+    {
+      "id": "c24",
+      "text": "Mastercard — титульний партнер McLaren з 2026 року; попередній титульний спонсор — Vodafone (до 2013 року).",
+      "sources": [
+        "s23",
+        "s22"
+      ],
+      "status": "ok",
+      "note": "Назву McLaren Mastercard підтверджують s22 і s23; згадка про Vodafone до 2013 року — лише s23."
+    },
+    {
+      "id": "c25",
+      "text": "Lotus 1968 року відмовилася від зеленої схеми на користь червоного й золотого нового титульного спонсора.",
+      "sources": [
+        "s24",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c26",
+      "text": "Джон Сертіс виграв титул 1964 року, виступаючи на цих етапах у кольорах NART.",
+      "sources": [
+        "s2",
+        "s25"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c27",
+      "text": "Рекламу сигарет на британському ТБ заборонили з серпня 1965 року, сигари рекламували до 1991-го; галузь шукала інші канали просування; для Player's F1 — «a quicker, much cheaper way to gain exposure than by placing advertising around the world».",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c28",
+      "text": "Наприкінці 1990-х Philip Morris забезпечувала бюджети команд понад £70 млн; пізніше Marlboro орендувала спонсорські права (до £155 млн на рік) і пересдавала місце іншим спонсорам.",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/f1-sponsorship-history/m1-1280.webp",
+      "srcSet": "/img/stories/f1-sponsorship-history/m1-1280.webp 1280w, /img/stories/f1-sponsorship-history/m1-800.webp 800w, /img/stories/f1-sponsorship-history/m1-480.webp 480w",
+      "width": 1280,
+      "height": 857,
+      "focus": "45% 60%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Lotus_49C.jpg",
+        "author": "Erika39",
+        "license": "CC BY-SA 3.0"
+      },
+      "caption": {
+        "uk": "Lotus 49C у червоно-біло-золотій ліврейї Gold Leaf, музейна експозиція, 2007 рік.",
+        "en": "A Lotus 49C in the red, white and gold Gold Leaf livery, on museum display, 2007."
+      },
+      "alt": {
+        "uk": "Червоно-золотий болід Lotus із білою смугою на білому подіумі в залі зі склепінням.",
+        "en": "A red and gold Lotus car with a white stripe on a white plinth in a vaulted hall."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/f1-sponsorship-history/m2-800.webp",
+      "srcSet": "/img/stories/f1-sponsorship-history/m2-800.webp 800w, /img/stories/f1-sponsorship-history/m2-480.webp 480w",
+      "width": 800,
+      "height": 622,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Lotus_72_JPS.jpg",
+        "author": "John Chapman (Pyrope)",
+        "license": "CC BY-SA 3.0"
+      },
+      "caption": {
+        "uk": "Lotus 72E у чорно-золотій ліврейї John Player Special, на якому виступав Ронні Петерсон (шасі R8), у Donington Grand Prix Collection, 2007 рік.",
+        "en": "An ex-Ronnie Peterson Lotus 72E (chassis R8) in John Player Special black and gold, in the Donington Grand Prix Collection, 2007."
+      },
+      "alt": {
+        "uk": "Чорний болід із золотими написами й номером 1 на носі в музейному залі.",
+        "en": "A black car with gold lettering and the number 1 on its nose in a museum hall."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/f1-sponsorship-history/m3-800.webp",
+      "srcSet": "/img/stories/f1-sponsorship-history/m3-800.webp 800w, /img/stories/f1-sponsorship-history/m3-480.webp 480w",
+      "width": 800,
+      "height": 512,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Emerson_Fittipaldi_McLaren_M23_1974_Britain.jpg",
+        "author": "Gerald Swan",
+        "license": "CC BY-SA 3.0"
+      },
+      "caption": {
+        "uk": "Емерсон Фіттіпальді на McLaren M23 у кольорах Marlboro і Texaco, «Гонка чемпіонів», Брендс-Гетч, березень 1974 року.",
+        "en": "Emerson Fittipaldi in the McLaren M23 in Marlboro and Texaco colours, Race of Champions, Brands Hatch, March 1974."
+      },
+      "alt": {
+        "uk": "Біло-червоний болід McLaren із номером 5 на трасі.",
+        "en": "A white and red McLaren car numbered 5 on track."
+      }
+    },
+    {
+      "id": "m4",
+      "role": "inline",
+      "src": "/img/stories/f1-sponsorship-history/m4-768.webp",
+      "srcSet": "/img/stories/f1-sponsorship-history/m4-768.webp 768w, /img/stories/f1-sponsorship-history/m4-480.webp 480w",
+      "width": 768,
+      "height": 468,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Alonso_Bahrain_2010.jpg",
+        "author": "Derek Morrison from Kuwait, Kuwait",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Фернандо Алонсо на Ferrari F10 дорогою до перемоги на Гран-прі Бахрейну, 14 березня 2010 року.",
+        "en": "Fernando Alonso in the Ferrari F10 on his way to victory at the Bahrain Grand Prix, 14 March 2010."
+      },
+      "alt": {
+        "uk": "Червоний болід Ferrari на широкій трасі в пустелі.",
+        "en": "A red Ferrari car on a wide desert circuit."
+      }
+    }
+  ]
+}

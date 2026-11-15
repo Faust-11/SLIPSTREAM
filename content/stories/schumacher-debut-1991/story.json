@@ -1,0 +1,735 @@
+{
+  "slug": "schumacher-debut-1991",
+  "category": "sensation",
+  "years": [
+    1991,
+    1992
+  ],
+  "title": {
+    "uk": "Спа-1991: дебют Шумахера, який тривав кілька сотень метрів",
+    "en": "Spa 1991: Schumacher's debut that lasted a few hundred metres"
+  },
+  "dek": {
+    "uk": "Пілот Jordan сидить у в'язниці за газовий балончик, новачок ніколи не бачив траси й вивчає її на велосипеді, а за тиждень після гонки одна літера в листі відправляє його в Benetton.",
+    "en": "A Jordan driver is in jail over a gas canister, a rookie who has never seen the track learns it by bicycle, and a week after the race one word in a letter sends him to Benetton."
+  },
+  "links": {
+    "seasons": [
+      1991,
+      1992
+    ],
+    "races": [
+      "1991/11",
+      "1991/12",
+      "1992/12"
+    ],
+    "drivers": [
+      "michael_schumacher",
+      "gachot",
+      "cesaris",
+      "moreno",
+      "senna",
+      "piquet",
+      "berger"
+    ],
+    "teams": [
+      "jordan",
+      "benetton",
+      "mclaren"
+    ],
+    "circuits": [
+      "spa",
+      "monza"
+    ],
+    "stories": [
+      "benetton-1994"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Jolpica F1 API — 1991 Belgian Grand Prix results",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1991/11/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "Jolpica F1 API — 1991 Italian Grand Prix results",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1991/12/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "Jolpica F1 API — Spa-Francorchamps race winners",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/circuits/spa/results/1/?limit=100",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "Belgian GP, 1991 — race report and classification",
+      "publisher": "Grandprix.com",
+      "date": "1991-08-25",
+      "url": "https://www.grandprix.com/gpe/rr511.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "Interview: Bertrand Gachot (Joe Saward)",
+      "publisher": "Grandprix.com",
+      "date": "1991-10-01",
+      "url": "https://www.grandprix.com/features/joe-saward/interview-bertrand-gachot.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "Bizarre F1 scandal: driver jailed after taxi fight",
+      "publisher": "RacingNews365",
+      "date": "2025-02-08",
+      "url": "https://racingnews365.com/bizarre-f1-scandal-driver-jailed-after-taxi-fight",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "How a single letter changed Michael Schumacher's destiny and F1 history",
+      "publisher": "RacingNews365",
+      "date": "2025-08-23",
+      "url": "https://racingnews365.com/how-a-single-letter-changed-michael-schumacher-destiny-and-f1-history",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "How 'complete b*stard' Eddie Jordan and a jailed ex-driver became friends again (Thomas Maher)",
+      "publisher": "PlanetF1",
+      "date": "2025-01-12",
+      "url": "https://www.planetf1.com/news/bertrand-gachot-arrest-1991-eddie-jordan-fight",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "Michael Schumacher's 10 iconic Formula 1 grand prix victories (Michelle Foster)",
+      "publisher": "PlanetF1",
+      "date": "2024-01-03",
+      "url": "https://www.planetf1.com/features/michael-schumacher-top-ten-iconic-wins",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "White lies and bicycle rides: Schumacher's remarkable F1 debut",
+      "publisher": "Formula1.com",
+      "date": "2016-12-27",
+      "url": "https://www.formula1.com/en/latest/article/schumacher-debut-91-jordan-spa-belgium.bzGmVb89zUesDGvv9Gz23",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "August 25th, 25 years ago",
+      "publisher": "michael-schumacher.de (офіційний сайт)",
+      "date": "2016-08-25",
+      "url": "https://michael-schumacher.de/en/stories/10/august-25th-25-years-ago",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Spa all over again",
+      "publisher": "michael-schumacher.de (офіційний сайт)",
+      "date": "2017-08-25",
+      "url": "https://michael-schumacher.de/en/stories/7/spa-all-over-again",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "How Schumacher was snatched from Jordan after his F1 debut (Josh Suttill)",
+      "publisher": "The Race",
+      "date": "2021-09-19",
+      "url": "https://the-race.com/formula-1/how-schumacher-was-snatched-from-jordan-after-his-f1-debut/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "The true story of how Schumacher escaped Jordan (Matt James)",
+      "publisher": "Autosport",
+      "date": "2019-01-04",
+      "url": "https://www.autosport.com/f1/feature/8738/the-true-story-of-how-schumacher-escaped-jordan",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Matters of moment, October 1991",
+      "publisher": "Motor Sport Magazine",
+      "date": "1991-10-01",
+      "url": "https://www.motorsportmagazine.com/archive/article/october-1991/3/matters-of-moment-october-1991/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "The Piranha Club (Timothy Collings)",
+      "publisher": "Atlas F1",
+      "date": "2001-11-14",
+      "url": "https://atlasf1.autosport.com/2001/nov14/collings.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "The Michael Schumacher drama which is now affecting Daniel Ricciardo (Connor McDonagh)",
+      "publisher": "Crash.net",
+      "date": "2022-08-20",
+      "url": "https://www.crash.net/f1/news/1010128/1/michael-schumacher-drama-which-now-affecting-daniel-ricciardo",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "Pause, rewind, play: Michael Schumacher's first F1 race win at Belgian GP",
+      "publisher": "Scroll.in",
+      "date": "2020-08-10",
+      "url": "https://scroll.in/field/969938/pause-rewind-play-michael-schumachers-first-f1-race-win-at-belgian-gp-the-start-of-a-new-era",
+      "kind": "secondary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Гран-прі Бельгії 1991 року, 11-й етап, 25 серпня, Спа-Франкоршам",
+      "sources": [
+        "s1",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "У грудні 1990 року біля Гайд-парк-Корнер у Лондоні Гашо після зіткнення з таксі бризнув таксистові в обличчя сльозогінним газом CS",
+      "sources": [
+        "s5",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "Гашо визнали винним у заподіянні тілесних ушкоджень; 18 місяців за напад і 6 — за володіння газом (PlanetF1: два роки)",
+      "sources": [
+        "s5",
+        "s6",
+        "s8"
+      ],
+      "status": "dis",
+      "note": "Grandprix.com (1991): 6 місяців за володіння CS-газом і 18 — за напад; RacingNews365: 18 місяців; PlanetF1: два роки ув'язнення"
+    },
+    {
+      "id": "c4",
+      "text": "Гашо: «For me it was a clear case of self-defence»; «It was an incredible sentence»",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c5",
+      "text": "Гашо посадили в серпні 1991-го, якраз перед Гран-прі Бельгії",
+      "sources": [
+        "s5",
+        "s8",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "Гашо тримали у в'язниці Брікстон",
+      "sources": [
+        "s5",
+        "s4"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c7",
+      "text": "Едді Джордан хотів посадити Стефана Юханссона, але той хотів грошей",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c8",
+      "text": "Шумахер — 22-річний пілот спорткарів Mercedes",
+      "sources": [
+        "s10",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "Лист від 22 серпня 1991: PP Sauber Ltd платить Jordan £150 000 за кожну гонку 1991 року",
+      "sources": [
+        "s13",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "Вебер: «Едді хотів знати, чи він колись їздив у Спа, і я сказав йому: \"Думаю, разів сто\". Це була повна брехня»",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c11",
+      "text": "Тест на Південному колі Сільверстоуна: близько 20 кіл; Андерсон: найшвидше коло було на рівні найкращого результату команди на цій трасі",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c12",
+      "text": "Шумахер ніколи не їздив у Спа й вивчав трасу на складаному велосипеді",
+      "sources": [
+        "s10",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "Шумахер із менеджером жили в молодіжному хостелі; Вебер: «There was no hotel booking for us, so we went to a youth hostel»",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c14",
+      "text": "Першого дня кваліфікації Шумахер був восьмим",
+      "sources": [
+        "s4",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "text": "На старті Шумахер сьомий — позаду Сенни, Проста, Менселла, Бергера, Алезі й Піке",
+      "sources": [
+        "s1",
+        "s4",
+        "s7",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c16",
+      "text": "Де Чезаріс — 11-й, на чотири місця й сім десятих позаду",
+      "sources": [
+        "s10",
+        "s7",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c17",
+      "text": "Де Чезаріс: «Він одразу був таким самим швидким, як я»",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c18",
+      "text": "У ранковій розминці Шумахер був четвертим",
+      "sources": [
+        "s4"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c19",
+      "text": "Шумахер зійшов, не проїхавши й кола; причина — зчеплення (офіційний сайт Шумахера: перемикання передач)",
+      "sources": [
+        "s1",
+        "s4",
+        "s10",
+        "s14",
+        "s7",
+        "s11"
+      ],
+      "status": "dis",
+      "note": "Jolpica, Grandprix.com, Formula1.com, Autosport і RacingNews365 — зчеплення; офіційний сайт michael-schumacher.de (2016) пише про перемикання передач, що «пішло димом»"
+    },
+    {
+      "id": "c20",
+      "text": "Андерсон: «у нас того року було дуже крихке зчеплення»",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c21",
+      "text": "Шумахер: «Якби я проїхав усю гонку й фінішував, я точно був би на подіумі»",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c22",
+      "text": "Де Чезаріс ішов другим і наздоганяв Сенну, але за три кола до фінішу (41-ше коло) зламався двигун",
+      "sources": [
+        "s4",
+        "s10",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c23",
+      "text": "Переміг Сенна, другий Бергер (дубль McLaren), Піке третій, Морену четвертий",
+      "sources": [
+        "s1",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c24",
+      "text": "Морену в Спа проїхав найшвидше коло",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c25",
+      "text": "У понеділок перед Гран-прі Італії Jordan чекала на підписання повного контракту; наступного ранку — факс Шумахера: «Мені дуже шкода, але я не зможу виступати за вашу команду»",
+      "sources": [
+        "s13",
+        "s7",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c26",
+      "text": "У листі про наміри «the driver agreement» замінили на «a driver agreement»",
+      "sources": [
+        "s13",
+        "s14",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c27",
+      "text": "Едді Джордан: «Неймовірно, що великі речі у Ф1 можуть залежати від того, чи стоїть у контракті \"a\", коли мало бути \"the\"»",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c28",
+      "text": "У середу Шумахер протестував Benetton на Сільверстоуні, контракт підписали",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c29",
+      "text": "Вокіншоу: «Він був вільним агентом»",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "Позов Jordan до Високого суду в Лондоні про заборону Шумахеру їздити за Benetton провалився",
+      "sources": [
+        "s16",
+        "s15",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c31",
+      "text": "Морену добився заборони від італійського суду проти Benetton",
+      "sources": [
+        "s15",
+        "s13",
+        "s16"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c32",
+      "text": "Екклстоун зібрав усіх у готелі в Італії; Морену погодився на відступні близько $500 000",
+      "sources": [
+        "s13",
+        "s17",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c33",
+      "text": "У Монці 8 вересня Шумахер їхав за Benetton, Морену — за Jordan",
+      "sources": [
+        "s2",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c34",
+      "text": "У Монці Шумахер фінішував п'ятим, попереду Піке; перші очки",
+      "sources": [
+        "s2",
+        "s10",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c35",
+      "text": "Motor Sport у жовтні 1991: Шумахер «їхав із запалом, що геть не пасував до його повної недосвідченості в цій категорії»",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c36",
+      "text": "Гашо вийшов після двох місяців (чотири пропущені гран-прі): апеляційний суд вирок не скасував, але визнав покарання надто суворим",
+      "sources": [
+        "s5",
+        "s8",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c37",
+      "text": "Після звільнення Гашо вже не мав місця у Формулі-1",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c38",
+      "text": "Перша перемога Шумахера — Спа, 30 серпня 1992 року",
+      "sources": [
+        "s3",
+        "s18",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c39",
+      "text": "Шумахер виграв у Спа шість разів — більше за будь-кого",
+      "sources": [
+        "s3",
+        "s18"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c40",
+      "text": "Майже рівно через 13 років у Спа Шумахер оформив сьомий титул",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c41",
+      "text": "Спа називають «вітальнею» Шумахера; офіційний сайт: спершу «кімната юності», «вітальнею» стала після першої перемоги",
+      "sources": [
+        "s9",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c42",
+      "text": "Керпен, звідки Шумахер, — недалеко від бельгійського кордону",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c43",
+      "text": "За Jordan Шумахер більше ніколи не виступав",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c44",
+      "text": "Після Спа Benetton сказала Морену, що не продовжить з ним на 1992-й, а за тиждень вирішила прибрати його негайно",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c45",
+      "text": "Де Чезаріс мав провезти Шумахера трасою на дорожній машині, але лише пояснив передачі в поворотах",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c46",
+      "text": "Де Чезаріс: Андерсон сказав йому, що Міхаель проходить Бланшимон на повному газу, а він — ні",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c47",
+      "text": "Оригінал листа: Шумахер підпише угоду з Jordan до Монци на 1991, 1992, 1993 роки (і опціон Mercedes на 1994-й)",
+      "sources": [
+        "s13",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c48",
+      "text": "Джордан радив Морену тримати планку в мільйон доларів",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c49",
+      "text": "Бріаторе про контракт Морену: «It was not a good contract. I put a lot of mistakes»",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c50",
+      "text": "За словами Бріаторе, Піке відмовлявся їхати в Монці; Бріаторе велів підготувати сидіння для Дзанарді, і Піке відступив",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c51",
+      "text": "Гашо вийшов у вівторок перед Сузукою й одразу полетів до Японії",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/schumacher-debut-1991/m1-1280.webp",
+      "srcSet": "/img/stories/schumacher-debut-1991/m1-1280.webp 1280w, /img/stories/schumacher-debut-1991/m1-800.webp 800w, /img/stories/schumacher-debut-1991/m1-480.webp 480w",
+      "width": 1280,
+      "height": 960,
+      "focus": "50% 55%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:01_Jordan_191.jpg",
+        "author": "Andrew-44-19",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Jordan 191, на якому Міхаель Шумахер дебютував на Гран-прі Бельгії 1991 року, у музейній експозиції, 2026 рік.",
+        "en": "The Jordan 191 in which Michael Schumacher made his debut at the 1991 Belgian Grand Prix, on museum display, 2026."
+      },
+      "alt": {
+        "uk": "Зелений болід Jordan з номером 32, вигляд спереду.",
+        "en": "A green Jordan car with the number 32, seen from the front."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/schumacher-debut-1991/m2-800.webp",
+      "srcSet": "/img/stories/schumacher-debut-1991/m2-800.webp 800w, /img/stories/schumacher-debut-1991/m2-480.webp 480w",
+      "width": 800,
+      "height": 533,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Bertrand_Gachot_1991_USA.jpg",
+        "author": "Stuart Seeger from College Station, Texas, USA",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Бертран Гашо на Jordan на Гран-прі США, Фінікс, 1991 рік.",
+        "en": "Bertrand Gachot driving for Jordan at the 1991 United States Grand Prix, Phoenix."
+      },
+      "alt": {
+        "uk": "Зелений болід Jordan на тлі рекламного банера.",
+        "en": "A green Jordan car in front of an advertising banner."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/schumacher-debut-1991/m3-800.webp",
+      "srcSet": "/img/stories/schumacher-debut-1991/m3-800.webp 800w, /img/stories/schumacher-debut-1991/m3-480.webp 480w",
+      "width": 800,
+      "height": 530,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Ayrton_Senna_during_the_race_in_Spa-Francorchamps_on_25_August_1991.jpg",
+        "author": "George Voudouris",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Айртон Сенна в гонці на Спа-Франкоршам, 25 серпня 1991 року.",
+        "en": "Ayrton Senna during the race at Spa-Francorchamps, 25 August 1991."
+      },
+      "alt": {
+        "uk": "Біло-червоний болід McLaren на трасі.",
+        "en": "A red and white McLaren car on track."
+      }
+    }
+  ]
+}

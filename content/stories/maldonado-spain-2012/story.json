@@ -1,0 +1,761 @@
+{
+  "slug": "maldonado-spain-2012",
+  "category": "sensation",
+  "years": [
+    2012
+  ],
+  "title": {
+    "uk": "Мальдонадо в Барселоні: перемога, після якої загорівся гараж",
+    "en": "Maldonado in Barcelona: the win that ended in a garage fire"
+  },
+  "dek": {
+    "uk": "Поул дістався йому після дискваліфікації Гамілтона, перемога стала для Williams першою за вісім років, а ввечері того ж дня гараж команди був у диму.",
+    "en": "He inherited pole when Hamilton was thrown out of qualifying, gave Williams its first win in eight years, and within hours the team's garage was full of smoke."
+  },
+  "links": {
+    "seasons": [
+      2004,
+      2010,
+      2011,
+      2012
+    ],
+    "races": [
+      "2012/5",
+      "2012/7",
+      "2004/18",
+      "2010/18"
+    ],
+    "drivers": [
+      "maldonado",
+      "alonso",
+      "raikkonen",
+      "hamilton",
+      "bruno_senna",
+      "bottas",
+      "hulkenberg",
+      "montoya"
+    ],
+    "teams": [
+      "williams",
+      "ferrari",
+      "lotus-f1",
+      "mclaren",
+      "caterham",
+      "force-india"
+    ],
+    "circuits": [
+      "catalunya"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "2012 Spanish Grand Prix — race results",
+      "publisher": "Jolpica F1 API",
+      "date": "2012-05-13",
+      "url": "https://api.jolpi.ca/ergast/f1/2012/5/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "2012 Spanish Grand Prix — qualifying results",
+      "publisher": "Jolpica F1 API",
+      "date": "2012-05-12",
+      "url": "https://api.jolpi.ca/ergast/f1/2012/5/qualifying/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "Hamilton's qualifying nullified, will start from back of grid",
+      "publisher": "Motorsport.com",
+      "date": "2012-05-12",
+      "url": "https://www.motorsport.com/f1/news/hamilton-s-qualifying-nullified-will-start-from-back-of-grid/420341/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "Hamilton put to back of grid in Spain",
+      "publisher": "Adam Cooper's F1 Blog",
+      "date": "2012-05-12",
+      "url": "https://adamcooperf1.com/2012/05/12/hamilton-put-to-back-of-grid-in-spain/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "On this day in 2012: Pastor Maldonado wins the Spanish Grand Prix",
+      "publisher": "Williams Racing",
+      "date": "2023-05-13",
+      "url": "https://www.williamsf1.com/articles/8d370938-079c-45b5-8e74-a54739f405bf/on-this-day-2012-pastor-maldonado-spanish-grand-prix",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "Williams — races started from pole (grid position 1)",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/constructors/williams/grid/1/results/?limit=100&offset=100",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "2011 Constructors' Championship standings",
+      "publisher": "Jolpica F1 API",
+      "date": "2011-11-27",
+      "url": "https://api.jolpi.ca/ergast/f1/2011/constructorStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "One of F1's biggest shocks: Maldonado's 2012 win",
+      "publisher": "PlanetF1",
+      "date": "2021-03-09",
+      "url": "https://www.planetf1.com/features/pastor-maldonado-spanish-gp-win",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "31 Injured, 7 Hospitalized After Spanish Grand Prix Fire (Associated Press)",
+      "publisher": "Claims Journal / AP",
+      "date": "2012-05-15",
+      "url": "https://www.claimsjournal.com/news/international/2012/05/15/206787.htm",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "68. 2012 Spanish GP: Maldonado shocks F1 with Williams victory",
+      "publisher": "Motor Sport Magazine",
+      "date": "2025-03-18",
+      "url": "https://www.motorsportmagazine.com/special-article/the-75-greatest-grands-prix/13/68-2012-spanish-gp-maldonado-shocks-f1-with-williams-victory",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "2012 Spanish Grand Prix report",
+      "publisher": "RaceFans",
+      "date": "2012-05-13",
+      "url": "https://www.racefans.net/2012/05/13/2012-spanish-grand-prix-report/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Spanish GP 2012 race notes: Maldonado wins for Williams in the Spanish GP",
+      "publisher": "GrandPrix.com",
+      "date": "2012-05-13",
+      "url": "https://www.grandprix.com/races/spanish-gp-2012-race-notes-maldonado-wins-for-williams-in-the-spanish-gp.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "2012 Spanish Grand Prix — lap-by-lap positions",
+      "publisher": "Jolpica F1 API",
+      "date": "2012-05-13",
+      "url": "https://api.jolpi.ca/ergast/f1/2012/5/laps/?limit=100",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "Williams — race wins",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/constructors/williams/results/1/?limit=100&offset=100",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Pastor Maldonado on his \"very, very special\" Spanish GP win in 2012",
+      "publisher": "Williams Racing",
+      "date": "2026-05-13",
+      "url": "https://www.williamsf1.com/articles/8104aa86-31f3-4201-a41a-9e55695ce4af/interview-pastor-maldonado-spanish-grand-prix-win",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "F1 personnel hurt in Williams garage pit fire at Spanish Grand Prix",
+      "publisher": "The National",
+      "date": "2012-05-13",
+      "url": "https://www.thenationalnews.com/sport/f1-personnel-hurt-in-williams-garage-pit-fire-at-spanish-grand-prix-1.370651",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "Fairytale F1 victory celebrations ended by dramatic garage fire",
+      "publisher": "RacingNews365",
+      "date": "2026-05-13",
+      "url": "https://racingnews365.com/fairytale-f1-victory-celebrations-ended-by-dramatic-garage-fire",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "2012 season — race winners",
+      "publisher": "Jolpica F1 API",
+      "date": "2012-11-25",
+      "url": "https://api.jolpi.ca/ergast/f1/2012/results/1/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "Hamilton takes Canadian Grand Prix (Associated Press)",
+      "publisher": "Sports Illustrated / AP",
+      "date": "2012-06-10",
+      "url": "https://www.si.com/racing/2012/06/10/hamilton-canadian-grand-prix",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "How joy turned to terror in 10 minutes at the Spanish Grand Prix",
+      "publisher": "The National",
+      "date": "2012-05-14",
+      "url": "https://www.thenationalnews.com/sport/how-joy-turned-to-terror-in-10-minutes-at-the-spanish-grand-prix-1.451967",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "2012 Drivers' Championship standings after round 5",
+      "publisher": "Jolpica F1 API",
+      "date": "2012-05-13",
+      "url": "https://api.jolpi.ca/ergast/f1/2012/5/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Гран-прі Іспанії 2012 року — 5-й етап сезону, 13 травня 2012, Circuit de Catalunya (Барселона).",
+      "sources": [
+        "s1",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "У кваліфікації найшвидшим був Гамілтон (1:21.707), другим — Мальдонадо (1:22.285), відставання 0,578 с.",
+      "sources": [
+        "s2",
+        "s3",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "Гамілтон зупинився на трасі після кваліфікації, схоже, без пального; стюарди визнали порушення ст. 6.6.2 технічного регламенту (обов'язкова проба пального), виключили його з результатів кваліфікації й дозволили стартувати з останнього місця.",
+      "sources": [
+        "s3",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "text": "Цитата стюардів: кількість пального повністю контролює учасник, тож це не форс-мажор.",
+      "sources": [
+        "s3",
+        "s4"
+      ],
+      "status": "ok",
+      "note": "Дослівна цитата — за s3; s4 передає те саме формулювання частково."
+    },
+    {
+      "id": "c5",
+      "text": "Вітмарш: машину зупинили, коли в ній лишалося 1,3 л пального.",
+      "sources": [
+        "s4"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c6",
+      "text": "Поул перейшов до Мальдонадо; це єдиний поул у його кар'єрі.",
+      "sources": [
+        "s3",
+        "s5"
+      ],
+      "status": "ok",
+      "note": "Єдиність поулу — s5; підтверджується s6/Jolpica (1 старт з поулу у Мальдонадо)."
+    },
+    {
+      "id": "c7",
+      "text": "Попередній старт Williams з поулу — Гюлькенберг, Гран-прі Бразилії 2010 (листопад 2010).",
+      "sources": [
+        "s6",
+        "s3"
+      ],
+      "status": "ok",
+      "note": "s3: «майже два роки» без поулу Williams; s6 називає гонку."
+    },
+    {
+      "id": "c8",
+      "text": "У 2011 році Williams набрала 5 очок і посіла 9-те місце в Кубку конструкторів.",
+      "sources": [
+        "s7",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "Того вікенду команда влаштувала серу Френку Вільямсу вечірку-сюрприз на честь 70-річчя.",
+      "sources": [
+        "s5",
+        "s9",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "На старті Алонсо обійшов Мальдонадо й першим пройшов перший поворот.",
+      "sources": [
+        "s5",
+        "s11",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "text": "Williams виграла лідерство андеркатом: Мальдонадо заїхав на піт-стоп раніше за Алонсо.",
+      "sources": [
+        "s8",
+        "s10",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c12",
+      "text": "Мальдонадо заїхав на 25-му колі, Алонсо — на 27-му, після чого лідером став Мальдонадо.",
+      "sources": [
+        "s11"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c13",
+      "text": "Останній піт-стоп Мальдонадо затягнувся через проблему із заднім колесом.",
+      "sources": [
+        "s11",
+        "s10"
+      ],
+      "status": "dis",
+      "note": "s11 (RaceFans): праве заднє колесо; s10 (Motor Sport): ліве заднє колесо не сідало на місце. У тексті наведено обидві версії."
+    },
+    {
+      "id": "c14",
+      "text": "Алонсо скоротив відставання до ~0,6 с, але Мальдонадо відривався на останньому секторі й тримався поза зоною DRS.",
+      "sources": [
+        "s11"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c15",
+      "text": "Перевага Мальдонадо на фініші — 3,195 с над Алонсо; Ряйкконен третій, +3,884 с.",
+      "sources": [
+        "s1",
+        "s12"
+      ],
+      "status": "ok",
+      "note": "s12 округлює до 3,1 і 3,8 с."
+    },
+    {
+      "id": "c16",
+      "text": "Лідирування: Мальдонадо 37 кіл, Алонсо 27, Ряйкконен 2 (із 66).",
+      "sources": [
+        "s13"
+      ],
+      "status": "one",
+      "note": "Пораховано за поколовими позиціями Jolpica."
+    },
+    {
+      "id": "c17",
+      "text": "Перша перемога Williams з Гран-прі Бразилії 2004 (Монтойя).",
+      "sources": [
+        "s14",
+        "s5",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "Це 114-та перемога Williams і досі остання перемога команди (станом на 15.11.2026).",
+      "sources": [
+        "s14",
+        "s15"
+      ],
+      "status": "ok",
+      "note": "Число 114 — лише s14 (Jolpica); s15 називає її останньою перемогою Френка Вільямса у Ф1."
+    },
+    {
+      "id": "c19",
+      "text": "Мальдонадо — перший (і досі єдиний) венесуелець, що виграв Гран-прі.",
+      "sources": [
+        "s12",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c20",
+      "text": "Цитата Мальдонадо: «It's a wonderful day for the team which has been pushing so hard».",
+      "sources": [
+        "s8"
+      ],
+      "status": "one",
+      "note": "s5 цитує лише фрагмент «a wonderful day»."
+    },
+    {
+      "id": "c21",
+      "text": "Гамілтон стартував 24-м і фінішував восьмим.",
+      "sources": [
+        "s1",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "text": "Пожежа в гаражі Williams почалася після гонки, коли Френк Вільямс виголошував промову перед командою.",
+      "sources": [
+        "s9",
+        "s16"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c23",
+      "text": "Час від фінішу до пожежі.",
+      "sources": [
+        "s16",
+        "s17",
+        "s8"
+      ],
+      "status": "dis",
+      "note": "s16: близько години; s17: близько 90 хвилин; s8: менш ніж за дві години. У тексті — всі три версії."
+    },
+    {
+      "id": "c24",
+      "text": "Причина пожежі — заправне обладнання.",
+      "sources": [
+        "s9",
+        "s10",
+        "s17"
+      ],
+      "status": "dis",
+      "note": "s9 (AP) і s10: витік пального; s17: несправність заправної установки (fuel rig). Обидві версії — в тексті."
+    },
+    {
+      "id": "c25",
+      "text": "Цитата Боттаса: «I felt an explosion from behind, somewhere from the fuel area, and everyone ran out quickly».",
+      "sources": [
+        "s16"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c26",
+      "text": "За даними FIA, медики автодрому оглянули 31 людину, сімох відправили до лікарень.",
+      "sources": [
+        "s9",
+        "s16",
+        "s5"
+      ],
+      "status": "ok",
+      "note": "s5 називає 31 постраждалого без деталей."
+    },
+    {
+      "id": "c27",
+      "text": "Williams: четверо співробітників отримали допомогу, троє — в лікарні; Caterham: оглянули чотирьох.",
+      "sources": [
+        "s9",
+        "s16"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c28",
+      "text": "Гасити пожежу допомагали співробітники інших команд разом із пожежниками.",
+      "sources": [
+        "s9",
+        "s5",
+        "s16"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c29",
+      "text": "Вогонь пошкодив машину Бруно Сенни.",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "Мальдонадо виніс на спині з задимленого гаража двоюрідного брата Мануеля.",
+      "sources": [
+        "s16",
+        "s20",
+        "s8"
+      ],
+      "status": "ok",
+      "note": "s16 і s20 — одне видання (The National); незалежне підтвердження — s8."
+    },
+    {
+      "id": "c31",
+      "text": "Хлопцеві було 12 років, у нього була зламана нога.",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c32",
+      "text": "Цитата Фернлі (Force India): «My guy got there before the official fire fighters».",
+      "sources": [
+        "s16"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c33",
+      "text": "Сім різних переможців у перших семи гонках 2012: Баттон, Алонсо, Росберг, Феттель, Мальдонадо, Веббер, Гамілтон.",
+      "sources": [
+        "s18",
+        "s19"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c34",
+      "text": "AP назвала це безпрецедентною рівновагою.",
+      "sources": [
+        "s19"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c35",
+      "text": "Перші п'ять гонок 2012 виграли п'ятеро різних пілотів п'яти різних команд.",
+      "sources": [
+        "s12",
+        "s18"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c36",
+      "text": "Цитата Мальдонадо (2026): «And to give him his last victory in Formula 1 – for me, is something very, very special».",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c37",
+      "text": "Перемога в Іспанії — єдиний подіум Мальдонадо у Ф1.",
+      "sources": [
+        "s1",
+        "s8"
+      ],
+      "status": "ok",
+      "note": "Jolpica: у Мальдонадо 1 фініш у трійці (саме цей); s8 — його слова «my first podium and my first victory»."
+    },
+    {
+      "id": "c38",
+      "text": "Френка Вільямса (на візку) одразу вивезли з місця пожежі.",
+      "sources": [
+        "s16",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c39",
+      "text": "Через збіг з ювілеєм ширилися теорії змови; підтверджень немає.",
+      "sources": [
+        "s10",
+        "s17",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c40",
+      "text": "Великий пакет оновлень (підлога, понтони, переднє антикрило) команда отримала в суботу вранці.",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c41",
+      "text": "Мальдонадо привітав телефоном тодішній президент Венесуели Уго Чавес.",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c42",
+      "text": "Мальдонадо перед гонкою: «I have always been fighting for victories. I have won so many races at the time, and this is only one more. So do your job, and do what you enjoy».",
+      "sources": [
+        "s15"
+      ],
+      "status": "one",
+      "note": "Дослівно за s15; переклад Slipstream."
+    },
+    {
+      "id": "c43",
+      "text": "Перед гонкою Мальдонадо сказав: «For sure I will try to win».",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c44",
+      "text": "Алонсо після піт-стопу застряг у трафіку; за два кола Мальдонадо відірвався приблизно на сім секунд.",
+      "sources": [
+        "s8",
+        "s11"
+      ],
+      "status": "one",
+      "note": "Трафік — лише s8; ~7 с за два кола — лише s11."
+    },
+    {
+      "id": "c45",
+      "text": "Ряйкконен їхав на три піт-стопи, на останньому колі відіграв в Алонсо 1,6 с і фінішував менш ніж за секунду позаду нього.",
+      "sources": [
+        "s11",
+        "s1"
+      ],
+      "status": "ok",
+      "note": "Різниця за Jolpica: 3,884 − 3,195 = 0,689 с."
+    },
+    {
+      "id": "c46",
+      "text": "На 15-му колі Гамілтон, виїжджаючи з боксів, переїхав гайковерт.",
+      "sources": [
+        "s12"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c47",
+      "text": "Після 5-го етапу Алонсо й Феттель лідирували в чемпіонаті з 61 очком.",
+      "sources": [
+        "s21",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c48",
+      "text": "Цитата: «It was my first podium and my first victory. You can imagine what I feel».",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c49",
+      "text": "Цитата: «a great moment for my country after nearly 30 years without any driver in Formula One».",
+      "sources": [
+        "s16"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c50",
+      "text": "Мальдонадо: у Венесуелі головний спорт — бейсбол; перемога у Ф1 була для країни чимось новим.",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c51",
+      "text": "FIA повідомила про співпрацю з іспанською владою в розслідуванні.",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c52",
+      "text": "Машина Мальдонадо стояла окремо від гаража, біля машин інших призерів.",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/maldonado-spain-2012/m1-1280.webp",
+      "srcSet": "/img/stories/maldonado-spain-2012/m1-1280.webp 1280w, /img/stories/maldonado-spain-2012/m1-800.webp 800w, /img/stories/maldonado-spain-2012/m1-480.webp 480w",
+      "width": 1280,
+      "height": 854,
+      "focus": "45% 60%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Pastor_Maldonado,_Williams_FW34,_Barcelona_2012.jpg",
+        "author": "Jose Mª Izquierdo Galiot",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Пастор Мальдонадо на Williams FW34 під час тестів на трасі в Барселоні, 4 березня 2012 року.",
+        "en": "Pastor Maldonado in the Williams FW34 during testing at the Barcelona circuit, 4 March 2012."
+      },
+      "alt": {
+        "uk": "Темно-синій болід Williams із номером 18 біля червоно-білого поребрика.",
+        "en": "A dark blue Williams car numbered 18 next to a red and white kerb."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/maldonado-spain-2012/m2-800.webp",
+      "srcSet": "/img/stories/maldonado-spain-2012/m2-800.webp 800w, /img/stories/maldonado-spain-2012/m2-480.webp 480w",
+      "width": 800,
+      "height": 400,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Pastor_Maldonado_2012_Malaysia_Qualify.jpg",
+        "author": "Morio",
+        "license": "CC BY-SA 3.0"
+      },
+      "caption": {
+        "uk": "Пастор Мальдонадо на Williams FW34 у кваліфікації Гран-прі Малайзії, 24 березня 2012 року.",
+        "en": "Pastor Maldonado in the Williams FW34 in qualifying for the Malaysian Grand Prix, 24 March 2012."
+      },
+      "alt": {
+        "uk": "Темно-синій болід Williams у повороті біля червоно-білого поребрика.",
+        "en": "A dark blue Williams car in a corner next to a red and white kerb."
+      }
+    }
+  ]
+}

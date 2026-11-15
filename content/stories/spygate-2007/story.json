@@ -1,0 +1,645 @@
+{
+  "slug": "spygate-2007",
+  "category": "scandal",
+  "years": [
+    2007
+  ],
+  "title": {
+    "uk": "Шпигунський скандал-2007: як McLaren втратила 100 мільйонів",
+    "en": "Spygate 2007: how McLaren lost $100 million"
+  },
+  "dek": {
+    "uk": "780 сторінок секретів Ferrari, копіцентр у Вокінгу, сварка в Будапешті й рекордний штраф FIA. Як McLaren виключили з Кубка конструкторів, а її пілоти зберегли всі очки.",
+    "en": "780 pages of Ferrari secrets, a copy shop in Woking, a row in Budapest and a record FIA fine. How McLaren were thrown out of the constructors' championship while their drivers kept every point."
+  },
+  "links": {
+    "seasons": [
+      2007
+    ],
+    "races": [
+      "2007/5",
+      "2007/11",
+      "2007/13",
+      "2007/17"
+    ],
+    "drivers": [
+      "alonso",
+      "hamilton",
+      "rosa",
+      "raikkonen",
+      "massa"
+    ],
+    "teams": [
+      "mclaren",
+      "ferrari"
+    ],
+    "circuits": [
+      "monaco",
+      "hungaroring",
+      "monza",
+      "interlagos"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "The full decision by the FIA WMSC (decision of 13 September 2007)",
+      "publisher": "FIA World Motor Sport Council (text published by Autosport)",
+      "date": "2007-09-13",
+      "url": "https://www.autosport.com/f1/news/62348/the-full-decision-by-the-fia-wmsc",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "FIA imposes no penalty on McLaren",
+      "publisher": "Autosport",
+      "date": "2007-07-26",
+      "url": "https://www.autosport.com/f1/news/fia-imposes-no-penalty-on-mclaren-4411052/4411052/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "Analysis: the remarkable Stepneygate saga (Adam Cooper)",
+      "publisher": "Autosport",
+      "date": "2007-07-03",
+      "url": "https://www.autosport.com/f1/news/analysis-the-remarkable-stepneygate-saga-4411755/4411755/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "Analysis: Ferrari see Coughlan in court (Biranit Goren)",
+      "publisher": "Autosport",
+      "date": "2007-07-10",
+      "url": "https://www.autosport.com/f1/news/60695/analysis-ferrari-see-coughlan-in-court",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "Ferrari sues McLaren over information dossier (Ian Herbert, David Tremayne / The Independent)",
+      "publisher": "NZ Herald / The Independent",
+      "date": "2007-07-10",
+      "url": "https://nzherald.co.nz/sport/motorsport/formula-1/motorsport-ferrari-sues-mclaren-over-information-dossier/Y4UG34JVOSLWPDRURCGROD7DVA",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "July 10, 2007 — Ferrari SpA v Coughlan opens in the High Court",
+      "publisher": "GrandPrix.com",
+      "date": "2007-07-10",
+      "url": "https://www.grandprix.com/ns/ns19396.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "McLaren lose 2007 points, fined $100m (Steve Cooper, Jonathan Noble)",
+      "publisher": "Autosport",
+      "date": "2007-09-13",
+      "url": "https://www.autosport.com/f1/news/62313/mclaren-lose-2007-points-fined-100m",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "Record fine for McLaren",
+      "publisher": "Sky Sports",
+      "date": "2007-09-14",
+      "url": "https://www.skysports.com/f1/news/2726659/record-fine-for-mclaren",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "McLaren fined $100m (decision report)",
+      "publisher": "The Register",
+      "date": "2007-09-14",
+      "url": "https://www.theregister.com/2007/09/14/mclaren_decision/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "McLaren stripped of constructors' points and fined $100 million in Formula One spy case (AP)",
+      "publisher": "Deseret News / Associated Press",
+      "date": "2007-09-13",
+      "url": "https://www.deseret.com/2007/9/13/20040989/mclaren-stripped-of-constructors-points-and-fined-100-million-in-formula-one-spy-case/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "Alonso row led to McLaren's downfall (Alan Baldwin)",
+      "publisher": "Autosport / Reuters",
+      "date": "2007-09-15",
+      "url": "https://www.autosport.com/f1/news/alonso-row-led-to-mclarens-downfall-4413883/4413883/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Alonso threatened to expose McLaren (Guardian Unlimited)",
+      "publisher": "Mail & Guardian / The Guardian",
+      "date": "2007-09-15",
+      "url": "https://mg.co.za/article/2007-09-15-alonso-threatened-to-expose-mclaren/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "McLaren won't appeal WMSC verdict",
+      "publisher": "Autosport",
+      "date": "2007-09-21",
+      "url": "https://www.autosport.com/f1/news/62603/mclaren-wont-appeal-wmsc-verdict",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "McLaren rule out appeal",
+      "publisher": "TNT Sports (Eurosport archive)",
+      "date": "2007-09-21",
+      "url": "https://www.tntsports.co.uk/formula-1/season/2007/mclaren-rule-out-appeal_sto1320020/story.shtml",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "The full letter from McLaren to the FIA (Martin Whitmarsh, 5 December 2007)",
+      "publisher": "McLaren (text published by Autosport)",
+      "date": "2007-12-13",
+      "url": "https://www.autosport.com/f1/news/the-full-letter-from-mclaren-to-the-fia-4418595/4418595/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "FIA draw line under F1 spying scandal",
+      "publisher": "The Irish Times",
+      "date": "2007-12-18",
+      "url": "https://www.irishtimes.com/news/fia-draw-line-under-f1-spying-scandal-1.1303964",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "FIA closes McLaren spy saga (Alan Baldwin, Reuters)",
+      "publisher": "NZ Herald / Reuters",
+      "date": "2007-12-18",
+      "url": "https://nzherald.co.nz/sport/motorsport/formula-1/motorsport-fia-closes-mclaren-spy-saga/4IQ24WL2Y3AZGDUJQJDH32LMI4",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "Nigel Stepney sentenced in Italy",
+      "publisher": "Adam Cooper's F1 Blog",
+      "date": "2010-09-29",
+      "url": "https://adamcooperf1.com/2010/09/29/nigel-stepney-sentenced-in-italy",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "Suspended sentence for Stepney",
+      "publisher": "Sky Sports",
+      "date": "2010-09-30",
+      "url": "https://www.skysports.com/f1/news/12474/6417112/suspended-sentence-for-stepney",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "Stepney sentenced over spygate saga",
+      "publisher": "Crash.net",
+      "date": "2010-09-30",
+      "url": "https://www.crash.net/f1/news/163763/1/stepney-sentenced-over-spygate-scandal",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "2007 final drivers' standings",
+      "publisher": "Jolpica F1 API",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2007/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "2007 final constructors' standings",
+      "publisher": "Jolpica F1 API",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/2007/constructorStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "2007 Hungarian Grand Prix — qualifying and results (round 11)",
+      "publisher": "Jolpica F1 API",
+      "date": "2007-08-05",
+      "url": "https://api.jolpi.ca/ergast/f1/2007/11/qualifying/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s24",
+      "title": "2007 Italian Grand Prix — results and standings after round 13",
+      "publisher": "Jolpica F1 API",
+      "date": "2007-09-09",
+      "url": "https://api.jolpi.ca/ergast/f1/2007/13/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "На початку липня 2007 Ferrari звільнила Степні",
+      "sources": [
+        "s3",
+        "s5"
+      ],
+      "status": "ok",
+      "note": "s3 (3 липня): Ferrari оголосила про звільнення того ж дня; s5 (10 липня): Степні звільнено."
+    },
+    {
+      "id": "c2",
+      "text": "Степні — британець, довго працював у Ferrari, починав шеф-механіком",
+      "sources": [
+        "s3",
+        "s19"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "Перед Гран-прі Монако 2007 біля паливних баків Ferrari знайшли білий порошок, підозра в саботажі; Степні заперечував і казав, що його підставили",
+      "sources": [
+        "s3",
+        "s20",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "text": "Майк Кофлан — головний конструктор McLaren; працював зі Степні в Benetton",
+      "sources": [
+        "s3",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c5",
+      "text": "McLaren заявила: наприкінці квітня старший технічний співробітник отримав пакет інформації від працівника Ferrari; його відсторонили",
+      "sources": [
+        "s3",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "3.07.2007 обшук у будинку Кофлана з дозволу Високого суду Англії й Уельсу; близько 780 сторінок конфіденційних матеріалів Ferrari",
+      "sources": [
+        "s1",
+        "s4",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c7",
+      "text": "Ferrari попередили з копіцентру",
+      "sources": [
+        "s4",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "text": "Копіцентр у Вокінгу; копіювала дружина Кофлана; працівник помітив, що документи конфіденційні",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c9",
+      "text": "За даними копіцентру, документи копіювали/сканували приблизно 2–3 травня",
+      "sources": [
+        "s4"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c10",
+      "text": "10.07 Високий суд, Лондон; адвокат Ferrari Найджел Тоцці: Кофлани «behaved disgracefully by taking these documents»",
+      "sources": [
+        "s5",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "text": "26.07.2007 WMSC: порушення ст. 151c, покарання немає через брак доказів використання; загроза виключення з чемпіонатів 2007 і 2008",
+      "sources": [
+        "s2",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c12",
+      "text": "Угорщина-2007: Алонсо позбавили поулу й відсунули на 5 позицій за перешкоду Гамілтону в кваліфікації",
+      "sources": [
+        "s11",
+        "s23"
+      ],
+      "status": "ok",
+      "note": "s23: Алонсо — 1-й у кваліфікації, старт із 6-го місця."
+    },
+    {
+      "id": "c13",
+      "text": "Уранці 5.08 сварка Алонсо з Деннісом; Денніс зателефонував у FIA; менеджер відкликав сказане й вибачився, Алонсо вибачився після гонки",
+      "sources": [
+        "s11",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c14",
+      "text": "Що Алонсо сказав Деннісу в Угорщині",
+      "sources": [
+        "s11",
+        "s12"
+      ],
+      "status": "dis",
+      "note": "Денніс (s11): Алонсо подробиць не дав, згадав лист від інженера команди. Свідки за британською пресою (s12): «Either make me number one or let me go» і погроза піти з інформацією до FIA. Менеджер Луїс Гарсія (s11, s12): «complete rubbish». У тексті подано обидві версії."
+    },
+    {
+      "id": "c15",
+      "text": "30.08.2007 Мослі листом гарантував пілотам імунітет в обмін на свідчення; їхнє листування стало доказом у вересні",
+      "sources": [
+        "s1",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c16",
+      "text": "25.03.2007 де ла Роса надіслав Алонсо розподіл ваги Ferrari, аеробаланс на 250 км/год і газ для шин; Алонсо: «very important»; джерело — Степні, «very reliable»",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c17",
+      "text": "За даними італійської поліції в рішенні WMSC: з 11.03 по 3.07.2007 щонайменше 288 SMS і 35 дзвінків між Кофланом і Степні",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c18",
+      "text": "13.09.2007 позачергове засідання WMSC у Парижі тривало цілий день",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c19",
+      "text": "Виключення з Кубка конструкторів-2007 і позбавлення всіх очок; штраф 100 млн дол. США мінус сума виплат FOM за результати в Кубку конструкторів",
+      "sources": [
+        "s1",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c20",
+      "text": "Найбільший штраф в історії автоперегонів (Autosport) / безпрецедентний (Sky Sports)",
+      "sources": [
+        "s7",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c21",
+      "text": "Алонсо і Гамілтон зберегли очки й право боротися за титул; жоден представник McLaren не може бути на подіумі",
+      "sources": [
+        "s1",
+        "s7",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "text": "Рішення WMSC: «some degree of sporting advantage was obtained», хоч її може й не вдатися виміряти",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c23",
+      "text": "Денніс: «Having been at the hearing today I do not accept that we deserved to be penalised in this way»",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c24",
+      "text": "Монца, 9.09.2007: Алонсо 1-й, Гамілтон 2-й; після етапу Гамілтон 92, Алонсо 89, Ряйкконен 74",
+      "sources": [
+        "s24",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "21.09.2007 McLaren повідомила FIA, що не подаватиме апеляцію, і цим віддала Кубок конструкторів Ferrari; Денніс: «We believe the time has come to put this huge distraction behind us»",
+      "sources": [
+        "s13",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c26",
+      "text": "Підсумок 2007: Ряйкконен 110, Гамілтон 109, Алонсо 109",
+      "sources": [
+        "s21"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c27",
+      "text": "Ferrari — Кубок конструкторів (204 очки); McLaren — «E» (виключено), 0",
+      "sources": [
+        "s22"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c28",
+      "text": "Лист Вітмарша 5.12.2007: інформація Ferrari могла дійти не лише до де ла Роси й Алонсо; «apologise unreservedly»; пропозиція мораторію на quickshift, fast fill, CO2 як газ для шин",
+      "sources": [
+        "s15",
+        "s16",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c29",
+      "text": "WMSC скасувала слухання 14.02.2008 щодо машини-2008; справу закрито",
+      "sources": [
+        "s16",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c30",
+      "text": "Ferrari завершила справу на спортивному рівні, але продовжила судові позови проти окремих осіб в Італії та Британії",
+      "sources": [
+        "s16",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c31",
+      "text": "Вересень 2010: суд Модени (засідання в Сассуоло) затвердив угоду Степні — 20 місяців умовно; серед звинувачень саботаж і шпигунство",
+      "sources": [
+        "s18",
+        "s19"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c32",
+      "text": "21.03.2007 де ла Роса попросив у Кофлана розподіл ваги «Red Car» для симулятора, Кофлан відповів SMS з даними Ferrari; 12–14.04 де ла Роса питав про гальмівну систему Ferrari",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c33",
+      "text": "McLaren визнавала володіння Кофлана документами Ferrari, але заперечувала поширення й використання інформації",
+      "sources": [
+        "s9",
+        "s13"
+      ],
+      "status": "ok"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/spygate-2007/m1-1280.webp",
+      "srcSet": "/img/stories/spygate-2007/m1-1280.webp 1280w, /img/stories/spygate-2007/m1-800.webp 800w, /img/stories/spygate-2007/m1-480.webp 480w",
+      "width": 1280,
+      "height": 852,
+      "focus": "50% 55%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Hamilton_+_Alonso_2007_Canada.jpg",
+        "author": "Mark McArdle from Canada",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Льюїс Гамілтон (McLaren) лідирує в першому повороті Гран-прі Канади, Фернандо Алонсо виносить ширше. Монреаль, 10 червня 2007 року.",
+        "en": "Lewis Hamilton (McLaren) leads into the first corner of the Canadian Grand Prix as Fernando Alonso runs wide. Montreal, 10 June 2007."
+      },
+      "alt": {
+        "uk": "Два сріблясто-червоні боліди McLaren на трасі один за одним.",
+        "en": "Two silver and red McLaren cars on track, one behind the other."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/spygate-2007/m2-800.webp",
+      "srcSet": "/img/stories/spygate-2007/m2-800.webp 800w, /img/stories/spygate-2007/m2-480.webp 480w",
+      "width": 800,
+      "height": 600,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:McLaren_Technology_Centre,_Woking_-_geograph.org.uk_-_1836979.jpg",
+        "author": "Colin Smith",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "McLaren Technology Centre у Вокінгу, база команди, 2010 рік.",
+        "en": "The McLaren Technology Centre in Woking, the team's base, 2010."
+      },
+      "alt": {
+        "uk": "Низька скляна будівля за озером, порослим очеретом.",
+        "en": "A low glass building beyond a lake fringed with reeds."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/spygate-2007/m3-800.webp",
+      "srcSet": "/img/stories/spygate-2007/m3-800.webp 800w, /img/stories/spygate-2007/m3-480.webp 480w",
+      "width": 800,
+      "height": 992,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Todt_and_Dennis2.jpg",
+        "author": "Paddy Briggs (PaddyBriggs)",
+        "license": "Public domain"
+      },
+      "caption": {
+        "uk": "Керівники Ferrari і McLaren Жан Тодт і Рон Денніс, 12 березня 2006 року.",
+        "en": "Ferrari and McLaren bosses Jean Todt and Ron Dennis, 12 March 2006."
+      },
+      "alt": {
+        "uk": "Двоє чоловіків на пресконференції: один у червоній формі Ferrari, другий у білій сорочці.",
+        "en": "Two men at a press conference, one in red Ferrari team kit, the other in a white shirt."
+      }
+    },
+    {
+      "id": "m4",
+      "role": "inline",
+      "src": "/img/stories/spygate-2007/m4-800.webp",
+      "srcSet": "/img/stories/spygate-2007/m4-800.webp 800w, /img/stories/spygate-2007/m4-480.webp 480w",
+      "width": 800,
+      "height": 351,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:2007_Brazilian_GP_4_drivers_at_start.jpg",
+        "author": "Morio",
+        "license": "CC BY-SA 3.0"
+      },
+      "caption": {
+        "uk": "Старт Гран-прі Бразилії, Інтерлагос, 21 жовтня 2007 року: Феліпе Масса й Кімі Ряйкконен (Ferrari), за ними Льюїс Гамілтон і Фернандо Алонсо (McLaren).",
+        "en": "The start of the Brazilian Grand Prix, Interlagos, 21 October 2007: Felipe Massa and Kimi Räikkönen (Ferrari) ahead of Lewis Hamilton and Fernando Alonso (McLaren)."
+      },
+      "alt": {
+        "uk": "Червоні Ferrari й сріблясті McLaren щільною групою в повороті.",
+        "en": "Red Ferraris and silver McLarens bunched together in a corner."
+      }
+    }
+  ]
+}

@@ -1,0 +1,635 @@
+{
+  "slug": "f1-driver-body",
+  "category": "explainer",
+  "years": [
+    2002,
+    2019,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "title": {
+    "uk": "Що витримує тіло пілота Формули-1",
+    "en": "What an F1 driver's body goes through"
+  },
+  "dek": {
+    "uk": "Перевантаження до 6 g, пульс понад 170, мінус кілька кілограмів за гонку в Сінгапурі. Що відомо напевно, де цифри розходяться і чому пілот не може важити менше 82 кг.",
+    "en": "Loads of up to 6 g, a heart rate above 170, several kilograms lost in a Singapore race. What is known for sure, where the numbers differ, and why a driver cannot weigh less than 82 kg."
+  },
+  "links": {
+    "seasons": [
+      2019,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "races": [
+      "2023/17",
+      "2024/18"
+    ],
+    "drivers": [
+      "norris",
+      "russell",
+      "hulkenberg",
+      "gasly",
+      "sargeant",
+      "ocon",
+      "albon",
+      "stroll",
+      "alonso",
+      "rosa",
+      "vettel"
+    ],
+    "teams": [
+      "mercedes",
+      "aston-martin",
+      "mclaren",
+      "williams"
+    ],
+    "stories": [
+      "f1-steering-wheel"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Neck workouts, cardio sessions and mental exercises – How to train like an F1 driver (Esme Buxton)",
+      "publisher": "Formula1.com",
+      "date": "2026-01-22",
+      "url": "https://www.formula1.com/en/latest/article/neck-workouts-cardio-sessions-and-mental-exercises-how-to-train-like-an-f1.6c5HZRQvQv2MALjFF295Aq",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "Surviving and thriving in Singapore – How drivers prepare for the toughest race on the calendar",
+      "publisher": "Formula1.com",
+      "date": "2025-10-03",
+      "url": "https://www.formula1.com/en/latest/article/surviving-and-thriving-in-singapore-how-drivers-prepare-for-the-toughest.5WK0nvwo8wQWmpT4LZgFJB",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "'If you survive Singapore, you're fit for anything else in F1' – drivers brace for the heat",
+      "publisher": "Formula1.com",
+      "date": "2022-09-29",
+      "url": "https://www.formula1.com/en/latest/article/if-you-survive-singapore-youre-fit-for-anything-else-in-f1-drivers-brace-for.7qBne5x1n7KHXuKsx376KD",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "G-Force and Formula One: Explained",
+      "publisher": "Mercedes-AMG Petronas F1 Team",
+      "date": "2024-04-04",
+      "url": "https://www.mercedesamgf1.com/news/g-force-and-formula-one-explained",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "Why F1 drivers are just like fighter pilots (Rahul Chotai, Pedro de la Rosa)",
+      "publisher": "Aston Martin F1 Team",
+      "date": "2025-10-19",
+      "url": "https://www.astonmartinf1.com/en-GB/news/feature/why-f1-drivers-are-just-like-fighter-pilots",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "5 facts about the Italian Formula 1 GP (2025)",
+      "publisher": "Brembo",
+      "date": "2025",
+      "url": "https://www.brembo.com/en/motorsport/formula1/2025/facts-formula1-gp-monza",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "5 facts about the Singapore Formula 1 GP (2025)",
+      "publisher": "Brembo",
+      "date": "2025",
+      "url": "https://www.brembo.com/en/motorsport/formula1/2025/facts-formula1-gp-singapore",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "5 facts about the Belgian GP of Formula 1 (2026)",
+      "publisher": "Brembo",
+      "date": "2026-07-14",
+      "url": "https://www.brembo.com/en/motorsport/formula1/2026/facts-belgium-2026",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "5 facts about the Barcelona-Catalunya Formula 1 GP (2026)",
+      "publisher": "Brembo",
+      "date": "2026-06-08",
+      "url": "https://www.brembo.com/en/motorsport/formula1/2026/facts-spain-2026",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "Tyler C.J. et al. Physiological and health demands of Formula 1 motor racing: a comprehensive review with driver performance coach insight. British Journal of Sports Medicine 60(9):649–659, doi:10.1136/bjsports-2025-110977 (abstract)",
+      "publisher": "British Journal of Sports Medicine",
+      "date": "2026-04-29",
+      "url": "https://researchportal.port.ac.uk/en/publications/physiological-and-health-demands-of-formula-1-motor-racing-a-comp/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "FIA Statement – Competing in extreme climatic conditions",
+      "publisher": "FIA",
+      "date": "2023-10-09",
+      "url": "https://www.fia.com/news/fia-statement-competing-extreme-climatic-conditions",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "F1 – 2023 Qatar Grand Prix – Post-race press conference transcript",
+      "publisher": "FIA (press conference)",
+      "date": "2023-10-08",
+      "url": "https://www.fia.com/news/f1-2023-qatar-grand-prix-post-race-press-conference-transcript",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "FIA promises driver action in wake of 'extreme' Qatar GP",
+      "publisher": "Autosport",
+      "date": "2023-10-09",
+      "url": "https://www.autosport.com/f1/news/fia-promises-driver-action-in-wake-of-extreme-qatar-gp/10531093/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "FIA promises to take action after 'dangerous' F1 Qatar GP",
+      "publisher": "Crash.net",
+      "date": "2023-10-10",
+      "url": "https://crash.net/f1/news/1037813/1/fia-promises-take-action-after-dangerous-f1-qatar-gp",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Formula 1 weighs changes after drivers vomit, pass out due to heat during Qatar race",
+      "publisher": "NPR",
+      "date": "2023-10-11",
+      "url": "https://www.npr.org/2023/10/11/1204984070/formula-1-race-qatar-changes-heat",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "Jolpica F1 API: 2023 Qatar GP results",
+      "publisher": "Jolpica F1 API",
+      "date": "2023-10-08",
+      "url": "https://api.jolpi.ca/ergast/f1/2023/17/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "Mercedes drivers fine after Singapore exhaustion",
+      "publisher": "GrandPrix.com",
+      "date": "2024-09-23",
+      "url": "https://www.grandprix.com/news/mercedes-drivers-fine-after-singapore-exhaustion.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "George Russell highlights perils of Singapore with illness admission",
+      "publisher": "RacingNews365",
+      "date": "2025-10-01",
+      "url": "https://racingnews365.com/george-russell-highlights-perils-of-singapore-with-illness-admission",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "How Carlos Sainz and Lando Norris improve their reaction times",
+      "publisher": "McLaren",
+      "date": "2020-09-24",
+      "url": "https://www.mclaren.com/racing/team/carlos-sainz-lando-norris-reaction-time/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "What you need to know about F1's 2019 rule changes (Lawrence Barretto)",
+      "publisher": "Formula1.com",
+      "date": "2018-04-19",
+      "url": "https://www.formula1.com/en/latest/article/what-you-need-to-know-about-f1s-2019-rule-changes.4nfMbkc0YoU2EAmcSUw08o",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "F1 set to introduce minimum driver weight in 2019 (Adam Cooper, Valentin Khorounzhiy)",
+      "publisher": "Motorsport.com",
+      "date": "2018-01-20",
+      "url": "https://www.motorsport.com/f1/news/fia-minimum-driver-weight-2019-halo-997615/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "What's new in F1's 2025 regulations",
+      "publisher": "Autosport",
+      "date": "2025-03-11",
+      "url": "https://www.autosport.com/f1/news/whats-new-in-f1s-2025-regulations/10701985/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "2025 Formula 1 Technical Regulations, Issue 03 (Art. 4.4, 4.6, 4.7)",
+      "publisher": "FIA",
+      "date": "2025-04-07",
+      "url": "https://www.fia.com/sites/default/files/documents/fia_2025_formula_1_technical_regulations_-_issue_03_-_2025-04-07.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s24",
+      "title": "2026 F1 Regulations — Section C: Technical, Issue 17 (Art. C4.5, C4.6)",
+      "publisher": "FIA",
+      "date": "2026-04-28",
+      "url": "https://api.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_c_technical_-_iss_17_-_2026-04-28.pdf",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Огляд BJSM (2026): даних про фізіологію пілотів Ф1 мало, знання здебільшого в командах; за аеробною витривалістю, зростом і вагою пілоти не виняткові, але мають помітно сильнішу шию; багато методів підготовки ґрунтуються на досвіді, а не на даних.",
+      "sources": [
+        "s10"
+      ],
+      "status": "one",
+      "note": "Лише анотація статті (повний текст платний)."
+    },
+    {
+      "id": "c2",
+      "text": "Пік перевантаження на гальмуванні: F1.com — до 6 g; Aston Martin — понад 6 g на гальмуванні й у деяких поворотах; Brembo (симуляції 2025) — 4,7 g (Монца, 1-й поворот) і 4,9 g (Сінгапур, 7-й поворот).",
+      "sources": [
+        "s1",
+        "s5",
+        "s6",
+        "s7"
+      ],
+      "status": "dis",
+      "note": "F1.com і Aston Martin дають «до/понад 6 g», Brembo для найважчих гальмувань 2025 року — 4,7–4,9 g. У тексті — обидві версії."
+    },
+    {
+      "id": "c3",
+      "text": "Зусилля на педалі гальма — близько 160 кг (F1.com); 162 кг у 1-му повороті Монци 2025 (Brembo).",
+      "sources": [
+        "s1",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "text": "2026: гальмування довші й м'якші; Спа, 18-й поворот — 3,3 g проти 4,7 g у 2025, педаль 96 кг проти 160 кг; Барселона, 10-й поворот — 3,3 g проти 4 g.",
+      "sources": [
+        "s8",
+        "s9"
+      ],
+      "status": "one",
+      "note": "Обидва документи — Brembo (один видавець)."
+    },
+    {
+      "id": "c5",
+      "text": "Бічні перевантаження: Mercedes — понад 5 g у 1-му повороті Сузуки, найбільше бічне перевантаження календаря 2024; Aston Martin — понад 6 g у деяких швидких поворотах.",
+      "sources": [
+        "s4",
+        "s5"
+      ],
+      "status": "dis",
+      "note": "Mercedes: максимум календаря 2024 — «over 5G»; Aston Martin: «in excess of 6 g in some high-speed corners»."
+    },
+    {
+      "id": "c6",
+      "text": "Де ла Роса: «Sustained lateral g-force from cornering hundreds of times over a race distance is the toughest force on your body when driving.»",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c7",
+      "text": "Чотай (лікар Aston Martin): голова зі шоломом ~7 кг під перевантаженнями може відчуватися як 30–40 кг.",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c8",
+      "text": "Тренер Джон Малверн: Норріс тренує шию щонайменше п'ять разів на тиждень.",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c9",
+      "text": "Тренування шиї: до 40 кг лише м'язами шиї, обважнені шоломи (F1.com); Mercedes — 30 кг на голові, звісивши її з краю столу, і обважнений шолом.",
+      "sources": [
+        "s1",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "Антті Контсас (колишній тренер Феттеля): «The real reason why the neck is so important is that you need to see where you're going. It's all about precision.»",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c11",
+      "text": "Де ла Роса перед тестом AMR23 у Сільверстоуні (перший раз у машині Ф1 приблизно за десять років) тренував шию; після кількох кіл через Luffield, Woodcote, Copse спирав голову на підголівник, наступного ранку шия була дуже скута.",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c12",
+      "text": "Пульс у гонці: може довго перевищувати 170 уд./хв (F1.com); 150–190 уд./хв, типово ~170 (Aston Martin, де ла Роса).",
+      "sources": [
+        "s1",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "Де ла Роса: на старті пульс часто понад 180; його максимум — 204 у гонці Формули-3.",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c14",
+      "text": "Температура в кокпіті: понад 60 °C (F1.com, зокрема Сінгапур); 50–60 °C (Aston Martin).",
+      "sources": [
+        "s1",
+        "s2",
+        "s5"
+      ],
+      "status": "ok",
+      "note": "Джерела сходяться в діапазоні; «понад 60 °C у Сінгапурі» — F1.com."
+    },
+    {
+      "id": "c15",
+      "text": "Чотай: зазвичай 2–3 л поту за гонку, на фініші зневоднення 2–3%; навіть 2% погіршують реакцію, концентрацію й рішення.",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c16",
+      "text": "Втрата ваги в Сінгапурі: Гаслі (2022) — до 2,5 кг; Расселл (2024) — 4 кг; Гюлькенберг (2024) — 3 кг; RacingNews365 — близько 5 кг не рідкість.",
+      "sources": [
+        "s3",
+        "s2",
+        "s17",
+        "s18"
+      ],
+      "status": "dis",
+      "note": "Різні пілоти, роки й оцінки: від 2,5 до ~5 кг."
+    },
+    {
+      "id": "c17",
+      "text": "Де ла Роса: Гран-прі Малайзії 2002 — не працювала система пиття, на фініші майже знепритомнів, схуд на 3,5 кг.",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c18",
+      "text": "Система пиття: близько 1,5 л (F1.com); мішок 1–1,5 л, насос вмикають кнопкою на кермі, трубка під підкладкою шолома (Aston Martin).",
+      "sources": [
+        "s2",
+        "s5"
+      ],
+      "status": "ok",
+      "note": "Кнопка на кермі — лише s5."
+    },
+    {
+      "id": "c19",
+      "text": "F1.com: Сінгапур — найважча гонка календаря, майже завжди триває до ліміту в дві години.",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c20",
+      "text": "Катар, 8.10.2023: Сарджент зійшов після 40 кіл через погане самопочуття; Окона знудило в шоломі; Албона оглядали в медцентрі; Стролл казав, що втрачав свідомість.",
+      "sources": [
+        "s13",
+        "s14",
+        "s15",
+        "s16"
+      ],
+      "status": "ok",
+      "note": "Діагноз Сарджента різниться (тепловий удар — s13; «intense dehydration» — s15; «felt unwell» — s14), тому в тексті — «погано почувався». 40 кіл — s16."
+    },
+    {
+      "id": "c21",
+      "text": "Расселл: у кокпіті понад 50 °C (NPR з посиланням на ESPN).",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c22",
+      "text": "Норріс після гонки: «I think today we probably found the limit.»",
+      "sources": [
+        "s12",
+        "s13"
+      ],
+      "status": "ok",
+      "note": "Дослівна цитата — стенограма FIA (s12); s13 підтверджує, що Норріс назвав умови небезпечними."
+    },
+    {
+      "id": "c23",
+      "text": "Заява FIA 9.10.2023: спека й вологість вплинули на самопочуття пілотів; можливі заходи — рекомендації, кращий потік повітря в кокпіті, зміни календаря; цитата «While being elite athletes, they should not be expected to compete under conditions that could jeopardise their health or safety.»",
+      "sources": [
+        "s11",
+        "s13",
+        "s14"
+      ],
+      "status": "ok",
+      "note": "Друге речення (цитата) — лише в повному тексті FIA (s11)."
+    },
+    {
+      "id": "c24",
+      "text": "Етап у Катарі 2024 року стояв у календарі пізніше, коли прохолодніше (заява FIA).",
+      "sources": [
+        "s13",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "З 2025: «теплову небезпеку» оголошують від 31 °C (середнє за датчиками FIA на трасі) — мінімальна вага +5 кг під систему охолодження; сорочка з 48 м трубок з охолодженою рідиною.",
+      "sources": [
+        "s22",
+        "s23"
+      ],
+      "status": "ok",
+      "note": "31 °C і 48 м — лише s22; +5 кг — s22 і s23."
+    },
+    {
+      "id": "c26",
+      "text": "Сінгапур 2025: FIA оголосила теплову небезпеку, команди мали встановити систему охолодження пілота.",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c27",
+      "text": "Реакція: McLaren — звичайна людина 0,15–0,2 с; на старті з урахуванням дії 0,2–0,3 с; Aston Martin — Алонсо в середньому 0,16 с на старті.",
+      "sources": [
+        "s19",
+        "s5"
+      ],
+      "status": "dis",
+      "note": "Різні методики вимірювання; 0,16 с Алонсо — нижче за діапазон McLaren."
+    },
+    {
+      "id": "c28",
+      "text": "До 2019 пілот і машина зважувались разом (734 кг у 2018); важчі пілоти мали менше баласту для налаштування; з 2019 — окремий мінімум 80 кг для пілота із сидінням і екіпіровкою, нестачу добирають баластом.",
+      "sources": [
+        "s20",
+        "s21",
+        "s1"
+      ],
+      "status": "ok",
+      "note": "s20 і s21 — плани 2018 року; що правило запрацювало у 2019 — s1."
+    },
+    {
+      "id": "c29",
+      "text": "Причина правила: в епоху V8 важчих пілотів спонукали худнути, були побоювання за здоров'я; мінімум зменшує потребу різати калорії.",
+      "sources": [
+        "s20",
+        "s21"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c30",
+      "text": "З 2025 мінімум пілота з баластом — 82 кг; регламент 2026 (C4.5.2) — також 82 кг.",
+      "sources": [
+        "s22",
+        "s23",
+        "s24"
+      ],
+      "status": "ok",
+      "note": "2026 — лише регламент FIA (s24). Стаття F1.com від 01.2026 (s1) ще згадує 80 кг — застаріло."
+    },
+    {
+      "id": "c31",
+      "text": "Баласт для мінімальної ваги пілота — біля сидіння, в межах кокпіта (кріпиться до монокока, опломбований FIA), що зменшує перевагу легших пілотів.",
+      "sources": [
+        "s23",
+        "s20",
+        "s21"
+      ],
+      "status": "ok"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/f1-driver-body/m1-1280.webp",
+      "srcSet": "/img/stories/f1-driver-body/m1-1280.webp 1280w, /img/stories/f1-driver-body/m1-800.webp 800w, /img/stories/f1-driver-body/m1-480.webp 480w",
+      "width": 1280,
+      "height": 853,
+      "focus": "55% 70%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Nico_Rosberg_lockup_2012_Malaysia.jpg",
+        "author": "Morio",
+        "license": "CC BY-SA 3.0"
+      },
+      "caption": {
+        "uk": "Ніко Росберг (Mercedes) блокує колеса на гальмуванні в кваліфікації Гран-прі Малайзії, 24 березня 2012 року.",
+        "en": "Nico Rosberg (Mercedes) locks a wheel under braking in qualifying for the Malaysian Grand Prix, 24 March 2012."
+      },
+      "alt": {
+        "uk": "Сріблястий болід Mercedes у повороті, з-під переднього колеса йде дим.",
+        "en": "A silver Mercedes car in a corner with smoke coming from a front tyre."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/f1-driver-body/m2-800.webp",
+      "srcSet": "/img/stories/f1-driver-body/m2-800.webp 800w, /img/stories/f1-driver-body/m2-480.webp 480w",
+      "width": 800,
+      "height": 532,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Pedro_de_la_Rosa,_United_States_Grand_Prix,_Austin_2012.jpg",
+        "author": "Gussisaurio",
+        "license": "CC BY-SA 3.0"
+      },
+      "caption": {
+        "uk": "Педро де ла Роса на Гран-прі США в Остіні, 18 листопада 2012 року.",
+        "en": "Pedro de la Rosa at the United States Grand Prix in Austin, 18 November 2012."
+      },
+      "alt": {
+        "uk": "Пілот махає рукою з відкритого автомобіля.",
+        "en": "A driver waves from an open car."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/f1-driver-body/m3-800.webp",
+      "srcSet": "/img/stories/f1-driver-body/m3-800.webp 800w, /img/stories/f1-driver-body/m3-480.webp 480w",
+      "width": 800,
+      "height": 534,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:1_singapore_f1_night_race_2012_city_skyline.jpg",
+        "author": "chensiyuan",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Нічна траса Марина-Бей і центр Сінгапуру під час Гран-прі 2012 року.",
+        "en": "The Marina Bay street circuit and the Singapore skyline at night during the 2012 Grand Prix."
+      },
+      "alt": {
+        "uk": "Нічне місто з хмарочосами й освітленою трасою вздовж набережної.",
+        "en": "A city of skyscrapers at night with a floodlit circuit along the waterfront."
+      }
+    }
+  ]
+}

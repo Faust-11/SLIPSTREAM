@@ -1,0 +1,860 @@
+{
+  "slug": "imola-1994",
+  "category": "history",
+  "years": [
+    1994,
+    1995
+  ],
+  "title": {
+    "uk": "Імола-1994: вікенд, після якого Формула-1 стала іншою",
+    "en": "Imola 1994: the weekend after which Formula 1 changed"
+  },
+  "dek": {
+    "uk": "П'ятнична аварія Рубенса Барікелло, загибель Роланда Ратценбергера в кваліфікації й Айртона Сенни в гонці. Що сталося в Імолі, що змінилося після неї і чим завершилися суди в Італії.",
+    "en": "Rubens Barrichello's Friday crash, Roland Ratzenberger's death in qualifying and Ayrton Senna's in the race. What happened at Imola, what changed afterwards and how the Italian court cases ended."
+  },
+  "links": {
+    "seasons": [
+      1994,
+      1995
+    ],
+    "races": [
+      "1994/3",
+      "1994/4"
+    ],
+    "drivers": [
+      "senna",
+      "ratzenberger",
+      "barrichello",
+      "michael_schumacher",
+      "lehto",
+      "lamy",
+      "alboreto",
+      "larini",
+      "hakkinen",
+      "wendlinger",
+      "brundle",
+      "berger",
+      "fittipaldi",
+      "lauda"
+    ],
+    "teams": [
+      "williams",
+      "simtek",
+      "jordan",
+      "benetton",
+      "ferrari",
+      "minardi",
+      "sauber"
+    ],
+    "circuits": [
+      "imola",
+      "monaco"
+    ],
+    "stories": [
+      "benetton-1994",
+      "hunt-lauda-1976",
+      "f1-safety-revolution"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "1994 San Marino Grand Prix — results (round 3)",
+      "publisher": "Jolpica F1 API",
+      "date": "1994-05-01",
+      "url": "https://api.jolpi.ca/ergast/f1/1994/3/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "1994 San Marino Grand Prix — qualifying (round 3)",
+      "publisher": "Jolpica F1 API",
+      "date": "1994-04-30",
+      "url": "https://api.jolpi.ca/ergast/f1/1994/3/qualifying/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "Ayrton Senna — races started from pole (grid 1)",
+      "publisher": "Jolpica F1 API",
+      "date": "1994-05-01",
+      "url": "https://api.jolpi.ca/ergast/f1/drivers/senna/grid/1/results/?limit=100",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "Roland Ratzenberger — 1994 results",
+      "publisher": "Jolpica F1 API",
+      "date": "1994-05-01",
+      "url": "https://api.jolpi.ca/ergast/f1/1994/drivers/ratzenberger/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "San Marino GP 1994 — race report",
+      "publisher": "GrandPrix.com",
+      "date": "1994-05-01",
+      "url": "https://www.grandprix.com/races/san-marino-gp-1994.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "Monaco GP 1994 — race report",
+      "publisher": "GrandPrix.com",
+      "date": "1994-05-15",
+      "url": "https://www.grandprix.com/races/monaco-gp-1994.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "The changes being made at Imola",
+      "publisher": "GrandPrix.com",
+      "date": "1995-02-27",
+      "url": "https://www.grandprix.com/news/the-changes-being-made-at-imola.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "Senna appeal flops",
+      "publisher": "GrandPrix.com",
+      "date": "1999-11-29",
+      "url": "https://www.grandprix.com/news/senna-appeal-flops.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "Senna retrial opens in Bologna",
+      "publisher": "GrandPrix.com",
+      "date": "2005-05-11",
+      "url": "https://www.grandprix.com/ns/ns14791.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "Senna case ends",
+      "publisher": "GrandPrix.com",
+      "date": "2005-05-27",
+      "url": "https://www.grandprix.com/ns/ns14909.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "Black Sunday: 1994 San Marino Grand Prix race report (Denis Jenkinson)",
+      "publisher": "Motor Sport Magazine",
+      "date": "1994-06-01",
+      "url": "https://www.motorsportmagazine.com/archive/article/june-1994/16/black-sunday",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "1994 San Marino Grand Prix flashback: Friday (Keith Collantine)",
+      "publisher": "RaceFans",
+      "date": "2014-04-29",
+      "url": "https://www.racefans.net/2014/04/29/1994-san-marino-grand-prix-friday/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "How Ratzenberger's death stunned F1 — 1994 San Marino GP flashback: Saturday (Keith Collantine)",
+      "publisher": "RaceFans",
+      "date": "2014-04-30",
+      "url": "https://www.racefans.net/?p=258404",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "The crash seen around the world — 1994 San Marino GP flashback: Sunday (Keith Collantine)",
+      "publisher": "RaceFans",
+      "date": "2014-05-01",
+      "url": "https://www.racefans.net/?p=258405",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Schumacher takes fourth win at subdued Monaco — 1994 Monaco GP flashback (Keith Collantine)",
+      "publisher": "RaceFans",
+      "date": "2014-05-15",
+      "url": "https://www.racefans.net/2014/05/15/1994-monaco-grand-prix-flashback/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "Roland Ratzenberger: A dream cut short (Nate Saunders)",
+      "publisher": "ESPN",
+      "date": "2020-04-30",
+      "url": "https://www.espn.co.uk/f1/story/_/id/29116759/dream-cut-short",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "Remembering Roland Ratzenberger (Adam Cooper)",
+      "publisher": "Autosport",
+      "date": "2014-04-30",
+      "url": "https://www.autosport.com/f1/feature/5996/remembering-roland-ratzenberger",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "The legacy of Imola 1994 (Edd Straw)",
+      "publisher": "Autosport",
+      "date": "2014-05-02",
+      "url": "https://www.autosport.com/f1/feature/6002/the-legacy-of-imola-1994",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "Court decision focuses on Senna's steering column",
+      "publisher": "Autosport",
+      "date": "2004-04-02",
+      "url": "https://www.autosport.com/f1/news/court-decision-focuses-on-sennas-steering-column-5065463/5065463/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "Imola '94 and the lasting safety legacy (Matt Youson)",
+      "publisher": "Formula 1 (formula1.com)",
+      "date": "2019-05-02",
+      "url": "https://www.formula1.com/en/latest/article/imola-94-and-the-lasting-safety-legacy.5P8zqEzNjKzYw8qdckoYFF",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "How F1 safety changed after Imola 1994 (Giorgio Piola, Matt Somerfield)",
+      "publisher": "Motorsport.com",
+      "date": "2023-05-01",
+      "url": "https://www.motorsport.com/f1/news/senna-imola-1994-f1-safety/4787047/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "Senna Crew Acquittals Upheld",
+      "publisher": "CBS News / Associated Press",
+      "date": "1999-11-22",
+      "url": "https://www.cbsnews.com/news/senna-crew-acquittals-upheld",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "Head and Newey acquitted",
+      "publisher": "Pitpass",
+      "date": "2005-05-27",
+      "url": "https://www.pitpass.com/24602/Head-and-Newey-acquitted",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Гран-прі Сан-Марино 1994 — третій етап сезону, Імола, гонка 1 травня",
+      "sources": [
+        "s1",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "У п'ятницю в першій кваліфікації Барікелло (Jordan) розбився в шикані Variante Bassa перед боксами: машину підкинуло, вона влетіла в бар'єр і зупинилася догори колесами",
+      "sources": [
+        "s5",
+        "s12"
+      ],
+      "status": "ok",
+      "note": "Variante Bassa і шинний бар'єр — s12; «перед боксами», «догори колесами» — s5"
+    },
+    {
+      "id": "c3",
+      "text": "Барікелло знепритомнів, медики швидко допомогли; до кінця вікенду він не виступав",
+      "sources": [
+        "s5",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "text": "У п'ятницю найшвидшим був Сенна (Williams)",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c5",
+      "text": "Приблизно на 18-й хвилині фінальної кваліфікації в суботу Ратценбергер (Simtek) врізався в стіну в повороті Вільнев",
+      "sources": [
+        "s13",
+        "s5",
+        "s16"
+      ],
+      "status": "ok",
+      "note": "18-та хвилина — лише s13"
+    },
+    {
+      "id": "c6",
+      "text": "Найімовірніша причина — відмова переднього антикрила",
+      "sources": [
+        "s5",
+        "s13",
+        "s16",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c7",
+      "text": "Ратценбергер загинув",
+      "sources": [
+        "s5",
+        "s16",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "text": "Ратценбергер — перша людина за 12 років, яка загинула на Гран-прі",
+      "sources": [
+        "s16"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c9",
+      "text": "Ратценбергер, 33 роки, австрієць, дебютний сезон у Simtek; не пройшов кваліфікацію в Бразилії, 11-й на Гран-прі Тихого океану; Імола — його третій етап",
+      "sources": [
+        "s16",
+        "s17",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "Сесію відновили через 45 хвилин; Williams, Benetton і Sauber більше не виїжджали",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c11",
+      "text": "Поул — Сенна, 65-й у кар'єрі; другий — Шумахер (Benetton)",
+      "sources": [
+        "s2",
+        "s3",
+        "s13",
+        "s5"
+      ],
+      "status": "ok",
+      "note": "65 — s13 і підрахунок стартів з поулу в s3"
+    },
+    {
+      "id": "c12",
+      "text": "На старті заглух Benetton Ярвілехто, Ламі (Lotus) врізався в нього; колеса й уламки полетіли на трибуну",
+      "sources": [
+        "s5",
+        "s11",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "Кількість постраждалих на трибуні",
+      "sources": [
+        "s5",
+        "s11",
+        "s14"
+      ],
+      "status": "dis",
+      "note": "s5: влучило в чотирьох людей; s11: троє глядачів і поліцейський, легкі травми; s14: дев'ятеро глядачів, один важко"
+    },
+    {
+      "id": "c14",
+      "text": "Гонку не зупинили, чотири кола — за машиною безпеки",
+      "sources": [
+        "s5",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "text": "Після рестарту лідирував Сенна, Шумахер — одразу за ним",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c16",
+      "text": "Коло аварії Сенни в Тамбурелло, удар у бетонну стіну",
+      "sources": [
+        "s11",
+        "s14",
+        "s5"
+      ],
+      "status": "dis",
+      "note": "s11 і s14: сьоме коло; s5: «на початку шостого кола» (у таблиці — 5 завершених кіл, як і в s1)"
+    },
+    {
+      "id": "c17",
+      "text": "Гонку зупинили",
+      "sources": [
+        "s11",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "Сенну гелікоптером доправили до лікарні в Болоньї (Маджоре); помер того ж вечора",
+      "sources": [
+        "s5",
+        "s14"
+      ],
+      "status": "ok",
+      "note": "назва лікарні — s14"
+    },
+    {
+      "id": "c19",
+      "text": "Організатори підтвердили смерть Сенни о 18:40",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c20",
+      "text": "Гонку відновили після паузи приблизно в 45 хвилин",
+      "sources": [
+        "s11"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c21",
+      "text": "Багато хто в паддоку не знав, наскільки важкі травми Сенни, і ніхто не заперечував проти рестарту",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c22",
+      "text": "У Minardi Альборето в піт-лейні відлетіло колесо й травмувало механіків Ferrari і механіка Lotus",
+      "sources": [
+        "s5",
+        "s11",
+        "s14"
+      ],
+      "status": "ok",
+      "note": "s14: троє механіків Ferrari й один Lotus"
+    },
+    {
+      "id": "c23",
+      "text": "Переміг Шумахер, другий Ларіні (Ferrari), третій Хаккінен (McLaren); Гілл (Williams) — шостий",
+      "sources": [
+        "s1",
+        "s5",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c24",
+      "text": "У Монако в четвер Вендлінгер (Sauber) розбився в шикані, травми голови, кома",
+      "sources": [
+        "s6",
+        "s18",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "У Монако президент FIA Макс Мослі оголосив масштабні зміни правил",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c26",
+      "text": "Williams у Монако виставила одну машину; перший ряд залишили порожнім, хвилина мовчання",
+      "sources": [
+        "s6",
+        "s15"
+      ],
+      "status": "ok",
+      "note": "порожній перший ряд і хвилина мовчання — лише s15"
+    },
+    {
+      "id": "c27",
+      "text": "Пілоти відродили GPDA",
+      "sources": [
+        "s20",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c28",
+      "text": "У Монако на зустрічі під головуванням Брандла GPDA відновили; представники — Шумахер, Бергер, Крістіан Фіттіпальді; Лауда — офіційний речник до кінця року",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c29",
+      "text": "Саймондс: «The immediate work was not to improve the specific safety of the cars, but rather to slow the cars down.»",
+      "sources": [
+        "s20"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "З Монако ввели обмеження швидкості в піт-лейні",
+      "sources": [
+        "s18",
+        "s15"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c31",
+      "text": "Ліміт у піт-лейні — 80 км/год",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c32",
+      "text": "До Гран-прі Іспанії вкоротили дифузор і змінили закінцівки переднього антикрила; у Барселоні поставили тимчасову шикану",
+      "sources": [
+        "s20",
+        "s21"
+      ],
+      "status": "ok",
+      "note": "тимчасова шикана — лише s20"
+    },
+    {
+      "id": "c33",
+      "text": "До Канади в повітрозабірниках прорізали отвори, щоб зменшити потужність",
+      "sources": [
+        "s20",
+        "s21"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c34",
+      "text": "До Гран-прі Німеччини під машини поставили дерев'яну планку, що змусило підняти машини",
+      "sources": [
+        "s20",
+        "s18"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c35",
+      "text": "1995 року об'єм двигунів зменшили з 3,5 до 3,0 л",
+      "sources": [
+        "s21"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c36",
+      "text": "До 1995 року в Тамбурелло зробили шикану з внутрішнього боку (за стіною — річка), шикану — і перед Вільнев",
+      "sources": [
+        "s7",
+        "s20"
+      ],
+      "status": "ok",
+      "note": "річка — лише s7"
+    },
+    {
+      "id": "c37",
+      "text": "Обвинувачення стверджувало: невдало модифікована рульова колонка зламалася, і Сенна втратив керування",
+      "sources": [
+        "s8",
+        "s22"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c38",
+      "text": "Серед обвинувачених — власник команди Френк Вільямс, технічний директор Патрік Гед, конструктор Едріан Ньюї",
+      "sources": [
+        "s22",
+        "s19"
+      ],
+      "status": "ok",
+      "note": "ролі — s22; s22: усього шестеро, ще троє — офіційні особи гонки"
+    },
+    {
+      "id": "c39",
+      "text": "У грудні 1997 суд в Імолі виправдав обвинувачених",
+      "sources": [
+        "s8",
+        "s22"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c40",
+      "text": "У листопаді 1999 апеляційний суд залишив виправдання в силі",
+      "sources": [
+        "s8",
+        "s22"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c41",
+      "text": "Касаційний суд Італії через процесуальні помилки повернув справу на новий розгляд",
+      "sources": [
+        "s19",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c42",
+      "text": "У травні 2005 апеляційний суд виправдав Ньюї, справу проти Геда закрили за давністю",
+      "sources": [
+        "s10",
+        "s23"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c43",
+      "text": "Бергер прилетів на похорон Ратценбергера в Зальцбурзі просто з поминальної церемонії Сенни в Сан-Паулу",
+      "sources": [
+        "s17"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c44",
+      "text": "Перед Імолою FIA мала проблеми з контролем заборони електронних систем допомоги; підозри щодо Benetton",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c45",
+      "text": "Переднє антикрило відірвалося, ймовірно, бо два з чотирьох болтів кріплення розхиталися",
+      "sources": [
+        "s17"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c46",
+      "text": "Контракт Ратценбергера з Simtek спершу — на перші шість гонок",
+      "sources": [
+        "s17"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c47",
+      "text": "Сенна сам приїхав на місце аварії Ратценбергера службовою машиною",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c48",
+      "text": "У колонці в день гонки Сенна писав, що його тривоги щодо безпеки «borne out in tragic fashion»",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c49",
+      "text": "Перед гонкою — хвилина мовчання в пам'ять Ратценбергера",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c50",
+      "text": "Грудень 1995: звіт на 500 сторінок комісії під головуванням проф. Енріко Лоренціні (Болонський університет): найімовірніше — поломка рульового керування через дефектний шов",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c51",
+      "text": "Прокурор просив для Геда й Ньюї по одному року умовно",
+      "sources": [
+        "s8",
+        "s22"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c52",
+      "text": "Суд 1997 року не визначив причину аварії, прокуратура оскаржила",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c53",
+      "text": "Суддя Франческо Аньйолі: «no proof of blame»",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c54",
+      "text": "Benetton погрожувала бойкотом гонок в Італії в разі обвинувального вироку",
+      "sources": [
+        "s22"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c55",
+      "text": "На новому процесі в Болоньї прокурор Рінальдо Розіні одразу попросив закрити справу",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c56",
+      "text": "1995: у краш-тестах підвищили швидкості й навантаження, додали тест на бічний удар",
+      "sources": [
+        "s21"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c57",
+      "text": "Рік, коли підняли борти кокпіту",
+      "sources": [
+        "s21",
+        "s18"
+      ],
+      "status": "dis",
+      "note": "s21: 1995, з 400 до 550 мм; s18: «Raised cockpit sides were mandated in 1996»"
+    },
+    {
+      "id": "c58",
+      "text": "Гран-прі Монако 1994 виграв Шумахер",
+      "sources": [
+        "s6",
+        "s15"
+      ],
+      "status": "ok"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/imola-1994/m1-1280.webp",
+      "srcSet": "/img/stories/imola-1994/m1-1280.webp 1280w, /img/stories/imola-1994/m1-800.webp 800w, /img/stories/imola-1994/m1-480.webp 480w",
+      "width": 1280,
+      "height": 852,
+      "focus": "50% 55%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Imola_-_monumento_ad_Ayrton_Senna_-_2026-09-29_10-36-23_001.jpg",
+        "author": "DanteF56",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Пам'ятник Айртону Сенні в парку біля повороту Тамбурелло в Імолі, 2026 рік.",
+        "en": "The monument to Ayrton Senna in the park by the Tamburello corner at Imola, 2026."
+      },
+      "alt": {
+        "uk": "Бронзова статуя сидячого пілота на постаменті з квітами, серед дерев парку.",
+        "en": "A bronze statue of a seated driver on a plinth with flowers, among park trees."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/imola-1994/m2-800.webp",
+      "srcSet": "/img/stories/imola-1994/m2-800.webp 800w, /img/stories/imola-1994/m2-480.webp 480w",
+      "width": 800,
+      "height": 541,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Ratzenberger.jpg",
+        "author": "Sgozzi",
+        "license": "CC BY-SA 3.0"
+      },
+      "caption": {
+        "uk": "Роланд Ратценбергер у Simtek у піт-лейні Імоли, 30 квітня 1994 року.",
+        "en": "Roland Ratzenberger in his Simtek in the Imola pit lane, 30 April 1994."
+      },
+      "alt": {
+        "uk": "Механіки в білих сорочках оточили фіолетовий болід у піт-лейні.",
+        "en": "Mechanics in white shirts surround a purple car in the pit lane."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/imola-1994/m3-800.webp",
+      "srcSet": "/img/stories/imola-1994/m3-800.webp 800w, /img/stories/imola-1994/m3-480.webp 480w",
+      "width": 800,
+      "height": 533,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Ayrton_Senna,_la_curva_del_circuito_di_Imola.jpg",
+        "author": "Monia Mascagni",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Траса біля пам'ятника Сенні в Імолі, 1 травня 2019 року, у 25-ті роковини його загибелі.",
+        "en": "The circuit by the Senna monument at Imola on 1 May 2019, the 25th anniversary of his death."
+      },
+      "alt": {
+        "uk": "Поворот траси вздовж зеленого парку, люди йдуть асфальтом.",
+        "en": "A curve of the circuit along a green park, with people walking on the asphalt."
+      }
+    }
+  ]
+}

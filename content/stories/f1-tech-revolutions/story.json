@@ -1,0 +1,1720 @@
+{
+  "slug": "f1-tech-revolutions",
+  "category": "tech",
+  "years": [
+    1958,
+    1959,
+    1962,
+    1963,
+    1968,
+    1969,
+    1976,
+    1977,
+    1978,
+    1979,
+    1981,
+    1983,
+    1987,
+    1989,
+    1992,
+    1994,
+    2009,
+    2011,
+    2018,
+    2020
+  ],
+  "title": {
+    "uk": "12 технічних ідей, що перевернули Формулу-1",
+    "en": "12 technical ideas that turned Formula 1 upside down"
+  },
+  "dek": {
+    "uk": "Від мотора за спиною пілота до титанової дуги halo: що придумали, хто перший і чим усе скінчилося — заборона, копії чи стандарт для всієї решітки.",
+    "en": "From the engine behind the driver to the titanium halo: what was invented, who got there first and how it ended — a ban, copies or a standard for the whole grid."
+  },
+  "links": {
+    "seasons": [
+      1959,
+      1963,
+      1978,
+      1983,
+      1992,
+      2009
+    ],
+    "races": [
+      "1958/1",
+      "1959/1",
+      "1962/1",
+      "1968/3",
+      "1968/4",
+      "1969/2",
+      "1969/3",
+      "1976/4",
+      "1976/7",
+      "1977/10",
+      "1978/6",
+      "1978/8",
+      "1979/8",
+      "1981/9",
+      "1981/13",
+      "1987/4",
+      "1989/1",
+      "2009/1",
+      "2018/13",
+      "2020/15"
+    ],
+    "drivers": [
+      "jack_brabham",
+      "moss",
+      "trintignant",
+      "clark",
+      "hill",
+      "rindt",
+      "amon",
+      "scheckter",
+      "depailler",
+      "jabouille",
+      "mario_andretti",
+      "lauda",
+      "watson",
+      "mansell",
+      "berger",
+      "senna",
+      "piquet",
+      "button",
+      "barrichello",
+      "leclerc",
+      "alonso",
+      "grosjean",
+      "hamilton"
+    ],
+    "teams": [
+      "cooper",
+      "lotus",
+      "ferrari",
+      "brabham",
+      "tyrrell",
+      "renault",
+      "mclaren",
+      "williams",
+      "brawn",
+      "toyota"
+    ],
+    "circuits": [
+      "monaco",
+      "spa",
+      "anderstorp",
+      "silverstone",
+      "dijon",
+      "zolder",
+      "jacarepagua",
+      "albert_park",
+      "monza",
+      "bahrain"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Cooper T51: the revolutionary car that changed F1 forever (Doug Nye)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2020-01-13",
+      "url": "https://www.motorsportmagazine.com/archive/article/june-2019/122/cooper-t51/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "The 10 biggest innovations in Formula 1 history (Matt Kew)",
+      "publisher": "Autosport",
+      "date": "2022-04-22",
+      "url": "https://www.autosport.com/f1/news/the-10-biggest-innovations-in-formula-1-history-active-suspension-halo-fan-car-more/10125979/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "A new frame of reference — Lotus 25 (John Tipler)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2002-05",
+      "url": "https://www.motorsportmagazine.com/archive/article/may-2002/27/a-new-frame-of-referance/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "Lotus Type 25",
+      "publisher": "Lotus Cars (heritage)",
+      "url": "https://www.lotuscars.com/lotus-story/race-cars/type-25",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "The Lotus 25: A pioneering design to change F1 forever (Rachel Roberts)",
+      "publisher": "Goodwood Road & Racing",
+      "date": "2025-06-13",
+      "url": "https://www.goodwood.com/grr/f1/the-lotus-25-a-pioneering-design-to-change-f1-forever/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "1968 Belgian Grand Prix: Nigel Roebuck's F1 Legends",
+      "publisher": "Motor Sport Magazine",
+      "date": "1998-10",
+      "url": "https://www.motorsportmagazine.com/archive/article/october-1998/18/legends-11/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "Doug Nye: how F1's early wing experiments pushed safety to the limit",
+      "publisher": "Motor Sport Magazine",
+      "date": "2026-04-28",
+      "url": "https://www.motorsportmagazine.com/archive/article/june-2026/31/doug-nye-how-f1s-early-wing-experiments-pushed-safety-to-the-limit/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "Winging it: When F1 really started to fly (Damien Smith)",
+      "publisher": "Goodwood Road & Racing",
+      "date": "2025-03-03",
+      "url": "https://www.goodwood.com/grr/f1/winging-it-when-f1-really-started-to-fly/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "Adios aerofoils, enter aerodynamics (Mattijs Diepraam, Felix Muelas)",
+      "publisher": "8W / Forix",
+      "date": "1999-03",
+      "url": "https://8w.forix.com/e69.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "The 75 best drivers, cars, innovations, teams and key figures in F1 history",
+      "publisher": "Formula1.com",
+      "date": "2025-03-05",
+      "url": "https://www.formula1.com/en/latest/article/the-75-best-drivers-cars-innovations-teams-and-key-figures-in-f1-history.6VcYXd7l9aI6fysNWtxFja",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "From a six-wheeled car to the 'flip-flop' wing – 8 of the wildest tech innovations (Anna Francis)",
+      "publisher": "Formula1.com",
+      "date": "2026-04-09",
+      "url": "https://www.formula1.com/en/latest/article/from-a-six-wheeled-car-to-the-flip-flop-wing-8-of-the-wildest-tech.1GRhOeOV4saRcrbvxWYMtG",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "P34: The real story behind Tyrrell's six-wheeler (Nigel Roebuck)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2011-02",
+      "url": "https://www.motorsportmagazine.com/archive/article/february-2011/74/when-six-worked-better-four/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "The incredible story of F1's only six-wheeled winner (Adam Cooper)",
+      "publisher": "Autosport",
+      "date": "2019-04-08",
+      "url": "https://www.autosport.com/f1/news/the-incredible-story-of-f1s-only-six-wheeled-winner-5112078/5112078/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "F1's first turbo revolution (Edd Straw)",
+      "publisher": "Autosport",
+      "date": "2014-01-23",
+      "url": "https://www.autosport.com/f1/news/f1s-first-turbo-revolution-5103011/5103011/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Jean-Pierre Jabouille obituary (Gary Watkins)",
+      "publisher": "Autosport",
+      "date": "2023-02-08",
+      "url": "https://www.autosport.com/f1/news/jean-pierre-jabouille-obituary-f1-race-winner-dies-aged-80/10429570/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "Tech Tuesday: The ground-breaking Brabham BT52 (Mark Hughes)",
+      "publisher": "Formula1.com",
+      "date": "2018-08-14",
+      "url": "https://www.formula1.com/en/latest/article/tech-tuesday-the-ground-breaking-brabham-bt52.64UP95DePCCSQ8cm0oAMUK",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "From turbo bans to the return of ground effect: F1's technical regulation timeline (Cambridge Kisby)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2024-06-06",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/from-turbo-bans-to-the-return-of-ground-effect-f1s-technical-regulation-timeline/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "Lotus 78: the car that started F1's ground-effect revolution (Keith Howard)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2007-08",
+      "url": "https://www.motorsportmagazine.com/archive/article/august-2007/72/ground-force/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "Tech Tuesday: The Lotus 79, F1's ground effect marvel (Mark Hughes, Giorgio Piola)",
+      "publisher": "Formula1.com",
+      "date": "2018-08",
+      "url": "https://www.formula1.com/en/latest/article/tech-tuesday-the-lotus-79-f1s-ground-effect-marvel.sAD9PXt7mC8iMSwwe6CCw",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "Black gold: the Lotus 79's debut (Paul Fearnley)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2018-05-24",
+      "url": "https://www.motorsportmagazine.com/history/f1/black-gold-lotus-79s-debut",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "Lotus Type 88",
+      "publisher": "Lotus Cars (heritage)",
+      "url": "https://www.lotuscars.com/en-US/lotus-story/race-cars/type-88",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "75. 1978 Swedish GP: Brabham fan car wins its one and only race",
+      "publisher": "Motor Sport Magazine",
+      "date": "2025-03-18",
+      "url": "https://www.motorsportmagazine.com/special-article/the-75-greatest-grands-prix/6/75-1978-swedish-gp-brabham-fan-car-wins-its-one-and-only-race/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "Nine things you may not know about Brabham's iconic F1 fan car (Edd Straw)",
+      "publisher": "The Race",
+      "date": "2022-12-24",
+      "url": "https://www.the-race.com/formula-1/nine-things-you-may-not-know-about-brabhams-iconic-f1-fan-car/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s24",
+      "title": "1981 Formula 1 McLaren MP4/1",
+      "publisher": "McLaren (heritage)",
+      "url": "https://www.mclaren.com/racing/heritage/cars/1981-formula-1-mclaren-mp4-1/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s25",
+      "title": "John Barnard remembers his McLaren MP4/1 eureka moment (James Elson)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2021-09-22",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/john-barnard-remembers-his-mclaren-mp4-1-eureka-moment",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s26",
+      "title": "Banned: The ingenious twin-chassis Lotus F1 car (Matt Somerfield)",
+      "publisher": "Autosport",
+      "date": "2020-04-13",
+      "url": "https://www.autosport.com/f1/news/banned-the-ingenious-twin-chassis-lotus-f1-car-4983190/4983190/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s27",
+      "title": "The troubled Ferrari that was a game-changer for F1 (Matt Somerfield, Giorgio Piola)",
+      "publisher": "Motorsport.com",
+      "date": "2023-12-26",
+      "url": "https://www.motorsport.com/f1/news/the-troubled-car-that-was-a-game-changer-for-f1/4801236/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s28",
+      "title": "Gerhard Berger on the flawed genius of his 1989 Ferrari 640 (Ethan Jupp)",
+      "publisher": "Goodwood Road & Racing",
+      "date": "2024-04-14",
+      "url": "https://www.goodwood.com/grr/event-coverage/members-meeting/gerhard-berger-on-the-flawed-genius-of-his-1989-ferrari-640/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s29",
+      "title": "Williams FW14B's incredible active suspension: Mansell's perfect ride (Patrick Head)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2012-03",
+      "url": "https://www.motorsportmagazine.com/archive/article/march-2012/66/mansells-perfect-ride/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s30",
+      "title": "Active suspension (Keith Howard)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2001-12",
+      "url": "https://www.motorsportmagazine.com/archive/article/december-2001/69/active-suspension/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s31",
+      "title": "From DAS to the double diffuser: 5 F1 innovations that caught rival teams napping (Greg Stuart)",
+      "publisher": "Formula1.com",
+      "date": "2020-02-24",
+      "url": "https://www.formula1.com/en/latest/article/5-f1-innovations-that-caught-rival-teams-napping.2xbXomVUAOVTpEyYpW9ata",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s32",
+      "title": "FIA declares double diffusers legal (Jonathan Noble)",
+      "publisher": "Autosport",
+      "date": "2009-04-15",
+      "url": "https://www.autosport.com/f1/news/fia-declares-double-diffusers-legal-4429235/4429235/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s33",
+      "title": "Trio cleared over diffusers",
+      "publisher": "Sky Sports",
+      "date": "2009-04-16",
+      "url": "https://www.skysports.com/f1/news/5190760/trio-cleared-over-diffusers",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s34",
+      "title": "F1 2009-13 part two: Brawn and the double diffuser (Edd Straw)",
+      "publisher": "Autosport",
+      "date": "2013-12-15",
+      "url": "https://www.autosport.com/f1/news/f1-2009-13-part-two-brawn-and-the-double-diffuser-5102901/5102901/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s35",
+      "title": "Banned: Why double diffusers were outlawed (Matt Somerfield, Giorgio Piola)",
+      "publisher": "Motorsport.com",
+      "date": "2021-10-18",
+      "url": "https://www.motorsport.com/f1/news/banned-f1-tech-double-diffusers/4793556/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s36",
+      "title": "Tech insight: How the teams are developing the halo",
+      "publisher": "Formula1.com",
+      "date": "2018-03-05",
+      "url": "https://www.formula1.com/en/latest/article/tech-insight-how-the-teams-are-developing-the-halo.5zjzo4O4oM0k0WeUoOWqac",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s37",
+      "title": "Tech Tuesday: A close look at the halo (Mark Hughes, Giorgio Piola)",
+      "publisher": "Formula1.com",
+      "date": "2021-09-21",
+      "url": "https://www.formula1.com/en/latest/article/tech-tuesday-a-close-look-at-the-halo-and-how-it-saved-hamiltons-neck-in.68Ajvw12Xza2P3JvuXGRO3",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s38",
+      "title": "F1 halo is built to survive crashes bigger than Grosjean's (James Elson)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2020-12-01",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/f1-halo-is-built-to-survive-crashes-bigger-than-grosjeans/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s39",
+      "title": "Brawn certain halo saved Grosjean's life (Valentin Khorounzhiy)",
+      "publisher": "The Race",
+      "date": "2020-11-29",
+      "url": "https://www.the-race.com/formula-1/brawn-certain-halo-saved-grosjeans-life/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "j1",
+      "title": "Jolpica F1 API: 1958 Argentine GP (r1) and Monaco GP (r2) results",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/1958/1/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "j2",
+      "title": "Jolpica F1 API: 1959 winners, driver and constructor standings",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/1959/results/1.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "j3",
+      "title": "Jolpica F1 API: 1962 Dutch GP results",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/1962/1/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "j4",
+      "title": "Jolpica F1 API: 1963 winners and standings",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/1963/results/1.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "j5",
+      "title": "Jolpica F1 API: 1968 Monaco GP (r3) and Belgian GP (r4)",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/1968/3/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "j6",
+      "title": "Jolpica F1 API: 1969 Spanish GP results",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/1969/2/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "j7",
+      "title": "Jolpica F1 API: 1976 Swedish GP results",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/1976/7/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "j8",
+      "title": "Jolpica F1 API: 1977 British GP results and 1977 winners",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/1977/10/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "j9",
+      "title": "Jolpica F1 API: 1978 Belgian GP (r6), Swedish GP (r8), winners and standings",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/1978/8/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "j10",
+      "title": "Jolpica F1 API: 1979 French GP results",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/1979/8/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "j11",
+      "title": "Jolpica F1 API: 1981 British GP (r9), Italian GP (r13); McLaren wins",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/constructors/mclaren/results/1.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "j12",
+      "title": "Jolpica F1 API: 1982 constructor and 1983 driver standings",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/1983/driverStandings.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "j13",
+      "title": "Jolpica F1 API: 1987 Monaco GP results",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/1987/4/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "j14",
+      "title": "Jolpica F1 API: 1989 Brazilian GP results",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/1989/1/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "j15",
+      "title": "Jolpica F1 API: 1992 winners and standings",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/1992/results/1.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "j16",
+      "title": "Jolpica F1 API: 2009 Australian GP, winners and standings",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/2009/1/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "j17",
+      "title": "Jolpica F1 API: 2018 Belgian GP / 2020 Bahrain GP schedule",
+      "publisher": "Jolpica F1 API",
+      "url": "https://api.jolpi.ca/ergast/f1/2018.json",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Компанією Cooper керували Джон Купер і його батько Чарльз; Cooper поставила двигун позаду пілота",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c2",
+      "text": "Цитата Ная: один квадратний фут лобової площі вважали вартим 25 к.с.",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c3",
+      "text": "Перші перемоги в чемпіонаті світу для машин із двигуном позаду пілота: Мосс (Аргентина-1958) і Трентіньян (Монако-1958) на Cooper",
+      "sources": [
+        "s1",
+        "j1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c4",
+      "text": "Auto Union вигравала з такою схемою в 1930-х",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c5",
+      "text": "1959: Бребем — чемпіон на Cooper T51, Cooper — Кубок конструкторів, 5 перемог у 9 раундах",
+      "sources": [
+        "s1",
+        "s2",
+        "j2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "У Себрінгу-1959 Бребем штовхав машину останні 400 ярдів",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c7",
+      "text": "Після 1960 року жодна машина з переднім двигуном не виграла гонку чемпіонату чи титул",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c8",
+      "text": "Lotus 25 Коліна Чапмена відмовився від трубчастої просторової рами на користь алюмінієвого несучого корпусу",
+      "sources": [
+        "s4",
+        "s5",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "Чапмен волів називати корпус «ванною»; раніші несучі конструкції — авіація (Вуазен, 1910) і напівмонокок Jaguar D-type",
+      "sources": [
+        "s3"
+      ],
+      "status": "one",
+      "note": "s3: Lotus 25 «описували як перший болід Ф1 з монококом», але сам Чапмен називав його bathtub; попередники — поза Ф1"
+    },
+    {
+      "id": "c10",
+      "text": "Lotus 25 зробив монокок нормою у Ф1 (піонер сучасної конструкції)",
+      "sources": [
+        "s4",
+        "s5",
+        "s2"
+      ],
+      "status": "ok",
+      "note": "Формулювання «перший монокок» у s3 подано обережно («has been described as»), тому в тексті — «зробив нормою»"
+    },
+    {
+      "id": "c11",
+      "text": "Корпус Lotus 25 важив 70 фунтів (~32 кг) проти понад 100 фунтів рами Lotus 24 і був жорсткішим; Autosport — 30 кг",
+      "sources": [
+        "s3",
+        "s2"
+      ],
+      "status": "ok",
+      "note": "s3 — 70 lb з кронштейнами; s2 — «just 30kg»; розбіжність у межах округлення"
+    },
+    {
+      "id": "c12",
+      "text": "Дебют — Гран-прі Нідерландів 1962, Кларк дев'ятий",
+      "sources": [
+        "s4",
+        "s5",
+        "j3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "1963: Кларк виграв 7 з 10 гонок, 54 очки (максимум), чемпіон; Lotus — перший Кубок конструкторів",
+      "sources": [
+        "s4",
+        "s5",
+        "j4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c14",
+      "text": "З великих команд відповіла лише BRM (P61, 1963); Cooper, Brabham і Ferrari ще кілька сезонів трималися просторових рам",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c15",
+      "text": "Алюмінієві монококи стали загальним стандартом на наступні два десятиліття",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c16",
+      "text": "Джим Голл використовував високі крила на Chaparral з 1966 року (2E)",
+      "sources": [
+        "s6",
+        "s7",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c17",
+      "text": "F1.com і Autosport відлічують появу крил у Ф1 від Lotus 49B у Монако-1968; Гілл виграв з поула",
+      "sources": [
+        "s10",
+        "s2",
+        "j5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "Перше крило у Ф1 — версії розходяться: Монако-1968 (Lotus 49B) чи Спа-1968 (Ferrari Еймона, також Brabham)",
+      "sources": [
+        "s6",
+        "s8",
+        "s10",
+        "s2",
+        "j5"
+      ],
+      "status": "dis",
+      "note": "s6 (Roebuck): у Спа-1968 «гран-прі-болід уперше поїхав з крилом» — на Ferrari Кріса Еймона; s8: Ferrari і Brabham мали крила на Гран-прі Бельгії 1968; s10: крила дебютували на Lotus 49B у Монако-1968; s2: Чапмен привіз ідею в Монако, а «справжній крок» — у Бельгії з Brabham і Ferrari"
+    },
+    {
+      "id": "c19",
+      "text": "Після Спа-1968 високі крила стали обов'язковими, час кола впав на кілька секунд",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c20",
+      "text": "Гран-прі Іспанії 1969 (Монжуїк): крила обох Lotus 49 зламалися, Гілл і Ріндт розбилися",
+      "sources": [
+        "s9",
+        "s8",
+        "s2",
+        "j6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c21",
+      "text": "На наступному етапі в Монако-1969 CSI посеред уїк-енду заборонив необмежені крила",
+      "sources": [
+        "s9",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "text": "Після заборони конструктори перейшли до крил, інтегрованих у кузов",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c23",
+      "text": "Головний конструктор Tyrrell Дерек Гарднер — чотири маленькі передні колеса",
+      "sources": [
+        "s11",
+        "s13",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c24",
+      "text": "Гарднер: менший опір і менша піднімальна сила спереду, можна зменшити переднє антикрило",
+      "sources": [
+        "s12"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c25",
+      "text": "Гарднер хотів 9-дюймові колеса, зійшлися на 10 (розмір Mini)",
+      "sources": [
+        "s12"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c26",
+      "text": "Дебют P34 — Гран-прі Іспанії 1976 у Харамі, 4-й етап",
+      "sources": [
+        "s12",
+        "s13",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c27",
+      "text": "Гран-прі Швеції 1976: Шектер виграв з поула, Депайє другий",
+      "sources": [
+        "s13",
+        "s11",
+        "j7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c28",
+      "text": "Єдина перемога шестиколісної машини у Ф1",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c29",
+      "text": "Цитата Шектера: «It was a fun car to drive»",
+      "sources": [
+        "s13"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "Цитата Гарднера про шини Goodyear 1977",
+      "sources": [
+        "s12"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c31",
+      "text": "Наприкінці 1977 Tyrrell відмовилася від концепції; згодом шестиколісні машини заборонили",
+      "sources": [
+        "s11",
+        "s12",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c32",
+      "text": "Регламент: 1,5-л турбо проти 3-л атмосферних (коефіцієнт 2:1)",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c33",
+      "text": "Renault RS01 дебютував на Гран-прі Великої Британії 1977 у Сільверстоуні",
+      "sources": [
+        "s14",
+        "s15",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c34",
+      "text": "Жабуй зійшов після 16 кіл через відмову турбіни",
+      "sources": [
+        "s14",
+        "j8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c35",
+      "text": "Прізвисько «жовтий чайник» через пару й дим",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c36",
+      "text": "Перша перемога турбомашини: Жабуй, Гран-прі Франції 1979 у Діжоні, 1 липня",
+      "sources": [
+        "s15",
+        "s2",
+        "j10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c37",
+      "text": "Перемогу здобула RS10, наступниця RS01",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c38",
+      "text": "Ferrari — перший Кубок конструкторів з турбо (1982); Піке на Brabham BMW — перший чемпіон-турбо (1983)",
+      "sources": [
+        "s2",
+        "s16",
+        "j12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c39",
+      "text": "Renault так і не виграла титулу з турбо",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c40",
+      "text": "Турбо заборонили наприкінці 1988 (з 1989) — надто потужні, небезпечні й дорогі",
+      "sources": [
+        "s2",
+        "s14",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c41",
+      "text": "Турбо повернулися у 2014 як 1,6-л гібридні V6",
+      "sources": [
+        "s2",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c42",
+      "text": "Ральф Беллемі (конструктор Lotus 78) і Пітер Райт в аеротрубі Імперського коледжу: перевернутий профіль біля стрічки присмоктувався",
+      "sources": [
+        "s18"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c43",
+      "text": "Понтони з профілем Вентурі, спідниці герметизували днище",
+      "sources": [
+        "s19",
+        "s18"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c44",
+      "text": "Lotus 78 у 1977 виграв п'ять гонок",
+      "sources": [
+        "s18",
+        "j8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c45",
+      "text": "Lotus 79 у чемпіонаті дебютував у Зольдері (Гран-прі Бельгії 1978): поул і перемога Андретті",
+      "sources": [
+        "s20",
+        "j9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c46",
+      "text": "1978: Lotus — 8 перемог, Андретті чемпіон, Lotus — Кубок конструкторів",
+      "sources": [
+        "s20",
+        "s19",
+        "s2",
+        "j9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c47",
+      "text": "1981 — заборона ковзних спідниць (через швидкості в поворотах); з 1983 — плоске днище",
+      "sources": [
+        "s2",
+        "s21",
+        "s16",
+        "s19",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c48",
+      "text": "Граунд-ефект повернувся з правилами 2022 року",
+      "sources": [
+        "s17",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c49",
+      "text": "BT46B Гордона Мюррея: вентилятор висмоктував повітря з-під днища, спідниці тримали розрідження",
+      "sources": [
+        "s23",
+        "s22",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c50",
+      "text": "Офіційна версія — вентилятор охолоджує мотор/радіатор",
+      "sources": [
+        "s22",
+        "s23"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c51",
+      "text": "Рухомі аеродинамічні пристрої були заборонені; CSI заміряла >55% потужності вентилятора на охолодження й визнала машину легальною",
+      "sources": [
+        "s23"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c52",
+      "text": "17 червня 1978, Андерсторп: Лауда виграв з перевагою 34 с",
+      "sources": [
+        "s22",
+        "s2",
+        "j9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c53",
+      "text": "BT46B стартував лише в одній гонці",
+      "sources": [
+        "s22",
+        "s23",
+        "s2",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c54",
+      "text": "Цитата Мюррея про дві маточини з алюмінію",
+      "sources": [
+        "s23"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c55",
+      "text": "Машину не забороняли — Екклстоун добровільно зняв її",
+      "sources": [
+        "s11",
+        "s22",
+        "s23",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c56",
+      "text": "Політичний мотив: Екклстоун щойно очолив FOCA і потребував підтримки суперників",
+      "sources": [
+        "s22",
+        "s23"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c57",
+      "text": "Зміни правил, що закрили таку схему, — з 1979",
+      "sources": [
+        "s23"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c58",
+      "text": "Барнард: корпус мав бути дуже вузьким; сталь заважка, карбон міцний і легкий",
+      "sources": [
+        "s25"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c59",
+      "text": "Ідея прийшла після візиту на British Aerospace у Вейбриджі",
+      "sources": [
+        "s25"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c60",
+      "text": "Монокок виготовила Hercules (Юта); перший зібрали з п'яти великих компонентів",
+      "sources": [
+        "s24",
+        "s26"
+      ],
+      "status": "ok",
+      "note": "Hercules — s24 і s26; «п'ять компонентів» — лише s24"
+    },
+    {
+      "id": "c61",
+      "text": "MP4/1 — перший болід з повністю карбоновим монококом (версія McLaren, Autosport, F1.com)",
+      "sources": [
+        "s24",
+        "s2",
+        "s10"
+      ],
+      "status": "dis",
+      "note": "s21 (Lotus): Type 88 «перший болід Ф1 з карбоновим шасі, раніше за MP4/1»; s26: Lotus 88 так і не стартував у гонці. У тексті — обидві версії"
+    },
+    {
+      "id": "c62",
+      "text": "Lotus 88 з карбоновим шасі через протести не допустили до гонок",
+      "sources": [
+        "s21",
+        "s26"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c63",
+      "text": "18 липня 1981: Вотсон виграв Гран-прі Великої Британії на MP4/1 — перша перемога McLaren з 1977 (Японія)",
+      "sources": [
+        "s25",
+        "s24",
+        "j11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c64",
+      "text": "Монца-1981 (вересень): Вотсон розбив MP4/1 на ~140 миль/год і не постраждав",
+      "sources": [
+        "s25",
+        "s24",
+        "s2",
+        "j11"
+      ],
+      "status": "ok",
+      "note": "Швидкість 140 mph — лише s25"
+    },
+    {
+      "id": "c65",
+      "text": "Цитата Барнарда «That disproved all the knockers»",
+      "sources": [
+        "s25"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c66",
+      "text": "Карбонові монококи стали стандартом на решітці",
+      "sources": [
+        "s25"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c67",
+      "text": "Ferrari 640 (1989) — перша у Ф1 напівавтоматична секвентальна коробка, Джон Барнард",
+      "sources": [
+        "s27",
+        "s2",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c68",
+      "text": "Мета Барнарда — компоновка й аеродинаміка, вужчий кокпіт",
+      "sources": [
+        "s27"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c69",
+      "text": "Мета — менше навантаження на коробку й без перекручування мотора",
+      "sources": [
+        "s10",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c70",
+      "text": "Цитата Бергера: «The downside was it never worked more than five laps»",
+      "sources": [
+        "s28"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c71",
+      "text": "Гран-прі Бразилії 26.03.1989: Менселл виграв на дебюті 640, стартувавши шостим",
+      "sources": [
+        "s27",
+        "s2",
+        "s10",
+        "j14"
+      ],
+      "status": "ok",
+      "note": "Стартова позиція — лише j14"
+    },
+    {
+      "id": "c72",
+      "text": "Майже три десятиліття всі боліди Ф1 мають підрульові пелюстки й секвентальну коробку",
+      "sources": [
+        "s2",
+        "s27"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c73",
+      "text": "Активна підвіска: гідравліка з електронним керуванням регулює висоту кожного кута",
+      "sources": [
+        "s29",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c74",
+      "text": "Батько системи Lotus — Пітер Райт; Lotus 92 з активною підвіскою вийшов на трасу в 1983",
+      "sources": [
+        "s30",
+        "s31"
+      ],
+      "status": "ok",
+      "note": "Райт — лише s30; s30 уточнює, що перший тест — 16.12.1982 у Снеттертоні"
+    },
+    {
+      "id": "c75",
+      "text": "Перша перемога активної машини — Сенна, Lotus, Монако-1987",
+      "sources": [
+        "s2",
+        "s30",
+        "j13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c76",
+      "text": "Хед: головна функція — контроль аеродинамічної платформи, не м'якість",
+      "sources": [
+        "s29"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c77",
+      "text": "Розробку з 1990 очолив Педді Лоу",
+      "sources": [
+        "s29"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c78",
+      "text": "1992: FW14B — 15 поулів у 16 гонках, 10 перемог; Менселл чемпіон, Williams — Кубок конструкторів",
+      "sources": [
+        "s29",
+        "s31",
+        "j15"
+      ],
+      "status": "ok",
+      "note": "Кількість поулів — лише s29"
+    },
+    {
+      "id": "c79",
+      "text": "З 1994 року активну підвіску й інші електронні помічники заборонили",
+      "sources": [
+        "s2",
+        "s10",
+        "s17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c80",
+      "text": "1993, Хоккенхайм: Мослі й Екклстоун поставили командам ультиматум щодо заборони технологій",
+      "sources": [
+        "s29"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c81",
+      "text": "Лазівка: отвори між площинами днища подавали повітря у верхній ярус дифузора; у Brawn, Toyota і Williams",
+      "sources": [
+        "s34",
+        "s35",
+        "s31"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c82",
+      "text": "Автор ідеї — версії різняться: Мінагава (F1.com), японська аерогрупа Honda (Autosport), ексконструктори Super Aguri (Motorsport.com)",
+      "sources": [
+        "s11",
+        "s34",
+        "s35"
+      ],
+      "status": "dis",
+      "note": "s11 — молодший аеродинамік Масаюкі Мінагава; s34 — «один з інженерів Honda» з японської аерогрупи; s35 — «за повідомленнями» конструктори Super Aguri, які потім перейшли до Honda"
+    },
+    {
+      "id": "c83",
+      "text": "Brawn GP виросла з команди Honda",
+      "sources": [
+        "s35"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c84",
+      "text": "Гран-прі Австралії 2009: Баттон виграв з поула, Барікелло другий; BGP 001 виграв на дебюті",
+      "sources": [
+        "s11",
+        "j16"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c85",
+      "text": "15 квітня 2009 Міжнародний апеляційний суд FIA визнав дифузори Brawn, Toyota, Williams легальними",
+      "sources": [
+        "s32",
+        "s33"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c86",
+      "text": "2009: Brawn — 8 перемог з 17, Баттон чемпіон, Brawn — Кубок конструкторів",
+      "sources": [
+        "s34",
+        "j16"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c87",
+      "text": "Суперники ставили свої версії протягом 2009; з 2011 лазівку закрили",
+      "sources": [
+        "s35",
+        "s31"
+      ],
+      "status": "ok",
+      "note": "Хронологія копіювання — лише s35"
+    },
+    {
+      "id": "c88",
+      "text": "Halo — титанова конструкція вагою близько 6–7 кг",
+      "sources": [
+        "s36"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c89",
+      "text": "Halo з'явилася як відповідь на загибель Жуля Б'янкі",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c90",
+      "text": "Halo обов'язкова з 2018; спершу зустріла сильний опір",
+      "sources": [
+        "s36",
+        "s38",
+        "s37",
+        "s39"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c91",
+      "text": "Навантаження: 116 кН вертикально вниз; у Cranfield тестували понад 100 кН",
+      "sources": [
+        "s37",
+        "s38"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c92",
+      "text": "Еллісон (Mercedes): вага лондонського двоповерхового автобуса",
+      "sources": [
+        "s37"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c93",
+      "text": "Спа-2018: Алонсо перелетів через Леклера, той не постраждав",
+      "sources": [
+        "s38",
+        "s2",
+        "s37",
+        "j17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c94",
+      "text": "Бахрейн-2020: машина Грожана розірвалася в бар'єрі, halo захистило голову",
+      "sources": [
+        "s39",
+        "s38",
+        "s2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c95",
+      "text": "Цитата Брауна «there's absolutely no doubt the halo was the factor that saved the day»",
+      "sources": [
+        "s39"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c96",
+      "text": "Грожан: «the greatest thing we've brought to Formula 1»; раніше був проти",
+      "sources": [
+        "s39",
+        "s38"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c97",
+      "text": "Гамільтон після Монци-2021: «Thank god for the halo. That ultimately saved me.»",
+      "sources": [
+        "s37"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c98",
+      "text": "IndyCar з 2020 використовує aeroscreen",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/f1-tech-revolutions/m1-1280.webp",
+      "srcSet": "/img/stories/f1-tech-revolutions/m1-1280.webp 1280w, /img/stories/f1-tech-revolutions/m1-800.webp 800w, /img/stories/f1-tech-revolutions/m1-480.webp 480w",
+      "width": 1280,
+      "height": 827,
+      "focus": "50% 60%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Tyrell_Scheckter_P34.jpg",
+        "author": "Gillfoto",
+        "license": "CC BY-SA 3.0"
+      },
+      "caption": {
+        "uk": "Шестиколісний Tyrrell P34 Джоді Шектера, 1976 рік.",
+        "en": "Jody Scheckter's six-wheeled Tyrrell P34, 1976."
+      },
+      "alt": {
+        "uk": "Синій болід Tyrrell із чотирма маленькими передніми колесами, вигляд збоку.",
+        "en": "A blue Tyrrell car with four small front wheels, side view."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/f1-tech-revolutions/m2-800.webp",
+      "srcSet": "/img/stories/f1-tech-revolutions/m2-800.webp 800w, /img/stories/f1-tech-revolutions/m2-480.webp 480w",
+      "width": 800,
+      "height": 534,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:1959_Cooper_T51_Donington_Park_2023_01.jpg",
+        "author": "Julian Herzog (Website)",
+        "license": "CC BY 4.0"
+      },
+      "caption": {
+        "uk": "Cooper T51 1959 року з мотором позаду пілота на історичних перегонах у Донінгтон-Парку, 2023 рік.",
+        "en": "A 1959 Cooper T51, with its engine behind the driver, at a historic race at Donington Park, 2023."
+      },
+      "alt": {
+        "uk": "Червоний сигароподібний болід із відкритими колесами на трасі.",
+        "en": "A red cigar-shaped open-wheel car on track."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/f1-tech-revolutions/m3-800.webp",
+      "srcSet": "/img/stories/f1-tech-revolutions/m3-800.webp 800w, /img/stories/f1-tech-revolutions/m3-480.webp 480w",
+      "width": 800,
+      "height": 531,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:G._Hill_at_1968_Dutch_Grand_Prix_(3).jpg",
+        "author": "Evers, Joost / Anefo / neg. stroken, 1945-1989, 2.24.01.05, item number 921-4610",
+        "license": "CC BY-SA 3.0 nl"
+      },
+      "caption": {
+        "uk": "Ґрем Гілл на Lotus 49B з антикрилом, Гран-прі Нідерландів, Зандворт, 23 червня 1968 року.",
+        "en": "Graham Hill in the winged Lotus 49B, Dutch Grand Prix, Zandvoort, 23 June 1968."
+      },
+      "alt": {
+        "uk": "Чорно-білий знімок боліда з крилом над задньою частиною в повороті.",
+        "en": "Black-and-white photo of a car with a wing over its rear in a corner."
+      }
+    },
+    {
+      "id": "m4",
+      "role": "inline",
+      "src": "/img/stories/f1-tech-revolutions/m4-800.webp",
+      "srcSet": "/img/stories/f1-tech-revolutions/m4-800.webp 800w, /img/stories/f1-tech-revolutions/m4-480.webp 480w",
+      "width": 800,
+      "height": 529,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Jean-Pierre_Jabouille_-_Renault_RS01_exits_Druids_at_the_1978_British_Grand_Prix_(50050264981).jpg",
+        "author": "Martin Lee from London, UK",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Жан-П'єр Жабуй на турбомашині Renault RS01 виходить із повороту Друїдс, Гран-прі Великої Британії 1978 року, Брендс-Гетч.",
+        "en": "Jean-Pierre Jabouille in the turbocharged Renault RS01 exits Druids, 1978 British Grand Prix, Brands Hatch."
+      },
+      "alt": {
+        "uk": "Жовто-білий болід Renault у повороті, позаду глядачі на схилі.",
+        "en": "A yellow and white Renault car in a corner, with spectators on the bank behind."
+      }
+    },
+    {
+      "id": "m5",
+      "role": "inline",
+      "src": "/img/stories/f1-tech-revolutions/m5-800.webp",
+      "srcSet": "/img/stories/f1-tech-revolutions/m5-800.webp 800w, /img/stories/f1-tech-revolutions/m5-480.webp 480w",
+      "width": 800,
+      "height": 378,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Hector_Rebacque_-_Lotus_79_heads_down_Paddock_Hill_at_the_1978_British_Grand_Prix_(50049697308).jpg",
+        "author": "Martin Lee from London, UK",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Ектор Ребаке на Lotus 79, Гран-прі Великої Британії 1978 року, Брендс-Гетч.",
+        "en": "Hector Rebaque in a Lotus 79, 1978 British Grand Prix, Brands Hatch."
+      },
+      "alt": {
+        "uk": "Чорний низький болід Lotus з номером 25 на спуску траси.",
+        "en": "A low black Lotus car numbered 25 heading downhill on the track."
+      }
+    },
+    {
+      "id": "m6",
+      "role": "inline",
+      "src": "/img/stories/f1-tech-revolutions/m6-800.webp",
+      "srcSet": "/img/stories/f1-tech-revolutions/m6-800.webp 800w, /img/stories/f1-tech-revolutions/m6-480.webp 480w",
+      "width": 800,
+      "height": 386,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:1978_Brabham-Alfa_Romeo_BT46B.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Brabham-Alfa Romeo BT46B 1978 року з вентилятором ззаду (знімок 2025 року).",
+        "en": "The 1978 Brabham-Alfa Romeo BT46B with its rear fan (photographed in 2025)."
+      },
+      "alt": {
+        "uk": "Червоний болід Brabham із великим круглим вентилятором у задній частині.",
+        "en": "A red Brabham car with a large round fan at the rear."
+      }
+    },
+    {
+      "id": "m7",
+      "role": "inline",
+      "src": "/img/stories/f1-tech-revolutions/m7-800.webp",
+      "srcSet": "/img/stories/f1-tech-revolutions/m7-800.webp 800w, /img/stories/f1-tech-revolutions/m7-480.webp 480w",
+      "width": 800,
+      "height": 533,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:McLaren_MP4-1_Carbon_Fibre-Kevlar_Monocoque_Chassis_at_Formula_1_Exhibition,_London.jpg",
+        "author": "Hullian111",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Монокок McLaren MP4/1 1981 року з вуглепластику й кевлару на виставці Formula 1 Exhibition у Лондоні.",
+        "en": "The carbon-fibre and Kevlar monocoque of a 1981 McLaren MP4/1 at the Formula 1 Exhibition in London."
+      },
+      "alt": {
+        "uk": "Темна композитна капсула боліда без коліс на виставковому подіумі.",
+        "en": "A dark composite car tub without wheels on an exhibition plinth."
+      }
+    },
+    {
+      "id": "m8",
+      "role": "inline",
+      "src": "/img/stories/f1-tech-revolutions/m8-800.webp",
+      "srcSet": "/img/stories/f1-tech-revolutions/m8-800.webp 800w, /img/stories/f1-tech-revolutions/m8-480.webp 480w",
+      "width": 800,
+      "height": 554,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Nigel_Mansell_1989_Belgian_GP_3.jpg",
+        "author": "madagascarica from Verneuil Grand, France",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Найджел Менселл на Ferrari 640, Гран-прі Бельгії 1989 року, Спа-Франкоршам.",
+        "en": "Nigel Mansell in the Ferrari 640, 1989 Belgian Grand Prix, Spa-Francorchamps."
+      },
+      "alt": {
+        "uk": "Червоний болід Ferrari на мокрій трасі перед рекламними щитами.",
+        "en": "A red Ferrari on a wet track in front of advertising boards."
+      }
+    },
+    {
+      "id": "m9",
+      "role": "inline",
+      "src": "/img/stories/f1-tech-revolutions/m9-800.webp",
+      "srcSet": "/img/stories/f1-tech-revolutions/m9-800.webp 800w, /img/stories/f1-tech-revolutions/m9-480.webp 480w",
+      "width": 800,
+      "height": 532,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:1992_Williams_FW14B_(49379465223).jpg",
+        "author": "David Merrett from Daventry, England",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Williams FW14B, на якому Найджел Менселл виграв чемпіонат 1992 року, на виставці Autosport International, 2020 рік.",
+        "en": "The Williams FW14B in which Nigel Mansell won the 1992 championship, at the Autosport International show, 2020."
+      },
+      "alt": {
+        "uk": "Синьо-жовто-білий болід Williams із номером 5 на виставковому подіумі.",
+        "en": "A blue, yellow and white Williams car numbered 5 on a show stand."
+      }
+    },
+    {
+      "id": "m10",
+      "role": "inline",
+      "src": "/img/stories/f1-tech-revolutions/m10-800.webp",
+      "srcSet": "/img/stories/f1-tech-revolutions/m10-800.webp 800w, /img/stories/f1-tech-revolutions/m10-480.webp 480w",
+      "width": 800,
+      "height": 533,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Romain_Grosjean_Haas_VF-20_Remains_at_Formula_1_Exhibition,_London_03.jpg",
+        "author": "Hullian111",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Обгорілі рештки Haas VF-20 Романа Грожана після аварії на Гран-прі Бахрейну 2020 року; дуга halo над кокпітом уціліла. Formula 1 Exhibition, Лондон.",
+        "en": "The burnt remains of Romain Grosjean's Haas VF-20 after his crash at the 2020 Bahrain Grand Prix, with the halo above the cockpit intact. Formula 1 Exhibition, London."
+      },
+      "alt": {
+        "uk": "Обгорілий уламок кокпіта з уцілілою дугою над місцем пілота за склом.",
+        "en": "A burnt cockpit wreck with an intact hoop above the driver's seat behind glass."
+      }
+    }
+  ]
+}

@@ -1,0 +1,943 @@
+{
+  "slug": "f1-safety-revolution",
+  "category": "history",
+  "years": [
+    1966,
+    1969,
+    1970,
+    1978,
+    1981,
+    1985,
+    1994,
+    2003,
+    2014,
+    2018,
+    2020
+  ],
+  "title": {
+    "uk": "Як Формула-1 стала безпечною: від Спа-1966 до Halo",
+    "en": "How Formula 1 became safe: from Spa 1966 to the Halo"
+  },
+  "dek": {
+    "uk": "Джекі Стюарт, затиснутий у розбитому BRM, бойкоти небезпечних трас, Професор Сід Воткінс, вуглепластиковий монокок, HANS і Halo. Як пів століття змін дали Роману Грожану вибратися з вогню за 27 секунд.",
+    "en": "Jackie Stewart trapped in a wrecked BRM, boycotts of dangerous circuits, Professor Sid Watkins, the carbon-fibre monocoque, HANS and the Halo. How half a century of change let Romain Grosjean climb out of the fire in 27 seconds."
+  },
+  "links": {
+    "seasons": [
+      1966,
+      1970,
+      1978,
+      1981,
+      1994,
+      2003,
+      2018,
+      2020
+    ],
+    "races": [
+      "1966/2",
+      "1970/8",
+      "1978/14",
+      "1981/13",
+      "1994/3",
+      "2014/15",
+      "2018/13",
+      "2020/15",
+      "2022/10"
+    ],
+    "drivers": [
+      "stewart",
+      "hill",
+      "bondurant",
+      "rindt",
+      "peterson",
+      "watson",
+      "ratzenberger",
+      "senna",
+      "kubica",
+      "massa",
+      "jules_bianchi",
+      "alonso",
+      "leclerc",
+      "grosjean",
+      "zhou"
+    ],
+    "teams": [
+      "brm",
+      "lotus",
+      "mclaren",
+      "sauber",
+      "haas"
+    ],
+    "circuits": [
+      "spa",
+      "nurburgring",
+      "hockenheimring",
+      "monza",
+      "imola",
+      "bahrain",
+      "suzuka",
+      "silverstone"
+    ],
+    "stories": [
+      "imola-1994"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Jackie Stewart: the Flying Scotsman — Chapter One: Formula 1, speed, success and safety (Paul Fearnley)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2022-06-10",
+      "url": "https://www.motorsportmagazine.com/special-article/jackie-stewart-the-flying-scotsman/6/chapter-one-formula-1-speed-success-and-safety/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "How Graham Hill and Bob Bondurant saved Sir Jackie Stewart's life at the 1966 Belgian GP (Lydia Mee; Stewart at an F1 champions round table)",
+      "publisher": "Motorsport Network (Motorsport.com)",
+      "date": "2025-08-26",
+      "url": "https://www.motorsport.com/f1/news/sir-jackie-stewart-how-graham-hill-and-bob-bondurant-saved-me-at-the-1966-belgian-gp/10753478/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "How Jackie Stewart Taping A Wrench On The Steering Wheel Made F1 Safer (Nishant Jayaram)",
+      "publisher": "Jalopnik",
+      "date": "2025-10-12",
+      "url": "https://jalopnik.com/1991814/quick-disconnect-steering-wheel-jackie-stewart-wrench",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "How F1 Legend Jackie Stewart Became a Powerful Racing Safety Advocate (interview)",
+      "publisher": "The Drive",
+      "date": "2021-10-23",
+      "url": "https://www.thedrive.com/accelerator/42771/how-f1-legend-jackie-stewart-became-a-powerful-racing-safety-advocate",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "Moments in time – The German Grand Prix",
+      "publisher": "Formula 1",
+      "date": "",
+      "url": "https://www.formula1.com/en/latest/features/2014/7/Moments-in-time---The-German-Grand-Prix.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "The way we were — 1970 season (Mark Hughes, April 2014 issue)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2014-04",
+      "url": "https://www.motorsportmagazine.com/archive/article/april-2014/80/way-we-were/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "1966 Belgian Grand Prix — results (round 2)",
+      "publisher": "Jolpica F1 API",
+      "date": "1966-06-12",
+      "url": "https://api.jolpi.ca/ergast/f1/1966/2/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "1969 season calendar",
+      "publisher": "Jolpica F1 API",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1969/races/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "1970 season calendar",
+      "publisher": "Jolpica F1 API",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1970/races/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s9b",
+      "title": "1970 final drivers' standings",
+      "publisher": "Jolpica F1 API",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1970/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "Former F1 medical delegate Sid Watkins dies aged 84 (Jonathan Noble)",
+      "publisher": "Motorsport Network (Autosport)",
+      "date": "2012-09-13",
+      "url": "https://www.autosport.com/f1/news/102485/sid-watkins-dies-aged-84",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "Longtime F1 medical chief Sid Watkins dies at 84",
+      "publisher": "Fox News",
+      "date": "2012-09-13",
+      "url": "https://www.foxnews.com/sports/longtime-f1-medical-chief-sid-watkins-dies-at-84",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Grand Prix world mourns 'The Prof'",
+      "publisher": "Classic & Sports Car",
+      "date": "2012-09-13",
+      "url": "https://www.classicandsportscar.com/news/obituaries/grand-prix-world-mourns-the-prof",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "FIA and FIA Institute Statement of Condolence (Professor Sid Watkins OBE 1928–2012)",
+      "publisher": "FIA",
+      "date": "2012-09",
+      "url": "https://www.fia.com/news/fia-and-fia-institute-statement-condolence",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "Legacy of Safety – How the FIA responded to the tragedy of Imola 1994 and launched a drive for safer racing",
+      "publisher": "FIA",
+      "date": "2024-05-15",
+      "url": "https://fia.com/node/51351",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "AUTO+ Medical – Safety in our HANS",
+      "publisher": "FIA",
+      "date": "",
+      "url": "https://www.fia.com/news/auto-medical-safety-our-hans",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "HANS made compulsory for 2003",
+      "publisher": "Crash.net",
+      "date": "2002-06-26",
+      "url": "https://crash.net/f1/news/42631/1/hans-made-compulsory-for-2003",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "What happens in an F1 crash test? Gary Anderson's guide",
+      "publisher": "The Race",
+      "date": "2022-01-20",
+      "url": "https://www.the-race.com/formula-1/what-happens-in-an-f1-crash-test-gary-andersons-guide/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "1981 Formula 1 McLaren MP4/1 (heritage)",
+      "publisher": "McLaren",
+      "date": "2023-12-14",
+      "url": "https://www.mclaren.com/racing/heritage/cars/1981-formula-1-mclaren-mp4-1/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "John Barnard remembers his McLaren MP4/1 eureka moment",
+      "publisher": "Motor Sport Magazine",
+      "date": "2021-09-22",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/john-barnard-remembers-his-mclaren-mp4-1-eureka-moment",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "The car that changed Formula 1 history",
+      "publisher": "Motorsport Network (Motorsport.com)",
+      "date": "2021-04-12",
+      "url": "https://motorsport.com/f1/news/the-car-that-changed-formula-1-history/4779400/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "1981 Italian Grand Prix — results (round 13)",
+      "publisher": "Jolpica F1 API",
+      "date": "1981-09-13",
+      "url": "https://api.jolpi.ca/ergast/f1/1981/13/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s22",
+      "title": "FIA Formally Finalizes F1's Halo as Mandatory for 2018",
+      "publisher": "The Drive",
+      "date": "2017-09-22",
+      "url": "https://thedrive.com/article/14539/fia-formally-finalizes-f1s-halo-as-mandatory-for-2018",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "FIA defends decision to enforce F1 halo cockpit protection device for 2018 (Giles Richards)",
+      "publisher": "The Guardian (via Yahoo News UK)",
+      "date": "2017-07-22",
+      "url": "https://uk.sports.yahoo.com/news/fia-defends-decision-enforce-f1-112525034.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s24",
+      "title": "Todt: Halo justified its introduction in F1 2018 (Lewis Larkam)",
+      "publisher": "Crash.net",
+      "date": "2018-12-10",
+      "url": "https://www.crash.net/f1/news/911607/1/todt-halo-justified-its-introduction-f1-2018",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s25",
+      "title": "FIA completes investigation into Grosjean's Bahrain accident (findings)",
+      "publisher": "FIA",
+      "date": "2021-03-05",
+      "url": "https://fia.com/node/34932",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s26",
+      "title": "Romain Grosjean accident findings published by FIA with fiery Bahrain GP crash measured at 67G",
+      "publisher": "Sky Sports",
+      "date": "2021-03-05",
+      "url": "https://www.skysports.com/f1/news/12433/12237161/romain-grosjean-accident-findings-published-by-fia-with-fiery-bahrain-gp-crash-measured-at-67g",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s27",
+      "title": "Grosjean Bahrain F1 crash investigation findings revealed",
+      "publisher": "The Race",
+      "date": "2021-03-05",
+      "url": "https://the-race.com/formula-1/fia-completes-investigation-into-grosjean-bahrain-crash/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s28",
+      "title": "2020 Bahrain Grand Prix — results (round 15)",
+      "publisher": "Jolpica F1 API",
+      "date": "2020-11-29",
+      "url": "https://api.jolpi.ca/ergast/f1/2020/15/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s29",
+      "title": "FIA clarifies new virtual safety car procedures",
+      "publisher": "Formula 1",
+      "date": "2015-01-09",
+      "url": "https://www.formula1.com/en/latest/article/fia-clarifies-new-virtual-safety-car-procedures.3kAXqSlWzpv5DRXo8eW8Nf",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s30",
+      "title": "Jules Bianchi: How the death of the Ferrari protégé changed Formula 1",
+      "publisher": "Speedweek",
+      "date": "2026-07-17",
+      "url": "https://www.speedweek.com/en/a/formula-1/jules-bianchi-how-the-death-of-the-ferrari-protege-changed-formula-1",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s31",
+      "title": "2014 Japanese Grand Prix — results (round 15)",
+      "publisher": "Jolpica F1 API",
+      "date": "2014-10-05",
+      "url": "https://api.jolpi.ca/ergast/f1/2014/15/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s32",
+      "title": "1978 Italian Grand Prix — results (round 14)",
+      "publisher": "Jolpica F1 API",
+      "date": "1978-09-10",
+      "url": "https://api.jolpi.ca/ergast/f1/1978/14/results/",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Епоха Стюарта — «flimsy cars on ballsy circuits»; Стюарт утратив у спорті десятки друзів (Motor Sport: понад 50)",
+      "sources": [
+        "s1",
+        "s4"
+      ],
+      "status": "ok",
+      "note": "s4 (The Drive): «lost dozens of friends»; s1 (Motor Sport): «would lose more than 50 friends to the sport». У тексті — «десятки», а число 50 — з посиланням на Motor Sport."
+    },
+    {
+      "id": "c2",
+      "text": "Йохен Ріндт загинув у Монці 1970",
+      "sources": [
+        "s1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c3",
+      "text": "Чемпіон 1970 року — Ріндт",
+      "sources": [
+        "s9b",
+        "s5"
+      ],
+      "status": "ok",
+      "note": "s9b: Ріндт 1-й, 45 очок; s5: «world champion elect Jochen Rindt»."
+    },
+    {
+      "id": "c4",
+      "text": "12.06.1966, Гран-прі Бельгії, Спа: на першому колі раптова злива, BRM Стюарта вилетів",
+      "sources": [
+        "s1",
+        "s3",
+        "s7"
+      ],
+      "status": "ok",
+      "note": "s7: Стюарт (BRM) — сход, 0 кіл, Accident."
+    },
+    {
+      "id": "c5",
+      "text": "Стюарт був затиснутий у машині, паливо обпекло його",
+      "sources": [
+        "s2",
+        "s1",
+        "s3"
+      ],
+      "status": "ok",
+      "note": "s2: «burned with all the fuel»; s1: burns; s3: cockpit filling with fuel."
+    },
+    {
+      "id": "c6",
+      "text": "Стюарт: «There were no officials at all»; s3: маршалів поруч не було",
+      "sources": [
+        "s2",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c7",
+      "text": "Стюарта витягли Ґрем Гілл (партнер по BRM) і Боб Бондюрант, які вилетіли на тій самій ділянці",
+      "sources": [
+        "s2",
+        "s3",
+        "s4",
+        "s7"
+      ],
+      "status": "ok",
+      "note": "s7: Гілл і Бондюрант теж зійшли на 0-му колі (Accident)."
+    },
+    {
+      "id": "c8",
+      "text": "Інструментів не було; ключ позичили в глядача, зняли кермо",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c9",
+      "text": "Після аварії Стюарт кріпив гайковий ключ стрічкою до керма",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c10",
+      "text": "Цитата Стюарта: «It was at that time that I woke up to try and do something with the Grand Prix Drivers' Association»",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c11",
+      "text": "Стюарт домагався ременів безпеки й закритих шоломів; цитата «I thought seat belts were unnecessary and uncomfortable, at first»",
+      "sources": [
+        "s4",
+        "s3"
+      ],
+      "status": "ok",
+      "note": "Цитата — лише s4 (The Drive); ремені безпеки як вимога Стюарта — s3 і s4."
+    },
+    {
+      "id": "c12",
+      "text": "Кампанія принесла Стюартові ворогів; критики вважали, що в GPDA забагато влади",
+      "sources": [
+        "s1",
+        "s3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "1969: Гран-прі Бельгії на Спа не відбулося через бойкот — не було огорож, яких вимагали пілоти",
+      "sources": [
+        "s3",
+        "s8"
+      ],
+      "status": "ok",
+      "note": "s8 (Jolpica): у календарі 1969 року Гран-прі Бельгії немає; причина — s3."
+    },
+    {
+      "id": "c14",
+      "text": "1970: роботи з безпеки на Нюрбургрингу не завершили, GPDA відмовилася, Гран-прі Німеччини вперше пройшов у Гоккенгаймі",
+      "sources": [
+        "s5",
+        "s6",
+        "s3",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "text": "Стюарт палко закликав пілотів не виходити на старт на Нюрбургрингу, якщо вимоги не виконають",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c16",
+      "text": "Гран-прі Німеччини 1970 у Гоккенгаймі виграв Ріндт",
+      "sources": [
+        "s5",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c17",
+      "text": "1978: Екклстоун запропонував нейрохірургу Сіду Воткінсу посаду медичного делегата F1",
+      "sources": [
+        "s10",
+        "s12",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "Тодішні медичні центри часто були переобладнаними автобусами, анестезіологів на місці не було",
+      "sources": [
+        "s12"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c19",
+      "text": "Вересень 1978, Монца: Ронні Петерсон загинув після аварії на старті",
+      "sources": [
+        "s10",
+        "s12",
+        "s32"
+      ],
+      "status": "ok",
+      "note": "s32: Петерсон — сход на 0-му колі (Accident), дата 10.09.1978."
+    },
+    {
+      "id": "c20",
+      "text": "Після смерті Петерсона Воткінс наполіг, що на першому колі кожної гонки їхатиме в медичному автомобілі",
+      "sources": [
+        "s12"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c21",
+      "text": "Стандарти медичних центрів і обов'язковий медичний гелікоптер",
+      "sources": [
+        "s10",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "text": "Воткінс — 26 років у Формулі-1",
+      "sources": [
+        "s10",
+        "s11",
+        "s12"
+      ],
+      "status": "ok",
+      "note": "Рік відставки джерела дають по-різному (s11, s12 — 2004; s10 — 2005), тому в тексті лише тривалість."
+    },
+    {
+      "id": "c23",
+      "text": "Серед урятованих за його участі — Хаккінен, Бергер, Барікелло",
+      "sources": [
+        "s10",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c24",
+      "text": "Імола-1994: загинули Ратценбергер і Сенна, близький друг Воткінса",
+      "sources": [
+        "s10",
+        "s12",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "Після Імоли — Експертний консультативний комітет FIA з безпеки (Воткінс — голова); перший президент Інституту FIA з безпеки автоспорту",
+      "sources": [
+        "s10",
+        "s13",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c26",
+      "text": "Помер у вересні 2012, у 84 роки",
+      "sources": [
+        "s10",
+        "s11",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c27",
+      "text": "McLaren MP4/1 (1981, Джон Барнард) — перша машина F1 з монококом повністю з вуглецевого композиту",
+      "sources": [
+        "s18",
+        "s19",
+        "s20"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c28",
+      "text": "Монца-1981: Вотсон розбив MP4/1 на ~140 mph і вийшов сам",
+      "sources": [
+        "s18",
+        "s19",
+        "s21"
+      ],
+      "status": "ok",
+      "note": "Переведення 140 mph ≈ 225 км/год — наше."
+    },
+    {
+      "id": "c29",
+      "text": "До 1985 краш-тести не були обов'язковими; 1985 — вимога фронтального удару; далі тести додавали",
+      "sources": [
+        "s17"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c30",
+      "text": "1994 після Імоли: 27 небезпечних поворотів, нижчі обмеження швидкості в піт-лейні, суворіші стандарти шоломів",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c31",
+      "text": "1996 — вищі борти кокпіта й бічні підголівники; 1998 — вибратися з машини за 10 с; 1999 — троси коліс",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c32",
+      "text": "HANS сконструював Роберт Габбард; ідею підказав його родич (brother-in-law), гонщик Джим Даунінг",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c33",
+      "text": "HANS обов'язковий у Формулі-1 з 1 січня 2003",
+      "sources": [
+        "s14",
+        "s16"
+      ],
+      "status": "ok",
+      "note": "s15 (FIA) теж: «mandatory for use by all drivers in 2003»."
+    },
+    {
+      "id": "c34",
+      "text": "За даними FIA, HANS практично усунув катастрофічні травми краніовертебрального з'єднання",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c35",
+      "text": "5.10.2014 Судзука: тяжка аварія Б'янкі; помер 17.07.2015",
+      "sources": [
+        "s30",
+        "s14",
+        "s31"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c36",
+      "text": "Віртуальна машина безпеки — з 2015 року, після аварії Б'янкі",
+      "sources": [
+        "s29",
+        "s14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c37",
+      "text": "The Guardian (2017): Б'янкі — єдиний пілот, який загинув на трасі F1 після 1994",
+      "sources": [
+        "s23"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c38",
+      "text": "Липень 2017: на засіданні стратегічної групи Halo, як розуміють, підтримала лише одна команда; FIA: Halo підвищує шанси вижити на 17%",
+      "sources": [
+        "s23"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c39",
+      "text": "Halo обов'язковий із сезону 2018",
+      "sources": [
+        "s14",
+        "s22",
+        "s24"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c40",
+      "text": "Спа-2018, перше коло: McLaren Алонсо перелетів через Sauber Леклера, Halo, схоже, захистив Леклера",
+      "sources": [
+        "s24"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c41",
+      "text": "Тодт: Halo «demonstrated it was a good decision»",
+      "sources": [
+        "s24"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c42",
+      "text": "29.11.2020, Гран-прі Бахрейну, перше коло: Haas Грожана — удар в огорожу на 192 км/год, пік 67g",
+      "sources": [
+        "s25",
+        "s26",
+        "s27",
+        "s28"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c43",
+      "text": "Машина розірвалася, спалахнула; монокок пробив огорожу",
+      "sources": [
+        "s25",
+        "s26",
+        "s27"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c44",
+      "text": "Медичний автомобіль FIA — на місці за 11 секунд",
+      "sources": [
+        "s25"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c45",
+      "text": "Грожан вибрався сам, поза машиною через 27 с; опіки рук",
+      "sources": [
+        "s25",
+        "s26"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c46",
+      "text": "Шолом, HANS, ремені, монокок, сидіння, підголівник і Halo спрацювали згідно зі специфікаціями",
+      "sources": [
+        "s25",
+        "s26"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c47",
+      "text": "Після Грожана — масштабна ревізія безпеки; після аварії Чжоу (Сільверстоун 2022, Halo захистив) — посилені дуги безпеки",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c48",
+      "text": "Стюарт: «But now, we have a cockpit of a car that's a survival cell. We've never been better prepared.»",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c49",
+      "text": "FIA: HANS відіграв ключову роль в аварії Кубіци, Гран-прі Канади 2007",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c50",
+      "text": "2009, кваліфікація Гран-прі Угорщини: Массу влучила пружина, перелом черепа",
+      "sources": [
+        "s23",
+        "s14"
+      ],
+      "status": "ok",
+      "note": "s14: «near fatal head injury for Felipe Massa in 2009»; s23: перелом черепа від пружини в кваліфікації в Угорщині."
+    },
+    {
+      "id": "c51",
+      "text": "2011: панель із зайлону над візором шолома",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/f1-safety-revolution/m1-1280.webp",
+      "srcSet": "/img/stories/f1-safety-revolution/m1-1280.webp 1280w, /img/stories/f1-safety-revolution/m1-800.webp 800w, /img/stories/f1-safety-revolution/m1-480.webp 480w",
+      "width": 1280,
+      "height": 850,
+      "focus": "50% 60%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Grand_Prix_68_Zandvoort._Jackie_Stewart_in_de_regen,_Bestanddeelnr_921-4604.jpg",
+        "author": "Joost Evers / Anefo",
+        "license": "CC0"
+      },
+      "caption": {
+        "uk": "Джекі Стюарт під дощем на Гран-прі Нідерландів у Зандворті, 23 червня 1968 року.",
+        "en": "Jackie Stewart in the rain at the Dutch Grand Prix, Zandvoort, 23 June 1968."
+      },
+      "alt": {
+        "uk": "Чорно-біла світлина: гоночний автомобіль на мокрій трасі, позаду трибуна з глядачами.",
+        "en": "A black-and-white photo of a racing car on a wet track with a packed grandstand behind."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/f1-safety-revolution/m2-800.webp",
+      "srcSet": "/img/stories/f1-safety-revolution/m2-800.webp 800w, /img/stories/f1-safety-revolution/m2-480.webp 480w",
+      "width": 800,
+      "height": 1432,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:The_late_great_Prof._Sid_Watkins_chats_to_a_Michael_`Rockin'_the_Denim_look'_Schumacher_in_the_paddock_at_the_British_Grand_Prix,_Silverstone_1995_(49705249201).jpg",
+        "author": "Martin Lee from London, UK",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Професор Сід Воткінс розмовляє з Міхаелем Шумахером у паддоку Гран-прі Великої Британії, Сільверстоун, 1995 рік.",
+        "en": "Professor Sid Watkins chats with Michael Schumacher in the paddock at the British Grand Prix, Silverstone, 1995."
+      },
+      "alt": {
+        "uk": "Двоє чоловіків розмовляють у паддоку: один у червоному костюмі, другий у синьому.",
+        "en": "Two men talking in the paddock, one in a red suit and the other in blue."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/f1-safety-revolution/m3-800.webp",
+      "srcSet": "/img/stories/f1-safety-revolution/m3-800.webp 800w, /img/stories/f1-safety-revolution/m3-480.webp 480w",
+      "width": 800,
+      "height": 533,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:McLaren_MP4-1_Carbon_Fibre-Kevlar_Monocoque_Chassis_at_Formula_1_Exhibition,_London.jpg",
+        "author": "Hullian111",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Монокок McLaren MP4/1 1981 року з вуглепластику й кевлару на виставці Formula 1 Exhibition у Лондоні, 2025 рік.",
+        "en": "The carbon-fibre and Kevlar monocoque of the 1981 McLaren MP4/1 at the Formula 1 Exhibition in London, 2025."
+      },
+      "alt": {
+        "uk": "Темний композитний корпус гоночного автомобіля без коліс на виставці.",
+        "en": "A dark composite racing car tub without wheels on display."
+      }
+    },
+    {
+      "id": "m4",
+      "role": "inline",
+      "src": "/img/stories/f1-safety-revolution/m4-800.webp",
+      "srcSet": "/img/stories/f1-safety-revolution/m4-800.webp 800w, /img/stories/f1-safety-revolution/m4-480.webp 480w",
+      "width": 800,
+      "height": 763,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:2020_F1_Pre-Season_Testing_Catalonia_(49629831072).jpg",
+        "author": "Jen Ross",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Шарль Леклер у Ferrari з дугою Halo над кокпітом, передсезонні тести в Каталонії, 20 лютого 2020 року.",
+        "en": "Charles Leclerc in his Ferrari with the Halo over the cockpit, pre-season testing in Catalonia, 20 February 2020."
+      },
+      "alt": {
+        "uk": "Пілот у шоломі в кокпіті червоного боліда під чорною дугою захисту.",
+        "en": "A helmeted driver in the cockpit of a red car beneath a black protective hoop."
+      }
+    }
+  ]
+}

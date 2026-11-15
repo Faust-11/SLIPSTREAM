@@ -1,0 +1,950 @@
+{
+  "slug": "women-in-f1",
+  "category": "history",
+  "years": [
+    1958,
+    1974,
+    1975,
+    1976,
+    1978,
+    1980,
+    1992,
+    2014,
+    2018,
+    2023,
+    2026
+  ],
+  "title": {
+    "uk": "Жінки у Формулі-1: п'ять заявок, два старти і половина очка",
+    "en": "Women in Formula 1: five entries, two starts and half a point"
+  },
+  "dek": {
+    "uk": "Від Марії-Терези де Філіппіс у 1958-му до F1 Academy: хто з жінок пробився на старт Гран-прі, хто зупинився на кваліфікації і чому половина очка Лелли Ломбарді досі єдина.",
+    "en": "From Maria Teresa de Filippis in 1958 to F1 Academy: which women made the start of a Grand Prix, who was stopped in qualifying, and why Lella Lombardi's half point is still the only one."
+  },
+  "links": {
+    "seasons": [
+      1958,
+      1975,
+      1976,
+      1980,
+      1992,
+      2014
+    ],
+    "races": [
+      "1958/5",
+      "1975/3",
+      "1975/4",
+      "1975/11",
+      "1976/11",
+      "1992/1",
+      "1992/2",
+      "1992/3"
+    ],
+    "drivers": [
+      "filippis",
+      "lombardi",
+      "galica",
+      "desire_wilson",
+      "amati",
+      "behra",
+      "mass",
+      "stommelen",
+      "peterson",
+      "damon_hill"
+    ],
+    "teams": [
+      "maserati",
+      "march",
+      "brabham",
+      "surtees",
+      "hesketh",
+      "wolf",
+      "williams",
+      "tyrrell",
+      "sauber",
+      "mercedes"
+    ],
+    "circuits": [
+      "spa",
+      "montjuic",
+      "brands_hatch",
+      "interlagos"
+    ],
+    "stories": []
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "w1",
+      "title": "Maria Teresa de Filippis, first female F1 racer, dies at 89",
+      "publisher": "Formula 1",
+      "date": "2016-01-09",
+      "url": "https://www.formula1.com/en/latest/article/maria-teresa-de-filippis-first-female-f1-racer-dies-at-89.5fcIizfIRkPl3ulq0W5VyT",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w2",
+      "title": "From Grand Prix pioneers to modern trailblazers – 12 women who've raced and tested F1 cars (Hannah Prydderch)",
+      "publisher": "Formula 1",
+      "date": "2026-04-21",
+      "url": "https://www.formula1.com/en/latest/article/from-grand-prix-pioneers-to-modern-trailblazers-12-women-whove-raced-and-tested-f1-cars.uhVLzfacSEts7PoOWfL5Q",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w3",
+      "title": "Maria Teresa de Filippis dies aged 89 (Joe Holding)",
+      "publisher": "Top Gear",
+      "date": "2016-01-11",
+      "url": "https://www.topgear.com/car-news/formula-one/maria-teresa-de-filippis-dies-aged-89",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w4",
+      "title": "50 years since a woman scored (half) an F1 point, why aren't we closer to another? (Katy Fairman)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2025-04-27",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/50-years-since-a-woman-scored-half-an-f1-point-why-arent-we-closer-to-another/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w5",
+      "title": "On this day: The moment a woman broke into F1's all-man's club",
+      "publisher": "PlanetF1",
+      "date": "2025-04-27",
+      "url": "https://www.planetf1.com/news/lella-lombardi-points-scoring-drive-1975-spanish-grand-prix-montjuic-park",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w6",
+      "title": "Why Lella Lombardi was much more than F1 half-point heroine",
+      "publisher": "Motorsport Network (Autosport)",
+      "date": "2025-04-27",
+      "url": "https://www.autosport.com/f1/news/why-lella-lombardi-was-much-more-than-f1-half-point-heroine/10717103/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w7",
+      "title": "Lella Lombardi and the long road of women in F1",
+      "publisher": "Motorsport Network (Motorsport.com)",
+      "date": "2026-03-26",
+      "url": "https://www.motorsport.com/f1/news/lella-lombardi-long-road-women-in-f1/10808312/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w8",
+      "title": "The story of the only woman to score points in F1",
+      "publisher": "RacingNews365",
+      "date": "2021-05-06",
+      "url": "https://racingnews365.com/the-story-of-the-only-woman-to-score-points-in-f1",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w9",
+      "title": "Lella Lombardi Is The Only Woman To Ever Score Points In Formula One",
+      "publisher": "Jalopnik",
+      "date": "2019-01-04",
+      "url": "https://jalopnik.com/lella-lombardi-is-the-only-woman-to-ever-score-points-i-1831436326",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w10",
+      "title": "Lella Lombardi: She made her point (April 2015 issue)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2015-04",
+      "url": "https://www.motorsportmagazine.com/archive/article/april-2015/110/she-made-her-point/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w11",
+      "title": "Divina Galica: the brilliant racer who mixed ski slopes with F1 circuits (Matt Bishop, interview)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2024-11-26",
+      "url": "https://www.motorsportmagazine.com/archive/article/january-2025/96/divina-galica-the-brilliant-woman-racer-who-mixed-ski-slopes-with-grand-prix-asphalt",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "w12",
+      "title": "Divina Galica — races, wins and teams",
+      "publisher": "Formula One History (formulaonehistory.com)",
+      "date": "2024-07-25",
+      "url": "https://formulaonehistory.com/drivers/divina-galica",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w13",
+      "title": "Desiré Wilson, the only woman to win a Formula 1 race (Mark Hughes, May 2000 issue)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2000-05",
+      "url": "https://www.motorsportmagazine.com/archive/article/may-2000/40/ladies-first/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w14",
+      "title": "Desiré Wilson's battle to be F1's first female winner (Matt Bishop, interview, December 2026 issue)",
+      "publisher": "Motor Sport Magazine",
+      "date": "2026-10-27",
+      "url": "https://www.motorsportmagazine.com/archive/article/december-2026/114/desire-wilsons-battle-to-be-f1s-first-female-winner-sponsors-couldnt-accept-their-star-men-being-beaten-by-a-woman/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "w15",
+      "title": "F1's only female winner (Mattijs Diepraam, 8W)",
+      "publisher": "Motorsport Network (Autosport 8W / Forix)",
+      "date": "",
+      "url": "https://8w.forix.com/dwilson.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w16",
+      "title": "Aurora AFX F1 Championship 1980",
+      "publisher": "OldRacingCars.com",
+      "date": "",
+      "url": "https://oldracingcars.com/aurora/1980",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w17",
+      "title": "Giovanna Amati (8W)",
+      "publisher": "Motorsport Network (Autosport 8W / Forix)",
+      "date": "",
+      "url": "https://8w.forix.com/amati.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w18",
+      "title": "75 days of hell: F1's last woman driver has a shocking story to tell",
+      "publisher": "PlanetF1",
+      "date": "",
+      "url": "https://www.planetf1.com/features/75-days-of-hell-f1-last-woman-driver-giovanna-amati",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w19",
+      "title": "The one that didn't count: 1981 South African GP (Mattijs Diepraam, Felix Muelas, 8W)",
+      "publisher": "Motorsport Network (Autosport 8W / Forix)",
+      "date": "2000-12",
+      "url": "https://8w.forix.com/za81.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w20",
+      "title": "Woman driver Wolff sidelined",
+      "publisher": "RNZ",
+      "date": "2014-07",
+      "url": "https://www.rnz.co.nz/news/sport/248533/woman-driver-wolff-sidelined",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w21",
+      "title": "After 22 years, Susie breaks F1 male bastion (IANS)",
+      "publisher": "Business Standard / IANS",
+      "date": "2014-07-04",
+      "url": "https://www.business-standard.com/article/news-ians/after-22-years-susie-breaks-f1-male-bastion-114070400975_1.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w22",
+      "title": "Calderon sets a female F1 first for Latin America (Alan Baldwin)",
+      "publisher": "Reuters (via SBS News)",
+      "date": "2018-10-31",
+      "url": "https://www.sbs.com.au/news/article/calderon-sets-a-female-f1-first-for-latin-america/vmu4chz17",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w23",
+      "title": "Tatiana Calderon tests 2018 Sauber F1 car (Mat Coch)",
+      "publisher": "Speedcafe",
+      "date": "2018-11-02",
+      "url": "https://speedcafe.com/tatiana-calderon-tests-2018-sauber-f1-car/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w24",
+      "title": "Tatiana Calderon hails 'incredible experience' after maiden F1 test (Luke Smith)",
+      "publisher": "Crash.net",
+      "date": "2018-10-31",
+      "url": "https://www.crash.net/f1/news/909345/1/calderon-hails-incredible-experience-after-maiden-f1-test",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w25",
+      "title": "F1 Academy: Marta Garcia wins inaugural title for Prema in all-female series",
+      "publisher": "Sky Sports",
+      "date": "2023-10-21",
+      "url": "https://www.skysports.com/f1/news/12040/12988496/f1-academy-marta-garcia-wins-inaugural-title-for-prema-in-all-female-series",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w26",
+      "title": "F1 Academy crowns first champion - and she won't return in 2024 (Josh Suttill)",
+      "publisher": "The Race",
+      "date": "2023-10-21",
+      "url": "https://www.the-race.com/formula-1/f1-academy-crowns-first-champion-marta-garcia/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w27",
+      "title": "Maria Teresa de Filippis — World Championship results",
+      "publisher": "Jolpica F1 API",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/drivers/filippis/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "w28",
+      "title": "Lella Lombardi — World Championship results",
+      "publisher": "Jolpica F1 API",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/drivers/lombardi/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "w29",
+      "title": "1975 Spanish Grand Prix — results (round 4)",
+      "publisher": "Jolpica F1 API",
+      "date": "1975-04-27",
+      "url": "https://api.jolpi.ca/ergast/f1/1975/4/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "w30",
+      "title": "1992 season calendar",
+      "publisher": "Jolpica F1 API",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1992/races/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "w31",
+      "title": "What we learned about Chadwick's Williams F1 test debut (Josh Suttill)",
+      "publisher": "The Race",
+      "date": "2026-09-24",
+      "url": "https://www.the-race.com/formula-1/jamie-chadwick-first-woman-in-11-years-to-drive-williams-f1-car/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w32",
+      "title": "Female racer Chadwick gets first taste of driving F1 car",
+      "publisher": "Reuters (via The Star)",
+      "date": "2026-09-24",
+      "url": "https://www.thestar.com.my/sport/motorsport/2026/09/24/motor-racing-female-racer-chadwick-gets-first-taste-of-driving-f1-car",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w33",
+      "title": "Mercedes completes historic Silverstone milestone with first female F1 test",
+      "publisher": "PlanetF1",
+      "date": "2026-04-18",
+      "url": "https://www.planetf1.com/news/doriane-pin-mercedes-test-silverstone-f1-academy",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w34",
+      "title": "Desiré Wilson — driver record",
+      "publisher": "Jolpica F1 API",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/drivers/desire_wilson/",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "П'ять жінок заявлялися на Гран-прі чемпіонату світу, стартували лише дві",
+      "sources": [
+        "w2",
+        "w8",
+        "w3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "Де Філіппіс — із Неаполя; почала ганятися, бо брати сперечалися, що вона не їздитиме швидко",
+      "sources": [
+        "w1",
+        "w3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "1958: не пройшла кваліфікацію на Гран-прі Монако",
+      "sources": [
+        "w1",
+        "w2"
+      ],
+      "status": "one",
+      "note": "Обидва джерела — Formula 1 (formula1.com)."
+    },
+    {
+      "id": "c4",
+      "text": "Дебют 15.06.1958, Гран-прі Бельгії, Спа; приватний Maserati 250F; старт 19-м, фініш 10-м, −2 кола",
+      "sources": [
+        "w27",
+        "w3",
+        "w1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c5",
+      "text": "1958: три старти в гонках чемпіонату світу",
+      "sources": [
+        "w1",
+        "w4",
+        "w27"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "Інтерв'ю The Observer 2006: на Гран-прі Франції їй не дали виступити; директор гонки нібито сказав «The only helmet a woman should wear is the one at the hairdresser's»",
+      "sources": [
+        "w3",
+        "w7"
+      ],
+      "status": "ok",
+      "note": "Обидва джерела переказують інтерв'ю The Observer 2006; Top Gear — «allegedly»."
+    },
+    {
+      "id": "c7",
+      "text": "Пішла з автоспорту в 1959 після загибелі керівника команди Жана Бехри",
+      "sources": [
+        "w1",
+        "w3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "text": "Померла в січні 2016, у 89 років",
+      "sources": [
+        "w1",
+        "w3"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "Ломбарді — донька м'ясника, вчилася водити на родинному фургоні доставки",
+      "sources": [
+        "w6",
+        "w9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "1974: спроба кваліфікуватися на Гран-прі Великої Британії (Брендс-Гетч) на торішньому Brabham BT42 — невдала",
+      "sources": [
+        "w6",
+        "w10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "text": "Спонсорська підтримка відкрила шлях у заводську команду March на 1975",
+      "sources": [
+        "w5",
+        "w6"
+      ],
+      "status": "ok",
+      "note": "w5: спонсорство Lavazza (граф Вітторіо Дзанон); w6: підтримка графа Дзанона, перший жіночий заводський контракт у F1."
+    },
+    {
+      "id": "c12",
+      "text": "Гран-прі ПАР 1975: перша після де Філіппіс жінка, що кваліфікувалася на Гран-прі",
+      "sources": [
+        "w9",
+        "w7",
+        "w28"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "27.04.1975, Монжуїк: лідер Штоммелен утратив заднє антикрило, машина перелетіла огорожу; кількість загиблих",
+      "sources": [
+        "w4",
+        "w5",
+        "w6",
+        "w8"
+      ],
+      "status": "dis",
+      "note": "Motor Sport (w4) — four people; PlanetF1 (w5) — four trackside observers; Autosport (w6) — four spectators and a fire marshal; RacingNews365 (w8) — five spectators. У тексті подано обидві версії (4 і 5)."
+    },
+    {
+      "id": "c14",
+      "text": "Гонку зупинили після 29 кіл; Ломбарді шоста, −2 кола; нараховано половину очок — 0,5",
+      "sources": [
+        "w29",
+        "w5",
+        "w8"
+      ],
+      "status": "ok",
+      "note": "Поріг для половинних очок джерела описують по-різному (w5: менше 75% дистанції; w6: менше двох третин), тому в тексті порогу немає."
+    },
+    {
+      "id": "c15",
+      "text": "Переміг Йохен Масс — його єдина перемога в Гран-прі",
+      "sources": [
+        "w5",
+        "w6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c16",
+      "text": "Ломбарді — єдина жінка, яка набирала очки в чемпіонаті світу",
+      "sources": [
+        "w4",
+        "w5",
+        "w2",
+        "w7"
+      ],
+      "status": "ok",
+      "note": "Перевірено на свіжість: w2 (квітень 2026) — «first – and so far only»."
+    },
+    {
+      "id": "c17",
+      "text": "Цитата NYT: «I don't think it dawned on me that I was the very first woman to collect championship points»",
+      "sources": [
+        "w6",
+        "w9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "Цитата: «I hope that people now understand that I am a racer who is a woman, rather than a woman who races»",
+      "sources": [
+        "w6",
+        "w5"
+      ],
+      "status": "ok",
+      "note": "Формулювання за w6 (Autosport); у w5 трохи інакше: «...people have begun to understand that Lella Lombardi is a racer who is a woman, rather than a woman who races»."
+    },
+    {
+      "id": "c19",
+      "text": "1975: сьоме місце на Гран-прі Німеччини",
+      "sources": [
+        "w28",
+        "w9",
+        "w2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c20",
+      "text": "Скарги на керованість ігнорували; коли шасі отримав Петерсон (1976) — та сама скарга, знайдено тріснуту перегородку монокока",
+      "sources": [
+        "w5",
+        "w6",
+        "w13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c21",
+      "text": "March замінила Ломбарді Ронні Петерсоном на початку 1976",
+      "sources": [
+        "w5",
+        "w6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "text": "Остання гонка — Гран-прі Австрії 1976, 12-те місце; відтоді жодна жінка не стартувала в гонці чемпіонату світу",
+      "sources": [
+        "w4",
+        "w28",
+        "w22"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c23",
+      "text": "Загалом 12 стартів у Гран-прі",
+      "sources": [
+        "w1",
+        "w28"
+      ],
+      "status": "ok",
+      "note": "w28: 13 заявок із результатом, з них Гран-прі США 1975 — W (не стартувала)."
+    },
+    {
+      "id": "c24",
+      "text": "Померла від раку грудей у 1992, у 50 років",
+      "sources": [
+        "w5",
+        "w9",
+        "w2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "Галіка — гірськолижниця, капітанка британської жіночої олімпійської збірної 1968 і 1972",
+      "sources": [
+        "w11",
+        "w2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c26",
+      "text": "1974: перша гонка — заїзд знаменитостей на запрошення Джона Вебба, друге місце",
+      "sources": [
+        "w11",
+        "w2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c27",
+      "text": "Гран-прі Великої Британії 1976: Surtees TS16, не кваліфікувалася",
+      "sources": [
+        "w11",
+        "w12",
+        "w2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c28",
+      "text": "Британія-1976 — єдиний вікенд F1 із двома жінками в заявці (Галіка й Ломбарді)",
+      "sources": [
+        "w2",
+        "w10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c29",
+      "text": "1978: Hesketh, Аргентина і Бразилія — обидва рази DNQ",
+      "sources": [
+        "w11",
+        "w12",
+        "w2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c30",
+      "text": "Дезіре Вілсон — південноафриканка",
+      "sources": [
+        "w14",
+        "w34"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c31",
+      "text": "Квітень 1980, Брендс-Гетч: перемога в Evening News Trophy (етап Aurora AFX F1), Wolf, лідирувала від старту до фінішу",
+      "sources": [
+        "w13",
+        "w14",
+        "w16"
+      ],
+      "status": "ok",
+      "note": "Перемога — у всіх трьох; «від старту до фінішу» — w13, w14 (обидва Motor Sport). Модель Wolf джерела називають по-різному (w14, w16 — WR4; w13 — «’77 Wolf»), тому в тексті лише марка."
+    },
+    {
+      "id": "c32",
+      "text": "Єдина перемога жінки в гонці машин Формули-1 (не залік чемпіонату світу)",
+      "sources": [
+        "w14",
+        "w16",
+        "w2"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c33",
+      "text": "Цитата Вілсон про усвідомлення досягнення: «It never even crossed my mind»",
+      "sources": [
+        "w14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c34",
+      "text": "Через три місяці — Гран-прі Великої Британії 1980 на Williams FW07, єдина заявка на чемпіонат світу, DNQ",
+      "sources": [
+        "w15",
+        "w14"
+      ],
+      "status": "ok",
+      "note": "Заявника (Brands Hatch Racing у w15 чи RAM у w14) джерела називають по-різному — у тексті не згадано."
+    },
+    {
+      "id": "c35",
+      "text": "1981: старт Гран-прі ПАР на Tyrrell; гонку не зарахували до чемпіонату через конфлікт FISA–FOCA",
+      "sources": [
+        "w19",
+        "w14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c36",
+      "text": "Аматі отримала місце в Brabham на 1992, бо Накая не отримав суперліцензію",
+      "sources": [
+        "w18",
+        "w17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c37",
+      "text": "Перші три етапи 1992 (ПАР, Мексика, Бразилія) — жодного разу не кваліфікувалася",
+      "sources": [
+        "w18",
+        "w17",
+        "w30",
+        "w4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c38",
+      "text": "Brabham замінила Аматі на Деймона Гілла",
+      "sources": [
+        "w18",
+        "w17"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c39",
+      "text": "Бразилія-1992 (Інтерлагос) — остання спроба жінки кваліфікуватися на Гран-прі",
+      "sources": [
+        "w21",
+        "w17",
+        "w2",
+        "w4"
+      ],
+      "status": "ok",
+      "note": "Перевірено на свіжість: w2 (квітень 2026) — «No woman has entered an F1 Grand Prix since Amati in 1992»."
+    },
+    {
+      "id": "c40",
+      "text": "4.07.2014: Сьюзі Вольф у FP1 Гран-прі Великої Британії на Williams Боттаса — перша жінка на вікенді F1 за 22 роки; чотири кола, втрата тиску оливи",
+      "sources": [
+        "w20",
+        "w21",
+        "w4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c41",
+      "text": "Інші тренування Вольф: Гоккенгайм 2014; Барселона і Сільверстоун 2015",
+      "sources": [
+        "w2",
+        "w33"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c42",
+      "text": "2014: де Сільвестро — афілійована пілотка Sauber, тести",
+      "sources": [
+        "w2",
+        "w4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c43",
+      "text": "30.10.2018: Кальдерон, тест-пілотка Sauber, — 23 кола / 100 км на C37 в Мехіко, промо-зйомки",
+      "sources": [
+        "w22",
+        "w23",
+        "w24"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c44",
+      "text": "F1 Academy: заснована Формулою-1, перший сезон 2023, рівень F4, пілотки 16–25 років",
+      "sources": [
+        "w25",
+        "w26"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c45",
+      "text": "Перша чемпіонка — Марта Гарсія (Prema), жовтень 2023",
+      "sources": [
+        "w25",
+        "w26"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c46",
+      "text": "З 2024 усі десять команд F1 підтримують по пілотці в F1 Academy",
+      "sources": [
+        "w25",
+        "w26",
+        "w4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c47",
+      "text": "Керівниця (managing director) F1 Academy — Сьюзі Вольф",
+      "sources": [
+        "w25",
+        "w26",
+        "w4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c48",
+      "text": "Доріан Пен, чемпіонка F1 Academy 2025: квітень 2026, Сільверстоун, Mercedes W12, 76 кіл; перша жінка за кермом машини F1 Mercedes",
+      "sources": [
+        "w2",
+        "w33"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c49",
+      "text": "Вересень 2026: Джеймі Чадвік (три титули W Series) — 32 кола в Портімані на Williams 2025 року",
+      "sources": [
+        "w31",
+        "w32"
+      ],
+      "status": "ok"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/women-in-f1/m1-1280.webp",
+      "srcSet": "/img/stories/women-in-f1/m1-1280.webp 1280w, /img/stories/women-in-f1/m1-800.webp 800w, /img/stories/women-in-f1/m1-480.webp 480w",
+      "width": 1280,
+      "height": 725,
+      "focus": "35% 75%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Susie_Wolff_Williams_FW36_Silverstone_2014.jpg",
+        "author": "Jake Archibald",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Сьюзі Вольф на Williams FW36 під час Гран-прі Великої Британії 2014 року в Сільверстоуні.",
+        "en": "Susie Wolff in the Williams FW36 at the 2014 British Grand Prix, Silverstone."
+      },
+      "alt": {
+        "uk": "Біло-синій болід Williams у повороті траси.",
+        "en": "A white and blue Williams car through a corner."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/women-in-f1/m2-800.webp",
+      "srcSet": "/img/stories/women-in-f1/m2-800.webp 800w, /img/stories/women-in-f1/m2-480.webp 480w",
+      "width": 800,
+      "height": 798,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Maria_Teresa_de_Filippis_Monza_1958.jpg",
+        "author": "Unknown author (ANSA)",
+        "license": "Public domain"
+      },
+      "caption": {
+        "uk": "Марія-Тереза де Філіппіс на Гран-прі Італії в Монці, вересень 1958 року.",
+        "en": "Maria Teresa de Filippis at the Italian Grand Prix, Monza, September 1958."
+      },
+      "alt": {
+        "uk": "Чорно-біла світлина: пілотка в шоломі сидить у гоночному автомобілі, поруч фотограф і глядачі.",
+        "en": "A black-and-white photo of a helmeted woman seated in a racing car, with a photographer and onlookers nearby."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/women-in-f1/m3-800.webp",
+      "srcSet": "/img/stories/women-in-f1/m3-800.webp 800w, /img/stories/women-in-f1/m3-480.webp 480w",
+      "width": 800,
+      "height": 530,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Lombardi_Brambilla.jpg",
+        "author": "Anefo",
+        "license": "CC BY-SA 3.0 nl"
+      },
+      "caption": {
+        "uk": "Лелла Ломбарді та Вітторіо Брамбілла розмовляють під час тренувань Гран-прі Нідерландів у Зандворті, червень 1975 року.",
+        "en": "Lella Lombardi and Vittorio Brambilla talk during practice for the Dutch Grand Prix, Zandvoort, June 1975."
+      },
+      "alt": {
+        "uk": "Чорно-біла світлина: жінка й чоловіки в гоночних комбінезонах розмовляють біля боксів.",
+        "en": "A black-and-white photo of a woman and men in racing overalls talking by the pits."
+      }
+    },
+    {
+      "id": "m4",
+      "role": "inline",
+      "src": "/img/stories/women-in-f1/m4-800.webp",
+      "srcSet": "/img/stories/women-in-f1/m4-800.webp 800w, /img/stories/women-in-f1/m4-480.webp 480w",
+      "width": 800,
+      "height": 999,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Pin_Silverstone_2026.jpg",
+        "author": "DriverDatabase1",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Доріан Пен у Сільверстоуні, вересень 2026 року.",
+        "en": "Doriane Pin at Silverstone, September 2026."
+      },
+      "alt": {
+        "uk": "Усміхнена пілотка в гоночному комбінезоні.",
+        "en": "A smiling woman driver in racing overalls."
+      }
+    }
+  ]
+}

@@ -1,0 +1,591 @@
+{
+  "slug": "f1-steering-wheel",
+  "category": "explainer",
+  "years": [
+    1969,
+    1974,
+    1988,
+    1989,
+    1992,
+    2009,
+    2014,
+    2016,
+    2019,
+    2021,
+    2026
+  ],
+  "title": {
+    "uk": "Кермо Формули-1: що на ньому і навіщо",
+    "en": "The F1 steering wheel: what's on it and why"
+  },
+  "dek": {
+    "uk": "Два десятки кнопок, поворотні перемикачі, екран і пелюстки зчеплення. Як кермо стало пультом керування боліда, скільки воно коштує і як одна кнопка зіпсувала Гамілтону Баку-2021.",
+    "en": "Two dozen buttons, rotary switches, a screen and clutch paddles. How the wheel became the car's control panel, what it costs, and how one button ruined Hamilton's Baku 2021."
+  },
+  "links": {
+    "seasons": [
+      1989,
+      2021,
+      2026
+    ],
+    "races": [
+      "1989/1",
+      "2021/6"
+    ],
+    "drivers": [
+      "hamilton",
+      "mansell",
+      "berger",
+      "senna",
+      "johansson",
+      "norris"
+    ],
+    "teams": [
+      "ferrari",
+      "mercedes",
+      "mclaren"
+    ],
+    "stories": [
+      "f1-tech-revolutions",
+      "f1-car-cost",
+      "f1-driver-body"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "w1",
+      "title": "How Does an F1 Steering Wheel Work? (2019 Mercedes wheel)",
+      "publisher": "Mercedes-AMG Petronas F1 Team",
+      "date": "2023-10-09",
+      "url": "https://www.mercedesamgf1.com/news/how-does-an-f1-steering-wheel-work",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "w2",
+      "title": "Explained: Ferrari SF90 steering wheel",
+      "publisher": "Ferrari",
+      "date": "2019-10-23",
+      "url": "https://www.ferrari.com/en-GB/magazine/articles/ferrari-sf90-formula-one-steering-wheel",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "w3",
+      "title": "Through the ages: Formula One steering wheels",
+      "publisher": "McLaren",
+      "date": "2014-10-29",
+      "url": "https://www.mclaren.com/racing/team/through-the-ages-formula-one-steering-wheels/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "w4",
+      "title": "F1 steering wheels: How they work, what the buttons do and more",
+      "publisher": "Motorsport.com",
+      "date": "2024-01-01",
+      "url": "https://www.motorsport.com/f1/news/f1-steering-wheels-how-they-work-what-the-buttons-do-and-more/10561142/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w5",
+      "title": "How much does an F1 car cost?",
+      "publisher": "Motor Sport Magazine",
+      "date": "2025-01-14",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/how-much-does-an-f1-car-cost",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w6",
+      "title": "Revealed: The staggering cost of a modern day Formula 1 car",
+      "publisher": "PlanetF1",
+      "date": "2023-08-03",
+      "url": "https://www.planetf1.com/news/formula-1-car-cost-revealed",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w7",
+      "title": "Insider's guide: How is an F1 car made?",
+      "publisher": "Motorsport.com",
+      "date": "2022-04-06",
+      "url": "https://www.motorsport.com/f1/news/how-is-an-f1-car-made/7626323/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w8",
+      "title": "TECH TUESDAY: What is the 'magic' brake setting that cost Hamilton in Baku (Mark Hughes, Giorgio Piola)",
+      "publisher": "Formula1.com",
+      "date": "2021-06-08",
+      "url": "https://www.formula1.com/en/latest/article/tech-tuesday-what-is-the-magic-brake-setting-that-cost-hamilton-in-baku-and.79Mw4XSrxksy7jen3CE8FX",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w9",
+      "title": "TECH TUESDAY: Why Vettel's Ferrari steering wheel continues to evolve (Mark Hughes, Giorgio Piola)",
+      "publisher": "Formula1.com",
+      "date": "2018-04-24",
+      "url": "https://www.formula1.com/en/latest/article/tech-tuesday-why-vettels-ferrari-steering-wheel-continues-to-evolve.2jSi4Mnm68U8M6wOg0aeuo",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w10",
+      "title": "The troubled Ferrari that was a game-changer for F1 (Matt Somerfield, Giorgio Piola)",
+      "publisher": "Motorsport.com",
+      "date": "2021-06-04",
+      "url": "https://www.motorsport.com/f1/news/the-troubled-car-that-was-a-game-changer-for-f1/4801236/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w11",
+      "title": "Gerhard Berger on the flawed genius of his 1989 Ferrari 640 (Ethan Jupp)",
+      "publisher": "Goodwood Road & Racing",
+      "date": "2024-04-14",
+      "url": "https://www.goodwood.com/grr/event-coverage/members-meeting/gerhard-berger-on-the-flawed-genius-of-his-1989-ferrari-640/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "w12",
+      "title": "The 75 best drivers, cars, innovations, teams and key figures in F1 history",
+      "publisher": "Formula1.com",
+      "date": "2025-03-05",
+      "url": "https://www.formula1.com/en/latest/article/the-75-best-drivers-cars-innovations-teams-and-key-figures-in-f1-history.6VcYXd7l9aI6fysNWtxFja",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w13",
+      "title": "Introducing F1's new terminology: Boost Button, Overtake Mode, Active Aero, and Recharge",
+      "publisher": "McLaren",
+      "date": "2026-01-16",
+      "url": "https://www.mclaren.com/racing/formula-1/2026/introducing-new-f1-terminology/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "w14",
+      "title": "EXPLAINED: The key terms for Formula 1's new-for-2026 rules",
+      "publisher": "Formula1.com",
+      "date": "2025-12-17",
+      "url": "https://www.formula1.com/en/latest/article/explained-the-new-key-terms-for-formula-1s-new-for-2026-rules.3T5BU6TC9quGcIpGzoWkY0",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "w15",
+      "title": "2026 F1 Regulations — Section C: Technical, Issue 17 (Art. C9.2, C12.5)",
+      "publisher": "FIA",
+      "date": "2026-04-28",
+      "url": "https://api.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_c_technical_-_iss_17_-_2026-04-28.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "w16",
+      "title": "Jolpica F1 API: 2021 Azerbaijan GP results",
+      "publisher": "Jolpica F1 API",
+      "date": "2021-06-06",
+      "url": "https://api.jolpi.ca/ergast/f1/2021/6/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "w17",
+      "title": "Jolpica F1 API: 1989 Brazilian GP results",
+      "publisher": "Jolpica F1 API",
+      "date": "1989-03-26",
+      "url": "https://api.jolpi.ca/ergast/f1/1989/1/results.json",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "w18",
+      "title": "How Carlos Sainz and Lando Norris improve their reaction times",
+      "publisher": "McLaren",
+      "date": "2020-09-24",
+      "url": "https://www.mclaren.com/racing/team/carlos-sainz-lando-norris-reaction-time/",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Кермо Mercedes 2019 року: 25 кнопок і перемикачів, плюс пелюстки зчеплення й перемикання передач.",
+      "sources": [
+        "w1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c2",
+      "text": "Motor Sport (2025): кермо будують навколо стандартної електроніки McLaren Applied — до 20 кнопок, 9 поворотних перемикачів і 6 пелюсток; функції кожна команда призначає сама.",
+      "sources": [
+        "w5"
+      ],
+      "status": "one",
+      "note": "Рахунок інший, ніж у Mercedes (c1): різні роки й різні способи лічби."
+    },
+    {
+      "id": "c3",
+      "text": "Гальма й диференціал: у Mercedes 5 органів для гальм (баланс, гальмування двигуном, міграція) і 3 для диференціала (вхід, апекс, вихід); диференціал за фазами повороту — також Ferrari і Motorsport.com.",
+      "sources": [
+        "w1",
+        "w2",
+        "w4"
+      ],
+      "status": "ok",
+      "note": "Кількості (5 і 3) — лише w1."
+    },
+    {
+      "id": "c4",
+      "text": "Mercedes: найважливіший перемикач — «Strat» (режими силової установки, віддача й рекуперація енергії); режим зазвичай називає інженер.",
+      "sources": [
+        "w1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c5",
+      "text": "Ferrari SF90: манетіно (гібрид, мапінг мотора, «Grip» для пробуксовки зчеплення на старті, режим «SC»); кнопки N, P, радіо, DRS (K2), OIL, пиття, підтвердження; світлові дублери прапорів.",
+      "sources": [
+        "w2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c6",
+      "text": "Mercedes: на колі в Мельбурні — близько 50 перемикань передач; 15 світлодіодів над дисплеєм.",
+      "sources": [
+        "w1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c7",
+      "text": "Дві пелюстки перемикання за кермом; зазвичай ліва — вниз, права — вгору.",
+      "sources": [
+        "w4"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c8",
+      "text": "Mercedes: матеріали — вуглепластик, склопластик, силікон, титан, мідь; кілька сотень деталей; майже все робиться в Бреклі, крім центрального дисплея й плати під ним, спільних для всіх команд.",
+      "sources": [
+        "w1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c9",
+      "text": "Кермо — переважно з карбону із силіконовими накладками.",
+      "sources": [
+        "w1",
+        "w5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "Кожна команда має власне кермо й розкладку; кермо виготовляють під руки конкретного пілота, змінюють і впродовж сезону.",
+      "sources": [
+        "w1",
+        "w4"
+      ],
+      "status": "ok",
+      "note": "Власна розкладка в кожної команди — w4; зміни впродовж сезону — w1."
+    },
+    {
+      "id": "c11",
+      "text": "Mercedes: кнопки авіаційного класу з тугим ходом; пластикові бортики навколо кнопок, зокрема для шпильки Монако.",
+      "sources": [
+        "w1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c12",
+      "text": "Mercedes: 3–4 керма на пілота за сезон, близько 80 годин на одне.",
+      "sources": [
+        "w1"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c13",
+      "text": "Вартість керма (оцінки): Motor Sport 2025 — $50 тис. (£35 тис.); PlanetF1 2023 — €50 тис. (£43 тис.); Motorsport.com — £50 тис.",
+      "sources": [
+        "w5",
+        "w6",
+        "w7"
+      ],
+      "status": "dis",
+      "note": "Діапазон ~£35–50 тис.; PlanetF1 спирається на колонку Пета Саймондса в Motor Sport (2021), тож незалежність часткова."
+    },
+    {
+      "id": "c14",
+      "text": "1969 McLaren M7C — лише кермування; у середині 1970-х (M23, 1974) — перший перемикач: аварійне вимикання запалювання через ризик заклинювання дросельних заслінок.",
+      "sources": [
+        "w3",
+        "w4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "text": "1980-ті: швидкоз'ємне кріплення керма, що дало змогу зробити кокпіти тіснішими.",
+      "sources": [
+        "w3",
+        "w4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c16",
+      "text": "1980-ті: кнопки радіо і «бусту»; на кермі Сенни (McLaren MP4/4, 1988) — лише ці дві.",
+      "sources": [
+        "w3",
+        "w4"
+      ],
+      "status": "ok",
+      "note": "Кермо Сенни — лише w3."
+    },
+    {
+      "id": "c17",
+      "text": "1980-ті: замшевий обід — Стефан Юханссон назвав його першим «real improvement»; Менселл — товсті накладки, Сенна — навпаки.",
+      "sources": [
+        "w4"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c18",
+      "text": "Ferrari 640 (1989, Джон Барнард) — перша у Ф1 напівавтоматична коробка з пелюстками за кермом; не стало важеля коробки й педалі зчеплення.",
+      "sources": [
+        "w10",
+        "w12",
+        "w11"
+      ],
+      "status": "ok",
+      "note": "Про відсутність педалі зчеплення — w10 (також w4)."
+    },
+    {
+      "id": "c19",
+      "text": "Барнард пропонував дві кнопки на кермі; пелюстки запропонував П'єро Ларді Феррарі.",
+      "sources": [
+        "w10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c20",
+      "text": "26.03.1989: Менселл виграв Гран-прі Бразилії на дебюті Ferrari 640.",
+      "sources": [
+        "w10",
+        "w12",
+        "w17"
+      ],
+      "status": "ok",
+      "note": "Дата — w17."
+    },
+    {
+      "id": "c21",
+      "text": "Бергер: «For the first time, you had both hands on the steering wheel, you could shift in corners»; з механікою в Монако ~1500 перемикань, 80% часу — однією рукою.",
+      "sources": [
+        "w11"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c22",
+      "text": "До середини 1990-х напівавтоматичні коробки — в усіх командах; McLaren — з MP4/7 у 1992.",
+      "sources": [
+        "w12",
+        "w11",
+        "w3"
+      ],
+      "status": "ok",
+      "note": "McLaren 1992 — лише w3; Goodwood (w11): через шість років жодна команда не мала механічної коробки."
+    },
+    {
+      "id": "c23",
+      "text": "1990-ті: обмежувач на піт-лейні, поворотні перемикачі; дисплей McLaren довго стояв на передній стінці кокпіта і переїхав на кермо у 2009, щоб зекономити вагу.",
+      "sources": [
+        "w3",
+        "w4"
+      ],
+      "status": "ok",
+      "note": "Перенесення дисплея у 2009 — лише w3."
+    },
+    {
+      "id": "c24",
+      "text": "2014: великий РК-дисплей на кермі з меню даних, з початком гібридної ери.",
+      "sources": [
+        "w3",
+        "w4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "Регламент 2026 (C9.2.1): щонайбільше дві пелюстки зчеплення на кермі, тягнуться до пілота, хід ≤80 мм; з 2016 FIA заборонила заздалегідь запрограмовану точку схоплення.",
+      "sources": [
+        "w15",
+        "w9"
+      ],
+      "status": "ok",
+      "note": "Заборона 2016 — w9; 80 мм — w15 і w9."
+    },
+    {
+      "id": "c26",
+      "text": "Регламент 2026 (C12.5): швидкоз'ємне кріплення; зняти кермо й вибратися — за 7 с, поставити кермо назад — загалом за 12 с.",
+      "sources": [
+        "w15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c27",
+      "text": "McLaren: Норріс тренує старти в машині — вогні на дисплеї керма гаснуть, і він відпускає зчеплення на задану інженерами величину.",
+      "sources": [
+        "w18"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c28",
+      "text": "«Brake magic» у Баку 2021: F1.com — баланс із ~52–53% на передню вісь до ~86,5%; Motorsport.com — з 55–60% до ~90%.",
+      "sources": [
+        "w8",
+        "w4"
+      ],
+      "status": "dis",
+      "note": "Різні оцінки звичного й «магічного» балансу; F1.com пише, що 86,5% — «believed»."
+    },
+    {
+      "id": "c29",
+      "text": "Баку 2021: кнопка ззаду на кермі Mercedes, для прогріву передніх шин на прогрівальному колі / за машиною безпеки; Гамілтон випадково натиснув на рестарті на 50-му колі, заблокував колеса в 1-му повороті; з другого місця — на 15-те.",
+      "sources": [
+        "w8",
+        "w4",
+        "w16"
+      ],
+      "status": "ok",
+      "note": "50-те коло — w4; P2→P15 — w8; фініш 15-м — w16."
+    },
+    {
+      "id": "c31",
+      "text": "2026: DRS скасовано; Boost Button — будь-де на колі, повна потужність, якщо є заряд; Overtake Mode — якщо в контрольній точці менш ніж за 1 с від суперника, на наступному колі +0,5 МДж; Straight Mode пілот відкриває вручну в кожній зоні.",
+      "sources": [
+        "w13",
+        "w14"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c32",
+      "text": "Пілот налаштовує баланс гальм під окремі повороти (Mercedes); перемикачі диференціала DIF IN / DIF MID крутять кілька разів за коло (Ferrari).",
+      "sources": [
+        "w1",
+        "w2"
+      ],
+      "status": "ok"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/f1-steering-wheel/m1-1280.webp",
+      "srcSet": "/img/stories/f1-steering-wheel/m1-1280.webp 1280w, /img/stories/f1-steering-wheel/m1-800.webp 800w, /img/stories/f1-steering-wheel/m1-480.webp 480w",
+      "width": 1280,
+      "height": 853,
+      "focus": "50% 45%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:McLaren_MP4-23_Steering_Wheel_at_Formula_1_Exhibition,_London.jpg",
+        "author": "Hullian111",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Кермо McLaren MP4-23 2008 року на виставці Formula 1 Exhibition у Лондоні, 2025 рік.",
+        "en": "The steering wheel of the 2008 McLaren MP4-23 at the Formula 1 Exhibition in London, 2025."
+      },
+      "alt": {
+        "uk": "Чорне кермо з кнопками, перемикачами й екраном під склом вітрини.",
+        "en": "A black steering wheel with buttons, rotary switches and a display in a glass case."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/f1-steering-wheel/m2-800.webp",
+      "srcSet": "/img/stories/f1-steering-wheel/m2-800.webp 800w, /img/stories/f1-steering-wheel/m2-480.webp 480w",
+      "width": 800,
+      "height": 600,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Alpine_F1_steering_wheel.jpg",
+        "author": "Declan M Martin",
+        "license": "Public domain"
+      },
+      "caption": {
+        "uk": "Технік Alpine показує глядачам кермо в перший день Гран-прі США, Остін, 22 жовтня 2021 року.",
+        "en": "An Alpine technician shows the team's steering wheel to spectators on the first practice day of the United States Grand Prix, Austin, 22 October 2021."
+      },
+      "alt": {
+        "uk": "Руки тримають кермо з кольоровим екраном і різнокольоровими перемикачами.",
+        "en": "Hands holding a steering wheel with a colour screen and multicoloured switches."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/f1-steering-wheel/m3-800.webp",
+      "srcSet": "/img/stories/f1-steering-wheel/m3-800.webp 800w, /img/stories/f1-steering-wheel/m3-480.webp 480w",
+      "width": 800,
+      "height": 600,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:McLaren_M7C_2016_McLaren_Technology_Center_(30777745473).jpg",
+        "author": "Curt Smith from Bellevue, WA, USA",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "McLaren M7C у McLaren Technology Centre, грудень 2016 року.",
+        "en": "The McLaren M7C at the McLaren Technology Centre, December 2016."
+      },
+      "alt": {
+        "uk": "Помаранчевий болід 1960-х з номером 4 у виставковій залі.",
+        "en": "An orange 1960s car with the number 4 in an exhibition hall."
+      }
+    },
+    {
+      "id": "m4",
+      "role": "inline",
+      "src": "/img/stories/f1-steering-wheel/m4-800.webp",
+      "srcSet": "/img/stories/f1-steering-wheel/m4-800.webp 800w, /img/stories/f1-steering-wheel/m4-480.webp 480w",
+      "width": 800,
+      "height": 537,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:McLaren_MP4-2_steering_wheel.jpg",
+        "author": "John Chapman (Pyrope)",
+        "license": "CC BY-SA 3.0"
+      },
+      "caption": {
+        "uk": "Кермо McLaren MP4/2 1984 року.",
+        "en": "The steering wheel of the 1984 McLaren MP4/2."
+      },
+      "alt": {
+        "uk": "Невелике кермо й прилади в кокпіті біло-червоного боліда.",
+        "en": "A small steering wheel and gauges in the cockpit of a red and white car."
+      }
+    }
+  ]
+}

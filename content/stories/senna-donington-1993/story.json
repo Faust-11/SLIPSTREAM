@@ -1,0 +1,687 @@
+{
+  "slug": "senna-donington-1993",
+  "category": "sensation",
+  "years": [
+    1993
+  ],
+  "title": {
+    "uk": "Донінгтон-1993: коло Сенни",
+    "en": "Donington 1993: Senna's lap"
+  },
+  "dek": {
+    "uk": "Мокра траса, клієнтський мотор Ford і четверте місце на старті. За одне коло Айртон Сенна обійшов чотирьох суперників, а потім виграв гонку, в якій Williams заплуталися в піт-стопах.",
+    "en": "A wet track, a customer Ford engine and fourth on the grid. In one lap Ayrton Senna passed four rivals, then won a race in which Williams got lost in their own pit stops."
+  },
+  "links": {
+    "seasons": [
+      1993
+    ],
+    "races": [
+      "1993/3"
+    ],
+    "drivers": [
+      "senna",
+      "prost",
+      "damon_hill",
+      "michael_schumacher",
+      "wendlinger",
+      "andretti",
+      "barrichello",
+      "herbert",
+      "patrese",
+      "barbazza",
+      "emerson_fittipaldi"
+    ],
+    "teams": [
+      "mclaren",
+      "williams",
+      "benetton",
+      "sauber",
+      "jordan",
+      "lotus",
+      "minardi"
+    ],
+    "circuits": [
+      "donington"
+    ],
+    "stories": [
+      "panis-monaco-1996"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Jolpica F1 API — 1993 European Grand Prix results",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1993/3/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "Jolpica F1 API — Ayrton Senna, race wins",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/drivers/senna/results/1/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "Jolpica F1 API — 1993 driver standings after round 3",
+      "publisher": "Jolpica (Ergast)",
+      "date": "",
+      "url": "https://api.jolpi.ca/ergast/f1/1993/3/driverStandings/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "European GP 1993 — race report and results",
+      "publisher": "GrandPrix.com",
+      "date": "1993-04-11",
+      "url": "https://www.grandprix.com/races/european-gp-1993.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "1993 European Grand Prix: Opportunity knocked (race report, D J T)",
+      "publisher": "Motor Sport",
+      "date": "1993-05-01",
+      "url": "https://www.motorsportmagazine.com/archive/article/may-1993/18/opportunity-knocked/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "Lap of the gods (Shaun Campbell)",
+      "publisher": "Motor Sport",
+      "date": "1997-06-01",
+      "url": "https://www.motorsportmagazine.com/archive/article/june-1997/48/lap-of-the-gods-2/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "'Pure genius' — Senna, Donington and the best opening lap in F1 history (Matt Bishop)",
+      "publisher": "Motor Sport",
+      "date": "2023-04-11",
+      "url": "https://motorsportmagazine.com/articles/single-seaters/f1/pure-genius-senna-donington-and-the-best-opening-lap-in-f1-history",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "Senna's East Midlands masterclass (Simon Arron)",
+      "publisher": "Motor Sport",
+      "date": "2023-04-03",
+      "url": "https://motorsportmagazine.com/archive/article/may-2023/31/sennas-east-midlands-masterclass",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "Why Senna felt unstoppable at Donington in 1993 (Charles Bradley)",
+      "publisher": "Motorsport.com",
+      "date": "2024-04-11",
+      "url": "https://www.motorsport.com/f1/news/ayrton-senna-unstoppable-donington-1993/4779459/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "1993 European Grand Prix — fastest laps",
+      "publisher": "Formula 1 (formula1.com)",
+      "date": "",
+      "url": "https://www.formula1.com/en/results/1993/races/592/europe/fastest-laps",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "1993 European Grand Prix — starting grid",
+      "publisher": "Formula 1 (formula1.com)",
+      "date": "",
+      "url": "https://www.formula1.com/en/results/1993/races/592/europe/starting-grid",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Гран-прі Європи 1993 у Донінгтон-Парку — 11 квітня, третій етап сезону",
+      "sources": [
+        "s1",
+        "s4",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "Попередній гран-прі в Донінгтоні — 1938 рік, переміг Таціо Нуволарі на Auto Union",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c3",
+      "text": "Гонка в Донінгтоні — здійснена мрія Тома Віткрофта",
+      "sources": [
+        "s4",
+        "s5"
+      ],
+      "status": "ok",
+      "note": "s4: «Tom Wheatcroft's dreams… finally came true»; s5: «Tom Wheatcroft's long-awaited Grand Prix»."
+    },
+    {
+      "id": "c4",
+      "text": "Місце в календарі звільнилося після провалу плану Гран-прі Азії на Автополісі",
+      "sources": [
+        "s4"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c5",
+      "text": "McLaren — клієнтські мотори Ford; заводська команда Ford — Benetton, з кращою специфікацією",
+      "sources": [
+        "s4",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "1993 — перший сезон Сенни в McLaren без Honda, яка пішла з Ф1",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c7",
+      "text": "За оцінкою Метта Бішопа, Ford V8 поступався Renault V10 щонайменше на 80 к. с.",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c43",
+      "text": "Williams FW15C мала активну підвіску, трекшн-контроль і ABS",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c8",
+      "text": "Стартова решітка: Прост, Гілл, Шумахер, Сенна, Вендлінгер, Андретті",
+      "sources": [
+        "s1",
+        "s4",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c9",
+      "text": "Сенна поступився Простові в кваліфікації 1,649 с (1:12.107 проти 1:10.458)",
+      "sources": [
+        "s11",
+        "s9"
+      ],
+      "status": "ok",
+      "note": "s5 пише «nearly two seconds», s8 — «1.5sec»; точні часи — s11, різницю 1.649s називає s9."
+    },
+    {
+      "id": "c10",
+      "text": "Цитата Сенни перед гонкою: «There is no long straight here and passing is difficult. Because of this there may be some controversy on overtaking.»",
+      "sources": [
+        "s5"
+      ],
+      "status": "one",
+      "note": "s9 цитує фрагмент «some controversy on overtaking»; повна фраза — лише s5."
+    },
+    {
+      "id": "c11",
+      "text": "На старті Шумахер відтиснув Сенну вліво, Вендлінгер вийшов третім, Сенна в Редгейт увійшов п'ятим",
+      "sources": [
+        "s4",
+        "s5",
+        "s6",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c12",
+      "text": "Сенна одразу пройшов Шумахера, а Вендлінгера об'їхав по зовнішній у Craner Curves на спуску до Old Hairpin",
+      "sources": [
+        "s4",
+        "s5",
+        "s7",
+        "s9"
+      ],
+      "status": "ok",
+      "note": "Місце обгону Шумахера: s4, s7, s9 — Редгейт / вихід з нього, s5 — Hollywood (одразу після Редгейта); у тексті — «майже одразу»."
+    },
+    {
+      "id": "c13",
+      "text": "Місце обгону Гілла: McLeans чи Coppice",
+      "sources": [
+        "s5",
+        "s7",
+        "s8",
+        "s9",
+        "s4",
+        "s6"
+      ],
+      "status": "dis",
+      "note": "s5, s7, s8, s9 — McLeans (McLean's); s4 і s6 — Coppice."
+    },
+    {
+      "id": "c14",
+      "text": "Проста Сенна обійшов усередині на гальмуванні перед шпилькою Melbourne",
+      "sources": [
+        "s4",
+        "s5",
+        "s6",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "text": "За підрахунком Бішопа, з п'ятого на перше — приблизно за 75 секунд",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c16",
+      "text": "Андретті зіткнувся з Вендлінгером, обидва зійшли на першому колі",
+      "sources": [
+        "s1",
+        "s4",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c17",
+      "text": "Барікелло — четвертий після першого кола з 12-го місця на старті",
+      "sources": [
+        "s4",
+        "s5",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "Цитата Ніла Оатлі: «I remember being staggered at the size of Ayrton's lead. I thought the Williams had spun.»",
+      "sources": [
+        "s8"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c19",
+      "text": "Сенна відірвався приблизно на сім секунд",
+      "sources": [
+        "s4",
+        "s9"
+      ],
+      "status": "ok",
+      "note": "s9: «After four laps, Senna was 7s clear»; s4: «a lead of seven seconds»."
+    },
+    {
+      "id": "c20",
+      "text": "Прост: від старту коробка скидала в нейтраль (проблеми з трансмісією)",
+      "sources": [
+        "s5",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c21",
+      "text": "Після 18-го кола Сенна поставив сліки; знову дощ — Williams на дощові, Сенна лишився на сліках",
+      "sources": [
+        "s4",
+        "s5",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "text": "Невдалий піт-стоп: зірвана різьба гайки правого заднього колеса, лідерство повернулося до Проста",
+      "sources": [
+        "s5",
+        "s9",
+        "s4"
+      ],
+      "status": "ok",
+      "note": "Праве заднє колесо й гайку — s5 і s9; проблему на зупинці й утрату лідерства — s4 і s5."
+    },
+    {
+      "id": "c24",
+      "text": "Сенна повернув лідерство на 39-му колі",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c23",
+      "text": "Прост заглух на одній із зупинок",
+      "sources": [
+        "s5",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c25",
+      "text": "57-ме коло: команда не була готова, Сенна проїхав боксами; піт-лейн зрізав останній поворот, коло 1:18.029 — найшвидше в гонці",
+      "sources": [
+        "s10",
+        "s9",
+        "s5",
+        "s4"
+      ],
+      "status": "ok",
+      "note": "Час і номер кола — s10 і s9; що проїзд через бокси став найшвидшим колом — s4, s5, s9."
+    },
+    {
+      "id": "c26",
+      "text": "Цитата Сенни про проїзд боксами: «I think they told me to come and I didn't come…»",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c27",
+      "text": "Заїзди Сенни на піт-лейн: 4 зупинки + проїзд (Motorsport.com) або 5 зупинок, остання — на дощові шини (Motor Sport); Прост — сім зупинок",
+      "sources": [
+        "s5",
+        "s9"
+      ],
+      "status": "dis",
+      "note": "s5 (Motor Sport): «Senna would stop five times, but his last was more of a precautionary call for wets»; s9 (Motorsport.com): проїзд на 57-му колі й «fourth actual stop». Прост — сім в обох."
+    },
+    {
+      "id": "c44",
+      "text": "Гілл зупинявся шість разів",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c35",
+      "text": "Цитата Гілла: «It was like a nightmare! The worst conditions you ever wanted to race in.»",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c28",
+      "text": "Сенна переміг з відривом 1:23.199 від Гілла, решту обігнав на коло",
+      "sources": [
+        "s1",
+        "s5",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c29",
+      "text": "Третій — Прост, далі Герберт, Патрезе, Барбацца",
+      "sources": [
+        "s1",
+        "s4"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c30",
+      "text": "Барікелло зійшов за кілька кіл до фінішу через проблему з подачею палива",
+      "sources": [
+        "s1",
+        "s4",
+        "s5"
+      ],
+      "status": "ok",
+      "note": "s1 — 70 кіл, «Fuel system»; s4, s5 — тиск палива на 71-му колі. Чи він був тоді третім (s4) чи четвертим (s5), джерела розходяться — у тексті «у першій четвірці»."
+    },
+    {
+      "id": "c31",
+      "text": "38-ма перемога Сенни у Ф1",
+      "sources": [
+        "s2",
+        "s9",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c32",
+      "text": "Після трьох етапів: Сенна 26 очок, Прост 14",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c36",
+      "text": "За десять років до того в Донінгтоні Сенна вперше проїхав за кермом машини Ф1 — Williams",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c34",
+      "text": "Цитата Сенни: «I don't know how many times we stopped for tyres, it was surely the record in any race for pitstops.»",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c45",
+      "text": "На пресконференції Прост перелічив проблеми: коробка, заглухлий мотор, тиск у шинах",
+      "sources": [
+        "s5",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c33",
+      "text": "Сенна Простові: «Perhaps you should change cars with me»",
+      "sources": [
+        "s5",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c37",
+      "text": "Найджел Роубак (Autosport): «This was Senna at his most majestic»",
+      "sources": [
+        "s9"
+      ],
+      "status": "one",
+      "note": "Цитату зі звіту Autosport наводить s9 (той самий медіахолдинг)."
+    },
+    {
+      "id": "c40",
+      "text": "Звіт Motor Sport, травень 1993: «quite possibly the best drive of Senna's career»",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c41",
+      "text": "Шон Кемпбелл (Motor Sport, 1997): гонку виграно на першому колі",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c38",
+      "text": "Бішоп: на його думку, це найкраще перше коло в історії Ф1",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c39",
+      "text": "Цитата Емерсона Фіттіпальді (дивився в Маямі): «The first lap? Pure genius…»",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c50",
+      "text": "Цитата Сенни: «At the start I decided to really go for it, before Williams had the time to settle down.»",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c46",
+      "text": "Шумахер вилетів з траси після 22 кіл",
+      "sources": [
+        "s1",
+        "s4",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c47",
+      "text": "Герберт стартував 11-м, рано перейшов на сліки й лишався на трасі якомога довше",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c48",
+      "text": "Цитата Пітера Коллінза (Lotus): «We kept our nerve when many others were panicked into making too many tyre stops.»",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c49",
+      "text": "Цитата Сенни: «Conditions like this is gambling, and it's taking chances that pays off. I think we gambled good and we got the result.»",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c51",
+      "text": "Причина вильоту Шумахера — заблоковані задні колеса на скиданні передачі",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c52",
+      "text": "Невдалий піт-стоп Сенни — на 34-му колі",
+      "sources": [
+        "s5"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/senna-donington-1993/m1-1280.webp",
+      "srcSet": "/img/stories/senna-donington-1993/m1-1280.webp 1280w, /img/stories/senna-donington-1993/m1-800.webp 800w, /img/stories/senna-donington-1993/m1-480.webp 480w",
+      "width": 1280,
+      "height": 853,
+      "focus": "35% 70%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Senna_1993_European_GP.jpg",
+        "author": "Martin Lee",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Айртон Сенна на McLaren під час Гран-прі Європи в Донінгтон-Парку, 1993 рік.",
+        "en": "Ayrton Senna in his McLaren at the 1993 European Grand Prix, Donington Park."
+      },
+      "alt": {
+        "uk": "Біло-червоний болід McLaren на трасі.",
+        "en": "A red and white McLaren car on track."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/senna-donington-1993/m2-800.webp",
+      "srcSet": "/img/stories/senna-donington-1993/m2-800.webp 800w, /img/stories/senna-donington-1993/m2-480.webp 480w",
+      "width": 800,
+      "height": 422,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Schumacher_1993_European_GP.jpg",
+        "author": "Martin Lee",
+        "license": "CC BY-SA 2.0"
+      },
+      "caption": {
+        "uk": "Міхаель Шумахер на Benetton під час Гран-прі Європи в Донінгтон-Парку, 1993 рік.",
+        "en": "Michael Schumacher in his Benetton at the 1993 European Grand Prix, Donington Park."
+      },
+      "alt": {
+        "uk": "Зелено-жовтий болід Benetton на трасі.",
+        "en": "A green and yellow Benetton car on track."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/senna-donington-1993/m3-800.webp",
+      "srcSet": "/img/stories/senna-donington-1993/m3-800.webp 800w, /img/stories/senna-donington-1993/m3-480.webp 480w",
+      "width": 800,
+      "height": 1200,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:1993_European_Grand_Prix_Trophy_at_Formula_1_Exhibition,_London.jpg",
+        "author": "Hullian111",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Кубок переможця Гран-прі Європи 1993 року, який отримав Айртон Сенна, на виставці Formula 1 Exhibition у Лондоні, 2025 рік.",
+        "en": "The 1993 European Grand Prix winner's trophy, awarded to Ayrton Senna, at the Formula 1 Exhibition in London, 2025."
+      },
+      "alt": {
+        "uk": "Бронзова фігурка їжака Соніка, що тримає кубок, на постаменті з написом SEGA.",
+        "en": "A bronze figure of Sonic the Hedgehog holding a cup, on a plinth marked SEGA."
+      }
+    }
+  ]
+}

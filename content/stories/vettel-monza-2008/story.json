@@ -1,0 +1,800 @@
+{
+  "slug": "vettel-monza-2008",
+  "category": "sensation",
+  "years": [
+    2008
+  ],
+  "title": {
+    "uk": "Монца-2008: дощ, Toro Rosso і 21-річний Феттель",
+    "en": "Monza 2008: rain, Toro Rosso and a 21-year-old Vettel"
+  },
+  "dek": {
+    "uk": "Колишня Minardi, яка за 340 Гран-прі не мала навіть подіуму, у зливу виграла Гран-прі Італії. За кермом — наймолодший поулситер і переможець в історії на той момент.",
+    "en": "The former Minardi, which had not scored even a podium in 340 Grands Prix, won the Italian Grand Prix in the rain. At the wheel was the youngest pole-sitter and winner in history at the time."
+  },
+  "links": {
+    "seasons": [
+      2008,
+      2020
+    ],
+    "races": [
+      "2008/14",
+      "2020/8"
+    ],
+    "drivers": [
+      "vettel",
+      "kovalainen",
+      "kubica",
+      "alonso",
+      "hamilton",
+      "bourdais",
+      "massa",
+      "berger",
+      "gasly"
+    ],
+    "teams": [
+      "toro-rosso",
+      "minardi",
+      "alphatauri",
+      "mclaren",
+      "bmw-sauber"
+    ],
+    "circuits": [
+      "monza"
+    ]
+  },
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "2008 Italian Grand Prix — race results (round 14)",
+      "publisher": "Jolpica F1 API",
+      "date": "2008-09-14",
+      "url": "https://api.jolpi.ca/ergast/f1/2008/14/results/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s2",
+      "title": "2008 Italian Grand Prix — qualifying results",
+      "publisher": "Jolpica F1 API",
+      "date": "2008-09-13",
+      "url": "https://api.jolpi.ca/ergast/f1/2008/14/qualifying/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s3",
+      "title": "2008 Italian Grand Prix — Vettel lap-by-lap positions",
+      "publisher": "Jolpica F1 API",
+      "date": "2008-09-14",
+      "url": "https://api.jolpi.ca/ergast/f1/2008/14/drivers/vettel/laps/?limit=100",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "Driver: Sebastian Vettel (date of birth)",
+      "publisher": "Jolpica F1 API",
+      "date": "2026-11-15",
+      "url": "https://api.jolpi.ca/ergast/f1/drivers/vettel/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s5",
+      "title": "Italian GP 2008 — race notes: Vettel wins rain-soaked Italian GP from pole",
+      "publisher": "GrandPrix.com",
+      "date": "2008-09-14",
+      "url": "https://www.grandprix.com/races/italian-gp-2008-race-notes-vettel-wins-rain-soaked-italian-gp-from-pole.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s6",
+      "title": "2008 Italian Grand Prix report (Nigel Roebuck)",
+      "publisher": "Motor Sport",
+      "date": "2008-09-15",
+      "url": "https://www.motorsportmagazine.com/articles/single-seaters/f1/2008-italian-grand-prix-report",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s7",
+      "title": "Rising star Vettel is youngest F1 winner (Adam Cooper), November 2008 issue",
+      "publisher": "Motor Sport",
+      "date": "2008-11-01",
+      "url": "https://www.motorsportmagazine.com/archive/article/november-2008/12/rising-star-vettel-youngest-f1-winner/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s8",
+      "title": "Vettel makes history with Italian GP win (agencies)",
+      "publisher": "Dawn",
+      "date": "2008-09-15",
+      "url": "https://www.dawn.com/news/321280",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "2008 Italian GP facts and stats (Keith Collantine)",
+      "publisher": "RaceFans",
+      "date": "2008-09-15",
+      "url": "https://www.racefans.net/2008/09/15/2008-italian-gp-facts-and-stats/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "Post-GP statistical analysis: Italy (Michele Merlino)",
+      "publisher": "Autosport",
+      "date": "2008-09-17",
+      "url": "https://www.autosport.com/general/news/post-gp-statistical-analysis-italy-5079196/5079196/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "Vettel takes pole at Monza (Paul Logothetis, AP)",
+      "publisher": "Honolulu Advertiser / Associated Press",
+      "date": "2008-09-13",
+      "url": "https://the.honoluluadvertiser.com/article/2008/Sep/13/br/hawaii80913025.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s12",
+      "title": "Vettel youngest to take pole (AFP)",
+      "publisher": "Taipei Times / AFP",
+      "date": "2008-09-14",
+      "url": "https://www.taipeitimes.com/News/sport/archives/2008/09/14/2003423113",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s13",
+      "title": "Italian GP — Post Qualifying press conference (transcript)",
+      "publisher": "Pitpass",
+      "date": "2008-09-13",
+      "url": "https://www.pitpass.com/35969/Italian-GP-Post-Qualifying-press-conference",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "Italian GP — Post Race press conference (transcript)",
+      "publisher": "Pitpass",
+      "date": "2008-09-14",
+      "url": "https://www.pitpass.com/35989/Italian-GP-Post-Race-press-conference",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "Italian GP — Race notes: Toro Rosso (team press release)",
+      "publisher": "Pitpass / Scuderia Toro Rosso",
+      "date": "2008-09-14",
+      "url": "https://www.pitpass.com/35987/Italian-GP-Race-notes-Toro-Rosso",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "Stunning Vettel makes history",
+      "publisher": "Racecar",
+      "date": "2008-09-14",
+      "url": "https://www.racecar.com/News/24598/motorsport/stunning-vettel-makes-history",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "Monza 2008: How Vettel and Toro Rosso pulled off their fairytale F1 win (Luke Smith)",
+      "publisher": "Autosport",
+      "date": "2022-09-14",
+      "url": "https://autosport.com/all/news/monza-2008-how-vettel-and-toro-rosso-pulled-off-their-fairytale-win/10369162/",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "Q&A with Toro Rosso's Franz Tost",
+      "publisher": "Autosport",
+      "date": "2008-09-19",
+      "url": "https://www.autosport.com/f1/news/70713/q-and-a-with-toro-rosso-franz-tost",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "Toro Rosso's name change to AlphaTauri confirmed in provisional 2020 entry list",
+      "publisher": "Formula 1",
+      "date": "2019-11-30",
+      "url": "https://www.formula1.com/en/latest/article.toro-rossos-name-change-to-alpha-tauri-confirmed-in-provisional-2020-entry.5tIxtPAMsY8MACQAyvg41j.html",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "2008 vs 2020: Comparing Vettel and Gasly's emotional first F1 wins at Monza",
+      "publisher": "Formula 1",
+      "date": "2020-09-07",
+      "url": "https://www.formula1.com/en/latest/article/2008-vs-2020-comparing-vettel-and-gaslys-emotional-first-f1-wins-at-monza.45wjBBvSrEHjKzMdkD1N3H",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "Vor 17 Jahren schrieb Vettel in Monza Formel-1-Geschichte (Bianca Garloff)",
+      "publisher": "leinetal24.de",
+      "date": "2025-09-08",
+      "url": "https://www.leinetal24.de/sport/erfolgen-monza-als-geburtsstunde-von-sebastian-vettels-zr-93921144.html",
+      "kind": "secondary",
+      "lang": "de"
+    },
+    {
+      "id": "s22",
+      "title": "Italian Grand Prix 2020 race report: Gasly takes maiden win in Monza thriller",
+      "publisher": "Formula 1",
+      "date": "2020-09-06",
+      "url": "https://www.formula1.com/en/latest/article.gasly-takes-maiden-win-in-monza-thriller-from-sainz-as-penalty-leaves.2wjQyiSgOy8ggwcJlWHhsi.html",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s23",
+      "title": "F1: Alpha Tauri celebrates maiden win at Italian GP",
+      "publisher": "ANSA",
+      "date": "2020-09-07",
+      "url": "https://ansa.it/english/news/2020/09/07/f1-alpha-tauri-celebrates-maiden-win-at-italian-gp_455af2ab-eaa5-4aae-881a-e2594ea2e012.html",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Гран-прі Італії 2008 року — 14-й етап сезону, Монца, 14 вересня 2008.",
+      "sources": [
+        "s1",
+        "s5"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c2",
+      "text": "Toro Rosso виникла 2006 року з Minardi, яку купив Red Bull; команда базувалася у Фаенці.",
+      "sources": [
+        "s9",
+        "s19",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c3",
+      "text": "Команда прийшла у Формулу-1 як Minardi 1985 року.",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c4",
+      "text": "Minardi провела 340 Гран-прі без жодної перемоги, подіуму чи поула.",
+      "sources": [
+        "s9"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c5",
+      "text": "Феттель народився 3 липня 1987 року.",
+      "sources": [
+        "s4",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c6",
+      "text": "Дощ ішов у п'ятницю, суботу й неділю; кваліфікація була мокрою.",
+      "sources": [
+        "s6",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c7",
+      "text": "У кваліфікації 13 вересня Феттель показав найкращий час 1:37.555 і взяв поул — перший для себе і для команди.",
+      "sources": [
+        "s2",
+        "s11",
+        "s13"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c8",
+      "text": "Ковалайнен (McLaren) кваліфікувався другим з часом 1:37.631, на 0,076 с повільніше.",
+      "sources": [
+        "s2"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c9",
+      "text": "Гамілтон стартував 15-м — найгірша стартова позиція в його кар'єрі на той момент.",
+      "sources": [
+        "s11",
+        "s9",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c10",
+      "text": "Бурде (Toro Rosso) кваліфікувався четвертим.",
+      "sources": [
+        "s2",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c11",
+      "text": "Феттель став наймолодшим поулситером в історії Формули-1.",
+      "sources": [
+        "s10",
+        "s11",
+        "s12"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c12",
+      "text": "Рекорди наймолодшого поулситера і переможця до того належали Фернандо Алонсо.",
+      "sources": [
+        "s10",
+        "s7"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c13",
+      "text": "Цитата Феттеля після кваліфікації: «I never dreamt of being on pole».",
+      "sources": [
+        "s13",
+        "s11"
+      ],
+      "status": "ok",
+      "note": "Транскрипт пресконференції (s13): «dreamt»; AP (s11): «I never dreamed of being on pole». Зміст однаковий, у тексті — версія транскрипту."
+    },
+    {
+      "id": "c14",
+      "text": "Цитата Феттеля про видимість: «It was nearly impossible to see anything».",
+      "sources": [
+        "s13",
+        "s11"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c15",
+      "text": "Цитата Феттеля (AFP): «Now everyone will know there are two Italian teams in Formula One».",
+      "sources": [
+        "s12"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c16",
+      "text": "Гонка стартувала за машиною безпеки, яка пішла з траси після двох кіл.",
+      "sources": [
+        "s5",
+        "s6",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c17",
+      "text": "Бурде заглух на старті, одразу втратив коло і фінішував 18-м з відставанням на коло.",
+      "sources": [
+        "s5",
+        "s15",
+        "s16",
+        "s1"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c18",
+      "text": "Феттель лідирував до першого піт-стопу, кілька кіл був четвертим, а після зупинок суперників повернув лідерство і зберіг його до фінішу.",
+      "sources": [
+        "s3",
+        "s5",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c19",
+      "text": "Феттель лідирував 49 кіл із 53 (за даними покільних позицій).",
+      "sources": [
+        "s3"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c20",
+      "text": "Другу зупинку Феттель зробив, щоб перейти на проміжні шини; на фініші траса підсихала.",
+      "sources": [
+        "s5",
+        "s16"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c21",
+      "text": "Феттель виграв з перевагою 12,512 с над Ковалайненом; третім був Кубіца (BMW Sauber).",
+      "sources": [
+        "s1",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c22",
+      "text": "Масса фінішував шостим, Гамілтон сьомим; Гамілтон зберіг лідерство в чемпіонаті з перевагою в одне очко.",
+      "sources": [
+        "s1",
+        "s8",
+        "s6"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c23",
+      "text": "Цитата Феттеля: «I think for sure this is the best day of my life».",
+      "sources": [
+        "s14",
+        "s6"
+      ],
+      "status": "ok",
+      "note": "s6 наводить скорочено: «For sure this is the best day of my life»; у тексті — повна версія з транскрипту s14."
+    },
+    {
+      "id": "c24",
+      "text": "Цитата Феттеля: «The safety car helped me and being first and having no visibility problems at all was the key».",
+      "sources": [
+        "s14"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c25",
+      "text": "Вік Феттеля в день перемоги: 21 рік і 73 дні (або 74 дні — за частиною звітів).",
+      "sources": [
+        "s4",
+        "s9",
+        "s8",
+        "s6"
+      ],
+      "status": "dis",
+      "note": "Від дати народження 03.07.1987 (s4) до 14.09.2008 — 21 рік 73 дні; RaceFans (s9) дає 21 рік 2 міс. 11 днів, що збігається. Dawn/агенції (s8) і Motor Sport (s6) пишуть 21 рік і 74 дні. У тексті подано обидва варіанти."
+    },
+    {
+      "id": "c26",
+      "text": "Попередній рекорд наймолодшого переможця — Алонсо, 22 роки і 26 днів, Гран-прі Угорщини 2003.",
+      "sources": [
+        "s9",
+        "s8",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c27",
+      "text": "Феттель став першим німецьким переможцем Гран-прі після того, як Міхаель Шумахер завершив кар'єру 2006 року.",
+      "sources": [
+        "s8",
+        "s21"
+      ],
+      "status": "ok",
+      "note": "s21 формулює інакше: перемога прийшла через 714 днів після останньої перемоги Шумахера."
+    },
+    {
+      "id": "c28",
+      "text": "Для Toro Rosso це були перший поул, перший подіум і перша перемога.",
+      "sources": [
+        "s9",
+        "s10",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c29",
+      "text": "Це перша перемога машини з двигуном Ferrari, яку побудувала не Ferrari.",
+      "sources": [
+        "s9",
+        "s8"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c30",
+      "text": "Подіум Феттель — Ковалайнен — Кубіца став наймолодшим в історії (середній вік 23 роки 11 місяців 16 днів).",
+      "sources": [
+        "s9",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c31",
+      "text": "Співвласник Toro Rosso Герхард Бергер виграв на Монці 1988 року на Ferrari — за 20 років до перемоги Феттеля.",
+      "sources": [
+        "s6",
+        "s7",
+        "s8",
+        "s16"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c32",
+      "text": "Цитата Франца Тоста: «This was Vettel's race weekend».",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c33",
+      "text": "Цитата Тоста: «I didn't expect that in 2008 we would win here in Monza».",
+      "sources": [
+        "s18"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c34",
+      "text": "У Toro Rosso тоді працювало менш як 170 людей (близько 160 за словами Феттеля, 168 — за Motor Sport); Феттель порівнював це з ресурсами BMW, McLaren і Ferrari.",
+      "sources": [
+        "s17",
+        "s6"
+      ],
+      "status": "ok",
+      "note": "Цифри трохи різняться (≈160 у s17, 168 у s6), тому в тексті — «менш як 170»."
+    },
+    {
+      "id": "c35",
+      "text": "Після сезону 2008 Феттель переходив у Red Bull.",
+      "sources": [
+        "s6"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c36",
+      "text": "Франц Тост був керівником команди 2008 року.",
+      "sources": [
+        "s21"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c37",
+      "text": "6 вересня 2020 року та сама команда, вже як AlphaTauri, вдруге виграла Гран-прі — знову на Монці, з П'єром Гаслі, через 12 років після Феттеля.",
+      "sources": [
+        "s22",
+        "s20",
+        "s23"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c38",
+      "text": "Тост був на Монці 2008 року і очолював AlphaTauri 2020-го.",
+      "sources": [
+        "s20"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c39",
+      "text": "Гран-прі Італії 2020 зупиняли червоним прапором; лідер Гамілтон отримав штраф за заїзд на закритий піт-лейн.",
+      "sources": [
+        "s22"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c40",
+      "text": "Феттель дебютував на Гран-прі США 2007 за BMW Sauber, фінішував восьмим і в 19 років (19 р. 11 міс. 14 дн.) став наймолодшим автором очок.",
+      "sources": [
+        "s7",
+        "s10"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c41",
+      "text": "Феттель прийшов у Toro Rosso з Гран-прі Угорщини 2007, замінивши Скотта Спіда.",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c42",
+      "text": "Після важкої п'ятниці команда за ніч змінила налаштування, що додало Феттелю впевненості.",
+      "sources": [
+        "s17",
+        "s13"
+      ],
+      "status": "ok",
+      "note": "s13 — слова Феттеля «Overnight we did some changes»; s17 — про зміну налаштувань перед фінальною практикою."
+    },
+    {
+      "id": "c43",
+      "text": "Цитата Феттеля: «I was joking with my engineers, we were saying if it is wet, then we have to go for pole position».",
+      "sources": [
+        "s17"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c44",
+      "text": "Гамілтон рано перейшов на шини для сильного дощу і пропустив найшвидше вікно на трасі.",
+      "sources": [
+        "s11"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c45",
+      "text": "Слова Феттеля по радіо: «I am fuelled to finish, there is nothing, no pitstops, so just keep it together».",
+      "sources": [
+        "s17"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c46",
+      "text": "Кубіца повторив свій подіум на Монці 2006 року.",
+      "sources": [
+        "s8",
+        "s9"
+      ],
+      "status": "ok"
+    },
+    {
+      "id": "c47",
+      "text": "Цитата Бергера: «I really underestimated the potential of this boy».",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c48",
+      "text": "Цитата Рона Денніса про Феттеля: «he deserved to win».",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c49",
+      "text": "Цитата Тоста: «It was a perfect drive. From the start to the finish».",
+      "sources": [
+        "s18"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c50",
+      "text": "На Монці Toro Rosso набрала більше очок, ніж за свої перші два сезони.",
+      "sources": [
+        "s10"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c51",
+      "text": "Технічний директор Toro Rosso Джорджо Асканеллі 1988 року був гоночним інженером Бергера.",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c52",
+      "text": "Цитата Феттеля: «For me it's not that important, rewriting history or statistics».",
+      "sources": [
+        "s7"
+      ],
+      "status": "one"
+    },
+    {
+      "id": "c53",
+      "text": "Цитата Феттеля з релізу Toro Rosso: «A fantastic race, a fantastic weekend with pole as well and a fantastic strategy this afternoon».",
+      "sources": [
+        "s15"
+      ],
+      "status": "one"
+    }
+  ],
+  "media": [
+    {
+      "id": "m1",
+      "role": "hero",
+      "src": "/img/stories/vettel-monza-2008/m1-1280.webp",
+      "srcSet": "/img/stories/vettel-monza-2008/m1-1280.webp 1280w, /img/stories/vettel-monza-2008/m1-800.webp 800w, /img/stories/vettel-monza-2008/m1-480.webp 480w",
+      "width": 1280,
+      "height": 960,
+      "focus": "65% 60%",
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Vettel_Monza_2008.jpg",
+        "author": "Jane Belinda Smith from England",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Себастьян Феттель на Toro Rosso під час Гран-прі Італії, Монца, 14 вересня 2008 року.",
+        "en": "Sebastian Vettel in the Toro Rosso during the Italian Grand Prix, Monza, 14 September 2008."
+      },
+      "alt": {
+        "uk": "Темно-синій болід Toro Rosso на мокрій трасі вздовж червоної рекламної стіни.",
+        "en": "A dark blue Toro Rosso car on a wet track alongside a red advertising wall."
+      }
+    },
+    {
+      "id": "m2",
+      "role": "inline",
+      "src": "/img/stories/vettel-monza-2008/m2-800.webp",
+      "srcSet": "/img/stories/vettel-monza-2008/m2-800.webp 800w, /img/stories/vettel-monza-2008/m2-480.webp 480w",
+      "width": 800,
+      "height": 600,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Bourdais_Italian_GP_2008_1.jpg",
+        "author": "Jane Belinda Smith",
+        "license": "CC BY 2.0"
+      },
+      "caption": {
+        "uk": "Себастьєн Бурде (Toro Rosso) і маршали на стартовій прямій Монци, Гран-прі Італії, 14 вересня 2008 року.",
+        "en": "Sébastien Bourdais (Toro Rosso) and marshals on the Monza start straight, Italian Grand Prix, 14 September 2008."
+      },
+      "alt": {
+        "uk": "Маршали в помаранчевому біля темно-синьої машини на мокрому асфальті перед трибуною.",
+        "en": "Marshals in orange around a dark blue car on wet tarmac in front of a grandstand."
+      }
+    },
+    {
+      "id": "m3",
+      "role": "inline",
+      "src": "/img/stories/vettel-monza-2008/m3-800.webp",
+      "srcSet": "/img/stories/vettel-monza-2008/m3-800.webp 800w, /img/stories/vettel-monza-2008/m3-480.webp 480w",
+      "width": 800,
+      "height": 600,
+      "credit": {
+        "page": "https://commons.wikimedia.org/wiki/File:Toro_Rosso_STR3_Hangar_7.jpg",
+        "author": "Lukas Raich",
+        "license": "CC BY-SA 4.0"
+      },
+      "caption": {
+        "uk": "Toro Rosso STR3 (шасі TR3-03), на якому Феттель виграв Гран-прі Італії 2008 року, в Hangar-7 у Зальцбурзі, 2012 рік.",
+        "en": "The Toro Rosso STR3 (chassis TR3-03) in which Vettel won the 2008 Italian Grand Prix, at Hangar-7 in Salzburg, 2012."
+      },
+      "alt": {
+        "uk": "Темно-синій болід Toro Rosso з червоним носом, вигляд спереду, у виставковому залі.",
+        "en": "A dark blue Toro Rosso car with a red nose, seen from the front in an exhibition hall."
+      }
+    }
+  ]
+}
