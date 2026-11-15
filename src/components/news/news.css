@@ -199,7 +199,9 @@ html:not([data-js]) .nw-pager {
   outline: 3px solid var(--yellow);
   outline-offset: 2px;
 }
-.nw-cols[data-v="all"] .nw-po-list {
+/* Лише вкладка «Усе»: з ?v=bsky до гідратації (html[data-nw-v]) список уже на повну висоту — інакше після гідратації
+   він розгортався і підвал стрибав (CLS 0,12, CI PR #41). */
+html:not([data-nw-v]) .nw-cols[data-v="all"] .nw-po-list {
   max-block-size: 640px;
 }
 @media (min-width: 901px) {
