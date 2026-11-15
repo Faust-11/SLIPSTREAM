@@ -22,8 +22,9 @@ export function Meter({ m, locale, t, compact = false }: { m: MeterData; locale:
       <ul className="st-mkeys" role="list">
         {(["ok", "one", "dis"] as const).map((k) => (
           <li key={k}>
+            {/* Підпис, потім число: «джерела розходяться: 1» (а не «1 джерела розходяться» — рев'ю 15.11). */}
             <i className={`st-sw st-${k}`} aria-hidden="true" />
-            <b className="num">{fmt.format(m[k])}</b> {t.meterKeys[k]}
+            <span>{t.meterKeys[k]}:</span> <b className="num">{fmt.format(m[k])}</b>
           </li>
         ))}
       </ul>

@@ -19,7 +19,8 @@ test("/uk/stories: усі історії, вибрана — Сузука-1989, 
   await expect(page.locator(".st-feat h3")).toContainText("Двоє з однієї команди");
   // Кожна точка лінійки веде до наявної картки.
   const hrefs = await page.locator(".st-ruler a").evaluateAll((as) => as.map((a) => (a as HTMLAnchorElement).hash));
-  expect(hrefs.length).toBeGreaterThan(15);
+  // Огляди (історія, техніка, розбори) без року — не на лінійці; точок ≥ 10.
+  expect(hrefs.length).toBeGreaterThanOrEqual(10);
   for (const h of hrefs) await expect(page.locator(h)).toHaveCount(1);
   expect(errors).toEqual([]);
 });

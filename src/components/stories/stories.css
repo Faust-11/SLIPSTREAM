@@ -59,6 +59,7 @@
 }
 .st-hero h1 {
   font-size: clamp(30px, 5vw, 64px);
+  /* Лише запобіжник: на вузьких екранах розмір підібрано так, щоб найдовші слова вміщались цілими (нижче, ≤ 480 px). */
   overflow-wrap: anywhere;
 }
 .st-hero h1 > span:not(.sr-only) {
@@ -371,9 +372,7 @@ html[data-list-query] .st-list {
   height: 10px;
 }
 .st-mkeys b {
-  min-width: 2ch;
   font-family: var(--f-mono);
-  text-align: right;
 }
 .st-meter-sm .st-mhead b {
   font-size: 22px;
@@ -464,6 +463,10 @@ html[data-list-query] .st-list {
 .st-side {
   position: sticky;
   top: calc(84px + env(safe-area-inset-top, 0px));
+  /* Довга історія (12 глав) — колонка вища за екран 768–900 px: прокручується сама (рев'ю 15.11). */
+  max-height: calc(100dvh - 100px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   display: grid;
   gap: 18px;
   padding-top: 14px;
@@ -530,8 +533,11 @@ html:has(.st-toc) {
   font: 600 10.5px/0 var(--f-mono);
   white-space: nowrap;
 }
+/* Більша зона дотику без зсуву рядка: відступ + від'ємне поле (номер 10,5 px → ціль ~24 px заввишки). */
 .st-fn a {
   display: inline-block;
+  margin: -6px 0;
+  padding-block: 6px;
   /* Рядок виноски — line-height 0 (не розсуває текст), але саме посилання має мати висоту (видиме й клікабельне). */
   line-height: 1.2;
   min-width: 1.4em;
@@ -600,7 +606,14 @@ html:has(.st-toc) {
   height: auto;
   max-height: 540px;
   object-fit: cover;
+  object-position: 50% 25%;
   border: 2px solid var(--rule);
+}
+.st-inph-port img {
+  width: auto;
+  max-width: 100%;
+  max-height: 640px;
+  object-fit: contain;
 }
 .st-inph figcaption,
 .st-note {
@@ -690,12 +703,19 @@ html:has(.st-toc) {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+/* Номери — ті самі, що у виносках (list-style: decimal; grid-контейнер прибирав маркери — рев'ю 15.11). */
 .st-srcs {
-  display: grid;
-  gap: 6px;
   margin: 0;
-  padding-left: 28px;
+  padding-left: 34px;
   font-size: 14px;
+  list-style: decimal;
+}
+.st-srcs li + li {
+  margin-top: 6px;
+}
+.st-srcs li::marker {
+  font-family: var(--f-mono);
+  font-weight: 600;
 }
 .st-srcs li {
   padding-left: 4px;
@@ -704,6 +724,7 @@ html:has(.st-toc) {
 }
 .st-srcs a {
   color: var(--ink);
+  text-decoration: underline;
   text-underline-offset: 3px;
 }
 .st-srcs li:target {
@@ -770,6 +791,24 @@ html:has(.st-toc) {
     border-top: var(--b) solid var(--rule);
     border-left: 0;
   }
+}
+@media (width <= 480px) {
+  /* Не менше 24 px: акцентний рядок (ink на червоному, 3,78:1) — «великий текст» лише від 24 px (axe, 320 px).
+     На 24 px цілими вміщаються всі заголовки, крім «Сільверстоуна-1950» на екранах < 330 px (замір 15.11). */
+  .st-hero h1,
+  .st-s-hero h1 {
+    font-size: max(24px, 7vw);
+  }
+}
+/* Остання непарна картка у фільтрі («Техніка · 1», «Історія · 5») — на всю ширину, фото ліворуч і текст праворуч:
+   без порожньої половини рядка (рев'ю 15.11). Клас ставить фільтр; без JS карток парна кількість. */
+.st-grid > li.st-wide {
+  grid-column: 1 / -1;
+}
+.st-grid > li.st-wide .st-card {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0 28px;
+  align-items: center;
 }
 @media (width <= 400px) {
   .st-card h2,

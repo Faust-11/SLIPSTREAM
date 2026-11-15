@@ -49,7 +49,14 @@ async function load(props: Props) {
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const { lang, story } = await load(props);
-  return pageMetadata({ locale: lang, path: `/stories/${story.slug}`, title: story.title.full, description: story.dek });
+  return pageMetadata({
+    locale: lang,
+    path: `/stories/${story.slug}`,
+    title: story.title.full,
+    description: story.dek,
+    image: story.hero ? { src: story.hero.src, width: story.hero.width, height: story.hero.height, alt: story.hero.alt } : undefined,
+    article: { modified: story.checked },
+  });
 }
 
 export default async function StoryPageRoute(props: Props) {
@@ -77,6 +84,7 @@ export default async function StoryPageRoute(props: Props) {
     url: new URL(path(`/stories/${story.slug}`), siteUrl()).href,
     ...(hero ? { image: new URL(hero.src, siteUrl()).href } : {}),
     ...(story.checked ? { dateModified: story.checked } : {}),
+    author: { "@type": "Organization", name: "Slipstream" },
     publisher: { "@type": "Organization", name: "Slipstream" },
     citation: story.sources.map((s) => ({ "@type": "CreativeWork", name: s.title, url: s.url, ...(s.publisher ? { publisher: s.publisher } : {}) })),
   };
@@ -132,6 +140,19 @@ export default async function StoryPageRoute(props: Props) {
                 <dt>{t.facts.read}</dt>
                 <dd className="num">{fill(t.minutes, { n: story.minutes })}</dd>
               </div>
+              {!facts && (
+                // Історія не про одну гонку: замість фактів гонки — обсяг перевірки (без 3/4 порожнього рядка).
+                <>
+                  <div>
+                    <dt>{t.sources}</dt>
+                    <dd className="num">{story.sources.length}</dd>
+                  </div>
+                  <div>
+                    <dt>{t.facts.claims}</dt>
+                    <dd className="num">{story.meter.total}</dd>
+                  </div>
+                </>
+              )}
             </dl>
           </div>
           {hero && (
