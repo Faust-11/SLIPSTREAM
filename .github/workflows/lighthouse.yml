@@ -3,9 +3,18 @@ name: Lighthouse
 # Окремо від CI: локальна машина розробника перевантажена (контрольна порожня сторінка Next — performance 72–95),
 # тож performance міряємо на чистому раннері. Пороги — scripts/lighthouse.mjs (рішення 11.11: a11y/BP/SEO ≥ 95, performance — за базовим рівнем фреймворку).
 # Лише для готового PR (не чернетки) і вручну — рішення користувача 11.11: перевірки після готової сторінки.
+# Полегшений режим для дрібних правок (рішення користувача 15.11): PR лише зі стилями, тестами чи документацією —
+# без Lighthouse (CI з unit і e2e лишається обов'язковим). Будь-який код (.ts/.tsx), словники чи дані — з Lighthouse.
 on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
+    paths-ignore:
+      - "**/*.css"
+      - "e2e/**"
+      - "**/__tests__/**"
+      - "docs/**"
+      - "**/*.md"
+      - ".github/workflows/lighthouse.yml"
   workflow_dispatch:
 
 concurrency:
