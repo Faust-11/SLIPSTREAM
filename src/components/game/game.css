@@ -163,6 +163,8 @@
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 10;
+  /* У дві колонки (≤ 1100 px) схема росла до ~245 px заввишки і відсувала гру далеко вниз (замір 1024 px). */
+  max-height: 150px;
   display: block;
 }
 .gm-tline {
