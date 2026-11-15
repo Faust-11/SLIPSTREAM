@@ -15,6 +15,9 @@ class FakePath2D {
 
 let rafCb: FrameRequestCallback | null = null;
 let now = 0;
+/** detach усіх рушіїв тесту — викликаються в afterEach. */
+const attached: (() => void)[] = [];
+const realAttach = HotLapEngine.prototype.attach;
 const TICK_MS = 1000 / 120 + 1e-6;
 
 function elements(): Elements {
@@ -47,6 +50,11 @@ function frame() {
 }
 
 beforeEach(() => {
+  vi.spyOn(HotLapEngine.prototype, "attach").mockImplementation(function (this: HotLapEngine, els) {
+    const detach = realAttach.call(this, els);
+    attached.push(detach);
+    return detach;
+  });
   vi.stubGlobal("Path2D", FakePath2D);
   vi.stubGlobal("matchMedia", (q: string) => ({ matches: false, media: q, addEventListener() {}, removeEventListener() {} }));
   vi.stubGlobal(
@@ -78,6 +86,8 @@ beforeEach(() => {
   window.location.hash = "";
 });
 afterEach(() => {
+  // Відкріпити всі рушії: черга простою не має спрацювати після знищення jsdom.
+  for (const d of attached.splice(0)) d();
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
   document.body.replaceChildren();

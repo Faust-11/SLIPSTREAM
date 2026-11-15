@@ -110,8 +110,14 @@ function verifiedBest(k: TrackKey) {
   return { store, best };
 }
 /** Робота в простої (по одній трасі за задачу), щоб не займати головний потік довгою задачею. */
-const idle = (fn: () => void) =>
-  typeof window.requestIdleCallback === "function" ? window.requestIdleCallback(fn, { timeout: 2000 }) : window.setTimeout(fn, 50);
+const idle = (fn: () => void): (() => void) => {
+  if (typeof window.requestIdleCallback === "function") {
+    const id = window.requestIdleCallback(fn, { timeout: 2000 });
+    return () => window.cancelIdleCallback(id);
+  }
+  const id = window.setTimeout(fn, 50);
+  return () => window.clearTimeout(id);
+};
 
 /** Поле вводу — клавіші гри не перехоплюємо (порт фільтра макета). */
 const editable = (t: EventTarget | null) => t instanceof HTMLElement && (t.isContentEditable || !!t.closest("input, textarea, select"));
@@ -129,6 +135,8 @@ export class HotLapEngine {
   private sectors: [number, number, number] | null = null;
   private lastDelta = 0;
   private alive = false;
+  /** Скасування відкладеної задачі черги простою (detach). */
+  private cancelIdle: () => void = () => {};
   private run: CanvasPattern | string | null = null;
   private car: Car = newCar(this.tr);
   private ghost: Car | null = null;
@@ -193,9 +201,9 @@ export class HotLapEngine {
       const job = queue.shift();
       if (!job || !this.alive) return;
       job();
-      idle(next);
+      this.cancelIdle = idle(next);
     };
-    idle(next);
+    this.cancelIdle = idle(next);
 
     const onHash = () => {
       const h = window.location.hash.slice(1);
@@ -228,6 +236,7 @@ export class HotLapEngine {
       window.removeEventListener("blur", blur);
       document.removeEventListener("visibilitychange", vis);
       cancelAnimationFrame(this.raf);
+      this.cancelIdle();
       this.raf = 0;
       this.el = null;
       this.alive = false;
