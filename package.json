@@ -15,7 +15,9 @@
     "db:fake": "node scripts/dev/fake-postgrest.mjs"
   },
   "dependencies": {
+    "jose": "6.2.15",
     "next": "16.4.5",
+    "oauth4webapi": "3.8.8",
     "react": "19.2.9",
     "react-dom": "19.2.9"
   },
