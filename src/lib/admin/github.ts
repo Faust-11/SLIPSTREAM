@@ -1,4 +1,5 @@
 import "server-only";
+import { LOCAL_HOSTS } from "./local";
 import { isAdminPath } from "./paths";
 
 /**
@@ -13,7 +14,6 @@ import { isAdminPath } from "./paths";
 
 export const ADMIN_LABEL = "admin";
 const AUTHOR = { name: "Faust-11", email: "195572242+Faust-11@users.noreply.github.com" };
-const LOCAL_HOSTS = new Set(["localhost", "127.0.0.1", "[::1]"]);
 
 export type GitHubEnv = { api: string; repo: string; token: string };
 
@@ -56,7 +56,7 @@ export class GitHub {
   ) {}
 
   async request<T>(method: string, path: string, body?: unknown): Promise<T> {
-    const url = path.startsWith("/graphql") ? `${this.env.api}${path}` : `${this.env.api}/repos/${this.env.repo}${path}`;
+    const url = `${this.env.api}/repos/${this.env.repo}${path}`;
     const res = await this.fetchImpl(url, {
       method,
       headers: {
@@ -126,7 +126,14 @@ export async function publish(gh: GitHub, change: Draft, now = new Date(), paren
     body: `${change.body}\n\n— Адмінка Slipstream. Автозлиття після зеленого CI: .github/workflows/admin-merge.yml.`,
     draft: change.draft,
   });
-  await gh.request("POST", `/issues/${pr.number}/labels`, { labels: [ADMIN_LABEL] });
+  try {
+    await gh.request("POST", `/issues/${pr.number}/labels`, { labels: [ADMIN_LABEL] });
+  } catch (e) {
+    // PR без мітки не зіллється й не видно в Огляді — прибираємо його, щоб повторна спроба не плодила дублікати.
+    await gh.request("PATCH", `/pulls/${pr.number}`, { state: "closed" }).catch(() => {});
+    await gh.request("DELETE", `/git/refs/heads/${branch}`).catch(() => {});
+    throw e;
+  }
   return { number: pr.number, url: pr.html_url, branch };
 }
 
@@ -169,25 +176,32 @@ export async function revertPublished(gh: GitHub, number: number, now = new Date
   const commit = await gh.request<{ parents: { sha: string }[] }>("GET", `/git/commits/${merged}`);
   const before = commit.parents[0]?.sha;
   if (!before) throw new RevertRefused("немає попереднього коміту");
+  const title = `Відкат: ${pr.title}`;
+  const open = await gh.request<{ title: string; head: { ref: string } }[]>("GET", "/pulls?state=open&per_page=100");
+  if (open.some((p) => p.title === title && p.head.ref.startsWith("admin/revert-"))) throw new RevertRefused("відкат уже створено");
   const files = await gh.request<{ filename: string; status: string; previous_filename?: string }[]>("GET", `/pulls/${number}/files?per_page=100`);
   if (files.length >= 100) throw new RevertRefused("забагато файлів — відкат вручну");
 
   // Стан main фіксуємо один раз: перевірка «не змінився» і новий коміт — від того самого коміту (рев'ю 7a: інакше
   // правка, що встигла між ними, тихо перезаписувалась).
   const main = (await gh.request<{ object: { sha: string } }>("GET", "/git/ref/heads/main")).object.sha;
+  const paths = files.flatMap((f) => (f.previous_filename ? [f.filename, f.previous_filename] : [f.filename]));
+  for (const path of paths) if (!isAdminPath(path)) throw new RevertRefused(`файл поза контентом: ${path}`);
   const changes: FileChange[] = [];
-  for (const f of files) {
-    const paths = f.previous_filename ? [f.filename, f.previous_filename] : [f.filename];
-    for (const path of paths) {
-      if (!isAdminPath(path)) throw new RevertRefused(`файл поза контентом: ${path}`);
-      const [onMain, afterEdit, beforeEdit] = await Promise.all([blobSha(gh, path, main), blobSha(gh, path, merged), blobSha(gh, path, before)]);
-      if (onMain !== afterEdit) throw new RevertRefused(`файл змінився після цієї правки: ${path}`);
-      changes.push(beforeEdit ? { path, sha: beforeEdit } : { path, content: null });
-    }
+  // Пачками по 8 файлів (3 запити на файл): швидше за послідовно і без сплеску, що впирається в ліміти GitHub.
+  for (let i = 0; i < paths.length; i += 8) {
+    const batch = await Promise.all(
+      paths.slice(i, i + 8).map(async (path) => {
+        const [onMain, afterEdit, beforeEdit] = await Promise.all([blobSha(gh, path, main), blobSha(gh, path, merged), blobSha(gh, path, before)]);
+        if (onMain !== afterEdit) throw new RevertRefused(`файл змінився після цієї правки: ${path}`);
+        return beforeEdit ? { path, sha: beforeEdit } : { path, content: null };
+      }),
+    );
+    changes.push(...batch);
   }
   return publish(
     gh,
-    { section: "revert", title: `Відкат: ${pr.title}`, body: `Відкат правки #${number} (файли — як до неї, коміт ${before.slice(0, 7)}).`, files: changes, draft: false },
+    { section: "revert", title, body: `Відкат правки #${number} (файли — як до неї, коміт ${before.slice(0, 7)}).`, files: changes, draft: false },
     now,
     main,
   );
