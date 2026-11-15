@@ -87,7 +87,20 @@ const nextConfig: NextConfig = {
       // Служебна сторінка Next доступна за прямою адресою й відповідає 500 — ховаємо за 404.
       // Службова сторінка Next доступна за прямою адресою й відповідає 500 — на неіснуючу адресу (404).
       // (Rewrite на /_not-found на Vercel віддавав сторінку 404 зі статусом 200 — замір прев'ю 11.11.)
-      beforeFiles: [{ source: "/_global-error", destination: "/en/_global-error" }],
+      beforeFiles: [
+        { source: "/_global-error", destination: "/en/_global-error" },
+        // Адмінка (фаза 7): без cookie сесії / ключа входу / стану входу — на /en/admin/… (той самий 404, що й будь-яка
+        // неіснуюча адреса). Саме правилом конфігу, а не proxy: rewrite у proxy додає до відповіді x-middleware-rewrite
+        // (e2e 15.11 — заголовки /admin відрізнялись від /zzz). Назви cookie — src/lib/admin/token.ts (тест звіряє).
+        { source: "/admin/auth/login", missing: [{ type: "query", key: "key" }], destination: "/en/admin/auth/login" },
+        { source: "/admin/auth/callback", missing: [{ type: "cookie", key: "ss_admin_flow" }], destination: "/en/admin/auth/callback" },
+        { source: "/admin", missing: [{ type: "cookie", key: "ss_admin" }], destination: "/en/admin" },
+        {
+          source: "/admin/:path((?!auth/(?:login|callback)$).+)",
+          missing: [{ type: "cookie", key: "ss_admin" }],
+          destination: "/en/admin/:path",
+        },
+      ],
       afterFiles: [
         // Vercel: RSC-навігація на корінь (без segment-prefetch) приходила як «/» і віддавала HTML /en
         // (x-matched-path: /en) — клієнт перезавантажував сторінку. На next start цього немає.
