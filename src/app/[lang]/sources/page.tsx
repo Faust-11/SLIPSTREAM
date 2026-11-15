@@ -8,7 +8,6 @@ import { requireLocale } from "@/i18n/require-locale";
 import { getSiteCredits, layoutCounts, licenseCounts } from "@/lib/data/credits";
 import { loadSeasonIndex } from "@/lib/data/seasons";
 import { serviceText } from "@/lib/service/content";
-import { normKey } from "@/lib/service/norm";
 import { pageMetadata, siteUrl } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
@@ -136,7 +135,7 @@ export default async function SourcesPage({ params }: Props) {
           <CreditsSearch listId="sv-credits" emptyId="sv-credits-empty" total={photos} t={t.authors} />
           <ul className="sv-credits" id="sv-credits" role="list">
             {credits.map((c) => (
-              <li key={c.href} data-k={normKey(`${t.authors.kinds[c.kind]} ${c.label} ${c.author} ${c.license}`)}>
+              <li key={c.href}>
                 <span className="sv-kind">{t.authors.kinds[c.kind]}</span>{" "}
                 <a href={c.href} rel="noopener">
                   {c.label}

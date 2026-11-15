@@ -1,5 +1,13 @@
 {
   "sections": {
+    "about-en": {
+      "src": "/og/section/about-en.jpg",
+      "alt": "Slipstream — About. What Slipstream is, where the data comes from, how we check stories, what the site stores and how to get in touch."
+    },
+    "about-uk": {
+      "src": "/og/section/about-uk.jpg",
+      "alt": "Slipstream — Про сайт. Що таке Slipstream, звідки дані, як ми перевіряємо історії, що зберігає сайт і як з нами зв'язатися."
+    },
     "calendar-en": {
       "src": "/og/section/calendar-en.jpg",
       "alt": "Slipstream — Calendar. The Formula 1 calendar: dates, circuits and session times."
@@ -63,6 +71,14 @@
     "seasons-uk": {
       "src": "/og/section/seasons-uk.jpg",
       "alt": "Slipstream — Сезони. Усі сезони Формули-1 з 1950 року: чемпіони, таблиці й гонки."
+    },
+    "sources-en": {
+      "src": "/og/section/sources-en.jpg",
+      "alt": "Slipstream — Sources and licences. Everything Slipstream takes from others: data, photos, circuit maps, fonts, news and videos, with licences and photo authors."
+    },
+    "sources-uk": {
+      "src": "/og/section/sources-uk.jpg",
+      "alt": "Slipstream — Джерела й ліцензії. Усе, що Slipstream бере в інших: дані, фото, схеми трас, шрифти, новини й відео — з ліцензіями та авторами фото."
     },
     "stories-en": {
       "src": "/og/section/stories-en.jpg",
