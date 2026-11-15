@@ -355,7 +355,15 @@
         "s2"
       ],
       "status": "dis",
-      "note": "Formula1.com (s3) і The Race (s8) пишуть про три кола за машиною безпеки; Speedcafe (s6) і Autosport (s9) — про два; RaceFans (s10): прогрівальне коло й одне коло до скасування старту, потім ще два кола після рестарту. За протоколом FIA (s2), лідер тричі перетнув контрольну лінію."
+      "note": "Formula1.com (s3) і The Race (s8) пишуть про три кола за машиною безпеки; Speedcafe (s6) і Autosport (s9) — про два; RaceFans (s10): прогрівальне коло й одне коло до скасування старту, потім ще два кола після рестарту. За протоколом FIA (s2), лідер тричі перетнув контрольну лінію.",
+      "label": {
+        "uk": "Кола після рестарту",
+        "en": "Laps after the restart"
+      },
+      "reader": {
+        "uk": "Formula1.com і The Race пишуть про три кола за машиною безпеки, Speedcafe і Autosport — про два. RaceFans рахує прогрівальне коло й ще одне до першого червоного прапора та два кола після рестарту, а в протоколі FIA лідер тричі перетнув контрольну лінію.",
+        "en": "Formula1.com and The Race write of three laps behind the safety car, Speedcafe and Autosport of two. RaceFans counts a formation lap and one more before the first red flag and two laps after the restart, while the FIA classification has the leader crossing the control line three times."
+      }
     },
     {
       "id": "c15",

@@ -502,7 +502,15 @@
         "s12"
       ],
       "status": "dis",
-      "note": "s11 і s13 (повний текст рішення): апелянти Red Bull, Renault, Ferrari, а McLaren і BMW Sauber — на їхньому боці. s12 (Sky Sports) зараховує BMW Sauber до тих, хто подав апеляцію."
+      "note": "s11 і s13 (повний текст рішення): апелянти Red Bull, Renault, Ferrari, а McLaren і BMW Sauber — на їхньому боці. s12 (Sky Sports) зараховує BMW Sauber до тих, хто подав апеляцію.",
+      "label": {
+        "uk": "Хто подав апеляцію",
+        "en": "Who brought the appeal"
+      },
+      "reader": {
+        "uk": "За повним текстом рішення апеляційного суду FIA, опублікованим F1Technical, і за Autosport, апеляцію подали Ferrari, Red Bull і Renault, а McLaren і BMW Sauber їх підтримали. Sky Sports зараховує BMW Sauber до самих заявників.",
+        "en": "According to the full text of the FIA Court of Appeal decision, published by F1Technical, and to Autosport, the appeal was brought by Ferrari, Red Bull and Renault, with McLaren and BMW Sauber backing them. Sky Sports lists BMW Sauber among the appellants themselves."
+      }
     },
     {
       "id": "c23",

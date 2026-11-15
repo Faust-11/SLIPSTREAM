@@ -374,7 +374,15 @@
         "s7"
       ],
       "status": "dis",
-      "note": "s6 (2015): «the deal cost £95,000 for the season»; s7 (2022): Gold Leaf sponsorship «initially to the tune of £85,000». Обидва — Motor Sport, різні автори."
+      "note": "s6 (2015): «the deal cost £95,000 for the season»; s7 (2022): Gold Leaf sponsorship «initially to the tune of £85,000». Обидва — Motor Sport, різні автори.",
+      "label": {
+        "uk": "Сума угоди з Gold Leaf",
+        "en": "Value of the Gold Leaf deal"
+      },
+      "reader": {
+        "uk": "Обидві цифри — з Motor Sport, але з різних статей різних авторів: у матеріалі 2015 року угода коштувала £95 000 за сезон, у статті 2022 року — «спочатку £85 000».",
+        "en": "Both figures come from Motor Sport, but from different articles by different writers: a 2015 piece says the deal cost £95,000 for the season, a 2022 one \"initially\" £85,000."
+      }
     },
     {
       "id": "c10",

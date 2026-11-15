@@ -284,7 +284,15 @@
         "s6"
       ],
       "status": "dis",
-      "note": "s5, s7, s8, s9 — McLeans (McLean's); s4 і s6 — Coppice."
+      "note": "s5, s7, s8, s9 — McLeans (McLean's); s4 і s6 — Coppice.",
+      "label": {
+        "uk": "Де Сенна обійшов Гілла",
+        "en": "Where Senna passed Hill"
+      },
+      "reader": {
+        "uk": "Звіт Motor Sport 1993 року, статті Метта Бішопа й Саймона Аррона в Motor Sport і Motorsport.com називають поворот McLeans. GrandPrix.com і Motor Sport у 1997 році — Coppice.",
+        "en": "Motor Sport's 1993 report, articles by Matt Bishop and Simon Arron in Motor Sport, and Motorsport.com say McLeans. GrandPrix.com and Motor Sport in 1997 say Coppice."
+      }
     },
     {
       "id": "c14",
@@ -418,7 +426,15 @@
         "s9"
       ],
       "status": "dis",
-      "note": "s5 (Motor Sport): «Senna would stop five times, but his last was more of a precautionary call for wets»; s9 (Motorsport.com): проїзд на 57-му колі й «fourth actual stop». Прост — сім в обох."
+      "note": "s5 (Motor Sport): «Senna would stop five times, but his last was more of a precautionary call for wets»; s9 (Motorsport.com): проїзд на 57-му колі й «fourth actual stop». Прост — сім в обох.",
+      "label": {
+        "uk": "Заїзди Сенни на піт-лейн",
+        "en": "Senna's pit visits"
+      },
+      "reader": {
+        "uk": "Motorsport.com рахує чотири зупинки плюс проїзд піт-лейном на 57-му колі. Motor Sport пише про п'ять зупинок, остання з яких була обережною зміною на дощові шини. Що Прост зупинявся сім разів, сходяться обидва.",
+        "en": "Motorsport.com counts four stops plus a drive through the pit lane on lap 57. Motor Sport writes of five stops, the last a precautionary switch to wets. Both agree that Prost stopped seven times."
+      }
     },
     {
       "id": "c44",

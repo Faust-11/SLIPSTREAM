@@ -1240,5 +1240,74 @@
     "recTabWins": "Wins",
     "recTabTitles": "Titles",
     "recTabCups": "Cups"
+  },
+  "storiesPage": {
+    "stamp": "Stories · with sources",
+    "titleMain": "Moments people",
+    "titleAccent": "still argue about",
+    "deck": "Formula 1's big moments, told from race reports, FIA decisions and interviews. Every fact comes with its source.",
+    "metaDescription": {
+      "one": "{n} Formula 1 story with sources: scandals, upsets, history, tech.",
+      "other": "{n} Formula 1 stories with sources: scandals, upsets, history, tech."
+    },
+    "ruler": "Stories on a 1950–2026 timeline",
+    "filtersLabel": "Sections",
+    "filters": {
+      "all": "All · {n}",
+      "scandal": "Scandals · {n}",
+      "sensation": "Upsets · {n}",
+      "history": "History · {n}",
+      "explainer": "How it works · {n}",
+      "tech": "Tech · {n}"
+    },
+    "count": {
+      "one": "{n} story",
+      "other": "{n} stories"
+    },
+    "empty": "No stories in this section yet.",
+    "category": {
+      "scandal": "Scandal",
+      "sensation": "Upset",
+      "history": "History",
+      "explainer": "How it works",
+      "tech": "Tech"
+    },
+    "featured": "Featured story",
+    "more": "More stories",
+    "allLink": "All stories →",
+    "read": "Read · {n} min →",
+    "minutes": "{n} min",
+    "meterLabel": {
+      "one": "claim checked",
+      "other": "claims checked"
+    },
+    "meterKeys": {
+      "ok": "two or more sources",
+      "one": "one source",
+      "dis": "sources disagree"
+    },
+    "meterAria": "Claims checked: {total}. Two or more sources — {ok}, one source — {one}, sources disagree — {dis}.",
+    "crumbs": "Breadcrumbs",
+    "facts": {
+      "race": "Race",
+      "raceValue": "{gp}, round {n} of {total}",
+      "date": "Date",
+      "circuit": "Circuit",
+      "read": "Read"
+    },
+    "toc": "Chapters",
+    "disputed": "Where the sources disagree",
+    "disputedToc": "Disputed",
+    "sources": "Sources",
+    "sourcesNote": "Footnote numbers are the numbers of the sources in this list.",
+    "status": {
+      "ok": "two or more sources",
+      "one": "one source",
+      "dis": "sources disagree"
+    },
+    "fnLabel": "Source {n}",
+    "checked": "Sources checked {date}",
+    "creditsPhotos": "Photos: authors and licences",
+    "dataLine": "Facts and quotes come from the numbered sources at the end of the story. Photos: Wikimedia Commons."
   }
 }

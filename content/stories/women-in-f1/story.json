@@ -508,7 +508,15 @@
         "w8"
       ],
       "status": "dis",
-      "note": "Motor Sport (w4) — four people; PlanetF1 (w5) — four trackside observers; Autosport (w6) — four spectators and a fire marshal; RacingNews365 (w8) — five spectators. У тексті подано обидві версії (4 і 5)."
+      "note": "Motor Sport (w4) — four people; PlanetF1 (w5) — four trackside observers; Autosport (w6) — four spectators and a fire marshal; RacingNews365 (w8) — five spectators. У тексті подано обидві версії (4 і 5).",
+      "label": {
+        "uk": "Загиблі в Монжуїку",
+        "en": "Montjuïc death toll"
+      },
+      "reader": {
+        "uk": "Motor Sport пише про чотирьох загиблих, PlanetF1 — про чотирьох людей біля траси. Autosport називає чотирьох глядачів і пожежного маршала, RacingNews365 — п'ятьох глядачів.",
+        "en": "Motor Sport says four people died, PlanetF1 four trackside observers. Autosport gives four spectators and a fire marshal, RacingNews365 five spectators."
+      }
     },
     {
       "id": "c14",

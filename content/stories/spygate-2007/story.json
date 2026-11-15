@@ -387,7 +387,15 @@
         "s12"
       ],
       "status": "dis",
-      "note": "Денніс (s11): Алонсо подробиць не дав, згадав лист від інженера команди. Свідки за британською пресою (s12): «Either make me number one or let me go» і погроза піти з інформацією до FIA. Менеджер Луїс Гарсія (s11, s12): «complete rubbish». У тексті подано обидві версії."
+      "note": "Денніс (s11): Алонсо подробиць не дав, згадав лист від інженера команди. Свідки за британською пресою (s12): «Either make me number one or let me go» і погроза піти з інформацією до FIA. Менеджер Луїс Гарсія (s11, s12): «complete rubbish». У тексті подано обидві версії.",
+      "label": {
+        "uk": "Слова Алонсо в Угорщині",
+        "en": "What Alonso told Dennis"
+      },
+      "reader": {
+        "uk": "За словами Рона Денніса в переказі Reuters (Autosport), Алонсо подробиць не давав і лише згадав лист від інженера команди. The Guardian з посиланням на свідків писала, що Алонсо вимагав «Або зробіть мене першим номером, або відпустіть» і погрожував піти з інформацією до FIA; його менеджер Луїс Гарсія назвав ці повідомлення «повною нісенітницею».",
+        "en": "According to Ron Dennis, as reported by Reuters (Autosport), Alonso gave no details and only mentioned an email from a team engineer. The Guardian, citing witnesses, reported that Alonso demanded \"Either make me number one or let me go\" and threatened to take the information to the FIA; his manager Luis Garcia called the reports \"complete rubbish\"."
+      }
     },
     {
       "id": "c15",

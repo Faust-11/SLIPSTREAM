@@ -19,6 +19,9 @@ ROOT = Path(__file__).resolve().parents[2] / "content" / "stories"
 CATEGORIES = {"scandal", "sensation", "explainer", "tech", "history"}
 STATUSES = {"ok", "one", "dis"}
 MARK = re.compile(r"\[\^(c\d+)\]")
+MEDIA = re.compile(r"\[\[media:(m\d+)\]\]")
+BLOCK = re.compile(r"\[\[block:(b\d+)\]\]")
+DIRECTIVE = re.compile(r"^:::(tldr|timeline)\s*$")
 
 
 def words(text: str) -> int:
@@ -82,11 +85,17 @@ def check(story_dir: Path) -> tuple[list[str], list[str], str]:
             warnings.append(f"{cid}: статус one, але видавців {len(publishers)} (може, ok?)")
         if st == "dis" and not c.get("note"):
             errors.append(f"{cid}: статус dis без note")
+        if st == "dis":
+            # Розділ «Де джерела розходяться» (фаза 5): назва суперечки й пояснення для читача — обома мовами.
+            for key in ("label", "reader"):
+                if not all((c.get(key) or {}).get(lang) for lang in ("uk", "en")):
+                    errors.append(f"{cid}: статус dis без {key}.uk/.en")
     unused = known_src - used_src
     if unused:
         warnings.append(f"джерела без жодного твердження: {sorted(unused)}")
 
     marks: dict[str, set[str]] = {}
+    blocks: dict[str, list[str]] = {}
     wc: dict[str, int] = {}
     for lang in ("uk", "en"):
         p = story_dir / f"{lang}.md"
@@ -95,6 +104,24 @@ def check(story_dir: Path) -> tuple[list[str], list[str], str]:
             continue
         text = p.read_text(encoding="utf-8")
         marks[lang] = set(MARK.findall(text))
+        blocks[lang] = BLOCK.findall(text)
+        opened = 0
+        for line in text.splitlines():
+            if DIRECTIVE.match(line):
+                opened += 1
+            elif line.strip() == ":::":
+                opened -= 1
+            if opened not in (0, 1):
+                errors.append(f"{lang}.md: вкладені або незакриті блоки ::: ({line[:40]})")
+                break
+        if opened:
+            errors.append(f"{lang}.md: незакритий блок :::")
+        unknown_media = set(MEDIA.findall(text)) - {m.get("id") for m in meta.get("media") or []}
+        if unknown_media:
+            errors.append(f"{lang}.md: фото без запису в media {sorted(unknown_media)}")
+        unknown_blocks = set(blocks[lang]) - {b.get("id") for b in meta.get("blocks") or []}
+        if unknown_blocks:
+            errors.append(f"{lang}.md: блоки без запису в blocks {sorted(unknown_blocks)}")
         wc[lang] = words(text)
         unknown = marks[lang] - set(claim_ids)
         if unknown:
@@ -103,6 +130,14 @@ def check(story_dir: Path) -> tuple[list[str], list[str], str]:
         only_uk = sorted(marks["uk"] - marks["en"], key=lambda x: int(x[1:]))
         only_en = sorted(marks["en"] - marks["uk"], key=lambda x: int(x[1:]))
         errors.append(f"виноски різняться: лише uk {only_uk}, лише en {only_en}")
+    if "uk" in blocks and "en" in blocks and blocks["uk"] != blocks["en"]:
+        errors.append(f"блоки [[block:…]] різняться між мовами: uk {blocks['uk']}, en {blocks['en']}")
+    race = meta.get("race")
+    if race is not None and not re.fullmatch(r"\d{4}/\d{1,2}", str(race)):
+        errors.append(f"race «{race}» — не у форматі рік/етап")
+    for s in sources:
+        if "author" in s and not isinstance(s["author"], str):
+            errors.append(f"джерело {s.get('id')}: author — не рядок")
     if "uk" in marks:
         orphan = set(claim_ids) - marks["uk"]
         if orphan:
