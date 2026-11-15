@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { defaultLocale, locales, type Locale } from "@/i18n/config";
 import { localizedPath } from "@/i18n/paths";
+import ogImages from "@/data/og-images.json";
 
 const OG_LOCALE: Record<Locale, string> = { en: "en_GB", uk: "uk_UA" };
 
@@ -44,7 +45,24 @@ export function languageAlternates(path: string, toUrl: (localized: string) => s
   } as Record<Locale | "x-default", string>;
 }
 
-/** Метадані сторінки: canonical своєю мовою, hreflang (en, uk, x-default = EN), Open Graph, robots. */
+const OG_SIZE = { width: 1200, height: 630 };
+const OG_SECTIONS: Record<string, { src: string; alt: string }> = ogImages.sections;
+const OG_PHOTOS: Record<string, string> = ogImages.photos;
+
+/**
+ * Картинка прев'ю посилання (JPEG 1200×630 з scripts/og/build.mjs — WebP Telegram у прев'ю не показує):
+ * фото героя сторінки, якщо для нього згенеровано JPEG, інакше — картка розділу за першим сегментом шляху
+ * (/seasons/2023/5 → seasons; невідомий розділ → головна).
+ */
+export function ogImage(locale: Locale, path: string, photo?: { src: string; alt: string }) {
+  const own = photo && OG_PHOTOS[photo.src];
+  if (own) return { url: own, ...OG_SIZE, alt: photo.alt };
+  const section = path.split("/")[1] || "home";
+  const card = OG_SECTIONS[`${section}-${locale}`] ?? OG_SECTIONS[`home-${locale}`]!;
+  return { url: card.src, ...OG_SIZE, alt: card.alt };
+}
+
+/** Метадані сторінки: canonical своєю мовою, hreflang (en, uk, x-default = EN), Open Graph з картинкою прев'ю, robots. */
 export function pageMetadata({
   locale,
   path,
@@ -57,13 +75,14 @@ export function pageMetadata({
   path: string;
   title: string;
   description: string;
-  /** Фото для прев'ю в соцмережах (шлях від кореня сайту). */
-  image?: { src: string; width: number; height: number; alt: string };
+  /** Фото героя сторінки (src як на сайті) — для прев'ю посилання; без нього — картка розділу. */
+  image?: { src: string; alt: string };
   /** Стаття (історії): og:type=article і дата оновлення. */
   article?: { modified: string | null };
 }): Metadata {
   const url = localizedPath(path, locale);
-  const images = image ? [{ url: new URL(image.src, siteUrl()).href, width: image.width, height: image.height, alt: image.alt }] : undefined;
+  const og = ogImage(locale, path, image);
+  const images = [{ ...og, url: new URL(og.url, siteUrl()).href }];
   return {
     title,
     description,
@@ -71,9 +90,9 @@ export function pageMetadata({
       canonical: url,
       languages: languageAlternates(path),
     },
-    ...(images ? { twitter: { card: "summary_large_image", images } } : {}),
+    twitter: { card: "summary_large_image", images },
     openGraph: {
-      ...(images ? { images } : {}),
+      images,
       ...(article ? { type: "article" as const, ...(article.modified ? { modifiedTime: article.modified } : {}) } : { type: "website" as const }),
       siteName: "Slipstream",
       title,

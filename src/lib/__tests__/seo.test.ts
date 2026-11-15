@@ -1,5 +1,9 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { pageMetadata, robotsMetadata, siteUrl } from "../seo";
+import { existsSync, readdirSync, statSync } from "node:fs";
+import { join } from "node:path";
+import { ogImage, pageMetadata, robotsMetadata, siteUrl } from "../seo";
+import ogImages from "@/data/og-images.json";
+import { locales } from "@/i18n/config";
 
 afterEach(() => {
   vi.unstubAllEnvs();
@@ -73,5 +77,42 @@ describe("siteUrl", () => {
     expect(() => siteUrl()).toThrow();
     vi.stubEnv("SITE_URL", "https://slipstream.example/base");
     expect(() => siteUrl()).toThrow(/origin/);
+  });
+});
+
+describe("прев'ю посилань (og:image)", () => {
+  const pub = (rel: string) => join(process.cwd(), "public", rel);
+
+  it("кожна картинка з переліку існує, JPEG ≤ 300 КБ (поріг WhatsApp)", () => {
+    const all = [...Object.values(ogImages.sections).map((c) => c.src), ...Object.values(ogImages.photos)];
+    for (const rel of all) {
+      expect(rel, rel).toMatch(/^\/og\/.+\.jpg$/);
+      expect(existsSync(pub(rel)), rel).toBe(true);
+      expect(statSync(pub(rel)).size, rel).toBeLessThanOrEqual(300_000);
+    }
+  });
+
+  it("картка є для кожного розділу меню й головної обома мовами", () => {
+    const sections = readdirSync(join(process.cwd(), "src/app/[lang]"), { withFileTypes: true })
+      .filter((d) => d.isDirectory() && !d.name.startsWith("_") && existsSync(join(process.cwd(), "src/app/[lang]", d.name, "page.tsx")))
+      .map((d) => d.name);
+    for (const s of ["home", ...sections]) for (const l of locales) expect(ogImages.sections, `${s}-${l}`).toHaveProperty(`${s}-${l}`);
+  });
+
+  it("фото з JPEG → його картинка; без JPEG чи без фото → картка розділу; невідомий розділ → головна", () => {
+    const [src, jpg] = Object.entries(ogImages.photos)[0]!;
+    expect(ogImage("uk", "/stories/x", { src, alt: "Фото" })).toEqual({ url: jpg, width: 1200, height: 630, alt: "Фото" });
+    expect(ogImage("uk", "/drivers/hamilton", { src: "/img/drivers/hamilton-420.webp", alt: "" }).url).toBe("/og/section/drivers-uk.jpg");
+    expect(ogImage("en", "/seasons/2023/5").url).toBe("/og/section/seasons-en.jpg");
+    expect(ogImage("en", "/").url).toBe("/og/section/home-en.jpg");
+    expect(ogImage("uk", "/nope").url).toBe("/og/section/home-uk.jpg");
+  });
+
+  it("pageMetadata: абсолютна адреса картинки в Open Graph і Twitter, великий формат картки", () => {
+    const m = pageMetadata({ locale: "uk", path: "/teams", ...base });
+    const og = (m.openGraph as { images: { url: string; width: number }[] }).images[0]!;
+    expect(og.url).toMatch(/^https?:\/\/.+\/og\/section\/teams-uk\.jpg$/);
+    expect(og.width).toBe(1200);
+    expect(m.twitter).toMatchObject({ card: "summary_large_image", images: [og] });
   });
 });
