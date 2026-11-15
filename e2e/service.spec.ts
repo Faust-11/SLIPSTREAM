@@ -33,7 +33,8 @@ test("/uk/sources: перелік джерел, графік ліцензій = 
   const bars = (await page.locator(".sv-bar dd span").allTextContents()).map((s) => Number(s.replace(/\D/g, "")));
   expect(bars.reduce((a, b) => a + b, 0)).toBe(total);
   const q = page.getByRole("searchbox", { name: "Пошук автора або фото" });
-  await q.fill("hulkenberg");
+  // Підпис мовою сторінки: на uk — кирилицею; діакритика й регістр не важать (Гюлькенберг / ГЮЛЬКЕНБЕРГ).
+  await q.fill("ГЮЛЬКЕНБЕРГ");
   expect(await page.locator("#sv-credits > li:visible").count()).toBeGreaterThanOrEqual(1);
   await q.fill("жжжжжж");
   await expect(page.locator("#sv-credits > li:visible")).toHaveCount(0);
@@ -45,6 +46,7 @@ test("без JS: увесь перелік авторів, поля пошуку
   const page = await ctx.newPage();
   await page.goto("/sources");
   expect(await page.locator("#sv-credits > li").count()).toBeGreaterThan(100);
+  await expect(page.locator("#sv-credits")).toContainText("Hülkenberg");
   await expect(page.getByRole("searchbox")).toHaveCount(0);
   await ctx.close();
 });

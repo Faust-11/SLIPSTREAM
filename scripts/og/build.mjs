@@ -4,6 +4,7 @@
  *
  *   node scripts/og/build.mjs            # усе
  *   node scripts/og/build.mjs --only stories
+ *   node scripts/og/build.mjs --only service    # лише «Про сайт» і «Джерела й ліцензії» (фаза 8)
  *
  * Чому JPEG і чому заздалегідь, а не next/og під час збірки:
  * - фото сайту — WebP, а Telegram (баг-трекер bugs.telegram.org/c/1021) і частина версій WhatsApp WebP у прев'ю
@@ -34,6 +35,8 @@ const json = (p) => JSON.parse(readFileSync(join(ROOT, p), "utf8"));
 const ICON = readFileSync(join(ROOT, "src/app/icon.svg"), "utf8");
 const LOCALES = ["en", "uk"];
 const SECTIONS = ["home", "seasons", "calendar", "news", "drivers", "teams", "circuits", "stories", "newbie", "game"];
+// Службові сторінки (фаза 8) — не в меню: назва й опис з content/service/<мова>.json.
+const SERVICE = ["about", "sources"];
 
 const FONTS =
   "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Rubik+Mono+One&display=block&subset=cyrillic";
@@ -122,8 +125,20 @@ if (!only || only === "sections") {
   }
 }
 
+if (!only || only === "sections" || only === "service") {
+  for (const locale of LOCALES) {
+    const c = json(`content/service/${locale}.json`);
+    for (const s of SERVICE) {
+      const { title, description: text } = c[s];
+      const rel = `/og/section/${s}-${locale}.jpg`;
+      await shoot(page, sectionHtml(title, text), join(ROOT, "public", rel));
+      manifest.sections[`${s}-${locale}`] = { src: rel, alt: `Slipstream — ${title}. ${text}` };
+    }
+  }
+}
+
 for (const job of photoJobs()) {
-  if (only && only !== job.kind && only !== "photos") continue;
+  if (only && (only === "service" || (only !== job.kind && only !== "photos"))) continue;
   const webp = readFileSync(join(ROOT, "public", job.src));
   const rel = `/og/${job.kind}/${job.id}.jpg`;
   await shoot(page, photoHtml(`data:image/webp;base64,${webp.toString("base64")}`, job.focus), join(ROOT, "public", rel));

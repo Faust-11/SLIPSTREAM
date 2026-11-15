@@ -8,9 +8,9 @@ import { normKey } from "@/lib/service/norm";
 export type CreditsLabels = { search: string; placeholder: string; count: string; empty: string };
 
 /**
- * Пошук у зведеному переліку авторів фото (836 рядків). Перелік рендерить сервер (`<ul id=listId>` з data-k у кожному
- * `<li>`), тут — лише поле й фільтр по DOM: інакше всі рядки вдруге їхали б у RSC-даних гідратації. Без JS — увесь
- * перелік, поля немає.
+ * Пошук у зведеному переліку авторів фото (836 рядків). Перелік рендерить сервер (`<ul id=listId>`), тут — лише поле й
+ * фільтр по тексту рядків у DOM: інакше всі рядки вдруге їхали б у RSC-даних гідратації (і без data-k-дублів тексту —
+ * HTML /uk/sources 128 → менше КБ gzip). Ключі рядків рахуються один раз. Без JS — увесь перелік, поля немає.
  */
 export function CreditsSearch({ listId, emptyId, total, t }: { listId: string; emptyId: string; total: number; t: CreditsLabels }) {
   const hydrated = useHydrated();
@@ -19,12 +19,14 @@ export function CreditsSearch({ listId, emptyId, total, t }: { listId: string; e
   const status = useRef<HTMLSpanElement>(null);
   const dq = normKey(useDeferredValue(q).trim());
   const id = useId();
+  const keys = useRef<Map<Element, string> | null>(null);
   useEffect(() => {
     const list = document.getElementById(listId);
     if (!list) return;
+    keys.current ??= new Map(Array.from(list.children).map((li) => [li, normKey(li.textContent ?? "")]));
     let c = 0;
     for (const li of Array.from(list.children) as HTMLElement[]) {
-      const hit = !dq || (li.dataset.k ?? "").includes(dq);
+      const hit = !dq || (keys.current.get(li) ?? "").includes(dq);
       li.hidden = !hit;
       if (hit) c++;
     }
