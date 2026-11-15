@@ -1494,9 +1494,15 @@
     "height": 560
    },
    "credit": {
-    "page": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Max_Verstappen_(cropped).jpg",
-    "author": "Lukas Raich",
+    "page": "https://commons.wikimedia.org/wiki/File:2024-08-25_Motorsport,_Formel_1,_Gro%C3%9Fer_Preis_der_Niederlande_2024_STP_3989_by_Stepro_(Verstappen).jpg",
+    "author": "Steffen Prößdorf",
     "license": "CC BY-SA 4.0"
+   },
+   "manual": {
+    "file": "2024-08-25 Motorsport, Formel 1, Großer Preis der Niederlande 2024 STP 3989 by Stepro (Verstappen).jpg",
+    "focus": "50% 15%",
+    "decided": "2026-11-15",
+    "reason": "рішення користувача: привабливіше фото замість кадру з огорожею (Австрія-2023)"
    }
   },
   "2024": {
