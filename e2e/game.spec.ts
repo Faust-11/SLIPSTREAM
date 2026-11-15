@@ -51,8 +51,8 @@ test("#port відкриває Порт; клік по картці міняє �
 });
 
 test("старт: вогні → заїзд з клавіатури (швидкість росте) → R перезапускає", async ({ page }) => {
-  // Максимальна пауза перед згасанням (1,5 с) — ширше вікно «горять усі 5» для опитування під навантаженням.
-  await page.addInitScript(() => (Math.random = () => 0.99));
+  // Math.random не підміняємо: глобальна підміна ламає рантайм Next (сторінка перемонтовується — замір 15.11);
+  // вікно «горять усі 5» ≥ 0,5 с — опитування кожні 50 мс.
   await page.goto("/uk/game");
   await page.getByRole("button", { name: "Старт · Пробіл" }).click();
   await expect(page.locator(".gm-lights")).toBeVisible();
@@ -82,6 +82,29 @@ test("рекорд зі сховища перевіряється повторо
   await expect(page.locator(".gm-note").nth(1)).toHaveText("Бот проходить коло за 0:29.933 без штрафів.");
 });
 
+/** Сцена, 4 сенсорні кнопки й «заново» в екрані, без накладань (вимога користувача 15.11: «все кнопки видны»). */
+async function expectTouchLayout(page: Page) {
+  const vp = page.viewportSize()!;
+  await page.getByRole("button", { name: "Старт", exact: true }).tap();
+  await expect(page.locator(".gm-game")).toHaveClass(/is-running/);
+  const stage = (await page.locator(".gm-game").boundingBox())!;
+  expect(stage.y).toBeGreaterThanOrEqual(64);
+  expect(stage.y + stage.height).toBeLessThanOrEqual(vp.height + 1);
+  const boxes = [];
+  for (const el of [...(await page.locator(".gm-touch button").all()), page.locator(".gm-restart")]) {
+    await expect(el).toBeVisible();
+    const b = (await el.boundingBox())!;
+    expect(b.width).toBeGreaterThanOrEqual(44);
+    expect(b.x).toBeGreaterThanOrEqual(stage.x);
+    expect(b.x + b.width).toBeLessThanOrEqual(stage.x + stage.width + 0.5);
+    expect(b.y + b.height).toBeLessThanOrEqual(stage.y + stage.height + 0.5);
+    boxes.push(b);
+  }
+  boxes.push((await page.locator(".gm-speed").boundingBox())!, (await page.locator(".gm-mini").boundingBox())!);
+  const hit = (a: { x: number; y: number; width: number; height: number }, b: typeof a) => a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height;
+  for (let i = 0; i < boxes.length; i++) for (let j = i + 1; j < boxes.length; j++) expect(hit(boxes[i]!, boxes[j]!), `накладання ${i}/${j}`).toBe(false);
+}
+
 test.describe("телефон", () => {
   test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
   test("390 px: без горизонтальної прокрутки, сенсорні кнопки видно, сцена 4:5", async ({ page }) => {
@@ -92,7 +115,34 @@ test.describe("телефон", () => {
     await expect(page.getByRole("button", { name: "газ" })).toBeVisible();
     const box = (await page.locator(".gm-game").boundingBox())!;
     expect(Math.abs(box.width / box.height - 4 / 5)).toBeLessThan(0.02);
+    // На сенсорі без підказки клавіші («Старт», а не «Старт · Пробіл»).
+    await expect(page.locator(".gm-btn.is-go")).toHaveText("Старт", { useInnerText: true });
+    await expectTouchLayout(page);
   });
+});
+
+for (const [w, h] of [
+  [320, 568],
+  [844, 390],
+  [667, 375],
+] as const) {
+  test.describe(`телефон ${w}×${h}`, () => {
+    test.use({ viewport: { width: w, height: h }, hasTouch: true, isMobile: true });
+    test("сцена й усі сенсорні кнопки в екрані, без накладань", async ({ page }) => {
+      await page.goto("/uk/game");
+      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(w);
+      await expectTouchLayout(page);
+    });
+  });
+}
+
+test("фальстарт: газ під час вогнів — чип і тост «Фальстарт · +1 с»", async ({ page }) => {
+  await page.goto("/uk/game");
+  await page.getByRole("button", { name: "Старт · Пробіл" }).click();
+  await expect(page.locator(".gm-lamp.is-on")).not.toHaveCount(0, { timeout: 10_000 });
+  await page.keyboard.down("ArrowUp");
+  await expect(page.locator(".gm-hud .gm-chip.is-behind")).toHaveText("Фальстарт · +1 с", { timeout: 15_000 });
+  await page.keyboard.up("ArrowUp");
 });
 
 for (const colorScheme of ["light", "dark"] as const) {

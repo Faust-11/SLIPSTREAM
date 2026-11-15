@@ -10,6 +10,18 @@ import { HotLapEngine } from "./engine";
 export type Labels = Dictionary["gamePage"];
 export type TrackCard = { key: TrackKey; points: string; start: [number, number]; length: string; width: string; bot: string };
 
+/** «Старт · Пробіл» → «Старт» + підказка клавіші, яку на сенсорному екрані ховаємо (там клавіатури немає). */
+function withKey(label: string) {
+  const i = label.lastIndexOf(" · ");
+  if (i < 0) return label;
+  return (
+    <>
+      {label.slice(0, i)}
+      <span className="gm-key-hint">{label.slice(i)}</span>
+    </>
+  );
+}
+
 /** Колір тегу картки (з макета). */
 const TAG: Record<TrackKey, string> = { lyman: "#4FD18B", port: "#B9BDC5", plateau: "#FF8000", forest: "#93A8FF" };
 
@@ -257,7 +269,7 @@ export function HotLap({ cards, labels: L, locale }: { cards: TrackCard[]; label
                         <p>{L.readyP}</p>
                         <div className="gm-btns">
                           <button type="button" className="gm-btn is-go" onClick={go} disabled={!mounted}>
-                            {L.start}
+                            {withKey(L.start)}
                           </button>
                         </div>
                       </>
@@ -269,7 +281,7 @@ export function HotLap({ cards, labels: L, locale }: { cards: TrackCard[]; label
                         <p>{resultText}</p>
                         <div className="gm-btns">
                           <button type="button" className="gm-btn is-go" onClick={go} ref={againRef}>
-                            {L.again}
+                            {withKey(L.again)}
                           </button>
                           <button type="button" className="gm-btn gm-side-btn" onClick={share}>
                             {L.share}
