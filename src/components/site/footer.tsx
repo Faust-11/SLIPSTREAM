@@ -29,6 +29,15 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         <div className="foot-legal">
           <span className="unofficial">{dict.footer.unofficial}</span>
           <p>{dict.footer.disclaimer}</p>
+          {/* Службові сторінки (фаза 8): «Про сайт» і «Джерела й ліцензії» — лише у футері, не в головному меню. */}
+          <nav className="foot-service" aria-label={dict.footer.serviceLabel}>
+            <Link href={localizedPath("/about", locale)} prefetch={false}>
+              {dict.footer.about}
+            </Link>
+            <Link href={localizedPath("/sources", locale)} prefetch={false}>
+              {dict.footer.sources}
+            </Link>
+          </nav>
           <p className="credits">
             {dict.footer.dataLabel}:{" "}
             <a href="https://jolpi.ca" translate="no">

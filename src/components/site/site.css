@@ -478,6 +478,22 @@ html:not([data-hydrated]) .mnav-btn {
   line-height: 1.7;
   opacity: 0.75;
 }
+/* Службові сторінки (фаза 8): «Про сайт», «Джерела й ліцензії»; ціль ≥ 24 px. */
+.site-foot .foot-service {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  margin: 0 0 10px;
+  font-size: 13.5px;
+}
+.site-foot .foot-service a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 /* Посилання в тексті відрізняються не лише кольором (WCAG 1.4.1). */
 .site-foot .credits a {
   text-decoration: underline;

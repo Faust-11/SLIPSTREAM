@@ -27,6 +27,8 @@ export const SECTION_PAGES = {
   game: ["/uk/game"],
   stories: ["/uk/stories", "/uk/stories/singapore-2008"],
   newbie: ["/uk/newbie"],
+  about: ["/uk/about"],
+  sources: ["/uk/sources"],
 };
 
 // Шари даних (src/lib/data/<файл>.ts) → розділи, що їх читають.
@@ -41,6 +43,7 @@ const DATA_FILES = {
   circuits: ["circuits"],
   calendar: ["calendar", "newbie"],
   newbie: ["newbie"],
+  credits: ["sources", "about"],
 };
 
 // Не впливають на сторінки: тести, документація, скрипти підготовки даних (дані потрапляють у src/data — там ALL).
@@ -63,6 +66,7 @@ export function pagesFor(files) {
     } else if ((m = /^src\/components\/(\w+)\//.exec(f)) && SECTION_PAGES[m[1]]) sections.add(m[1]);
     else if (/^(content\/stories|public\/img\/stories|src\/lib\/stories)\//.test(f)) sections.add("stories");
     else if (/^(content\/newbie|src\/lib\/newbie)\//.test(f)) sections.add("newbie");
+    else if (/^(content\/service|src\/lib\/service|src\/components\/service)\//.test(f)) ["about", "sources"].forEach((s) => sections.add(s));
     // Словник термінів — підказки в історіях, таблицях гонок і на головній (фаза 5b).
     else if (/^(content\/glossary|src\/(lib|components)\/glossary)\//.test(f)) ["newbie", "stories", "race", "home"].forEach((s) => sections.add(s));
     else if (/^src\/(lib|components)\/game\//.test(f)) sections.add("game");
