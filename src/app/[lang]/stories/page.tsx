@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
-import { StoriesFilter, STORY_FILTERS, type StoryFilter } from "@/components/stories/stories-filter";
+import { StoriesFilter } from "@/components/stories/stories-filter";
 import { StoryCard } from "@/components/stories/story-card";
 import { fill } from "@/i18n/fill";
 import { getDictionary } from "@/i18n/get-dictionary";
@@ -9,6 +9,7 @@ import { requireLocale } from "@/i18n/require-locale";
 import { plural } from "@/lib/plural";
 import { pageMetadata, siteUrl } from "@/lib/seo";
 import { getStoryList, type StoryCard as Card } from "@/lib/stories/content";
+import { STORY_FILTERS, type StoryFilter } from "@/lib/stories/filters";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -84,16 +85,13 @@ export default async function StoriesPage({ params }: Props) {
             <ol className="st-ruler" role="list">
               {points.map((p) => (
                 <li key={p.year} className={p.row ? "st-rd st-rd-b" : "st-rd"} style={{ "--x": `${p.x}%` } as CSSProperties}>
-                  <a
-                    href={`#story-${p.list[0]!.slug}`}
-                    aria-label={`${p.year}: ${p.list.map((c) => (c.title.accent ? `${c.title.main}: ${c.title.accent}` : c.title.main)).join("; ")}`}
-                  >
+                  {/* Назва посилання починається з видимого року (WCAG 2.5.3); назви історій — прихованим текстом. */}
+                  <a href={`#story-${p.list[0]!.slug}`}>
                     <span className="st-rdot num" aria-hidden="true">
                       {p.list.length > 1 ? p.list.length : ""}
                     </span>
-                    <span className="st-rlab num" aria-hidden="true">
-                      {p.year}
-                    </span>
+                    <span className="st-rlab num">{p.year}</span>
+                    <span className="sr-only">: {p.list.map((c) => (c.title.accent ? `${c.title.main}: ${c.title.accent}` : c.title.main)).join("; ")}</span>
                   </a>
                 </li>
               ))}

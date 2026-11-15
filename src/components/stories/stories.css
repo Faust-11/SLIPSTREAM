@@ -59,6 +59,7 @@
 }
 .st-hero h1 {
   font-size: clamp(30px, 5vw, 64px);
+  overflow-wrap: anywhere;
 }
 .st-hero h1 > span:not(.sr-only) {
   display: block;
@@ -247,6 +248,11 @@ html[data-list-query] .st-list {
 .st-card h3 {
   font-size: 22px;
   line-height: 1.08;
+  /* «Індіанаполіс-2005» великими літерами ширший за 288 px (замір 320 px, 15.11). */
+  overflow-wrap: anywhere;
+}
+.st-grid > li {
+  min-width: 0;
 }
 .st-link {
   color: var(--ink);
@@ -297,6 +303,7 @@ html[data-list-query] .st-list {
   border: 0;
 }
 .st-feat .st-txt {
+  align-content: center;
   padding: 24px 26px;
   border-left: var(--b) solid var(--rule);
 }
@@ -525,6 +532,8 @@ html:has(.st-toc) {
 }
 .st-fn a {
   display: inline-block;
+  /* Рядок виноски — line-height 0 (не розсуває текст), але саме посилання має мати висоту (видиме й клікабельне). */
+  line-height: 1.2;
   min-width: 1.4em;
   padding: 0 1px;
   color: var(--blue-text);
@@ -678,6 +687,8 @@ html:has(.st-toc) {
 }
 .st-dz-src a {
   color: var(--blue-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .st-srcs {
   display: grid;
@@ -758,6 +769,12 @@ html:has(.st-toc) {
   .st-feat .st-txt {
     border-top: var(--b) solid var(--rule);
     border-left: 0;
+  }
+}
+@media (width <= 400px) {
+  .st-card h2,
+  .st-card h3 {
+    font-size: 19px;
   }
 }
 @media (width <= 640px) {
