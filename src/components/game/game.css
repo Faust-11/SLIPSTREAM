@@ -172,8 +172,11 @@
   stroke-width: 5;
   stroke-linejoin: round;
 }
+/* Обведення кольором тексту картки: жовта точка на світлому тлі сама по собі 1,4:1 (рев'ю PR #26). */
 .gm-tstart {
   fill: var(--yellow);
+  stroke: currentColor;
+  stroke-width: 2;
 }
 .gm-thead {
   display: flex;
@@ -250,11 +253,15 @@
   background: var(--gm-stage);
   outline: none;
   border: var(--b) solid var(--rule);
-  touch-action: none;
+  /* Свайп по сцені прокручує сторінку; у заїзді (огні й коло) — ні, щоб не з'їжджав екран. */
+  touch-action: pan-y;
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
   color: #eceff1;
+}
+.gm-game.is-running {
+  touch-action: none;
 }
 .gm-game:focus-visible {
   box-shadow: 0 0 0 3px var(--yellow);
@@ -275,10 +282,12 @@
   opacity: 0.95;
   pointer-events: none;
 }
+/* Ширина HUD — до мінікарти: на вузькій сцені чипи секторів переносяться, а не лізуть під неї. */
 .gm-hud {
   position: absolute;
   left: 12px;
   top: 12px;
+  max-width: calc(100% - 132px - 36px);
   display: grid;
   gap: 6px;
   pointer-events: none;
@@ -333,6 +342,9 @@
   bottom: 14px;
   text-align: right;
   pointer-events: none;
+  /* Підкладка: на піску «Плато» й поребриках текст без неї мав контраст 1,1–2,4. */
+  background: rgba(8, 10, 12, 0.74);
+  padding: 6px 8px;
   font-family: var(--f-mono);
   word-spacing: normal;
   font-variant-numeric: tabular-nums;
@@ -357,7 +369,8 @@
   font-size: clamp(14px, 1.8vw, 20px);
   text-transform: uppercase;
   color: #eceff1;
-  opacity: 0.85;
+  background: rgba(8, 10, 12, 0.74);
+  padding: 6px 8px;
 }
 .gm-trk small {
   display: block;
@@ -381,6 +394,10 @@
   color: #f2c230;
   pointer-events: none;
   white-space: nowrap;
+}
+/* Явно, а не лише через preflight Tailwind: display:flex не має перемагати hidden. */
+.gm-lights[hidden] {
+  display: none;
 }
 .gm-lights {
   position: absolute;
@@ -412,6 +429,9 @@
   place-items: center;
   background: rgba(6, 8, 10, 0.66);
   padding: 16px;
+  /* На 320 px картка результату може бути вищою за сцену — прокрутка замість обрізання. */
+  overflow: auto;
+  place-items: safe center;
 }
 .gm-card {
   max-width: 440px;
@@ -695,6 +715,9 @@
     width: 96px;
     height: 96px;
   }
+  .gm-hud {
+    max-width: calc(100% - 96px - 36px);
+  }
   .gm-aside {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -718,6 +741,11 @@
   }
   .gm-trk {
     display: none;
+  }
+}
+@media (max-width: 400px) {
+  .gm-tmeta b {
+    font-size: 12px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

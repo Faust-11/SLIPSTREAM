@@ -64,15 +64,20 @@ export function HotLap({ cards, labels: L, locale }: { cards: TrackCard[]; label
     if (!result) return;
     const text = fill(L.shareText, { track: L.tracks[key].name, time: fmtLap(result.t) });
     const url = `${window.location.origin}${window.location.pathname}#${key}`;
-    try {
-      if (typeof navigator.share === "function") {
+    // Системне меню (телефон); якщо його немає або воно відмовило не через «Скасувати» — копіювання в буфер.
+    if (typeof navigator.share === "function") {
+      try {
         await navigator.share({ text, url });
         return;
+      } catch (err) {
+        if ((err as DOMException)?.name === "AbortError") return;
       }
+    }
+    try {
       await navigator.clipboard.writeText(`${text} ${url}`);
       setShareMsg({ for: result, text: L.copied });
-    } catch (err) {
-      if ((err as DOMException)?.name !== "AbortError") setShareMsg({ for: result, text: L.copyFail });
+    } catch {
+      setShareMsg({ for: result, text: L.copyFail });
     }
   };
 
@@ -114,7 +119,6 @@ export function HotLap({ cards, labels: L, locale }: { cards: TrackCard[]; label
       (result.pen ? `${fill(L.pen, { n: result.pen })} ` : "") +
       (diff !== null ? (diff < 0 ? fill(L.faster, { d: fmtSec(-diff) }) : fill(L.slower, { best: fmtLap(result.prevBest!), d: fmtSec(diff) })) : L.ghostNow);
     if (botTotal !== null) resultText += ` ${fill(result.t < botTotal ? L.botWin : L.botLose, { d: fmtSec(Math.abs(result.t - botTotal)) })}`;
-    if (!result.valid) resultText += ` ${L.invalid}`;
   }
 
   return (
@@ -170,9 +174,14 @@ export function HotLap({ cards, labels: L, locale }: { cards: TrackCard[]; label
       </section>
 
       <section className="gm-sec gm-play" id="gm-play" aria-label={L.playLabel}>
+        {/* Постійний live-регіон: результат кола оголошується скрінрідером (оверлей монтується разом із текстом —
+            такий регіон більшість скрінрідерів не оголошує, рев'ю PR #26). */}
+        <p className="sr-only" role="status">
+          {phase === "done" && result ? `${result.isBest ? (result.prevBest === null ? L.first : L.newBest) : L.done}: ${fmtLap(result.t)}. ${resultText}` : ""}
+        </p>
         <div className="wrap">
           <div className="gm-grid">
-            <div className="gm-game" ref={gameRef} tabIndex={0} role="application" aria-label={L.gameLabel} aria-roledescription={L.playLabel}>
+            <div className={`gm-game${phase === "lights" || phase === "run" ? " is-running" : ""}`} ref={gameRef} tabIndex={0} role="application" aria-label={L.gameLabel} aria-roledescription={L.playLabel}>
               <canvas className="gm-view" ref={viewRef} />
               <canvas className="gm-mini" ref={miniRef} aria-hidden="true" />
               <div className="gm-hud" aria-hidden="true">
@@ -227,7 +236,7 @@ export function HotLap({ cards, labels: L, locale }: { cards: TrackCard[]; label
               </div>
               {(phase === "ready" || phase === "done") && (
                 <div className="gm-overlay">
-                  <div className="gm-card" aria-live="polite">
+                  <div className="gm-card">
                     {phase === "ready" || !result ? (
                       <>
                         <div className="gm-eyb">
@@ -251,11 +260,9 @@ export function HotLap({ cards, labels: L, locale }: { cards: TrackCard[]; label
                           <button type="button" className="gm-btn is-go" onClick={engine.start} ref={againRef}>
                             {L.again}
                           </button>
-                          {result.valid && (
-                            <button type="button" className="gm-btn gm-side-btn" onClick={share}>
-                              {L.share}
-                            </button>
-                          )}
+                          <button type="button" className="gm-btn gm-side-btn" onClick={share}>
+                            {L.share}
+                          </button>
                         </div>
                         <p className="gm-share-msg" role="status">
                           {shareMsg?.for === result ? shareMsg.text : null}

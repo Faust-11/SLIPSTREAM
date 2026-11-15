@@ -118,9 +118,9 @@ describe("схема траси для картки (звірено з SVG ма�
 describe("сховище рекордів", async () => {
   const { parseStore, addLap, MAX_LAPS } = await import("../store");
   it("сторонній або зіпсований JSON — порожньо", () => {
-    expect(parseStore(null)).toEqual({ best: null, laps: [] });
-    expect(parseStore("{oops")).toEqual({ best: null, laps: [] });
-    expect(parseStore('{"best":{"inputs":1,"total":"x"},"laps":[{"t":-1}]}')).toEqual({ best: null, laps: [] });
+    expect(parseStore(null)).toEqual({ best: null, laps: [], sectors: null });
+    expect(parseStore("{oops")).toEqual({ best: null, laps: [], sectors: null });
+    expect(parseStore('{"best":{"inputs":1,"total":"x"},"laps":[{"t":-1}]}')).toEqual({ best: null, laps: [], sectors: null });
   });
   it("коректний запис і ліміт кіл", () => {
     const st = parseStore('{"best":{"inputs":"1.5","total":3600},"laps":[{"t":3600,"pen":0,"at":1}]}');
@@ -130,5 +130,16 @@ describe("сховище рекордів", async () => {
     expect(s.laps).toHaveLength(MAX_LAPS);
     expect(s.laps[0]!.t).toBe(4014);
     expect(s.best).toEqual(st.best);
+  });
+  it("дата поза межами Date і завеликі числа відкидаються (інакше Intl.DateTimeFormat кидає RangeError)", () => {
+    expect(parseStore('{"laps":[{"t":1,"pen":0,"at":9000000000000000}]}').laps).toEqual([]);
+    expect(parseStore('{"laps":[{"t":99999999,"pen":0,"at":1}]}').laps).toEqual([]);
+    expect(parseStore('{"sectors":[1,2]}').sectors).toBeNull();
+  });
+  it("рекорд не замінюється повільнішим (інша вкладка записала кращий); сектори — мінімум", () => {
+    const st = { best: { inputs: "1.5", total: 3000 }, laps: [], sectors: [1000, 1000, 1000] as [number, number, number] };
+    const s = addLap(st, { t: 3100, pen: 0, at: 1 }, { inputs: "1.6", total: 3100 }, [900, 2100, 3100]);
+    expect(s.best).toEqual(st.best);
+    expect(s.sectors).toEqual([900, 1000, 1000]);
   });
 });
