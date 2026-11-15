@@ -56,6 +56,9 @@ export default async function SeasonsPage({ params }: Props) {
     return (
       <li key={c.year} className={first ? "slot pole" : "slot"} data-pos={`P${pos}`} style={c.color ? ({ "--team": c.color } as CSSProperties) : undefined}>
         <article className="car" aria-labelledby={titleId}>
+          {/* Уся картка — посилання на сезон (відгук користувача 15.11: жовтий рік у куті не читався як посилання). Для
+              клавіатури й скрінрідера посилання — рік у заголовку; ця площина — лише для миші й дотику, без дубля в Tab. */}
+          <a className="car-hit" href={path(`/seasons/${c.year}`)} tabIndex={-1} aria-hidden="true" />
           {c.photo && pos <= 4 ? (
             // Перший екран: фото без lazy — клієнтським компонентом (інакше prefetch маршруту передзавантажує їх на інших
             // сторінках). Перша картка — кандидат LCP.

@@ -348,9 +348,33 @@ html:has(.sn-chips) {
 /* Цілі посилань у картці ≥ 24 px (WCAG 2.5.8). */
 .seasons-page .car h3 a,
 .seasons-page .car .info a {
+  position: relative;
+  z-index: 2;
   display: inline-block;
   min-height: 24px;
   align-content: center;
+}
+/* Площина-посилання на сезон на всю картку (фото, текст, порожні місця); пілот, команди, Кубок і рік — поверх неї
+   (z-index 2), значок «Сезон триває» її не перекриває. */
+.seasons-page .car-hit {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.seasons-page .car h3 a.yr {
+  z-index: 3;
+}
+.seasons-page .car .live {
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .seasons-page .car:has(> .car-hit:hover) {
+    box-shadow: 0 0 0 3px var(--yellow), 0 10px 24px rgb(22 24 29 / 0.3);
+  }
+  .seasons-page .car:has(> .car-hit:hover) h3 a.yr {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 }
 
 /* ---------- адаптивність ---------- */
