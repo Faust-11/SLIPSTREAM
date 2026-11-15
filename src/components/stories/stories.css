@@ -545,17 +545,12 @@ html:has(.st-toc) {
   font: 600 10.5px/0 var(--f-mono);
   white-space: nowrap;
 }
-/* Більша зона дотику без зсуву рядка: відступ + від'ємне поле (номер 10,5 px → ціль ~24 px заввишки). */
+/* Посилання виноски — рядкове (display: inline): так axe і WCAG 2.5.8 вважають його ціллю в тексті (виняток для
+   малих цілей; inline-block на Linux-раннері CI давав target-size, 15.11). Відступи розширюють зону дотику, не
+   розсуваючи рядок (у рядкового елемента вертикальний padding не впливає на висоту рядка). */
 .st-fn a {
-  display: inline-block;
-  margin: -6px 0;
-  padding-block: 6px;
-  /* Рядок виноски — line-height 0 (не розсуває текст), але саме посилання має мати висоту (видиме й клікабельне). */
-  line-height: 1.2;
-  min-width: 1.4em;
-  padding: 0 1px;
+  padding: 4px 2px;
   color: var(--blue-text);
-  text-align: center;
   text-decoration: none;
 }
 .st-fn a:hover {
