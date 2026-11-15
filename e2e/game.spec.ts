@@ -24,14 +24,16 @@ test("/uk/game: перший екран, 4 траси з довжиною й ч�
   await expect(cards(page).locator(".gm-tmeta b:not([data-best])")).toHaveText(["1,30 км", "0:29.933", "1,40 км", "0:34.433", "1,98 км", "0:39.325", "0,96 км", "0:23.500"]);
   await expect(cards(page).first()).toHaveAttribute("aria-pressed", "true");
   await expect(page.getByRole("button", { name: "Старт · Пробіл" })).toBeEnabled();
-  // Сцена намальована (не порожня канва).
-  const painted = await page.locator(".gm-view").evaluate((c: HTMLCanvasElement) => {
-    const d = c.getContext("2d")!.getImageData(0, 0, c.width, c.height).data;
-    let lit = 0;
-    for (let i = 0; i < d.length; i += 4 * 97) if (d[i]! + d[i + 1]! + d[i + 2]! > 60) lit++;
-    return lit;
-  });
-  expect(painted).toBeGreaterThan(50);
+  // Сцена намальована (не порожня канва): перший кадр — у наступному rAF після монтування, тому опитуємо.
+  const painted = () =>
+    page.locator(".gm-view").evaluate((c: HTMLCanvasElement) => {
+      const d = c.getContext("2d")!.getImageData(0, 0, c.width, c.height).data;
+      let lit = 0;
+      for (let i = 0; i < d.length; i += 4 * 97) if (d[i]! + d[i + 1]! + d[i + 2]! > 60) lit++;
+      return lit;
+    });
+  await expect.poll(painted).toBeGreaterThan(50);
+  await expect(page.locator(".gm-lights")).toBeHidden();
   expect(errors).toEqual([]);
 });
 
@@ -49,13 +51,16 @@ test("#port відкриває Порт; клік по картці міняє �
 });
 
 test("старт: вогні → заїзд з клавіатури (швидкість росте) → R перезапускає", async ({ page }) => {
+  // Максимальна пауза перед згасанням (1,5 с) — ширше вікно «горять усі 5» для опитування під навантаженням.
+  await page.addInitScript(() => (Math.random = () => 0.99));
   await page.goto("/uk/game");
   await page.getByRole("button", { name: "Старт · Пробіл" }).click();
   await expect(page.locator(".gm-lights")).toBeVisible();
   await expect(page.locator(".gm-overlay")).toHaveCount(0);
-  await expect(page.locator(".gm-lamp.is-on")).toHaveCount(5, { timeout: 10_000 });
-  // Вогні гаснуть через 0,5–1,5 с після п'ятої лампи.
+  await expect.poll(() => page.locator(".gm-lamp.is-on").count(), { timeout: 10_000, intervals: [50] }).toBe(5);
+  // Вогні гаснуть через 0,5–1,5 с після п'ятої лампи, блок ховається ще за 0,6 с.
   await expect(page.locator(".gm-lamp.is-on")).toHaveCount(0, { timeout: 10_000 });
+  await expect(page.locator(".gm-lights")).toBeHidden({ timeout: 3_000 });
   await page.keyboard.down("ArrowUp");
   await expect.poll(async () => Number(await page.locator(".gm-speed strong").textContent()), { timeout: 10_000 }).toBeGreaterThan(40);
   await page.keyboard.up("ArrowUp");
@@ -81,6 +86,8 @@ test.describe("телефон", () => {
   test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
   test("390 px: без горизонтальної прокрутки, сенсорні кнопки видно, сцена 4:5", async ({ page }) => {
     await page.goto("/uk/game");
+    // Сенсорні кнопки показуються за (pointer: coarse) — явна перевірка, щоб падіння було зрозумілим.
+    expect(await page.evaluate(() => matchMedia("(pointer: coarse)").matches)).toBe(true);
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
     await expect(page.getByRole("button", { name: "газ" })).toBeVisible();
     const box = (await page.locator(".gm-game").boundingBox())!;
@@ -98,3 +105,19 @@ for (const colorScheme of ["light", "dark"] as const) {
     });
   }
 }
+
+test.describe("320 px", () => {
+  test.use({ viewport: { width: 320, height: 640 } });
+  test("без горизонтальної прокрутки; час у картці з рекордом не виходить за картку; чипи HUD не під мінікартою", async ({ page }) => {
+    await seed(page, "lyman", { best: { inputs: TRACKS.lyman!.botInputs, total: TRACKS.lyman!.botTicks }, laps: [] });
+    await page.goto("/uk/game");
+    await expect(cards(page).first().locator("[data-best]")).toHaveText("0:29.933");
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
+    const card = (await cards(page).first().boundingBox())!;
+    const best = (await cards(page).first().locator("[data-best]").boundingBox())!;
+    expect(best.x + best.width).toBeLessThanOrEqual(card.x + card.width - 2);
+    const hud = (await page.locator(".gm-hud").boundingBox())!;
+    const mini = (await page.locator(".gm-mini").boundingBox())!;
+    expect(hud.x + hud.width).toBeLessThanOrEqual(mini.x);
+  });
+});
