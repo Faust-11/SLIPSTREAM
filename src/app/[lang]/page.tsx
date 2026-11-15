@@ -6,6 +6,7 @@ import { HmFades } from "@/components/home/fades";
 import { HmNews } from "@/components/home/news";
 import { HmSlider } from "@/components/home/slider";
 import { SeasonPhoto } from "@/components/seasons/season-photo";
+import { StoryCard } from "@/components/stories/story-card";
 import { heroColors } from "@/components/site/section-hero";
 import { PageCredits } from "@/components/teams/page-credits";
 import type { Locale } from "@/i18n/config";
@@ -14,12 +15,18 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";
 import { requireLocale } from "@/i18n/require-locale";
 import { getHomePage, type RecordList } from "@/lib/data/home";
+import { fmtLap, TRACK_KEYS, TRACK_SPECS } from "@/lib/game/physics";
+import { trackThumb } from "@/lib/game/thumb";
 import { circuitPhotoAlt, seasonPhotoAlt } from "@/lib/image-alt";
 import type { ResultRow } from "@/lib/data/race-page";
 import type { SeasonDriver, SeasonTeamRef } from "@/lib/data/season-page";
 import { plural } from "@/lib/plural";
 import { gapTime, lapTime, raceTime } from "@/lib/race-math";
 import { pageMetadata } from "@/lib/seo";
+import { getStoryList } from "@/lib/stories/content";
+
+/** Історії на головній — три з макета (вибір користувача: «найцікавіші»), у порядку макета. */
+const HOME_STORIES = ["suzuka-1989", "jerez-1997", "singapore-2008"];
 
 // Головна статична: збирається з кожним деплоєм після data-sync і бази під час ISR не читає (рішення користувача 14.11 —
 // інакше посилання на щойно опубліковану гонку давали б 404, поки йде деплой). Новини — клієнтом з /api/news (ISR 30 хв).
@@ -114,6 +121,15 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const maxTeamPts = Math.max(1, ...(page.standings.teams ?? []).map((r) => r.points));
   const lastDone = page.rail.filter((r) => r.state === "done").at(-1);
   const nextRail = page.rail.find((r) => r.state === "next");
+
+  // Гра й історії — статичні дані збірки (без БД). Схема — перша траса гри («Лиман»), як у макеті.
+  const g = dict.gamePage;
+  const lyman = trackThumb("lyman");
+  const km = (m: number) => `${(m / 1000).toFixed(2).replace(".", lang === "uk" ? "," : ".")} ${g.km}`;
+  const stories = getStoryList(lang);
+  const homeStories = HOME_STORIES.map((slug) => stories.find((c) => c.slug === slug)).filter((c) => c !== undefined);
+  const sp = dict.storiesPage;
+  const storyLabels = { meterLabel: sp.meterLabel, meterKeys: sp.meterKeys, category: sp.category, read: sp.read };
 
   return (
     <div className="hm" data-section="home">
@@ -598,6 +614,81 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <HmFades />
       </section>
 
+      {/* ---------- гра (макет: карбон, «Push, push, push») ---------- */}
+      <section className="hm-game" aria-labelledby="hm-game-h" data-surface="dark">
+        <div className="wrap">
+          <div className="hm-game-txt">
+            <p className="hm-eyebrow">{t.gameEyebrow}</p>
+            <h2 className="hm-push" id="hm-game-h">
+              <span>Push,</span> <span>push,</span> <span>push</span>
+            </h2>
+            <p className="hm-game-p">{t.gameText}</p>
+            <a className="hm-btn hm-btn-yellow" href={path("/game")}>
+              {t.gameCta}
+            </a>
+          </div>
+          <div className="hm-game-track" aria-hidden="true">
+            <div className="hm-lights">
+              <i />
+              <i />
+              <i />
+              <i />
+              <i />
+            </div>
+            <svg viewBox="0 0 160 100">
+              <polygon className="hm-gt-casing" points={lyman.points} />
+              <polygon className="hm-gt-line" points={lyman.points} />
+              <circle className="hm-gt-start" cx={lyman.start[0]} cy={lyman.start[1]} r={3.2} />
+            </svg>
+          </div>
+          <table className="hm-board">
+            <caption className="hm-sr">{t.gameBoard}</caption>
+            <thead>
+              <tr>
+                <th scope="col">{g.circuits}</th>
+                <th scope="col">{g.length}</th>
+                <th scope="col">{g.bot}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {TRACK_KEYS.map((k) => (
+                <tr key={k}>
+                  <th scope="row">
+                    <a href={path(`/game#${k}`)}>{g.tracks[k].name}</a>
+                    <small>{g.tracks[k].tag}</small>
+                  </th>
+                  <td className="num">{km(TRACK_SPECS[k].len)}</td>
+                  <td className="num">{fmtLap(TRACK_SPECS[k].botTicks)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* ---------- історії: три з макета ---------- */}
+      {homeStories.length > 0 && (
+        <section className="hm-stories" aria-labelledby="hm-stories-h">
+          <div className="wrap">
+            <div className="hm-head">
+              <h2 className="display" id="hm-stories-h">
+                {dict.nav.stories}
+              </h2>
+              <a className="hm-more" href={path("/stories")}>
+                {sp.allLink}
+              </a>
+            </div>
+            <ul className="st-grid hm-st-grid" role="list">
+              {homeStories.map((c) => (
+                <li key={c.slug}>
+                  <StoryCard c={c} locale={lang} t={storyLabels} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {/* ---------- новини ---------- */}
       <section className="hm-news" aria-labelledby="hm-news-h">
         <div className="wrap">
@@ -628,7 +719,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
 
       <PageCredits
         groups={[
-          { title: t.creditsPhotos, items: page.credits.photos },
+          {
+            title: t.creditsPhotos,
+            items: [
+              ...page.credits.photos,
+              ...homeStories.flatMap((c) => (c.hero ? [{ label: c.hero.caption, href: c.hero.credit.page, author: c.hero.credit.author, license: c.hero.credit.license }] : [])),
+            ],
+          },
           { title: t.creditsPortraits, items: page.credits.portraits },
         ]}
       />

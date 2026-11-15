@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { LiveRounds } from "@/components/calendar/live-rounds";
-import { LocalDay, LocalTime, TzNote } from "@/components/calendar/local-time";
+import { LocalDay, LocalTime } from "@/components/calendar/local-time";
 import { NextRace, type UpcomingRound } from "@/components/calendar/next-race";
 import { RoundsFilter, type CalendarFilter } from "@/components/calendar/rounds-filter";
 import { PageCredits } from "@/components/teams/page-credits";
@@ -257,7 +257,6 @@ export default async function CalendarPage({ params }: Props) {
             ))}
           </ol>
           <p className="cl-key">
-            <span className="k k-done">{t.keyDone}</span>
             {nextCard && <span className="k k-next">{t.keyNext}</span>}
             {counts.ahead > 1 && <span className="k k-later">{t.keyLater}</span>}
           </p>
@@ -271,7 +270,6 @@ export default async function CalendarPage({ params }: Props) {
             </ul>
           )}
           {page.cancelled.length > 0 && <p className="cl-cancel">{fill(t.cancelled, { list: page.cancelled.map((c) => c.gp).join(", ") })}</p>}
-          <TzNote utc={t.tzUtc} local={t.tzLocal} />
         </div>
       </section>
 

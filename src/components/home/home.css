@@ -1345,3 +1345,232 @@
     justify-content: center;
   }
 }
+
+/* ---------- гра ---------- */
+/* Карбон, як у макеті: однаковий в обох темах (власна темна поверхня), текст — світлий. */
+.hm-game {
+  --hm-carbon-ink: #f3f4f1;
+  --hm-carbon-soft: #b4b8bf;
+  --hm-carbon-line: #3a3c42;
+  overflow-x: clip;
+  color: var(--hm-carbon-ink);
+  background-color: #1a1b1f;
+  background-image:
+    radial-gradient(#0e0f11 15%, transparent 16%), radial-gradient(#0e0f11 15%, transparent 16%),
+    radial-gradient(rgb(255 255 255 / 0.07) 15%, transparent 20%), radial-gradient(rgb(255 255 255 / 0.07) 15%, transparent 20%);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px, 0 1px, 4px 5px;
+  border-bottom: var(--b) solid var(--rule);
+}
+.hm-game .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr) minmax(0, 0.8fr);
+  gap: 36px;
+  align-items: center;
+  padding-block: 44px;
+}
+.hm-game .hm-eyebrow {
+  margin: 0;
+  color: var(--yellow);
+}
+.hm-push {
+  margin: 14px 0 16px;
+  font: 400 clamp(38px, 5vw, 64px) / 0.95 var(--f-display);
+  word-spacing: -0.35em;
+  text-transform: uppercase;
+  transform: skewX(-9deg);
+  transform-origin: left bottom;
+}
+.hm-push span {
+  display: block;
+}
+.hm-push span:nth-child(2) {
+  color: var(--yellow);
+}
+.hm-push span:nth-child(3) {
+  color: #ff8000;
+}
+.hm-game-p {
+  max-width: 44ch;
+  margin: 0 0 22px;
+  font-size: 16px;
+  color: var(--hm-carbon-soft);
+}
+.hm-btn-yellow {
+  background: var(--yellow);
+  color: var(--on-yellow);
+}
+/* Вогні старту: загоряються по одному й гаснуть разом (лише прикраса; без руху — усі згаслі). */
+.hm-lights {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.hm-lights i {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #2a2c31;
+  box-shadow: inset 0 0 0 2px #0b0c0e;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hm-lights i {
+    animation: hm-light 6s steps(1, end) infinite;
+  }
+  .hm-lights i:nth-child(2) {
+    animation-name: hm-light2;
+  }
+  .hm-lights i:nth-child(3) {
+    animation-name: hm-light3;
+  }
+  .hm-lights i:nth-child(4) {
+    animation-name: hm-light4;
+  }
+  .hm-lights i:nth-child(5) {
+    animation-name: hm-light5;
+  }
+}
+@keyframes hm-light {
+  0%, 10% { background: #2a2c31; box-shadow: inset 0 0 0 2px #0b0c0e; }
+  10%, 60% { background: #ff2a1a; box-shadow: 0 0 14px rgb(255 42 26 / 0.7), inset 0 0 0 2px #0b0c0e; }
+  60%, 100% { background: #2a2c31; box-shadow: inset 0 0 0 2px #0b0c0e; }
+}
+@keyframes hm-light2 {
+  0%, 20% { background: #2a2c31; box-shadow: inset 0 0 0 2px #0b0c0e; }
+  20%, 60% { background: #ff2a1a; box-shadow: 0 0 14px rgb(255 42 26 / 0.7), inset 0 0 0 2px #0b0c0e; }
+  60%, 100% { background: #2a2c31; box-shadow: inset 0 0 0 2px #0b0c0e; }
+}
+@keyframes hm-light3 {
+  0%, 30% { background: #2a2c31; box-shadow: inset 0 0 0 2px #0b0c0e; }
+  30%, 60% { background: #ff2a1a; box-shadow: 0 0 14px rgb(255 42 26 / 0.7), inset 0 0 0 2px #0b0c0e; }
+  60%, 100% { background: #2a2c31; box-shadow: inset 0 0 0 2px #0b0c0e; }
+}
+@keyframes hm-light4 {
+  0%, 40% { background: #2a2c31; box-shadow: inset 0 0 0 2px #0b0c0e; }
+  40%, 60% { background: #ff2a1a; box-shadow: 0 0 14px rgb(255 42 26 / 0.7), inset 0 0 0 2px #0b0c0e; }
+  60%, 100% { background: #2a2c31; box-shadow: inset 0 0 0 2px #0b0c0e; }
+}
+@keyframes hm-light5 {
+  0%, 50% { background: #2a2c31; box-shadow: inset 0 0 0 2px #0b0c0e; }
+  50%, 60% { background: #ff2a1a; box-shadow: 0 0 14px rgb(255 42 26 / 0.7), inset 0 0 0 2px #0b0c0e; }
+  60%, 100% { background: #2a2c31; box-shadow: inset 0 0 0 2px #0b0c0e; }
+}
+.hm-game-track svg {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  max-block-size: 260px;
+}
+.hm-gt-casing,
+.hm-gt-line {
+  fill: none;
+  stroke-linejoin: round;
+}
+.hm-gt-casing {
+  stroke: #2a2c31;
+  stroke-width: 9;
+}
+.hm-gt-line {
+  stroke: var(--hm-carbon-ink);
+  stroke-width: 2.4;
+}
+.hm-gt-start {
+  fill: var(--yellow);
+  stroke: #0b0c0e;
+  stroke-width: 1.2;
+}
+.hm-board {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font: 13px var(--f-mono);
+  word-spacing: normal;
+  background: rgb(0 0 0 / 0.35);
+  box-shadow: inset 0 0 0 1.5px var(--hm-carbon-line);
+}
+.hm-board th,
+.hm-board td {
+  padding: 11px 14px;
+  text-align: start;
+  font-weight: 400;
+  border-top: 1px solid var(--hm-carbon-line);
+}
+.hm-board thead th {
+  padding-block: 10px 8px;
+  border-top: 0;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--hm-carbon-soft);
+}
+.hm-board td {
+  text-align: end;
+  white-space: nowrap;
+}
+.hm-board thead th + th {
+  text-align: end;
+}
+.hm-board tbody th a {
+  display: inline-block;
+  min-block-size: 24px;
+  font-weight: 600;
+  color: var(--hm-carbon-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.hm-board tbody th a:hover {
+  color: var(--yellow);
+}
+.hm-board small {
+  display: block;
+  font-size: 11px;
+  color: var(--hm-carbon-soft);
+}
+.hm-board td:last-child {
+  color: var(--yellow);
+}
+
+/* ---------- історії ---------- */
+.hm-stories {
+  padding-bottom: 36px;
+  border-bottom: var(--b) solid var(--rule);
+}
+.hm-st-grid {
+  padding-top: 20px;
+  border-top: var(--b) solid var(--rule);
+}
+/* На головній — лише «N тверджень перевірено»; смуга з розбивкою за джерелами — на сторінці історій (у трьох вузьких
+   колонках підписи розбивки ламались на два рядки). */
+.hm-st-grid :is(.st-mbar, .st-mkeys) {
+  display: none;
+}
+@media (min-width: 861px) {
+  .st-grid.hm-st-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+/* 641–860 px: дві колонки, третя картка — на всю ширину (фото й текст поруч), без порожньої клітинки. */
+@media (min-width: 641px) and (max-width: 860px) {
+  .hm-st-grid > li:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+  .hm-st-grid > li:nth-child(3) .st-card {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0 28px;
+    align-items: center;
+  }
+}
+@media (max-width: 1100px) {
+  .hm-game .wrap {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .hm-board {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 860px) {
+  .hm-game .wrap {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding-block: 36px;
+  }
+}

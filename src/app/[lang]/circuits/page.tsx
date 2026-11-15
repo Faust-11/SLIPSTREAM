@@ -81,10 +81,18 @@ export default async function CircuitsPage({ params }: Props) {
           more: t.more,
         }}
       />
-      <p className="wrap ct-src">{t.layoutsSource}</p>
       <PageCredits
         groups={[
-          { title: t.credits, items: data.credits.layouts },
+          // Джерело схем (MIT, ODbL — атрибуція обов'язкова) — у блоці авторів під підвалом, а не підписом над ним
+          // (відгук користувача 15.11).
+          {
+            title: t.credits,
+            items: [
+              { label: "f1-circuits", href: "https://github.com/bacinger/f1-circuits", author: "Tomislav Bacinger", license: "MIT" },
+              { label: "OpenStreetMap", href: "https://www.openstreetmap.org/copyright", author: t.osmAuthor, license: "ODbL" },
+              ...data.credits.layouts,
+            ],
+          },
           { title: dict.teams.credits.drivers, items: data.credits.portraits },
         ]}
       />

@@ -260,7 +260,12 @@ export default async function DriverPageView(props: Props) {
                 {fill(totals.titles === 1 ? t.stamp.one : t.stamp.many, { n: totals.titles, years: totals.titleYears.join(", ") })}
               </span>
             )}
-            <h1 className="display">
+            {/* Кегль — від найдовшого слова імені (--len, символів): моноширинний Rubik Mono One, слово не рветься
+                (відгук користувача 15.11: «Ферстаппен», «Хюлькенберг» переносились по літерах). */}
+            <h1
+              className="display"
+              style={{ "--len": Math.max(...page.nameParts.flatMap((p) => (p ?? "").split(/\s+/)).map((w) => [...w].length)) } as CSSProperties}
+            >
               {page.nameParts[0] && <span>{page.nameParts[0]} </span>}
               <span className="sn">{page.nameParts[1]}</span>
             </h1>

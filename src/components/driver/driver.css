@@ -64,14 +64,18 @@ img.dh-ini {
   object-fit: cover;
 }
 .dh-id {
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   gap: 18px;
   min-width: 0;
   padding-bottom: 36px;
 }
+/* Найдовше слово (--len символів, ~0,85 em на символ Rubik Mono One — замір у новинах 14.11, запас до 0,9) вміщається
+   в колонку: прізвище не рветься по літерах на 320–360 і 861–1440 px (замір 15.11). */
 .dh h1 {
   font-size: clamp(40px, 7vw, 92px);
+  font-size: min(clamp(40px, 7vw, 92px), 100cqi / var(--len, 8) / 0.9);
   line-height: 0.95;
   overflow-wrap: anywhere;
   /* Місце під підкреслення прізвища (воно нижче рядка) — щоб не торкалось кнопки Instagram. */
