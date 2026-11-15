@@ -19,6 +19,7 @@ import "@/components/calendar/calendar.css";
 import "@/components/news/news.css";
 import "@/components/home/home.css";
 import "@/components/game/game.css";
+import "@/components/stories/stories.css";
 import { ThemeRestore } from "@/components/theme/theme-restore";
 import { ThemeScript } from "@/components/theme/theme-script";
 import { getDictionary } from "@/i18n/get-dictionary";

@@ -236,7 +236,15 @@
         "s1"
       ],
       "status": "dis",
-      "note": "s6 («22 cars that started») і s9 («grid of 22») пишуть про 22. s3: Андреа Монтерміні розбив Forti на виході з тунелю й «would not start», у таблиці — ns, тобто стартувала 21 машина. s1 вносить Монтерміні в протокол із 0 кіл і статусом «Injury»."
+      "note": "s6 («22 cars that started») і s9 («grid of 22») пишуть про 22. s3: Андреа Монтерміні розбив Forti на виході з тунелю й «would not start», у таблиці — ns, тобто стартувала 21 машина. s1 вносить Монтерміні в протокол із 0 кіл і статусом «Injury».",
+      "label": {
+        "uk": "Кількість стартерів",
+        "en": "Number of starters"
+      },
+      "reader": {
+        "uk": "Агентський звіт у The Spokesman-Review і RacingNews365 пишуть про 22 машини на старті. За GrandPrix.com, Андреа Монтерміні розбив Forti на виході з тунелю й не стартував, тож гонку почала 21 машина; база результатів Jolpica вносить його до протоколу з нулем кіл.",
+        "en": "A wire report in The Spokesman-Review and RacingNews365 speak of 22 starters. According to GrandPrix.com, Andrea Montermini crashed his Forti at the tunnel exit and did not start, so 21 cars began the race; the Jolpica results database lists him with zero laps."
+      }
     },
     {
       "id": "c8",
@@ -394,7 +402,15 @@
         "s8"
       ],
       "status": "dis",
-      "note": "s1: класифіковано сім — Френтцен 4-й, Сало 5-й, Хаккінен 6-й, Ірвайн 7-й. s3 теж ставить Сало п'ятим, а Хаккінена шостим. s8 називає Паніса «першим із лише трьох класифікованих»."
+      "note": "s1: класифіковано сім — Френтцен 4-й, Сало 5-й, Хаккінен 6-й, Ірвайн 7-й. s3 теж ставить Сало п'ятим, а Хаккінена шостим. s8 називає Паніса «першим із лише трьох класифікованих».",
+      "label": {
+        "uk": "Скільки пілотів класифіковано",
+        "en": "Classified finishers"
+      },
+      "reader": {
+        "uk": "База результатів Jolpica класифікує сімох: Френтцена четвертим, Сало п'ятим, Хаккінена шостим, Ірвайна сьомим; GrandPrix.com теж ставить Сало п'ятим, а Хаккінена шостим. Motor Sport називає Паніса першим із лише трьох класифікованих.",
+        "en": "The Jolpica results database classifies seven: Frentzen fourth, Salo fifth, Häkkinen sixth, Irvine seventh; GrandPrix.com also has Salo fifth and Häkkinen sixth. Motor Sport calls Panis the first of only three classified finishers."
+      }
     },
     {
       "id": "c24",

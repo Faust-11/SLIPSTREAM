@@ -440,7 +440,15 @@
         "k8"
       ],
       "status": "dis",
-      "note": "FIA (k8) дає £1 864 000. AP (k18): «overspending by $1.8 million» — схоже, це фунтова цифра з доларовим знаком; Sky (k12): «$2.2m», ймовірно, перерахунок фунтів у долари. У тексті наведено обидві версії й первинну суму у фунтах."
+      "note": "FIA (k8) дає £1 864 000. AP (k18): «overspending by $1.8 million» — схоже, це фунтова цифра з доларовим знаком; Sky (k12): «$2.2m», ймовірно, перерахунок фунтів у долари. У тексті наведено обидві версії й первинну суму у фунтах.",
+      "label": {
+        "uk": "Перевищення в доларах",
+        "en": "Overspend in dollars"
+      },
+      "reader": {
+        "uk": "За документом FIA, Red Bull перевищила ліміт на £1 864 000. AP писала про $1,8 млн — схоже, це та сама фунтова сума з доларовим знаком; Sky Sports — про $2,2 млн, імовірно, перерахувавши фунти в долари.",
+        "en": "According to the FIA document, Red Bull exceeded the cap by £1,864,000. AP wrote of $1.8m, which looks like the pound figure with a dollar sign; Sky Sports wrote of $2.2m, probably converting pounds into dollars."
+      }
     },
     {
       "id": "c28",

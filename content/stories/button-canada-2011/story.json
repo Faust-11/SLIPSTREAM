@@ -298,7 +298,15 @@
         "s6"
       ],
       "status": "dis",
-      "note": "RaceFans, Motorsport.com (Fagnan), The Checkered Flag і Autosport пишуть про 25-те коло; Pirelli і Motorsport.com (Cooper) — про 24-те. У Jolpica час 25-го кола включає зупинку (2:05:03)."
+      "note": "RaceFans, Motorsport.com (Fagnan), The Checkered Flag і Autosport пишуть про 25-те коло; Pirelli і Motorsport.com (Cooper) — про 24-те. У Jolpica час 25-го кола включає зупинку (2:05:03).",
+      "label": {
+        "uk": "Коло червоного прапора",
+        "en": "Red-flag lap"
+      },
+      "reader": {
+        "uk": "RaceFans, Autosport, The Checkered Flag і Рене Фаньян у Motorsport.com пишуть, що гонку зупинили на 25-му колі. Pirelli і Адам Купер у Motorsport.com називають 24-те коло.",
+        "en": "RaceFans, Autosport, The Checkered Flag and René Fagnan at Motorsport.com say the race was stopped on lap 25. Pirelli and Adam Cooper at Motorsport.com give lap 24."
+      }
     },
     {
       "id": "c12",

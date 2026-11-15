@@ -466,7 +466,15 @@
         "s9"
       ],
       "status": "dis",
-      "note": "Reuters (s8): близько 120 000 глядачів; History.com (s9): близько 100 000. У тексті подано обидві оцінки."
+      "note": "Reuters (s8): близько 120 000 глядачів; History.com (s9): близько 100 000. У тексті подано обидві оцінки.",
+      "label": {
+        "uk": "Кількість глядачів",
+        "en": "Crowd size"
+      },
+      "reader": {
+        "uk": "Reuters пише про близько 120 тисяч глядачів, History.com — про близько 100 тисяч.",
+        "en": "Reuters reported around 120,000 spectators, History.com about 100,000."
+      }
     },
     {
       "id": "c18",

@@ -359,7 +359,15 @@
         "s10"
       ],
       "status": "dis",
-      "note": "s11 (RaceFans): праве заднє колесо; s10 (Motor Sport): ліве заднє колесо не сідало на місце. У тексті наведено обидві версії."
+      "note": "s11 (RaceFans): праве заднє колесо; s10 (Motor Sport): ліве заднє колесо не сідало на місце. У тексті наведено обидві версії.",
+      "label": {
+        "uk": "Колесо на піт-стопі",
+        "en": "Wheel at the pit stop"
+      },
+      "reader": {
+        "uk": "RaceFans пише, що останній піт-стоп Мальдонадо затягнувся через праве заднє колесо, Motor Sport — що на місце не сідало ліве заднє.",
+        "en": "RaceFans says Maldonado's final pit stop was held up by the right rear wheel, Motor Sport that it was the left rear that would not go on."
+      }
     },
     {
       "id": "c14",
@@ -453,7 +461,15 @@
         "s8"
       ],
       "status": "dis",
-      "note": "s16: близько години; s17: близько 90 хвилин; s8: менш ніж за дві години. У тексті — всі три версії."
+      "note": "s16: близько години; s17: близько 90 хвилин; s8: менш ніж за дві години. У тексті — всі три версії.",
+      "label": {
+        "uk": "Коли спалахнула пожежа",
+        "en": "When the fire broke out"
+      },
+      "reader": {
+        "uk": "The National пише, що пожежа в гаражі Williams спалахнула приблизно через годину після фінішу, RacingNews365 — приблизно через 90 хвилин, PlanetF1 — менш ніж за дві години.",
+        "en": "The National says the fire in the Williams garage broke out about an hour after the finish, RacingNews365 about 90 minutes after, PlanetF1 less than two hours after."
+      }
     },
     {
       "id": "c24",
@@ -464,7 +480,15 @@
         "s17"
       ],
       "status": "dis",
-      "note": "s9 (AP) і s10: витік пального; s17: несправність заправної установки (fuel rig). Обидві версії — в тексті."
+      "note": "s9 (AP) і s10: витік пального; s17: несправність заправної установки (fuel rig). Обидві версії — в тексті.",
+      "label": {
+        "uk": "Причина пожежі",
+        "en": "Cause of the fire"
+      },
+      "reader": {
+        "uk": "AP і Motor Sport пишуть про витік пального, RacingNews365 — про несправність заправної установки. Обидві версії вказують на заправне обладнання.",
+        "en": "AP and Motor Sport report a fuel leak, RacingNews365 a fuel rig failure. Both versions point to the refuelling equipment."
+      }
     },
     {
       "id": "c25",

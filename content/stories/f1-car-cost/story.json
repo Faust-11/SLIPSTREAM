@@ -238,7 +238,15 @@
         "t3"
       ],
       "status": "dis",
-      "note": "Оцінки розходяться більш ніж утричі; t3 сам застерігає, що незрозуміло, що входить у суму. У тексті — всі три."
+      "note": "Оцінки розходяться більш ніж утричі; t3 сам застерігає, що незрозуміло, що входить у суму. У тексті — всі три.",
+      "label": {
+        "uk": "Вартість усієї машини",
+        "en": "Cost of a whole car"
+      },
+      "reader": {
+        "uk": "За PlanetF1, Red Bull у 2022 році оцінювала машину приблизно в €15 млн. Motor Sport у 2025 році дійшов до $20,62 млн, а Motorsport.com у 2023-му наводив прикидку близько £6 млн і сам застерігав, що незрозуміло, що до неї входить.",
+        "en": "According to PlanetF1, Red Bull put a car at about €15m in 2022. Motor Sport arrived at $20.62m in 2025, while Motorsport.com in 2023 offered a rough guess of around £6m and itself warned that it was unclear what the figure included."
+      }
     },
     {
       "id": "c3",
@@ -267,7 +275,15 @@
         "t5"
       ],
       "status": "dis",
-      "note": "t1 пише про €12 млн у регламенті; текст регламенту 2025 (t5) — €15 млн. €12 млн фігурувало в домовленості 2016 року (t6). У тексті — обидві версії."
+      "note": "t1 пише про €12 млн у регламенті; текст регламенту 2025 (t5) — €15 млн. €12 млн фігурувало в домовленості 2016 року (t6). У тексті — обидві версії.",
+      "label": {
+        "uk": "Гранична ціна мотора",
+        "en": "Engine supply price cap"
+      },
+      "reader": {
+        "uk": "Motor Sport у січні 2025 року писав, що регламент передбачає €12 млн, а клієнти фактично платять близько €15 млн. У технічному регламенті FIA 2025 року максимальна ціна постачання — саме €15 млн, а €12 млн, за Autosport, фігурували в домовленості виробників 2016 року.",
+        "en": "Motor Sport wrote in January 2025 that the regulations set €12m while customers actually pay around €15m. The FIA's 2025 Technical Regulations put the maximum supply price at €15m; according to Autosport, €12m was the figure in the manufacturers' 2016 agreement."
+      }
     },
     {
       "id": "c6",
@@ -311,7 +327,15 @@
         "t1"
       ],
       "status": "dis",
-      "note": "Різні методики: ціна сезонного постачання (кілька агрегатів, див. t3, t5) проти собівартості одного агрегату."
+      "note": "Різні методики: ціна сезонного постачання (кілька агрегатів, див. t3, t5) проти собівартості одного агрегату.",
+      "label": {
+        "uk": "Вартість силової установки",
+        "en": "Power unit cost"
+      },
+      "reader": {
+        "uk": "PlanetF1 переказує оцінку Red Bull 2022 року — близько €10 млн за силову установку. Motorsport.com у 2023-му писав про £3,5 млн за один агрегат і близько £12 млн на рік за кілька, Motor Sport у 2025-му — про €15 млн «за один двигун». Частково розбіжність пояснюється тим, що одні рахують ціну сезонного постачання кількох агрегатів, а інші — один агрегат.",
+        "en": "PlanetF1 relays Red Bull's 2022 estimate of about €10m per power unit. Motorsport.com in 2023 wrote of £3.5m for a single unit and about £12m a year for several, Motor Sport in 2025 of €15m \"for one engine\". Part of the gap is that some count the price of a season's supply of several units, others a single unit."
+      }
     },
     {
       "id": "c11",
@@ -330,7 +354,15 @@
         "t3"
       ],
       "status": "dis",
-      "note": "Діапазон £500 тис. – £1 млн."
+      "note": "Діапазон £500 тис. – £1 млн.",
+      "label": {
+        "uk": "Вартість монокока",
+        "en": "Monocoque cost"
+      },
+      "reader": {
+        "uk": "Motor Sport (2025) оцінює монокок у £500 тис., PlanetF1 (2023) з посиланням на оцінки команд — приблизно в €580 тис. (£500 тис.), Motorsport.com (2023) — приблизно в £1 млн.",
+        "en": "Motor Sport (2025) puts the monocoque at £500,000, PlanetF1 (2023), citing team estimates, at around €580,000 (£500,000), and Motorsport.com (2023) at around £1m."
+      }
     },
     {
       "id": "c13",
@@ -350,7 +382,15 @@
         "t3"
       ],
       "status": "dis",
-      "note": "Діапазон £250 тис. – £750 тис."
+      "note": "Діапазон £250 тис. – £750 тис.",
+      "label": {
+        "uk": "Вартість коробки передач",
+        "en": "Gearbox cost"
+      },
+      "reader": {
+        "uk": "Motor Sport (2025) називає £250 тис., PlanetF1 у переказі слів Пета Саймондса 2021 року — близько €320 тис. (£275 тис.), Autosport (2024) — близько $400 тис., Motorsport.com (2023) — £750 тис.",
+        "en": "Motor Sport (2025) gives £250,000, PlanetF1, relaying Pat Symonds in 2021, around €320,000 (£275,000), Autosport (2024) around $400,000 and Motorsport.com (2023) £750,000."
+      }
     },
     {
       "id": "c15",
@@ -369,7 +409,15 @@
         "t1"
       ],
       "status": "dis",
-      "note": "Валюта у цитаті Штайнера не названа; RaceFans подає суми в доларах. Діапазон ~£100–150 тис."
+      "note": "Валюта у цитаті Штайнера не названа; RaceFans подає суми в доларах. Діапазон ~£100–150 тис.",
+      "label": {
+        "uk": "Вартість переднього антикрила",
+        "en": "Front wing cost"
+      },
+      "reader": {
+        "uk": "Керівник Haas Гюнтер Штайнер у 2021 році, за RaceFans, сказав, що саме лише переднє антикрило коштує сто п'ятдесят тисяч; валюту він не назвав, RaceFans подає суми в доларах. Motorsport.com (2023) оцінює крило в £150 тис., Motor Sport (2025) — у £100 тис.",
+        "en": "In 2021 Haas team principal Guenther Steiner, as quoted by RaceFans, said the front wing alone cost a hundred and fifty thousand; he did not name a currency, and RaceFans gives the figures in dollars. Motorsport.com (2023) puts the wing at £150,000, Motor Sport (2025) at £100,000."
+      }
     },
     {
       "id": "c17",
@@ -388,7 +436,15 @@
         "t3"
       ],
       "status": "dis",
-      "note": "Діапазон £35–50 тис."
+      "note": "Діапазон £35–50 тис.",
+      "label": {
+        "uk": "Вартість керма",
+        "en": "Steering wheel cost"
+      },
+      "reader": {
+        "uk": "Motor Sport (2025) оцінює кермо в £35 тис. ($50 тис.), PlanetF1 з посиланням на колонку Пета Саймондса 2021 року — у €50 тис. (£43 тис.), Motorsport.com (2023) — у £50 тис.",
+        "en": "Motor Sport (2025) puts the steering wheel at £35,000 ($50,000), PlanetF1, citing Pat Symonds' 2021 column, at €50,000 (£43,000), and Motorsport.com (2023) at £50,000."
+      }
     },
     {
       "id": "c19",

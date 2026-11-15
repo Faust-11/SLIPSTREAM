@@ -511,7 +511,15 @@
         "s21"
       ],
       "status": "dis",
-      "note": "У 2002 році Тодт казав, що пілотам повідомили на 63-му колі після останніх піт-стопів (s3, s7). У 2026 році в подкасті High Performance він заявив, що домовленість існувала до гонки (s21)."
+      "note": "У 2002 році Тодт казав, що пілотам повідомили на 63-му колі після останніх піт-стопів (s3, s7). У 2026 році в подкасті High Performance він заявив, що домовленість існувала до гонки (s21).",
+      "label": {
+        "uk": "Коли домовилися про обмін",
+        "en": "When the swap was agreed"
+      },
+      "reader": {
+        "uk": "У 2002 році Тодт казав, що рішення пілотам передали на 63-му колі, після останніх піт-стопів, — так це описували Grandprix.com і Autosport. У 2026 році в подкасті High Performance, за переказом Crash.net, він уже стверджував, що домовленість існувала ще до старту.",
+        "en": "In 2002 Todt said the drivers were told on lap 63, after the final pit stops, as Grandprix.com and Autosport reported. In 2026, on the High Performance podcast as reported by Crash.net, he said the agreement had been in place before the start."
+      }
     },
     {
       "id": "c22",

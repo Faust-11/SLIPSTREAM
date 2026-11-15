@@ -329,7 +329,15 @@
         "w7"
       ],
       "status": "dis",
-      "note": "Діапазон ~£35–50 тис.; PlanetF1 спирається на колонку Пета Саймондса в Motor Sport (2021), тож незалежність часткова."
+      "note": "Діапазон ~£35–50 тис.; PlanetF1 спирається на колонку Пета Саймондса в Motor Sport (2021), тож незалежність часткова.",
+      "label": {
+        "uk": "Вартість керма",
+        "en": "Steering wheel cost"
+      },
+      "reader": {
+        "uk": "Motor Sport (2025) оцінює кермо в $50 тис. (£35 тис.), PlanetF1 (2023) — у €50 тис. (£43 тис.), Motorsport.com — у £50 тис. Оцінка PlanetF1 спирається на колонку Пета Саймондса в Motor Sport 2021 року, тож ці джерела не цілком незалежні.",
+        "en": "Motor Sport (2025) puts the wheel at $50,000 (£35,000), PlanetF1 (2023) at €50,000 (£43,000) and Motorsport.com at £50,000. PlanetF1's figure draws on Pat Symonds' 2021 column in Motor Sport, so those sources are not fully independent."
+      }
     },
     {
       "id": "c14",
@@ -469,7 +477,15 @@
         "w4"
       ],
       "status": "dis",
-      "note": "Різні оцінки звичного й «магічного» балансу; F1.com пише, що 86,5% — «believed»."
+      "note": "Різні оцінки звичного й «магічного» балансу; F1.com пише, що 86,5% — «believed».",
+      "label": {
+        "uk": "Баланс гальм у Баку",
+        "en": "Brake balance in Baku"
+      },
+      "reader": {
+        "uk": "За F1.com, баланс гальм Гамілтона змістився зі звичних 52–53% на передню вісь до приблизно 86,5%, причому останню цифру видання подає як імовірну. Motorsport.com пише про звичні 55–60% і близько 90%.",
+        "en": "According to F1.com, Hamilton's brake balance jumped from the usual 52–53% at the front to about 86.5%, a figure it describes as \"believed\". Motorsport.com writes of a usual 55–60% and about 90%."
+      }
     },
     {
       "id": "c29",

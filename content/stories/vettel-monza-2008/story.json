@@ -485,7 +485,15 @@
         "s6"
       ],
       "status": "dis",
-      "note": "Від дати народження 03.07.1987 (s4) до 14.09.2008 — 21 рік 73 дні; RaceFans (s9) дає 21 рік 2 міс. 11 днів, що збігається. Dawn/агенції (s8) і Motor Sport (s6) пишуть 21 рік і 74 дні. У тексті подано обидва варіанти."
+      "note": "Від дати народження 03.07.1987 (s4) до 14.09.2008 — 21 рік 73 дні; RaceFans (s9) дає 21 рік 2 міс. 11 днів, що збігається. Dawn/агенції (s8) і Motor Sport (s6) пишуть 21 рік і 74 дні. У тексті подано обидва варіанти.",
+      "label": {
+        "uk": "Вік Феттеля",
+        "en": "Vettel's age"
+      },
+      "reader": {
+        "uk": "Від дати народження Феттеля, 3 липня 1987 року (за базою Jolpica), до 14 вересня 2008 року минув 21 рік і 73 дні; RaceFans дає 21 рік, 2 місяці й 11 днів, що збігається. Dawn із посиланням на агенції та Motor Sport писали про 21 рік і 74 дні.",
+        "en": "From Vettel's date of birth, 3 July 1987 (per the Jolpica database), to 14 September 2008 is 21 years and 73 days; RaceFans gives 21 years, 2 months and 11 days, which matches. Dawn, citing agencies, and Motor Sport wrote 21 years and 74 days."
+      }
     },
     {
       "id": "c26",
