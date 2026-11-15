@@ -63,8 +63,8 @@
     "lead": "A Grand Prix lasts three days. Practice is for setting the car up, qualifying decides the starting order, and points are scored in the race.",
     "head": { "format": "Format", "fri": "Friday", "sat": "Saturday", "sun": "Sunday" },
     "dayShort": { "fri": "Fri", "sat": "Sat", "sun": "Sun" },
-    "standard": { "name": "Standard", "count": "{n} rounds in {season}" },
-    "sprint": { "name": "Sprint", "count": "{n} rounds in {season}" },
+    "standard": { "name": "Standard", "count": { "one": "{n} round in {season}", "few": "{n} rounds in {season}", "many": "{n} rounds in {season}", "other": "{n} rounds in {season}" } },
+    "sprint": { "name": "Sprint", "count": { "one": "{n} round in {season}", "few": "{n} rounds in {season}", "many": "{n} rounds in {season}", "other": "{n} rounds in {season}" } },
     "sessions": {
       "fp1": "Practice 1",
       "fp2": "Practice 2",
@@ -105,7 +105,7 @@
     "cup": "For the constructors' championship both cars are added together: {list}.",
     "cupItem": "{team} {a} + {b} = {sum}",
     "climb": "{driver} started {grid} and finished {finish}.",
-    "fastest": "{driver} set the fastest lap, yet {pos} place paid the usual {pts}.",
+    "fastest": "{driver} set the fastest lap, yet scored only what {pos} place is worth: {pts}.",
     "ptsForms": { "one": "{n} point", "few": "{n} points", "many": "{n} points", "other": "{n} points" }
   },
   "tyres": {

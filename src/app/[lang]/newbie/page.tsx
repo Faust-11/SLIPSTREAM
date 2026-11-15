@@ -43,12 +43,13 @@ const ord = (n: number, lang: Locale) => (lang === "uk" ? ukOrdinal(n) : enOrdin
 const dateFmt = { uk: new Intl.DateTimeFormat("uk", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }), en: new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }) };
 
 /** Усі рядки з підказками — у порядку на сторінці (термін спливає лише при першій появі). */
-function pageStrings(t: NewbieText, sprintNote: string, vars: Record<string, number>): [string, string][] {
+function pageStrings(t: NewbieText, sprintNote: string | null, vars: Record<string, number | string>): [string, string][] {
   return [
     ["basics.lead", t.basics.lead],
     ...t.basics.cols.flatMap((c, i) => c.p.map((p, j): [string, string] => [`basics.${i}.${j}`, p])),
     ["weekend.lead", t.weekend.lead],
-    ["weekend.sprint", sprintNote],
+    // Рядок про спринти — лише коли він є на сторінці: інакше перша поява терміна «з'їлась» би невидимим рядком (рев'ю PR #42).
+    ...(sprintNote ? [["weekend.sprint", sprintNote] as [string, string]] : []),
     ...t.weekend.read.map((p, i): [string, string] => [`weekend.read.${i}`, fill(p, vars)]),
     ["points.lead", t.points.lead],
     ...t.points.rules.map((p, i): [string, string] => [`points.rule.${i}`, p]),
@@ -103,7 +104,7 @@ function Section({ id, title, lead, children, sources }: { id: SectionKey; title
   );
 }
 
-function Example({ ex, t, lang }: { ex: NewbieExample; t: NewbieText["points"]; lang: Locale }) {
+function Example({ ex, t, lang, pitlane }: { ex: NewbieExample; t: NewbieText["points"]; lang: Locale; pitlane: string }) {
   const path = (p: string) => localizedPath(p, lang);
   const pts = (n: number) => fill(plural(n, lang, t.ptsForms), { n });
   const list = new Intl.ListFormat(lang, { type: "conjunction" }).format(
@@ -163,7 +164,7 @@ function Example({ ex, t, lang }: { ex: NewbieExample; t: NewbieText["points"]; 
                     </span>
                   </div>
                 </td>
-                <td className="nb-r nb-c-grid num">{r.grid || "—"}</td>
+                <td className="nb-r nb-c-grid num">{r.grid === 0 ? pitlane : (r.grid ?? "—")}</td>
                 <td className="nb-r nb-c-pts num">{r.points}</td>
               </tr>
             ))}
@@ -188,9 +189,9 @@ export default async function NewbiePage({ params }: Props) {
   const cars = page.cars || 22;
   const out = Math.max(0, (cars - 10) / 2);
   const left = cars - out;
-  const vars = { season, cars, out, left, q1from: left + 1, q2to: left };
+  const vars = { season, cars, out, left, q1from: left + 1, q2to: left, carsOrd: ukOrdinal(cars), q2toOrd: ukOrdinal(left) };
   const sprintPlaces = new Intl.ListFormat(lang, { type: "conjunction" }).format(page.sprints.map((s) => s.place));
-  const sprintNote = fill(t.weekend.sprintNote, { season, list: sprintPlaces });
+  const sprintNote = page.sprints.length > 0 ? fill(t.weekend.sprintNote, { season, list: sprintPlaces }) : null;
   const { text, terms } = markStrings(pageStrings(t, sprintNote, vars), lang);
   const R = (k: string) => <Rich c={text[k] ?? ([] as Inline[])} terms={terms} t={tl} />;
   const src = (s: SectionKey) => <Sources section={s} label={t.sourcesLabel} />;
@@ -235,7 +236,7 @@ export default async function NewbiePage({ params }: Props) {
             </h1>
             <p className="nb-lead">{t.hero.lead}</p>
           </div>
-          <div className="nb-gantry" aria-labelledby="nb-gantry-h">
+          <div className="nb-gantry" role="group" aria-labelledby="nb-gantry-h">
             <h2 id="nb-gantry-h">{t.game.title}</h2>
             <StartLights t={t.game} locale={lang} />
           </div>
@@ -301,7 +302,7 @@ export default async function NewbiePage({ params }: Props) {
             <div className="nb-fmt-row" role="row" key={f.key}>
               <span className="nb-fn" role="rowheader">
                 {t.weekend[f.key].name}
-                <small>{fill(t.weekend[f.key].count, { n: f.n, season })}</small>
+                <small>{fill(plural(f.n, lang, t.weekend[f.key].count), { n: f.n, season })}</small>
               </span>
               {f.days.map((day, i) => (
                 <span className="nb-ses" role="cell" key={i} data-day={t.weekend.dayShort[dayKeys[i]!]}>
@@ -373,7 +374,7 @@ export default async function NewbiePage({ params }: Props) {
               ))}
             </ul>
           </div>
-          {page.example && <Example ex={page.example} t={t.points} lang={lang} />}
+          {page.example && <Example ex={page.example} t={t.points} lang={lang} pitlane={dict.racePage.pitlane} />}
         </div>
       </Section>
 

@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { getStory, getStorySlugs } from "@/lib/stories/content";
 import { parseStory, type Inline } from "@/lib/stories/markdown";
+import { matches, norm, type GlossaryItem } from "@/components/newbie/glossary-list";
+import { holdMs } from "@/components/newbie/start-lights";
 import { markTerms } from "../mark";
 import { firstMatch, formSource, getTerm, getTerms, termMatchers } from "../terms";
 
@@ -50,6 +52,34 @@ describe("словник: пошук у тексті", () => {
     const b = parseStory("Віртуальна машина безпеки. Знову віртуальна машина безпеки, потім машина безпеки.");
     const p = markTerms(b, termMatchers("uk")).blocks[0]!;
     expect(p.type === "p" && termsOf(p.c)).toEqual(["vsc:Віртуальна машина безпеки", "safety-car:машина безпеки"]);
+  });
+});
+
+describe("розмітка й пошук", () => {
+  it("ручна мітка всередині жирного й курсиву — термін, не сирий текст (рев'ю PR #42)", () => {
+    const b = parseStory("**Жирний [[t:pole|поул]]** і *курсив [[t:compound|склад]]*")[0]!;
+    expect(b.type === "p" && termsOf(b.c)).toEqual(["pole:поул", "compound:склад"]);
+  });
+
+  it("«=pole» — з урахуванням регістру: «the Pole» (національність) не позначається; «стюардеса» — не термін", () => {
+    expect(firstMatch("Kubica, the Pole, was third", termMatchers("en"), new Set())).toBeNull();
+    expect(firstMatch("he took pole", termMatchers("en"), new Set())).toMatchObject({ id: "pole" });
+    expect(firstMatch("Стюардеса принесла каву", termMatchers("uk"), new Set())).toBeNull();
+  });
+
+  it("пошук словника: регістр, лапки, апострофи; порожній запит — усе", () => {
+    const items: GlossaryItem[] = [
+      { id: "a", term: "М'які", orig: null, def: "", k: norm("М’які soft") },
+      { id: "b", term: "«Box, box»", orig: null, def: "", k: norm("«Box, box» бокси") },
+    ];
+    expect(matches(items, "м'які").map((x) => x.id)).toEqual(["a"]);
+    expect(matches(items, "BOX, BOX").map((x) => x.id)).toEqual(["b"]);
+    expect(matches(items, "  ")).toHaveLength(2);
+  });
+
+  it("гра «Старт»: пауза до згасання — 0,2–3 с", () => {
+    expect(holdMs(0)).toBe(200);
+    expect(holdMs(1)).toBe(3000);
   });
 });
 

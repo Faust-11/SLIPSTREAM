@@ -51,6 +51,12 @@
   text-align: start;
   white-space: normal;
 }
+/* Браузер без Popover API не ховає [popover] — визначення стояли б просто в рядку тексту. Ховаємо: текст лишається, підказки немає. */
+@supports not selector(:popover-open) {
+  .gt-tip {
+    display: none;
+  }
+}
 .gt-tip::backdrop {
   background: transparent;
 }

@@ -99,6 +99,10 @@ export function StartLights({ t, locale }: { t: LightsLabels; locale: string }) 
           onClick={(e) => {
             if (e.detail === 0) press();
           }}
+          // Firefox: Space відпускання все одно дає click, якщо не погасити keyup (кнопка спрацювала б двічі).
+          onKeyUp={(e) => {
+            if (e.key === " ") e.preventDefault();
+          }}
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") {
               e.preventDefault();
@@ -114,6 +118,9 @@ export function StartLights({ t, locale }: { t: LightsLabels; locale: string }) 
       <p className="nb-res" role="status">
         {state === "arm" ? (
           t.wait
+        ) : state === "hot" ? (
+          // Рев'ю PR #42: у момент «вогні згасли» статус оголошує дію, а не підказку з початку.
+          t.hot
         ) : last === "jump" ? (
           <>
             <b>{t.jumpH}</b> {t.jump}
