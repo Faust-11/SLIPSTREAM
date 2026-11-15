@@ -33,7 +33,7 @@ function runLabel(run: RunInfo): string {
 export default async function AdminOverview({ searchParams }: { searchParams: Promise<{ r?: string }> }) {
   await requireAdmin();
   const [o, { r }] = await Promise.all([loadOverview(), searchParams]);
-  const result = r ? RESULTS[r] : undefined;
+  const result = r && Object.hasOwn(RESULTS, r) ? RESULTS[r] : undefined;
   const gh = o.github;
   const canDeploy = !!deployHookUrl() && gh?.main.deploy.level === "bad";
 

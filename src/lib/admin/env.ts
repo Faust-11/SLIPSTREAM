@@ -1,4 +1,7 @@
 import "server-only";
+import { LOCAL_HOSTS } from "./local";
+
+export { sameKey } from "./local";
 
 /**
  * Налаштування адмінки (фаза 7) — лише змінні середовища сервера. Будь-яка помилка конфігурації = адмінки немає
@@ -26,8 +29,6 @@ export type AdminEnv = {
   /** мс; сесії з iat раніше — недійсні. */
   sessionsAfter: number;
 };
-
-const LOCAL_HOSTS = new Set(["localhost", "127.0.0.1", "[::1]"]);
 
 export function parseAdminEnv(env: Record<string, string | undefined>): AdminEnv | null {
   const admins = new Set(
@@ -64,14 +65,6 @@ export function parseAdminEnv(env: Record<string, string | undefined>): AdminEnv
     loginKey,
     sessionsAfter,
   };
-}
-
-/** Порівняння ключа входу без раннього виходу на першій розбіжності. */
-export function sameKey(a: string, b: string): boolean {
-  if (a.length !== b.length) return false;
-  let diff = 0;
-  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
-  return diff === 0;
 }
 
 export function adminEnv(): AdminEnv | null {

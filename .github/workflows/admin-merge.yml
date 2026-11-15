@@ -9,26 +9,31 @@ name: Автозлиття правок адмінки
 # правило — з main); дані події передаються через env, не підставляються в скрипт.
 # Злиття — лише коли ВСІ перевірки коміту зелені (CI, Lighthouse, DB, Vercel): запускається після кожної з них, а
 # спрацьовує та, що завершилась останньою (рев'ю 7a: DB перевіряє seed_curated.py --strict для src/data/curated).
+# Плюс статус Vercel: якщо прев'ю збереться останнім, злиття запустить саме він (code-review 7a: інакше PR висів би).
 on:
   workflow_run:
     workflows: [CI, Lighthouse, DB]
     types: [completed]
+  status:
 
 permissions:
   contents: write
   pull-requests: write
 
 concurrency:
-  group: admin-merge-${{ github.event.workflow_run.head_branch }}
+  group: admin-merge-${{ github.event.workflow_run.head_sha || github.event.sha }}
   cancel-in-progress: false
 
 jobs:
   merge:
+    # Попередній фільтр (дешевий); остаточне рішення — merge-gate за даними GitHub, а не події.
     if: >-
-      github.event.workflow_run.conclusion == 'success' &&
-      github.event.workflow_run.event == 'pull_request' &&
-      startsWith(github.event.workflow_run.head_branch, 'admin/') &&
-      github.event.workflow_run.head_repository.full_name == github.repository
+      (github.event_name == 'workflow_run' &&
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.event == 'pull_request' &&
+        startsWith(github.event.workflow_run.head_branch, 'admin/') &&
+        github.event.workflow_run.head_repository.full_name == github.repository) ||
+      (github.event_name == 'status' && github.event.context == 'Vercel' && github.event.state == 'success')
     runs-on: ubuntu-26.04
     timeout-minutes: 5
     steps:
@@ -49,11 +54,12 @@ jobs:
       - name: Перевірити й злити
         env:
           GH_TOKEN: ${{ github.token }}
-          BRANCH: ${{ github.event.workflow_run.head_branch }}
-          TESTED_SHA: ${{ github.event.workflow_run.head_sha }}
+          TESTED_SHA: ${{ github.event.workflow_run.head_sha || github.event.sha }}
         run: |
-          number=$(gh pr list -R "$GITHUB_REPOSITORY" --head "$BRANCH" --state open --json number -q '.[0].number')
-          if [ -z "$number" ]; then echo "Відкритого PR для $BRANCH немає"; exit 0; fi
+          # PR — за комітом (обидві події його знають), лише відкритий з гілки admin/* цього репозиторію.
+          number=$(gh api "repos/$GITHUB_REPOSITORY/commits/$TESTED_SHA/pulls" \
+            -q "[.[] | select(.state == \"open\" and (.head.ref | startswith(\"admin/\")) and .head.repo.full_name == \"$GITHUB_REPOSITORY\")][0].number // empty")
+          if [ -z "$number" ]; then echo "Відкритого PR адмінки для $TESTED_SHA немає"; exit 0; fi
           gh pr view "$number" -R "$GITHUB_REPOSITORY" --json headRefName,baseRefName,headRefOid,isDraft,isCrossRepository,state,labels > "$RUNNER_TEMP/pr.json"
           # Файли — з REST: на відміну від `gh pr view --json files` там є previous_filename і статус (перейменування).
           gh api "repos/$GITHUB_REPOSITORY/pulls/$number/files?per_page=100" > "$RUNNER_TEMP/files.json"

@@ -1,6 +1,9 @@
 // @vitest-environment node
 import { describe, expect, it } from "vitest";
-import { attentionList, coverage, deployState, missingPortraits, raceLag, runLevel } from "../overview";
+import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { attentionList, coverage, deployState, missingPortraits, raceLag, runLevel, storyTranslations } from "../overview";
 
 const H = 3_600_000;
 const now = Date.UTC(2026, 10, 22, 12);
@@ -69,6 +72,7 @@ describe("attentionList", () => {
     portraits: { champions: [], winners: 0, podiums: 0 },
     github: null,
     githubError: false,
+    dbError: false,
   };
   it("без GitHub — одне попередження з посиланням на Систему", () => {
     expect(attentionList(base)).toEqual([expect.objectContaining({ level: "one", title: "GitHub не підключено", href: "/admin/system" })]);
@@ -87,5 +91,37 @@ describe("attentionList", () => {
       "Немає результату: етап 21",
       "Чемпіон без портрета: Mike Hawthorn",
     ]);
+  });
+
+  it("червоний CI старішого коміту (main злито автозлиттям без push-прогону) — не тривога; того самого — тривога", () => {
+    const gh = (sha: string) => ({
+      main: { sha: "new", at: "", deploy: { level: "ok" as const, label: "Викладено" } },
+      dataSync: { status: "completed", conclusion: "success", at: "", url: "", sha: "x" },
+      ciMain: { status: "completed", conclusion: "failure", at: "", url: "u", sha },
+      journal: [],
+      open: [],
+    });
+    expect(attentionList({ ...base, github: gh("old") })).toEqual([]);
+    expect(attentionList({ ...base, github: gh("new") }).map((i) => i.title)).toEqual(["CI на main червоний"]);
+  });
+
+  it("база не відповідає — окрема тривога, Огляд не падає", () => {
+    expect(attentionList({ ...base, dbError: true, github: null }).map((i) => i.title)).toContain("База не відповідає");
+  });
+});
+
+describe("storyTranslations — з файлів, не з getStory", () => {
+  it("історія без en.md рахується як неперекладена; без uk.md чи story.json — не історія", () => {
+    const root = mkdtempSync(join(tmpdir(), "stories-"));
+    const story = (slug: string, files: string[]) => {
+      mkdirSync(join(root, slug));
+      for (const f of files) writeFileSync(join(root, slug, f), "x");
+    };
+    story("full", ["story.json", "uk.md", "en.md"]);
+    story("no-en", ["story.json", "uk.md"]);
+    story("draft", ["uk.md"]);
+    writeFileSync(join(root, "README.md"), "x");
+    expect(storyTranslations(root).sort((a, b) => Number(a.en) - Number(b.en))).toEqual([{ en: false }, { en: true }]);
+    expect(storyTranslations(join(root, "missing"))).toEqual([]);
   });
 });
