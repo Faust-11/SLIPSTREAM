@@ -7,7 +7,8 @@ import { getSiteCredits } from "@/lib/data/credits";
 import { loadSeasonIndex } from "@/lib/data/seasons";
 import circuitsJson from "@/data/curated/circuits.json";
 import { getTerms } from "@/lib/glossary/terms";
-import { contactEmail, serviceText } from "@/lib/service/content";
+import { analyticsEnabled, contactEmail, serviceText } from "@/lib/service/content";
+import { plural } from "@/lib/plural";
 import { pageMetadata, siteUrl } from "@/lib/seo";
 import { getStoryList } from "@/lib/stories/content";
 
@@ -48,12 +49,12 @@ export default async function AboutPage({ params }: Props) {
         h1={t.h1}
         lead={t.lead}
         facts={[
-          { n: n.format(years.length), label: fill(t.facts.seasons, { first: Math.min(...years), last: Math.max(...years) }) },
-          { n: n.format(circuits), label: t.facts.circuits },
-          { n: n.format(getStoryList(lang).length), label: t.facts.stories },
-          { n: n.format(getTerms(lang).length), label: t.facts.terms },
-          { n: n.format(credits.length), label: t.facts.photos },
-        ]}
+          { n: years.length, label: fill(plural(years.length, lang, t.facts.seasons), { first: Math.min(...years), last: Math.max(...years) }) },
+          { n: circuits, label: plural(circuits, lang, t.facts.circuits) },
+          { n: getStoryList(lang).length, label: plural(getStoryList(lang).length, lang, t.facts.stories) },
+          { n: getTerms(lang).length, label: plural(getTerms(lang).length, lang, t.facts.terms) },
+          { n: credits.length, label: plural(credits.length, lang, t.facts.photos) },
+        ].map((f) => ({ n: n.format(f.n), label: f.label }))}
       />
       <ServiceBody
         idxLabel={t.idx}
@@ -116,7 +117,7 @@ export default async function AboutPage({ params }: Props) {
 
         <ServiceSection id={ids.store} title={t.store.h}>
           <ul className="sv-store" role="list">
-            {t.store.items.map((it) => (
+            {t.store.items.filter((it) => it.requires !== "analytics" || analyticsEnabled()).map((it) => (
               <li key={it.name}>
                 <span className="sv-tag">{it.tag}</span>
                 <b>{it.name}</b>

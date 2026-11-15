@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { layoutCounts, licenseCounts, licenseFamily } from "@/lib/data/credits";
+import { cleanAuthor, isUnknownAuthor, layoutCounts, licenseCounts, licenseFamily } from "@/lib/data/credits";
 import { contactEmail, serviceText } from "../content";
 import { normKey } from "../norm";
 
@@ -47,7 +47,16 @@ describe("службові сторінки", () => {
     else process.env.SITE_CONTACT_EMAIL = prev;
   });
 
-  it("ключ пошуку — без регістру й діакритики", () => {
+  it("ключ пошуку — без регістру; діакритика знімається лише в латиниці (й, ї лишаються)", () => {
     expect(normKey("Nico Hülkenberg")).toBe("nico hulkenberg");
+    expect(normKey("Гюлькенберг Йоган Їжак")).toBe("гюлькенберг йоган їжак");
+  });
+
+  it("автор: подвоєння з розбору Commons — один раз; «невідомий» не рахується", () => {
+    expect(cleanAuthor("Unknown authorUnknown author")).toBe("Unknown author");
+    expect(cleanAuthor("Steffen Prößdorf")).toBe("Steffen Prößdorf");
+    expect(isUnknownAuthor("Unknown photographer")).toBe(true);
+    expect(isUnknownAuthor("neznámý (unknown)")).toBe(true);
+    expect(isUnknownAuthor("Liauzh")).toBe(false);
   });
 });
