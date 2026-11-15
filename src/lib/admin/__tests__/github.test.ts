@@ -10,7 +10,6 @@ describe("isAdminPath — адмінка змінює лише контент", 
     "src/data/curated/driver-portraits.json",
     "public/img/drivers/senna-96.webp",
     "public/img/stories/jerez-1997/m1-1280.webp",
-    "public/img/circuits/monza.svg",
   ])("так: %s", (p) => expect(isAdminPath(p)).toBe(true));
 
   it.each([
@@ -22,6 +21,9 @@ describe("isAdminPath — адмінка змінює лише контент", 
     "next.config.ts",
     "public/img/../../src/proxy.ts",
     "public/img/drivers/x.html",
+    "public/img/circuits/monza.svg",
+    "public/img/drivers/senna.jpg",
+    "content/stories/jerez-1997/notes.txt",
     "public/img/.hidden/x.webp",
     "src/data/curated/../snapshot/teams.json",
     "content/stories/a/../../../package.json",
