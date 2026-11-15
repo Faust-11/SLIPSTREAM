@@ -1,0 +1,60 @@
+name: Автозлиття правок адмінки
+
+# Рішення користувача 15.11: правки контенту з адмінки (/admin) зливаються самі після зеленого CI. Лише PR з гілки
+# admin/* цього ж репозиторію, з міткою admin, не чернетка, без нових комітів після перевірки, і ТІЛЬКИ файли контенту
+# (content/stories/**, src/data/curated/*.json, public/img/**) — правило src/lib/admin/admin-paths.mjs. Будь-що інше —
+# PR чекає ручного злиття.
+#
+# Безпека: workflow_run виконується з main і з токеном на запис — код PR тут НЕ запускається (checkout лише main,
+# правило — з main); дані події передаються через env, не підставляються в скрипт.
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: admin-merge-${{ github.event.workflow_run.head_branch }}
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'pull_request' &&
+      startsWith(github.event.workflow_run.head_branch, 'admin/') &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-26.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+          sparse-checkout: |
+            src/lib/admin/admin-paths.mjs
+            scripts/admin/merge-gate.mjs
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+
+      - name: Перевірити й злити
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ github.event.workflow_run.head_branch }}
+          TESTED_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          number=$(gh pr list -R "$GITHUB_REPOSITORY" --head "$BRANCH" --state open --json number -q '.[0].number')
+          if [ -z "$number" ]; then echo "Відкритого PR для $BRANCH немає"; exit 0; fi
+          pr=$(gh pr view "$number" -R "$GITHUB_REPOSITORY" --json headRefName,headRefOid,isDraft,isCrossRepository,state,labels,files)
+          if ! echo "$pr" | node scripts/admin/merge-gate.mjs "$TESTED_SHA"; then
+            echo "PR #$number лишається на ручне злиття."
+            exit 0
+          fi
+          # --match-head-commit: якщо між перевіркою й злиттям з'явився коміт — GitHub відмовить.
+          gh pr merge "$number" -R "$GITHUB_REPOSITORY" --rebase --match-head-commit "$TESTED_SHA" --delete-branch
