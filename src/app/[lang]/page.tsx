@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { CSSProperties, ReactNode } from "react";
 import { formatDay, LocalDay, LocalTime, TzNote } from "@/components/calendar/local-time";
 import { HmCountdown } from "@/components/home/countdown";
+import { HmFades } from "@/components/home/fades";
 import { HmNews } from "@/components/home/news";
 import { HmSlider } from "@/components/home/slider";
 import { SeasonPhoto } from "@/components/seasons/season-photo";
@@ -83,8 +84,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
     return rp.status[r.status];
   };
 
-  const recordList = <T,>(title: string, list: RecordList<T>, who: (x: T) => ReactNode, key: (x: T) => string) => (
-    <div className="hm-rec">
+  const recordList = <T,>(i: number, title: string, list: RecordList<T>, who: (x: T) => ReactNode, key: (x: T) => string) => (
+    <div className="hm-panel hm-rec" id={`hm-rc-${i}`}>
       <h3>{title}</h3>
       {list.top[0] && (
         <div className="hm-rec-top">
@@ -96,7 +97,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           </span>
         </div>
       )}
-      <ol className="hm-rec-list">
+      {/* Прокручуваний список, як у макеті: фокус з клавіатури (axe scrollable-region-focusable), затухання внизу. */}
+      <ol className="hm-rec-list hm-fade" tabIndex={0} aria-label={title}>
         {list.rest.map((r) => (
           <li key={key(r.who)}>
             {who(r.who)}
@@ -530,7 +532,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               </span>
             </div>
             <HmSlider id="hm-st" label={t.tabsLabel} tabs={page.standings.teams ? [t.tabDrivers, t.tabTeams] : [t.tabDrivers]}>
-              <ol className="hm-panel" id="hm-st-0" aria-label={t.tabDrivers}>
+              <ol className="hm-panel hm-st-panel hm-fade" id="hm-st-0" aria-label={t.tabDrivers} tabIndex={0}>
                 {page.standings.drivers.map((r) => (
                   <li key={r.driver.id} className="hm-st-row">
                     <span className="hm-st-pos num">{r.position ?? "—"}</span>
@@ -546,7 +548,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 ))}
               </ol>
               {page.standings.teams && (
-                <ol className="hm-panel" id="hm-st-1" aria-label={t.tabTeams}>
+                <ol className="hm-panel hm-st-panel hm-fade" id="hm-st-1" aria-label={t.tabTeams} tabIndex={0}>
                   {page.standings.teams.map((r) => (
                     <li key={r.team.id} className="hm-st-row">
                       <span className="hm-st-pos num">{r.position ?? "—"}</span>
@@ -571,10 +573,12 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               <h2 className="display">{t.records}</h2>
               <span className="hm-src">{fill(t.recordsSince, { first: page.stats.first })}</span>
             </div>
-            <div className="hm-rec-grid">
-              {recordList(t.recWins, page.records.wins, (d) => <Driver d={d} lang={lang} small />, (d) => d.id)}
-              {recordList(t.recTitles, page.records.titles, (d) => <Driver d={d} lang={lang} small />, (d) => d.id)}
+            {/* Телефон — вкладки, як у новинах (відгук користувача 15.11); ширше — три колонки однієї висоти. */}
+            <HmSlider id="hm-rc" label={t.records} tabs={[t.recTabWins, t.recTabTitles, t.recTabCups]}>
+              {recordList(0, t.recWins, page.records.wins, (d) => <Driver d={d} lang={lang} small />, (d) => d.id)}
+              {recordList(1, t.recTitles, page.records.titles, (d) => <Driver d={d} lang={lang} small />, (d) => d.id)}
               {recordList(
+                2,
                 t.recCups,
                 page.records.cups,
                 (x) => (
@@ -584,9 +588,10 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 ),
                 (x) => x.id,
               )}
-            </div>
+            </HmSlider>
           </div>
         </div>
+        <HmFades />
       </section>
 
       {/* ---------- новини ---------- */}

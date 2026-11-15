@@ -230,12 +230,12 @@ test.describe("дизайн-рев'ю 11.11", () => {
     await expect(page.locator(".teams-grid")).toHaveCSS("visibility", "visible", { timeout: 9000 });
   });
 
-  test("автори фото й футер — без світлого «шва» між ними", async ({ page }) => {
+  test("автори фото — найнижчий рядок підвалу, без світлого «шва» (відгук користувача 15.11)", async ({ page }) => {
     await page.goto("/uk/teams");
     const gap = await page.evaluate(() => {
       const credits = document.querySelector(".page-credits")!.getBoundingClientRect();
       const foot = document.querySelector(".site-foot")!.getBoundingClientRect();
-      return Math.round(foot.top - credits.bottom);
+      return Math.round(credits.top - foot.bottom);
     });
     expect(gap).toBe(0);
   });
