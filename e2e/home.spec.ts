@@ -28,8 +28,16 @@ test("/uk: герой, чемпіон, смуга сезону, остання �
   await expect(page.locator(".hm-map svg path")).toHaveCount(2);
   expect(await page.locator("#hm-st-0 > li").count()).toBeGreaterThan(10);
   await expect(page.locator(".hm-rec").nth(2).locator(".hm-rec-top")).toContainText("Ferrari");
-  // Рішення 14.11: кнопка гри веде на /game; блоків «Історії» / «Новачкам» / «Гра» і кнопки прогнозу на головній немає.
+  // Рішення 14.11: кнопка гри веде на /game; кнопки прогнозу немає. 15.11: «Історії» — три картки з content/stories/home.json;
+  // блоку «Новачкам» на головній немає (рішення користувача).
   await expect(page.getByRole("link", { name: "Проїхати гаряче коло →" })).toHaveAttribute("href", "/uk/game");
+  await expect(page.locator(".hm-stories .st-card")).toHaveCount(3);
+  await expect(page.locator(".hm-stories .st-card h3 a").first()).toHaveAttribute("href", "/uk/stories/suzuka-1989");
+  // Підказка словника на «Старт» у таблиці останньої гонки.
+  await page.locator('.hm-tbl .gt-t[data-term="grid"]').click();
+  await expect(page.locator("#gt-s-grid")).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(page.locator("#gt-s-grid")).toBeHidden();
   await expect(page.getByText("Мій прогноз на подіум")).toHaveCount(0);
   expect(errors).toEqual([]);
 });

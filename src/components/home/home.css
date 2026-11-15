@@ -1058,6 +1058,20 @@
   font-size: 15px;
 }
 
+/* ---------- історії (фаза 5b): картки — з stories.css (.st-grid/.st-card), тут лише три колонки ---------- */
+.hm-stories {
+  padding-bottom: 36px;
+  border-bottom: var(--b) solid var(--rule);
+}
+.hm-stories .hm-stories-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@media (width <= 900px) {
+  .hm-stories .hm-stories-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* ---------- новини ---------- */
 .hm-news {
   padding-bottom: 36px;

@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import { StoryCard } from "@/components/stories/story-card";
+import { getHomeStories } from "@/lib/stories/content";
+import { termLabels } from "@/lib/glossary/labels";
+import { getTerm, type Term as TermData } from "@/lib/glossary/terms";
 import type { CSSProperties, ReactNode } from "react";
 import { formatDay, LocalDay, LocalTime, TzNote } from "@/components/calendar/local-time";
 import { HmCountdown } from "@/components/home/countdown";
@@ -7,6 +11,7 @@ import { HmNews } from "@/components/home/news";
 import { HmSlider } from "@/components/home/slider";
 import { SeasonPhoto } from "@/components/seasons/season-photo";
 import { heroColors } from "@/components/site/section-hero";
+import { Term, TermPopover } from "@/components/glossary/term";
 import { PageCredits } from "@/components/teams/page-credits";
 import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
@@ -77,12 +82,30 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const path = (p: string) => localizedPath(p, lang);
   const n = (v: number) => fmt[lang].format(v);
   const { champion, last, next } = page;
+  const stories = getHomeStories(lang);
+  const sp = dict.storiesPage;
+  const storyLabels = { meterLabel: sp.meterLabel, meterKeys: sp.meterKeys, category: sp.category, read: sp.read };
 
-  const timeCell = (r: ResultRow): string => {
+  // Підказки словника в таблиці останньої гонки (рішення 15.11): віконця — один раз унизу (статуси повторюються).
+  const tl = termLabels(lang, dict.glossary.more);
+  const usedTerms = new Map<string, TermData>();
+  const T = (id: string, children: ReactNode) => {
+    const term = getTerm(id, lang);
+    if (!term) return children;
+    usedTerms.set(id, term);
+    return (
+      <Term term={term} t={tl} shared box>
+        {children}
+      </Term>
+    );
+  };
+  const STATUS_TERM: Partial<Record<ResultRow["status"], string>> = { retired: "dnf", accident: "dnf", dsq: "dsq", dns: "dns" };
+  const timeCell = (r: ResultRow): ReactNode => {
     if (r.time?.kind === "total") return raceTime(r.time.ms);
     if (r.time?.kind === "gap") return gapTime(r.time.ms);
-    if (r.time?.kind === "laps") return fill(plural(r.time.n, lang, rp.lapsDown), { n: r.time.n });
-    return rp.status[r.status];
+    if (r.time?.kind === "laps") return T("lapped", fill(plural(r.time.n, lang, rp.lapsDown), { n: r.time.n }));
+    const id = STATUS_TERM[r.status];
+    return id ? T(id, rp.status[r.status]) : rp.status[r.status];
   };
 
   const recordList = <T,>(i: number, title: string, list: RecordList<T>, who: (x: T) => ReactNode, key: (x: T) => string) => (
@@ -319,7 +342,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                       <th scope="col">{t.col.pos}</th>
                       <th scope="col">{t.col.driver}</th>
                       <th scope="col" className="hm-r hm-c-grid">
-                        <abbr title={t.gridTip}>{t.col.grid}</abbr>
+                        {T("grid", t.col.grid)}
                       </th>
                       <th scope="col" className="hm-r">
                         {t.col.gap}
@@ -598,6 +621,27 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <HmFades />
       </section>
 
+      {/* ---------- історії (фаза 5b; макет головної — три картки перед новинами) ---------- */}
+      <section className="hm-stories" aria-labelledby="hm-stories-h">
+        <div className="wrap">
+          <div className="hm-head">
+            <h2 className="display" id="hm-stories-h">
+              {dict.nav.stories}
+            </h2>
+            <a className="hm-more" href={path("/stories")}>
+              {dict.storiesPage.allLink}
+            </a>
+          </div>
+          <ul className="st-grid hm-stories-grid" role="list">
+            {stories.map((c) => (
+              <li key={c.slug}>
+                <StoryCard c={c} locale={lang} t={storyLabels} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* ---------- новини ---------- */}
       <section className="hm-news" aria-labelledby="hm-news-h">
         <div className="wrap">
@@ -626,6 +670,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </div>
       </section>
 
+      {[...usedTerms.values()].map((term) => (
+        <TermPopover key={term.id} term={term} t={tl} />
+      ))}
       <PageCredits
         groups={[
           { title: t.creditsPhotos, items: page.credits.photos },

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { termLabels } from "@/lib/glossary/labels";
 import { cache } from "react";
 import { DecadeSpy } from "@/components/seasons/decade-spy";
 import { Meter } from "@/components/stories/meter";
@@ -66,7 +67,7 @@ export default async function StoryPageRoute(props: Props) {
   const hero = story.hero;
   const title = story.title.full;
   const stamp = [story.kicker ?? t.category[story.category], facts ? `${facts.gp} ${story.race!.year}` : null].filter(Boolean).join(" · ");
-  const bodyLabels = { status: t.status, fnLabel: t.fnLabel };
+  const bodyLabels = { status: t.status, fnLabel: t.fnLabel, term: termLabels(lang, dict.glossary.more) };
   const cardLabels = { meterLabel: t.meterLabel, meterKeys: t.meterKeys, category: t.category, read: t.read };
   const toc = [
     ...story.toc,

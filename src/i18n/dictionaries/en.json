@@ -1409,5 +1409,8 @@
     "checked": "Sources checked {date}",
     "creditsPhotos": "Photos: authors and licences",
     "dataLine": "Facts and quotes come from the numbered sources at the end of the story. Photos: Wikimedia Commons."
+  },
+  "glossary": {
+    "more": "In the glossary →"
   }
 }

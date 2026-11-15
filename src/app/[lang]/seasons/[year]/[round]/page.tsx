@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties, ReactNode } from "react";
 import { cache } from "react";
+import { Term, TermPopover } from "@/components/glossary/term";
 import { LapChart } from "@/components/race/lap-chart";
 import { RaceVideo } from "@/components/race/race-video";
 import { PageCredits } from "@/components/teams/page-credits";
@@ -12,6 +13,8 @@ import { requireLocale } from "@/i18n/require-locale";
 import { getRaceKeys, getRacePage, type QualiRow, type ResultRow } from "@/lib/data/race-page";
 import type { SeasonDriver, SeasonTeamRef } from "@/lib/data/season-page";
 import { circuitPath } from "@/lib/circuit-math";
+import { termLabels } from "@/lib/glossary/labels";
+import { getTerm, type Term as TermData } from "@/lib/glossary/terms";
 import { plural } from "@/lib/plural";
 import { gapTime, lapTime, raceTime } from "@/lib/race-math";
 import { circuitPhotoAlt } from "@/lib/image-alt";
@@ -72,6 +75,10 @@ function TeamLink({ tm, lang }: { tm: SeasonTeamRef; lang: Locale }) {
     </a>
   );
 }
+/** Статус → термін словника (підказки в протоколі, рішення 15.11). */
+const STATUS_TERM: Partial<Record<ResultRow["status"], string>> = { retired: "dnf", accident: "dnf", dsq: "dsq", dns: "dns" };
+const TABLE_TERMS = ["grid", "pit-stop", "dnf", "dns", "dsq", "lapped", "pole"];
+
 const slotAttr = (slot: number | null | undefined) => (slot !== null && slot !== undefined ? { "data-slot": slot } : {});
 
 export default async function RacePage(props: Props) {
@@ -95,11 +102,27 @@ export default async function RacePage(props: Props) {
         ? dayFmt[lang].format(utc(page.date))
         : "";
 
-  const timeCell = (r: ResultRow): string => {
+  // Підказки словника в таблицях: кнопки «shared» — віконце кожного терміна один раз унизу сторінки (статуси повторюються в рядках).
+  const tl = termLabels(lang, dict.glossary.more);
+  const terms = Object.fromEntries(TABLE_TERMS.flatMap((id) => { const x = getTerm(id, lang); return x ? [[id, x]] : []; })) as Record<string, TermData>;
+  const usedTerms = new Set<string>();
+  const T = (id: string, children: ReactNode) => {
+    const term = terms[id];
+    if (!term) return children;
+    usedTerms.add(id);
+    return (
+      <Term term={term} t={tl} shared box>
+        {children}
+      </Term>
+    );
+  };
+
+  const timeCell = (r: ResultRow): ReactNode => {
     if (r.time?.kind === "total") return raceTime(r.time.ms);
     if (r.time?.kind === "gap") return gapTime(r.time.ms);
-    if (r.time?.kind === "laps") return fill(plural(r.time.n, lang, t.lapsDown), { n: r.time.n });
-    return t.status[r.status];
+    if (r.time?.kind === "laps") return T("lapped", fill(plural(r.time.n, lang, t.lapsDown), { n: r.time.n }));
+    const id = STATUS_TERM[r.status];
+    return id ? T(id, t.status[r.status]) : t.status[r.status];
   };
 
   const renderResults = (rows: ResultRow[], caption: string, id: string, laps: boolean) => (
@@ -111,11 +134,11 @@ export default async function RacePage(props: Props) {
             <th scope="col">{t.col.pos}</th>
             <th scope="col">{t.col.driver}</th>
             <th scope="col" className="rc-r rc-hide-s">
-              {t.col.grid}
+              {T("grid", t.col.grid)}
             </th>
             {laps && (
               <th scope="col" className="rc-r rc-hide-s">
-                {t.col.stops}
+                {T("pit-stop", t.col.stops)}
               </th>
             )}
             <th scope="col" className="rc-r">
@@ -318,7 +341,7 @@ export default async function RacePage(props: Props) {
           )}
           {page.strip.poles.length > 0 && (
             <div>
-              <dt>{t.strip.pole}</dt>
+              <dt>{T("pole", t.strip.pole)}</dt>
               <dd>
                 {joinNodes(
                   page.strip.poles.map((car) => <span key={car[0]!.id}>{joinNodes(car.map((p) => <DriverLink key={p.id} d={p} lang={lang} />), " / ")}</span>),
@@ -520,6 +543,9 @@ export default async function RacePage(props: Props) {
         </a>
       </nav>
 
+      {[...usedTerms].map((id) => (
+        <TermPopover key={id} term={terms[id]!} t={tl} />
+      ))}
       <PageCredits groups={[{ title: t.credits, items: page.credits }]} />
     </div>
   );

@@ -3,6 +3,8 @@ import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import circuitsJson from "@/data/curated/circuits.json";
 import type { Locale } from "@/i18n/config";
+import { markTerms } from "@/lib/glossary/mark";
+import { getTerm, termMatchers, type Term } from "@/lib/glossary/terms";
 import { countWords, parseStory, readingMinutes, type Block } from "./markdown";
 
 /**
@@ -79,6 +81,8 @@ export type StoryPage = StoryCard & {
   links: NonNullable<RawStory["links"]>;
   checked: string | null;
   related: StoryCard[];
+  /** Терміни словника, позначені в тексті (перша поява кожного) — для спливаючих підказок. */
+  terms: Record<string, Term>;
 };
 
 const ROOT = join(process.cwd(), "content", "stories");
@@ -150,6 +154,17 @@ function byYear(a: StoryCard, b: StoryCard, locale: Locale): number {
   return a.title.main.localeCompare(b.title.main, locale);
 }
 
+/** Історії на головній (content/stories/home.json, у заданому порядку); неіснуюча — помилка збірки. */
+export function getHomeStories(locale: Locale): StoryCard[] {
+  const { home } = JSON.parse(readFileSync(join(ROOT, "home.json"), "utf8")) as { home: string[] };
+  const list = getStoryList(locale);
+  return home.map((slug) => {
+    const c = list.find((x) => x.slug === slug);
+    if (!c) throw new Error(`content/stories/home.json: немає історії ${slug}`);
+    return c;
+  });
+}
+
 export function getStorySlugs(): string[] {
   return loadAll().map((s) => s.raw.slug);
 }
@@ -192,7 +207,13 @@ export function getStory(slug: string, locale: Locale): StoryPage | null {
       reader: c.reader?.[locale] ?? null,
     };
   }
-  const blocks = parseStory(self.md[locale]);
+  const { blocks, used } = markTerms(parseStory(self.md[locale]), termMatchers(locale));
+  const terms: Record<string, Term> = {};
+  for (const id of used) {
+    const t = getTerm(id, locale);
+    if (!t) throw new Error(`Історія ${slug}: невідомий термін словника [[t:${id}|…]]`);
+    terms[id] = t;
+  }
   const toc = blocks.flatMap((b) => (b.type === "h2" ? [{ id: b.id, text: b.text }] : []));
   // Факти банера — лише коли історія про одну гонку і це явно вказано (race); links.races — просто посилання (Spygate ≠ Монако).
   const raceKey = raw.race;
@@ -210,5 +231,6 @@ export function getStory(slug: string, locale: Locale): StoryPage | null {
     links: raw.links ?? {},
     checked: raw.checked ?? null,
     related: related(self, cards),
+    terms,
   };
 }

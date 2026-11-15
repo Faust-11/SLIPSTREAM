@@ -26,6 +26,7 @@ export const SECTION_PAGES = {
   news: ["/uk/news"],
   game: ["/uk/game"],
   stories: ["/uk/stories", "/uk/stories/singapore-2008"],
+  newbie: ["/uk/newbie"],
 };
 
 // Шари даних (src/lib/data/<файл>.ts) → розділи, що їх читають.
@@ -35,10 +36,11 @@ const DATA_FILES = {
   drivers: ["drivers", "driver"],
   "driver-page": ["driver"],
   seasons: ["seasons"],
-  "season-page": ["season", "race", "calendar", "stories"],
-  "race-page": ["race"],
+  "season-page": ["season", "race", "calendar", "stories", "newbie"],
+  "race-page": ["race", "newbie"],
   circuits: ["circuits"],
-  calendar: ["calendar"],
+  calendar: ["calendar", "newbie"],
+  newbie: ["newbie"],
 };
 
 // Не впливають на сторінки: тести, документація, скрипти підготовки даних (дані потрапляють у src/data — там ALL).
@@ -59,7 +61,11 @@ export function pagesFor(files) {
       else if (SECTION_PAGES[seg]) sections.add(seg);
       else return "ALL";
     } else if ((m = /^src\/components\/(\w+)\//.exec(f)) && SECTION_PAGES[m[1]]) sections.add(m[1]);
+    else if (f === "content/stories/home.json") ["home", "stories"].forEach((s) => sections.add(s));
     else if (/^(content\/stories|public\/img\/stories|src\/lib\/stories)\//.test(f)) sections.add("stories");
+    else if (/^(content\/newbie|src\/lib\/newbie)\//.test(f)) sections.add("newbie");
+    // Словник термінів — підказки в історіях, таблицях гонок і на головній (фаза 5b).
+    else if (/^(content\/glossary|src\/(lib|components)\/glossary)\//.test(f)) ["newbie", "stories", "race", "home"].forEach((s) => sections.add(s));
     else if (/^src\/(lib|components)\/game\//.test(f)) sections.add("game");
     else if (/^src\/lib\/news\//.test(f)) sections.add("news");
     else if ((m = /^src\/lib\/data\/([\w-]+)\.ts$/.exec(f)) && DATA_FILES[m[1]]) DATA_FILES[m[1]].forEach((s) => sections.add(s));
