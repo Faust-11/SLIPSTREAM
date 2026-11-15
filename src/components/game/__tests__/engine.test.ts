@@ -105,25 +105,39 @@ describe("HotLapEngine", () => {
   it("коло бота на Лимані через рушій: 0:29.933, перше коло = рекорд, збережено ввід, повтор зараховано", () => {
     const engine = new HotLapEngine();
     engine.setLabels({ react: "R", s: "s", off: "+1" });
-    const detach = engine.attach(elements());
+    const els = elements();
+    const detach = engine.attach(els);
     expect(engine.getSnapshot()).toMatchObject({ mounted: true, key: "lyman", phase: "ready", bestTotal: null });
 
     driveBotLap(engine, "lyman");
     const snap = engine.getSnapshot();
     expect(snap.phase).toBe("done");
-    expect(snap.result).toEqual({ t: 3592, pen: 0, valid: true, isBest: true, prevBest: null });
+    expect(snap.result).toEqual({ t: 3592, pen: 0, isBest: true, prevBest: null });
     expect(snap.bestTotal).toBe(3592);
     expect(snap.cardBests.lyman).toBe(3592);
     expect(snap.laps).toHaveLength(1);
     const stored = JSON.parse(localStorage.getItem(storeKey("lyman"))!);
     expect(stored.best.total).toBe(3592);
+    expect(stored.sectors).toEqual([1354, 2472 - 1354, 3592 - 2472]);
+    // Перше коло: сектори зелені (рекорду сектора ще не було).
+    expect(els.sectors.map((s) => s.className)).toEqual(["gm-chip is-green", "gm-chip is-green", "gm-chip is-green"]);
+
+    // Друге таке саме коло: сектори = рекорду → фіолетові; рекорд не новий.
+    driveBotLap(engine, "lyman");
+    expect(engine.getSnapshot().result).toEqual({ t: 3592, pen: 0, isBest: false, prevBest: 3592 });
+    expect(els.sectors.map((s) => s.className)).toEqual(["gm-chip is-purple", "gm-chip is-purple", "gm-chip is-purple"]);
+    expect(engine.getSnapshot().laps).toHaveLength(2);
+    // Дельта до привида (рекорд) оновлювалась: те саме коло — у межах кількох тіків (дельта рахується від
+    // першого проходу точки осі, а болід може стояти на одній точці 1–2 тіки).
+    expect(els.delta.hidden).toBe(false);
+    expect(els.delta.textContent).toMatch(/^[−+]0\.0[0-4]\d$/);
 
     // Новий рушій (перезавантаження сторінки): рекорд з localStorage перевірено повтором і показано.
     detach();
     const again = new HotLapEngine();
     again.attach(elements());
     expect(again.getSnapshot().bestTotal).toBe(3592);
-  });
+  }, 30_000); // два повні кола (~7 200 тіків) — під навантаженням машини довше за 5 с за замовчуванням
 
   it("підроблений рекорд у сховищі відкидається і стирається", () => {
     localStorage.setItem(storeKey("port"), JSON.stringify({ best: { inputs: TRACK_SPECS.port.botInputs, total: 100 }, laps: [] }));
@@ -133,6 +147,47 @@ describe("HotLapEngine", () => {
     expect(engine.getSnapshot()).toMatchObject({ key: "port", bestTotal: null });
     expect(engine.getSnapshot().cardBests.port).toBeNull();
     expect(JSON.parse(localStorage.getItem(storeKey("port"))!).best).toBeNull();
+  });
+
+  it("клавіші: R/C лише з фокусом у грі; у полях вводу не перехоплюються; після detach — ніяк", () => {
+    const engine = new HotLapEngine();
+    const els = elements();
+    const detach = engine.attach(els);
+    const input = document.createElement("input");
+    document.body.append(input);
+    const key = (code: string, target: EventTarget = window) => {
+      const ev = new KeyboardEvent("keydown", { code, bubbles: true, cancelable: true });
+      target.dispatchEvent(ev);
+      return ev.defaultPrevented;
+    };
+    input.focus();
+    key("KeyR", input);
+    expect(engine.getSnapshot().phase).toBe("ready");
+    els.game.focus();
+    key("KeyR", els.game);
+    expect(engine.getSnapshot().phase).toBe("lights");
+    // У заїзді (вогні) стрілки й Пробіл перехоплюються навіть без фокуса, але не в полі вводу.
+    input.focus();
+    expect(key("ArrowUp", input)).toBe(false);
+    expect(key("KeyR", input)).toBe(false);
+    expect(engine.getSnapshot().phase).toBe("lights");
+    (document.activeElement as HTMLElement).blur();
+    expect(key("Space")).toBe(true);
+    expect(engine.getSnapshot().phase).toBe("lights");
+    detach();
+    els.game.focus();
+    key("KeyR", els.game);
+    expect(engine.getSnapshot().phase).toBe("lights");
+  });
+
+  it("зміна траси посеред вогнів скидає заїзд", () => {
+    const engine = new HotLapEngine();
+    engine.attach(elements());
+    engine.start();
+    frame();
+    expect(engine.getSnapshot().phase).toBe("lights");
+    engine.selectTrack("plateau");
+    expect(engine.getSnapshot()).toMatchObject({ key: "plateau", phase: "ready", result: null });
   });
 
   it("траса з попередньої мови (sessionStorage), привид «Мій рекорд» недоступний без рекорду", () => {

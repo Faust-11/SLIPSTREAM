@@ -1297,7 +1297,6 @@
     "ghostNow": "This lap now drives beside you as a ghost.",
     "botWin": "You beat the bot by {d} s.",
     "botLose": "The bot is {d} s faster.",
-    "invalid": "The replay did not match the time, so the lap does not count.",
     "off": "+1 s · track limits",
     "react": "REACTION",
     "kmh": "KM/H",
