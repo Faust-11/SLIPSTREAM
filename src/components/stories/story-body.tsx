@@ -1,9 +1,10 @@
 import { Fragment, type ReactNode } from "react";
 import { fill } from "@/i18n/fill";
+import { Term, type TermLabels } from "@/components/glossary/term";
 import type { StoryPage } from "@/lib/stories/content";
 import type { Block, Inline } from "@/lib/stories/markdown";
 
-export type BodyLabels = { status: Record<"ok" | "one" | "dis", string>; fnLabel: string };
+export type BodyLabels = { status: Record<"ok" | "one" | "dis", string>; fnLabel: string; term: TermLabels };
 
 /**
  * Виноска: номери джерел (кожен — посилання на свій пункт переліку). Статус «одне джерело» / «розходяться» — значком
@@ -37,6 +38,16 @@ export function InlineText({ c, story, t }: { c: Inline[]; story: StoryPage; t: 
   return c.map((x, i) => {
     if (x.t === "text") return <Fragment key={i}>{x.v}</Fragment>;
     if (x.t === "fn") return <Footnote key={i} id={x.claim} story={story} t={t} />;
+    if (x.t === "term") {
+      const term = story.terms[x.id];
+      return term ? (
+        <Term key={i} term={term} t={t.term}>
+          {x.v}
+        </Term>
+      ) : (
+        <Fragment key={i}>{x.v}</Fragment>
+      );
+    }
     const Tag = x.t === "b" ? "strong" : "em";
     return (
       <Tag key={i}>

@@ -1,0 +1,178 @@
+{
+  "title": "New to F1",
+  "description": "Formula 1 in plain words: the race weekend, points, tyres, flags, overtaking in {season} and a glossary of broadcast terms.",
+  "hero": {
+    "stamp": "New to F1 · {season} season",
+    "h1": ["Formula 1", "in ten minutes"],
+    "lead": "How a race weekend works, who scores points, what the tyre colours and flags mean, and the words you will hear in every broadcast."
+  },
+  "game": {
+    "title": "Try the start",
+    "idle": "Run the lights",
+    "arm": "Wait for lights out…",
+    "hot": "Go!",
+    "again": "Again",
+    "hint": "Five lights come on one by one. When they all go out, hit the button as fast as you can.",
+    "wait": "Lights are coming on. The start is when they all go out.",
+    "jumpH": "Jump start",
+    "jump": "You pressed before the lights went out.",
+    "result": "your reaction at the start.",
+    "unit": "s",
+    "noJs": "The game needs JavaScript."
+  },
+  "tocLabel": "Chapters",
+  "toc": {
+    "basics": "Basics",
+    "weekend": "Weekend",
+    "points": "Points",
+    "tyres": "Tyres",
+    "flags": "Flags",
+    "overtake": "Overtaking {season}",
+    "glossary": "Glossary"
+  },
+  "basics": {
+    "title": "The basics",
+    "lead": "A season is a series of races called Grands Prix. Whoever collects the most points by the end is world champion.",
+    "facts": {
+      "teams": "teams in {season}",
+      "cars": "cars on the grid, two per team",
+      "rounds": "Grands Prix in the {season} calendar",
+      "titles": "titles: drivers and constructors"
+    },
+    "cols": [
+      {
+        "h": "Two championships",
+        "p": [
+          "The **drivers' championship** is personal: each driver keeps the points they score.",
+          "The **constructors' championship** is for teams: the points of both cars are added together.",
+          "If two drivers finish level on points, the one with more wins is ranked higher. If wins are equal too, second places are compared, and so on."
+        ]
+      },
+      {
+        "h": "The race",
+        "p": [
+          "A Grand Prix covers the smallest number of laps that exceeds **305 km**. Monaco is the exception at 260 km.",
+          "Racing time is capped at **two hours**. Time stopped under a red flag is not counted, but including it a race cannot last longer than three hours.",
+          "The start is given by five red lights. They come on one per second, and when they all go out the race begins."
+        ]
+      }
+    ]
+  },
+  "weekend": {
+    "title": "The weekend",
+    "lead": "A Grand Prix lasts three days. Practice is for setting the car up, qualifying decides the starting order, and points are scored in the race.",
+    "head": { "format": "Format", "fri": "Friday", "sat": "Saturday", "sun": "Sunday" },
+    "dayShort": { "fri": "Fri", "sat": "Sat", "sun": "Sun" },
+    "standard": { "name": "Standard", "count": "{n} rounds in {season}" },
+    "sprint": { "name": "Sprint", "count": "{n} rounds in {season}" },
+    "sessions": {
+      "fp1": "Practice 1",
+      "fp2": "Practice 2",
+      "fp3": "Practice 3",
+      "q": "Qualifying",
+      "sq": "Sprint qualifying",
+      "sr": "Sprint",
+      "r": "Race"
+    },
+    "sprintNote": "The sprint is a short Saturday race with its own points. In {season} sprints are held in {list}.",
+    "qualiH": "Qualifying: three knockout rounds",
+    "q": [
+      { "name": "Q1", "min": "18 min", "label": "{cars} cars, the slowest {out} are out" },
+      { "name": "Q2", "min": "15 min", "label": "{left} cars, the slowest {out} are out" },
+      { "name": "Q3", "min": "13 min", "label": "10 cars fight for pole" }
+    ],
+    "key": { "in": "goes through", "out": "out, keeps this grid slot", "pole": "pole position" },
+    "readH": "How to read it",
+    "read": [
+      "Each driver tries to set one fast lap. After Q1 the **{out} slowest** of the {cars} are out and take grid slots {q1from} to {cars}.",
+      "Q2 removes {out} more: slots 11 to {q2to}. The ten who remain fight for **pole position**, the first place on the grid.",
+      "Sprint qualifying works the same way but shorter: 12, 10 and 8 minutes."
+    ]
+  },
+  "points": {
+    "title": "Points",
+    "lead": "Only the top ten score in a Grand Prix. A win is worth 25 points, tenth place is worth one.",
+    "gpH": "Grand Prix",
+    "sprintH": "Sprint",
+    "rules": [
+      "In a sprint the top eight score: from 8 points down to 1.",
+      "The most one driver can take from a weekend is 25 points, or 33 with a sprint.",
+      "There is no extra point for the fastest lap.",
+      "Full points are awarded only if the leader has covered at least 75% of the distance."
+    ],
+    "exampleH": "Example: {gp} {year}, round {round}",
+    "cols": { "pos": "Pos", "driver": "Driver", "grid": "Grid", "pts": "Pts" },
+    "cup": "For the constructors' championship both cars are added together: {list}.",
+    "cupItem": "{team} {a} + {b} = {sum}",
+    "climb": "{driver} started {grid}th and finished {finish}.",
+    "fastest": "{driver} set the fastest lap, yet {pos} place paid the usual {pts}.",
+    "ptsForms": { "one": "{n} point", "few": "{n} points", "many": "{n} points", "other": "{n} points" }
+  },
+  "tyres": {
+    "title": "Tyres",
+    "lead": "Every team gets the same tyres from one supplier, Pirelli. The colour on the sidewall tells you which ones are on the car.",
+    "items": [
+      { "key": "H", "name": "Hard", "when": "dry track", "p": "The slowest of the three dry tyres, but they last the longest." },
+      { "key": "M", "name": "Medium", "when": "dry track", "p": "The compromise between speed and life." },
+      { "key": "S", "name": "Soft", "when": "dry track", "p": "The fastest over one lap, and the first to wear out." },
+      { "key": "I", "name": "Intermediate", "when": "damp track", "p": "Grooved. For light rain and a drying track." },
+      { "key": "W", "name": "Wet", "when": "heavy rain", "p": "Deep grooves for heavy rain." }
+    ],
+    "scaleH": "Five dry compounds, three per weekend",
+    "scaleLabel": "Compounds C1 to C5; {picked} highlighted",
+    "hard": "hardest",
+    "soft": "softest",
+    "scaleNote": "For each Grand Prix Pirelli picks three of the five and they become that weekend's hard, medium and soft. At Suzuka in 2026 these were C1, C2 and C3. So the white “hard” at one track can be a different compound from the white “hard” at another.",
+    "rulesH": "Rules worth knowing",
+    "rules": [
+      "In a dry race a driver must use **at least two different dry compounds**. That is why almost every race has at least one pit stop.",
+      "If a driver used intermediate or wet tyres in the race, this requirement does not apply.",
+      "Softer tyres are faster but wear out sooner. Harder tyres are slower but last longer. Strategy is built on this trade-off.",
+      "In sprint qualifying the tyres are fixed: mediums in the first two rounds, softs in the last."
+    ]
+  },
+  "flags": {
+    "title": "Flags",
+    "lead": "Marshals around the track talk to drivers with flags. The same signals appear on light panels beside the track.",
+    "items": [
+      { "key": "green", "name": "Green", "p": "The track is clear. Shown at the start of a session and after a yellow-flag zone." },
+      { "key": "yellow", "name": "Yellow", "p": "Danger beside the track or partly on it. Slow down, no overtaking." },
+      { "key": "yy", "name": "Double yellow", "p": "The track is blocked or marshals are working on it. Slow right down and be ready to stop." },
+      { "key": "red", "name": "Red", "p": "The session is stopped. In a race everyone drives slowly to the pit lane and waits." },
+      { "key": "blue", "name": "Blue", "p": "In a race: you are about to be lapped, let the faster car through. Ignoring blue flags can bring a penalty." },
+      { "key": "white", "name": "White", "p": "A much slower vehicle is ahead." },
+      { "key": "stripes", "name": "Yellow and red stripes", "p": "Slippery ahead: oil or water on the track." },
+      { "key": "diag", "name": "Black and white", "p": "A warning for unsporting behaviour. Shown with the driver's number." },
+      { "key": "disc", "name": "Black with orange disc", "p": "The car has a dangerous mechanical problem. The driver must pit as soon as possible." },
+      { "key": "black", "name": "Black", "p": "Disqualification. The driver must return to the pits on the next lap." },
+      { "key": "cheq", "name": "Chequered", "p": "The end of a session or race. It is waved until every car has crossed the line." }
+    ]
+  },
+  "overtake": {
+    "title": "Overtaking in {season}",
+    "lead": "The 2026 cars are new: movable wings front and rear and a battery the driver manages through the lap. Four words describe how it works.",
+    "modes": [
+      { "en": "Straight Mode", "name": "Straight Mode", "p": "In set zones of the track the front and rear wing elements open and drag drops. Every driver can use it on every lap." },
+      { "en": "Corner Mode", "name": "Corner Mode", "p": "The normal wing position with maximum downforce. It applies everywhere outside the Straight Mode zones." },
+      { "en": "Overtake Mode", "name": "Overtake Mode", "p": "The main attacking aid. A driver who is within a set gap (usually one second) of the car ahead at the detection point gets extra electrical energy on the next lap." },
+      { "en": "Boost", "name": "Boost", "p": "A button on the steering wheel that releases stored battery energy. It works anywhere on the track, in attack and in defence." }
+    ],
+    "gone": "If you hear about DRS in older races: it was a rear-wing flap that a driver could open only when less than a second behind the car ahead. It was used for 15 seasons and has been dropped for 2026."
+  },
+  "glossary": {
+    "title": "Glossary",
+    "lead": "Words from the broadcast and the team radio, with a plain explanation for each.",
+    "search": "Search the glossary",
+    "placeholder": "Search: undercut, pit lane, stint…",
+    "count": "{n} of {total}",
+    "empty": "Nothing found. Try another word."
+  },
+  "next": {
+    "label": "Where to go next",
+    "race": { "kicker": "See it in a real race", "year": 2025, "round": 24 },
+    "season": { "kicker": "A whole title fight ›", "label": "Season {year}", "year": 2025 }
+  },
+  "sourcesLabel": "Sources:",
+  "checked": "Rules checked {date}.",
+  "credits": "Driver portraits: authors and licences"
+}

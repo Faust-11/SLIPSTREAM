@@ -49,7 +49,7 @@ const BUDGET = { lcpMs: 2500, cls: 0.1, tbtMs: 400 };
 // По одній сторінці кожного типу (рішення користувача 14.11 — бюджет Actions: Lighthouse ≈ 850 з ~1 444 хв за 1–14.11).
 // Прибрано дублі типу: /teams (є /uk/teams), /uk/teams/mclaren (є /teams/ferrari — EN), /seasons/1988 і /seasons/1988/15
 // (є 2025 — сторінки того самого шаблону).
-const PAGES = ["/", "/uk/teams", "/teams/ferrari", "/uk/drivers", "/uk/drivers/hamilton", "/uk/seasons", "/uk/seasons/2025", "/uk/seasons/2025/24", "/uk/circuits", "/circuits/yas-marina", "/uk/calendar", "/uk/news", "/uk/game", "/uk/stories", "/uk/stories/singapore-2008"];
+const PAGES = ["/", "/uk/teams", "/teams/ferrari", "/uk/drivers", "/uk/drivers/hamilton", "/uk/seasons", "/uk/seasons/2025", "/uk/seasons/2025/24", "/uk/circuits", "/circuits/yas-marina", "/uk/calendar", "/uk/news", "/uk/game", "/uk/stories", "/uk/stories/singapore-2008", "/uk/newbie"];
 const NOT_FOUND = "/uk/nope";
 // Лише змінені сторінки (LH_PAGES від scripts/lighthouse-pages.mjs у PR; рішення 15.11). «ALL» або не задано — усі + 404.
 const ONLY = (process.env.LH_PAGES ?? "ALL").trim();

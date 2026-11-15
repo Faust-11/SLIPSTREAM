@@ -1,0 +1,963 @@
+{
+  "checked": "2026-11-15",
+  "sources": [
+    {
+      "id": "s1",
+      "title": "2026 Formula 1 Regulations – Section B [Sporting], Issue 09",
+      "publisher": "FIA",
+      "date": "2026-10-01",
+      "url": "https://www.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_b_sporting_-_iss_09_-_2026-10-01.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s4",
+      "title": "2026 Formula 1 Regulations – Section C [Technical], Issue 21",
+      "publisher": "FIA",
+      "date": "2026-10-19",
+      "url": "https://www.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_c_technical_-_iss_21_-_2026-10-19.pdf",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s10",
+      "title": "The beginner's guide to the 2026 Formula 1 regulations",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/the-beginners-guide-to-the-2026-regulations.6j0tS0hrHG2T01tpmK6XYz",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s11",
+      "title": "F1 2026 regulations explained: The key terms for Formula 1's new-for-2026 rules",
+      "publisher": "Formula1.com",
+      "date": "2025-12-17",
+      "url": "https://www.formula1.com/en/latest/article/explained-the-new-key-terms-for-formula-1s-new-for-2026-rules.3T5BU6TC9quGcIpGzoWkY0",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s14",
+      "title": "8 moments you missed at the 2025 Abu Dhabi Grand Prix",
+      "publisher": "Formula1.com",
+      "date": "2025-12-08",
+      "url": "https://www.formula1.com/en/latest/article/8-moments-you-missed-at-the-2025-abu-dhabi-grand-prix.5dTkUhVjZ3XUiyt0wIDZ4b",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s15",
+      "title": "F1 Glossary A–E",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/f1-glossary-a-e.1MFONigMlQSbSQtpP7YCy2",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s16",
+      "title": "F1 Glossary F–J",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/f1-glossary-f-j.2g6grJVxT6dFCDpSmgoCQX",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s17",
+      "title": "F1 Glossary K–O",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/f1-glossary-k-o.6g2hrWHA2pyxbXoe8FT9Db",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s18",
+      "title": "F1 Glossary P–T",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/f1-glossary-p-t.GBhLQtpeu9b8LrK5VM0F1",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s19",
+      "title": "F1 Glossary U–Z",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/f1-glossary-u-z.5JSlDsnyvYmbK0TCjTs7KB",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s20",
+      "title": "EXPLAINED: What does the maximum tyre stint length rule mean for the Qatar Grand Prix?",
+      "publisher": "Formula1.com",
+      "date": "2023-10-08",
+      "url": "https://www.formula1.com/en/latest/article/explained-what-does-the-maximum-tyre-stint-length-rule-mean-for-the-qatar.4q8iXkNgE3sLnIIASPV1sm",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s21",
+      "title": "The range of compounds for the 2026 season has been set",
+      "publisher": "Pirelli (press)",
+      "date": "2025-11-24",
+      "url": "https://press.pirelli.com/the-range-of-compounds-for-the-2026-season-has-been-set/",
+      "kind": "primary",
+      "lang": "en"
+    },
+    {
+      "id": "s29",
+      "title": "F1 jargon decoded: Breaking down what key Formula 1 words mean",
+      "publisher": "PlanetF1",
+      "date": "2024-08-18",
+      "url": "https://www.planetf1.com/news/f1-jargon-decoded-common-terms-glossary",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s30",
+      "title": "F1 Explained: A beginner's guide to all the key terms and definitions",
+      "publisher": "GPFans",
+      "date": "2024-02-23",
+      "url": "https://gpfans.com/en/f1-news/1010455/f1-terms-explained",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s31",
+      "title": "Farewell, then, DRS",
+      "publisher": "Motor Sport Magazine",
+      "date": "2025-12-19",
+      "url": "https://www.motorsportmagazine.com/archive/article/february-2026/10/farewell-then-drs",
+      "kind": "secondary",
+      "lang": "en"
+    },
+    {
+      "id": "s9",
+      "title": "The beginner's guide to F1 flags",
+      "publisher": "Formula1.com",
+      "date": null,
+      "url": "https://www.formula1.com/en/latest/article/the-beginners-guide-to-formula-1-flags.T5DqOqbWI6S4Va8Y5yMld",
+      "kind": "primary",
+      "lang": "en"
+    }
+  ],
+  "terms": [
+    {
+      "id": "undercut",
+      "auto": true,
+      "uk": {
+        "term": "Андеркат",
+        "def": "Заїхати в бокси раніше за суперника й випередити його завдяки свіжим шинам.",
+        "forms": [
+          "андеркат*"
+        ]
+      },
+      "en": {
+        "term": "Undercut",
+        "def": "Pitting before a rival and getting ahead thanks to fresh tyres.",
+        "forms": [
+          "undercut*"
+        ]
+      },
+      "orig": "Undercut",
+      "sources": [
+        "s19",
+        "s29"
+      ]
+    },
+    {
+      "id": "overcut",
+      "auto": true,
+      "uk": {
+        "term": "Оверкат",
+        "def": "Навпаки: лишитись на трасі довше за суперника й виграти час на вільній трасі.",
+        "forms": [
+          "оверкат*"
+        ]
+      },
+      "en": {
+        "term": "Overcut",
+        "def": "The opposite: staying out longer than a rival and gaining time in clear air.",
+        "forms": [
+          "overcut*"
+        ]
+      },
+      "orig": "Overcut",
+      "sources": [
+        "s17",
+        "s29"
+      ]
+    },
+    {
+      "id": "apex",
+      "auto": true,
+      "uk": {
+        "term": "Апекс",
+        "def": "Точка повороту, де болід найближче до внутрішнього краю траси.",
+        "forms": [
+          "апекс*"
+        ]
+      },
+      "en": {
+        "term": "Apex",
+        "def": "The point of a corner where the car is closest to the inside edge.",
+        "forms": [
+          "apex",
+          "apexes"
+        ]
+      },
+      "orig": "Apex",
+      "sources": [
+        "s15",
+        "s30"
+      ]
+    },
+    {
+      "id": "pits",
+      "auto": true,
+      "uk": {
+        "term": "Бокси",
+        "def": "Гаражі команд і зона перед ними, де болід обслуговують.",
+        "forms": [
+          "бокси",
+          "боксів",
+          "боксах",
+          "боксами",
+          "боксам"
+        ]
+      },
+      "en": {
+        "term": "Pits",
+        "def": "The team garages and the area in front of them where the car is serviced.",
+        "forms": [
+          "pits"
+        ]
+      },
+      "orig": "Pits",
+      "sources": [
+        "s18",
+        "s30"
+      ]
+    },
+    {
+      "id": "pit-lane",
+      "auto": true,
+      "uk": {
+        "term": "Піт-лейн",
+        "def": "Окрема дорога вздовж боксів. На ній діє обмеження швидкості.",
+        "forms": [
+          "піт-лейн*"
+        ]
+      },
+      "en": {
+        "term": "Pit lane",
+        "def": "The separate road along the pits. A speed limit applies there.",
+        "forms": [
+          "pit lane*",
+          "pit-lane*"
+        ]
+      },
+      "orig": "Pit lane",
+      "sources": [
+        "s1",
+        "s18"
+      ]
+    },
+    {
+      "id": "pit-stop",
+      "auto": true,
+      "uk": {
+        "term": "Піт-стоп",
+        "def": "Зупинка в боксах, найчастіше для заміни шин.",
+        "forms": [
+          "піт-стоп*"
+        ]
+      },
+      "en": {
+        "term": "Pit stop",
+        "def": "A stop in the pits, most often to change tyres.",
+        "forms": [
+          "pit stop*",
+          "pit-stop*"
+        ]
+      },
+      "orig": "Pit stop",
+      "sources": [
+        "s18",
+        "s1"
+      ]
+    },
+    {
+      "id": "box-box",
+      "auto": true,
+      "uk": {
+        "term": "«Box, box»",
+        "def": "Команда по радіо: заїжджай у бокси на цьому колі.",
+        "forms": [
+          "box, box"
+        ]
+      },
+      "en": {
+        "term": "“Box, box”",
+        "def": "The radio call to come into the pits this lap.",
+        "forms": [
+          "box, box"
+        ]
+      },
+      "orig": "Box, box",
+      "sources": [
+        "s30",
+        "s29"
+      ]
+    },
+    {
+      "id": "pole",
+      "auto": true,
+      "uk": {
+        "term": "Поул",
+        "def": "Перше місце на старті. Його отримує найшвидший у кваліфікації.",
+        "forms": [
+          "поул*",
+          "поул-позиці*"
+        ]
+      },
+      "en": {
+        "term": "Pole position",
+        "def": "First place on the grid. It goes to the fastest driver in qualifying.",
+        "forms": [
+          "pole position*",
+          "pole"
+        ]
+      },
+      "orig": "Pole position",
+      "sources": [
+        "s18",
+        "s30",
+        "s1"
+      ]
+    },
+    {
+      "id": "grid",
+      "auto": true,
+      "uk": {
+        "term": "Стартова решітка",
+        "def": "Розмічені місця на стартовій прямій, де боліди стоять перед гонкою.",
+        "forms": [
+          "стартов* решітк*"
+        ]
+      },
+      "en": {
+        "term": "Grid",
+        "def": "The marked slots on the start straight where the cars line up before the race.",
+        "forms": [
+          "starting grid*"
+        ]
+      },
+      "orig": "Grid",
+      "sources": [
+        "s16",
+        "s30"
+      ]
+    },
+    {
+      "id": "formation-lap",
+      "auto": true,
+      "uk": {
+        "term": "Прогрівальне коло",
+        "def": "Повільне коло перед стартом, щоб прогріти шини й перевірити системи.",
+        "forms": [
+          "прогрівальн* кол*"
+        ]
+      },
+      "en": {
+        "term": "Formation lap",
+        "def": "A slow lap before the start to warm the tyres and check the systems.",
+        "forms": [
+          "formation lap*"
+        ]
+      },
+      "orig": "Formation lap",
+      "sources": [
+        "s16",
+        "s30",
+        "s1"
+      ]
+    },
+    {
+      "id": "stint",
+      "auto": true,
+      "uk": {
+        "term": "Стінт",
+        "def": "Відрізок гонки на одному комплекті шин, від піт-стопу до піт-стопу.",
+        "forms": [
+          "стінт*"
+        ]
+      },
+      "en": {
+        "term": "Stint",
+        "def": "A part of the race on one set of tyres, from pit stop to pit stop.",
+        "forms": [
+          "stint*"
+        ]
+      },
+      "orig": "Stint",
+      "sources": [
+        "s20"
+      ]
+    },
+    {
+      "id": "compound",
+      "auto": false,
+      "uk": {
+        "term": "Склад",
+        "def": "Тип гуми шини: від найтвердішого C1 до найм'якшого C5.",
+        "forms": []
+      },
+      "en": {
+        "term": "Compound",
+        "def": "The type of tyre rubber: from the hardest C1 to the softest C5.",
+        "forms": []
+      },
+      "orig": "Compound",
+      "sources": [
+        "s15",
+        "s21"
+      ]
+    },
+    {
+      "id": "degradation",
+      "auto": true,
+      "uk": {
+        "term": "Деградація",
+        "def": "Шини поступово втрачають зчеплення, і час кола росте.",
+        "forms": [
+          "деградаці*"
+        ]
+      },
+      "en": {
+        "term": "Degradation",
+        "def": "Tyres gradually lose grip and lap times get slower.",
+        "forms": [
+          "degradation"
+        ]
+      },
+      "orig": "Degradation",
+      "sources": [
+        "s15",
+        "s29"
+      ]
+    },
+    {
+      "id": "lock-up",
+      "auto": true,
+      "uk": {
+        "term": "Блокування коліс",
+        "def": "Колесо на гальмуванні перестає обертатись і ковзає. Видно за димом із-під шини.",
+        "forms": [
+          "блокуванн* кол*"
+        ]
+      },
+      "en": {
+        "term": "Lock-up",
+        "def": "A wheel stops turning under braking and slides. You can spot it by the smoke.",
+        "forms": [
+          "lock-up*",
+          "locked up"
+        ]
+      },
+      "orig": "Lock-up",
+      "sources": [
+        "s17"
+      ]
+    },
+    {
+      "id": "downforce",
+      "auto": true,
+      "uk": {
+        "term": "Притискна сила",
+        "def": "Сила, з якою повітря притискає болід до траси. Дає швидкість у поворотах.",
+        "forms": [
+          "притискн* сил*"
+        ]
+      },
+      "en": {
+        "term": "Downforce",
+        "def": "The force of air pushing the car onto the track. It gives speed in corners.",
+        "forms": [
+          "downforce"
+        ]
+      },
+      "orig": "Downforce",
+      "sources": [
+        "s15",
+        "s29"
+      ]
+    },
+    {
+      "id": "dirty-air",
+      "auto": true,
+      "uk": {
+        "term": "Брудне повітря",
+        "def": "Збурений потік за болідом. У ньому переслідувач втрачає притискну силу.",
+        "forms": [
+          "брудн* повітр*"
+        ]
+      },
+      "en": {
+        "term": "Dirty air",
+        "def": "The turbulent air behind a car. The car following loses downforce in it.",
+        "forms": [
+          "dirty air"
+        ]
+      },
+      "orig": "Dirty air",
+      "sources": [
+        "s15",
+        "s30"
+      ]
+    },
+    {
+      "id": "slipstream",
+      "auto": false,
+      "uk": {
+        "term": "Сліпстрім",
+        "def": "Зона меншого опору повітря одразу за болідом. На прямій у ній їдеш швидше.",
+        "forms": []
+      },
+      "en": {
+        "term": "Slipstream",
+        "def": "The pocket of low drag right behind a car. On a straight you go faster in it.",
+        "forms": []
+      },
+      "orig": "Slipstream",
+      "sources": [
+        "s18",
+        "s30"
+      ]
+    },
+    {
+      "id": "understeer",
+      "auto": true,
+      "uk": {
+        "term": "Недостатня поворотність",
+        "def": "Болід повертає гірше, ніж хоче пілот: передні колеса зносить назовні.",
+        "forms": [
+          "недостатн* поворотн*"
+        ]
+      },
+      "en": {
+        "term": "Understeer",
+        "def": "The car turns less than the driver wants: the front slides wide.",
+        "forms": [
+          "understeer*"
+        ]
+      },
+      "orig": "Understeer",
+      "sources": [
+        "s19",
+        "s30"
+      ]
+    },
+    {
+      "id": "oversteer",
+      "auto": true,
+      "uk": {
+        "term": "Надлишкова поворотність",
+        "def": "Задню частину боліда заносить у повороті.",
+        "forms": [
+          "надлишков* поворотн*"
+        ]
+      },
+      "en": {
+        "term": "Oversteer",
+        "def": "The rear of the car slides out in a corner.",
+        "forms": [
+          "oversteer*"
+        ]
+      },
+      "orig": "Oversteer",
+      "sources": [
+        "s17",
+        "s30"
+      ]
+    },
+    {
+      "id": "chicane",
+      "auto": true,
+      "uk": {
+        "term": "Шикана",
+        "def": "Зв'язка з двох або трьох коротких поворотів у різні боки.",
+        "forms": [
+          "шикан*"
+        ]
+      },
+      "en": {
+        "term": "Chicane",
+        "def": "A sequence of two or three short corners in alternating directions.",
+        "forms": [
+          "chicane*"
+        ]
+      },
+      "orig": "Chicane",
+      "sources": [
+        "s15",
+        "s30"
+      ]
+    },
+    {
+      "id": "hairpin",
+      "auto": false,
+      "uk": {
+        "term": "Шпилька",
+        "def": "Дуже повільний поворот майже на 180 градусів.",
+        "forms": []
+      },
+      "en": {
+        "term": "Hairpin",
+        "def": "A very slow corner of almost 180 degrees.",
+        "forms": [
+          "hairpin*"
+        ]
+      },
+      "orig": "Hairpin",
+      "sources": [
+        "s16",
+        "s30"
+      ]
+    },
+    {
+      "id": "kerb",
+      "auto": true,
+      "uk": {
+        "term": "Поребрик",
+        "def": "Смугаста накладка на краю траси в поворотах.",
+        "forms": [
+          "поребрик*"
+        ]
+      },
+      "en": {
+        "term": "Kerb",
+        "def": "The striped edging on the side of the track in corners.",
+        "forms": [
+          "kerb*"
+        ]
+      },
+      "orig": "Kerb",
+      "sources": [
+        "s17",
+        "s30"
+      ]
+    },
+    {
+      "id": "backmarkers",
+      "auto": false,
+      "uk": {
+        "term": "Кругові",
+        "def": "Пілоти в хвості пелотону; часто ті, кого лідери наздоганяють на коло.",
+        "forms": []
+      },
+      "en": {
+        "term": "Backmarkers",
+        "def": "Drivers at the back of the field, often the ones about to be lapped by the leaders.",
+        "forms": [
+          "backmarker*"
+        ]
+      },
+      "orig": "Backmarkers",
+      "sources": [
+        "s15",
+        "s29",
+        "s30"
+      ]
+    },
+    {
+      "id": "safety-car",
+      "auto": true,
+      "uk": {
+        "term": "Машина безпеки",
+        "def": "Автомобіль, що виїжджає на трасу після аварії й веде за собою пелотон на зниженій швидкості.",
+        "forms": [
+          "машин* безпеки",
+          "автомобіл* безпеки"
+        ]
+      },
+      "en": {
+        "term": "Safety car",
+        "def": "A car that comes out after an accident and leads the field at reduced speed.",
+        "forms": [
+          "safety car*"
+        ]
+      },
+      "orig": "Safety car",
+      "sources": [
+        "s18",
+        "s30",
+        "s1"
+      ]
+    },
+    {
+      "id": "vsc",
+      "auto": true,
+      "uk": {
+        "term": "Віртуальна машина безпеки",
+        "def": "Машина безпеки не виїжджає, але всі пілоти мусять сповільнитись.",
+        "forms": [
+          "віртуальн* машин* безпеки",
+          "віртуальн* автомобіл* безпеки",
+          "VSC"
+        ]
+      },
+      "en": {
+        "term": "Virtual safety car",
+        "def": "No safety car on track, but every driver has to slow down.",
+        "forms": [
+          "virtual safety car*",
+          "VSC"
+        ]
+      },
+      "orig": "Virtual safety car (VSC)",
+      "sources": [
+        "s1",
+        "s19"
+      ]
+    },
+    {
+      "id": "stewards",
+      "auto": true,
+      "uk": {
+        "term": "Стюарди",
+        "def": "Судді гонки. Розглядають інциденти й призначають штрафи.",
+        "forms": [
+          "стюард*"
+        ]
+      },
+      "en": {
+        "term": "Stewards",
+        "def": "The race judges. They review incidents and hand out penalties.",
+        "forms": [
+          "steward*"
+        ]
+      },
+      "orig": "Stewards",
+      "sources": [
+        "s18",
+        "s1"
+      ]
+    },
+    {
+      "id": "parc-ferme",
+      "auto": true,
+      "uk": {
+        "term": "Закритий парк",
+        "def": "Режим, у якому командам заборонено змінювати налаштування боліда.",
+        "forms": [
+          "закрит* парк*",
+          "parc fermé"
+        ]
+      },
+      "en": {
+        "term": "Parc fermé",
+        "def": "The period when teams are not allowed to change the car's set-up.",
+        "forms": [
+          "parc fermé"
+        ]
+      },
+      "orig": "Parc fermé",
+      "sources": [
+        "s1",
+        "s18"
+      ]
+    },
+    {
+      "id": "power-unit",
+      "auto": true,
+      "uk": {
+        "term": "Силова установка",
+        "def": "Двигун внутрішнього згоряння разом з електричною частиною й батареєю.",
+        "forms": [
+          "силов* установ*"
+        ]
+      },
+      "en": {
+        "term": "Power unit",
+        "def": "The combustion engine together with the electrical part and the battery.",
+        "forms": [
+          "power unit*"
+        ]
+      },
+      "orig": "Power unit",
+      "sources": [
+        "s4",
+        "s18"
+      ]
+    },
+    {
+      "id": "recharge",
+      "auto": true,
+      "uk": {
+        "term": "Рекуперація",
+        "def": "Заряджання батареї на ходу, зокрема під час гальмування.",
+        "forms": [
+          "рекуперац*"
+        ]
+      },
+      "en": {
+        "term": "Recharge",
+        "def": "Charging the battery on the move, for example under braking.",
+        "forms": [
+          "energy recovery"
+        ]
+      },
+      "orig": "Recharge",
+      "sources": [
+        "s4",
+        "s11",
+        "s18"
+      ]
+    },
+    {
+      "id": "lift-and-coast",
+      "auto": true,
+      "uk": {
+        "term": "Lift and coast",
+        "def": "Пілот відпускає газ ще до точки гальмування й котиться накатом, щоб зберегти енергію.",
+        "forms": [
+          "lift and coast"
+        ]
+      },
+      "en": {
+        "term": "Lift and coast",
+        "def": "The driver lifts off before the braking point and coasts to save energy.",
+        "forms": [
+          "lift and coast",
+          "lift-and-coast"
+        ]
+      },
+      "orig": "Lift and coast",
+      "sources": [
+        "s17",
+        "s11",
+        "s29"
+      ]
+    },
+    {
+      "id": "dnf",
+      "auto": true,
+      "uk": {
+        "term": "DNF",
+        "def": "Пілот не доїхав до фінішу.",
+        "forms": [
+          "DNF"
+        ]
+      },
+      "en": {
+        "term": "DNF",
+        "def": "The driver did not reach the finish.",
+        "forms": [
+          "DNF"
+        ]
+      },
+      "orig": "Did not finish",
+      "sources": [
+        "s15",
+        "s29"
+      ]
+    },
+    {
+      "id": "dns",
+      "auto": true,
+      "uk": {
+        "term": "DNS",
+        "def": "Пілот не вийшов на старт.",
+        "forms": [
+          "DNS"
+        ]
+      },
+      "en": {
+        "term": "DNS",
+        "def": "The driver did not take the start.",
+        "forms": [
+          "DNS"
+        ]
+      },
+      "orig": "Did not start",
+      "sources": [
+        "s15"
+      ]
+    },
+    {
+      "id": "dsq",
+      "auto": true,
+      "uk": {
+        "term": "DSQ",
+        "def": "Результат анульовано за порушення правил.",
+        "forms": [
+          "DSQ",
+          "дискваліфікац*",
+          "дискваліфікув*"
+        ]
+      },
+      "en": {
+        "term": "DSQ",
+        "def": "The result is cancelled for breaking the rules.",
+        "forms": [
+          "DSQ",
+          "disqualif*"
+        ]
+      },
+      "orig": "Disqualified",
+      "sources": [
+        "s15",
+        "s30"
+      ]
+    },
+    {
+      "id": "drs",
+      "auto": true,
+      "uk": {
+        "term": "DRS",
+        "def": "Заслінка заднього крила, яку пілот міг відкрити на визначених прямих, коли відставав від суперника менш ніж на секунду. Використовували з 2011 по 2025 рік.",
+        "forms": [
+          "DRS"
+        ]
+      },
+      "en": {
+        "term": "DRS",
+        "def": "A rear-wing flap a driver could open on set straights when less than a second behind the car ahead. Used from 2011 to 2025.",
+        "forms": [
+          "DRS"
+        ]
+      },
+      "orig": "Drag Reduction System",
+      "sources": [
+        "s31",
+        "s14",
+        "s10"
+      ]
+    },
+    {
+      "id": "lapped",
+      "auto": false,
+      "uk": {
+        "term": "Відставання на коло",
+        "def": "Лідер обігнав пілота на ціле коло чи більше. Тоді відрив у протоколі рахують у колах (+1 коло), а не в секундах.",
+        "forms": []
+      },
+      "en": {
+        "term": "Lapped",
+        "def": "The leader has passed the driver by a full lap or more, so the gap is shown in laps (+1 lap) rather than seconds.",
+        "forms": []
+      },
+      "orig": "Lapped",
+      "sources": [
+        "s17",
+        "s9"
+      ]
+    }
+  ]
+}

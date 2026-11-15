@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { termLabels } from "@/lib/glossary/labels";
+import { getTerm, type Term as TermData } from "@/lib/glossary/terms";
 import type { CSSProperties, ReactNode } from "react";
 import { formatDay, LocalDay, LocalTime, TzNote } from "@/components/calendar/local-time";
 import { HmCountdown } from "@/components/home/countdown";
@@ -8,6 +10,7 @@ import { HmSlider } from "@/components/home/slider";
 import { SeasonPhoto } from "@/components/seasons/season-photo";
 import { StoryCard } from "@/components/stories/story-card";
 import { heroColors } from "@/components/site/section-hero";
+import { Term, TermPopover } from "@/components/glossary/term";
 import { PageCredits } from "@/components/teams/page-credits";
 import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
@@ -85,11 +88,26 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const n = (v: number) => fmt[lang].format(v);
   const { champion, last, next } = page;
 
-  const timeCell = (r: ResultRow): string => {
+  // Підказки словника в таблиці останньої гонки (рішення 15.11): віконця — один раз унизу (статуси повторюються).
+  const tl = termLabels(lang, dict.glossary.more);
+  const usedTerms = new Map<string, TermData>();
+  const T = (id: string, children: ReactNode) => {
+    const term = getTerm(id, lang);
+    if (!term) return children;
+    usedTerms.set(id, term);
+    return (
+      <Term term={term} t={tl} shared box>
+        {children}
+      </Term>
+    );
+  };
+  const STATUS_TERM: Partial<Record<ResultRow["status"], string>> = { retired: "dnf", accident: "dnf", dsq: "dsq", dns: "dns" };
+  const timeCell = (r: ResultRow): ReactNode => {
     if (r.time?.kind === "total") return raceTime(r.time.ms);
     if (r.time?.kind === "gap") return gapTime(r.time.ms);
-    if (r.time?.kind === "laps") return fill(plural(r.time.n, lang, rp.lapsDown), { n: r.time.n });
-    return rp.status[r.status];
+    if (r.time?.kind === "laps") return T("lapped", fill(plural(r.time.n, lang, rp.lapsDown), { n: r.time.n }));
+    const id = STATUS_TERM[r.status];
+    return id ? T(id, rp.status[r.status]) : rp.status[r.status];
   };
 
   const recordList = <T,>(i: number, title: string, list: RecordList<T>, who: (x: T) => ReactNode, key: (x: T) => string) => (
@@ -335,7 +353,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                       <th scope="col">{t.col.pos}</th>
                       <th scope="col">{t.col.driver}</th>
                       <th scope="col" className="hm-r hm-c-grid">
-                        <abbr title={t.gridTip}>{t.col.grid}</abbr>
+                        {T("grid", t.col.grid)}
                       </th>
                       <th scope="col" className="hm-r">
                         {t.col.gap}
@@ -717,6 +735,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </div>
       </section>
 
+      {[...usedTerms.values()].map((term) => (
+        <TermPopover key={term.id} term={term} t={tl} />
+      ))}
       <PageCredits
         groups={[
           {
