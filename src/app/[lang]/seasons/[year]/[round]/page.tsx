@@ -62,6 +62,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     path: `/seasons/${page.year}/${page.round}`,
     title: `${page.gp} ${page.year}`,
     description: fill(t.metaDescription, { gp: page.gp, year: page.year, round: page.round, who: winner ? fill(t.metaWinner, { driver: winner }) : "" }),
+    image: page.hero.photo ? { src: page.hero.photo.src, alt: circuitPhotoAlt(dict.circuitPage.heroAlt, page.short, page.place) } : undefined,
   });
 }
 

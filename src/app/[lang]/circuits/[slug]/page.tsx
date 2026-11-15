@@ -62,6 +62,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     path: `/circuits/${page.slug}`,
     title: `${page.short} — ${page.name}`,
     description: fill(dict.circuitPage.metaDescription, { name: page.name, place: [page.place, page.country].filter(Boolean).join(", "), n: page.strip.races }),
+    image: page.hero ? { src: page.hero.src, alt: circuitPhotoAlt(dict.circuitPage.heroAlt, page.short, page.place) } : undefined,
   });
 }
 

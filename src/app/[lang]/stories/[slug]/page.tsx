@@ -55,7 +55,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     path: `/stories/${story.slug}`,
     title: story.title.full,
     description: story.dek,
-    image: story.hero ? { src: story.hero.src, width: story.hero.width, height: story.hero.height, alt: story.hero.alt } : undefined,
+    image: story.hero ? { src: story.hero.src, alt: story.hero.alt } : undefined,
     article: { modified: story.checked },
   });
 }

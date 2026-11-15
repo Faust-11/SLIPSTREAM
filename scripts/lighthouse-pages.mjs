@@ -44,7 +44,7 @@ const DATA_FILES = {
 };
 
 // Не впливають на сторінки: тести, документація, скрипти підготовки даних (дані потрапляють у src/data — там ALL).
-const IGNORE = [/^e2e\//, /\/__tests__\//, /\.test\.tsx?$/, /^docs\//, /\.md$/, /^scripts\/(curated|db|jolpica|content|snapshot)\//, /^scripts\/lighthouse/, /^\.github\//, /^supabase\//];
+const IGNORE = [/^e2e\//, /\/__tests__\//, /\.test\.tsx?$/, /^docs\//, /\.md$/, /^scripts\/(curated|db|jolpica|content|snapshot|og)\//, /^public\/og\//, /^scripts\/lighthouse/, /^\.github\//, /^supabase\//];
 
 /** @param {string[]} files @returns {"ALL" | string[]} */
 export function pagesFor(files) {

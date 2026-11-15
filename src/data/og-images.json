@@ -1,0 +1,235 @@
+{
+  "sections": {
+    "calendar-en": {
+      "src": "/og/section/calendar-en.jpg",
+      "alt": "Slipstream — Calendar. The Formula 1 calendar: dates, circuits and session times."
+    },
+    "calendar-uk": {
+      "src": "/og/section/calendar-uk.jpg",
+      "alt": "Slipstream — Календар. Календар Формули-1: дати, траси й розклад сесій."
+    },
+    "circuits-en": {
+      "src": "/og/section/circuits-en.jpg",
+      "alt": "Slipstream — Circuits. Formula 1 circuits: layout, length, corners and winners."
+    },
+    "circuits-uk": {
+      "src": "/og/section/circuits-uk.jpg",
+      "alt": "Slipstream — Траси. Траси Формули-1: схема, довжина, повороти й переможці."
+    },
+    "drivers-en": {
+      "src": "/og/section/drivers-en.jpg",
+      "alt": "Slipstream — Drivers. Formula 1 drivers: careers, wins, poles and teams."
+    },
+    "drivers-uk": {
+      "src": "/og/section/drivers-uk.jpg",
+      "alt": "Slipstream — Пілоти. Пілоти Формули-1: кар’єра, перемоги, поули й команди."
+    },
+    "game-en": {
+      "src": "/og/section/game-en.jpg",
+      "alt": "Slipstream — Play. Hot Lap: a browser racing game on four circuits."
+    },
+    "game-uk": {
+      "src": "/og/section/game-uk.jpg",
+      "alt": "Slipstream — Гра. «Гаряче коло» — браузерна гоночна гра на чотирьох трасах."
+    },
+    "home-en": {
+      "src": "/og/section/home-en.jpg",
+      "alt": "Slipstream. An unofficial Formula 1 fan site: seasons, races, drivers, teams, circuits and stories."
+    },
+    "home-uk": {
+      "src": "/og/section/home-uk.jpg",
+      "alt": "Slipstream. Неофіційний фанатський сайт про Формулу-1: сезони, гонки, пілоти, команди, траси й історії."
+    },
+    "newbie-en": {
+      "src": "/og/section/newbie-en.jpg",
+      "alt": "Slipstream — New to F1. New to Formula 1? The rules, terms and race weekend explained."
+    },
+    "newbie-uk": {
+      "src": "/og/section/newbie-uk.jpg",
+      "alt": "Slipstream — Новачкам. Новачкам у Формулі-1: правила, терміни й гоночний вікенд простими словами."
+    },
+    "news-en": {
+      "src": "/og/section/news-en.jpg",
+      "alt": "Slipstream — News. Formula 1 news from trusted sources."
+    },
+    "news-uk": {
+      "src": "/og/section/news-uk.jpg",
+      "alt": "Slipstream — Новини. Новини Формули-1 з перевірених джерел."
+    },
+    "seasons-en": {
+      "src": "/og/section/seasons-en.jpg",
+      "alt": "Slipstream — Seasons. Every Formula 1 season since 1950: champions, standings and races."
+    },
+    "seasons-uk": {
+      "src": "/og/section/seasons-uk.jpg",
+      "alt": "Slipstream — Сезони. Усі сезони Формули-1 з 1950 року: чемпіони, таблиці й гонки."
+    },
+    "stories-en": {
+      "src": "/og/section/stories-en.jpg",
+      "alt": "Slipstream — Stories. Stories from Formula 1 history, with sources."
+    },
+    "stories-uk": {
+      "src": "/og/section/stories-uk.jpg",
+      "alt": "Slipstream — Історії. Історії з минулого Формули-1 — з джерелами."
+    },
+    "teams-en": {
+      "src": "/og/section/teams-en.jpg",
+      "alt": "Slipstream — Teams. Formula 1 teams: history, titles and drivers."
+    },
+    "teams-uk": {
+      "src": "/og/section/teams-uk.jpg",
+      "alt": "Slipstream — Команди. Команди Формули-1: історія, титули й пілоти."
+    }
+  },
+  "photos": {
+    "/img/circuits/adelaide-hero-1280.webp": "/og/circuits/adelaide.jpg",
+    "/img/circuits/aintree-hero-1280.webp": "/og/circuits/aintree.jpg",
+    "/img/circuits/albert_park-hero-1280.webp": "/og/circuits/albert_park.jpg",
+    "/img/circuits/americas-hero-1280.webp": "/og/circuits/americas.jpg",
+    "/img/circuits/anderstorp-hero-1280.webp": "/og/circuits/anderstorp.jpg",
+    "/img/circuits/avus-hero-1280.webp": "/og/circuits/avus.jpg",
+    "/img/circuits/bahrain-hero-1280.webp": "/og/circuits/bahrain.jpg",
+    "/img/circuits/baku-hero-1280.webp": "/og/circuits/baku.jpg",
+    "/img/circuits/boavista-hero-1280.webp": "/og/circuits/boavista.jpg",
+    "/img/circuits/brands_hatch-hero-1280.webp": "/og/circuits/brands_hatch.jpg",
+    "/img/circuits/bremgarten-hero-1280.webp": "/og/circuits/bremgarten.jpg",
+    "/img/circuits/buddh-hero-1280.webp": "/og/circuits/buddh.jpg",
+    "/img/circuits/catalunya-hero-1280.webp": "/og/circuits/catalunya.jpg",
+    "/img/circuits/charade-hero-1280.webp": "/og/circuits/charade.jpg",
+    "/img/circuits/detroit-hero-1280.webp": "/og/circuits/detroit.jpg",
+    "/img/circuits/dijon-hero-1280.webp": "/og/circuits/dijon.jpg",
+    "/img/circuits/donington-hero-1280.webp": "/og/circuits/donington.jpg",
+    "/img/circuits/fuji-hero-1280.webp": "/og/circuits/fuji.jpg",
+    "/img/circuits/galvez-hero-1280.webp": "/og/circuits/galvez.jpg",
+    "/img/circuits/hockenheimring-hero-1280.webp": "/og/circuits/hockenheimring.jpg",
+    "/img/circuits/hungaroring-hero-1280.webp": "/og/circuits/hungaroring.jpg",
+    "/img/circuits/imola-hero-1280.webp": "/og/circuits/imola.jpg",
+    "/img/circuits/indianapolis-hero-1280.webp": "/og/circuits/indianapolis.jpg",
+    "/img/circuits/interlagos-hero-1280.webp": "/og/circuits/interlagos.jpg",
+    "/img/circuits/istanbul-hero-1280.webp": "/og/circuits/istanbul.jpg",
+    "/img/circuits/jarama-hero-1280.webp": "/og/circuits/jarama.jpg",
+    "/img/circuits/jerez-hero-1280.webp": "/og/circuits/jerez.jpg",
+    "/img/circuits/kyalami-hero-1280.webp": "/og/circuits/kyalami.jpg",
+    "/img/circuits/lemans-hero-1280.webp": "/og/circuits/lemans.jpg",
+    "/img/circuits/long_beach-hero-1280.webp": "/og/circuits/long_beach.jpg",
+    "/img/circuits/magny_cours-hero-1280.webp": "/og/circuits/magny_cours.jpg",
+    "/img/circuits/marina_bay-hero-1280.webp": "/og/circuits/marina_bay.jpg",
+    "/img/circuits/miami-hero-1280.webp": "/og/circuits/miami.jpg",
+    "/img/circuits/monaco-hero-1280.webp": "/og/circuits/monaco.jpg",
+    "/img/circuits/montjuic-hero-1280.webp": "/og/circuits/montjuic.jpg",
+    "/img/circuits/monza-hero-1280.webp": "/og/circuits/monza.jpg",
+    "/img/circuits/mosport-hero-1280.webp": "/og/circuits/mosport.jpg",
+    "/img/circuits/mugello-hero-1280.webp": "/og/circuits/mugello.jpg",
+    "/img/circuits/nurburgring-hero-1280.webp": "/og/circuits/nurburgring.jpg",
+    "/img/circuits/okayama-hero-1280.webp": "/og/circuits/okayama.jpg",
+    "/img/circuits/phoenix-hero-1280.webp": "/og/circuits/phoenix.jpg",
+    "/img/circuits/portimao-hero-1280.webp": "/og/circuits/portimao.jpg",
+    "/img/circuits/red_bull_ring-hero-1280.webp": "/og/circuits/red_bull_ring.jpg",
+    "/img/circuits/ricard-hero-1280.webp": "/og/circuits/ricard.jpg",
+    "/img/circuits/riverside-hero-1280.webp": "/og/circuits/riverside.jpg",
+    "/img/circuits/rodriguez-hero-1280.webp": "/og/circuits/rodriguez.jpg",
+    "/img/circuits/sebring-hero-1280.webp": "/og/circuits/sebring.jpg",
+    "/img/circuits/sepang-hero-1280.webp": "/og/circuits/sepang.jpg",
+    "/img/circuits/shanghai-hero-1280.webp": "/og/circuits/shanghai.jpg",
+    "/img/circuits/silverstone-hero-1280.webp": "/og/circuits/silverstone.jpg",
+    "/img/circuits/sochi-hero-1280.webp": "/og/circuits/sochi.jpg",
+    "/img/circuits/spa-hero-1280.webp": "/og/circuits/spa.jpg",
+    "/img/circuits/suzuka-hero-1280.webp": "/og/circuits/suzuka.jpg",
+    "/img/circuits/tremblant-hero-1280.webp": "/og/circuits/tremblant.jpg",
+    "/img/circuits/valencia-hero-1280.webp": "/og/circuits/valencia.jpg",
+    "/img/circuits/vegas-hero-1280.webp": "/og/circuits/vegas.jpg",
+    "/img/circuits/villeneuve-hero-1280.webp": "/og/circuits/villeneuve.jpg",
+    "/img/circuits/watkins_glen-hero-1280.webp": "/og/circuits/watkins_glen.jpg",
+    "/img/circuits/yas_marina-hero-1280.webp": "/og/circuits/yas_marina.jpg",
+    "/img/circuits/yeongam-hero-1280.webp": "/og/circuits/yeongam.jpg",
+    "/img/circuits/zandvoort-hero-1280.webp": "/og/circuits/zandvoort.jpg",
+    "/img/circuits/zeltweg-hero-1280.webp": "/og/circuits/zeltweg.jpg",
+    "/img/circuits/zolder-hero-1280.webp": "/og/circuits/zolder.jpg",
+    "/img/seasons/1950-hero-1280.webp": "/og/seasons/1950.jpg",
+    "/img/seasons/1954-hero-1280.webp": "/og/seasons/1954.jpg",
+    "/img/seasons/1955-hero-1280.webp": "/og/seasons/1955.jpg",
+    "/img/seasons/1956-hero-1280.webp": "/og/seasons/1956.jpg",
+    "/img/seasons/1959-hero-1280.webp": "/og/seasons/1959.jpg",
+    "/img/seasons/1960-hero-1280.webp": "/og/seasons/1960.jpg",
+    "/img/seasons/1963-hero-1280.webp": "/og/seasons/1963.jpg",
+    "/img/seasons/1964-hero-1280.webp": "/og/seasons/1964.jpg",
+    "/img/seasons/1965-hero-1280.webp": "/og/seasons/1965.jpg",
+    "/img/seasons/1967-hero-1280.webp": "/og/seasons/1967.jpg",
+    "/img/seasons/1968-hero-1280.webp": "/og/seasons/1968.jpg",
+    "/img/seasons/1969-hero-1280.webp": "/og/seasons/1969.jpg",
+    "/img/seasons/1970-hero-1280.webp": "/og/seasons/1970.jpg",
+    "/img/seasons/1971-hero-1280.webp": "/og/seasons/1971.jpg",
+    "/img/seasons/1972-hero-1280.webp": "/og/seasons/1972.jpg",
+    "/img/seasons/1973-hero-1280.webp": "/og/seasons/1973.jpg",
+    "/img/seasons/1974-hero-1280.webp": "/og/seasons/1974.jpg",
+    "/img/seasons/1975-hero-1280.webp": "/og/seasons/1975.jpg",
+    "/img/seasons/1977-hero-1280.webp": "/og/seasons/1977.jpg",
+    "/img/seasons/1978-hero-1280.webp": "/og/seasons/1978.jpg",
+    "/img/seasons/1980-hero-1280.webp": "/og/seasons/1980.jpg",
+    "/img/seasons/1982-hero-1280.webp": "/og/seasons/1982.jpg",
+    "/img/seasons/1984-hero-1280.webp": "/og/seasons/1984.jpg",
+    "/img/seasons/1985-hero-1280.webp": "/og/seasons/1985.jpg",
+    "/img/seasons/1987-hero-1280.webp": "/og/seasons/1987.jpg",
+    "/img/seasons/1988-hero-1280.webp": "/og/seasons/1988.jpg",
+    "/img/seasons/1989-hero-1280.webp": "/og/seasons/1989.jpg",
+    "/img/seasons/1990-hero-1280.webp": "/og/seasons/1990.jpg",
+    "/img/seasons/1991-hero-1280.webp": "/og/seasons/1991.jpg",
+    "/img/seasons/1992-hero-1280.webp": "/og/seasons/1992.jpg",
+    "/img/seasons/1993-hero-1280.webp": "/og/seasons/1993.jpg",
+    "/img/seasons/1994-hero-1280.webp": "/og/seasons/1994.jpg",
+    "/img/seasons/1996-hero-1280.webp": "/og/seasons/1996.jpg",
+    "/img/seasons/1997-hero-1280.webp": "/og/seasons/1997.jpg",
+    "/img/seasons/1998-hero-1280.webp": "/og/seasons/1998.jpg",
+    "/img/seasons/2000-hero-1280.webp": "/og/seasons/2000.jpg",
+    "/img/seasons/2001-hero-1280.webp": "/og/seasons/2001.jpg",
+    "/img/seasons/2003-hero-1280.webp": "/og/seasons/2003.jpg",
+    "/img/seasons/2004-hero-1280.webp": "/og/seasons/2004.jpg",
+    "/img/seasons/2006-hero-1280.webp": "/og/seasons/2006.jpg",
+    "/img/seasons/2008-hero-1280.webp": "/og/seasons/2008.jpg",
+    "/img/seasons/2010-hero-1280.webp": "/og/seasons/2010.jpg",
+    "/img/seasons/2011-hero-1280.webp": "/og/seasons/2011.jpg",
+    "/img/seasons/2012-hero-1280.webp": "/og/seasons/2012.jpg",
+    "/img/seasons/2013-hero-1280.webp": "/og/seasons/2013.jpg",
+    "/img/seasons/2018-hero-1280.webp": "/og/seasons/2018.jpg",
+    "/img/seasons/2019-hero-1280.webp": "/og/seasons/2019.jpg",
+    "/img/seasons/2020-hero-1280.webp": "/og/seasons/2020.jpg",
+    "/img/seasons/2021-hero-1280.webp": "/og/seasons/2021.jpg",
+    "/img/seasons/2022-hero-1280.webp": "/og/seasons/2022.jpg",
+    "/img/seasons/2024-hero-1280.webp": "/og/seasons/2024.jpg",
+    "/img/seasons/2025-hero-1280.webp": "/og/seasons/2025.jpg",
+    "/img/seasons/2026-hero-1280.webp": "/og/seasons/2026.jpg",
+    "/img/stories/abu-dhabi-2021/m1-1280.webp": "/og/stories/abu-dhabi-2021.jpg",
+    "/img/stories/austria-2002/m1-1280.webp": "/og/stories/austria-2002.jpg",
+    "/img/stories/benetton-1994/m1-1280.webp": "/og/stories/benetton-1994.jpg",
+    "/img/stories/brawn-gp-2009/m1-1280.webp": "/og/stories/brawn-gp-2009.jpg",
+    "/img/stories/button-canada-2011/m1-1280.webp": "/og/stories/button-canada-2011.jpg",
+    "/img/stories/f1-budget-cap/m1-1280.webp": "/og/stories/f1-budget-cap.jpg",
+    "/img/stories/f1-car-cost/m1-1280.webp": "/og/stories/f1-car-cost.jpg",
+    "/img/stories/f1-driver-body/m1-1280.webp": "/og/stories/f1-driver-body.jpg",
+    "/img/stories/f1-points-history/m1-1280.webp": "/og/stories/f1-points-history.jpg",
+    "/img/stories/f1-safety-revolution/m1-1280.webp": "/og/stories/f1-safety-revolution.jpg",
+    "/img/stories/f1-sponsorship-history/m1-1280.webp": "/og/stories/f1-sponsorship-history.jpg",
+    "/img/stories/f1-steering-wheel/m1-1280.webp": "/og/stories/f1-steering-wheel.jpg",
+    "/img/stories/f1-team-size/m1-1280.webp": "/og/stories/f1-team-size.jpg",
+    "/img/stories/f1-tech-revolutions/m1-1280.webp": "/og/stories/f1-tech-revolutions.jpg",
+    "/img/stories/gasly-monza-2020/m1-1280.webp": "/og/stories/gasly-monza-2020.jpg",
+    "/img/stories/hamilton-brazil-2008/m1-1280.webp": "/og/stories/hamilton-brazil-2008.jpg",
+    "/img/stories/how-f1-began/m1-1280.webp": "/og/stories/how-f1-began.jpg",
+    "/img/stories/hunt-lauda-1976/m1-1280.webp": "/og/stories/hunt-lauda-1976.jpg",
+    "/img/stories/imola-1994/m1-1280.webp": "/og/stories/imola-1994.jpg",
+    "/img/stories/indianapolis-2005/m1-1280.webp": "/og/stories/indianapolis-2005.jpg",
+    "/img/stories/jerez-1997/m1-1280.webp": "/og/stories/jerez-1997.jpg",
+    "/img/stories/maldonado-spain-2012/m1-1280.webp": "/og/stories/maldonado-spain-2012.jpg",
+    "/img/stories/panis-monaco-1996/m1-1280.webp": "/og/stories/panis-monaco-1996.jpg",
+    "/img/stories/pit-stop-evolution/m1-1280.webp": "/og/stories/pit-stop-evolution.jpg",
+    "/img/stories/red-bull-cost-cap-2021/m1-1280.webp": "/og/stories/red-bull-cost-cap-2021.jpg",
+    "/img/stories/schumacher-debut-1991/m1-1280.webp": "/og/stories/schumacher-debut-1991.jpg",
+    "/img/stories/senna-donington-1993/m1-1280.webp": "/og/stories/senna-donington-1993.jpg",
+    "/img/stories/singapore-2008/m1-1280.webp": "/og/stories/singapore-2008.jpg",
+    "/img/stories/spa-2021/m1-1280.webp": "/og/stories/spa-2021.jpg",
+    "/img/stories/spygate-2007/m1-1280.webp": "/og/stories/spygate-2007.jpg",
+    "/img/stories/suzuka-1989/m1-1280.webp": "/og/stories/suzuka-1989.jpg",
+    "/img/stories/vettel-monza-2008/m1-1280.webp": "/og/stories/vettel-monza-2008.jpg",
+    "/img/stories/women-in-f1/m1-1280.webp": "/og/stories/women-in-f1.jpg"
+  }
+}
