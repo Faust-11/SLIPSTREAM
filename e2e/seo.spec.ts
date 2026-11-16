@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 import { expectNoA11yViolations } from "./axe";
 
 const SECTIONS = ["/seasons", "/calendar", "/news", "/drivers", "/teams", "/circuits", "/stories", "/newbie", "/game"];
-const PAGES = ["/", ...SECTIONS];
+const PAGES = ["/", ...SECTIONS].concat(["/about", "/sources"]); // службові сторінки (фаза 8) — у sitemap, не в меню
 const uk = (p: string) => (p === "/" ? "/uk" : `/uk${p}`);
 
 /**
