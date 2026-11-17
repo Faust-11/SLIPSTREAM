@@ -32,6 +32,25 @@ export function indexingEnabled(): boolean {
 }
 
 /** robots для всього сайту: layout задає за замовчуванням, щоб нова сторінка без pageMetadata не стала індексованою. */
+/**
+ * Фавікони й маніфест (public/, генератор — scripts/assets/favicons.mjs). SVG — першим: сучасні браузери беруть
+ * його для вкладки; ICO з sizes="32x32" — щоб Chrome не віддавав йому перевагу над SVG; PNG — для старіших і для
+ * пошуку (Google — кратні 48 px); apple-touch-icon — непрозорий (iOS заливає прозоре чорним).
+ */
+export const SITE_ICONS: Pick<Metadata, "icons" | "manifest"> = {
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  manifest: "/site.webmanifest",
+};
+
 export function robotsMetadata(): Metadata["robots"] {
   const index = indexingEnabled();
   return { index, follow: index };
