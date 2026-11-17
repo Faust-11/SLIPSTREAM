@@ -7,6 +7,7 @@ import { ThemeScript } from "@/components/theme/theme-script";
 import { locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";
+import { SITE_ICONS } from "@/lib/seo";
 import { fontVariables } from "./fonts";
 import "./globals.css";
 
@@ -18,6 +19,7 @@ const LANG_SCRIPT = `(function(){var p=location.pathname,l=p==="/uk"||p.indexOf(
 export const metadata: Metadata = {
   title: "404 · Slipstream",
   description: "Page not found · Сторінку не знайдено — Slipstream, an unofficial Formula 1 fan site.",
+  ...SITE_ICONS,
 };
 
 export default async function GlobalNotFound() {

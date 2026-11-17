@@ -25,7 +25,7 @@ import "@/components/newbie/newbie.css";
 import { ThemeRestore } from "@/components/theme/theme-restore";
 import { ThemeScript } from "@/components/theme/theme-script";
 import { getDictionary } from "@/i18n/get-dictionary";
-import { robotsMetadata, siteUrl } from "@/lib/seo";
+import { robotsMetadata, SITE_ICONS, siteUrl } from "@/lib/seo";
 import { THEME_COLOR } from "@/lib/theme";
 import { fontVariables } from "../fonts";
 import "../globals.css";
@@ -54,6 +54,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
     title: { default: dict.site.name, template: `%s · ${dict.site.name}` },
     // За замовчуванням для всіх сторінок (pageMetadata лише повторює те саме).
     robots: robotsMetadata(),
+    ...SITE_ICONS,
   };
 }
 

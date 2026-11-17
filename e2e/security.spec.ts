@@ -40,7 +40,7 @@ test("заголовки безпеки на всіх типах відпові�
   await page.goto("/");
   const asset = await page.evaluate(() => document.querySelector<HTMLScriptElement>('script[src^="/_next/static/"]')?.src);
   expect(asset).toBeTruthy();
-  for (const path of ["/", "/uk/teams", "/uk/nope", "/robots.txt", "/sitemap.xml", "/icon.svg", new URL(asset!).pathname]) {
+  for (const path of ["/", "/uk/teams", "/uk/nope", "/robots.txt", "/sitemap.xml", "/favicon.svg", new URL(asset!).pathname]) {
     const res = await request.get(path);
     const h = res.headers();
     for (const [name, value] of Object.entries(EXPECTED)) expect(h[name], `${path}: ${name}`).toBe(value);
