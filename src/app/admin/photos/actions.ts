@@ -6,7 +6,7 @@ import { commonsFile, downloadThumb } from "@/lib/admin/photos/commons";
 import { findItem, targetOf, type Kind } from "@/lib/admin/photos/catalog";
 import { classifyLicense } from "@/lib/admin/photos/license";
 import { PhotoError, renderFormat } from "@/lib/admin/photos/render";
-import { applySlot, formatsFor, jsonFor, type Part, type RenderedSet } from "@/lib/admin/photos/slots";
+import { applySlot, formatsFor, jsonFor, removeSlot, type Part, type RenderedSet } from "@/lib/admin/photos/slots";
 import { requireAdmin } from "@/lib/admin/session";
 import type { Credit } from "@/lib/data/types";
 
@@ -92,4 +92,37 @@ export async function publishPhotoAction(form: FormData): Promise<void> {
     back("github");
   }
   back(str(form, "mode") === "draft" ? "draft" : "published", `&pr=${number}`);
+}
+
+/** Зняти за запитом автора: файли видаляються, посилання в JSON прибираються; заміну шукаємо потім. */
+export async function takedownAction(form: FormData): Promise<void> {
+  await requireAdmin();
+  const kind = str(form, "kind") as Kind;
+  const id = str(form, "id", 64);
+  const back = (r: string, extra = "") => redirect(`/admin/photos/${kind}/${encodeURIComponent(id)}?r=${r}${extra}`);
+  if (!KINDS.has(kind)) redirect("/admin/photos");
+  const item = await findItem(kind, id);
+  // Команда — завжди обидва (без картки банер на сторінці команди не показується).
+  const part = kind === "team" ? "both" : ((PARTS.has(str(form, "part") as Part) ? str(form, "part") : "both") as Part);
+  const target = item && targetOf(kind, id, item.paired ? part : "hero");
+  const env = githubEnv();
+  if (!item || !target || form.get("confirm") !== "on") back("bad");
+  if (!env) back("no-github");
+  let number = 0;
+  try {
+    const gh = new GitHub(env!);
+    const files = removeSlot(target!, await readMain(gh, jsonFor(target!)));
+    const reason = str(form, "reason", 300);
+    const res = await publish(gh, {
+      section: "takedown",
+      title: `Знято за запитом автора · ${item!.name}`,
+      body: `Фото знято з сайту за запитом автора${reason ? `: ${reason}` : ""}. Заміну шукаємо окремо.`,
+      files,
+      draft: false,
+    });
+    number = res.number;
+  } catch {
+    back("github");
+  }
+  back("removed", `&pr=${number}`);
 }

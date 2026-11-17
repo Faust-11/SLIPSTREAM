@@ -5,7 +5,8 @@ import seasonsJson from "@/data/curated/seasons.json";
 import teamsJson from "@/data/curated/teams.json";
 import { getCalendarPage } from "@/lib/data/calendar";
 import { getCircuitRefs } from "@/lib/data/circuits";
-import { driverHeroCredit, getDriversIndex } from "@/lib/data/drivers";
+import { driverHeroCredit, driverPortrait, getDriversIndex } from "@/lib/data/drivers";
+import { classifyLicense } from "./license";
 import type { Credit } from "@/lib/data/types";
 import type { Part, Target } from "./slots";
 
@@ -72,7 +73,7 @@ export async function catalog(kind: Kind): Promise<Item[]> {
           id: d.id,
           name: d.name,
           note,
-          card: d.avatar ? { src: d.avatar, credit: null } : null,
+          card: d.avatar ? { src: d.avatar, credit: driverPortrait(d.id)?.credit ?? null } : null,
           hero: d.avatar ? { src: hero, credit: driverHeroCredit(d.id) } : null,
           paired: true,
           // Чемпіони ≫ переможці ≫ призери ≫ старти.
@@ -138,6 +139,19 @@ export async function catalog(kind: Kind): Promise<Item[]> {
       });
     }
   }
+}
+
+/** Фото з умовою «лише некомерційно» (рішення користувача 17.11 — дозволені, але списком: замінити при рекламі/спонсорі). */
+export async function ncPhotos(): Promise<(Item & { where: string })[]> {
+  const all = (await Promise.all(KINDS.map((k) => catalog(k.kind).catch(() => [])))).flat();
+  return all.flatMap((i) =>
+    [
+      { p: i.card, where: i.kind === "driver" ? "аватар" : "картка" },
+      { p: i.hero, where: "банер" },
+    ]
+      .filter((x) => x.p?.credit && classifyLicense(x.p.credit.license).level === "nc")
+      .map((x) => ({ ...i, where: x.where })),
+  );
 }
 
 /** Черга: без фото, за важливістю. */

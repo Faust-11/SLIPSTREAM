@@ -92,3 +92,43 @@ describe("слоти на справжніх даних репозиторію",
     expect(() => run({ kind: "team", id: "no-such-team", part: "both" })).toThrow("немає команди");
   });
 });
+
+describe("removeSlot — зняти за запитом автора (на справжніх даних)", () => {
+  const cur = (t: Target) => read(jsonFor(t));
+  const paths = (c: { path: string }[]) => c.map((x) => x.path);
+
+  it("поточний пілот (обидва): аватар і банер (420+640, якщо є) видалено, drivers.json — без аватара", async () => {
+    const { removeSlot } = await import("../slots");
+    const t: Target = { kind: "driver", ref: "albon", part: "both" };
+    const heroes = JSON.parse(readFileSync(CURATED.heroes, "utf8")).drivers.albon as number[];
+    const ch = removeSlot(t, cur(t));
+    expect(paths(ch).filter((p) => p.startsWith("public/"))).toEqual(["public/img/drivers/albon-96.webp", "public/img/drivers/albon-420.webp", ...(heroes.length > 1 ? ["public/img/drivers/albon-640.webp"] : [])]);
+    const drivers = JSON.parse((ch.find((c) => c.path === CURATED.drivers) as { content: string }).content).drivers.albon;
+    expect([drivers.avatar, drivers.credit]).toEqual([null, null]);
+    expect(JSON.parse((ch.find((c) => c.path === CURATED.heroes) as { content: string }).content).drivers.albon).toBeUndefined();
+  });
+
+  it("пілот з банером лише 420 — видаляємо лише 420", async () => {
+    const { removeSlot } = await import("../slots");
+    const h = JSON.parse(readFileSync(CURATED.heroes, "utf8")).drivers as Record<string, number[]>;
+    const ref = Object.keys(h).find((k) => h[k]!.length === 1)!;
+    const t: Target = { kind: "driver", ref, part: "hero" };
+    expect(paths(removeSlot(t, cur(t))).filter((p) => p.endsWith(".webp"))).toEqual([`public/img/drivers/${ref}-420.webp`]);
+  });
+
+  it("команда — завжди і картка, і банер; сезон без банера — лише картка", async () => {
+    const { removeSlot } = await import("../slots");
+    const team: Target = { kind: "team", id: "ferrari", part: "card" };
+    expect(paths(removeSlot(team, cur(team))).filter((p) => p.endsWith(".webp"))).toHaveLength(5);
+    const s = JSON.parse(readFileSync(CURATED.seasons, "utf8")).seasons as Record<string, { hero?: unknown }>;
+    const year = Object.keys(s).find((y) => !s[y]!.hero)!;
+    const season: Target = { kind: "season", year, part: "both" };
+    expect(paths(removeSlot(season, cur(season))).filter((p) => p.endsWith(".webp"))).toEqual([`public/img/seasons/${year}-full.webp`, `public/img/seasons/${year}-small.webp`]);
+  });
+
+  it("гонка без свого банера / траса без фото — зрозуміла відмова", async () => {
+    const { removeSlot } = await import("../slots");
+    const race: Target = { kind: "race", key: "2026/20" };
+    expect(() => removeSlot(race, cur(race))).toThrow("немає свого банера");
+  });
+});

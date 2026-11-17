@@ -969,3 +969,10 @@ details.ad-panel[open] summary {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+.ad-btn-danger {
+  box-shadow: inset 0 0 0 1.5px var(--ad-bad);
+  color: var(--ad-bad);
+}
+.ad-btn-danger:hover {
+  background: color-mix(in srgb, var(--ad-bad) 10%, transparent);
+}
