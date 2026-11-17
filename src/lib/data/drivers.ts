@@ -10,7 +10,8 @@ import { curatedDrivers, curatedTeams } from "./teams";
 import type { Credit, DriverIndexRow, L10n } from "./types";
 
 type NameEntry = L10n & { manual?: { uk: string } };
-type PortraitEntry = { avatar?: string; credit?: Credit; manual?: { avatar: string; credit: Credit } };
+/** manual — вибір з адмінки (фаза 7b); heroCredit — автор банера 4:5, якщо його замінили окремо від аватара. */
+type PortraitEntry = { avatar?: string; credit?: Credit; manual?: { avatar: string; credit: Credit }; heroCredit?: Credit };
 const driverNames = (driverNamesJson as unknown as { drivers: Record<string, NameEntry> }).drivers;
 const portraits = (driverPortraitsJson as unknown as { drivers: Record<string, PortraitEntry> }).drivers;
 const teamsById = new Map(curatedTeams.map((t) => [t.id, t]));
@@ -34,13 +35,21 @@ export function driverName(id: string, forename: string, surname: string, locale
   return n?.en ?? latin;
 }
 
-/** Портрет: кураторський (з фото команди) → ручний (адмінка) → макет / Wikidata. */
+/**
+ * Портрет: ручний (адмінка — явний вибір власника, тож першим) → кураторський (з фото команди) → макет / Wikidata.
+ * Адмінка пише файл тим самим шляхом /img/drivers/<id>-96.webp, тож важить саме підпис (автор, ліцензія).
+ */
 export function driverPortrait(id: string): { avatar: string; credit: Credit } | null {
-  const c = curatedDrivers[id];
-  if (c?.avatar && c.credit) return { avatar: c.avatar, credit: c.credit };
   const p = portraits[id];
   if (p?.manual) return p.manual;
+  const c = curatedDrivers[id];
+  if (c?.avatar && c.credit) return { avatar: c.avatar, credit: c.credit };
   return p?.avatar && p.credit ? { avatar: p.avatar, credit: p.credit } : null;
+}
+
+/** Автор банера пілота 4:5: окремий (замінили лише банер) або той самий, що в аватара. */
+export function driverHeroCredit(id: string): Credit | null {
+  return portraits[id]?.heroCredit ?? driverPortrait(id)?.credit ?? null;
 }
 
 export type DriverRow = {
