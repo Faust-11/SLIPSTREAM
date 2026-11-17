@@ -21,7 +21,8 @@ import { gpName } from "./team-page";
 import type { Credit, L10n, RaceResultJson, SeasonRoundRow } from "./types";
 
 type CircuitIndexRow = { ref: string; name: string; locality: string | null; country: string | null; country_code: string | null; lat: number | null; lng: number | null };
-type CuratedPlace = L10n & { short?: L10n; wiki?: string; hero?: { src: string; srcSet: string; width: number; height: number; focusY?: number }; credit?: Credit };
+// hero.credit — якщо банер замінили окремо (адмінка, фаза 7b); інакше — credit місця.
+type CuratedPlace = L10n & { short?: L10n; wiki?: string; hero?: { src: string; srcSet: string; width: number; height: number; focusY?: number; credit?: Credit }; credit?: Credit };
 export type CircuitLayout = {
   d: string;
   w: number;
@@ -388,7 +389,8 @@ export async function getCircuitPage(ref: string, locale: Locale): Promise<Circu
 
   /* --- банер, факти, наступна гонка --- */
   const p = places[ref];
-  const hero = p?.hero && p.credit ? { ...p.hero, focus: `50% ${p.hero.focusY ?? 62}%`, credit: p.credit } : null;
+  const heroCredit = p?.hero?.credit ?? p?.credit;
+  const hero = p?.hero && heroCredit ? { ...p.hero, focus: `50% ${p.hero.focusY ?? 62}%`, credit: heroCredit } : null;
   const cal = currentCalendar(roundsBy);
   const upcoming = cal.rows.filter((r) => r.circuit === ref && !r.winners?.length).sort((a, b) => a.round! - b.round!)[0];
   // Кола — мода нинішньої конфігурації; без даних про конфігурацію — остання гонка (рев'ю 14.11: Лас-Вегас без картки
