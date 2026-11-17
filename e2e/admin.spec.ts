@@ -66,6 +66,9 @@ test.describe("сторонній адмінки не бачить", () => {
     };
     const reference = await shape("/zzz-not-a-page");
     expect(reference.status).toBe(404);
+    // І значення CSP те саме (правило адмінки для Commons — лише з cookie сесії).
+    const csp = async (path: string) => (await request.get(path, { maxRedirects: 0 })).headers()["content-security-policy"];
+    expect(await csp("/admin/photos")).toBe(await csp("/zzz-not-a-page"));
     for (const path of ["/admin", "/admin/system", "/admin/auth/logout", "/admin/auth/login", "/admin/auth/github", "/admin/auth/code", "/admin/auth/callback?code=a&state=b"]) {
       expect(await shape(path), path).toEqual(reference);
     }

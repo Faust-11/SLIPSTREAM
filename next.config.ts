@@ -27,6 +27,8 @@ const csp = [
   ...(isDev ? [] : ["upgrade-insecure-requests"]),
 ].join("; ");
 
+const adminCsp = csp.replace("img-src 'self'", "img-src 'self' https://thumb.wikimedia.org https://upload.wikimedia.org");
+
 const PERMISSIONS_POLICY = [
   "accelerometer", "autoplay", "browsing-topics", "camera", "display-capture", "encrypted-media",
   "geolocation", "gyroscope", "hid", "idle-detection", "local-fonts", "magnetometer", "microphone", "midi",
@@ -72,7 +74,13 @@ const nextConfig: NextConfig = {
   },
 
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      // Адмінка (фаза 7b): прев'ю Commons (мініатюри — thumb.wikimedia.org, малі оригінали — upload.wikimedia.org; замір
+      // API 17.11). Той самий ключ заголовка пізніше в списку перекриває загальний (docs: next-config-js/headers.md).
+      // Лише з cookie сесії: сторонній на /admin отримує 404 з тим самим CSP, що й /zzz (інакше значення заголовка видавало б адмінку).
+      { source: "/admin/:path*", has: [{ type: "cookie", key: "ss_admin" }], headers: [{ key: "Content-Security-Policy", value: adminCsp }] },
+    ];
   },
 
   experimental: {
