@@ -48,8 +48,19 @@ export function LocalDay({ iso, locale, className }: { iso: string; locale: Loca
   );
 }
 
-/** Підпис поясу: «Час — UTC.» → «Час — ваш часовий пояс (Europe/Kyiv).» */
+/** Зміщення поясу браузера без Intl: «UTC+2», «UTC−3:30», «UTC». */
+function utcOffset(): string {
+  const m = -new Date().getTimezoneOffset();
+  if (m === 0) return "UTC";
+  const a = Math.abs(m);
+  return `UTC${m > 0 ? "+" : "−"}${Math.floor(a / 60)}${a % 60 ? `:${String(a % 60).padStart(2, "0")}` : ""}`;
+}
+
+/**
+ * Підпис поясу: «Час — UTC.» → «Час — ваш часовий пояс (UTC+2).» Зміщення, а не назва поясу: назву дає лише
+ * Intl.DateTimeFormat().resolvedOptions(), а перший Intl у браузері — ~190 мс TBT на головній (замір 17.11).
+ */
 export function TzNote({ utc, local }: { utc: string; local: string }) {
   const hydrated = useHydrated();
-  return <p className="cl-tz">{hydrated ? fill(local, { tz: Intl.DateTimeFormat().resolvedOptions().timeZone }) : utc}</p>;
+  return <p className="cl-tz">{hydrated ? fill(local, { tz: utcOffset() }) : utc}</p>;
 }
