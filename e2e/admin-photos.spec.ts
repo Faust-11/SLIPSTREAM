@@ -39,7 +39,8 @@ test("черга пілотів без фото → Commons: ND не обрат�
 
   await page.goBack();
   await page.locator(".ad-cands li").first().getByRole("link", { name: "Обрати" }).click();
-  await expect(page.getByRole("radio", { name: "Обидва місця" })).toBeChecked();
+  // Пілот без аватара: лише «обидва» — вибору немає (банер без аватара сайт не показує; code-review 7b).
+  await expect(page.getByRole("radio", { name: "Обидва місця" })).toHaveCount(0);
   await page.getByRole("button", { name: "Опублікувати" }).first().click();
   await expect(page.getByRole("status")).toContainText("Опубліковано");
 
@@ -51,11 +52,16 @@ test("черга пілотів без фото → Commons: ND не обрат�
   expect(pr.paths).toEqual(expect.arrayContaining(["src/data/curated/driver-portraits.json", "src/data/curated/driver-heroes.json"]));
 });
 
-test("своє фото: браузер зменшує до 2560 px; без підтвердження прав — не відправляється; PR — лише аватар", async ({ page }) => {
+test("своє фото: браузер зменшує до 2560 px і < 3,8 МБ (шум — як фото з деталями); без підтвердження прав — не відправляється; PR — лише аватар", async ({ page }) => {
   await login(page);
   await page.goto("/admin/photos/driver/hamilton");
   await page.getByText("Своє фото").click();
-  const big = await sharp({ create: { width: 4000, height: 3000, channels: 3, background: { r: 200, g: 50, b: 50 } } }).jpeg().toBuffer();
+  // Шум стискається гірше за справжнє фото: якщо пройде він — пройде й телефонний знімок (code-review 7b: суцільний колір
+  // давав кілька КБ і не помічав ліміту тіла server action 1 МБ).
+  const noise = Buffer.alloc(4000 * 3000 * 3);
+  for (let i = 0; i < noise.length; i++) noise[i] = (Math.random() * 256) | 0;
+  const big = await sharp(noise, { raw: { width: 4000, height: 3000, channels: 3 } }).jpeg({ quality: 92 }).toBuffer();
+  expect(big.length).toBeGreaterThan(5_000_000);
   await page.getByLabel("Файл").setInputFiles({ name: "IMG_0001.jpg", mimeType: "image/jpeg", buffer: big });
   await expect(page.getByRole("status").filter({ hasText: "2560×1920 px" })).toBeVisible();
   const form = page.locator("details form");
@@ -113,7 +119,7 @@ test("зняти за запитом автора: без підтверджен
   await page.goto("/admin/photos/team/ferrari");
   await page.getByText("Зняти за запитом автора").click();
   const form = page.locator("details form").filter({ hasText: "Зняти фото" });
-  await expect(form).toContainText("знімаються і картка, і банер");
+  await expect(form).toContainText("Знімаються обидва фото");
   await form.getByRole("button", { name: "Зняти фото" }).click();
   await expect(page.getByRole("status").filter({ hasText: "знімається" })).toHaveCount(0); // required-галочка
   await form.getByRole("checkbox").check();

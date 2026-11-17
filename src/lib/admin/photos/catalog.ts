@@ -1,4 +1,6 @@
 import "server-only";
+import { cache } from "react";
+import driverHeroesJson from "@/data/curated/driver-heroes.json";
 import circuitsJson from "@/data/curated/circuits.json";
 import racePhotosJson from "@/data/curated/race-photos.json";
 import seasonsJson from "@/data/curated/seasons.json";
@@ -47,6 +49,7 @@ const teams = (teamsJson as unknown as { teams: CuratedTeam[] }).teams;
 const seasons = (seasonsJson as unknown as { seasons: Record<string, CuratedSeason> }).seasons;
 const places = (circuitsJson as unknown as { places: Record<string, CuratedPlace> }).places;
 const racePhotos = (racePhotosJson as unknown as { photos: Record<string, RacePhoto> }).photos;
+const driverHeroes = (driverHeroesJson as unknown as { drivers: Record<string, number[]> }).drivers;
 
 const plural = (n: number, one: string, few: string, many: string) => {
   const m10 = n % 10;
@@ -54,7 +57,10 @@ const plural = (n: number, one: string, few: string, many: string) => {
   return `${n} ${m10 === 1 && m100 !== 11 ? one : m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14) ? few : many}`;
 };
 
-export async function catalog(kind: Kind): Promise<Item[]> {
+/** Один раз на запит (сторінка «Фото» будує й список NC з усіх розділів — code-review 7b). */
+export const catalog = cache(catalogUncached);
+
+async function catalogUncached(kind: Kind): Promise<Item[]> {
   switch (kind) {
     case "driver": {
       const rows = await getDriversIndex("uk");
@@ -74,7 +80,8 @@ export async function catalog(kind: Kind): Promise<Item[]> {
           name: d.name,
           note,
           card: d.avatar ? { src: d.avatar, credit: driverPortrait(d.id)?.credit ?? null } : null,
-          hero: d.avatar ? { src: hero, credit: driverHeroCredit(d.id) } : null,
+          // Банер — за driver-heroes.json (а не за аватаром); сайт показує його лише разом з аватаром.
+          hero: driverHeroes[d.id]?.length ? { src: hero, credit: driverHeroCredit(d.id) } : null,
           paired: true,
           // Чемпіони ≫ переможці ≫ призери ≫ старти.
           weight: d.titles * 1e9 + d.wins * 1e6 + d.podiums * 1e3 + d.starts,

@@ -14,7 +14,9 @@ const csp = [
   "script-src-attr 'none'",
   "style-src 'self' 'unsafe-inline'",
   // Прев'ю новин (фаза 4a, рішення 10.11): лише домени картинок видань — ті самі, що в src/lib/news/parse.ts IMAGE_HOSTS.
-  "img-src 'self' data: blob: https://media.formula1.com https://*.motorsport.com https://i.ytimg.com",
+  // + Wikimedia — прев'ю Commons в адмінці (фаза 7b). Для всього сайту, а не правилом для /admin: інакше значення CSP на
+  // /admin (навіть з підробленим cookie) відрізнялось би від неіснуючої сторінки й видавало адмінку (рев'ю 7b).
+  "img-src 'self' data: blob: https://media.formula1.com https://*.motorsport.com https://i.ytimg.com https://thumb.wikimedia.org https://upload.wikimedia.org",
   // Хайлайти гонок: плеєр YouTube без cookies — лише після кліку (src/components/race/race-video.tsx).
   "frame-src https://www.youtube-nocookie.com",
   "font-src 'self'",
@@ -26,8 +28,6 @@ const csp = [
   // Лише продакшн: у dev (і з телефона по http://<IP у мережі>) апгрейд на https ламав би всі ресурси.
   ...(isDev ? [] : ["upgrade-insecure-requests"]),
 ].join("; ");
-
-const adminCsp = csp.replace("img-src 'self'", "img-src 'self' https://thumb.wikimedia.org https://upload.wikimedia.org");
 
 const PERMISSIONS_POLICY = [
   "accelerometer", "autoplay", "browsing-topics", "camera", "display-capture", "encrypted-media",
@@ -74,16 +74,13 @@ const nextConfig: NextConfig = {
   },
 
   async headers() {
-    return [
-      { source: "/:path*", headers: securityHeaders },
-      // Адмінка (фаза 7b): прев'ю Commons (мініатюри — thumb.wikimedia.org, малі оригінали — upload.wikimedia.org; замір
-      // API 17.11). Той самий ключ заголовка пізніше в списку перекриває загальний (docs: next-config-js/headers.md).
-      // Лише з cookie сесії: сторонній на /admin отримує 404 з тим самим CSP, що й /zzz (інакше значення заголовка видавало б адмінку).
-      { source: "/admin/:path*", has: [{ type: "cookie", key: "ss_admin" }], headers: [{ key: "Content-Security-Policy", value: adminCsp }] },
-    ];
+    return [{ source: "/:path*", headers: securityHeaders }];
   },
 
   experimental: {
+    // Власне фото в адмінці (фаза 7b): браузер стискає до ≤ 3,8 МБ, Vercel пропускає тіло функції до 4,5 МБ. Типово — 1 МБ
+    // (code-review 7b: 2560 px JPEG телефона — 1,5–3 МБ). Публічний сайт server actions не має.
+    serverActions: { bodySizeLimit: "4mb" },
     // Корінь застосунку — динамічний сегмент [lang]; 404 для невідомих адрес — app/global-not-found.tsx.
     globalNotFound: true,
   },

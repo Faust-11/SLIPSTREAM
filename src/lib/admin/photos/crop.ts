@@ -30,11 +30,14 @@ export function squareFocus(w: number, h: number, f: Focus): Box {
   return { left: Math.round((w - side) * f.x), top: Math.round((h - side) * f.y), width: side, height: side };
 }
 
-/** driver_hero.py crop_4x5: зашироке — центр по горизонталі; зависоке — зрізаємо зверху FOCUS_Y частки зайвого. */
-export function crop4x5(w: number, h: number, focusY = 0.2): Box {
+/**
+ * driver_hero.py crop_4x5: зашироке — по горизонталі за focusX (скрипт — центр, 0,5); зависоке — зрізаємо зверху focusY
+ * частки зайвого (скрипт — 0,2). Адмінка передає точку фокусу власника (code-review 7b: інакше вибір ігнорувався).
+ */
+export function crop4x5(w: number, h: number, focusY = 0.2, focusX = 0.5): Box {
   if (w * 5 > h * 4) {
     const cw = Math.floor((h * 4) / 5);
-    return { left: Math.floor((w - cw) / 2), top: 0, width: cw, height: h };
+    return { left: Math.round((w - cw) * focusX), top: 0, width: cw, height: h };
   }
   const ch = Math.floor((w * 5) / 4);
   return { left: 0, top: Math.trunc((h - ch) * focusY), width: w, height: ch };

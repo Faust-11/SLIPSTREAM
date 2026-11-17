@@ -119,16 +119,37 @@ export async function commonsFile(title: string, width: (typeof SOURCE_WIDTHS)[n
   return page ? toCandidate(page) : null;
 }
 
-/** Завантаження мініатюри (≤ 15 МБ, лише домени Wikimedia — і після редиректів). */
+const MAX_BYTES = 15_000_000;
+
+/** Завантаження мініатюри (≤ 15 МБ, лише домени Wikimedia). */
 export async function downloadThumb(thumb: string, fetchImpl: typeof fetch = fetch): Promise<Uint8Array> {
   const url = new URL(thumb);
   if (!mediaOk(url)) throw new Error("не Commons");
-  const res = await fetchImpl(url, { headers: { "User-Agent": UA }, cache: "no-store" });
+  // Без редиректів (запит на чужий хост не піде навіть раз) і з обмеженням під час читання (code-review 7b).
+  const res = await fetchImpl(url, { headers: { "User-Agent": UA }, cache: "no-store", redirect: "error" });
   if (res.url && !mediaOk(new URL(res.url))) throw new Error("не Commons");
   if (!res.ok) throw new Error(`Commons: ${res.status}`);
   const len = Number(res.headers.get("content-length") ?? 0);
-  if (len > 15_000_000) throw new Error("завеликий файл");
-  const buf = new Uint8Array(await res.arrayBuffer());
-  if (buf.byteLength > 15_000_000) throw new Error("завеликий файл");
+  if (len > MAX_BYTES) throw new Error("завеликий файл");
+  if (!res.body) return new Uint8Array(await res.arrayBuffer());
+  const chunks: Uint8Array[] = [];
+  let total = 0;
+  const reader = res.body.getReader();
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    total += value.byteLength;
+    if (total > MAX_BYTES) {
+      await reader.cancel();
+      throw new Error("завеликий файл");
+    }
+    chunks.push(value);
+  }
+  const buf = new Uint8Array(total);
+  let off = 0;
+  for (const c of chunks) {
+    buf.set(c, off);
+    off += c.byteLength;
+  }
   return buf;
 }
