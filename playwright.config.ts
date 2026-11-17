@@ -3,7 +3,7 @@ import { defineConfig, devices } from "@playwright/test";
 const PORT = 3100;
 const DB_PORT = 54321;
 const FAKE_DB_ENV = { SUPABASE_URL: `http://127.0.0.1:${DB_PORT}`, SUPABASE_ANON_KEY: "test-anon" };
-// Адмінка (фаза 7): фейкові GitHub OAuth і Resend (scripts/dev/fake-auth.mjs) і тестові значення — справжні ключі лише у Vercel.
+// Адмінка (фаза 7): фейкові GitHub OAuth, Resend, Commons і GitHub API (scripts/dev/fake-services.mjs) і тестові значення — справжні ключі лише у Vercel.
 const AUTH_PORT = 4455;
 const FAKE_ADMIN_ENV = {
   ADMIN_AUTH_SECRET: "e2e-only-admin-secret-0123456789abcdef",
@@ -15,6 +15,9 @@ const FAKE_ADMIN_ENV = {
   ADMIN_EMAILS: "owner@example.test",
   ADMIN_RESEND_KEY: "test-resend-key",
   ADMIN_RESEND_API: `http://127.0.0.1:${AUTH_PORT}`,
+  ADMIN_COMMONS_API: `http://127.0.0.1:${AUTH_PORT}`,
+  ADMIN_GITHUB_TOKEN: "test-gh-token",
+  ADMIN_GITHUB_API: `http://127.0.0.1:${AUTH_PORT}`,
 };
 const externalBaseURL = process.env.BASE_URL;
 const baseURL = externalBaseURL ?? `http://localhost:${PORT}`;
@@ -54,7 +57,7 @@ export default defineConfig({
           reuseExistingServer: true,
         },
         {
-          command: `node scripts/dev/fake-auth.mjs --port ${AUTH_PORT}`,
+          command: `node scripts/dev/fake-services.mjs --port ${AUTH_PORT}`,
           port: AUTH_PORT,
           reuseExistingServer: true,
         },

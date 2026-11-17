@@ -1,4 +1,5 @@
 import "server-only";
+import { LOCAL_HOSTS } from "../local";
 import { classifyLicense, type LicenseVerdict } from "./license";
 
 /**
@@ -8,7 +9,22 @@ import { classifyLicense, type LicenseVerdict } from "./license";
  * thumb.wikimedia.org, малі оригінали — з upload.wikimedia.org (замір API 17.11: обидва).
  */
 export const MEDIA_HOSTS: ReadonlySet<string> = new Set(["upload.wikimedia.org", "thumb.wikimedia.org"]);
-const API = "https://commons.wikimedia.org/w/api.php";
+/**
+ * ADMIN_COMMONS_API — лише фейк для e2e (localhost, ніколи на Vercel): тоді й мініатюри з того ж хоста (http дозволено).
+ * Інакше — справжній Commons.
+ */
+function fake(): URL | null {
+  const v = process.env.ADMIN_COMMONS_API;
+  if (!v || process.env.VERCEL === "1") return null;
+  try {
+    const u = new URL(v);
+    return LOCAL_HOSTS.has(u.hostname) ? u : null;
+  } catch {
+    return null;
+  }
+}
+const apiUrl = () => (fake() ? new URL("/w/api.php", fake()!).href : "https://commons.wikimedia.org/w/api.php");
+const mediaOk = (u: URL) => (fake() ? u.host === fake()!.host : u.protocol === "https:" && MEDIA_HOSTS.has(u.hostname));
 const UA = "SlipstreamAdmin/1.0 (F1 fan site; photo picker)";
 export const SOURCE_WIDTHS = [960, 1280] as const;
 
@@ -53,7 +69,7 @@ const PHOTO_MIME = new Set(["image/jpeg", "image/png", "image/webp", "image/tiff
 export function toCandidate(p: Page): Candidate | null {
   const ii = p.imageinfo?.[0];
   if (!p.title || !ii?.thumburl || !ii.descriptionurl || !ii.width || !ii.height || !PHOTO_MIME.has(ii.mime ?? "")) return null;
-  if (!MEDIA_HOSTS.has(new URL(ii.thumburl).hostname)) return null;
+  if (!mediaOk(new URL(ii.thumburl))) return null;
   const meta = ii.extmetadata ?? {};
   const license = plainText(meta.LicenseShortName?.value ?? "");
   const nonFree = (meta.NonFree?.value ?? "").toLowerCase() === "true";
@@ -70,7 +86,7 @@ export function toCandidate(p: Page): Candidate | null {
 }
 
 async function query(params: Record<string, string>, fetchImpl: typeof fetch): Promise<Page[]> {
-  const url = new URL(API);
+  const url = new URL(apiUrl());
   for (const [k, v] of Object.entries({
     action: "query",
     format: "json",
@@ -106,9 +122,9 @@ export async function commonsFile(title: string, width: (typeof SOURCE_WIDTHS)[n
 /** Завантаження мініатюри (≤ 15 МБ, лише домени Wikimedia — і після редиректів). */
 export async function downloadThumb(thumb: string, fetchImpl: typeof fetch = fetch): Promise<Uint8Array> {
   const url = new URL(thumb);
-  if (url.protocol !== "https:" || !MEDIA_HOSTS.has(url.hostname)) throw new Error("не Commons");
+  if (!mediaOk(url)) throw new Error("не Commons");
   const res = await fetchImpl(url, { headers: { "User-Agent": UA }, cache: "no-store" });
-  if (res.url && !MEDIA_HOSTS.has(new URL(res.url).hostname)) throw new Error("не Commons");
+  if (res.url && !mediaOk(new URL(res.url))) throw new Error("не Commons");
   if (!res.ok) throw new Error(`Commons: ${res.status}`);
   const len = Number(res.headers.get("content-length") ?? 0);
   if (len > 15_000_000) throw new Error("завеликий файл");
