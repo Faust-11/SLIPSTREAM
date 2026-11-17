@@ -21,15 +21,18 @@ export default async function AdminSystem() {
           <ul className="ad-people">
             <li>
               <span className="ad-av" aria-hidden="true">
-                {admin.email.slice(0, 1).toUpperCase()}
+                {admin.label.slice(0, 1).toUpperCase()}
               </span>
               <div>
-                <b>{admin.email}</b>
-                <small>Власник · вхід через Google</small>
+                <b>{admin.label}</b>
+                <small>Власник · вхід {admin.sub.startsWith("github:") ? "через GitHub" : "кодом на пошту"}</small>
               </div>
             </li>
           </ul>
-          <p className="ad-note">Список адмінів — змінна ADMIN_EMAILS у Vercel. Прибрали e-mail — його сесія перестає діяти одразу.</p>
+          <p className="ad-note">
+            Хто може увійти — змінні у Vercel: ADMIN_GITHUB_IDS (id акаунтів GitHub) і ADMIN_EMAILS (адреси для коду). Прибрали
+            звідти — сесія перестає діяти одразу.
+          </p>
         </section>
         <section className="ad-panel">
           <h2>Як захищено</h2>
@@ -41,8 +44,8 @@ export default async function AdminSystem() {
             <li>
               <b>Вхід лише для списку</b>
               <span>
-                Google, підтверджений e-mail зі списку адмінів, лише з основної адреси сайту за посиланням із ключем (на
-                прев&apos;ю й інших адресах вхід не спрацює). Сесія — 12 годин, у захищеному cookie.
+                Акаунт GitHub зі списку або код на пошту зі списку (8 символів, 10 хвилин, лише в тому браузері, де
+                запитали). Лише з основної адреси сайту за посиланням із ключем. Сесія — 12 годин, у захищеному cookie.
               </span>
             </li>
             <li>
@@ -51,7 +54,7 @@ export default async function AdminSystem() {
             </li>
             <li>
               <b>Ключі — лише на сервері</b>
-              <span>Ключ Google і токен GitHub для публікації ніколи не потрапляють у браузер.</span>
+              <span>Ключі GitHub і пошти та токен для публікації ніколи не потрапляють у браузер.</span>
             </li>
             <li>
               <b>Усе — через git</b>

@@ -521,3 +521,82 @@
     grid-column: 1 / -1;
   }
 }
+
+/* Вхід */
+.ad-login {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 20px;
+  padding: 32px 16px;
+}
+.ad-login:focus {
+  outline: none;
+}
+.ad-login > .ad-roundel {
+  width: 56px;
+  height: 56px;
+}
+.ad-auth {
+  width: min(100%, 380px);
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+  background: var(--ad-panel);
+  border: 1.5px solid var(--ad-hair);
+}
+.ad-auth h1 {
+  font-size: 32px;
+}
+.ad-auth .ad-lede {
+  margin: 0;
+}
+.ad-auth-form {
+  display: grid;
+  gap: 12px;
+}
+.ad-btn-wide {
+  width: 100%;
+  min-height: 44px;
+  font-size: 14px;
+}
+.ad-or {
+  margin: 0;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+.ad-fld {
+  display: grid;
+  gap: 6px;
+}
+.ad-fld span {
+  font: 600 11px/1.3 var(--nf-mono), ui-monospace, monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.ad-fld input {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1.5px solid var(--ad-hair);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 500 16px/1.4 var(--nf-body), system-ui, sans-serif;
+}
+.ad-fld input:focus {
+  border-color: var(--ink);
+  outline: none;
+}
+.ad-fld .ad-code {
+  font-family: var(--nf-mono), ui-monospace, monospace;
+  font-size: 20px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.ad-auth .ad-note a {
+  color: inherit;
+}
