@@ -33,7 +33,9 @@ const mail = new Map();
 const GH_TOKEN = "test-gh-token";
 const REPO = "/repos/Faust-11/SLIPSTREAM";
 const prs = [];
-const trees = new Map();
+const trees = new Map(); // дерево → шляхи
+const commits = new Map(); // коміт → дерево
+const refs = new Map(); // гілка → коміт
 let seq = 0;
 const FILES = [
   { title: "File:Fake Driver Portrait 1958.jpg", license: "Public domain", artist: "<a href=\"x\">Fake Photographer</a>" },
@@ -149,11 +151,19 @@ createServer(async (req, res) => {
         trees.set(sha, b.tree.map((e) => e.path));
         return json(res, 201, { sha });
       }
-      if (p === "/git/commits") return json(res, 201, { sha: `commit${++seq}`, tree: b.tree });
-      if (p === "/git/refs") return json(res, 201, { ref: b.ref });
+      if (p === "/git/commits") {
+        const sha = `commit${++seq}`;
+        commits.set(sha, b.tree);
+        return json(res, 201, { sha, tree: b.tree });
+      }
+      if (p === "/git/refs") {
+        refs.set(b.ref.replace(/^refs\/heads\//, ""), b.sha);
+        return json(res, 201, { ref: b.ref });
+      }
       if (p === "/pulls") {
         const number = 1000 + prs.length;
-        const lastTree = [...trees.values()].at(-1) ?? [];
+        // Шляхи — з дерева коміту саме цієї гілки (паралельні тести не змішуються).
+        const lastTree = trees.get(commits.get(refs.get(b.head))) ?? [];
         prs.push({ number, title: b.title, body: b.body, draft: !!b.draft, head: { ref: b.head }, html_url: `https://github.com/Faust-11/SLIPSTREAM/pull/${number}`, labels: [{ name: "admin" }], merged_at: null, paths: lastTree });
         return json(res, 201, { number, html_url: `https://github.com/Faust-11/SLIPSTREAM/pull/${number}` });
       }
@@ -161,7 +171,21 @@ createServer(async (req, res) => {
     }
     return json(res, 404, { message: "Not Found" });
   }
-  if (req.method === "GET" && url.pathname === "/__last-pr") return prs.length ? json(res, 200, prs.at(-1)) : json(res, 404, {});
+  // YouTube: oEmbed — OFFICIAL001 з каналу FORMULA 1, OTHERCHAN01 — з іншого, решта — 404; maxres є лише в офіційного.
+  if (url.pathname === "/oembed") {
+    const id = new URL(url.searchParams.get("url") ?? "https://x").searchParams.get("v");
+    if (id === "OFFICIAL001") return json(res, 200, { title: "Race Highlights | 2026 Las Vegas Grand Prix", author_name: "FORMULA 1", author_url: "https://www.youtube.com/@Formula1" });
+    if (id === "OTHERCHAN01") return json(res, 200, { title: "F1 reupload", author_name: "Someone", author_url: "https://www.youtube.com/@Someone" });
+    return res.writeHead(404).end("Not Found");
+  }
+  if (url.pathname.startsWith("/vi/")) return res.writeHead(url.pathname.includes("OFFICIAL001") ? 200 : 404).end();
+
+  // Останній PR, у назві якого є ?has= (паралельні тести не читають чужі PR).
+  if (req.method === "GET" && url.pathname === "/__last-pr") {
+    const has = url.searchParams.get("has") ?? "";
+    const pr = prs.filter((p) => p.title.includes(has)).at(-1);
+    return pr ? json(res, 200, pr) : json(res, 404, {});
+  }
 
   if (req.method === "GET" && url.pathname === "/__mail") {
     const m = mail.get(url.searchParams.get("to") ?? "");

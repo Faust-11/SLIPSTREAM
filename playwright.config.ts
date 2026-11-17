@@ -18,6 +18,7 @@ const FAKE_ADMIN_ENV = {
   ADMIN_COMMONS_API: `http://127.0.0.1:${AUTH_PORT}`,
   ADMIN_GITHUB_TOKEN: "test-gh-token",
   ADMIN_GITHUB_API: `http://127.0.0.1:${AUTH_PORT}`,
+  ADMIN_YOUTUBE_API: `http://127.0.0.1:${AUTH_PORT}`,
 };
 const externalBaseURL = process.env.BASE_URL;
 const baseURL = externalBaseURL ?? `http://localhost:${PORT}`;

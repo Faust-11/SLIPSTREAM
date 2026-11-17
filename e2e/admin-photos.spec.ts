@@ -15,13 +15,14 @@ async function login(page: Page) {
   await Promise.all([page.waitForURL((u) => u.origin === BASE && !u.pathname.startsWith("/admin/auth")), page.getByRole("link", { name: "Увійти через GitHub" }).click()]);
 }
 
-async function lastPr(page: Page): Promise<{ title: string; body: string; draft: boolean; paths: string[] }> {
-  return (await page.request.get(`${FAKE}/__last-pr`)).json();
+/** Останній PR, у назві якого є has (тести йдуть паралельно на одному фейку). */
+async function lastPr(page: Page, has: string): Promise<{ title: string; body: string; draft: boolean; paths: string[] }> {
+  return (await page.request.get(`${FAKE}/__last-pr?has=${encodeURIComponent(has)}`)).json();
 }
 
 test("черга пілотів без фото → Commons: ND не обрати, NC — з попередженням; публікація пари — PR з аватаром, банером і JSON", async ({ page }) => {
   await login(page);
-  await page.getByRole("link", { name: "Фото" }).click();
+  await page.getByRole("link", { name: "Фото", exact: true }).click();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Фото");
   const first = page.locator("#ad-queue ~ .ad-items a").first();
   const driver = (await first.locator("b").innerText()).trim();
@@ -42,7 +43,7 @@ test("черга пілотів без фото → Commons: ND не обрат�
   await page.getByRole("button", { name: "Опублікувати" }).first().click();
   await expect(page.getByRole("status")).toContainText("Опубліковано");
 
-  const pr = await lastPr(page);
+  const pr = await lastPr(page, driver);
   expect(pr.title).toBe(`Фото · ${driver} (картка й банер)`);
   expect(pr.draft).toBe(false);
   expect(pr.body).toContain("Fake Photographer");
@@ -67,7 +68,7 @@ test("своє фото: браузер зменшує до 2560 px; без пі
   await form.getByRole("checkbox").check();
   await form.getByRole("button", { name: "Опублікувати" }).click();
   await expect(page.getByRole("status").filter({ hasText: "Опубліковано" })).toBeVisible();
-  const pr = await lastPr(page);
+  const pr = await lastPr(page, "Гамілтон");
   expect(pr.title).toContain("(лише картка)");
   expect(pr.paths.filter((p) => p.endsWith(".webp"))).toEqual(["public/img/drivers/hamilton-96.webp"]);
   expect(pr.body).toContain("Автор: Faust · ліцензія: CC BY 4.0");
@@ -82,9 +83,11 @@ test("банер конкретної гонки: race-photos.json і файли
   await expect(page.getByRole("radio", { name: "Обидва місця" })).toHaveCount(0);
   await page.getByRole("button", { name: "Зберегти чернетку" }).first().click();
   await expect(page.getByRole("status")).toContainText("Чернетку збережено");
-  const pr = await lastPr(page);
-  expect(pr.draft).toBe(true);
   const key = href.split("/").pop()!;
+  // textContent, а не innerText: заголовок у CSS uppercase, а назва PR — як у даних.
+  const raceName = ((await page.getByRole("heading", { level: 1 }).textContent()) ?? "").trim();
+  const pr = await lastPr(page, raceName);
+  expect(pr.draft).toBe(true);
   expect(pr.paths).toEqual([`public/img/races/${key}-hero-1280.webp`, `public/img/races/${key}-hero-800.webp`, `public/img/races/${key}-hero-480.webp`, "src/data/curated/race-photos.json"]);
 });
 
