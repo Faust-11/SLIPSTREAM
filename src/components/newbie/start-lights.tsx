@@ -1,5 +1,6 @@
 "use client";
 
+import { fmtNumber } from "@/lib/fmt";
 import { useEffect, useRef, useState } from "react";
 import { useHydrated } from "@/components/calendar/clock";
 
@@ -74,7 +75,7 @@ export function StartLights({ t, locale }: { t: LightsLabels; locale: string }) 
   };
 
   const label = state === "idle" ? (last === null ? t.idle : t.again) : state === "arm" ? t.arm : t.hot;
-  const secs = typeof last === "number" ? new Intl.NumberFormat(locale, { minimumFractionDigits: 3, maximumFractionDigits: 3 }).format(last / 1000) : null;
+  const secs = typeof last === "number" ? fmtNumber(last / 1000, locale === "uk" ? "uk" : "en", 3) : null;
 
   return (
     <>

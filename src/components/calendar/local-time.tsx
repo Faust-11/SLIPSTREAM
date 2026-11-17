@@ -2,22 +2,21 @@
 
 import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
+import { fmtDay, fmtSession } from "@/lib/fmt";
 import { useHydrated } from "./clock";
 
-const tagOf = (locale: Locale) => (locale === "uk" ? "uk" : "en-GB");
-const tzOpt = (timeZone?: string) => (timeZone ? { timeZone } : {});
-
-/** Формат сесії: «пт, 20 лист. · 00:30»; пояс — UTC на сервері, браузерний після монтування. */
-export function formatSession(iso: string, locale: Locale, timeZone?: string): string {
-  const d = new Date(iso);
-  const day = new Intl.DateTimeFormat(tagOf(locale), { weekday: "short", day: "numeric", month: "short", ...tzOpt(timeZone) }).format(d);
-  const time = new Intl.DateTimeFormat(tagOf(locale), { hour: "2-digit", minute: "2-digit", hourCycle: "h23", ...tzOpt(timeZone) }).format(d);
-  return `${day} · ${time}`;
+/**
+ * Формат сесії: «пт, 20 лист. · 00:30»; пояс — UTC на сервері, браузерний після монтування. Без Intl (src/lib/fmt.ts):
+ * перший Intl.DateTimeFormat у браузері коштував ~230 мс TBT на календарі (замір 17.11). timeZone — лише "UTC" або
+ * нічого (пояс браузера).
+ */
+export function formatSession(iso: string, locale: Locale, timeZone?: "UTC"): string {
+  return fmtSession(iso, locale, timeZone === "UTC");
 }
 
 /** Дата картки: «22 лист.». */
-export function formatDay(iso: string, locale: Locale, timeZone?: string): string {
-  return new Intl.DateTimeFormat(tagOf(locale), { day: "numeric", month: "short", ...tzOpt(timeZone) }).format(new Date(iso));
+export function formatDay(iso: string, locale: Locale, timeZone?: "UTC"): string {
+  return fmtDay(iso, locale, timeZone === "UTC");
 }
 
 /**

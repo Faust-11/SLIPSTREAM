@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { fmtNumber } from "@/lib/fmt";
 import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
 import { localizedPath } from "@/i18n/paths";
@@ -26,11 +27,10 @@ type Props = {
 // Ширина картки за сіткою: 1 / 2 / 3 / 4 колонки (teams.css), поле .wrap 16 px, проміжок 16 px.
 // ≤ 520 px — компактна горизонтальна картка з фото 128 px (teams.css).
 const SIZES = "(width <= 520px) 128px, (width <= 860px) calc(50vw - 24px), (width <= 1100px) calc(33vw - 22px), 304px";
-const numberFormat = { uk: new Intl.NumberFormat("uk"), en: new Intl.NumberFormat("en") };
 
 /** Картка команди. Без хуків — рендериться і в серверному фолбеку, і в клієнтському списку. */
 export function TeamCard({ card, labels, locale, season, index }: Props) {
-  const n = (v: number) => numberFormat[locale].format(v);
+  const n = (v: number) => fmtNumber(v, locale);
   const titleId = `team-${card.id}`;
   const style = card.current ? ({ "--team": card.current.color } as CSSProperties) : undefined;
   return (

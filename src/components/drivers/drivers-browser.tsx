@@ -1,5 +1,6 @@
 "use client";
 
+import { fmtNumber } from "@/lib/fmt";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Locale } from "@/i18n/config";
@@ -121,7 +122,7 @@ export function DriversTable({
   dir?: 1 | -1;
   onSort?: (k: DriverSort) => void;
 }) {
-  const nf = new Intl.NumberFormat(locale);
+  const nf = { format: (v: number) => fmtNumber(v, locale) };
   return (
     <div className="tscroll">
       <table className="dt">
