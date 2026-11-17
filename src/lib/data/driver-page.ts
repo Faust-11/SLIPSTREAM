@@ -6,7 +6,7 @@ import type { Locale } from "@/i18n/config";
 import { countryName } from "@/lib/countries";
 import { driverSlug } from "@/lib/driver-slug";
 import { dbSelectAll } from "./db";
-import { driverName, driverPortrait, loadDriverIndex } from "./drivers";
+import { driverHeroCredit, driverName, driverPortrait, loadDriverIndex } from "./drivers";
 import { once } from "./once";
 import { gpName } from "./team-page";
 import { curatedDrivers, curatedTeams } from "./teams";
@@ -355,6 +355,11 @@ export async function getDriverPage(slug: string, locale: Locale, today = new Da
 
   const credits: DriverPage["credits"] = [];
   if (portraitSrc) credits.push({ label: `${row.forename} ${row.surname}`, href: portraitSrc.credit.page, ...pick(portraitSrc.credit) });
+  // Банер замінили окремо від аватара (адмінка) — його автор теж у переліку.
+  const heroCredit = widths?.length ? driverHeroCredit(id) : null;
+  if (heroCredit && portraitSrc && heroCredit.page !== portraitSrc.credit.page) {
+    credits.push({ label: `${row.forename} ${row.surname}`, href: heroCredit.page, ...pick(heroCredit) });
+  }
   const seen = new Set([id]);
   for (const m of matesBy.get(id) ?? []) {
     const p = driverPortrait(m.mate);
@@ -379,7 +384,7 @@ export async function getDriverPage(slug: string, locale: Locale, today = new Da
             width: widths[0]!,
             height: Math.floor((widths[0]! * 5) / 4),
             maxWidth: Math.max(...widths),
-            credit: portraitSrc.credit,
+            credit: driverHeroCredit(id) ?? portraitSrc.credit,
           }
         : null,
     carNumber: active ? row.current_number : null,

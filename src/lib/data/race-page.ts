@@ -3,6 +3,7 @@
 // Обчислення — src/lib/race-math.ts і src/lib/season-math.ts. Лише на сервері.
 import "server-only";
 import circuitsJson from "@/data/curated/circuits.json";
+import racePhotosJson from "@/data/curated/race-photos.json";
 import videosJson from "@/data/curated/race-videos.json";
 import type { Locale } from "@/i18n/config";
 import { lapLeaders, lapSpells, lapsNotLed, lowestAfterStart, positionPoints, raceScale, swapWithNext } from "@/lib/race-math";
@@ -27,7 +28,10 @@ import { loadSeasonIndex } from "./seasons";
 import { gpName } from "./team-page";
 import type { Credit, L10n, RacePageRow, RaceQualiJson, RaceResultJson, SeasonPointsDbRow } from "./types";
 
-type CuratedCircuit = L10n & { short?: L10n; wiki?: string; hero?: { src: string; srcSet: string; width: number; height: number; focusY?: number }; credit?: Credit };
+type HeroFile = { src: string; srcSet: string; width: number; height: number; focusY?: number; credit?: Credit };
+type CuratedCircuit = L10n & { short?: L10n; wiki?: string; hero?: HeroFile; credit?: Credit };
+/** Банер конкретної гонки з адмінки (рішення користувача 17.11) — поверх фото траси. Ключ — «рік/етап». */
+const racePhotos = (racePhotosJson as unknown as { photos: Record<string, HeroFile & { credit: Credit }> }).photos;
 const circuits = (circuitsJson as unknown as { places: Record<string, CuratedCircuit> }).places;
 
 /** Рядки f1.race_page за ключем «рік/етап» — один запит на збірку. */
@@ -315,8 +319,15 @@ export async function getRacePage(year: number, round: number, locale: Locale): 
 
   /* --- банер, смуга, сусіди --- */
   const c = meta.circuit ? circuits[meta.circuit] : undefined;
-  const heroPhoto: SeasonPhoto | null =
-    c?.hero && c.credit ? { ...c.hero, focus: `50% ${c.hero.focusY ?? 62}%`, credit: c.credit, label: placeName(meta.circuit, meta.locality, locale) } : null;
+  const own = racePhotos[`${year}/${round}`];
+  const circuitHero = c?.hero;
+  const circuitCredit = circuitHero?.credit ?? c?.credit;
+  const label = placeName(meta.circuit, meta.locality, locale);
+  const heroPhoto: SeasonPhoto | null = own
+    ? { ...own, focus: `50% ${own.focusY ?? 50}%`, credit: own.credit, label }
+    : circuitHero && circuitCredit
+      ? { ...circuitHero, focus: `50% ${circuitHero.focusY ?? 62}%`, credit: circuitCredit, label }
+      : null;
   const fastestRow = row.race.find((r) => r.fl === 1 && r.fms !== undefined);
   const winners = (meta.winners ?? []).map((w) => drv(w.driver, w.team));
   const idx = seasonRounds.findIndex((r) => r.round === round);

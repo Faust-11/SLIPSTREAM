@@ -6,7 +6,7 @@ import type { Locale } from "@/i18n/config";
 import { driverSlug } from "@/lib/driver-slug";
 import { dbSelectAll } from "./db";
 import { splitName } from "./driver-page";
-import { driverName, driverPortrait } from "./drivers";
+import { driverHeroCredit, driverName, driverPortrait } from "./drivers";
 import { once } from "./once";
 import { curatedDrivers, curatedTeams } from "./teams";
 import type { Credit, SeasonIndexRow } from "./types";
@@ -105,7 +105,7 @@ export async function getSeasonsIndex(locale: Locale): Promise<SeasonsIndex> {
           width: w[0]!,
           height: Math.floor((w[0]! * 5) / 4),
           focus: "50% 20%",
-          credit: p.credit,
+          credit: driverHeroCredit(r.driver) ?? p.credit,
           label: `${r.year}: ${r.forename} ${r.surname}`,
         };
     }

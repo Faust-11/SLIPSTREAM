@@ -20,7 +20,7 @@ import {
 } from "@/lib/season-math";
 import { dbSelectAll } from "./db";
 import { loadDriverSeasons, splitName } from "./driver-page";
-import { driverName, driverPortrait, loadDriverIndex } from "./drivers";
+import { driverHeroCredit, driverName, driverPortrait, loadDriverIndex } from "./drivers";
 import { once } from "./once";
 import { loadSeasonIndex, mainTeams } from "./seasons";
 import { gpName, loadTeamSeasons } from "./team-page";
@@ -31,7 +31,8 @@ type CuratedSeason = {
   driverRef?: string;
   color: string;
   photo?: { src: string; srcSet: string; width: number; height: number };
-  hero?: { src: string; srcSet: string; width: number; height: number; focusY?: number };
+  /** credit — якщо банер замінили окремо від картки (адмінка, фаза 7b); інакше — credit сезону. */
+  hero?: { src: string; srcSet: string; width: number; height: number; focusY?: number; credit?: Credit };
   credit?: Credit;
 };
 const curatedSeasons = (seasonsJson as unknown as { seasons: Record<string, CuratedSeason> }).seasons;
@@ -253,7 +254,7 @@ function bigPortrait(id: string, label: string): SeasonPhoto | null {
     width: w[0]!,
     height: Math.floor((w[0]! * 5) / 4),
     focus: "50% 20%",
-    credit: p.credit,
+    credit: driverHeroCredit(id) ?? p.credit,
     label,
   };
 }
@@ -473,8 +474,8 @@ export async function getSeasonPage(year: number, locale: Locale): Promise<Seaso
   // Банер на всю ширину — лише з джерела від 960 px (вужчі розтягувались би; замір 13.11: 1966 — 774, 1976 — 687 px);
   // інакше темний банер кольору команди (як на сторінках команд).
   const heroPhoto: SeasonPhoto | null =
-    own && c!.hero && c!.credit && c!.hero.width >= HERO_MIN_WIDTH
-      ? { ...c!.hero, focus: `50% ${c!.hero.focusY ?? 50}%`, credit: c!.credit, label: String(year) }
+    own && c!.hero && (c!.hero.credit ?? c!.credit) && c!.hero.width >= HERO_MIN_WIDTH
+      ? { ...c!.hero, focus: `50% ${c!.hero.focusY ?? 50}%`, credit: (c!.hero.credit ?? c!.credit)!, label: String(year) }
       : null;
   const prev = neighbourOf(index, year - 1, locale);
   const next = neighbourOf(index, year + 1, locale);

@@ -143,6 +143,10 @@ export default async function TeamPageView(props: Props) {
 
   const credits = [
     ...(team.photo ? [{ label: team.name, href: team.photo.credit.page, author: team.photo.credit.author, license: team.photo.credit.license }] : []),
+    // Банер замінили окремо від картки (адмінка) — його автор теж.
+    ...(team.hero?.credit && team.hero.credit.page !== team.photo?.credit.page
+      ? [{ label: team.name, href: team.hero.credit.page, author: team.hero.credit.author, license: team.hero.credit.license }]
+      : []),
   ];
   const shownDrivers = new Map<string, DriverView>();
   for (const c of page.champions) shownDrivers.set(c.driver.id, c.driver);
