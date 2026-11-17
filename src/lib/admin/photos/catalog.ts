@@ -64,7 +64,9 @@ export async function catalog(kind: Kind): Promise<Item[]> {
             ? `чемпіон світу · ${d.years[0]}–${d.years[1]}`
             : d.wins > 0
               ? `${plural(d.wins, "перемога", "перемоги", "перемог")} · ${d.years[0]}–${d.years[1]}`
-              : `${plural(d.starts, "старт", "старти", "стартів")} · ${d.years[0]}–${d.years[1]}`;
+              : d.podiums > 0
+                ? `${plural(d.podiums, "подіум", "подіуми", "подіумів")} · ${plural(d.starts, "старт", "старти", "стартів")} · ${d.years[0]}–${d.years[1]}`
+                : `${plural(d.starts, "старт", "старти", "стартів")} · ${d.years[0]}–${d.years[1]}`;
         return {
           kind,
           id: d.id,
