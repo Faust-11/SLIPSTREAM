@@ -98,11 +98,15 @@ const nextConfig: NextConfig = {
         // Адмінка (фаза 7): без cookie сесії / ключа входу / стану входу — на /en/admin/… (той самий 404, що й будь-яка
         // неіснуюча адреса). Саме правилом конфігу, а не proxy: rewrite у proxy додає до відповіді x-middleware-rewrite
         // (e2e 15.11 — заголовки /admin відрізнялись від /zzz). Назви cookie — src/lib/admin/token.ts (тест звіряє).
-        { source: "/admin/auth/login", missing: [{ type: "query", key: "key" }], destination: "/en/admin/auth/login" },
+        {
+          source: "/admin/auth/:step(login|github|email|code|verify)",
+          missing: [{ type: "query", key: "key" }],
+          destination: "/en/admin/auth/:step",
+        },
         { source: "/admin/auth/callback", missing: [{ type: "cookie", key: "ss_admin_flow" }], destination: "/en/admin/auth/callback" },
         { source: "/admin", missing: [{ type: "cookie", key: "ss_admin" }], destination: "/en/admin" },
         {
-          source: "/admin/:path((?!auth/(?:login|callback)$).+)",
+          source: "/admin/:path((?!auth/(?:login|github|email|code|verify|callback)$).+)",
           missing: [{ type: "cookie", key: "ss_admin" }],
           destination: "/en/admin/:path",
         },

@@ -27,25 +27,25 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <a className="ad-skip" href="#ad-main">
           До змісту
         </a>
-        <div className="ad-app">
-          <aside className="ad-side">
-            <Link className="ad-brand" href="/admin">
-              <span className="ad-roundel" aria-hidden="true">
-                <svg viewBox="0 0 64 64" dangerouslySetInnerHTML={{ __html: ROUNDEL_SVG }} />
-              </span>
-              <span>
-                <b translate="no">SLIPSTREAM</b>
-                <small>Адмінка</small>
-              </span>
-            </Link>
-            <AdminNav />
-            {admin && (
+        {admin ? (
+          <div className="ad-app">
+            <aside className="ad-side">
+              <Link className="ad-brand" href="/admin">
+                <span className="ad-roundel" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" dangerouslySetInnerHTML={{ __html: ROUNDEL_SVG }} />
+                </span>
+                <span>
+                  <b translate="no">SLIPSTREAM</b>
+                  <small>Адмінка</small>
+                </span>
+              </Link>
+              <AdminNav />
               <div className="ad-me">
                 <span className="ad-av" aria-hidden="true">
-                  {admin.email.slice(0, 1).toUpperCase()}
+                  {admin.label.slice(0, 1).toUpperCase()}
                 </span>
                 <span className="ad-me-who">
-                  <b>{admin.email}</b>
+                  <b>{admin.label}</b>
                   <small>Власник</small>
                 </span>
                 <form action="/admin/auth/logout" method="post">
@@ -54,12 +54,20 @@ export default async function AdminLayout({ children }: { children: React.ReactN
                   </button>
                 </form>
               </div>
-            )}
-          </aside>
-          <main className="ad-main" id="ad-main" tabIndex={-1}>
+            </aside>
+            <main className="ad-main" id="ad-main" tabIndex={-1}>
+              {children}
+            </main>
+          </div>
+        ) : (
+          // Вхід (до сесії): без панелі розділів.
+          <main className="ad-login" id="ad-main" tabIndex={-1}>
+            <span className="ad-roundel" aria-hidden="true">
+              <svg viewBox="0 0 64 64" dangerouslySetInnerHTML={{ __html: ROUNDEL_SVG }} />
+            </span>
             {children}
           </main>
-        </div>
+        )}
       </body>
     </html>
   );

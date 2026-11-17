@@ -3,16 +3,18 @@ import { defineConfig, devices } from "@playwright/test";
 const PORT = 3100;
 const DB_PORT = 54321;
 const FAKE_DB_ENV = { SUPABASE_URL: `http://127.0.0.1:${DB_PORT}`, SUPABASE_ANON_KEY: "test-anon" };
-// Адмінка (фаза 7): фейковий «Google» (scripts/dev/fake-oidc.mjs) і тестові значення — справжні ключі лише у Vercel.
-const OIDC_PORT = 4455;
-const ADMIN_TEST_EMAIL = "owner@example.test";
+// Адмінка (фаза 7): фейкові GitHub OAuth і Resend (scripts/dev/fake-auth.mjs) і тестові значення — справжні ключі лише у Vercel.
+const AUTH_PORT = 4455;
 const FAKE_ADMIN_ENV = {
-  ADMIN_EMAILS: ADMIN_TEST_EMAIL,
   ADMIN_AUTH_SECRET: "e2e-only-admin-secret-0123456789abcdef",
-  ADMIN_GOOGLE_CLIENT_ID: "test-client",
-  ADMIN_GOOGLE_CLIENT_SECRET: "test-secret",
-  ADMIN_OIDC_ISSUER: `http://127.0.0.1:${OIDC_PORT}`,
   ADMIN_LOGIN_KEY: "e2e-login-key-0123456789",
+  ADMIN_GITHUB_CLIENT_ID: "test-gh-client",
+  ADMIN_GITHUB_CLIENT_SECRET: "test-gh-secret",
+  ADMIN_GITHUB_IDS: "195572242",
+  ADMIN_GITHUB_OAUTH_BASE: `http://127.0.0.1:${AUTH_PORT}`,
+  ADMIN_EMAILS: "owner@example.test",
+  ADMIN_RESEND_KEY: "test-resend-key",
+  ADMIN_RESEND_API: `http://127.0.0.1:${AUTH_PORT}`,
 };
 const externalBaseURL = process.env.BASE_URL;
 const baseURL = externalBaseURL ?? `http://localhost:${PORT}`;
@@ -52,8 +54,8 @@ export default defineConfig({
           reuseExistingServer: true,
         },
         {
-          command: `node scripts/dev/fake-oidc.mjs --port ${OIDC_PORT}`,
-          port: OIDC_PORT,
+          command: `node scripts/dev/fake-auth.mjs --port ${AUTH_PORT}`,
+          port: AUTH_PORT,
           reuseExistingServer: true,
         },
         {
