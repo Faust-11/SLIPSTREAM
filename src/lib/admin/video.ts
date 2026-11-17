@@ -1,4 +1,5 @@
 import "server-only";
+import { LOCAL_HOSTS } from "./local";
 
 /**
  * Хайлайт гонки з офіційного YouTube-каналу FORMULA 1 (рішення користувача 17.11): поле «посилання» в адмінці.
@@ -30,10 +31,25 @@ export function youtubeId(input: string): string | null {
   return id && /^[A-Za-z0-9_-]{11}$/.test(id) ? id : null;
 }
 
+/** ADMIN_YOUTUBE_API — лише фейк для e2e (localhost, ніколи на Vercel); інакше справжні oEmbed і i.ytimg.com. */
+function bases(): { oembed: string; img: string } {
+  const v = process.env.ADMIN_YOUTUBE_API;
+  if (v && process.env.VERCEL !== "1") {
+    try {
+      const u = new URL(v);
+      if (LOCAL_HOSTS.has(u.hostname)) return { oembed: `${u.origin}/oembed`, img: u.origin };
+    } catch {
+      // некоректне значення — справжній YouTube
+    }
+  }
+  return { oembed: "https://www.youtube.com/oembed", img: "https://i.ytimg.com" };
+}
+
 export type VideoCheck = { ok: true; video: RaceVideo } | { ok: false; reason: string };
 
 export async function checkOfficial(id: string, fetchImpl: typeof fetch = fetch): Promise<VideoCheck> {
-  const url = `https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(`https://www.youtube.com/watch?v=${id}`)}`;
+  const b = bases();
+  const url = `${b.oembed}?format=json&url=${encodeURIComponent(`https://www.youtube.com/watch?v=${id}`)}`;
   let res: Response;
   try {
     res = await fetchImpl(url, { cache: "no-store" });
@@ -45,7 +61,7 @@ export async function checkOfficial(id: string, fetchImpl: typeof fetch = fetch)
   if (meta.author_url !== OFFICIAL_CHANNEL) return { ok: false, reason: "це не офіційний канал FORMULA 1" };
   if (typeof meta.title !== "string" || !meta.title.trim()) return { ok: false, reason: "у відео немає назви" };
   // hd — є превʼю 1280 px (maxresdefault), як у race_videos.py.
-  const hd = await fetchImpl(`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`, { method: "HEAD", cache: "no-store" })
+  const hd = await fetchImpl(`${b.img}/vi/${id}/maxresdefault.jpg`, { method: "HEAD", cache: "no-store" })
     .then((r) => r.ok)
     .catch(() => false);
   return { ok: true, video: { id, title: meta.title.trim(), ...(hd ? { hd: true } : {}) } };

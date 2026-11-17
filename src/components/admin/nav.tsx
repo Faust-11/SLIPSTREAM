@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 export const ADMIN_SECTIONS = [
   { href: "/admin", label: "Огляд" },
   { href: "/admin/photos", label: "Фото" },
+  { href: "/admin/races", label: "Гонки" },
   { href: "/admin/system", label: "Система" },
 ] as const;
 
