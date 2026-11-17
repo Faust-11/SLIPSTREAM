@@ -1,6 +1,5 @@
 import type { Locale } from "@/i18n/config";
-
-const rules = new Map<Locale, Intl.PluralRules>();
+import { pluralCategory } from "@/lib/fmt";
 
 /** Форма слова для числа за правилами мови (uk: one/few/many, en: one/other); бракує форми → `other`. */
 export function plural(
@@ -8,7 +7,6 @@ export function plural(
   locale: Locale,
   forms: Partial<Record<Intl.LDMLPluralRule, string>> & { other: string },
 ): string {
-  let r = rules.get(locale);
-  if (!r) rules.set(locale, (r = new Intl.PluralRules(locale)));
-  return forms[r.select(n)] ?? forms.other;
+  // Без Intl.PluralRules: plural() працює й у клієнтських компонентах, а перший Intl у браузері дорогий (fmt.ts).
+  return forms[pluralCategory(n, locale)] ?? forms.other;
 }

@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { fmtNumber } from "@/lib/fmt";
 import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
 import { localizedPath } from "@/i18n/paths";
@@ -35,7 +36,7 @@ function YearStrip({ spans, from, to }: { spans: [number, number][]; from: numbe
 
 export function CircuitCard({ c, labels, locale, season, fromYear }: { c: CircuitCardData; labels: CircuitCardLabels; locale: Locale; season: number; fromYear: number }) {
   const path = (p: string) => localizedPath(p, locale);
-  const nf = new Intl.NumberFormat(locale);
+  const nf = { format: (v: number) => fmtNumber(v, locale) };
   const titleId = `ct-${c.slug}`;
   return (
     <article className="ct-card" aria-labelledby={titleId}>

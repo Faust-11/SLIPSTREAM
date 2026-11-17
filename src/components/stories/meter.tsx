@@ -1,5 +1,6 @@
 import type { Locale } from "@/i18n/config";
 import type { Meter as MeterData } from "@/lib/stories/content";
+import { fmtNumber } from "@/lib/fmt";
 import { plural } from "@/lib/plural";
 
 type PluralForms = Partial<Record<Intl.LDMLPluralRule, string>> & { other: string };
@@ -10,7 +11,7 @@ export type MeterLabels = { meterLabel: PluralForms; meterKeys: Record<"ok" | "o
  * Смуга — лише ілюстрація (aria-hidden); те саме словами й числами — у підписах під нею (статус не лише кольором).
  */
 export function Meter({ m, locale, t, compact = false }: { m: MeterData; locale: Locale; t: MeterLabels; compact?: boolean }) {
-  const fmt = new Intl.NumberFormat(locale);
+  const fmt = { format: (v: number) => fmtNumber(v, locale) };
   return (
     <div className={compact ? "st-meter st-meter-sm" : "st-meter"}>
       <p className="st-mhead">

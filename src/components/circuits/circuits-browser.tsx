@@ -1,5 +1,6 @@
 "use client";
 
+import { fmtNumber } from "@/lib/fmt";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Locale } from "@/i18n/config";
@@ -71,7 +72,7 @@ export function CircuitsBrowser({ cards, locale, season, fromYear, pageSize, lab
   const shown = viewKey(page.of) === viewKey(query) ? page.n : pageSize;
   const visible = selected.slice(0, shown);
   const left = Math.max(0, selected.length - shown);
-  const nf = useMemo(() => new Intl.NumberFormat(locale), [locale]);
+  const nf = useMemo(() => ({ format: (v: number) => fmtNumber(v, locale) }), [locale]);
 
   useEffect(() => {
     if (focusFrom.current === null) return;

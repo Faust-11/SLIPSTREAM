@@ -1,5 +1,6 @@
 "use client";
 
+import { fmtTime } from "@/lib/fmt";
 import { useEffect, useRef, useState, useSyncExternalStore, type CSSProperties } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/get-dictionary";
@@ -25,7 +26,7 @@ function withKey(label: string) {
 /** Колір тегу картки (з макета). */
 const TAG: Record<TrackKey, string> = { lyman: "#4FD18B", port: "#B9BDC5", plateau: "#FF8000", forest: "#93A8FF" };
 
-export function HotLap({ cards, labels: L, locale }: { cards: TrackCard[]; labels: Labels; locale: Locale }) {
+export function HotLap({ cards, labels: L }: { cards: TrackCard[]; labels: Labels; locale: Locale }) {
   const [engine] = useState(() => new HotLapEngine());
   const snap = useSyncExternalStore(engine.subscribe, engine.getSnapshot, engine.getServerSnapshot);
   const { key, phase, result, laps, bestTotal, botTotal, preferBot, cardBests, mounted } = snap;
@@ -128,7 +129,8 @@ export function HotLap({ cards, labels: L, locale }: { cards: TrackCard[]; label
   const T = L.tracks[key];
   const card = cards.find((c) => c.key === key)!;
   const useBot = preferBot || bestTotal === null;
-  const timeFmt = new Intl.DateTimeFormat(locale === "en" ? "en-GB" : "uk-UA", { hour: "2-digit", minute: "2-digit" });
+  // Без Intl (src/lib/fmt.ts): «19:20» у поясі браузера.
+  const timeFmt = { format: (d: Date | number) => fmtTime(new Date(d), false) };
 
   let resultText = "";
   if (result) {

@@ -1,5 +1,6 @@
 "use client";
 
+import { fmtNumber } from "@/lib/fmt";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Locale } from "@/i18n/config";
@@ -94,7 +95,7 @@ export function TeamsBrowser({ cards, locale, season, pageSize, labels }: Props)
   const tools = useRef<HTMLDivElement>(null);
 
   const selected = useMemo(() => selectTeams(cards, query, locale), [cards, query, locale]);
-  const nf = useMemo(() => new Intl.NumberFormat(locale), [locale]);
+  const nf = useMemo(() => ({ format: (v: number) => fmtNumber(v, locale) }), [locale]);
   // Порядок за замовчуванням (sort=p) — для серверних перших 24 і <noscript>-решти: обидва з одного
   // списку, інакше без JS частина команд двічі, а частина — ніде (code-review PR #5: знімок упорядкований інакше).
   const defaultOrder = useMemo(() => selectTeams(cards, DEFAULT_QUERY, locale), [cards, locale]);
