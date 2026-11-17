@@ -112,7 +112,7 @@ test.describe("вхід через GitHub", () => {
     // Стан входу одноразовий — після повернення його немає.
     expect((await context.cookies()).some((c) => c.name === "ss_admin_flow" && c.value)).toBe(false);
 
-    await page.getByRole("link", { name: "Система" }).click();
+    await page.getByRole("link", { name: "Система", exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Система");
     await expect(page.getByText("вхід через GitHub")).toBeVisible();
     await expect(page.getByText(OWNER_LOGIN).first()).toBeVisible();
@@ -163,7 +163,7 @@ test.describe("вхід кодом на пошту", () => {
     await page.getByRole("button", { name: "Увійти" }).click();
     await expect(page).toHaveURL(`${BASE}/admin`);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Огляд");
-    await page.getByRole("link", { name: "Система" }).click();
+    await page.getByRole("link", { name: "Система", exact: true }).click();
     await expect(page.getByText("вхід кодом на пошту")).toBeVisible();
 
     // Одноразовий: стан входу видалено — повтор того самого коду в новій сесії не пускає.
