@@ -214,13 +214,18 @@ export function deployHookUrl(env: Record<string, string | undefined> = process.
 }
 
 /** Поточний вміст текстових файлів з main (Contents API, ≤ 1 МБ кожен — curated JSON до ~120 КБ, замір 17.11). */
-export async function readMain(gh: GitHub, paths: string[]): Promise<Record<string, string>> {
+/**
+ * Читання від зафіксованого коміту main: його sha — parent для publish(), тож якщо main пішов далі (інша правка злилась
+ * між читанням і комітом), конфлікт побачить злиття, а не тихий відкат чужої правки (code-review 7b).
+ */
+export async function readMain(gh: GitHub, paths: string[]): Promise<{ sha: string; files: Record<string, string> }> {
+  const sha = (await gh.request<{ object: { sha: string } }>("GET", "/git/ref/heads/main")).object.sha;
   const out: Record<string, string> = {};
   for (const path of paths) {
     if (!isAdminPath(path)) throw new Error(`шлях поза контентом: ${path}`);
-    const f = await gh.request<{ content?: string; encoding?: string; size: number }>("GET", `${contentsPath(path)}?ref=main`);
+    const f = await gh.request<{ content?: string; encoding?: string; size: number }>("GET", `${contentsPath(path)}?ref=${sha}`);
     if (f.encoding !== "base64" || f.content === undefined) throw new Error(`${path}: завеликий для Contents API`);
     out[path] = Buffer.from(f.content, "base64").toString("utf8");
   }
-  return out;
+  return { sha, files: out };
 }

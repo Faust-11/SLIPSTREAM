@@ -67,9 +67,19 @@ export async function checkOfficial(id: string, fetchImpl: typeof fetch = fetch)
   return { ok: true, video: { id, title: meta.title.trim(), ...(hd ? { hd: true } : {}) } };
 }
 
+/** «2026/05» → «2026/5» (сторінка гонки шукає без нуля — рев'ю 7b); інше — null. Роки 1950–2099, етапи 1–30. */
+export function raceKey(input: string): string | null {
+  const m = /^\s*(\d{4})\/(\d{1,2})\s*$/.exec(input);
+  if (!m) return null;
+  const y = Number(m[1]);
+  const r = Number(m[2]);
+  return y >= 1950 && y <= 2099 && r >= 1 && r <= 30 ? `${y}/${r}` : null;
+}
+
 /** Новий текст race-videos.json: ключ «рік/етап», порядок — числовий (як у файлі); null — прибрати відео гонки. */
-export function applyVideo(current: string, key: string, video: RaceVideo | null): string {
-  if (!/^\d{4}\/\d{1,2}$/.test(key)) throw new Error("гонка");
+export function applyVideo(current: string, rawKey: string, video: RaceVideo | null): string {
+  const key = raceKey(rawKey);
+  if (!key) throw new Error("гонка");
   const data = JSON.parse(current) as { _about: string; videos: Record<string, RaceVideo> };
   if (video) data.videos[key] = video;
   else delete data.videos[key];

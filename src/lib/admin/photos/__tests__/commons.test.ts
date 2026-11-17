@@ -50,3 +50,19 @@ describe("plainText", () => {
     expect(plainText('<bdi><a href="https://www.wikidata.org/wiki/Q1">Ronald &amp; Co</a></bdi>')).toBe("Ronald & Co");
   });
 });
+
+describe("downloadThumb — потік без Content-Length обрізається на 15 МБ", () => {
+  it("завеликий потік — помилка до читання всього тіла", async () => {
+    let sent = 0;
+    const stream = new ReadableStream<Uint8Array>({
+      pull(c) {
+        sent += 1_000_000;
+        c.enqueue(new Uint8Array(1_000_000));
+        if (sent > 50_000_000) c.close();
+      },
+    });
+    const chunked = (async () => new Response(stream)) as unknown as typeof fetch;
+    await expect(downloadThumb("https://upload.wikimedia.org/x.jpg", chunked)).rejects.toThrow("завеликий");
+    expect(sent).toBeLessThan(20_000_000);
+  });
+});

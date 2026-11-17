@@ -9,8 +9,10 @@ import { FocusPicker } from "./focus-picker";
  * застосовує createImageBitmap(imageOrientation: "from-image").
  */
 const MAX_SIDE = 2560;
+/** Запас під ліміт 4 МБ (next.config serverActions.bodySizeLimit) і 4,5 МБ тіла функції Vercel. */
+const MAX_BYTES = 3.8 * 1024 * 1024;
 
-export function UploadField() {
+export function UploadField({ initialFocus }: { initialFocus?: { x: number; y: number } }) {
   const input = useRef<HTMLInputElement>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [note, setNote] = useState("");
@@ -25,8 +27,14 @@ export function UploadField() {
       canvas.width = Math.round(bmp.width * k);
       canvas.height = Math.round(bmp.height * k);
       canvas.getContext("2d")!.drawImage(bmp, 0, 0, canvas.width, canvas.height);
-      const blob = await new Promise<Blob | null>((r) => canvas.toBlob(r, "image/jpeg", 0.9));
+      // Якість 0,9 → нижче, доки файл не влізе в ліміт (фото з дрібними деталями стискаються гірше).
+      let blob: Blob | null = null;
+      for (const q of [0.9, 0.82, 0.74, 0.66, 0.58, 0.5]) {
+        blob = await new Promise<Blob | null>((r) => canvas.toBlob(r, "image/jpeg", q));
+        if (!blob || blob.size <= MAX_BYTES) break;
+      }
       if (!blob) throw new Error("toBlob");
+      if (blob.size > MAX_BYTES) throw new Error("завеликий");
       const dt = new DataTransfer();
       dt.items.add(new File([blob], "photo.jpg", { type: "image/jpeg" }));
       input.current.files = dt.files;
@@ -51,7 +59,7 @@ export function UploadField() {
       <p className="ad-note" role="status">
         {note}
       </p>
-      {preview && <FocusPicker src={preview} alt="Вибране фото" />}
+      {preview && <FocusPicker src={preview} alt="Вибране фото" initial={initialFocus} />}
     </div>
   );
 }

@@ -15,6 +15,7 @@ export const maxDuration = 60;
 const RESULTS: Record<string, { level: "ok" | "one" | "bad"; text: string }> = {
   published: { level: "ok", text: "Опубліковано: PR пройде перевірки й зіллється сам (~10–15 хв), потім фото з'явиться на сайті." },
   draft: { level: "ok", text: "Чернетку збережено (PR-чернетка). Опублікувати — з GitHub або повторно звідси." },
+  nothing: { level: "one", text: "Цієї частини фото на сайті немає — знімати нічого." },
   removed: { level: "ok", text: "Фото знімається з сайту: PR пройде перевірки й зіллється сам (~10–15 хв). Заміну можна обрати нижче." },
   bad: { level: "bad", text: "Некоректний запит." },
   "no-github": { level: "bad", text: "GitHub не підключено — публікація неможлива (див. Система)." },
@@ -40,7 +41,12 @@ export default async function AdminPhoto({
   await requireAdmin();
   const [{ kind, id: rawId }, sp] = await Promise.all([params, searchParams]);
   if (!KINDS.some((x) => x.kind === kind)) notFound();
-  const id = decodeURIComponent(rawId);
+  let id: string;
+  try {
+    id = decodeURIComponent(rawId);
+  } catch {
+    notFound();
+  }
   const item = await findItem(kind as Kind, id);
   if (!item) notFound();
 
@@ -50,6 +56,10 @@ export default async function AdminPhoto({
   const result = sp.r && Object.hasOwn(RESULTS, sp.r) ? RESULTS[sp.r] : undefined;
   const self = `/admin/photos/${kind}/${encodeURIComponent(id)}`;
   const label = KINDS.find((x) => x.kind === kind)!.label;
+  // Пілот: обличчя зазвичай угорі кадру (як squareTop / crop_4x5 скриптів); інше — центр.
+  const initialFocus = kind === "driver" ? { x: 50, y: 20 } : { x: 50, y: 50 };
+  // Банер пілота сайт показує лише з аватаром — без аватара лише «обидва».
+  const canSplit = item.paired && !(kind === "driver" && !item.card);
 
   return (
     <section className="ad-view" aria-labelledby="ad-h">
@@ -101,7 +111,7 @@ export default async function AdminPhoto({
             <input type="hidden" name="id" value={id} />
             <input type="hidden" name="source" value="commons" />
             <input type="hidden" name="title" value={chosen.title} />
-            <FocusPicker src={chosen.thumb} alt={chosen.title} />
+            <FocusPicker src={chosen.thumb} alt={chosen.title} initial={initialFocus} />
             <dl className="ad-kv">
               <div>
                 <dt>Файл</dt>
@@ -123,7 +133,7 @@ export default async function AdminPhoto({
               </div>
             </dl>
             {chosen.verdict.level === "nc" && <p className="ad-result is-one">Лише некомерційно: якщо на сайті з&apos;явиться реклама, підписка чи спонсор — це фото доведеться замінити (воно буде в списку).</p>}
-            {item.paired && <PartChoice kind={kind as Kind} />}
+            {canSplit && <PartChoice kind={kind as Kind} />}
             {chosen.verdict.level !== "no" ? (
               <div className="ad-acts">
                 <button type="submit" name="mode" value="publish" className="ad-btn ad-btn-primary">
@@ -187,7 +197,7 @@ export default async function AdminPhoto({
           <input type="hidden" name="kind" value={kind} />
           <input type="hidden" name="id" value={id} />
           <input type="hidden" name="source" value="upload" />
-          <UploadField />
+          <UploadField initialFocus={initialFocus} />
           <label className="ad-fld">
             <span>Автор</span>
             <input name="author" required maxLength={200} />
@@ -208,7 +218,7 @@ export default async function AdminPhoto({
           <label className="ad-check">
             <input type="checkbox" name="rights" required /> Я автор цього фото або маю дозвіл автора на цю ліцензію
           </label>
-          {item.paired && <PartChoice kind={kind as Kind} />}
+          {canSplit && <PartChoice kind={kind as Kind} />}
           <div className="ad-acts">
             <button type="submit" name="mode" value="publish" className="ad-btn ad-btn-primary">
               Опублікувати
@@ -229,9 +239,9 @@ export default async function AdminPhoto({
             <input type="hidden" name="id" value={id} />
             <p className="ad-note">
               Фото зникне з сайту після перевірок (~10–15 хв): файли видаляються, підписи прибираються. Заміну шукаємо потім.
-              {kind === "team" && " У команди знімаються і картка, і банер: без картки банер на сторінці не показується."}
+              {(kind === "team" || kind === "driver") && " Знімаються обидва фото: без картки (аватара) банер на сайті не показується."}
             </p>
-            {item.paired && kind !== "team" && <PartChoice kind={kind as Kind} />}
+            {item.paired && kind === "season" && <PartChoice kind={kind as Kind} />}
             <label className="ad-fld">
               <span>Причина (необов&apos;язково)</span>
               <input name="reason" maxLength={300} />

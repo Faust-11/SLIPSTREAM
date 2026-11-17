@@ -132,3 +132,28 @@ describe("removeSlot — зняти за запитом автора (на сп�
     expect(() => removeSlot(race, cur(race))).toThrow("немає свого банера");
   });
 });
+
+describe("removeSlot — нічого знімати", () => {
+  it("сезон без банера, «лише банер» — помилка, а не порожній PR", async () => {
+    const { NothingToRemove, removeSlot } = await import("../slots");
+    const s = JSON.parse(readFileSync(CURATED.seasons, "utf8")).seasons as Record<string, { hero?: unknown }>;
+    const year = Object.keys(s).find((y) => !s[y]!.hero)!;
+    const t: Target = { kind: "season", year, part: "hero" };
+    expect(() => removeSlot(t, read(jsonFor(t)))).toThrow(NothingToRemove);
+  });
+});
+
+describe("ручний аватар під іншою назвою (Senna — senna-manual-96.webp)", () => {
+  it("зняти — видаляє саме файл, на який посилається запис", async () => {
+    const { removeSlot } = await import("../slots");
+    const t: Target = { kind: "driver", ref: "senna", part: "both" };
+    const manual = JSON.parse(readFileSync(CURATED.portraits, "utf8")).drivers.senna.manual.avatar as string;
+    expect(manual).toBe("/img/drivers/senna-manual-96.webp");
+    expect(removeSlot(t, read(jsonFor(t))).map((c) => c.path)).toContain("public/img/drivers/senna-manual-96.webp");
+  });
+  it("замінити — старий ручний файл видаляється (не лишається сиротою)", () => {
+    const t: Target = { kind: "driver", ref: "senna", part: "card" };
+    const ch = applySlot(t, sets(t), CREDIT, C, read(jsonFor(t)));
+    expect(ch.find((c) => c.path === "public/img/drivers/senna-manual-96.webp")).toMatchObject({ content: null });
+  });
+});

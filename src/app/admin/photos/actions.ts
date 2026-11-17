@@ -6,7 +6,7 @@ import { commonsFile, downloadThumb } from "@/lib/admin/photos/commons";
 import { findItem, targetOf, type Kind } from "@/lib/admin/photos/catalog";
 import { classifyLicense } from "@/lib/admin/photos/license";
 import { PhotoError, renderFormat } from "@/lib/admin/photos/render";
-import { applySlot, formatsFor, jsonFor, removeSlot, type Part, type RenderedSet } from "@/lib/admin/photos/slots";
+import { NothingToRemove, applySlot, formatsFor, jsonFor, removeSlot, type Part, type RenderedSet } from "@/lib/admin/photos/slots";
 import { requireAdmin } from "@/lib/admin/session";
 import type { Credit } from "@/lib/data/types";
 
@@ -19,6 +19,9 @@ const KINDS = new Set<Kind>(["driver", "team", "season", "circuit", "race"]);
 const PARTS = new Set<Part>(["both", "card", "hero"]);
 const MAX_UPLOAD = 4 * 1024 * 1024;
 const UPLOAD_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
+/** Ліцензії власного фото — рівно ті, що у формі (вільний текст не приймаємо: «Attribution-NoDerivatives» класифікатор
+ *  пропустив би як «вільну» — рев'ю 7b). */
+const UPLOAD_LICENSES = ["CC BY 4.0", "CC BY-SA 4.0", "CC0", "CC BY-NC 4.0"] as const;
 
 const str = (f: FormData, k: string, max = 300) => String(f.get(k) ?? "").trim().slice(0, max);
 
@@ -30,13 +33,19 @@ export async function publishPhotoAction(form: FormData): Promise<void> {
   if (!KINDS.has(kind)) redirect("/admin/photos");
   const part = (PARTS.has(str(form, "part") as Part) ? str(form, "part") : "both") as Part;
   const item = await findItem(kind, id);
-  const target = item && targetOf(kind, id, item.paired ? part : "hero");
+  // Банер пілота сайт показує лише з аватаром (driver-page: portraitSrc && widths): без аватара — лише «обидва».
+  const effective: Part = kind === "driver" && !item?.card && part === "hero" ? "both" : part;
+  const target = item && targetOf(kind, id, item.paired ? effective : "hero");
   const env = githubEnv();
   if (!item || !target) back("bad");
   if (!env) back("no-github");
-  const fx = Number(str(form, "fx", 6));
-  const fy = Number(str(form, "fy", 6));
-  const focus = { x: Number.isFinite(fx) ? Math.min(100, Math.max(0, fx)) / 100 : 0.5, y: Number.isFinite(fy) ? Math.min(100, Math.max(0, fy)) / 100 : 0.5 };
+  // Порожнє чи відсутнє поле — центр (Number("") = 0 дав би лівий верхній кут — code-review 7b).
+  const pct = (k: string) => {
+    const raw = str(form, k, 6);
+    const n = raw === "" ? NaN : Number(raw);
+    return Number.isFinite(n) ? Math.min(100, Math.max(0, n)) / 100 : 0.5;
+  };
+  const focus = { x: pct("fx"), y: pct("fy") };
 
   let bytes: Uint8Array;
   let credit: Credit;
@@ -47,7 +56,7 @@ export async function publishPhotoAction(form: FormData): Promise<void> {
     const license = str(form, "license", 100);
     const page = str(form, "page", 500);
     if (!(file instanceof File) || file.size === 0 || file.size > MAX_UPLOAD || !UPLOAD_TYPES.has(file.type)) back("upload-file");
-    if (!author || !license || form.get("rights") !== "on" || !/^https:\/\/[^\s]+$/.test(page)) back("upload-fields");
+    if (!author || !(UPLOAD_LICENSES as readonly string[]).includes(license) || form.get("rights") !== "on" || !/^https:\/\/[^\s]+$/.test(page)) back("upload-fields");
     const verdict = classifyLicense(license);
     if (verdict.level === "no") back("license");
     nc = verdict.level === "nc";
@@ -75,8 +84,9 @@ export async function publishPhotoAction(form: FormData): Promise<void> {
   let number = 0;
   try {
     const gh = new GitHub(env!);
-    const files = applySlot(target!, sets!, credit, focus, await readMain(gh, jsonFor(target!)));
-    const where = item!.paired ? { both: "картка й банер", card: "лише картка", hero: "лише банер" }[part] : "банер";
+    const main = await readMain(gh, jsonFor(target!));
+    const files = applySlot(target!, sets!, credit, focus, main.files);
+    const where = item!.paired ? { both: "картка й банер", card: "лише картка", hero: "лише банер" }[effective] : "банер";
     const res = await publish(gh, {
       section: "photos",
       title: `Фото · ${item!.name} (${where})`,
@@ -86,7 +96,7 @@ export async function publishPhotoAction(form: FormData): Promise<void> {
       ].join("\n"),
       files,
       draft: str(form, "mode") === "draft",
-    });
+    }, undefined, main.sha);
     number = res.number;
   } catch {
     back("github");
@@ -102,8 +112,8 @@ export async function takedownAction(form: FormData): Promise<void> {
   const back = (r: string, extra = "") => redirect(`/admin/photos/${kind}/${encodeURIComponent(id)}?r=${r}${extra}`);
   if (!KINDS.has(kind)) redirect("/admin/photos");
   const item = await findItem(kind, id);
-  // Команда — завжди обидва (без картки банер на сторінці команди не показується).
-  const part = kind === "team" ? "both" : ((PARTS.has(str(form, "part") as Part) ? str(form, "part") : "both") as Part);
+  // Команда й пілот — завжди обидва: без картки/аватара банер на сайті не показується (code-review 7b).
+  const part = kind === "team" || kind === "driver" ? "both" : ((PARTS.has(str(form, "part") as Part) ? str(form, "part") : "both") as Part);
   const target = item && targetOf(kind, id, item.paired ? part : "hero");
   const env = githubEnv();
   if (!item || !target || form.get("confirm") !== "on") back("bad");
@@ -111,7 +121,8 @@ export async function takedownAction(form: FormData): Promise<void> {
   let number = 0;
   try {
     const gh = new GitHub(env!);
-    const files = removeSlot(target!, await readMain(gh, jsonFor(target!)));
+    const main = await readMain(gh, jsonFor(target!));
+    const files = removeSlot(target!, main.files);
     const reason = str(form, "reason", 300);
     const res = await publish(gh, {
       section: "takedown",
@@ -119,10 +130,10 @@ export async function takedownAction(form: FormData): Promise<void> {
       body: `Фото знято з сайту за запитом автора${reason ? `: ${reason}` : ""}. Заміну шукаємо окремо.`,
       files,
       draft: false,
-    });
+    }, undefined, main.sha);
     number = res.number;
-  } catch {
-    back("github");
+  } catch (e) {
+    back(e instanceof NothingToRemove ? "nothing" : "github");
   }
   back("removed", `&pr=${number}`);
 }

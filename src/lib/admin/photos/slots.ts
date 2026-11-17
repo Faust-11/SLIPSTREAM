@@ -97,6 +97,9 @@ export function applySlot(t: Target, sets: RenderedSet[], credit: Credit, focus:
       // Нинішній автор (як driverPortrait): ручний → кураторський → власний.
       const oldCredit = entry.manual?.credit ?? (cur?.avatar && cur.credit ? cur.credit : undefined) ?? entry.credit;
       if (card) {
+        // Старий ручний аватар під іншою назвою (senna-manual-96.webp) лишився б сиротою в репозиторії.
+        const oldManual = entry.manual?.avatar;
+        if (oldManual && oldManual !== card[0]!.name && oldManual.startsWith("/img/drivers/") && cur?.avatar !== oldManual) images.push(del(oldManual));
         entry.manual = { avatar: card[0]!.name, credit };
         // Банер лишається старим — і його автор теж (інакше підпис банера змінився б разом з аватаром).
         if (!hero && !entry.heroCredit && oldCredit) entry.heroCredit = oldCredit;
@@ -105,6 +108,8 @@ export function applySlot(t: Target, sets: RenderedSet[], credit: Credit, focus:
       if (hero) {
         type Heroes = { drivers: Record<string, number[]> };
         const heroes = parse<Heroes>(current[CURATED.heroes], CURATED.heroes);
+        // Новий кадр вужчий за 520 — файлу 640 більше не буде; старий -640 прибрати, щоб не лишився сиротою.
+        if ((heroes.drivers[t.ref]?.length ?? 0) > 1 && hero.length === 1) images.push(del(`/img/drivers/${t.ref}-640.webp`));
         // driver_hero.py: [фактична 420, фактична 640?] у порядку номінальних ширин.
         heroes.drivers[t.ref] = hero.map((v) => v.width);
         heroes.drivers = Object.fromEntries(Object.entries(heroes.drivers).sort(([a], [b]) => a.localeCompare(b)));
@@ -197,7 +202,16 @@ export { focusString };
 const WIDE = (base: string) => [1280, 800, 480].map((w) => `${base}-hero-${w}.webp`);
 const del = (url: string): FileChange => ({ path: filePath(url), content: null });
 
+export class NothingToRemove extends Error {}
+
 export function removeSlot(t: Target, current: Record<string, string>): FileChange[] {
+  const out = removeSlotInner(t, current);
+  // Нічого видаляти (фото цієї частини немає) — не робимо порожній PR (code-review 7b).
+  if (!out.some((c) => "content" in c && c.content === null)) throw new NothingToRemove("фото немає");
+  return out;
+}
+
+function removeSlotInner(t: Target, current: Record<string, string>): FileChange[] {
   const out: FileChange[] = [];
   switch (t.kind) {
     case "driver": {
@@ -208,9 +222,10 @@ export function removeSlot(t: Target, current: Record<string, string>): FileChan
       const drivers = parse<Drivers>(current[CURATED.drivers], CURATED.drivers);
       const entry = portraits.drivers[t.ref];
       const cur = drivers.drivers[t.ref];
-      const avatar = `/img/drivers/${t.ref}-96.webp`;
       const oldCredit = entry?.manual?.credit ?? (cur?.avatar && cur.credit ? cur.credit : undefined) ?? entry?.credit;
-      if (t.part !== "hero" && (entry?.manual || entry?.avatar || cur?.avatar)) {
+      // Видаляємо саме ті файли, на які посилаються записи (у Senna ручний аватар — senna-manual-96.webp; рев'ю 7b).
+      const avatars = [...new Set([entry?.manual?.avatar, entry?.avatar, cur?.avatar ?? undefined].filter((a): a is string => !!a?.startsWith("/img/drivers/")))];
+      if (t.part !== "hero" && avatars.length) {
         if (entry) {
           // Банер лишається — зберегти його автора, поки аватар прибираємо.
           if (t.part === "card" && !entry.heroCredit && oldCredit) entry.heroCredit = oldCredit;
@@ -223,7 +238,7 @@ export function removeSlot(t: Target, current: Record<string, string>): FileChan
           cur.credit = null;
           out.push({ path: CURATED.drivers, content: dump(drivers) });
         }
-        out.push(del(avatar));
+        out.push(...avatars.map(del));
       }
       if (t.part !== "card") {
         const heroes = parse<Heroes>(current[CURATED.heroes], CURATED.heroes);

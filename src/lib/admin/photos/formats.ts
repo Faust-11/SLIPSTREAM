@@ -1,4 +1,4 @@
-import { crop4x5, cropRatio, squareFocus, squareTop, type Box, type Focus } from "./crop";
+import { crop4x5, cropRatio, squareFocus, type Box, type Focus } from "./crop";
 
 /**
  * Формати фото сайту — з scripts/curated і scripts/snapshot (заміри 15.11, план 7b). Кожен: кадр, ширини, висоти,
@@ -24,11 +24,12 @@ const WIDE = [1280, 800, 480];
 export function planFormat(kind: FormatKind, w: number, h: number, base: string, focus: Focus): FormatPlan {
   switch (kind) {
     case "avatar": {
-      return { crop: squareTop(w, h), variants: [{ name: `${base}-96.webp`, width: 96, height: 96 }], quality: 80 };
+      // Точка фокусу власника (за замовчуванням адмінка ставить 50% / 20% — як squareTop скриптів: обличчя вгорі).
+      return { crop: squareFocus(w, h, focus), variants: [{ name: `${base}-96.webp`, width: 96, height: 96 }], quality: 80 };
     }
     case "driverHero": {
       // driver_hero.py: імена за номінальною шириною (420/640), фактична — менша з номінальної й кадру; 640 — лише від 520.
-      const crop = crop4x5(w, h, 0.2);
+      const crop = crop4x5(w, h, focus.y, focus.x);
       const sizes: [number, number][] = [[420, Math.min(420, crop.width)]];
       if (crop.width >= 520) sizes.push([640, Math.min(640, crop.width)]);
       return {
