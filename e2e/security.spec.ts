@@ -6,7 +6,8 @@ const CSP = [
   "script-src-attr 'none'",
   "style-src 'self' 'unsafe-inline'",
   // Прев'ю новин (фаза 4a): лише домени картинок видань.
-  "img-src 'self' data: blob: https://media.formula1.com https://*.motorsport.com https://i.ytimg.com",
+  // Wikimedia — прев'ю Commons в адмінці (фаза 7b): на всьому сайті, щоб CSP /admin не відрізнявся від неіснуючої сторінки.
+  "img-src 'self' data: blob: https://media.formula1.com https://*.motorsport.com https://i.ytimg.com https://thumb.wikimedia.org https://upload.wikimedia.org",
   "frame-src https://www.youtube-nocookie.com",
   "font-src 'self'",
   "connect-src 'self'",
