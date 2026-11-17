@@ -37,3 +37,10 @@ describe("кадри — ті самі числа, що й Pillow-скрипти
     expect(focusString({ x: 0.554, y: 0.4 })).toBe("55% 40%");
   });
 });
+
+describe("точка фокусу для пілотів (code-review 7b)", () => {
+  it("crop4x5: зашироке джерело — кадр зсувається за focusX", () => {
+    expect(crop4x5(960, 640, 0.2, 0.85)).toEqual({ left: 381, top: 0, width: 512, height: 640 });
+    expect(crop4x5(960, 640, 0.2, 0)).toEqual({ left: 0, top: 0, width: 512, height: 640 });
+  });
+});

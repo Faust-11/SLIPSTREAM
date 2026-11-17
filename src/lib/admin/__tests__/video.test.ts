@@ -46,3 +46,12 @@ describe("applyVideo — на справжньому race-videos.json", () => {
     expect(applyVideo(next, "2026/21", null)).toBe(current);
   });
 });
+
+describe("raceKey (рев'ю 7b)", () => {
+  it("«2026/05» → «2026/5»; поза межами — null", async () => {
+    const { raceKey } = await import("../video");
+    expect(raceKey("2026/05")).toBe("2026/5");
+    expect(raceKey(" 2019/12 ")).toBe("2019/12");
+    for (const bad of ["2026/0", "2026/31", "1949/3", "2026-5", "2026/5/1", ""]) expect(raceKey(bad), bad).toBeNull();
+  });
+});

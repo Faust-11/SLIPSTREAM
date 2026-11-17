@@ -59,3 +59,12 @@ describe("renderFormat (sharp)", () => {
     await expect(renderFormat(new TextEncoder().encode("<svg onload=alert(1)>"), "avatar", "/img/x", C)).rejects.toThrow("не є зображенням");
   });
 });
+
+describe("renderFormat — лише растрові JPEG/PNG/WebP (рев'ю 7b)", () => {
+  it("справжній SVG і GIF — відмова, навіть якщо sharp їх читає", async () => {
+    const svg = new TextEncoder().encode('<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900"><rect width="900" height="900" fill="red"/></svg>');
+    await expect(renderFormat(svg, "avatar", "/img/drivers/x", C)).rejects.toThrow("JPEG, PNG або WebP");
+    const gif = new Uint8Array(await sharp({ create: { width: 600, height: 600, channels: 3, background: "#f00" } }).gif().toBuffer());
+    await expect(renderFormat(gif, "avatar", "/img/drivers/x", C)).rejects.toThrow("JPEG, PNG або WebP");
+  });
+});

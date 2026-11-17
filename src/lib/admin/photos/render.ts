@@ -27,6 +27,8 @@ export async function renderFormat(input: Uint8Array, kind: FormatKind, base: st
   const w = swap ? meta.height : meta.width;
   const h = swap ? meta.width : meta.height;
   if (!w || !h) throw new PhotoError("не вдалося визначити розмір зображення");
+  // Лише растрові фото — незалежно від того, що заявив браузер чи сервер (SVG, GIF, HEIF тощо — ні; рев'ю 7b).
+  if (!["jpeg", "png", "webp"].includes(meta.format ?? "")) throw new PhotoError("підходять лише JPEG, PNG або WebP");
   const plan = planFormat(kind, w, h, base, focus);
   const cropW = plan.crop?.width ?? w;
   if (cropW < MIN_SOURCE[kind]) throw new PhotoError(`замале зображення: ${cropW} px, треба щонайменше ${MIN_SOURCE[kind]}`);

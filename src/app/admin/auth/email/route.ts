@@ -1,3 +1,4 @@
+import { after } from "next/server";
 import { keyedEnv, redirect303, sameOrigin, withKey } from "@/lib/admin/auth-http";
 import { sendCode } from "@/lib/admin/login-email";
 import { setFlow } from "@/lib/admin/session";
@@ -16,6 +17,8 @@ export async function POST(request: Request): Promise<Response> {
   const email = String(form?.get("email") ?? "").trim().toLowerCase().slice(0, 254);
   const code = newCode();
   await setFlow({ kind: "email", email, codeHash: codeHash(k.env, email, code) });
-  if (k.env.email.emails.has(email)) await sendCode(k.env.email, email, code);
+  // Лист — після відповіді (after): інакше час відповіді видавав би, яка адреса в списку (code-review 7b).
+  const mail = k.env.email;
+  if (mail.emails.has(email)) after(() => sendCode(mail, email, code));
   return redirect303(withKey("/admin/auth/code", k.key));
 }
