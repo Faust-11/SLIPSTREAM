@@ -173,7 +173,8 @@ export function applySlot(t: Target, sets: RenderedSet[], credit: Credit, focus:
 export function jsonFor(t: Target): string[] {
   switch (t.kind) {
     case "driver":
-      return [CURATED.portraits, CURATED.drivers, ...(t.part !== "card" ? [CURATED.heroes] : [])];
+      // heroes — і для «лише аватар»: removeSlot/applySlot читають його лише за потреби, а зайвий запит дешевий.
+      return [CURATED.portraits, CURATED.drivers, CURATED.heroes];
     case "team":
       return [CURATED.teams];
     case "season":
@@ -186,3 +187,110 @@ export function jsonFor(t: Target): string[] {
 }
 
 export { focusString };
+
+// ---------------------------------------------------------------------------------------------------------------
+// Зняти за запитом автора (макет v2): фото зникає з сайту (файли видаляються, посилання в JSON прибираються), заміну
+// шукаємо потім. Видаляємо лише наявні файли (GitHub відкидає видалення неіснуючого шляху): банер пілота — 420 і, якщо
+// є, 640 (driver-heroes.json); широкі банери — завжди 3 файли (hero_photos.py пише всі ширини). Команда — завжди обидва:
+// без картки сторінка команди банер не показує.
+
+const WIDE = (base: string) => [1280, 800, 480].map((w) => `${base}-hero-${w}.webp`);
+const del = (url: string): FileChange => ({ path: filePath(url), content: null });
+
+export function removeSlot(t: Target, current: Record<string, string>): FileChange[] {
+  const out: FileChange[] = [];
+  switch (t.kind) {
+    case "driver": {
+      type Portraits = { drivers: Record<string, { avatar?: string; credit?: Credit; manual?: { avatar: string; credit: Credit }; heroCredit?: Credit }> };
+      type Drivers = { drivers: Record<string, { avatar?: string | null; credit?: Credit | null }> };
+      type Heroes = { drivers: Record<string, number[]> };
+      const portraits = parse<Portraits>(current[CURATED.portraits], CURATED.portraits);
+      const drivers = parse<Drivers>(current[CURATED.drivers], CURATED.drivers);
+      const entry = portraits.drivers[t.ref];
+      const cur = drivers.drivers[t.ref];
+      const avatar = `/img/drivers/${t.ref}-96.webp`;
+      const oldCredit = entry?.manual?.credit ?? (cur?.avatar && cur.credit ? cur.credit : undefined) ?? entry?.credit;
+      if (t.part !== "hero" && (entry?.manual || entry?.avatar || cur?.avatar)) {
+        if (entry) {
+          // Банер лишається — зберегти його автора, поки аватар прибираємо.
+          if (t.part === "card" && !entry.heroCredit && oldCredit) entry.heroCredit = oldCredit;
+          delete entry.manual;
+          delete entry.avatar;
+          delete entry.credit;
+        }
+        if (cur?.avatar) {
+          cur.avatar = null;
+          cur.credit = null;
+          out.push({ path: CURATED.drivers, content: dump(drivers) });
+        }
+        out.push(del(avatar));
+      }
+      if (t.part !== "card") {
+        const heroes = parse<Heroes>(current[CURATED.heroes], CURATED.heroes);
+        const widths = heroes.drivers[t.ref];
+        if (widths?.length) {
+          out.push(del(`/img/drivers/${t.ref}-420.webp`));
+          if (widths.length > 1) out.push(del(`/img/drivers/${t.ref}-640.webp`));
+          delete heroes.drivers[t.ref];
+          out.push({ path: CURATED.heroes, content: dump(heroes) });
+        }
+        if (entry) delete entry.heroCredit;
+      }
+      if (entry && Object.keys(entry).length === 0) delete portraits.drivers[t.ref];
+      out.push({ path: CURATED.portraits, content: dump(portraits) });
+      break;
+    }
+    case "team": {
+      type Teams = { teams: { id: string; photo?: PhotoRec; hero?: PhotoRec }[] };
+      const teams = parse<Teams>(current[CURATED.teams], CURATED.teams);
+      const team = teams.teams.find((x) => x.id === t.id);
+      if (!team) throw new Error(`немає команди ${t.id}`);
+      if (team.photo) out.push(del(`/img/cars/${t.id}-480.webp`), del(`/img/cars/${t.id}-256.webp`));
+      if (team.hero) out.push(...WIDE(`/img/cars/${t.id}`).map(del));
+      delete team.photo;
+      delete team.hero;
+      out.push({ path: CURATED.teams, content: dump(teams) });
+      break;
+    }
+    case "season": {
+      type Seasons = { seasons: Record<string, { credit?: Credit; photo?: PhotoRec; hero?: PhotoRec }> };
+      const seasons = parse<Seasons>(current[CURATED.seasons], CURATED.seasons);
+      const s = seasons.seasons[t.year];
+      if (!s) throw new Error(`немає сезону ${t.year}`);
+      if (t.part !== "hero" && s.photo) {
+        out.push(del(`/img/seasons/${t.year}-full.webp`), del(`/img/seasons/${t.year}-small.webp`));
+        if (t.part === "card" && s.hero && !s.hero.credit && s.credit) s.hero.credit = s.credit;
+        delete s.photo;
+        delete s.credit;
+      }
+      if (t.part !== "card" && s.hero) {
+        out.push(...WIDE(`/img/seasons/${t.year}`).map(del));
+        delete s.hero;
+      }
+      out.push({ path: CURATED.seasons, content: dump(seasons) });
+      break;
+    }
+    case "circuit": {
+      type Circuits = { places: Record<string, { credit?: Credit; hero?: PhotoRec }> };
+      const circuits = parse<Circuits>(current[CURATED.circuits], CURATED.circuits);
+      const p = circuits.places[t.ref];
+      if (!p?.hero) throw new Error(`у траси ${t.ref} немає фото`);
+      out.push(...WIDE(`/img/circuits/${t.ref}`).map(del));
+      delete p.hero;
+      delete p.credit;
+      out.push({ path: CURATED.circuits, content: dump(circuits) });
+      break;
+    }
+    case "race": {
+      type Photos = { _about: string; photos: Record<string, PhotoRec> };
+      const photos = parse<Photos>(current[CURATED.racePhotos], CURATED.racePhotos);
+      const p = photos.photos[t.key];
+      if (!p) throw new Error(`у гонки ${t.key} немає свого банера`);
+      out.push(...WIDE(p.src.replace(/-hero-\d+\.webp$/, "")).map(del));
+      delete photos.photos[t.key];
+      out.push({ path: CURATED.racePhotos, content: dump(photos) });
+      break;
+    }
+  }
+  return out;
+}

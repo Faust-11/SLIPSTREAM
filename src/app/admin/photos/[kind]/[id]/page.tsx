@@ -6,7 +6,7 @@ import { UploadField } from "@/components/admin/upload-field";
 import { KINDS, findItem, type Kind } from "@/lib/admin/photos/catalog";
 import { commonsFile, searchCommons, type Candidate } from "@/lib/admin/photos/commons";
 import { requireAdmin } from "@/lib/admin/session";
-import { publishPhotoAction } from "../../actions";
+import { publishPhotoAction, takedownAction } from "../../actions";
 
 export const metadata: Metadata = { title: "Фото" };
 // Нарізка кількох розмірів і ~15 запитів до GitHub — довше за типові 10 с.
@@ -15,6 +15,7 @@ export const maxDuration = 60;
 const RESULTS: Record<string, { level: "ok" | "one" | "bad"; text: string }> = {
   published: { level: "ok", text: "Опубліковано: PR пройде перевірки й зіллється сам (~10–15 хв), потім фото з'явиться на сайті." },
   draft: { level: "ok", text: "Чернетку збережено (PR-чернетка). Опублікувати — з GitHub або повторно звідси." },
+  removed: { level: "ok", text: "Фото знімається з сайту: PR пройде перевірки й зіллється сам (~10–15 хв). Заміну можна обрати нижче." },
   bad: { level: "bad", text: "Некоректний запит." },
   "no-github": { level: "bad", text: "GitHub не підключено — публікація неможлива (див. Система)." },
   commons: { level: "bad", text: "Файл на Commons не знайдено або Commons не відповідає." },
@@ -218,6 +219,34 @@ export default async function AdminPhoto({
           </div>
         </form>
       </details>
+      {(item.card ?? item.hero) && (
+        <details className="ad-panel">
+          <summary>
+            <h2>Зняти за запитом автора</h2>
+          </summary>
+          <form action={takedownAction} className="ad-pick">
+            <input type="hidden" name="kind" value={kind} />
+            <input type="hidden" name="id" value={id} />
+            <p className="ad-note">
+              Фото зникне з сайту після перевірок (~10–15 хв): файли видаляються, підписи прибираються. Заміну шукаємо потім.
+              {kind === "team" && " У команди знімаються і картка, і банер: без картки банер на сторінці не показується."}
+            </p>
+            {item.paired && kind !== "team" && <PartChoice kind={kind as Kind} />}
+            <label className="ad-fld">
+              <span>Причина (необов&apos;язково)</span>
+              <input name="reason" maxLength={300} />
+            </label>
+            <label className="ad-check">
+              <input type="checkbox" name="confirm" required /> Автор просить прибрати фото
+            </label>
+            <div className="ad-acts">
+              <button type="submit" className="ad-btn ad-btn-danger">
+                Зняти фото
+              </button>
+            </div>
+          </form>
+        </details>
+      )}
     </section>
   );
 }

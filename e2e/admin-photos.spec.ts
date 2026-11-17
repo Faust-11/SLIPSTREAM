@@ -105,3 +105,30 @@ for (const colorScheme of ["light", "dark"] as const) {
     });
   }
 }
+
+test("зняти за запитом автора: без підтвердження — ні; команда — картка й банер, teams.json; NC-фото — список", async ({ page }) => {
+  await login(page);
+  await page.goto("/admin/photos");
+  await expect(page.locator("#ad-nc")).toContainText("Лише некомерційно (NC) · 0");
+  await page.goto("/admin/photos/team/ferrari");
+  await page.getByText("Зняти за запитом автора").click();
+  const form = page.locator("details form").filter({ hasText: "Зняти фото" });
+  await expect(form).toContainText("знімаються і картка, і банер");
+  await form.getByRole("button", { name: "Зняти фото" }).click();
+  await expect(page.getByRole("status").filter({ hasText: "знімається" })).toHaveCount(0); // required-галочка
+  await form.getByRole("checkbox").check();
+  await form.getByLabel(/Причина/).fill("лист автора 17.11");
+  await form.getByRole("button", { name: "Зняти фото" }).click();
+  await expect(page.getByRole("status")).toContainText("Фото знімається з сайту");
+  const pr = await lastPr(page, "Знято");
+  expect(pr.title).toBe("Знято за запитом автора · Ferrari");
+  expect(pr.body).toContain("лист автора 17.11");
+  expect(pr.paths).toEqual([
+    "public/img/cars/ferrari-480.webp",
+    "public/img/cars/ferrari-256.webp",
+    "public/img/cars/ferrari-hero-1280.webp",
+    "public/img/cars/ferrari-hero-800.webp",
+    "public/img/cars/ferrari-hero-480.webp",
+    "src/data/curated/teams.json",
+  ]);
+});

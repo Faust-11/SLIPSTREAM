@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { KINDS, catalog, queue, type Kind } from "@/lib/admin/photos/catalog";
+import { KINDS, catalog, ncPhotos, queue, type Kind } from "@/lib/admin/photos/catalog";
 import { requireAdmin } from "@/lib/admin/session";
 
 export const metadata: Metadata = { title: "Фото" };
@@ -10,7 +10,7 @@ export default async function AdminPhotos({ searchParams }: { searchParams: Prom
   await requireAdmin();
   const { k, q = "" } = await searchParams;
   const kind: Kind = KINDS.some((x) => x.kind === k) ? (k as Kind) : "driver";
-  const items = await catalog(kind);
+  const [items, nc] = await Promise.all([catalog(kind), ncPhotos()]);
   const missing = queue(items);
   const needle = q.trim().toLowerCase();
   const found = needle ? items.filter((i) => `${i.name} ${i.id}`.toLowerCase().includes(needle)).slice(0, 60) : [];
@@ -52,6 +52,27 @@ export default async function AdminPhotos({ searchParams }: { searchParams: Prom
           <ItemList items={found} />
         </section>
       )}
+      <section className="ad-panel" aria-labelledby="ad-nc">
+        <h2 id="ad-nc">Лише некомерційно (NC) · {nc.length}</h2>
+        {nc.length === 0 ? (
+          <p className="ad-empty">Таких фото на сайті немає.</p>
+        ) : (
+          <>
+            <p className="ad-note">Якщо на сайті з&apos;явиться реклама, підписка чи спонсор — ці фото треба замінити.</p>
+            <ul className="ad-items">
+              {nc.map((i) => (
+                <li key={`${i.kind}/${i.id}/${i.where}`}>
+                  <Link href={`/admin/photos/${i.kind}/${encodeURIComponent(i.id)}`}>
+                    <b>{i.name}</b>
+                    <small>{i.where}</small>
+                  </Link>
+                  <span className="ad-chip is-one">NC</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </section>
       <section className="ad-panel" aria-labelledby="ad-queue">
         <h2 id="ad-queue">Без фото · спершу найважливіші</h2>
         {missing.length ? <ItemList items={missing} /> : <p className="ad-empty">У цьому розділі фото є в усіх.</p>}
