@@ -36,6 +36,8 @@ const prs = [];
 const trees = new Map(); // дерево → шляхи
 const commits = new Map(); // коміт → дерево
 const refs = new Map(); // гілка → коміт
+const blobs = new Map(); // blob → вміст (Buffer): e2e бачать, що саме опубліковано
+const treeBlobs = new Map(); // дерево → { шлях: blob }
 let seq = 0;
 const FILES = [
   { title: "File:Fake Driver Portrait 1958.jpg", license: "Public domain", artist: "<a href=\"x\">Fake Photographer</a>" },
@@ -145,10 +147,15 @@ createServer(async (req, res) => {
     }
     if (req.method === "POST") {
       const b = JSON.parse((await body(req)) || "{}");
-      if (p === "/git/blobs") return json(res, 201, { sha: `blob${++seq}` });
+      if (p === "/git/blobs") {
+        const sha = `blob${++seq}`;
+        blobs.set(sha, Buffer.from(b.content ?? "", "base64"));
+        return json(res, 201, { sha });
+      }
       if (p === "/git/trees") {
         const sha = `tree${++seq}`;
         trees.set(sha, b.tree.map((e) => e.path));
+        treeBlobs.set(sha, Object.fromEntries(b.tree.map((e) => [e.path, e.sha])));
         return json(res, 201, { sha });
       }
       if (p === "/git/commits") {
@@ -163,8 +170,10 @@ createServer(async (req, res) => {
       if (p === "/pulls") {
         const number = 1000 + prs.length;
         // Шляхи — з дерева коміту саме цієї гілки (паралельні тести не змішуються).
-        const lastTree = trees.get(commits.get(refs.get(b.head))) ?? [];
-        prs.push({ number, title: b.title, body: b.body, draft: !!b.draft, head: { ref: b.head }, html_url: `https://github.com/Faust-11/SLIPSTREAM/pull/${number}`, labels: [{ name: "admin" }], merged_at: null, paths: lastTree });
+        const treeSha = commits.get(refs.get(b.head));
+        const lastTree = trees.get(treeSha) ?? [];
+        const files = Object.fromEntries(Object.entries(treeBlobs.get(treeSha) ?? {}).filter(([, sha]) => blobs.has(sha)).map(([path, sha]) => [path, blobs.get(sha).toString("utf8")]));
+        prs.push({ number, title: b.title, body: b.body, draft: !!b.draft, head: { ref: b.head }, html_url: `https://github.com/Faust-11/SLIPSTREAM/pull/${number}`, labels: [{ name: "admin" }], merged_at: null, paths: lastTree, files });
         return json(res, 201, { number, html_url: `https://github.com/Faust-11/SLIPSTREAM/pull/${number}` });
       }
       if (/^\/issues\/\d+\/labels$/.test(p)) return json(res, 200, [{ name: "admin" }]);

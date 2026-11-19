@@ -40,6 +40,8 @@ type RawStory = {
   kicker?: L10n;
   featured?: boolean;
   race?: string;
+  /** `draft` — історія лежить у репозиторії, але на сайт не виходить (редактор адмінки, 7c). */
+  status?: "draft";
   links?: { seasons?: number[]; races?: string[]; drivers?: string[]; teams?: string[]; circuits?: string[]; stories?: string[] };
   checked?: string;
   sources: RawSource[];
@@ -88,20 +90,28 @@ export type StoryPage = StoryCard & {
 const ROOT = join(process.cwd(), "content", "stories");
 const places = (circuitsJson as unknown as { places: Record<string, { uk?: string; en?: string }> }).places;
 
+/**
+ * Історії з теки root: лише повні (story.json + обидві мови) і не чернетки (`status: "draft"`). Чернетки перевіряє
+ * scripts/content/check_stories.py так само, як опубліковані, але сторінок, списків, sitemap і карток для них немає.
+ */
+export function readStories(root: string): Loaded[] {
+  const dirs = readdirSync(root, { withFileTypes: true }).filter(
+    (d) => d.isDirectory() && ["story.json", "uk.md", "en.md"].every((f) => existsSync(join(root, d.name, f))),
+  );
+  return dirs
+    .map((d) => {
+      const dir = join(root, d.name);
+      const raw = JSON.parse(readFileSync(join(dir, "story.json"), "utf8")) as RawStory;
+      if (raw.slug !== d.name) throw new Error(`Історія ${d.name}: slug у story.json — «${raw.slug}»`);
+      return { raw, md: { uk: readFileSync(join(dir, "uk.md"), "utf8"), en: readFileSync(join(dir, "en.md"), "utf8") } };
+    })
+    .filter((s) => s.raw.status !== "draft");
+}
+
 let cache: Loaded[] | null = null;
 function loadAll(): Loaded[] {
-  if (cache) return cache;
-  // Лише повні історії (story.json + обидві мови): повноту в репозиторії гарантує scripts/content/check_stories.py.
-  const dirs = readdirSync(ROOT, { withFileTypes: true }).filter(
-    (d) => d.isDirectory() && ["story.json", "uk.md", "en.md"].every((f) => existsSync(join(ROOT, d.name, f))),
-  );
-  cache = dirs.map((d) => {
-    const dir = join(ROOT, d.name);
-    const raw = JSON.parse(readFileSync(join(dir, "story.json"), "utf8")) as RawStory;
-    if (raw.slug !== d.name) throw new Error(`Історія ${d.name}: slug у story.json — «${raw.slug}»`);
-    return { raw, md: { uk: readFileSync(join(dir, "uk.md"), "utf8"), en: readFileSync(join(dir, "en.md"), "utf8") } };
-  });
-  return cache;
+  // Лише повні історії: повноту в репозиторії гарантує scripts/content/check_stories.py.
+  return (cache ??= readStories(ROOT));
 }
 
 export function splitTitle(title: string): StoryCard["title"] {

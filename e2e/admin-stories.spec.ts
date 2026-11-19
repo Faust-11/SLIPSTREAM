@@ -54,3 +54,75 @@ test("доступність і телефон: без горизонтальн�
   const firstCell = page.locator(".ad-stories tbody tr").first().locator("td").first();
   expect(await firstCell.evaluate((el) => getComputedStyle(el, "::before").content)).toContain("Стан");
 });
+
+// ── Редактор (7c, задача 3). Кожен тест — своя історія: відкритий PR історії блокує нову публікацію (фейк не зливає PR). ──
+const lastPr = async (page: Page, has: string) => (await page.request.get(`${FAKE}/__last-pr?has=${encodeURIComponent(has)}`)).json();
+
+async function openStory(page: Page, slug: string) {
+  await login(page);
+  await page.locator(".ad-stories tbody tr", { hasText: slug }).locator("th a").first().click(); // перше посилання рядка — назва → редактор
+  await expect(page).toHaveURL(`${BASE}/admin/stories/${slug}`);
+}
+
+test("редактор: правка заголовка → PR зі зміненим лише story.json, diff на один рядок", async ({ page }) => {
+  await openStory(page, "women-in-f1");
+  await expect(page.getByRole("heading", { level: 1 })).not.toBeEmpty();
+  const title = page.locator('input[name="title_en"]');
+  const before = await title.inputValue();
+  await title.fill(`${before} (ред.)`);
+  await page.getByRole("button", { name: "Опублікувати зміни" }).click();
+  await expect(page.getByRole("status").filter({ hasText: "PR #" })).toContainText("створено");
+  const pr = await lastPr(page, "women-in-f1");
+  expect(pr.title).toBe("Історія · women-in-f1: заголовок");
+  expect(pr.draft).toBe(false);
+  expect(pr.paths).toEqual(["content/stories/women-in-f1/story.json"]);
+  const json = JSON.parse(pr.files["content/stories/women-in-f1/story.json"]);
+  expect(json.title.en).toBe(`${before} (ред.)`);
+  expect(json.slug).toBe("women-in-f1");
+});
+
+test("редактор: статус «чернетка» і правка тексту → PR з двома файлами; повторна публікація, поки PR відкритий, заблокована", async ({ page }) => {
+  await openStory(page, "austria-2002");
+  await page.locator('select[name="status"]').selectOption("draft");
+  const md = page.locator('textarea[name="md_uk"]');
+  await md.fill((await md.inputValue()) + "\n");
+  await page.getByRole("button", { name: "Опублікувати зміни" }).click();
+  await expect(page.getByRole("status").filter({ hasText: "PR #" })).toBeVisible();
+  const pr = await lastPr(page, "austria-2002");
+  expect(pr.title).toContain("статус: чернетка");
+  expect(JSON.parse(pr.files["content/stories/austria-2002/story.json"]).status).toBe("draft");
+  // Друга публікація тієї самої історії, поки перший PR не злитий, — відмова (лише PR, не затираємо).
+  await page.goto("/admin/stories/austria-2002");
+  await expect(page.getByRole("status").filter({ hasText: "чекають злиття" })).toBeVisible();
+  await page.locator('input[name="title_uk"]').fill("Інший заголовок");
+  await page.getByRole("button", { name: "Опублікувати зміни" }).click();
+  await expect(page.getByRole("alert")).toContainText("вже чекають злиття");
+});
+
+test("редактор: помилка валідації — PR не створюється, значення форми лишаються, фокус на підсумку", async ({ page }) => {
+  await openStory(page, "suzuka-1989");
+  await page.locator('input[name="s.0.del"]').check(); // джерело s1 використовують твердження
+  await page.locator('input[name="title_en"]').fill("Тимчасовий заголовок для перевірки");
+  await page.getByRole("button", { name: "Опублікувати зміни" }).click();
+  const alert = page.getByRole("alert");
+  await expect(alert).toContainText("відсутні в sources");
+  await expect(alert).toBeFocused();
+  await expect(page.locator('input[name="s.0.del"]')).toBeChecked();
+  await expect(page.locator('input[name="title_en"]')).toHaveValue("Тимчасовий заголовок для перевірки");
+  expect((await page.request.get(`${FAKE}/__last-pr?has=suzuka-1989`)).status()).toBe(404);
+});
+
+test("редактор: збереження без правок — «Немає змін»; доступність і телефон", async ({ page }) => {
+  await openStory(page, "spa-2021");
+  await page.getByRole("button", { name: "Опублікувати зміни" }).click();
+  await expect(page.getByRole("alert")).toContainText("Немає змін");
+  await expectNoA11yViolations(page);
+  await page.setViewportSize({ width: 360, height: 800 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+});
+
+test("редактор: неіснуюча історія — 404", async ({ page }) => {
+  await login(page);
+  const res = await page.goto("/admin/stories/no-such-story");
+  expect(res?.status()).toBe(404);
+});

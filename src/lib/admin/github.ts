@@ -83,7 +83,7 @@ const toBase64 = (c: string | Uint8Array) => Buffer.from(typeof c === "string" ?
 
 /** Мітка часу гілки: 20261115-142233 (UTC). */
 export function branchName(section: string, now = new Date()): string {
-  if (!/^[a-z0-9-]{1,32}$/.test(section)) throw new Error(`розділ: ${section}`);
+  if (!/^[a-z0-9-]{1,64}$/.test(section)) throw new Error(`розділ: ${section}`);
   const t = now.toISOString().replace(/[-:]/g, "").replace("T", "-").slice(0, 15);
   return `admin/${section}-${t}`;
 }
