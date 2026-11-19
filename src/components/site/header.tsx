@@ -15,7 +15,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
     <>
       <header className="site-head">
         <div className="wrap">
-          <Brand href={localizedPath("/", locale)} label={dict.header.home} name="OUTLAP" />
+          <Brand href={localizedPath("/", locale)} label={dict.header.home} />
           <MainNav items={items} label={dict.header.mainNav} />
           <LangSwitch current={locale} label={dict.header.language} names={dict.header.languageNames} />
           <ThemeToggle labels={dict.theme} className="theme-btn" />

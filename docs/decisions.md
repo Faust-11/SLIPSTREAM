@@ -520,10 +520,15 @@
   редіректяться на нього тим самим шляхом (308) правилами `redirects()` у `next.config.ts` (тест
   `src/lib/__tests__/redirects.test.ts`); у Vercel www теж налаштовано редіректом на корінь. Змінна `SITE_URL` у Production —
   `https://outlap.org` (canonical, hreflang, sitemap, OG-адреси беруться з неї).
-- **Знак:** роундел «S» замінено на «O» — коло траси з бордюрами й лінією старт/фініш (виїзд із піту й коло, що замикається).
-  Єдине джерело геометрії — `scripts/assets/roundel_gen.py` (пише `scripts/assets/roundel.svg` і
-  `src/components/site/roundel-svg.ts`); далі `node scripts/assets/favicons.mjs` і
-  `PLAYWRIGHT_CHANNEL=chrome node scripts/og/build.mjs`. Назва в шапці — «OUTLAP» (Rubik Mono One, як було).
+- **Логотип (рішення користувача 19.11, замість мого роундела «O»):** надане зображення — дуга траси з червоно-білим
+  бордюром + напис «OUTLAP» (OUT темне, LAP червоне) + підпис «THE F1 HUB». Растр векторизовано —
+  `scripts/assets/logo_trace.py` (джерело `scripts/assets/source/outlap-logo-source.jpg`; компоненти зв'язності: дорога й
+  тонкі лінії = знак, літери = напис, дрібні = підпис; світлі смуги бордюру — «папір»; contourpy + shapely, evenodd).
+  Виходи: `src/components/site/logo-paths.ts` (компонент `<Logo>`), `public/brand/outlap-{logo,wordmark,mark}[-for-dark].svg`,
+  `scripts/assets/logo-meta.json`. Шапка/підвал завжди темні → «чорнило» й смуги світлі (`--logo-ink`, `--logo-paper`),
+  червоний фірмовий. Підпис «THE F1 HUB» — лише в картках прев'ю й повних версіях (у шапці нечитний).
+  Фавікони/іконки: `node scripts/assets/favicons.mjs` (знак на темній плитці #16181D); картки прев'ю:
+  `PLAYWRIGHT_CHANNEL=chrome node scripts/og/build.mjs`. Жовтий лишається акцентом інтерфейсу, у логотипі його нема.
 - **Що свідомо НЕ перейменовано:** ключі localStorage/sessionStorage гри (`slipstream-hotlap-*` — інакше користувачі
   втратять рекорди), JWT-атрибути й User-Agent адмінки (`slipstream-admin` — внутрішні), назва репозиторію
   `Faust-11/SLIPSTREAM` (окреме рішення: перейменування змінює адреси GitHub/Actions), термін «Сліпстрім/Slipstream» у

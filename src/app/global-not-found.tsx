@@ -36,7 +36,7 @@ export default async function GlobalNotFound() {
           <div className="wrap">
             {dicts.map(({ locale, dict }) => (
               <div key={locale} data-nf={locale} lang={locale} className="nf-brand">
-                <Brand href={localizedPath("/", locale)} label={dict.header.home} name="OUTLAP" />
+                <Brand href={localizedPath("/", locale)} label={dict.header.home} />
               </div>
             ))}
           </div>
