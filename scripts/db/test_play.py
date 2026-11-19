@@ -16,6 +16,7 @@ import os
 import sys
 import uuid
 from pathlib import Path
+from typing import Any
 
 import psycopg
 
@@ -33,14 +34,21 @@ def check(label: str, ok: bool, detail: object = "") -> None:
     print(f"{'PASS' if ok else 'FAIL'}  {label}" + (f" — {detail}" if not ok and detail != "" else ""))
 
 
-def q(sql: str, *args):
+def q(sql: str, *args) -> list[tuple]:
     cur = conn.execute(sql, args)
     return cur.fetchall() if cur.description else []
 
 
-def one(sql: str, *args):
+def one(sql: str, *args) -> Any:
     rows = q(sql, *args)
     return rows[0][0] if rows else None
+
+
+def scalar(sql: str, *args) -> Any:
+    """Як one, але рядок обов'язковий (insert … returning, агрегати): None — збій тесту, а не тихий null."""
+    rows = q(sql, *args)
+    assert rows, f"запит не повернув рядків: {sql[:60]}"
+    return rows[0][0]
 
 
 @contextlib.contextmanager
@@ -88,21 +96,21 @@ def fails(label: str, msg: str, sql: str, *args, as_role: str | None = None, uid
 # ---------------------------------------------------------------------------
 YEAR = 2099
 conn.execute("insert into f1.seasons(year) values (%s)", (YEAR,))
-TEAM = {}
+TEAM: dict[int, int] = {}
 for t in range(1, 8):
-    TEAM[t] = one("insert into f1.teams(ref, name) values (%s, %s) returning id", f"playt-team-{t}", f"Test team {t}")
+    TEAM[t] = scalar("insert into f1.teams(ref, name) values (%s, %s) returning id", f"playt-team-{t}", f"Test team {t}")
 DRV: dict[int, int] = {}
 DRV_TEAM: dict[int, int] = {}
 for d in range(1, 15):
-    DRV[d] = one("insert into f1.drivers(ref, forename, surname) values (%s, 'Test', %s) returning id", f"playt-drv-{d}", f"Driver {d}")
+    DRV[d] = scalar("insert into f1.drivers(ref, forename, surname) values (%s, 'Test', %s) returning id", f"playt-drv-{d}", f"Driver {d}")
     DRV_TEAM[d] = TEAM[(d + 1) // 2]
 ROUND_ID: dict[int, int] = {}
 for n in range(1, 8):
-    ROUND_ID[n] = one("insert into f1.rounds(season_year, number, name) values (%s, %s, %s) returning id", YEAR, n, f"Test GP {n}")
+    ROUND_ID[n] = scalar("insert into f1.rounds(season_year, number, name) values (%s, %s, %s) returning id", YEAR, n, f"Test GP {n}")
 
 
 def session(rnd: int, typ: str, starts_sql: str = "null") -> int:
-    return one(f"insert into f1.sessions(round_id, type, starts_at) values (%s, %s, {starts_sql}) returning id", ROUND_ID[rnd], typ)
+    return scalar(f"insert into f1.sessions(round_id, type, starts_at) values (%s, %s, {starts_sql}) returning id", ROUND_ID[rnd], typ)
 
 
 def result(sid: int, d: int, pos: int | None, classified: bool, status: int = 0) -> None:
@@ -173,9 +181,11 @@ def points(user: str, rnd: int, kind: str):
                U[user], YEAR, rnd, kind)
 
 
-def breakdown(user: str, rnd: int, kind: str):
-    return one("select s.breakdown from play.predictions p join play.scores s on s.prediction_id=p.id where p.user_id=%s and p.season_year=%s and p.round=%s and p.kind=%s",
+def breakdown(user: str, rnd: int, kind: str) -> dict:
+    res = one("select s.breakdown from play.predictions p join play.scores s on s.prediction_id=p.id where p.user_id=%s and p.season_year=%s and p.round=%s and p.kind=%s",
                U[user], YEAR, rnd, kind)
+    assert res is not None, f"немає очок: {user} етап {rnd} {kind}"
+    return res
 
 
 # ---------------------------------------------------------------------------
@@ -224,7 +234,7 @@ denied("authenticated не вставляє в predictions напряму", "ins
 denied("authenticated не оновлює predictions напряму", "update play.predictions set kind='Q'", as_role="authenticated", uid=U["a"])
 denied("authenticated не видаляє predictions напряму", "delete from play.predictions", as_role="authenticated", uid=U["a"])
 denied("authenticated не пише в scores", "insert into play.scores(prediction_id, points, breakdown) values (1, 999, '{}')", as_role="authenticated", uid=U["a"])
-denied("authenticated не змінює профіль напряму (нік/блокування)", "update play.profiles set blocked = false", as_role="authenticated", uid=U["a"])
+denied("authenticated не змінює профіль напряму (нік/блокування)", "update play.profiles set nick_hidden = false", as_role="authenticated", uid=U["a"])
 denied("authenticated не викликає score_round", "select play.score_round(%s, 1)", YEAR, as_role="authenticated", uid=U["a"])
 denied("authenticated не викликає close_season", "select play.close_season(%s)", YEAR, as_role="authenticated", uid=U["a"])
 denied("authenticated не викликає score_all", "select play.score_all()", as_role="authenticated", uid=U["a"])
@@ -314,12 +324,13 @@ conn.execute("alter table play.predictions enable trigger predictions_guard")
 with role("anon"):
     rev = [r[0] for r in q("select player from play.revealed_predictions where season_year=%s and round=2 order by player", YEAR)]
 check("після дедлайну (етап 2) прогнози видно всім", rev == ["Player A", "Player G"], rev)
-conn.execute("update play.profiles set blocked = true where user_id=%s", (U["g"],))
+conn.execute("insert into play.blocked_users(user_id) values (%s)", (U["g"],))
 with role("anon"):
     rev = [r[0] for r in q("select player from play.revealed_predictions where season_year=%s and round=2", YEAR)]
 check("заблокований гравець зникає з публічних подань", rev == ["Player A"], rev)
-fails("заблокований не зберігає прогноз", "no_profile", "select play.save_prediction(%s,1,'Q',%s::bigint[])", YEAR, drv(*pad(1, 2, 3)), as_role="authenticated", uid=U["g"])
-conn.execute("update play.profiles set blocked = false, nick_hidden = true where user_id=%s", (U["g"],))
+fails("заблокований не зберігає прогноз", "blocked", "select play.save_prediction(%s,1,'Q',%s::bigint[])", YEAR, drv(*pad(1, 2, 3)), as_role="authenticated", uid=U["g"])
+conn.execute("delete from play.blocked_users where user_id=%s", (U["g"],))
+conn.execute("update play.profiles set nick_hidden = true where user_id=%s", (U["g"],))
 with role("anon"):
     rev = [r[0] for r in q("select player from play.revealed_predictions where season_year=%s and round=2 order by player", YEAR)]
 check("прихований нік замінено на «Гравець XXXX», прогноз лишився", len(rev) == 2 and "Player G" not in rev and sum(n.startswith("Гравець ") for n in rev) == 1, rev)
@@ -337,7 +348,7 @@ picks3 = drv(*pad(1, 2, 3))
 
 
 def seed(user: str, rnd: int, pts: int) -> None:
-    pid = one("insert into play.predictions(user_id, season_year, round, kind, picks) values (%s,%s,%s,'Q',%s::bigint[]) returning id", U[user], YEAR, rnd, picks3)
+    pid = scalar("insert into play.predictions(user_id, season_year, round, kind, picks) values (%s,%s,%s,'Q',%s::bigint[]) returning id", U[user], YEAR, rnd, picks3)
     conn.execute("insert into play.scores(prediction_id, points, breakdown) values (%s,%s,'{}')", (pid, pts))
 
 
@@ -351,7 +362,7 @@ seed("c", 1, 150)
 for rnd in (1, 4, 6, 7):
     seed("d", rnd, 20)
     seed("e", rnd, 125)
-conn.execute("update play.profiles set blocked = true where user_id=%s", (U["e"],))
+conn.execute("insert into play.blocked_users(user_id) values (%s)", (U["e"],))
 with role("anon"):
     st = q("select player, points, rounds, place, eligible, rounds_counted from play.season_standings where season_year=%s order by place, player", YEAR)
 check("таблиця: c=150 (1), a=b=100 (2, 2), d=80 (4); заблокований e відсутній",
@@ -377,7 +388,7 @@ denied("anon не читає season_champions напряму", "select * from pl
 denied("authenticated не читає season_closures", "select * from play.season_closures", as_role="authenticated", uid=U["a"])
 
 # Неоцінені прогнози блокують закриття
-pid = one("insert into play.predictions(user_id, season_year, round, kind, picks) values (%s,%s,1,'R',%s::bigint[]) returning id", U["d"], YEAR, picks3)
+pid = scalar("insert into play.predictions(user_id, season_year, round, kind, picks) values (%s,%s,1,'R',%s::bigint[]) returning id", U["d"], YEAR, picks3)
 fails("close_season: є неоцінений прогноз на етап із результатами — відмова", "season_not_scored", "select play.close_season(%s)", YEAR)
 conn.execute("alter table play.predictions enable trigger predictions_guard")
 
@@ -389,6 +400,20 @@ check("видалення профілю прибрало прогнози, оч
       one("select count(*) from play.profiles where user_id=%s", U["b"]) == 0
       and one("select count(*) from play.predictions where user_id=%s", U["b"]) == 0
       and one("select count(*) from play.season_champions where user_id=%s", U["b"]) == 0)
+# Блокування переживає видалення профілю: block → delete_my_profile → set_nick / save_prediction відхиляються (рев'ю безпеки)
+conn.execute("insert into play.blocked_users(user_id) values (%s)", (U["f"],))
+ok, err = attempt("select play.delete_my_profile()", as_role="authenticated", uid=U["f"])
+check("заблокований може видалити свої дані (право на видалення)", ok and one("select count(*) from play.profiles where user_id=%s", U["f"]) == 0
+      and one("select count(*) from play.predictions where user_id=%s", U["f"]) == 0, err)
+check("…а запис блокування лишається (лише службовий uid, без ніка й прогнозів)", one("select count(*) from play.blocked_users where user_id=%s", U["f"]) == 1)
+fails("block → видалення профілю → set_nick відхилено", "blocked", "select play.set_nick(%s)", "Fresh Start", as_role="authenticated", uid=U["f"])
+fails("block → видалення профілю → save_prediction відхилено", "blocked", "select play.save_prediction(%s,1,'Q',%s::bigint[])", YEAR, drv(*pad(1, 2, 3)), as_role="authenticated", uid=U["f"])
+check("після відхилення профіль не створився", one("select count(*) from play.profiles where user_id=%s", U["f"]) == 0)
+denied("authenticated не читає й не знімає блокування", "delete from play.blocked_users", as_role="authenticated", uid=U["f"])
+conn.execute("delete from play.blocked_users where user_id=%s", (U["f"],))
+ok, err = attempt("select play.set_nick(%s)", "Fresh Start", as_role="authenticated", uid=U["f"])
+check("після зняття блокування модератором set_nick знову працює", ok, err)
+
 conn.execute("delete from auth.users where id=%s", (U["c"],))
 check("видалення користувача auth каскадом прибирає профіль і прогнози", one("select count(*) from play.profiles where user_id=%s", U["c"]) == 0 and one("select count(*) from play.predictions where user_id=%s", U["c"]) == 0)
 

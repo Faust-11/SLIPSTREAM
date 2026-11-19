@@ -49,7 +49,6 @@ create table if not exists play.profiles (
   user_id      uuid primary key references auth.users(id) on delete cascade,
   nick         text not null,
   nick_hidden  boolean not null default false,   -- модерація: образливий нік замінюється на «Гравець XXXX», результати лишаються
-  blocked      boolean not null default false,   -- не пише, не потрапляє в публічні подання й титули
   created_at   timestamptz not null default now(),
   -- email у ніку заборонено (приватність), керуючі символи теж; «Гравець …» — зарезервовано під приховані ніки.
   constraint profiles_nick_chk check (nick = btrim(nick) and char_length(nick) between 3 and 24
@@ -58,6 +57,15 @@ create table if not exists play.profiles (
     case when nick_hidden then 'Гравець ' || upper(substr(md5(user_id::text), 1, 4)) else nick end) stored
 );
 create unique index if not exists profiles_nick_lower_idx on play.profiles (lower(nick));
+
+-- Блокування модератором — окремо від профілю й БЕЗ зовнішнього ключа: видалення профілю (право гравця на видалення даних)
+-- не знімає блокування, інакше заблокований обійшов би його «видалити профіль → set_nick → новий чистий профіль».
+-- Запис не містить персональних даних (лише службовий uid); ніка, прогнозів і очок після видалення профілю немає.
+-- Заблокований не пише, не потрапляє в публічні подання й титули. Знімає блокування лише модератор (delete з таблиці).
+create table if not exists play.blocked_users (
+  user_id     uuid primary key,
+  blocked_at  timestamptz not null default now()
+);
 
 -- kind: Q — кваліфікація (топ-10), R — гонка (топ-10 + «яка команда не фінішує» або «усі фінішують»).
 create table if not exists play.predictions (
@@ -266,7 +274,7 @@ begin
   with per_user as (
     select p.user_id, sum(s.points)::int as points, count(distinct p.round)::int as rounds
     from play.predictions p join play.scores s on s.prediction_id = p.id
-    join play.profiles pr on pr.user_id = p.user_id and not pr.blocked
+    join play.profiles pr on pr.user_id = p.user_id and not exists (select 1 from play.blocked_users b where b.user_id = pr.user_id)
     where p.season_year = p_year group by p.user_id
   ),
   eligible as (select * from per_user where rounds >= v_min),
@@ -316,7 +324,7 @@ declare
   v_uid uuid := auth.uid();
 begin
   if v_uid is null then raise exception 'not_authenticated' using errcode = '28000'; end if;
-  if exists (select 1 from play.profiles where user_id = v_uid and blocked) then
+  if exists (select 1 from play.blocked_users where user_id = v_uid) then
     raise exception 'blocked' using errcode = 'P0001';
   end if;
   -- Порушення формату (check) і зайнятий нік (унікальний індекс) — звичайні помилки 23514 / 23505.
@@ -334,7 +342,10 @@ declare
   v_uid uuid := auth.uid();
 begin
   if v_uid is null then raise exception 'not_authenticated' using errcode = '28000'; end if;
-  if not exists (select 1 from play.profiles where user_id = v_uid and not blocked) then
+  if exists (select 1 from play.blocked_users where user_id = v_uid) then
+    raise exception 'blocked' using errcode = 'P0001';
+  end if;
+  if not exists (select 1 from play.profiles where user_id = v_uid) then
     raise exception 'no_profile' using errcode = 'P0001';
   end if;
   if p_kind is null or p_kind not in ('Q', 'R') then raise exception 'bad_kind' using errcode = 'P0001'; end if;
@@ -362,6 +373,7 @@ revoke all on function play.save_prediction(int, int, text, bigint[], bigint, bo
 grant execute on function play.save_prediction(int, int, text, bigint[], bigint, boolean) to authenticated, service_role;
 
 -- Видалення своїх даних (профіль → прогнози → очки → титули каскадом); користувача в auth видаляє сервер (admin API).
+-- Дозволено й заблокованому: блокування живе в play.blocked_users і видалення не знімає.
 create or replace function play.delete_my_profile() returns void
 language plpgsql security definer set search_path = pg_catalog, f1, play as $$
 begin
@@ -394,25 +406,25 @@ select t.season_year, pr.public_name as player, t.points, t.rounds,
        (rank() over (partition by t.season_year order by t.points desc))::int as place,
        c.n as rounds_counted, (t.rounds >= ceil(c.n / 2.0)) as eligible
 from tot t
-join play.profiles pr on pr.user_id = t.user_id and not pr.blocked
+join play.profiles pr on pr.user_id = t.user_id and not exists (select 1 from play.blocked_users b where b.user_id = pr.user_id)
 join counted c on c.season_year = t.season_year;
 
 create or replace view play.round_standings as
 select rp.season_year, rp.round, pr.public_name as player, rp.points,
        (rank() over (partition by rp.season_year, rp.round order by rp.points desc))::int as place
 from play.round_points rp
-join play.profiles pr on pr.user_id = rp.user_id and not pr.blocked;
+join play.profiles pr on pr.user_id = rp.user_id and not exists (select 1 from play.blocked_users b where b.user_id = pr.user_id);
 
 create or replace view play.champions as
 select c.season_year, pr.public_name as player, c.points, c.rounds_played, c.rounds_counted
 from play.season_champions c
-join play.profiles pr on pr.user_id = c.user_id and not pr.blocked;
+join play.profiles pr on pr.user_id = c.user_id and not exists (select 1 from play.blocked_users b where b.user_id = pr.user_id);
 
 -- Прогнози всіх гравців — лише після дедлайну вікенду (до того — тільки свої, через RLS таблиці predictions).
 create or replace view play.revealed_predictions as
 select p.id, p.season_year, p.round, p.kind, pr.public_name as player, p.picks, p.dnf_team_id, p.all_finish, s.points
 from play.predictions p
-join play.profiles pr on pr.user_id = p.user_id and not pr.blocked
+join play.profiles pr on pr.user_id = p.user_id and not exists (select 1 from play.blocked_users b where b.user_id = pr.user_id)
 left join play.scores s on s.prediction_id = p.id
 where play.deadline(p.season_year, p.round) is not null and clock_timestamp() >= play.deadline(p.season_year, p.round);
 
@@ -424,6 +436,7 @@ alter table play.predictions     enable row level security;
 alter table play.scores          enable row level security;
 alter table play.season_champions enable row level security;
 alter table play.season_closures enable row level security;
+alter table play.blocked_users   enable row level security;
 
 drop policy if exists profiles_own_select on play.profiles;
 create policy profiles_own_select on play.profiles for select to authenticated using (user_id = auth.uid());
