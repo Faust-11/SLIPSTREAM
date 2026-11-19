@@ -75,6 +75,40 @@ structure("немає прав «за замовчуванням» для anon/a
     select d.defaclobjtype::text from pg_default_acl d join pg_namespace n on n.oid = d.defaclnamespace
     where n.nspname = 'f1' and array_to_string(d.defaclacl, ',') ~ '(^|,)(anon|authenticated)='""")
 
+# --- Схема play (фаза 9b): прогнози. Писати можна лише функціями; публічне — лише перелічені подання. ---
+PLAY_PUBLIC_VIEWS = ("season_standings", "round_standings", "champions", "revealed_predictions")
+PLAY_OWN_TABLES = ("profiles", "predictions", "scores")        # authenticated читає свої рядки через RLS-політики
+PLAY_ANON_FUNCTIONS = ("deadline",)
+PLAY_AUTH_FUNCTIONS = ("deadline", "set_nick", "save_prediction", "delete_my_profile")
+quote = lambda names: ", ".join(f"'{n}'" for n in names)
+structure("RLS увімкнено на кожній таблиці play", """
+    select c.relname from pg_class c join pg_namespace n on n.oid = c.relnamespace
+    where n.nspname = 'play' and c.relkind in ('r', 'p') and not c.relrowsecurity order by 1""")
+structure(f"anon читає в play лише {', '.join(PLAY_PUBLIC_VIEWS)}", f"""
+    select c.relname from pg_class c join pg_namespace n on n.oid = c.relnamespace
+    where n.nspname = 'play' and c.relkind in ('r', 'p', 'v', 'm', 'f') and has_table_privilege('anon', c.oid, 'select')
+      and c.relname not in ({quote(PLAY_PUBLIC_VIEWS)}) order by 1""")
+structure(f"authenticated читає в play лише {', '.join(PLAY_PUBLIC_VIEWS + PLAY_OWN_TABLES)}", f"""
+    select c.relname from pg_class c join pg_namespace n on n.oid = c.relnamespace
+    where n.nspname = 'play' and c.relkind in ('r', 'p', 'v', 'm', 'f') and has_table_privilege('authenticated', c.oid, 'select')
+      and c.relname not in ({quote(PLAY_PUBLIC_VIEWS + PLAY_OWN_TABLES)}) order by 1""")
+structure("anon/authenticated не мають прав запису в жодну таблицю play", """
+    select r.role || '.' || c.relname from pg_class c join pg_namespace n on n.oid = c.relnamespace
+    cross join (values ('anon'), ('authenticated')) as r(role)
+    where n.nspname = 'play' and c.relkind in ('r', 'p', 'v', 'm', 'f')
+      and has_table_privilege(r.role, c.oid, 'insert,update,delete,truncate,references,trigger') order by 1""")
+structure(f"anon виконує в play лише {', '.join(PLAY_ANON_FUNCTIONS)}", f"""
+    select p.proname from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+    where n.nspname = 'play' and has_function_privilege('anon', p.oid, 'execute')
+      and p.proname not in ({quote(PLAY_ANON_FUNCTIONS)}) order by 1""")
+structure(f"authenticated виконує в play лише {', '.join(PLAY_AUTH_FUNCTIONS)}", f"""
+    select p.proname from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+    where n.nspname = 'play' and has_function_privilege('authenticated', p.oid, 'execute')
+      and p.proname not in ({quote(PLAY_AUTH_FUNCTIONS)}) order by 1""")
+structure("немає прав «за замовчуванням» для anon/authenticated у play", """
+    select d.defaclobjtype::text from pg_default_acl d join pg_namespace n on n.oid = d.defaclnamespace
+    where n.nspname = 'play' and array_to_string(d.defaclacl, ',') ~ '(^|,)(anon|authenticated)='""")
+
 
 for role in ("anon", "authenticated"):
     check(f"{role} reads f1.teams", role, "select id from f1.teams limit 1")
