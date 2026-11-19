@@ -306,6 +306,16 @@ body::before {
   text-decoration: underline 3px var(--yellow);
   text-underline-offset: 7px;
 }
+.mnav .au-link {
+  opacity: 1;
+  min-height: 0;
+  gap: 12px;
+}
+.mnav .au-link .au-link-text {
+  flex: 1;
+  font: inherit;
+  max-width: none;
+}
 .mnav-theme {
   margin-top: 18px;
   align-self: flex-start;

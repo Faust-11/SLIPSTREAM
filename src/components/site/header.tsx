@@ -1,3 +1,4 @@
+import { AccountLink } from "@/components/auth/account-link";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { navItems } from "@/config/nav";
 import type { Locale } from "@/i18n/config";
@@ -11,6 +12,7 @@ import { MobileMenu } from "./mobile-menu";
 
 export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const items = navItems(locale, dict);
+  const account = { labels: dict.auth, loginHref: localizedPath("/login", locale), profileHref: localizedPath("/profile", locale) };
   return (
     <>
       <header className="site-head">
@@ -19,10 +21,16 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           <MainNav items={items} label={dict.header.mainNav} />
           <LangSwitch current={locale} label={dict.header.language} names={dict.header.languageNames} />
           <ThemeToggle labels={dict.theme} className="theme-btn" />
+          <AccountLink {...account} />
           <MobileMenu
             items={items}
             labels={{ open: dict.header.menu, nav: dict.header.mainNav }}
-            extra={<ThemeToggle labels={dict.theme} className="mnav-theme" withText />}
+            extra={
+              <>
+                <AccountLink {...account} withText className="mnav-account" />
+                <ThemeToggle labels={dict.theme} className="mnav-theme" withText />
+              </>
+            }
           />
           {/* До гідратації (або без JS) — та сама іконка, але посилання на розділи у футері. */}
           <a className="mnav-fallback" href="#sections">

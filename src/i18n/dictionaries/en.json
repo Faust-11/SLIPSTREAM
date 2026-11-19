@@ -1495,5 +1495,87 @@
   },
   "glossary": {
     "more": "In the glossary →"
+  },
+  "auth": {
+    "signIn": "Sign in",
+    "account": "Account",
+    "accountNick": "Account: {nick}",
+    "login": {
+      "title": "Sign in",
+      "description": "Sign in to Outlap with a code sent to your email.",
+      "stamp": "Account",
+      "h1": "Sign in",
+      "lead": "Enter your email and we will send an 8-digit code. No password to remember.",
+      "emailLabel": "Email",
+      "send": "Send code",
+      "sending": "Sending…",
+      "codeH": "Enter the code",
+      "codeSent": "We sent a code to {email}. It is valid for 10 minutes.",
+      "codeLabel": "Code from the email",
+      "codeHint": "Digits only. Check Spam if it does not arrive within a minute.",
+      "verify": "Sign in",
+      "verifying": "Checking…",
+      "resend": "Send a new code",
+      "resendWait": "Send a new code in {s} s",
+      "change": "Use another email",
+      "resent": "A new code has been sent.",
+      "privacy": "We use your email only to send the code and recognise you. It is never shown to other players.",
+      "errors": {
+        "invalidEmail": "That does not look like an email address.",
+        "invalidCode": "The code is wrong or has expired. Check it or request a new one.",
+        "rateLimited": "Too many attempts. Please wait a little and try again.",
+        "unavailable": "Sign-in is temporarily unavailable. Please try again later.",
+        "generic": "Something went wrong. Please try again."
+      }
+    },
+    "nick": {
+      "h": "Choose a nickname",
+      "lead": "Other players will see it in the standings. Your email stays private.",
+      "label": "Nickname",
+      "hint": "3–24 characters, no @. You can change it later.",
+      "save": "Save nickname",
+      "saving": "Saving…",
+      "saved": "Nickname saved.",
+      "errors": {
+        "short": "At least 3 characters.",
+        "long": "At most 24 characters.",
+        "chars": "Remove spaces at the ends, @ and special characters.",
+        "reserved": "This name format is reserved. Choose another one.",
+        "taken": "This nickname is already taken.",
+        "invalid": "This nickname is not allowed.",
+        "blocked": "This account cannot change the nickname.",
+        "unauthorized": "Your session has expired. Please sign in again.",
+        "unavailable": "Could not save right now. Please try again later.",
+        "rateLimited": "Too many attempts. Please wait a little."
+      }
+    },
+    "profile": {
+      "title": "Profile",
+      "description": "Your Outlap profile: nickname, sign out and account deletion.",
+      "stamp": "Account",
+      "h1": "Profile",
+      "loading": "Loading…",
+      "signedOutH": "You are not signed in",
+      "signedOutText": "Sign in to make predictions and keep your results.",
+      "signIn": "Sign in",
+      "nickLabel": "Your nickname",
+      "change": "Change nickname",
+      "signOut": "Sign out",
+      "signingOut": "Signing out…",
+      "unavailable": "The account service is temporarily unavailable. Please try again later.",
+      "deleteH": "Delete account",
+      "deleteText": "This permanently removes your account, nickname, predictions and points. It cannot be undone.",
+      "deleteBtn": "Delete my account",
+      "deleteConfirmH": "Delete the account for good?",
+      "deleteConfirmText": "Your email, nickname, predictions and points will be removed.",
+      "deleteCheck": "I understand this cannot be undone",
+      "deleteDo": "Delete forever",
+      "deleteDoing": "Deleting…",
+      "cancel": "Cancel",
+      "deleted": "Your account has been deleted. Thank you for playing.",
+      "deletedBlocked": "Your game data has been deleted. A minimal service record stays because the account was blocked by a moderator.",
+      "deleteError": "Could not delete the account right now. Please try again later.",
+      "home": "Back to the site"
+    }
   }
 }
