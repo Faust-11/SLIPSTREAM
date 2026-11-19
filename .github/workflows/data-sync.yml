@@ -82,6 +82,18 @@ jobs:
         run: python scripts/jolpica/topup_api.py
       - name: Перевірка й публікація даних (FAIL — подання не оновлюються)
         run: python scripts/db/check_live.py --publish
+      # Очки «Прогнозів» (фаза 9b): повний перерахунок усіх етапів, де є прогнози (ідемпотентно: рядки змінюються лише при
+      # зміні результату, тож пізні штрафи теж підхоплюються). Збій не блокує публікацію даних і перезбірку сайту (гра окрема
+      # від історії), але валить прогін в кінці (крок «Збій підрахунку очків»), щоб його не пропустили.
+      - name: Очки прогнозів (play.score_all)
+        id: play_score
+        continue-on-error: true
+        run: |
+          python - <<'PY'
+          import os, psycopg
+          with psycopg.connect(os.environ["DATABASE_URL"], autocommit=True) as c:
+              print("оцінено прогнозів:", c.execute("select play.score_all()").fetchone()[0])
+          PY
       # Перевірка прав саме на бою: 11.11 вона знайшла читання f1.schema_migrations для anon, якого CI не бачив (0003).
       - name: Права доступу на бою (тестові зміни відкочуються)
         run: python scripts/db/rls_smoke.py
@@ -98,3 +110,8 @@ jobs:
           code=$(curl -sS -o hook.json -w '%{http_code}' -X POST "$VERCEL_DEPLOY_HOOK" || echo 000)
           echo "deploy hook: HTTP $code $(head -c 300 hook.json 2>/dev/null)"
           test "$code" -ge 200 && test "$code" -lt 300
+      - name: Збій підрахунку очків прогнозів
+        if: steps.play_score.outcome == 'failure'
+        run: |
+          echo "::error::play.score_all() завершилась помилкою — очки прогнозів не оновлено (дані сайту опубліковано), див. крок «Очки прогнозів»"
+          exit 1

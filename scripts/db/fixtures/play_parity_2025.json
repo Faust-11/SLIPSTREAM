@@ -1,0 +1,723 @@
+{
+ "season": 2025,
+ "totals": {
+  "Q_stand": 321,
+  "R_stand": 297,
+  "R_grid": 531
+ },
+ "rounds": {
+  "2": {
+   "stand": [
+    "norris",
+    "max_verstappen",
+    "russell",
+    "antonelli",
+    "albon",
+    "stroll",
+    "hulkenberg",
+    "leclerc",
+    "piastri",
+    "hamilton"
+   ],
+   "grid": [
+    "piastri",
+    "russell",
+    "norris",
+    "max_verstappen",
+    "hamilton",
+    "leclerc",
+    "hadjar",
+    "antonelli",
+    "tsunoda",
+    "albon"
+   ],
+   "expected": {
+    "Q_stand": 8,
+    "R_stand": 12,
+    "R_grid": 17
+   }
+  },
+  "3": {
+   "stand": [
+    "norris",
+    "max_verstappen",
+    "russell",
+    "piastri",
+    "antonelli",
+    "albon",
+    "ocon",
+    "stroll",
+    "hamilton",
+    "leclerc"
+   ],
+   "grid": [
+    "max_verstappen",
+    "norris",
+    "piastri",
+    "leclerc",
+    "russell",
+    "antonelli",
+    "hadjar",
+    "hamilton",
+    "albon",
+    "bearman"
+   ],
+   "expected": {
+    "Q_stand": 8,
+    "R_stand": 8,
+    "R_grid": 51
+   }
+  },
+  "4": {
+   "stand": [
+    "norris",
+    "max_verstappen",
+    "piastri",
+    "russell",
+    "antonelli",
+    "leclerc",
+    "albon",
+    "hamilton",
+    "ocon",
+    "stroll"
+   ],
+   "grid": [
+    "piastri",
+    "russell",
+    "leclerc",
+    "antonelli",
+    "gasly",
+    "norris",
+    "max_verstappen",
+    "sainz",
+    "hamilton",
+    "tsunoda"
+   ],
+   "expected": {
+    "Q_stand": 7,
+    "R_stand": 7,
+    "R_grid": 24
+   }
+  },
+  "5": {
+   "stand": [
+    "norris",
+    "piastri",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "antonelli",
+    "hamilton",
+    "albon",
+    "ocon",
+    "stroll"
+   ],
+   "grid": [
+    "max_verstappen",
+    "piastri",
+    "russell",
+    "leclerc",
+    "antonelli",
+    "sainz",
+    "hamilton",
+    "tsunoda",
+    "gasly",
+    "norris"
+   ],
+   "expected": {
+    "Q_stand": 16,
+    "R_stand": 12,
+    "R_grid": 10
+   }
+  },
+  "6": {
+   "stand": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "antonelli",
+    "hamilton",
+    "albon",
+    "ocon",
+    "stroll"
+   ],
+   "grid": [
+    "max_verstappen",
+    "norris",
+    "antonelli",
+    "piastri",
+    "russell",
+    "sainz",
+    "albon",
+    "leclerc",
+    "ocon",
+    "tsunoda"
+   ],
+   "expected": {
+    "Q_stand": 17,
+    "R_stand": 26,
+    "R_grid": 18
+   }
+  },
+  "7": {
+   "stand": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "antonelli",
+    "hamilton",
+    "albon",
+    "ocon",
+    "stroll"
+   ],
+   "grid": [
+    "piastri",
+    "max_verstappen",
+    "russell",
+    "norris",
+    "alonso",
+    "sainz",
+    "albon",
+    "stroll",
+    "hadjar",
+    "gasly"
+   ],
+   "expected": {
+    "Q_stand": 15,
+    "R_stand": 14,
+    "R_grid": 9
+   }
+  },
+  "8": {
+   "stand": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "antonelli",
+    "albon",
+    "ocon",
+    "stroll"
+   ],
+   "grid": [
+    "norris",
+    "leclerc",
+    "piastri",
+    "hamilton",
+    "max_verstappen",
+    "hadjar",
+    "alonso",
+    "ocon",
+    "lawson",
+    "albon"
+   ],
+   "expected": {
+    "Q_stand": 7,
+    "R_stand": 7,
+    "R_grid": 42
+   }
+  },
+  "9": {
+   "stand": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "antonelli",
+    "albon",
+    "ocon",
+    "hadjar"
+   ],
+   "grid": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "russell",
+    "hamilton",
+    "antonelli",
+    "leclerc",
+    "gasly",
+    "hadjar",
+    "alonso"
+   ],
+   "expected": {
+    "Q_stand": 41,
+    "R_stand": 27,
+    "R_grid": 29
+   }
+  },
+  "10": {
+   "stand": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "antonelli",
+    "albon",
+    "hadjar",
+    "ocon"
+   ],
+   "grid": [
+    "russell",
+    "max_verstappen",
+    "piastri",
+    "antonelli",
+    "hamilton",
+    "alonso",
+    "norris",
+    "leclerc",
+    "hadjar",
+    "albon"
+   ],
+   "expected": {
+    "Q_stand": 11,
+    "R_stand": 11,
+    "R_grid": 23
+   }
+  },
+  "11": {
+   "stand": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "antonelli",
+    "albon",
+    "ocon",
+    "hadjar"
+   ],
+   "grid": [
+    "norris",
+    "leclerc",
+    "piastri",
+    "hamilton",
+    "russell",
+    "lawson",
+    "max_verstappen",
+    "bortoleto",
+    "antonelli",
+    "gasly"
+   ],
+   "expected": {
+    "Q_stand": 7,
+    "R_stand": 6,
+    "R_grid": 24
+   }
+  },
+  "12": {
+   "stand": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "antonelli",
+    "albon",
+    "ocon",
+    "hulkenberg"
+   ],
+   "grid": [
+    "max_verstappen",
+    "piastri",
+    "norris",
+    "russell",
+    "hamilton",
+    "leclerc",
+    "antonelli",
+    "bearman",
+    "alonso",
+    "gasly"
+   ],
+   "expected": {
+    "Q_stand": 11,
+    "R_stand": 9,
+    "R_grid": 16
+   }
+  },
+  "13": {
+   "stand": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "antonelli",
+    "albon",
+    "hulkenberg",
+    "ocon"
+   ],
+   "grid": [
+    "norris",
+    "piastri",
+    "leclerc",
+    "max_verstappen",
+    "albon",
+    "russell",
+    "tsunoda",
+    "hadjar",
+    "lawson",
+    "bortoleto"
+   ],
+   "expected": {
+    "Q_stand": 6,
+    "R_stand": 23,
+    "R_grid": 15
+   }
+  },
+  "14": {
+   "stand": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "antonelli",
+    "albon",
+    "hulkenberg",
+    "ocon"
+   ],
+   "grid": [
+    "leclerc",
+    "piastri",
+    "norris",
+    "russell",
+    "alonso",
+    "stroll",
+    "bortoleto",
+    "max_verstappen",
+    "lawson",
+    "hadjar"
+   ],
+   "expected": {
+    "Q_stand": 7,
+    "R_stand": 6,
+    "R_grid": 18
+   }
+  },
+  "15": {
+   "stand": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "antonelli",
+    "albon",
+    "hulkenberg",
+    "ocon"
+   ],
+   "grid": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "hadjar",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "lawson",
+    "sainz",
+    "alonso"
+   ],
+   "expected": {
+    "Q_stand": 37,
+    "R_stand": 18,
+    "R_grid": 14
+   }
+  },
+  "16": {
+   "stand": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "antonelli",
+    "albon",
+    "hulkenberg",
+    "hadjar"
+   ],
+   "grid": [
+    "max_verstappen",
+    "norris",
+    "piastri",
+    "leclerc",
+    "hamilton",
+    "russell",
+    "antonelli",
+    "bortoleto",
+    "alonso",
+    "tsunoda"
+   ],
+   "expected": {
+    "Q_stand": 16,
+    "R_stand": 20,
+    "R_grid": 43
+   }
+  },
+  "17": {
+   "stand": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "albon",
+    "antonelli",
+    "hadjar",
+    "hulkenberg"
+   ],
+   "grid": [
+    "max_verstappen",
+    "sainz",
+    "lawson",
+    "antonelli",
+    "russell",
+    "tsunoda",
+    "norris",
+    "hadjar",
+    "piastri",
+    "leclerc"
+   ],
+   "expected": {
+    "Q_stand": 7,
+    "R_stand": 7,
+    "R_grid": 24
+   }
+  },
+  "18": {
+   "stand": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "antonelli",
+    "albon",
+    "hadjar",
+    "hulkenberg"
+   ],
+   "grid": [
+    "russell",
+    "max_verstappen",
+    "piastri",
+    "antonelli",
+    "norris",
+    "hamilton",
+    "leclerc",
+    "hadjar",
+    "bearman",
+    "alonso"
+   ],
+   "expected": {
+    "Q_stand": 10,
+    "R_stand": 7,
+    "R_grid": 27
+   }
+  },
+  "19": {
+   "stand": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "antonelli",
+    "albon",
+    "hadjar",
+    "hulkenberg"
+   ],
+   "grid": [
+    "max_verstappen",
+    "norris",
+    "leclerc",
+    "russell",
+    "hamilton",
+    "piastri",
+    "antonelli",
+    "bearman",
+    "sainz",
+    "alonso"
+   ],
+   "expected": {
+    "Q_stand": 18,
+    "R_stand": 14,
+    "R_grid": 41
+   }
+  },
+  "20": {
+   "stand": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "antonelli",
+    "albon",
+    "hulkenberg",
+    "hadjar"
+   ],
+   "grid": [
+    "norris",
+    "leclerc",
+    "hamilton",
+    "russell",
+    "max_verstappen",
+    "antonelli",
+    "sainz",
+    "piastri",
+    "hadjar",
+    "bearman"
+   ],
+   "expected": {
+    "Q_stand": 10,
+    "R_stand": 12,
+    "R_grid": 26
+   }
+  },
+  "21": {
+   "stand": [
+    "norris",
+    "piastri",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "antonelli",
+    "albon",
+    "hulkenberg",
+    "hadjar"
+   ],
+   "grid": [
+    "norris",
+    "antonelli",
+    "leclerc",
+    "piastri",
+    "hadjar",
+    "russell",
+    "lawson",
+    "bearman",
+    "gasly",
+    "hulkenberg"
+   ],
+   "expected": {
+    "Q_stand": 16,
+    "R_stand": 25,
+    "R_grid": 27
+   }
+  },
+  "22": {
+   "stand": [
+    "norris",
+    "piastri",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "antonelli",
+    "albon",
+    "hulkenberg",
+    "hadjar"
+   ],
+   "grid": [
+    "norris",
+    "max_verstappen",
+    "sainz",
+    "russell",
+    "piastri",
+    "lawson",
+    "alonso",
+    "hadjar",
+    "leclerc",
+    "gasly"
+   ],
+   "expected": {
+    "Q_stand": 17,
+    "R_stand": 7,
+    "R_grid": 5
+   }
+  },
+  "23": {
+   "stand": [
+    "norris",
+    "piastri",
+    "max_verstappen",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "antonelli",
+    "albon",
+    "hadjar",
+    "hulkenberg"
+   ],
+   "grid": [
+    "piastri",
+    "norris",
+    "max_verstappen",
+    "russell",
+    "antonelli",
+    "hadjar",
+    "sainz",
+    "alonso",
+    "gasly",
+    "leclerc"
+   ],
+   "expected": {
+    "Q_stand": 14,
+    "R_stand": 13,
+    "R_grid": 10
+   }
+  },
+  "24": {
+   "stand": [
+    "norris",
+    "max_verstappen",
+    "piastri",
+    "russell",
+    "leclerc",
+    "hamilton",
+    "antonelli",
+    "albon",
+    "sainz",
+    "hadjar"
+   ],
+   "grid": [
+    "max_verstappen",
+    "norris",
+    "piastri",
+    "russell",
+    "leclerc",
+    "alonso",
+    "bortoleto",
+    "ocon",
+    "hadjar",
+    "tsunoda"
+   ],
+   "expected": {
+    "Q_stand": 15,
+    "R_stand": 6,
+    "R_grid": 18
+   }
+  }
+ }
+}

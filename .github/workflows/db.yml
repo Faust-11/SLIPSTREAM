@@ -77,6 +77,10 @@ jobs:
         env:
           DUMP_ZIP: dump_csv.zip
         run: python scripts/db/test_data.py
+      # Фаза 9b: схема play — очки (кожне правило), дедлайн, права, видимість, чемпіони; паритет з еталоном Python на
+      # реальних результатах 2025 з дампу (scripts/db/play_reference.py, фікстура — scripts/db/fixtures).
+      - name: "Схема play (прогнози) — очки, дедлайн, права, паритет 2025"
+        run: python scripts/db/test_play.py
       - name: Фікстура для сайту (unit/e2e) — артефакт
         run: python scripts/db/export_fixture.py db-fixture
       # Бойовий порядок data-sync.yml: завантажувачі не оновлюють подання, check_live --publish — лише після перевірки.
