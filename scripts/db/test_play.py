@@ -414,6 +414,25 @@ conn.execute("delete from play.blocked_users where user_id=%s", (U["f"],))
 ok, err = attempt("select play.set_nick(%s)", "Fresh Start", as_role="authenticated", uid=U["f"])
 check("після зняття блокування модератором set_nick знову працює", ok, err)
 
+# Повне видалення акаунта (0016): користувач auth + дані гри; заблокований — лише дані гри, auth лишається (блок за поштою)
+ok, err = attempt("select play.delete_my_account()", as_role="authenticated", uid=U["f"])
+check("delete_my_account: звичайний гравець — користувач auth і профіль зникли", ok and one("select count(*) from auth.users where id=%s", U["f"]) == 0
+      and one("select count(*) from play.profiles where user_id=%s", U["f"]) == 0, err)
+fails("delete_my_account без входу — відмова", "not_authenticated", "select play.delete_my_account()", as_role="authenticated")
+denied("anon не викликає delete_my_account", "select play.delete_my_account()", as_role="anon")
+conn.execute("insert into auth.users(id, email) values (%s, 'blocked@example.test')", (U["f"],))
+ok, err = attempt("select play.set_nick(%s)", "Blocked Soon", as_role="authenticated", uid=U["f"])
+conn.execute("insert into play.blocked_users(user_id) values (%s)", (U["f"],))
+res = None
+with role("authenticated", U["f"]):
+    res = one("select play.delete_my_account()")
+check("delete_my_account: заблокований — відповідь data_only_blocked", res == "data_only_blocked", res)
+check("…дані гри видалено, а auth.users і блокування ЛИШИЛИСЬ (блок не знімається видаленням)",
+      one("select count(*) from play.profiles where user_id=%s", U["f"]) == 0
+      and one("select count(*) from auth.users where id=%s", U["f"]) == 1
+      and one("select count(*) from play.blocked_users where user_id=%s", U["f"]) == 1)
+conn.execute("delete from play.blocked_users where user_id=%s", (U["f"],))
+
 conn.execute("delete from auth.users where id=%s", (U["c"],))
 check("видалення користувача auth каскадом прибирає профіль і прогнози", one("select count(*) from play.profiles where user_id=%s", U["c"]) == 0 and one("select count(*) from play.predictions where user_id=%s", U["c"]) == 0)
 

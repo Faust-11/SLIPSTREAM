@@ -23,6 +23,7 @@ import "@/components/stories/stories.css";
 import "@/components/glossary/glossary.css";
 import "@/components/newbie/newbie.css";
 import "@/components/service/service.css";
+import "@/components/auth/auth.css";
 import { ThemeRestore } from "@/components/theme/theme-restore";
 import { ThemeScript } from "@/components/theme/theme-script";
 import { getDictionary } from "@/i18n/get-dictionary";
