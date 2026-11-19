@@ -8,10 +8,12 @@
  *
  * Перевіряє ті самі заголовки, що й Supabase (apikey, Accept-Profile: f1); фільтр `ref=in.(…)` — для drivers;
  * limit/offset і Prefer: count=exact — для посторінкового читання (dbSelectAll).
+ * Додатково — фейковий Supabase Auth і play (scripts/dev/fake-supabase-auth.mjs) для e2e входу.
  */
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { handleSupabaseFake } from "./fake-supabase-auth.mjs";
 
 const args = process.argv.slice(2);
 const port = Number(args[args.indexOf("--port") + 1] || 54321);
@@ -19,6 +21,8 @@ const dir = new URL("../../e2e/fixtures/db/", import.meta.url).pathname;
 
 createServer(async (req, res) => {
   const url = new URL(req.url ?? "/", "http://localhost");
+  // Вхід відвідувачів (фаза 9a): /auth/v1/*, /rest/v1/rpc/*, /rest/v1/profiles зі схемою play, /__auth/* — тестові керування.
+  if (await handleSupabaseFake(req, res, url, port)) return;
   const m = /^\/rest\/v1\/([a-z_]+)$/.exec(url.pathname);
   if (req.method !== "GET" || !m) return res.writeHead(404).end("not found");
   if (!req.headers.apikey || req.headers["accept-profile"] !== "f1") return res.writeHead(401).end("missing apikey / profile");
