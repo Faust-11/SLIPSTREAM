@@ -149,7 +149,7 @@ test.describe("мобільне меню", () => {
     await expect(plate).toHaveCSS("background-color", "rgb(255, 196, 0)");
     await expect(plate).toHaveCSS("color", "rgb(22, 24, 29)");
     // Рядок «Гра» тієї ж висоти, що й інші; плашка — по лінії тексту, не ближче до краю.
-    const rows = await panel.getByRole("link").evaluateAll((els) => els.map((e) => Math.round(e.getBoundingClientRect().height)));
+    const rows = await panel.locator("ul").getByRole("link").evaluateAll((els) => els.map((e) => Math.round(e.getBoundingClientRect().height)));
     expect(new Set(rows).size).toBe(1);
     const left = await panel.getByRole("link", { name: "Сезони" }).evaluate((e) => e.getBoundingClientRect().left);
     expect(Math.round((await plate.boundingBox())!.x)).toBe(Math.round(left));
@@ -167,7 +167,9 @@ test.describe("мобільне меню", () => {
     await page.goto("/");
     await openMenu(page);
     const panel = page.locator(".mnav");
-    await expect(panel.getByRole("link")).toHaveCount(9);
+    // 9 розділів + вхід/акаунт (фаза 9a) після списку
+    await expect(panel.locator("ul").getByRole("link")).toHaveCount(9);
+    await expect(panel.getByRole("link")).toHaveCount(10);
     await expect(page.locator("main")).toHaveAttribute("inert", "");
     await expect(page.getByRole("link", { name: "Skip to content" })).toBeHidden();
     await expectNoA11yViolations(page);
