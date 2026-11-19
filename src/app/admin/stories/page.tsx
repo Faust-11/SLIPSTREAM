@@ -45,8 +45,7 @@ function ClaimBar({ claims }: { claims: StoryRow["claims"] }) {
 }
 
 /**
- * Історії (7c): таблиця всіх історій з тим, що вирішує «що перевірити першим». Редактор окремої історії — наступна задача 7c;
- * поки рядок веде на сторінку історії на сайті. Дані — з файлів у збірці (як на сайті; main може бути новішим на хвилини).
+ * Історії (7c): таблиця всіх історій з тим, що вирішує «що перевірити першим». Назва історії веде до редактора. Дані — з файлів у збірці (як на сайті; main може бути новішим на хвилини).
  */
 export default async function AdminStories({ searchParams }: { searchParams: Promise<{ f?: string; q?: string }> }) {
   await requireAdmin();
@@ -111,7 +110,9 @@ export default async function AdminStories({ searchParams }: { searchParams: Pro
                 {rows.map((r) => (
                   <tr key={r.slug}>
                     <th scope="row">
-                      <b>{r.title}</b>
+                      <Link href={`/admin/stories/${r.slug}`}>
+                        <b>{r.title}</b>
+                      </Link>
                       <small className="ad-mono">
                         {r.slug}
                         {r.year !== null && ` · ${r.year}`}

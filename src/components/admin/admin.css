@@ -1044,3 +1044,111 @@ details.ad-panel[open] summary {
     color: var(--ink-soft);
   }
 }
+
+/* Редактор історії (7c): поля, що використовують ad-fld, — також textarea і select. */
+.ad-fld textarea,
+.ad-fld select {
+  padding: 10px 12px;
+  border: 1.5px solid var(--ad-hair);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 500 16px/1.45 var(--nf-body), system-ui, sans-serif;
+  inline-size: 100%;
+  min-inline-size: 0;
+}
+.ad-fld select {
+  min-height: 44px;
+}
+.ad-fld textarea:focus,
+.ad-fld select:focus {
+  border-color: var(--ink);
+  outline: none;
+}
+.ad-fld input {
+  min-inline-size: 0;
+}
+.ad-ed {
+  display: grid;
+  gap: 16px;
+}
+.ad-ed-summary:focus {
+  outline: none;
+}
+.ad-ed-summary:empty {
+  display: none;
+}
+.ad-ed-summary h2 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+.ad-ed-summary ul {
+  margin: 0;
+  padding-left: 20px;
+}
+/* Текст історії: росте разом із вмістом (field-sizing), у браузерах без нього лишається rows. */
+.ad-ed-md {
+  font-family: var(--nf-mono), ui-monospace, monospace;
+  font-size: 14px;
+  field-sizing: content;
+  min-block-size: 16lh;
+  max-block-size: 80vh;
+  resize: vertical;
+}
+.ad-ed-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ad-ed-row {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  margin: 0;
+  padding: 12px 14px 14px;
+  border: 1.5px solid var(--ad-hair);
+}
+.ad-ed-row legend {
+  padding: 0 6px;
+  font: 600 12px/1.3 var(--nf-mono), ui-monospace, monospace;
+  letter-spacing: 0.04em;
+}
+.ad-ed-row textarea {
+  field-sizing: content;
+  min-block-size: 3lh;
+  max-block-size: 40vh;
+}
+.ad-ed-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+}
+.ad-ed-line .ad-fld {
+  flex: 0 1 auto;
+}
+.ad-ed-line .ad-ed-grow {
+  flex: 1 1 200px;
+}
+.ad-ed-row details summary {
+  cursor: pointer;
+  padding: 6px 0;
+  font-weight: 600;
+  font-size: 13px;
+}
+.ad-ed-bar {
+  position: sticky;
+  inset-block-end: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  background: var(--paper);
+  border-top: 1.5px solid var(--ad-hair);
+}
+.ad-ed-bar .ad-btn {
+  min-height: 44px;
+}
