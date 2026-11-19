@@ -1,4 +1,4 @@
-# Slipstream
+# Outlap
 
 Неофіційний фанатський сайт про Формулу-1. Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4.
 

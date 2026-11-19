@@ -29,7 +29,7 @@ import urllib.request
 import psycopg
 
 API = "https://api.jolpi.ca/ergast/f1"
-USER_AGENT = "Slipstream-data-loader/0.1 (non-commercial F1 fan site)"
+USER_AGENT = "Outlap-data-loader/0.1 (non-commercial F1 fan site)"
 MIN_INTERVAL_S = 0.35
 _last_call = 0.0
 

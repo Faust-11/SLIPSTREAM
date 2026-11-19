@@ -1,10 +1,10 @@
 {
   "about": {
     "title": "About",
-    "description": "What Slipstream is, where the data comes from, how we check stories, what the site stores and how to get in touch.",
+    "description": "What Outlap is, where the data comes from, how we check stories, what the site stores and how to get in touch.",
     "stamp": "About",
     "h1": [
-      "Slipstream",
+      "Outlap",
       "by fans, for fans"
     ],
     "lead": "An unofficial Formula 1 site in English and Ukrainian: results since 1950, drivers, teams, circuits, stories with sources and explainers for newcomers. No ads, and free.",
@@ -121,7 +121,7 @@
     },
     "unofficial": {
       "h": "An unofficial site",
-      "p": "Slipstream is not affiliated with Formula 1, the FIA or any team. F1, FORMULA 1 and related marks are trademarks of Formula One Licensing B.V. Team names belong to their owners. There are no team or Formula 1 logos on the site."
+      "p": "Outlap is not affiliated with Formula 1, the FIA or any team. F1, FORMULA 1 and related marks are trademarks of Formula One Licensing B.V. Team names belong to their owners. There are no team or Formula 1 logos on the site."
     },
     "contact": {
       "h": "Get in touch",
@@ -132,7 +132,7 @@
   },
   "sources": {
     "title": "Sources and licences",
-    "description": "Everything Slipstream takes from others: data, photos, circuit maps, fonts, news and videos, with licences and photo authors.",
+    "description": "Everything Outlap takes from others: data, photos, circuit maps, fonts, news and videos, with licences and photo authors.",
     "stamp": "Sources and licences",
     "h1": [
       "Whose is it",
@@ -247,7 +247,7 @@
           "name": "Stories",
           "href": "/stories",
           "sub": null,
-          "what": "Slipstream's own texts",
+          "what": "Outlap's own texts",
           "lic": "own sources",
           "means": "Each story has its own dated list of sources"
         }

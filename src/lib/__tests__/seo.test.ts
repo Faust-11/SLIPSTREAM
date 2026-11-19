@@ -30,7 +30,7 @@ describe("pageMetadata", () => {
     expect(og.title).toBe("Teams");
     expect(og.description).toBe("All Formula 1 teams.");
     expect(og.url).toBe("/uk/teams");
-    expect(og.siteName).toBe("Slipstream");
+    expect(og.siteName).toBe("Outlap");
     expect(pageMetadata({ locale: "en", path: "/", ...base }).openGraph).toMatchObject({ locale: "en_GB" });
   });
 
@@ -56,9 +56,9 @@ describe("pageMetadata", () => {
 
 describe("siteUrl", () => {
   it("SITE_URL має пріоритет", () => {
-    vi.stubEnv("SITE_URL", "https://slipstream.example/");
+    vi.stubEnv("SITE_URL", "https://outlap.example/");
     vi.stubEnv("VERCEL_PROJECT_PRODUCTION_URL", "x.vercel.app");
-    expect(siteUrl().href).toBe("https://slipstream.example/");
+    expect(siteUrl().href).toBe("https://outlap.example/");
   });
 
   it("інакше — продакшн-домен Vercel, потім адреса деплою, потім localhost", () => {
@@ -75,7 +75,7 @@ describe("siteUrl", () => {
   it("некоректний SITE_URL — помилка, а не тиха підміна", () => {
     vi.stubEnv("SITE_URL", "not a url");
     expect(() => siteUrl()).toThrow();
-    vi.stubEnv("SITE_URL", "https://slipstream.example/base");
+    vi.stubEnv("SITE_URL", "https://outlap.example/base");
     expect(() => siteUrl()).toThrow(/origin/);
   });
 });

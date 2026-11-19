@@ -25,9 +25,9 @@ DIRECTIVE = re.compile(r"^:::(tldr|timeline)\s*$")
 
 
 def publisher_key(name: str) -> str:
-    """Видавець для незалежності: «FIA (Stewards)» = FIA; власний розрахунок Slipstream з даних Jolpica = Jolpica."""
+    """Видавець для незалежності: «FIA (Stewards)» = FIA; власний розрахунок Outlap з даних Jolpica = Jolpica."""
     key = str(name).split("(")[0].strip().lower()
-    if key.startswith("slipstream") and "jolpica" in str(name).lower():
+    if key.startswith("outlap") and "jolpica" in str(name).lower():
         return "jolpica"
     return key
 

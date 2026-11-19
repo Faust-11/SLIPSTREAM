@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "Slipstream",
+    "name": "Outlap",
     "tagline": "Formula 1: seasons, races, drivers and stories"
   },
   "notFound": {
@@ -24,7 +24,7 @@
     "game": "Play"
   },
   "header": {
-    "home": "Slipstream — home",
+    "home": "Outlap — home",
     "mainNav": "Main",
     "language": "Language",
     "languageNames": {
@@ -38,7 +38,7 @@
     "tagline": "A free home for Formula 1 fans. Every fact has a source.",
     "navLabel": "Sections",
     "unofficial": "Unofficial fan site",
-    "disclaimer": "Slipstream is not affiliated with Formula 1, the FIA or any team. F1, Formula 1 and related marks are trademarks of Formula One Licensing B.V.",
+    "disclaimer": "Outlap is not affiliated with Formula 1, the FIA or any team. F1, Formula 1 and related marks are trademarks of Formula One Licensing B.V.",
     "dataLabel": "Results, standings and records",
     "serviceLabel": "Site information",
     "about": "About",
@@ -46,7 +46,7 @@
   },
   "meta": {
     "home": {
-      "title": "Slipstream — Formula 1 seasons, races, drivers and stories",
+      "title": "Outlap — Formula 1 seasons, races, drivers and stories",
       "description": "An unofficial Formula 1 fan site: seasons, races, drivers, teams, circuits and stories."
     },
     "sections": {
@@ -1239,7 +1239,7 @@
     "recTabCups": "Cups"
   },
   "gamePage": {
-    "metaDescription": "Hot lap — the Slipstream mini-game: one lap of a made-up circuit against a bot and your own ghost. Four circuits, a record on each.",
+    "metaDescription": "Hot lap — the Outlap mini-game: one lap of a made-up circuit against a bot and your own ghost. Four circuits, a record on each.",
     "stamp": "Mini-game",
     "title": "Hot lap",
     "titleSub": "Push, push, push",
@@ -1254,7 +1254,7 @@
       "lyman": {
         "name": "Lyman",
         "tag": "Balanced",
-        "desc": "Slipstream's first circuit. A long straight, long arcs and grass past the kerbs, so a mistake can still be saved."
+        "desc": "Outlap's first circuit. A long straight, long arcs and grass past the kerbs, so a mistake can still be saved."
       },
       "port": {
         "name": "Harbour",

@@ -11,7 +11,7 @@ export type { Headline, Post, SourceKey } from "@/lib/news/parse";
 
 export const NEWS_REVALIDATE = 1800;
 const TIMEOUT_MS = 8000;
-const UA = "Mozilla/5.0 (compatible; SlipstreamBot/0.1; +https://slipstream-bice-eight.vercel.app)";
+const UA = "Mozilla/5.0 (compatible; OutlapBot/0.1; +https://outlap.org)";
 const FIXTURES = process.env.NEWS_FIXTURES === "1";
 const FIXTURE_DIR = path.join(process.cwd(), "e2e", "fixtures", "news");
 /** Час знімка фікстур (scripts/news/snapshot_fixtures.py, 14.11) — «Оновлено» в тестах стабільне. */

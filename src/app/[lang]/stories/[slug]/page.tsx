@@ -85,8 +85,8 @@ export default async function StoryPageRoute(props: Props) {
     url: new URL(path(`/stories/${story.slug}`), siteUrl()).href,
     ...(hero ? { image: new URL(hero.src, siteUrl()).href } : {}),
     ...(story.checked ? { dateModified: story.checked } : {}),
-    author: { "@type": "Organization", name: "Slipstream" },
-    publisher: { "@type": "Organization", name: "Slipstream" },
+    author: { "@type": "Organization", name: "Outlap" },
+    publisher: { "@type": "Organization", name: "Outlap" },
     citation: story.sources.map((s) => ({ "@type": "CreativeWork", name: s.title, url: s.url, ...(s.publisher ? { publisher: s.publisher } : {}) })),
   };
 

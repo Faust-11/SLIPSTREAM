@@ -37,7 +37,7 @@ describe("parseAdminEnv — помилка конфігурації = адмін
   it("обидва способи: справжні адреси GitHub і Resend, id числами, e-mail у нижньому регістрі", () => {
     expect(env.github).toMatchObject({ authorize: "https://github.com/login/oauth/authorize", api: "https://api.github.com", insecure: false });
     expect([...env.github!.ids]).toEqual([195572242, 7]);
-    expect(env.email).toMatchObject({ api: "https://api.resend.com", from: "Slipstream <onboarding@resend.dev>" });
+    expect(env.email).toMatchObject({ api: "https://api.resend.com", from: "Outlap <onboarding@resend.dev>" });
     expect([...env.email!.emails]).toEqual(["owner@example.com", "second@example.com"]);
   });
 

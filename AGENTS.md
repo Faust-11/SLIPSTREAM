@@ -8,7 +8,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
-# Slipstream — правила для агентів
+# Outlap — правила для агентів
 
 - Плани фаз — `docs/plans/`, рішення — `docs/decisions.md`, аудити — `docs/audits/`.
 - Мови: `en` без префікса, `uk` під `/uk`. Правила мов — `redirects`/`rewrites` у `next.config.ts`; 404 — `app/global-not-found.tsx`; неіснуючі параметри — `dynamicParams = false`, не `notFound()`; мову з params — лише `requireLocale()` (див. `docs/decisions.md`).

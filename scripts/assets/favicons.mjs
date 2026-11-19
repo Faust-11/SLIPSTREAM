@@ -1,4 +1,4 @@
-// Фавікони з одного джерела scripts/assets/roundel.svg (роундел Slipstream). Запуск: node scripts/assets/favicons.mjs
+// Фавікони з одного джерела scripts/assets/roundel.svg (роундел Outlap). Запуск: node scripts/assets/favicons.mjs
 // (потрібен установлений Google Chrome — растеризує playwright-core).
 //
 // - public/favicon.svg, 16 і 32 px — спрощений знак (коло + товста S): тонкі поребрики й контури на 16 px

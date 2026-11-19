@@ -25,7 +25,7 @@ function fake(): URL | null {
 }
 const apiUrl = () => (fake() ? new URL("/w/api.php", fake()!).href : "https://commons.wikimedia.org/w/api.php");
 const mediaOk = (u: URL) => (fake() ? u.host === fake()!.host : u.protocol === "https:" && MEDIA_HOSTS.has(u.hostname));
-const UA = "SlipstreamAdmin/1.0 (F1 fan site; photo picker)";
+const UA = "OutlapAdmin/1.0 (F1 fan site; photo picker)";
 export const SOURCE_WIDTHS = [960, 1280] as const;
 
 export type Candidate = {

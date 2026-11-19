@@ -96,7 +96,7 @@ export function parseAdminEnv(env: Record<string, string | undefined>): AdminEnv
       .map((e) => e.trim().toLowerCase())
       .filter((e) => EMAIL_RE.test(e)),
   );
-  const from = env.ADMIN_MAIL_FROM?.trim() || "Slipstream <onboarding@resend.dev>";
+  const from = env.ADMIN_MAIL_FROM?.trim() || "Outlap <onboarding@resend.dev>";
   const email: EmailLogin | null =
     env.ADMIN_RESEND_KEY && emails.size > 0 ? { api: mailApi ? mailApi.origin : "https://api.resend.com", apiKey: env.ADMIN_RESEND_KEY, from, emails } : null;
 

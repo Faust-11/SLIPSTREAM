@@ -123,7 +123,7 @@ export async function publish(gh: GitHub, change: Draft, now = new Date(), paren
     title: change.title,
     head: branch,
     base: "main",
-    body: `${change.body}\n\n— Адмінка Slipstream. Автозлиття після зеленого CI: .github/workflows/admin-merge.yml.`,
+    body: `${change.body}\n\n— Адмінка Outlap. Автозлиття після зеленого CI: .github/workflows/admin-merge.yml.`,
     draft: change.draft,
   });
   try {

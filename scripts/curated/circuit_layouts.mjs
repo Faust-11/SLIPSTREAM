@@ -28,7 +28,7 @@ const SHA = "8094e957b8d6aa8b9f4510c93968556cccd30e02"; // bacinger/f1-circuits,
 const GEOJSON = `https://raw.githubusercontent.com/bacinger/f1-circuits/${SHA}/f1-circuits.geojson`;
 const JOLPICA = "https://api.jolpi.ca/ergast/f1/circuits.json?limit=100";
 const COMMONS_API = "https://commons.wikimedia.org/w/api.php";
-const UA = "Slipstream-data-loader/0.2 (non-commercial F1 fan site; batched, cached)";
+const UA = "Outlap-data-loader/0.2 (non-commercial F1 fan site; batched, cached)";
 const MAX_KM = 3;
 const FREE = ["CC0", "Public domain", "PD", "CC BY", "CC BY-SA", "Attribution", "GFDL", "FAL", "Copyrighted free use"];
 

@@ -113,7 +113,7 @@ export function pageMetadata({
     openGraph: {
       images,
       ...(article ? { type: "article" as const, ...(article.modified ? { modifiedTime: article.modified } : {}) } : { type: "website" as const }),
-      siteName: "Slipstream",
+      siteName: "Outlap",
       title,
       description,
       url,

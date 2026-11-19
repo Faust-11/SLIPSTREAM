@@ -32,7 +32,7 @@ import psycopg
 from psycopg import sql
 
 API = "https://api.jolpi.ca/data/dumps/download/"
-USER_AGENT = "Slipstream-data-loader/0.1 (non-commercial F1 fan site)"
+USER_AGENT = "Outlap-data-loader/0.1 (non-commercial F1 fan site)"
 ALLOWED_DOWNLOAD_PREFIX = "https://api.jolpi.ca/"
 COLUMN_RE = re.compile(r"^[a-z_][a-z0-9_]{0,62}$")
 

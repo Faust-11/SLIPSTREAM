@@ -1,7 +1,7 @@
 import "server-only";
 
 /**
- * Читання бази Slipstream (Supabase, схема f1) через PostgREST — звичайний fetch, без SDK.
+ * Читання бази Outlap (Supabase, схема f1) через PostgREST — звичайний fetch, без SDK.
  * Лише на сервері: під час `next build` (статичні сторінки; дані оновлюються перезбіркою після синхронізації,
  * docs fetch.md — `auto no cache` = один запит під час збірки). Ключ publishable (роль anon): читання опублікованого через RLS.
  */

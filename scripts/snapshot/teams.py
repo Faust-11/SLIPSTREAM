@@ -1,4 +1,4 @@
-"""Знімок даних розділу «Команди» з локальних даних макетів Slipstream.
+"""Знімок даних розділу «Команди» з локальних даних макетів Outlap.
 
 Запуск (з кореня репозиторію):  python3 -I scripts/snapshot/teams.py ~/Desktop/F1/data
 Пише:  src/data/snapshot/teams.json, public/img/cars/<id>-256.webp і <id>-480.webp (16:10),

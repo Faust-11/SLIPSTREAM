@@ -29,7 +29,7 @@ test("/uk/about: розділи, цифри з даних, зміст веде �
   const errors: string[] = [];
   page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
   await page.goto("/uk/about");
-  await expect(page.locator("h1")).toContainText("Slipstream");
+  await expect(page.locator("h1")).toContainText("Outlap");
   await expect(page.locator(".sv-facts > div")).toHaveCount(5);
   for (const h of await page
     .locator(".sv-idx a")

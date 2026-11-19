@@ -510,3 +510,23 @@
   потоку; пілот і команда знімаються лише цілком (без аватара/картки банер на сайті не показується).
   **Свідомо не зроблено:** ліміт спроб коду на пошту — без серверного сховища його не порахувати; перебір безнадійний
   (27⁸ ≈ 2,8·10¹¹; 100 запитів/с за 10 хв ≈ 2·10⁻⁷), за потреби — правило Vercel Firewall на `/admin/auth/(email|verify)`.
+
+## 2026-11-19 · Перейменування Slipstream → Outlap, домен outlap.org
+- **Причина:** з'явився фан-сайт slipstreamgp.com (інший автор, F1-звіти), а саме слово «slipstream» зайняте подкастами й
+  блогами. Обрана назва — **Outlap** (рішення користувача 19.11); домен **outlap.org** куплено в Namecheap 19.11.2026.
+  Ризики, названі користувачу: подкасти Out Lap / Outlap (F1) займають видачу за «outlap f1»; outlap.gg — продукт для
+  симрейсингу; outlap.com зайнятий з 2011 року. Товарний знак не перевірявся — зробити до великих вкладень у бренд.
+- **Канонічний хост — `outlap.org` без www.** `www.outlap.org` і стара адреса `slipstream-bice-eight.vercel.app`
+  редіректяться на нього тим самим шляхом (308) правилами `redirects()` у `next.config.ts` (тест
+  `src/lib/__tests__/redirects.test.ts`); у Vercel www теж налаштовано редіректом на корінь. Змінна `SITE_URL` у Production —
+  `https://outlap.org` (canonical, hreflang, sitemap, OG-адреси беруться з неї).
+- **Знак:** роундел «S» замінено на «O» — коло траси з бордюрами й лінією старт/фініш (виїзд із піту й коло, що замикається).
+  Єдине джерело геометрії — `scripts/assets/roundel_gen.py` (пише `scripts/assets/roundel.svg` і
+  `src/components/site/roundel-svg.ts`); далі `node scripts/assets/favicons.mjs` і
+  `PLAYWRIGHT_CHANNEL=chrome node scripts/og/build.mjs`. Назва в шапці — «OUTLAP» (Rubik Mono One, як було).
+- **Що свідомо НЕ перейменовано:** ключі localStorage/sessionStorage гри (`slipstream-hotlap-*` — інакше користувачі
+  втратять рекорди), JWT-атрибути й User-Agent адмінки (`slipstream-admin` — внутрішні), назва репозиторію
+  `Faust-11/SLIPSTREAM` (окреме рішення: перейменування змінює адреси GitHub/Actions), термін «Сліпстрім/Slipstream» у
+  глосарії (це аеродинамічний термін, а не назва сайту), історичні плани й міграції в `docs/` і `supabase/`.
+- **Адмінка:** callback GitHub OAuth App — `https://outlap.org/admin/auth/callback` (старий хост редіректиться, тож callback зі
+  старої адреси працювати не буде).

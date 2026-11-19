@@ -38,7 +38,7 @@ export default async function AboutPage({ params }: Props) {
     name: t.title,
     url: new URL(path("/about"), siteUrl()).href,
     inLanguage: lang,
-    about: { "@type": "WebSite", name: "Slipstream", url: new URL(path("/"), siteUrl()).href },
+    about: { "@type": "WebSite", name: "Outlap", url: new URL(path("/"), siteUrl()).href },
   };
 
   return (

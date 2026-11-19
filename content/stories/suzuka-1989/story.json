@@ -216,7 +216,7 @@
     {
       "id": "s17",
       "title": "Prost 1989: counting results under the best-11 rule — our calculation from the 1989 results",
-      "publisher": "Slipstream (calculation from Jolpica F1 results)",
+      "publisher": "Outlap (calculation from Jolpica F1 results)",
       "date": "",
       "url": "https://api.jolpi.ca/ergast/f1/1989/drivers/prost/results.json",
       "kind": "secondary",
@@ -612,7 +612,7 @@
     },
     {
       "id": "c30",
-      "text": "Чи був президент FISA Жан-Марі Балестр у кімнаті стюардів, джерела розходяться. RaceFans пише, що він «приєднався до стюардів» (переклад Slipstream). 8W Forix переказує дві книги: за Гайнцем Прюллером, офіційні особи FISA запевняли, що Балестра з ними не було; за Террі Ловеллом, він заходив, але в рішенні участі не брав.",
+      "text": "Чи був президент FISA Жан-Марі Балестр у кімнаті стюардів, джерела розходяться. RaceFans пише, що він «приєднався до стюардів» (переклад Outlap). 8W Forix переказує дві книги: за Гайнцем Прюллером, офіційні особи FISA запевняли, що Балестра з ними не було; за Террі Ловеллом, він заходив, але в рішенні участі не брав.",
       "sources": [
         "s7",
         "s14"
