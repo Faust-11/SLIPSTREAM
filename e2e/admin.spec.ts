@@ -52,7 +52,7 @@ test.describe("сторонній адмінки не бачить", () => {
   test("кожна адреса /admin — той самий 404, що й неіснуюча сторінка", async ({ page }) => {
     const reference = await notFoundSnapshot(page, "/zzz-not-a-page");
     expect(reference.status).toBe(404);
-    for (const path of ["/admin", "/admin/", "/admin/system", "/admin/photos", "/admin/auth/logout"]) {
+    for (const path of ["/admin", "/admin/", "/admin/system", "/admin/photos", "/admin/stories", "/admin/stories?f=draft", "/admin/auth/logout"]) {
       expect(await notFoundSnapshot(page, path), path).toEqual(reference);
     }
   });
@@ -69,7 +69,7 @@ test.describe("сторонній адмінки не бачить", () => {
     // І значення CSP те саме (правило адмінки для Commons — лише з cookie сесії).
     const csp = async (path: string) => (await request.get(path, { maxRedirects: 0 })).headers()["content-security-policy"];
     expect(await csp("/admin/photos")).toBe(await csp("/zzz-not-a-page"));
-    for (const path of ["/admin", "/admin/system", "/admin/auth/logout", "/admin/auth/login", "/admin/auth/github", "/admin/auth/code", "/admin/auth/callback?code=a&state=b"]) {
+    for (const path of ["/admin", "/admin/system", "/admin/stories", "/admin/auth/logout", "/admin/auth/login", "/admin/auth/github", "/admin/auth/code", "/admin/auth/callback?code=a&state=b"]) {
       expect(await shape(path), path).toEqual(reference);
     }
     // Хибний ключ доходить до proxy (src/proxy.ts), і його rewrite додає x-middleware-rewrite — відмінність бачить лише
