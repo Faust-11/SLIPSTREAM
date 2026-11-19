@@ -11,11 +11,13 @@ dis — з поясненням note); набір виносок однаков�
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2] / "content" / "stories"
+# STORIES_ROOT — лише для тесту-паритету TS-валідатора адмінки (src/lib/admin/stories/__tests__): перевірка копій у тимчасовій теці.
+ROOT = Path(os.environ.get("STORIES_ROOT") or Path(__file__).resolve().parents[2] / "content" / "stories")
 CATEGORIES = {"scandal", "sensation", "explainer", "tech", "history"}
 STATUSES = {"ok", "one", "dis"}
 MARK = re.compile(r"\[\^(c\d+)\]")
