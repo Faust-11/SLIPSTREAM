@@ -748,5 +748,17 @@
       "status": "one",
       "note": "У макеті ok; при перевірці 15.11 — лише один незалежний видавець (grandprix.com)."
     }
-  ]
+  ],
+  "translated": {
+    "title": "fab18d9cdcc6",
+    "dek": "d64458e57596",
+    "kicker": "e5545966b46b",
+    "intro": "fc27e22aa29e",
+    "sec1": "2f124d4110ec",
+    "sec2": "bad51b905534",
+    "sec3": "342e69fd0581",
+    "sec4": "2495e7dcc243",
+    "sec5": "c146fc6a639d",
+    "sec6": "4c46e37574c6"
+  }
 }

@@ -1,4 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
+import { readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
 import { expectNoA11yViolations } from "./axe";
 
 // Історії (7c): список. Фейковий GitHub — scripts/dev/fake-services.mjs; історії — справжні файли content/stories (33).
@@ -22,11 +24,13 @@ test("список: усі історії, лічильники фільтрів
   await expect(filters.getByRole("link", { name: /^Усі · 33$/ })).toHaveAttribute("aria-current", "page");
   await expect(filters.getByRole("link", { name: /^Чернетки · 0$/ })).toBeVisible();
   await expect(filters.getByRole("link", { name: /^З помилками · 0$/ })).toBeVisible();
+  await expect(filters.getByRole("link", { name: /^Переклад EN: перевірити · \d+$/ })).toBeVisible();
 
   const jerez = page.locator(".ad-stories tbody tr", { hasText: "jerez-1997" });
   await expect(jerez).toContainText("Фінал у Хересі");
   await expect(jerez).toContainText("Опубліковано");
   await expect(jerez).toContainText("Без помилок");
+  await expect(jerez.locator('td[data-label="Переклад EN"]')).toContainText("Актуальний");
   await expect(jerez.getByRole("link", { name: /На сайті/ })).toHaveAttribute("href", "/uk/stories/jerez-1997");
 
   await page.getByRole("searchbox", { name: "Знайти" }).fill("ХЕРЕС");
@@ -126,4 +130,39 @@ test("редактор: неіснуюча історія — 404", async ({ pag
   await login(page);
   const res = await page.goto("/admin/stories/no-such-story");
   expect(res?.status()).toBe(404);
+});
+
+// ── Застарілий переклад (7c, задача 4). Фейковий GitHub читає файли з диска, тож «застарілість» створюємо правкою відмітки
+// `translated` у story.json (сайт її не читає — публічні сторінки не зачеплені) і повертаємо файл у finally. ──
+test("переклад: застарілі фрагменти видно в редакторі; «переклад актуальний» оновлює відмітку в PR", async ({ page }) => {
+  const file = join(process.cwd(), "content/stories/f1-team-size/story.json");
+  const original = readFileSync(file, "utf8");
+  try {
+    const j = JSON.parse(original);
+    j.translated.title = "000000000000";
+    j.translated.sec2 = "000000000000";
+    writeFileSync(file, JSON.stringify(j, null, 2) + (original.endsWith("\n") ? "\n" : ""));
+
+    await openStory(page, "f1-team-size");
+    await expect(page.getByText("Переклад EN застарів")).toBeVisible();
+    await expect(page.locator("#stale-title")).toContainText("Оригінал змінено після звірки");
+    await expect(page.locator('input[name="title_en"]')).toHaveAccessibleDescription(/Оригінал змінено після звірки/);
+    await expect(page.locator("#stale-dek")).toHaveCount(0);
+    await expect(page.locator("#tr-note")).toContainText("Розділ 2");
+    const list = await page.goto("/admin/stories?f=translation");
+    expect(list?.status()).toBe(200);
+    await expect(page.locator(".ad-stories tbody tr", { hasText: "f1-team-size" })).toContainText("Застарів");
+
+    await page.goto("/admin/stories/f1-team-size");
+    await page.getByLabel(/Переклад English відповідає українському оригіналу/).check();
+    await page.getByRole("button", { name: "Опублікувати зміни" }).click();
+    await expect(page.getByRole("status").filter({ hasText: "PR #" })).toContainText("відмітка: переклад актуальний");
+    const pr = await lastPr(page, "f1-team-size");
+    expect(pr.paths).toEqual(["content/stories/f1-team-size/story.json"]);
+    const saved = JSON.parse(pr.files["content/stories/f1-team-size/story.json"]);
+    expect(saved.translated.title).toBe(JSON.parse(original).translated.title);
+    expect(saved.translated.sec2).toBe(JSON.parse(original).translated.sec2);
+  } finally {
+    writeFileSync(file, original);
+  }
 });

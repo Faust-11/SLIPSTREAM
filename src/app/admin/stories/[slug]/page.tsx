@@ -6,6 +6,7 @@ import { requireAdmin } from "@/lib/admin/session";
 import { toFields } from "@/lib/admin/stories/form";
 import { hashFiles, isSlug, openStoryPrs, readStory, type OpenPr } from "@/lib/admin/stories/store";
 import { parseStoryJson } from "@/lib/admin/stories/format";
+import { checkTranslation, staleSummary } from "@/lib/admin/stories/translation";
 import { validateStory } from "@/lib/admin/stories/validate";
 import { StoryForm } from "./story-form";
 
@@ -64,6 +65,8 @@ export default async function AdminStory({ params }: { params: Promise<{ slug: s
   const meta = parseStoryJson(story.files.json).story;
   const check = validateStory(slug, meta, { uk: story.files.uk, en: story.files.en });
   const draft = meta.status === "draft";
+  const tr = checkTranslation(meta, { uk: story.files.uk, en: story.files.en });
+  const translation = { status: tr.status, staleKeys: tr.stale.map((u) => u.key), note: staleSummary(tr) };
 
   return (
     <section className="ad-view" aria-labelledby="ad-h">
@@ -83,7 +86,10 @@ export default async function AdminStory({ params }: { params: Promise<{ slug: s
       <p className="ad-lede">
         <span className={`ad-chip ${draft ? "is-one" : "is-ok"}`}>{draft ? "Чернетка" : "Опубліковано"}</span>{" "}
         {check.errors.length === 0 ? <span className="ad-chip is-ok">Без помилок</span> : <span className="ad-chip is-bad">Помилок: {check.errors.length}</span>}
-        {check.warnings.length > 0 && <span className="ad-note"> Попереджень: {check.warnings.length}</span>}
+        {check.warnings.length > 0 && <span className="ad-note"> Попереджень: {check.warnings.length}</span>}{" "}
+        {tr.status === "ok" && <span className="ad-chip is-ok">Переклад EN актуальний</span>}
+        {tr.status === "stale" && <span className="ad-chip is-bad">Переклад EN застарів</span>}
+        {tr.status === "unmarked" && <span className="ad-chip is-one">Переклад EN без відмітки</span>}
       </p>
       {open.length > 0 && (
         <p className="ad-result is-bad" role="status">
@@ -109,7 +115,7 @@ export default async function AdminStory({ params }: { params: Promise<{ slug: s
           </ul>
         </div>
       )}
-      <StoryForm slug={slug} initial={toFields(story.files)} orig={hashFiles(story.files)} />
+      <StoryForm slug={slug} initial={toFields(story.files)} orig={hashFiles(story.files)} translation={translation} />
     </section>
   );
 }

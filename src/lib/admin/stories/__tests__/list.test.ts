@@ -42,6 +42,7 @@ describe("readRow", () => {
     expect({ archivable: r.archivable, archived: r.archived }).toEqual({ archivable: 2, archived: 1 });
     expect(r.errors).toEqual([]);
     expect(r.words.uk).toBeGreaterThan(0);
+    expect(r.translation.status).toBe("unmarked"); // у фікстурі немає `translated`
   });
   it("status: draft", () => expect(readRow(root, "beta").status).toBe("draft"));
   it("помилки валідації потрапляють у рядок", () => expect(readRow(root, "gamma").errors.join("|")).toContain("виноски"));
@@ -59,7 +60,7 @@ describe("список", () => {
   it("фільтри й лічильники", () => {
     expect(filterRows(rows, "draft", "").map((r) => r.slug)).toEqual(["beta"]);
     expect(filterRows(rows, "errors", "").map((r) => r.slug)).toEqual(["gamma", "broken", "empty"]);
-    expect(filterCounts(rows)).toEqual({ all: 5, draft: 1, errors: 3, noarchive: 3 });
+    expect(filterCounts(rows)).toEqual({ all: 5, draft: 1, errors: 3, translation: 3, noarchive: 3 });
   });
   it("пошук без регістру за адресою й заголовком", () => {
     expect(filterRows(rows, "all", "ІСТОРІЯ ALP").map((r) => r.slug)).toEqual(["alpha"]);

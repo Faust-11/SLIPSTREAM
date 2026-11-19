@@ -19,7 +19,18 @@ function rows(f: Fields, prefix: "c" | "s", probe: readonly string[]): number {
   return last + 2;
 }
 
-export function StoryForm({ slug, initial, orig }: { slug: string; initial: Fields; orig: string }) {
+export type TranslationProp = { status: "ok" | "stale" | "unmarked"; staleKeys: string[]; note: string };
+
+/** Підказка під English-полем: оригінал змінився після останньої звірки. */
+function StaleHint({ id, show }: { id: string; show: boolean }) {
+  return show ? (
+    <small id={id} className="ad-stale">
+      Оригінал змінено після звірки — перевірте переклад.
+    </small>
+  ) : null;
+}
+
+export function StoryForm({ slug, initial, orig, translation }: { slug: string; initial: Fields; orig: string; translation: TranslationProp }) {
   const [state, action, pending] = useActionState(saveStoryAction, IDLE);
   const f = state.status === "idle" ? initial : state.fields;
   const summary = useRef<HTMLDivElement>(null);
@@ -30,6 +41,7 @@ export function StoryForm({ slug, initial, orig }: { slug: string; initial: Fiel
   const nClaims = rows(f, "c", ["id", "text"]);
   const nSources = rows(f, "s", ["id", "title", "url"]);
   const key = state.status === "idle" ? "initial" : String(state.nonce);
+  const stale = (k: string) => translation.staleKeys.includes(k);
 
   return (
     <form action={action} key={key} className="ad-ed" aria-busy={pending}>
@@ -91,7 +103,8 @@ export function StoryForm({ slug, initial, orig }: { slug: string; initial: Fiel
           </label>
           <label className="ad-fld">
             <span>Title · English</span>
-            <input type="text" name="title_en" defaultValue={v("title_en")} />
+            <input type="text" name="title_en" defaultValue={v("title_en")} aria-describedby={stale("title") ? "stale-title" : undefined} />
+            <StaleHint id="stale-title" show={stale("title")} />
           </label>
           <label className="ad-fld">
             <span>Лід · українська</span>
@@ -99,7 +112,8 @@ export function StoryForm({ slug, initial, orig }: { slug: string; initial: Fiel
           </label>
           <label className="ad-fld">
             <span>Lead · English</span>
-            <textarea name="dek_en" rows={3} defaultValue={v("dek_en")} />
+            <textarea name="dek_en" rows={3} defaultValue={v("dek_en")} aria-describedby={stale("dek") ? "stale-dek" : undefined} />
+            <StaleHint id="stale-dek" show={stale("dek")} />
           </label>
           <label className="ad-fld">
             <span>Штамп (kicker) · українська</span>
@@ -107,7 +121,8 @@ export function StoryForm({ slug, initial, orig }: { slug: string; initial: Fiel
           </label>
           <label className="ad-fld">
             <span>Kicker · English</span>
-            <input type="text" name="kicker_en" defaultValue={v("kicker_en")} />
+            <input type="text" name="kicker_en" defaultValue={v("kicker_en")} aria-describedby={stale("kicker") ? "stale-kicker" : undefined} />
+            <StaleHint id="stale-kicker" show={stale("kicker")} />
           </label>
         </div>
       </section>
@@ -125,8 +140,20 @@ export function StoryForm({ slug, initial, orig }: { slug: string; initial: Fiel
         </label>
         <label className="ad-fld">
           <span>English (переклад)</span>
-          <textarea name="md_en" className="ad-ed-md" rows={24} spellCheck defaultValue={v("md_en")} lang="en" />
+          <textarea name="md_en" className="ad-ed-md" rows={24} spellCheck defaultValue={v("md_en")} lang="en" aria-describedby="tr-note" />
         </label>
+        <div id="tr-note" className="ad-tr">
+          {translation.status === "ok" && <p className="ad-note">Переклад відповідає оригіналу за останньою звіркою.</p>}
+          {translation.status === "unmarked" && <p className="ad-note">Звірку English з оригіналом ще не відмічали — після звірки поставте галочку нижче.</p>}
+          {translation.status === "stale" && (
+            <p className="ad-result is-bad">
+              <b>Переклад English застарів:</b> {translation.note}. Оновіть English і поставте галочку нижче — або залиште як є, і історія лишиться в списку «Переклад EN: перевірити».
+            </p>
+          )}
+          <label className="ad-check">
+            <input type="checkbox" name="translated_ok" defaultChecked={v("translated_ok") === "on"} /> Переклад English відповідає українському оригіналу (запам&apos;ятати як звірений)
+          </label>
+        </div>
       </section>
 
       <section className="ad-panel" aria-labelledby="ed-claims">
