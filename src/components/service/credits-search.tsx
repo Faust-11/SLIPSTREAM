@@ -10,7 +10,8 @@ export type CreditsLabels = { search: string; placeholder: string; count: string
 /**
  * Пошук у зведеному переліку авторів фото (836 рядків). Перелік рендерить сервер (`<ul id=listId>`), тут — лише поле й
  * фільтр по тексту рядків у DOM (+ data-alt — підпис іншою мовою, щоб «Hamilton» знаходився на /uk/sources). Дані рядків
- * не передаються пропсами — інакше вони були б у RSC-даних ще й як пропси клієнтського компонента. Ключі рахуються один раз.
+ * не передаються пропсами — інакше вони були б у RSC-даних ще й як пропси клієнтського компонента. Ключі рахуються один раз,
+ * з першим запитом; до нього ефект перелік не чіпає (лічильник «усі N» вже відрендерено).
  * Без JS — увесь перелік, поля немає.
  */
 export function CreditsSearch({ listId, emptyId, total, t }: { listId: string; emptyId: string; total: number; t: CreditsLabels }) {
@@ -21,9 +22,14 @@ export function CreditsSearch({ listId, emptyId, total, t }: { listId: string; e
   const dq = normKey(useDeferredValue(q).trim());
   const id = useId();
   const keys = useRef<Map<Element, string> | null>(null);
+  const filtered = useRef(false);
   useEffect(() => {
     const list = document.getElementById(listId);
     if (!list) return;
+    // Порожній запит і нічого не сховано — переліку не чіпаємо: після гідратації жодної роботи над 836 рядками (TBT).
+    // Ключі пошуку рахуються лише з першим запитом.
+    if (!dq && !filtered.current) return;
+    filtered.current = !!dq;
     keys.current ??= new Map(Array.from(list.children).map((li) => [li, normKey(`${li.textContent ?? ""} ${(li as HTMLElement).dataset.alt ?? ""}`)]));
     let c = 0;
     for (const li of Array.from(list.children) as HTMLElement[]) {

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { cleanAuthor, isUnknownAuthor, layoutCounts, licenseCounts, licenseFamily } from "@/lib/data/credits";
 import { contactEmail, serviceText } from "../content";
+import { creditsHtml } from "../credits-html";
 import { normKey } from "../norm";
 
 const shape = (x: unknown): string[] =>
@@ -58,5 +59,20 @@ describe("службові сторінки", () => {
     expect(isUnknownAuthor("Unknown photographer")).toBe(true);
     expect(isUnknownAuthor("neznámý (unknown)")).toBe(true);
     expect(isUnknownAuthor("Liauzh")).toBe(false);
+  });
+
+  it("перелік авторів як HTML: усе екрановано, посилання лише https", () => {
+    const kinds = { driver: "Пілот", team: "T", season: "S", race: "R", circuit: "C", layout: "L", story: "St" };
+    const html = creditsHtml(
+      [
+        { kind: "driver", label: "<b>X</b>", alt: 'A"B', href: "https://commons.wikimedia.org/wiki/File:X&Y.jpg", author: "O'Neil <script>", license: "CC BY 2.0" },
+        { kind: "team", label: "T", alt: null, href: "javascript:alert(1)", author: "a", license: "b" },
+      ],
+      kinds,
+    );
+    expect(html).toBe(
+      '<li data-alt="A&quot;B"><span class="sv-kind">Пілот</span> <a href="https://commons.wikimedia.org/wiki/File:X&amp;Y.jpg" rel="noopener">&lt;b&gt;X&lt;/b&gt;</a> <span class="sv-by">— <span translate="no">O&#39;Neil &lt;script&gt;</span>, CC BY 2.0</span></li>' +
+        '<li><span class="sv-kind">T</span> <a href="#" rel="noopener">T</a> <span class="sv-by">— <span translate="no">a</span>, b</span></li>',
+    );
   });
 });

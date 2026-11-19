@@ -6,6 +6,7 @@ import { fill } from "@/i18n/fill";
 import { localizedPath } from "@/i18n/paths";
 import { requireLocale } from "@/i18n/require-locale";
 import { getSiteCredits, isUnknownAuthor, layoutCounts, licenseCounts } from "@/lib/data/credits";
+import { creditsHtml } from "@/lib/service/credits-html";
 import { plural } from "@/lib/plural";
 import { loadSeasonIndex } from "@/lib/data/seasons";
 import { serviceText } from "@/lib/service/content";
@@ -138,19 +139,9 @@ export default async function SourcesPage({ params }: Props) {
         <ServiceSection id="authors" title={t.authors.h}>
           <p className="sv-soft">{fill(t.authors.p, vars)}</p>
           <CreditsSearch listId="sv-credits" emptyId="sv-credits-empty" total={photos} t={t.authors} />
-          <ul className="sv-credits" id="sv-credits" role="list">
-            {credits.map((c) => (
-              <li key={c.href} data-alt={c.alt ?? undefined}>
-                <span className="sv-kind">{t.authors.kinds[c.kind]}</span>{" "}
-                <a href={c.href} rel="noopener">
-                  {c.label}
-                </a>{" "}
-                <span className="sv-by">
-                  — <span translate="no">{c.author}</span>, {c.license}
-                </span>
-              </li>
-            ))}
-          </ul>
+          {/* Готовий HTML-рядок, а не 836 елементів React: гідратація не обходить ці ~4 тис. вузлів DOM. Замір CI (PR #48):
+              /uk/sources — performance 77, TBT 987 мс, коли перелік був деревом React. Тексти екрановано в creditsHtml. */}
+          <ul className="sv-credits" id="sv-credits" role="list" dangerouslySetInnerHTML={{ __html: creditsHtml(credits, t.authors.kinds) }} />
           <p className="sv-soft" id="sv-credits-empty" hidden>
             {t.authors.empty}
           </p>
