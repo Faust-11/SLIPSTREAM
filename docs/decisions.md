@@ -528,7 +528,7 @@
   `scripts/assets/logo-meta.json`. Шапка/підвал завжди темні → «чорнило» й смуги світлі (`--logo-ink`, `--logo-paper`),
   червоний фірмовий. Підпис «THE F1 HUB» — лише в картках прев'ю й повних версіях (у шапці нечитний).
   Фавікони/іконки: `node scripts/assets/favicons.mjs` (знак на темній плитці #16181D); картки прев'ю:
-  `PLAYWRIGHT_CHANNEL=chrome node scripts/og/build.mjs`. Жовтий лишається акцентом інтерфейсу, у логотипі його нема.
+  `PLAYWRIGHT_CHANNEL=chrome node scripts/og/build.mjs`. Жовтий лишається акцентом інтерфейсу, у логотипі його нема. Напис «OUTLAP» збільшено ×1.22 (19.11, побажання користувача: «літери трохи більші»; знак і підпис без змін; масштаб — `OUTLAP_WORD_SCALE` у `logo_trace.py`, ширина логотипа 1301 → 1504).
 - **Що свідомо НЕ перейменовано:** ключі localStorage/sessionStorage гри (`slipstream-hotlap-*` — інакше користувачі
   втратять рекорди), JWT-атрибути й User-Agent адмінки (`slipstream-admin` — внутрішні), назва репозиторію
   `Faust-11/SLIPSTREAM` (окреме рішення: перейменування змінює адреси GitHub/Actions), термін «Сліпстрім/Slipstream» у

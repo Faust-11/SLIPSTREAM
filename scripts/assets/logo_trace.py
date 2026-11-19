@@ -91,7 +91,8 @@ dlab, dboxes = label(dark_bin)
 rlab, rboxes = label(red_bin)
 
 big_h = 0.5 * HH
-mark_dark = [i + 1 for i, (x0, y0, x1, y1) in enumerate(dboxes) if (y1 - y0) > big_h]
+# Знак: дорога й тонкі лінії (висота > половини логотипа) + дрібні уламки кінчика дуги, що лежать вище рядка літер.
+mark_dark = [i + 1 for i, (x0, y0, x1, y1) in enumerate(dboxes) if (y1 - y0) > big_h or y1 < 0.2 * HH]
 tag_dark = [i + 1 for i, (x0, y0, x1, y1) in enumerate(dboxes) if (y1 - y0) < 0.12 * HH and (y1 - y0) > 4]
 word_dark = [i + 1 for i, (x0, y0, x1, y1) in enumerate(dboxes)
              if (i + 1) not in mark_dark and (i + 1) not in tag_dark and (y1 - y0) > 0.12 * HH]
@@ -156,14 +157,36 @@ rings = {
     "word": {"red": trace(red_cov, sel(rlab, word_red), 0.42), "ink": trace(dark_cov, sel(dlab, word_dark), 0.45)},
     "tag": {"ink": trace(dark_cov, sel(dlab, tag_dark), 0.45, 0.7)},
 }
+# Напис «OUTLAP» збільшено (побажання користувача 19.11: «літери трохи більші»): масштаб S відносно лівого краю «O» і
+# вертикального центру напису; знак-дуга лишається як є. Підпис «THE F1 HUB» не масштабуємо, лише опускаємо на приріст
+# нижньої половини напису. viewBox розширюється праворуч на приріст ширини.
+WORD_SCALE = float(__import__("os").environ.get("OUTLAP_WORD_SCALE", "1.22"))
+wb = [dboxes[i - 1] for i in word_dark] + [rboxes[i - 1] for i in word_red]
+wx0 = min(b[0] for b in wb) / UP
+wx1 = max(b[2] for b in wb) / UP
+wy0 = min(b[1] for b in wb) / UP
+wy1 = max(b[3] for b in wb) / UP
+wcy = (wy0 + wy1) / 2
+S = WORD_SCALE
+for name, rs in rings["word"].items():
+    rings["word"][name] = [np.column_stack((S * c[:, 0] + wx0 * (1 - S), S * c[:, 1] + wcy * (1 - S))) for c in rs]
+tag_dy = (S - 1) * (wy1 - wcy)
+for name, rs in rings["tag"].items():
+    rings["tag"][name] = [c + np.array([0.0, tag_dy]) for c in rs]
+new_x1 = S * wx1 + wx0 * (1 - S)
+W0 = W
+W = int(np.ceil(new_x1 + (W0 - wx1)))                # правий відступ — як був
+print(f"напис ×{S}: x {wx0:.0f}..{wx1:.0f} → ..{new_x1:.0f}, y {wy0:.0f}..{wy1:.0f} (центр {wcy:.0f}); підпис ↓{tag_dy:.1f}; ширина {W0} → {W}")
+
 layers = {k: {n: to_path(r, 1) for n, r in v.items()} for k, v in rings.items()}      # для public/brand/*.svg
 inline = {k: {n: to_path(r, 0) for n, r in v.items()} for k, v in rings.items()}       # для компонента (менший HTML)
 for k, v in layers.items():
     print(k, {n: len(s) for n, s in v.items()}, "| inline", {n: len(s) for n, s in inline[k].items()})
 
 # Габарит знака (для favicon/OG): обгортка компонентів знака, у px вихідного зображення.
-mx0 = min(dboxes[i - 1][0] for i in mark_dark) / UP
-mx1 = max(dboxes[i - 1][2] for i in mark_dark) / UP
+big_marks = [i for i in mark_dark if (dboxes[i - 1][3] - dboxes[i - 1][1]) > big_h]   # без дрібних уламків кінчика
+mx0 = min(dboxes[i - 1][0] for i in big_marks) / UP
+mx1 = max(dboxes[i - 1][2] for i in big_marks) / UP
 vb = f"0 0 {W} {H}"
 meta = {
     "viewBox": [0, 0, W, H],
