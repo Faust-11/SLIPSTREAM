@@ -1152,3 +1152,24 @@ details.ad-panel[open] summary {
 .ad-ed-bar .ad-btn {
   min-height: 44px;
 }
+
+/* 7c: застарілий переклад — підказка під English-полем і блок звірки під текстом */
+.ad-stale {
+  display: block;
+  margin-block-start: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ad-bad, #9d1f12);
+}
+.ad-stale::before {
+  content: "⚠ ";
+}
+.ad-tr {
+  display: grid;
+  gap: 10px;
+  margin-block-start: 4px;
+}
+.ad-tr .ad-note,
+.ad-tr .ad-result {
+  margin: 0;
+}

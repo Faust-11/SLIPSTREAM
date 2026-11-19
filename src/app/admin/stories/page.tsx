@@ -5,11 +5,12 @@ import { FILTERS, filterCounts, filterRows, listStories, parseFilter, type Story
 
 export const metadata: Metadata = { title: "Історії" };
 
-const FILTER_LABEL: Record<StoryFilter, string> = { all: "Усі", draft: "Чернетки", errors: "З помилками", noarchive: "Без архіву джерел" };
+const FILTER_LABEL: Record<StoryFilter, string> = { all: "Усі", draft: "Чернетки", errors: "З помилками", translation: "Переклад EN: перевірити", noarchive: "Без архіву джерел" };
 const EMPTY: Record<StoryFilter, string> = {
   all: "Історій немає.",
   draft: "Чернеток немає: усі історії опубліковані.",
   errors: "Помилок немає.",
+  translation: "Переклад усіх історій відповідає оригіналу.",
   noarchive: "У всіх джерел є копія в Web Archive.",
 };
 
@@ -40,6 +41,17 @@ function ClaimBar({ claims }: { claims: StoryRow["claims"] }) {
           ({parts.map(([, n, label]) => `${n} — ${label}`).join("; ")})
         </span>
       </small>
+    </>
+  );
+}
+
+function TranslationChip({ t }: { t: StoryRow["translation"] }) {
+  if (t.status === "ok") return <span className="ad-chip is-ok">Актуальний</span>;
+  if (t.status === "none") return <span className="ad-note">—</span>;
+  return (
+    <>
+      <span className={`ad-chip ${t.status === "stale" ? "is-bad" : "is-one"}`}>{t.status === "stale" ? "Застарів" : "Без відмітки"}</span>
+      <small>{t.status === "stale" ? t.note : "Звірку з оригіналом ніхто не відмічав."}</small>
     </>
   );
 }
@@ -102,6 +114,7 @@ export default async function AdminStories({ searchParams }: { searchParams: Pro
                   <th scope="col">Історія</th>
                   <th scope="col">Стан</th>
                   <th scope="col">Твердження: ≥2 · одне · спірні</th>
+                  <th scope="col">Переклад EN</th>
                   <th scope="col">Джерел</th>
                   <th scope="col">Перевірка</th>
                 </tr>
@@ -130,6 +143,9 @@ export default async function AdminStories({ searchParams }: { searchParams: Pro
                     </td>
                     <td data-label="Твердження">
                       <ClaimBar claims={r.claims} />
+                    </td>
+                    <td data-label="Переклад EN">
+                      <TranslationChip t={r.translation} />
                     </td>
                     <td data-label="Джерел" className="ad-mono">
                       {r.sources}

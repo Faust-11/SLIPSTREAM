@@ -2,6 +2,7 @@ import "server-only";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { parseStoryJson } from "./format";
+import { checkTranslation, staleSummary, type TranslationStatus } from "./translation";
 import type { StoryJson } from "./types";
 import { validateStory } from "./validate";
 
@@ -23,11 +24,13 @@ export type StoryRow = {
   archivable: number;
   archived: number;
   words: { uk: number; en: number };
+  /** Англійська версія проти українського оригіналу (translation.ts); `none` — історію не вдалося прочитати. */
+  translation: { status: TranslationStatus | "none"; stale: number; note: string };
   errors: string[];
   warnings: string[];
 };
 
-export const FILTERS = ["all", "draft", "errors", "noarchive"] as const;
+export const FILTERS = ["all", "draft", "errors", "translation", "noarchive"] as const;
 export type StoryFilter = (typeof FILTERS)[number];
 
 export function parseFilter(value: string | undefined): StoryFilter {
@@ -64,6 +67,7 @@ export function readRow(root: string, slug: string): StoryRow {
     archivable: 0,
     archived: 0,
     words: { uk: 0, en: 0 },
+    translation: { status: "none", stale: 0, note: "" },
     errors: [],
     warnings: [],
   };
@@ -76,6 +80,7 @@ export function readRow(root: string, slug: string): StoryRow {
   }
   const v = validateStory(slug, story, md);
   const sources = Array.isArray(story.sources) ? story.sources : [];
+  const tr = checkTranslation(story, { uk: md.uk ?? "", en: md.en ?? "" });
   const archivable = sources.filter((s) => isArchivable(String(s?.url ?? "")));
   return {
     slug,
@@ -88,6 +93,7 @@ export function readRow(root: string, slug: string): StoryRow {
     archivable: archivable.length,
     archived: archivable.filter((s) => typeof s?.archive === "string" && s.archive !== "").length,
     words: { uk: v.words.uk ?? 0, en: v.words.en ?? 0 },
+    translation: { status: tr.status, stale: tr.stale.length + tr.removed.length + (tr.structure ? 1 : 0), note: staleSummary(tr) },
     errors: v.errors,
     warnings: v.warnings,
   };
@@ -117,6 +123,8 @@ export function matchesFilter(row: StoryRow, filter: StoryFilter): boolean {
       return row.status === "draft";
     case "errors":
       return row.errors.length > 0;
+    case "translation":
+      return row.translation.status === "stale" || row.translation.status === "unmarked";
     case "noarchive":
       return row.archived < row.archivable;
     default:

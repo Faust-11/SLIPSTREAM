@@ -1,10 +1,11 @@
 import { parseStoryJson, serializeStoryJson } from "./format";
+import { stampTranslation } from "./translation";
 import type { StoryClaim, StoryFiles, StoryJson, StorySource } from "./types";
 
 /**
  * Редактор історії (7c, задача 3): файли ↔ плоскі поля форми. Форма — звичайний HTML без JS-стану, тож усе, що в ній
  * є, — рядки з іменами:
- *   title_uk … dek_en, kicker_uk/en, checked, status (published|draft), md_uk, md_en;
+ *   title_uk … dek_en, kicker_uk/en, checked, status (published|draft), md_uk, md_en, translated_ok (on = оновити відмітку перекладу);
  *   claims = число рядків, c.<i>.{id,text,status,sources,note,label_uk,label_en,reader_uk,reader_en,del};
  *   sources = число рядків, s.<i>.{id,title,publisher,date,url,kind,lang,author,archive,del}.
  * Нове твердження/джерело — останній (порожній) рядок форми: id присвоюється тут (`c<N+1>`, `s<N+1>`).
@@ -151,7 +152,10 @@ export function applyFields(current: StoryFiles, f: Fields): Applied {
     const t = lf(v);
     return t.endsWith("\n") ? t : `${t}\n`;
   };
-  const files: StoryFiles = { json: serializeStoryJson(story, trailingNewline), uk: md(f.md_uk), en: md(f.md_en) };
+  const ukMd = md(f.md_uk);
+  // «Переклад актуальний»: хеші беруться з українського тексту, який збережеться, — не з того, що було в main.
+  if (f.translated_ok === "on") story.translated = stampTranslation(story, ukMd);
+  const files: StoryFiles = { json: serializeStoryJson(story, trailingNewline), uk: ukMd, en: md(f.md_en) };
   return { files, story, changed: files.json !== current.json || files.uk !== current.uk || files.en !== current.en };
 }
 
@@ -179,5 +183,6 @@ export function describeChanges(before: StoryFiles, after: Applied): string[] {
   diffList("твердження", a.claims ?? [], b.claims ?? []);
   diffList("джерела", a.sources ?? [], b.sources ?? []);
   if (!same(a.checked ?? null, b.checked ?? null)) out.push("дата перевірки");
+  if (!same(a.translated ?? null, b.translated ?? null)) out.push("відмітка: переклад актуальний");
   return out;
 }

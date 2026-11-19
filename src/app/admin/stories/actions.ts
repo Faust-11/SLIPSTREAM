@@ -12,7 +12,7 @@ export type SaveState =
   | { status: "saved"; nonce: number; pr: number; url: string; changes: string[]; warnings: string[]; fields: Fields };
 
 /** Лише поля форми редактора (React додає службові `$ACTION_*`); довжина кожного обмежена. */
-const FIELD = /^(title_|dek_|kicker_|md_)(uk|en)$|^(checked|status|claims|sources)$|^c\.\d+\.[a-z_]+$|^s\.\d+\.[a-z_]+$/;
+const FIELD = /^(title_|dek_|kicker_|md_)(uk|en)$|^(checked|status|claims|sources|translated_ok)$|^c\.\d+\.[a-z_]+$|^s\.\d+\.[a-z_]+$/;
 const MAX_FIELD = 400_000;
 const MAX_FIELDS = 5000;
 
