@@ -56,6 +56,8 @@ test("доступність і телефон: без горизонтальн�
 });
 
 // ── Редактор (7c, задача 3). Кожен тест — своя історія: відкритий PR історії блокує нову публікацію (фейк не зливає PR). ──
+// Сводка результату редактора. Не page.getByRole("alert") — такий role має й службовий route announcer Next.js.
+const summary = (page: Page) => page.locator(".ad-ed-summary");
 const lastPr = async (page: Page, has: string) => (await page.request.get(`${FAKE}/__last-pr?has=${encodeURIComponent(has)}`)).json();
 
 async function openStory(page: Page, slug: string) {
@@ -96,7 +98,7 @@ test("редактор: статус «чернетка» і правка тек
   await expect(page.getByRole("status").filter({ hasText: "чекають злиття" })).toBeVisible();
   await page.locator('input[name="title_uk"]').fill("Інший заголовок");
   await page.getByRole("button", { name: "Опублікувати зміни" }).click();
-  await expect(page.getByRole("alert")).toContainText("вже чекають злиття");
+  await expect(summary(page).getByRole("alert")).toContainText("вже чекають злиття");
 });
 
 test("редактор: помилка валідації — PR не створюється, значення форми лишаються, фокус на підсумку", async ({ page }) => {
@@ -104,9 +106,8 @@ test("редактор: помилка валідації — PR не створ
   await page.locator('input[name="s.0.del"]').check(); // джерело s1 використовують твердження
   await page.locator('input[name="title_en"]').fill("Тимчасовий заголовок для перевірки");
   await page.getByRole("button", { name: "Опублікувати зміни" }).click();
-  const alert = page.getByRole("alert");
-  await expect(alert).toContainText("відсутні в sources");
-  await expect(alert).toBeFocused();
+  await expect(summary(page).getByRole("alert")).toContainText("відсутні в sources");
+  await expect(summary(page)).toBeFocused();
   await expect(page.locator('input[name="s.0.del"]')).toBeChecked();
   await expect(page.locator('input[name="title_en"]')).toHaveValue("Тимчасовий заголовок для перевірки");
   expect((await page.request.get(`${FAKE}/__last-pr?has=suzuka-1989`)).status()).toBe(404);
@@ -115,7 +116,7 @@ test("редактор: помилка валідації — PR не створ
 test("редактор: збереження без правок — «Немає змін»; доступність і телефон", async ({ page }) => {
   await openStory(page, "spa-2021");
   await page.getByRole("button", { name: "Опублікувати зміни" }).click();
-  await expect(page.getByRole("alert")).toContainText("Немає змін");
+  await expect(summary(page).getByRole("alert")).toContainText("Немає змін");
   await expectNoA11yViolations(page);
   await page.setViewportSize({ width: 360, height: 800 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
