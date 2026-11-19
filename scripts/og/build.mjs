@@ -14,7 +14,7 @@
  *
  * Два види:
  * - section/<розділ>-<мова>.jpg — фірмова картка: назва розділу й опис зі словника;
- * - <seasons|circuits|stories>/<id>.jpg — фото героя сторінки з плашкою Outlap (без тексту — одна на обидві мови).
+ * - <seasons|circuits|stories>/<id>.jpg — фото героя сторінки з плашкою-логотипом Outlap (без тексту — одна на обидві мови).
  * Перелік читає src/lib/seo.ts: sections — «<розділ>-<мова>» → {src, alt}; photos — src фото сайту → JPEG.
  * Фото без JPEG (нове, ще не згенероване) отримує картку свого розділу.
  *
@@ -32,7 +32,9 @@ const H = 630;
 const only = process.argv.includes("--only") ? process.argv[process.argv.indexOf("--only") + 1] : null;
 
 const json = (p) => JSON.parse(readFileSync(join(ROOT, p), "utf8"));
-const ICON = readFileSync(join(ROOT, "scripts/assets/roundel.svg"), "utf8");
+// Логотип — вектор із public/brand (scripts/assets/logo_trace.py): версії для темного тла (картки темні).
+const WORDMARK = readFileSync(join(ROOT, "public/brand/outlap-wordmark-for-dark.svg"), "utf8");
+const LOGO_FULL = readFileSync(join(ROOT, "public/brand/outlap-logo-for-dark.svg"), "utf8");
 const LOCALES = ["en", "uk"];
 const SECTIONS = ["home", "seasons", "calendar", "news", "drivers", "teams", "circuits", "stories", "newbie", "game"];
 // Службові сторінки (фаза 8) — не в меню: назва й опис з content/service/<мова>.json.
@@ -47,9 +49,8 @@ const BASE_CSS = `
   * { margin: 0; box-sizing: border-box; }
   html, body { width: ${W}px; height: ${H}px; overflow: hidden; }
   body { font-family: "IBM Plex Sans", sans-serif; background: #16181d; color: #f3f4f1; position: relative; }
-  .brand { display: flex; align-items: center; gap: 18px; }
-  .brand svg { width: 76px; height: 76px; flex: none; }
-  .brand b { font: 400 34px/1 "Rubik Mono One", sans-serif; letter-spacing: 0.02em; color: #f3f4f1; }
+  .brand { display: flex; align-items: center; }
+  .brand svg { height: 92px; width: auto; display: block; }
   /* Бордюр (червоно-білий, як у роундела) — нижня смуга кожної картки. */
   .kerb { position: absolute; left: 0; right: 0; bottom: 0; height: 18px;
           background: repeating-linear-gradient(90deg, #e0301e 0 48px, #f3f4f1 48px 96px); }
@@ -61,11 +62,11 @@ function sectionHtml(title, text, home = false) {
   .bar { position: absolute; left: 0; top: 0; bottom: 18px; width: 22px; background: #ffc400; }
   h1 { margin-top: auto; font: 400 ${title.length > 9 ? 92 : 112}px/1.02 "Rubik Mono One", sans-serif; color: #ffc400;
        letter-spacing: -0.01em; text-wrap: balance; }
-  .big svg { width: 168px; height: 168px; }
+  .big svg { height: 300px; width: auto; display: block; }
   p { margin-top: 28px; font-size: 36px; line-height: 1.3; color: #d5d8dd; max-width: 980px; text-wrap: pretty; }
   </style></head><body><div class="bar"></div><div class="wrap">
-  ${home ? `<div class="big">${ICON}</div>` : `<div class="brand">${ICON}<b>OUTLAP</b></div>`}
-  <h1>${esc(title)}</h1><p>${esc(text)}</p></div><div class="kerb"></div></body></html>`;
+  ${home ? `<div class="big">${LOGO_FULL}</div>` : `<div class="brand">${WORDMARK}</div>`}
+  ${home ? "" : `<h1>${esc(title)}</h1>`}<p${home ? ' style="margin-top:auto"' : ""}>${esc(text)}</p></div><div class="kerb"></div></body></html>`;
 }
 
 function photoHtml(dataUrl, focus) {
@@ -73,10 +74,9 @@ function photoHtml(dataUrl, focus) {
   img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: ${focus}; }
   .shade { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(22,24,29,.72) 100%); }
   .plate { position: absolute; left: 40px; bottom: 50px; padding: 14px 24px 14px 16px; background: #16181d; }
-  .plate .brand svg { width: 56px; height: 56px; }
-  .plate .brand b { font-size: 26px; }
+  .plate .brand svg { height: 64px; }
   </style></head><body><img src="${dataUrl}" alt=""><div class="shade"></div>
-  <div class="plate"><div class="brand">${ICON}<b>OUTLAP</b></div></div><div class="kerb"></div></body></html>`;
+  <div class="plate"><div class="brand">${WORDMARK}</div></div><div class="kerb"></div></body></html>`;
 }
 
 /** Фото героїв: сезони й траси (curated), історії (story.json). focus — як object-position на сайті. */

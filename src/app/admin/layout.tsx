@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { AdminNav } from "@/components/admin/nav";
-import { ROUNDEL_SVG } from "@/components/site/roundel-svg";
+import { Logo } from "@/components/site/logo";
 import { getAdmin } from "@/lib/admin/session";
 import { fontVariables } from "../fonts";
 import "../globals.css";
@@ -31,13 +31,8 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           <div className="ad-app">
             <aside className="ad-side">
               <Link className="ad-brand" href="/admin">
-                <span className="ad-roundel" aria-hidden="true">
-                  <svg viewBox="0 0 64 64" dangerouslySetInnerHTML={{ __html: ROUNDEL_SVG }} />
-                </span>
-                <span>
-                  <b translate="no">OUTLAP</b>
-                  <small>Адмінка</small>
-                </span>
+                <Logo />
+                <small>Адмінка</small>
               </Link>
               <AdminNav />
               <div className="ad-me">
@@ -62,9 +57,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         ) : (
           // Вхід (до сесії): без панелі розділів.
           <main className="ad-login" id="ad-main" tabIndex={-1}>
-            <span className="ad-roundel" aria-hidden="true">
-              <svg viewBox="0 0 64 64" dangerouslySetInnerHTML={{ __html: ROUNDEL_SVG }} />
-            </span>
+            <Logo />
             {children}
           </main>
         )}

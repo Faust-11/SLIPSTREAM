@@ -10,7 +10,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
     <footer className="site-foot" data-mnav-inert>
       <div className="wrap">
         <div className="foot-brand">
-          <Brand href={localizedPath("/", locale)} label={dict.header.home} name="OUTLAP" />
+          <Brand href={localizedPath("/", locale)} label={dict.header.home} />
           <p>{dict.footer.tagline}</p>
         </div>
         {/* Дублює головне меню: усі розділи досяжні й без JavaScript. */}

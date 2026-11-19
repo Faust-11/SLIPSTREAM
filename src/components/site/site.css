@@ -84,28 +84,21 @@ body::before {
   text-decoration: none;
   flex-shrink: 0;
 }
-.brand .roundel {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--yellow);
-  box-shadow:
-    0 0 0 3px var(--head-bg),
-    0 0 0 5px var(--yellow);
-  display: flex;
-  flex-shrink: 0;
+/* Логотип — вектор (src/components/site/logo.tsx). Шапка й підвал завжди темні → «чорнило» й світлі смуги бордюру світлі. */
+.brand {
+  --logo-ink: #f3f4f1;
+  --logo-paper: #f3f4f1;
 }
-.brand .roundel svg {
-  width: 100%;
-  height: 100%;
+.brand .logo {
   display: block;
+  height: 44px;
+  width: auto;
 }
-.brand b {
-  font-family: var(--f-display);
-  word-spacing: -0.35em;
-  font-weight: 400;
-  font-size: 17px;
-  letter-spacing: 0.04em;
+.logo .lg-ink {
+  fill: var(--logo-ink, #f3f4f1);
+}
+.logo .lg-paper {
+  fill: var(--logo-paper, var(--logo-ink, #f3f4f1));
 }
 
 .nav {
@@ -366,15 +359,8 @@ html:not([data-hydrated]) .mnav-btn {
   }
 }
 @media (max-width: 400px) {
-  .site-head .brand {
-    gap: 10px;
-  }
-  .site-head .brand b {
-    font-size: 15px;
-  }
-  .site-head .roundel {
-    width: 40px;
-    height: 40px;
+  .site-head .brand .logo {
+    height: 38px;
   }
 }
 /* 320–359 px: логотип + мова + бургер мають влізти в 288 px (замір: 320 px без цього → +16 px скролу). */
@@ -382,12 +368,8 @@ html:not([data-hydrated]) .mnav-btn {
   .site-head .wrap {
     gap: 8px;
   }
-  .site-head .brand {
-    gap: 8px;
-  }
-  .site-head .brand b {
-    font-size: 13px;
-    letter-spacing: 0.02em;
+  .site-head .brand .logo {
+    height: 34px;
   }
   .site-head .lang-item {
     min-width: 32px;
@@ -426,9 +408,8 @@ html:not([data-hydrated]) .mnav-btn {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.6fr);
   gap: 40px;
 }
-.site-foot .brand .roundel {
-  width: 64px;
-  height: 64px;
+.site-foot .brand .logo {
+  height: 76px;
 }
 .foot-brand .brand {
   margin-bottom: 14px;

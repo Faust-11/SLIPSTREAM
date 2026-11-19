@@ -77,31 +77,21 @@
 }
 .ad-brand {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
   padding: 0 6px;
   color: inherit;
   text-decoration: none;
 }
-.ad-roundel {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  display: flex;
-  border-radius: 50%;
-  background: var(--yellow);
-  box-shadow: 0 0 0 2px var(--head-bg), 0 0 0 4px var(--yellow);
-}
-.ad-roundel svg {
-  width: 100%;
-  height: 100%;
-}
-.ad-brand b {
+.ad-brand .logo,
+.ad-login > .logo {
+  --logo-ink: #f3f4f1;
+  --logo-paper: #f3f4f1;
   display: block;
-  font-family: var(--nf-display), "Arial Black", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0.04em;
+  height: 38px;
+  width: auto;
+  flex-shrink: 0;
 }
 .ad-brand small {
   display: block;
@@ -535,9 +525,8 @@
 .ad-login:focus {
   outline: none;
 }
-.ad-login > .ad-roundel {
-  width: 56px;
-  height: 56px;
+.ad-login > .logo {
+  height: 64px;
 }
 .ad-auth {
   width: min(100%, 380px);
