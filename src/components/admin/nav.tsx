@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 /** Розділи адмінки. Нові з'являються тут, коли готові (7b — Фото, 7c — Історії, 7d — решта). */
 export const ADMIN_SECTIONS = [
   { href: "/admin", label: "Огляд" },
+  { href: "/admin/stories", label: "Історії" },
   { href: "/admin/photos", label: "Фото" },
   { href: "/admin/races", label: "Гонки" },
   { href: "/admin/system", label: "Система" },
