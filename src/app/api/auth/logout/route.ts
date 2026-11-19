@@ -1,18 +1,17 @@
 import { json, sameOrigin } from "@/lib/play/http";
 import { revokeSession } from "@/lib/play/gotrue";
-import { playConfig } from "@/lib/play/config";
-import { SESSION_COOKIE, decodeSession } from "@/lib/play/cookie";
-import { clearPlaySession } from "@/lib/play/session";
-import { cookies } from "next/headers";
+import { clearPlaySession, currentPlayer } from "@/lib/play/session";
 
 export const dynamic = "force-dynamic";
 
-/** Вихід: токен відкликаємо в Supabase (найкращим зусиллям), cookie знімаємо завжди. */
+/**
+ * Вихід: сесію відкликаємо в Supabase (спершу currentPlayer() оновлює прострочений access — з простроченим токеном logout дав би
+ * 401 і refresh лишився б дійсним), cookie знімаємо завжди, навіть якщо Supabase недоступний.
+ */
 export async function POST(request: Request) {
   if (!sameOrigin(request)) return json(403, { error: "origin" });
-  const cfg = playConfig();
-  const pair = decodeSession((await cookies()).get(SESSION_COOKIE)?.value);
-  if (cfg && pair) await revokeSession(cfg, pair.a);
+  const state = await currentPlayer();
+  if (state?.user) await revokeSession(state.cfg, state.user.accessToken);
   await clearPlaySession();
   return json(200, { ok: true });
 }

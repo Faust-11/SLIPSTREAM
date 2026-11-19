@@ -1,9 +1,21 @@
 import "server-only";
-import { siteUrl } from "@/lib/seo";
-
-/** Спільне для обробників /api/auth/* і /api/session: той самий origin, JSON без кешу, малий ліміт тіла. */
+/**
+ * Спільне для обробників /api/auth/* і /api/session: той самий origin, JSON без кешу, малий ліміт тіла.
+ *
+ * Origin має збігатися з ХОСТОМ запиту (x-forwarded-host, інакше Host), а не з SITE_URL: сайт відкривається і за outlap.org,
+ * і за www, і за адресою *.vercel.app — порівняння з однією «канонічною» адресою відхиляло б законні запити з інших
+ * псевдонімів. Підробити Origin з чужої сторінки браузер не дає; відсутній Origin (не-браузер) — відмова.
+ */
 export function sameOrigin(request: Request): boolean {
-  return request.headers.get("origin") === siteUrl().origin;
+  const origin = request.headers.get("origin");
+  const host = request.headers.get("x-forwarded-host")?.split(",")[0]?.trim() || request.headers.get("host");
+  if (!origin || !host) return false;
+  try {
+    const url = new URL(origin);
+    return ["http:", "https:"].includes(url.protocol) && url.host === host;
+  } catch {
+    return false;
+  }
 }
 
 export function json(status: number, body: unknown, headers: Record<string, string> = {}): Response {
