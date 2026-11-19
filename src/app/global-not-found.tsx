@@ -17,8 +17,8 @@ import "./globals.css";
 const LANG_SCRIPT = `(function(){var p=location.pathname,l=p==="/uk"||p.indexOf("/uk/")===0?"uk":"en",d=document.documentElement;d.lang=l;d.setAttribute("data-nf-lang",l)})()`;
 
 export const metadata: Metadata = {
-  title: "404 · Slipstream",
-  description: "Page not found · Сторінку не знайдено — Slipstream, an unofficial Formula 1 fan site.",
+  title: "404 · Outlap",
+  description: "Page not found · Сторінку не знайдено — Outlap, an unofficial Formula 1 fan site.",
   ...SITE_ICONS,
 };
 
@@ -36,7 +36,7 @@ export default async function GlobalNotFound() {
           <div className="wrap">
             {dicts.map(({ locale, dict }) => (
               <div key={locale} data-nf={locale} lang={locale} className="nf-brand">
-                <Brand href={localizedPath("/", locale)} label={dict.header.home} name="SLIPSTREAM" />
+                <Brand href={localizedPath("/", locale)} label={dict.header.home} name="OUTLAP" />
               </div>
             ))}
           </div>

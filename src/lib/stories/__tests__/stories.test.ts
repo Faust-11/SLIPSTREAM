@@ -23,7 +23,7 @@ describe("розбирач тексту історій", () => {
   });
 
   it("цитата: один рядок — лише оригінал; три — оригінал, переклад, хто", () => {
-    expect(parseStory("> «Сам текст» (переклад Slipstream).[^c8]")[0]).toMatchObject({ type: "quote", tr: null, cite: null });
+    expect(parseStory("> «Сам текст» (переклад Outlap).[^c8]")[0]).toMatchObject({ type: "quote", tr: null, cite: null });
     const q = parseStory("> «I would not open the door.»\n> Я не відчиню двері.[^c9]\n> — Ален Прост · після гонки")[0];
     expect(q).toMatchObject({ type: "quote", cite: "Ален Прост · після гонки" });
     expect(q && q.type === "quote" && q.tr).toEqual([{ t: "text", v: "Я не відчиню двері." }, { t: "fn", claim: "c9" }]);

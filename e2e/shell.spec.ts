@@ -181,7 +181,7 @@ test.describe("мобільне меню", () => {
   test("закривається при переході поза панеллю: логотип, Back", async ({ page }) => {
     await page.goto("/teams");
     await openMenu(page);
-    await page.getByRole("link", { name: "Slipstream — home" }).first().click();
+    await page.getByRole("link", { name: "Outlap — home" }).first().click();
     await expect(page).toHaveURL(/\/$/);
     await expectClosed(page);
 
@@ -317,7 +317,7 @@ test("фокус у шапці видимий (жовте кільце на те
   await page.keyboard.press("Tab"); // skip-link
   await expect(page.getByRole("link", { name: "Skip to content" })).toBeFocused();
   await page.keyboard.press("Tab");
-  const brand = page.getByRole("link", { name: "Slipstream — home" }).first();
+  const brand = page.getByRole("link", { name: "Outlap — home" }).first();
   await expect(brand).toBeFocused();
   await expect(brand).toHaveCSS("outline-color", "rgb(255, 196, 0)");
 });
@@ -345,7 +345,7 @@ test("клієнтський перехід на головну — без пе�
       bad.push(`${r.status()} ${r.headers()["content-type"]} ${new URL(r.url()).pathname}`);
     }
   });
-  await page.getByRole("link", { name: "Slipstream — home" }).first().click();
+  await page.getByRole("link", { name: "Outlap — home" }).first().click();
   await expect(page).toHaveURL(/\/$/);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("All of Formula 1. Lap by lap.");
   expect(await page.evaluate(() => (window as unknown as { __marker?: number }).__marker)).toBe(1);

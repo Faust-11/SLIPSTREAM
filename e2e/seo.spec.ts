@@ -45,7 +45,7 @@ for (const path of PAGES) {
       expect(head.ogLocale).toBe(locale === "en" ? "en_GB" : "uk_UA");
       expect(head.description?.length).toBeGreaterThan(20);
       expect(head.h1).toBe(1);
-      expect(head.title).toContain("Slipstream");
+      expect(head.title).toContain("Outlap");
     });
   }
 }

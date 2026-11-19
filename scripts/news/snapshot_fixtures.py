@@ -8,7 +8,7 @@ import time
 import urllib.request
 
 OUT = pathlib.Path(__file__).resolve().parents[2] / "e2e" / "fixtures" / "news"
-UA = "Mozilla/5.0 (compatible; SlipstreamBot/0.1; +https://slipstream-bice-eight.vercel.app)"
+UA = "Mozilla/5.0 (compatible; OutlapBot/0.1; +https://outlap.org)"
 RSS = {
     "f1": "https://www.formula1.com/en/latest/all.xml",
     "motorsport": "https://www.motorsport.com/rss/f1/news/",

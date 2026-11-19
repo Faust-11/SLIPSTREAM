@@ -15,7 +15,7 @@ export async function sendCode(mail: EmailLogin, to: string, code: string, fetch
       body: JSON.stringify({
         from: mail.from,
         to: [to],
-        subject: `Код входу в адмінку Slipstream: ${pretty}`,
+        subject: `Код входу в адмінку Outlap: ${pretty}`,
         text: `Код входу: ${pretty}\n\nДіє 10 хвилин і лише в тому браузері, де ви його запросили.\nЯкщо ви не входили в адмінку — просто проігноруйте цей лист.`,
       }),
       cache: "no-store",

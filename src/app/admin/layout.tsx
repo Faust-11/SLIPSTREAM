@@ -12,7 +12,7 @@ import "@/components/admin/admin.css";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: { default: "Адмінка · Slipstream", template: "%s · Адмінка · Slipstream" },
+  title: { default: "Адмінка · Outlap", template: "%s · Адмінка · Outlap" },
   robots: { index: false, follow: false, nocache: true },
 };
 
@@ -35,7 +35,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
                   <svg viewBox="0 0 64 64" dangerouslySetInnerHTML={{ __html: ROUNDEL_SVG }} />
                 </span>
                 <span>
-                  <b translate="no">SLIPSTREAM</b>
+                  <b translate="no">OUTLAP</b>
                   <small>Адмінка</small>
                 </span>
               </Link>

@@ -6,7 +6,7 @@
 
 before: розмір бази й схем, кількість рядків у кожній таблиці public (Predictor) → state.json;
         код 1, якщо схема f1 уже існує без журналу f1.schema_migrations (чужа схема — не чіпаємо).
-after:  ті самі заміри; порівняння рядків public з before (Slipstream їх не змінює) і розмір проти ліміту
+after:  ті самі заміри; порівняння рядків public з before (Outlap їх не змінює) і розмір проти ліміту
         Supabase Free (500 МБ на весь проєкт). Код 1 — розмір понад ліміт.
 Різниця рядків public лише друкується: Predictor — живий сайт, його користувачі можуть писати під час прогону.
 """
@@ -66,7 +66,7 @@ print(f"  приріст бази: {mb(db_size - before['db_size'])}")
 changed = {t: (before["public"].get(t), public.get(t)) for t in set(before["public"]) | set(public)
            if before["public"].get(t) != public.get(t)}
 print("PASS  таблиці Predictor (public): кількість рядків без змін" if not changed
-      else f"WARN  public змінилась під час прогону (Slipstream public не пише — перевірити): {changed}")
+      else f"WARN  public змінилась під час прогону (Outlap public не пише — перевірити): {changed}")
 if db_size > LIMIT_MB * 1024 * 1024:
     sys.exit(f"FAIL  база {mb(db_size)} > {LIMIT_MB} МБ (Supabase Free)")
 print(f"PASS  розмір бази в межах {LIMIT_MB} МБ")

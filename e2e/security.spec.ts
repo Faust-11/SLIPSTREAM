@@ -96,5 +96,5 @@ test("CSP не дає вбудувати сайт у фрейм", async ({ page,
   await page.setContent(`<iframe src="${baseURL}/" style="width:400px;height:300px"></iframe>`);
   const frame = page.frames()[1];
   // Заблокований фрейм не завантажує документ сайту.
-  await expect.poll(async () => (await frame?.evaluate(() => document.title).catch(() => "")) ?? "").not.toContain("Slipstream");
+  await expect.poll(async () => (await frame?.evaluate(() => document.title).catch(() => "")) ?? "").not.toContain("Outlap");
 });

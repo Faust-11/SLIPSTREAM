@@ -14,7 +14,7 @@
  *
  * Два види:
  * - section/<розділ>-<мова>.jpg — фірмова картка: назва розділу й опис зі словника;
- * - <seasons|circuits|stories>/<id>.jpg — фото героя сторінки з плашкою Slipstream (без тексту — одна на обидві мови).
+ * - <seasons|circuits|stories>/<id>.jpg — фото героя сторінки з плашкою Outlap (без тексту — одна на обидві мови).
  * Перелік читає src/lib/seo.ts: sections — «<розділ>-<мова>» → {src, alt}; photos — src фото сайту → JPEG.
  * Фото без JPEG (нове, ще не згенероване) отримує картку свого розділу.
  *
@@ -32,7 +32,7 @@ const H = 630;
 const only = process.argv.includes("--only") ? process.argv[process.argv.indexOf("--only") + 1] : null;
 
 const json = (p) => JSON.parse(readFileSync(join(ROOT, p), "utf8"));
-const ICON = readFileSync(join(ROOT, "src/app/icon.svg"), "utf8");
+const ICON = readFileSync(join(ROOT, "scripts/assets/roundel.svg"), "utf8");
 const LOCALES = ["en", "uk"];
 const SECTIONS = ["home", "seasons", "calendar", "news", "drivers", "teams", "circuits", "stories", "newbie", "game"];
 // Службові сторінки (фаза 8) — не в меню: назва й опис з content/service/<мова>.json.
@@ -64,7 +64,7 @@ function sectionHtml(title, text, home = false) {
   .big svg { width: 168px; height: 168px; }
   p { margin-top: 28px; font-size: 36px; line-height: 1.3; color: #d5d8dd; max-width: 980px; text-wrap: pretty; }
   </style></head><body><div class="bar"></div><div class="wrap">
-  ${home ? `<div class="big">${ICON}</div>` : `<div class="brand">${ICON}<b>SLIPSTREAM</b></div>`}
+  ${home ? `<div class="big">${ICON}</div>` : `<div class="brand">${ICON}<b>OUTLAP</b></div>`}
   <h1>${esc(title)}</h1><p>${esc(text)}</p></div><div class="kerb"></div></body></html>`;
 }
 
@@ -76,7 +76,7 @@ function photoHtml(dataUrl, focus) {
   .plate .brand svg { width: 56px; height: 56px; }
   .plate .brand b { font-size: 26px; }
   </style></head><body><img src="${dataUrl}" alt=""><div class="shade"></div>
-  <div class="plate"><div class="brand">${ICON}<b>SLIPSTREAM</b></div></div><div class="kerb"></div></body></html>`;
+  <div class="plate"><div class="brand">${ICON}<b>OUTLAP</b></div></div><div class="kerb"></div></body></html>`;
 }
 
 /** Фото героїв: сезони й траси (curated), історії (story.json). focus — як object-position на сайті. */
@@ -117,10 +117,10 @@ if (!only || only === "sections") {
   for (const locale of LOCALES) {
     const d = json(`src/i18n/dictionaries/${locale}.json`);
     for (const s of SECTIONS) {
-      const [title, text] = s === "home" ? ["SLIPSTREAM", d.meta.home.description] : [d.nav[s], d.meta.sections[s]];
+      const [title, text] = s === "home" ? ["OUTLAP", d.meta.home.description] : [d.nav[s], d.meta.sections[s]];
       const rel = `/og/section/${s}-${locale}.jpg`;
       await shoot(page, sectionHtml(title, text, s === "home"), join(ROOT, "public", rel));
-      manifest.sections[`${s}-${locale}`] = { src: rel, alt: s === "home" ? `Slipstream. ${text}` : `Slipstream — ${title}. ${text}` };
+      manifest.sections[`${s}-${locale}`] = { src: rel, alt: s === "home" ? `Outlap. ${text}` : `Outlap — ${title}. ${text}` };
     }
   }
 }
@@ -132,7 +132,7 @@ if (!only || only === "sections" || only === "service") {
       const { title, description: text } = c[s];
       const rel = `/og/section/${s}-${locale}.jpg`;
       await shoot(page, sectionHtml(title, text), join(ROOT, "public", rel));
-      manifest.sections[`${s}-${locale}`] = { src: rel, alt: `Slipstream — ${title}. ${text}` };
+      manifest.sections[`${s}-${locale}`] = { src: rel, alt: `Outlap — ${title}. ${text}` };
     }
   }
 }

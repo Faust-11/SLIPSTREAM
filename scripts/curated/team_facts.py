@@ -30,7 +30,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 TEAMS = REPO / "src/data/curated/teams.json"
 OUT = REPO / "src/data/curated/team-facts.json"
-UA = "Slipstream-data-loader/0.2 (non-commercial F1 fan site; batched, cached)"
+UA = "Outlap-data-loader/0.2 (non-commercial F1 fan site; batched, cached)"
 JOLPICA = "https://api.jolpi.ca/ergast/f1/constructors/{}.json"
 WP_API = "https://en.wikipedia.org/w/api.php"
 WD_API = "https://www.wikidata.org/w/api.php"

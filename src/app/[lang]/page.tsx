@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]">): Promis
   const lang = requireLocale((await params).lang);
   const dict = await getDictionary(lang);
   const meta = pageMetadata({ locale: lang, path: "/", title: dict.meta.home.title, description: dict.meta.home.description });
-  // Головна — повна назва без шаблону «… · Slipstream».
+  // Головна — повна назва без шаблону «… · Outlap».
   return { ...meta, title: { absolute: dict.meta.home.title } };
 }
 

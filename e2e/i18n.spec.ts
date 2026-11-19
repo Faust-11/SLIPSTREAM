@@ -20,7 +20,7 @@ async function expectBrowser404(page: Page, path: string, lang: "en" | "uk") {
   expect(res?.status(), path).toBe(404);
   await expect(page.locator("html")).toHaveAttribute("lang", lang);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(TITLE[lang]);
-  await expect(page).toHaveTitle("404 · Slipstream");
+  await expect(page).toHaveTitle("404 · Outlap");
   await expectNoA11yViolations(page);
 }
 
