@@ -418,10 +418,15 @@
   border-top: 2px solid var(--rule);
   columns: 2;
   column-gap: 36px;
-  /* Без content-visibility: заглушка висоти не збігалась зі справжньою (16–46 тис. px), і посилання змісту «Торгові марки»
-     на телефоні приземлялось посеред переліку (рев'ю PR #47). 836 простих рядків розкладаються швидко. */
 }
+/* 836 рядків: розкладка лише тих, що поблизу екрана. Замір (19.11, CPU ×4, 412 px): Layout Σ 795–1017 → 255–416 мс; без цього
+   Lighthouse CI /uk/sources — TBT 837 мс. Багатоколонність ні до чого (без columns — 749–840 мс).
+   Заглушка — висота ВМІСТУ рядка (без padding 14 + border 1): справжні рядки 41–43 px (≥ 390 px) і 52 px (320 px). На всю <ul>
+   не ставити: одна заглушка 14 000 px проти справжніх 16–46 тис. px — посилання змісту «Торгові марки» приземлялось
+   посеред переліку (рев'ю PR #47). */
 .sv-credits li {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 28px;
   break-inside: avoid;
   padding: 7px 0;
   border-bottom: 1px solid var(--hair);
@@ -479,6 +484,11 @@
   }
   .sv-credits {
     columns: 1;
+  }
+}
+@media (width <= 360px) {
+  .sv-credits li {
+    contain-intrinsic-size: auto 37px;
   }
 }
 @media (width <= 600px) {

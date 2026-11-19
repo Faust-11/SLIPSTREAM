@@ -3,36 +3,63 @@ import { expectNoA11yViolations } from "./axe";
 
 // Службові сторінки (фаза 8): «Про сайт» і «Джерела й ліцензії».
 
-test("футер: посилання на «Про сайт» і «Джерела й ліцензії» обома мовами", async ({ page }) => {
+test("футер: посилання на «Про сайт» і «Джерела й ліцензії» обома мовами", async ({
+  page,
+}) => {
   await page.goto("/uk/teams");
   const nav = page.getByRole("navigation", { name: "Інформація про сайт" });
-  await expect(nav.getByRole("link", { name: "Про сайт" })).toHaveAttribute("href", "/uk/about");
-  await expect(nav.getByRole("link", { name: "Джерела й ліцензії" })).toHaveAttribute("href", "/uk/sources");
+  await expect(nav.getByRole("link", { name: "Про сайт" })).toHaveAttribute(
+    "href",
+    "/uk/about",
+  );
+  await expect(
+    nav.getByRole("link", { name: "Джерела й ліцензії" }),
+  ).toHaveAttribute("href", "/uk/sources");
   await page.goto("/teams");
-  await expect(page.getByRole("navigation", { name: "Site information" }).getByRole("link", { name: "Sources and licences" })).toHaveAttribute("href", "/sources");
+  await expect(
+    page
+      .getByRole("navigation", { name: "Site information" })
+      .getByRole("link", { name: "Sources and licences" }),
+  ).toHaveAttribute("href", "/sources");
 });
 
-test("/uk/about: розділи, цифри з даних, зміст веде на розділи; без адреси — текст про домен", async ({ page }) => {
+test("/uk/about: розділи, цифри з даних, зміст веде на розділи; без адреси — текст про домен", async ({
+  page,
+}) => {
   const errors: string[] = [];
   page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
   await page.goto("/uk/about");
   await expect(page.locator("h1")).toContainText("Slipstream");
   await expect(page.locator(".sv-facts > div")).toHaveCount(5);
-  for (const h of await page.locator(".sv-idx a").evaluateAll((as) => as.map((a) => (a as HTMLAnchorElement).hash))) await expect(page.locator(h)).toHaveCount(1);
-  await expect(page.locator(".sv-contact")).toContainText(/з'явиться разом із доменом|@/);
+  for (const h of await page
+    .locator(".sv-idx a")
+    .evaluateAll((as) => as.map((a) => (a as HTMLAnchorElement).hash)))
+    await expect(page.locator(h)).toHaveCount(1);
+  await expect(page.locator(".sv-contact")).toContainText(
+    /з'явиться разом із доменом|@/,
+  );
   // Аналітики ще немає (Task 3b) — пункту «Відвідування» теж немає.
   await expect(page.locator(".sv-store li")).toHaveCount(2);
   expect(errors).toEqual([]);
 });
 
-test("/uk/sources: перелік джерел, графік ліцензій = кількість фото, пошук авторів", async ({ page }) => {
+test("/uk/sources: перелік джерел, графік ліцензій = кількість фото, пошук авторів", async ({
+  page,
+}) => {
   await page.goto("/uk/sources");
   await expect(page.locator(".sv-reg tbody tr")).toHaveCount(10);
-  const total = Number((await page.locator(".sv-facts dt").first().textContent())!.replace(/\D/g, ""));
+  const total = Number(
+    (await page.locator(".sv-facts dt").first().textContent())!.replace(
+      /\D/g,
+      "",
+    ),
+  );
   const items = page.locator("#sv-credits > li");
   await expect(items).toHaveCount(total);
   // Сума стовпчиків = усі фото.
-  const bars = (await page.locator(".sv-bar dd span").allTextContents()).map((s) => Number(s.replace(/\D/g, "")));
+  const bars = (await page.locator(".sv-bar dd span").allTextContents()).map(
+    (s) => Number(s.replace(/\D/g, "")),
+  );
   expect(bars.reduce((a, b) => a + b, 0)).toBe(total);
   const q = page.getByRole("searchbox", { name: "Пошук автора або фото" });
   // Підпис мовою сторінки + інша мова в data-alt: на uk знаходить і «ГЮЛЬКЕНБЕРГ», і латинське «hulkenberg».
@@ -50,14 +77,25 @@ test("/uk/sources: перелік джерел, графік ліцензій = 
   await expect(page.locator("#sv-credits-empty")).toBeVisible();
 });
 
-test("телефон: посилання змісту «Торгові марки» веде до розділу (не посеред переліку)", async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 800 });
-  await page.goto("/uk/sources");
-  await page.locator('.sv-idx a[href="#marks"]').click();
-  await expect.poll(async () => (await page.locator("#marks-h").boundingBox())?.y ?? 9999).toBeLessThan(300);
-});
+// Рядки переліку — content-visibility із заглушкою висоти: якір після переліку мусить приземлятись на заголовок на екрані.
+for (const width of [320, 390, 1280])
+  test(`посилання змісту «Торгові марки» веде до розділу, а не посеред переліку (${width} px)`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width, height: 800 });
+    await page.goto("/uk/sources");
+    await page.locator('.sv-idx a[href="#marks"]').click();
+    await expect
+      .poll(
+        async () => (await page.locator("#marks-h").boundingBox())?.y ?? 9999,
+      )
+      .toBeGreaterThanOrEqual(0);
+    expect((await page.locator("#marks-h").boundingBox())!.y).toBeLessThan(400);
+  });
 
-test("без JS: увесь перелік авторів, поля пошуку немає", async ({ browser }) => {
+test("без JS: увесь перелік авторів, поля пошуку немає", async ({
+  browser,
+}) => {
   const ctx = await browser.newContext({ javaScriptEnabled: false });
   const page = await ctx.newPage();
   await page.goto("/sources");
@@ -69,13 +107,19 @@ test("без JS: увесь перелік авторів, поля пошуку
 
 for (const colorScheme of ["light", "dark"] as const)
   for (const path of ["/uk/about", "/about", "/uk/sources", "/sources"])
-    test(`без порушень axe; без горизонтального скролу на 320 px: ${path} (${colorScheme})`, async ({ page }) => {
+    test(`без порушень axe; без горизонтального скролу на 320 px: ${path} (${colorScheme})`, async ({
+      page,
+    }) => {
       // axe на 836 рядках авторів — 11–13 с локально (рев'ю PR #47).
       test.setTimeout(60_000);
       await page.emulateMedia({ colorScheme });
       await page.setViewportSize({ width: 320, height: 800 });
       await page.goto(path);
-      expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth - window.innerWidth,
+        ),
+      ).toBeLessThanOrEqual(0);
       await page.setViewportSize({ width: 1280, height: 900 });
       await expectNoA11yViolations(page);
     });
