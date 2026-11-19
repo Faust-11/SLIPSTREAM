@@ -272,6 +272,7 @@
         "driver": "Driver",
         "team": "Team",
         "season": "Season",
+        "race": "Race",
         "circuit": "Circuit",
         "layout": "Circuit map",
         "story": "Story"

@@ -2,12 +2,13 @@ import "server-only";
 import circuitLayoutsJson from "@/data/curated/circuit-layouts.json";
 import circuitsJson from "@/data/curated/circuits.json";
 import driverPortraitsJson from "@/data/curated/driver-portraits.json";
+import racePhotosJson from "@/data/curated/race-photos.json";
 import curatedDriversJson from "@/data/curated/drivers.json";
 import seasonsJson from "@/data/curated/seasons.json";
 import teamsJson from "@/data/curated/teams.json";
 import type { Locale } from "@/i18n/config";
 import { getStoryList, getStoryMedia } from "@/lib/stories/content";
-import { driverName, driverPortrait, loadDriverIndex } from "./drivers";
+import { driverHeroCredit, driverName, driverPortrait, loadDriverIndex } from "./drivers";
 
 /**
  * Зведений перелік авторів фото сайту для сторінки «Джерела й ліцензії» (фаза 8): усі файли Wikimedia Commons з
@@ -15,7 +16,7 @@ import { driverName, driverPortrait, loadDriverIndex } from "./drivers";
  * (перша поява); підпис — що це на сайті (пілот, команда, сезон…), посилання — сторінка файлу в Commons.
  * Числа сторінки (файли, автори, ліцензії, схеми) рахуються звідси, а не пишуться в текст.
  */
-export type CreditKind = "driver" | "team" | "season" | "circuit" | "layout" | "story";
+export type CreditKind = "driver" | "team" | "season" | "race" | "circuit" | "layout" | "story";
 /** alt — підпис іншою мовою (латиниця для uk): пошук «Hamilton» на /uk/sources. */
 export type SiteCredit = { kind: CreditKind; label: string; alt: string | null; href: string; author: string; license: string };
 type Credit = { page: string; author: string; license: string };
@@ -66,15 +67,19 @@ export async function getSiteCredits(locale: Locale): Promise<SiteCredit[]> {
   };
 
   for (const [id, d] of Object.entries(curated)) add("driver", dname(id), d, dname(id, other));
-  // Портрети — лише той, що сайт справді показує (driverPortrait: кураторський → ручний → макет), а не всі варіанти з
-  // JSON: у Сенни є ручний портрет, і старий файл потрапляв у перелік, хоча на сайті його немає (рев'ю PR #47).
+  // Портрети — лише ті, що сайт справді показує: аватар (driverPortrait: ручний з адмінки → кураторський → макет) і банер
+  // 4:5 (driverHeroCredit — окремий автор, якщо банер замінили в адмінці), а не всі варіанти з JSON: у Сенни був старий
+  // файл, якого на сайті немає (рев'ю PR #47).
   for (const id of Object.keys((driverPortraitsJson as unknown as { drivers: Record<string, unknown> }).drivers)) {
-    if (curated[id]) continue;
-    const p = driverPortrait(id);
-    if (p) add("driver", dname(id), p.credit, dname(id, other));
+    add("driver", dname(id), [driverPortrait(id)?.credit, driverHeroCredit(id)], dname(id, other));
   }
   for (const t of (teamsJson as unknown as { teams: { name: string }[] }).teams) add("team", t.name, t);
   for (const [year, s] of Object.entries((seasonsJson as unknown as { seasons: Record<string, unknown> }).seasons)) add("season", year, s);
+  // Банер конкретної гонки (адмінка, фаза 7b): ключ «рік/етап».
+  for (const [key, ph] of Object.entries((racePhotosJson as unknown as { photos: Record<string, unknown> }).photos)) {
+    const [year, round] = key.split("/");
+    add("race", locale === "uk" ? `${year}, етап ${round}` : `${year}, round ${round}`, ph);
+  }
   for (const [id, p] of Object.entries(places)) add("circuit", place(id), p, placeAlt(id));
   for (const [id, l] of Object.entries((circuitLayoutsJson as unknown as { layouts: Record<string, unknown> }).layouts)) add("layout", place(id), l, placeAlt(id));
   const titles = new Map(getStoryList(locale).map((c) => [c.slug, c.title.full]));
