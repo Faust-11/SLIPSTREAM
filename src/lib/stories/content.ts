@@ -52,7 +52,7 @@ type RawStory = {
   media?: RawMedia[];
 };
 
-type Loaded = { raw: RawStory; md: Record<Locale, string> };
+export type Loaded = { raw: RawStory; md: Record<Locale, string> };
 
 export type Meter = { total: number; ok: number; one: number; dis: number };
 export type Photo = { id: string; src: string; srcSet: string; width: number; height: number; focus: string | null; caption: string; alt: string; credit: RawMedia["credit"] };
@@ -199,10 +199,21 @@ function related(self: Loaded, all: StoryCard[], n = 4): StoryCard[] {
 }
 
 export function getStory(slug: string, locale: Locale): StoryPage | null {
-  const all = loadAll();
-  const self = all.find((s) => s.raw.slug === slug);
-  if (!self) return null;
+  const self = loadAll().find((s) => s.raw.slug === slug);
+  return self ? buildStoryPage(self, locale, getStoryList(locale)) : null;
+}
+
+/** Історія з файлів, що не лежать у збірці (перегляд чернетки в адмінці, 7c): ті самі перевірки, що й при читанні теки. */
+export function parseLoaded(slug: string, json: string, uk: string, en: string): Loaded {
+  const raw = JSON.parse(json) as RawStory;
+  if (raw.slug !== slug) throw new Error(`Історія ${slug}: slug у story.json — «${raw.slug}»`);
+  return { raw, md: { uk, en } };
+}
+
+/** Сторінка історії з розібраних файлів; `cards` — картки опублікованих історій для блоку «пов'язані». */
+export function buildStoryPage(self: Loaded, locale: Locale, cards: StoryCard[]): StoryPage {
   const { raw } = self;
+  const slug = raw.slug;
   const num = new Map(raw.sources.map((s, i) => [s.id, i + 1]));
   const claims: Record<string, StoryClaim> = {};
   for (const c of raw.claims) {
@@ -225,7 +236,6 @@ export function getStory(slug: string, locale: Locale): StoryPage | null {
   // Факти банера — лише коли історія про одну гонку і це явно вказано (race); links.races — просто посилання (Spygate ≠ Монако).
   const raceKey = raw.race;
   const rm = raceKey ? /^(\d{4})\/(\d{1,2})$/.exec(raceKey) : null;
-  const cards = getStoryList(locale);
   return {
     ...card(self, locale),
     blocks,

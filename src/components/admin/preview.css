@@ -1,0 +1,23 @@
+/* Перегляд історії в адмінці (7c, задача 9). Сторінка історії — розмітка сайту (stories.css); site.css не підключаємо: він
+   містить правила на html/body/a, які змінили б саму адмінку. Нижче — лише те, що брав із site.css контейнер `.wrap`. */
+.ad-pv-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-block: 12px;
+}
+.ad-pv-bar .ad-tabs {
+  margin: 0 0 0 auto;
+}
+.ad-preview {
+  border: 1.5px solid var(--ad-hair);
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: clip;
+}
+.ad-preview .wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-inline: 16px;
+}

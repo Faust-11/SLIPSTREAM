@@ -78,6 +78,9 @@ export default async function AdminStory({ params }: { params: Promise<{ slug: s
           </h1>
         </div>
         <div className="ad-acts">
+          <Link className="ad-btn" href={`/admin/stories/${slug}/preview`}>
+            Перегляд
+          </Link>
           <Link className="ad-btn" href={`/admin/stories/${slug}/photos`}>
             Фото історії
           </Link>
