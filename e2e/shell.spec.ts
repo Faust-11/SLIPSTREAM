@@ -20,7 +20,7 @@ for (const width of [320, 360, 390]) {
   });
 }
 
-for (const width of [861, 1024, 1100, 1140, 1141, 1280, 1440]) {
+for (const width of [861, 1024, 1100, 1140, 1141, 1200, 1270, 1271, 1280, 1440]) {
   test(`${width} px: без горизонтального скролу й переносу пунктів меню (EN і UK)`, async ({ page }) => {
     await page.setViewportSize({ width, height: 800 });
     for (const path of ["/", "/uk"]) {
