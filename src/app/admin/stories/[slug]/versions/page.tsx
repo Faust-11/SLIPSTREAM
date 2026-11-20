@@ -5,6 +5,7 @@ import { GitHub, GitHubError, githubEnv } from "@/lib/admin/github";
 import { requireAdmin } from "@/lib/admin/session";
 import { isSlug, openStoryPrs, readStory, type OpenPr } from "@/lib/admin/stories/store";
 import { listVersions, type Version } from "@/lib/admin/stories/versions";
+import { OpenPrs } from "@/components/admin/open-prs";
 import { revertStoryAction } from "../../version-actions";
 
 /** Збереження/відкат — ≈15–20 послідовних запитів до GitHub (як на сторінці фото). */
@@ -19,6 +20,8 @@ const RESULT: Record<string, { level: "ok" | "one" | "bad"; text: string }> = {
   },
   "open-pr": { level: "one", text: "У історії є відкриті PR — дочекайтесь їх злиття, тоді відкат." },
   bad: { level: "one", text: "Такої правки в журналі цієї історії немає." },
+  "pr-closed": { level: "ok", text: "PR закрито без злиття." },
+  "pr-bad": { level: "one", text: "Цей PR уже не можна закрити тут: його закрили або злили, або він не з правок цієї історії." },
   github: { level: "bad", text: "GitHub не відповів. Спробуйте пізніше." },
   "no-github": { level: "bad", text: "GitHub не підключено (див. «Система»)." },
 };
@@ -77,23 +80,10 @@ export default async function AdminStoryVersions({ params, searchParams }: { par
       {result && (
         <p className={`ad-result is-${result.level}`} role="status">
           {result.text}
-          {r === "reverted" && pr && /^\d{1,9}$/.test(pr) && <span className="ad-mono"> PR #{pr}</span>}
+          {(r === "reverted" || r === "pr-closed") && pr && /^\d{1,9}$/.test(pr) && <span className="ad-mono"> PR #{pr}</span>}
         </p>
       )}
-      {open.length > 0 && (
-        <p className="ad-result is-bad" role="status">
-          Чекають злиття:{" "}
-          {open.map((p, i) => (
-            <span key={p.number}>
-              {i > 0 && ", "}
-              <a href={p.url} target="_blank" rel="noopener">
-                PR #{p.number}
-              </a>
-            </span>
-          ))}
-          . Поки вони не злиті, відкат і нові правки недоступні.
-        </p>
-      )}
+      <OpenPrs slug={slug} prs={open} from="versions" lead="Чекають злиття. " tail="Поки вони не злиті, відкат і нові правки недоступні. Застряглий PR можна закрити." />
       <section className="ad-panel" aria-labelledby="ad-ver">
         <h2 id="ad-ver">Журнал</h2>
         {versions === null ? (

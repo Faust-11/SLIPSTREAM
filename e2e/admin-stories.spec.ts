@@ -526,3 +526,28 @@ test("редактор: історія змінилась у main, поки фо
     await page.request.delete(`${FAKE}/__override?path=${encodeURIComponent(jsonPath)}`);
   }
 });
+
+test("застряглий PR: «Закрити PR» знімає блокування історії", async ({ page }) => {
+  const slug = "vettel-monza-2008";
+  await openStory(page, slug);
+  const title = page.locator('input[name="title_uk"]');
+  await title.fill((await title.inputValue()) + " ");
+  await page.getByRole("button", { name: "Опублікувати зміни" }).click();
+  await expect(page.getByRole("status").filter({ hasText: "PR #" })).toBeVisible();
+  const pr = await lastPr(page, slug);
+
+  await page.goto(`/admin/stories/${slug}`);
+  const blocked = page.locator(".ad-openprs");
+  await expect(blocked).toContainText(`PR #${pr.number}`);
+  await expect(blocked.getByRole("button", { name: `Закрити PR #${pr.number} без злиття` })).toBeVisible();
+
+  await blocked.getByRole("button", { name: `Закрити PR #${pr.number} без злиття` }).click();
+  await expect(page.getByRole("status").filter({ hasText: "PR закрито без злиття" })).toBeVisible();
+  await expect(page.locator(".ad-openprs")).toHaveCount(0);
+  await expectNoA11yViolations(page);
+
+  // Блокування знято: історію знову можна опублікувати.
+  await title.fill((await title.inputValue()) + ".");
+  await page.getByRole("button", { name: "Опублікувати зміни" }).click();
+  await expect(page.getByRole("status").filter({ hasText: "PR #" })).toContainText("створено");
+});

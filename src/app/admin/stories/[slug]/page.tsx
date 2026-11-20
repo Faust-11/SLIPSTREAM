@@ -8,19 +8,29 @@ import { hashFiles, isSlug, openStoryPrs, readStory, type OpenPr } from "@/lib/a
 import { parseStoryJson } from "@/lib/admin/stories/format";
 import { checkTranslation, staleSummary } from "@/lib/admin/stories/translation";
 import { validateStory } from "@/lib/admin/stories/validate";
+import { OpenPrs } from "@/components/admin/open-prs";
 import { StoryForm } from "./story-form";
 
 /** Збереження/відкат — ≈15–20 послідовних запитів до GitHub (як на сторінці фото). */
 export const maxDuration = 60;
 export const metadata: Metadata = { title: "Редактор історії" };
 
+const RESULT: Record<string, { level: "ok" | "one" | "bad"; text: string }> = {
+  "pr-closed": { level: "ok", text: "PR закрито без злиття. Історію знову можна редагувати." },
+  "pr-bad": { level: "one", text: "Цей PR уже не можна закрити тут: його закрили або злили, або він не з правок цієї історії." },
+  github: { level: "bad", text: "GitHub не відповів. Спробуйте пізніше." },
+  "no-github": { level: "bad", text: "GitHub не підключено (див. «Система»)." },
+};
+
 /**
  * Редактор історії (7c). Читає файли з main через GitHub (не зі збірки): правка завжди від свіжого стану, а форма
  * запам'ятовує його відбиток (`orig`) — дія не затре чужу правку. Публікація — src/app/admin/stories/actions.ts.
  */
-export default async function AdminStory({ params }: { params: Promise<{ slug: string }> }) {
+export default async function AdminStory({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams: Promise<{ r?: string; pr?: string }> }) {
   await requireAdmin();
   const { slug } = await params;
+  const { r, pr } = await searchParams;
+  const result = r ? RESULT[r] : undefined;
   if (!isSlug(slug)) notFound();
   const env = githubEnv();
   const back = (
@@ -110,20 +120,13 @@ export default async function AdminStory({ params }: { params: Promise<{ slug: s
         {tr.status === "stale" && <span className="ad-chip is-bad">Переклад EN застарів</span>}
         {tr.status === "unmarked" && <span className="ad-chip is-one">Переклад EN без відмітки</span>}
       </p>
-      {open.length > 0 && (
-        <p className="ad-result is-bad" role="status">
-          Правки цієї історії вже чекають злиття:{" "}
-          {open.map((p, i) => (
-            <span key={p.number}>
-              {i > 0 && ", "}
-              <a href={p.url} target="_blank" rel="noopener">
-                PR #{p.number}
-              </a>
-            </span>
-          ))}
-          . Публікувати нове, поки вони не злиті, не можна.
+      {result && (
+        <p className={`ad-result is-${result.level}`} role="status">
+          {result.text}
+          {r === "pr-closed" && pr && /^\d{1,9}$/.test(pr) && <span className="ad-mono"> PR #{pr}</span>}
         </p>
       )}
+      <OpenPrs slug={slug} prs={open} from="editor" lead="Правки цієї історії вже чекають злиття. " tail="Публікувати нове, поки вони не злиті, не можна. Якщо PR застряг (перевірки червоні), його можна закрити." />
       {check.errors.length > 0 && (
         <div className="ad-result is-bad">
           <h2>Помилки в поточній версії</h2>

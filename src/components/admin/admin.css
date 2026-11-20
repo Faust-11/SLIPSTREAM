@@ -398,6 +398,26 @@
   }
 }
 
+/* Дуже вузький екран (320–560 px): у один рядок шапка не вміщується (замір 20.11: розділи ховались за прокруткою).
+   Два рядки: логотип і «Вийти» зверху, розділи знизу на всю ширину, порівну. */
+@media (max-width: 560px) {
+  .ad-side {
+    flex-wrap: wrap;
+    row-gap: 0;
+  }
+  .ad-nav {
+    order: 3;
+    flex: 1 0 100%;
+    margin: 0 -4px;
+  }
+  .ad-nav a {
+    flex: 1 1 0;
+    justify-content: center;
+    padding: 0 4px;
+    font-size: 13.5px;
+  }
+}
+
 /* Огляд */
 .ad-result {
   margin: 0 0 16px;
@@ -1285,4 +1305,25 @@ details.ad-panel[open] summary {
 }
 .ad-diff-n.is-del {
   color: var(--ad-bad);
+}
+
+/* Відкриті PR історії з кнопкою «Закрити PR» */
+.ad-openprs ul {
+  margin: 8px 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.ad-openprs li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+}
+.ad-openprs form {
+  margin: 0;
+}
+.ad-openprs p {
+  margin: 0;
 }
