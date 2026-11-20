@@ -14,7 +14,7 @@ export async function POST(request: Request) {
   const body = await readJson(request);
   if (body?.confirm !== true) return json(400, { error: "confirm" });
   const state = await currentPlayer();
-  if (!state) return json(503, { error: "unavailable" });
+  if (!state || (state.unavailable && !state.user)) return json(503, { error: "unavailable" });
   if (!state.user) return json(401, { error: "unauthorized" });
   const res = await deleteAccount(state.cfg, state.user.accessToken);
   if (!res.ok) return json(res.reason === "unauthorized" ? 401 : 503, { error: res.reason });

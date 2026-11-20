@@ -23,3 +23,14 @@ end;
 $$;
 revoke all on function play.delete_my_account() from public, anon;
 grant execute on function play.delete_my_account() to authenticated, service_role;
+
+-- Нік: НЕвидимі символи форматування й «дивні» пробіли (рев'ю 20.11). 0015 забороняв лише ASCII/C1 керуючі та «@»; нік «Max» і
+-- «Max» + U+200B вважалися різними за lower(nick), але на таблиці виглядали однаково (підміна імені). Той самий список у
+-- src/lib/play/validate.ts (HIDDEN_OR_ODD). Назву обмеження лишаємо (`profiles_nick_chk`): її вже чекають тести й обробка помилок.
+-- Рядків у play.profiles на момент застосування немає (0015 і 0016 застосовуються разом), тож перевірка наявних даних безпечна.
+alter table play.profiles drop constraint profiles_nick_chk;
+alter table play.profiles add constraint profiles_nick_chk check (
+  nick = btrim(nick) and char_length(nick) between 3 and 24
+  and nick !~ '[[:cntrl:]@]' and nick !~ '^[Гг]равець '
+  and nick !~ E'[\u00a0\u00ad\u1680\u180e\u2000-\u200f\u2028-\u202f\u205f-\u206f\u3000\ufeff]'
+);

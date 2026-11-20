@@ -17,8 +17,10 @@ export async function POST(request: Request) {
   const email = typeof body?.email === "string" ? normalizeEmail(body.email) : "";
   const code = typeof body?.code === "string" ? body.code.replace(/\s/g, "") : "";
   if (!isValidEmail(email) || !isValidCode(code)) return json(400, { error: "invalid_code" });
-  // Перебір коду: 8 цифр = 10⁸ варіантів; м'яко — 10 спроб на джерело й на адресу за 10 хв (Supabase обмежує й сам).
-  if (!allow(`verify:ip:${clientKey(request)}`, 10, 10 * 60_000) || !allow(`verify:mail:${email}`, 10, 10 * 60_000)) return json(429, { error: "rate_limited" });
+  // Перебір коду: 8 цифр = 10⁸ варіантів; м'яко — 10 спроб за 10 хв на ПАРУ «джерело + адреса» і 30 на джерело. Лише адреса як ключ
+  // дозволила б будь-кому «спалити» спроби власника (рев'ю 20.11); перебір з багатьох джерел обмежує сам Supabase.
+  const ip = clientKey(request);
+  if (ip && (!allow(`verify:pair:${ip}:${email}`, 10, 10 * 60_000) || !allow(`verify:ip:${ip}`, 30, 10 * 60_000))) return json(429, { error: "rate_limited" });
   const verified = await verifyCode(cfg, email, code);
   if (!verified.ok) return json(verified.reason === "rate_limited" ? 429 : verified.reason === "invalid_code" ? 400 : 503, { error: verified.reason });
   await startPlaySession(verified.value);

@@ -81,6 +81,8 @@ test.describe("вхід кодом на пошту", () => {
     await expect(other.locator(".au-err:visible")).toHaveText("At least 3 characters.");
     await saveNick(other, "me@mail.test");
     await expect(other.locator(".au-err:visible")).toContainText("special characters");
+    await saveNick(other, `${nick()}\u200b`); // невидимий символ — підміна імені
+    await expect(other.locator(".au-err:visible")).toContainText("special characters");
     await saveNick(other, first.toUpperCase());
     await expect(other.locator(".au-err:visible")).toHaveText("This nickname is already taken.");
     await saveNick(other, nick());
