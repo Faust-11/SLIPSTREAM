@@ -85,6 +85,32 @@ test.describe("сторонній адмінки не бачить", () => {
     }
   });
 
+  // Сторінки з server action (7c): сторонній не має дістатись до дії навіть POST-запитом із заголовком next-action — правило конфігу
+  // віддає 404 ще до Next. Окремо — з підробленою сесією.
+  const ACTION_PAGES = [
+    "/admin/stories/jerez-1997",
+    "/admin/stories/jerez-1997/photos/m1",
+    "/admin/stories/jerez-1997/photos/new",
+    "/admin/stories/jerez-1997/versions",
+    "/admin/stories/jerez-1997/sources",
+    "/admin/stories/jerez-1997/address",
+    "/admin/stories/jerez-1997/preview",
+    "/admin/photos",
+    "/admin/races",
+  ];
+  test("server action сторінок історій, фото й гонок: POST без сесії і з підробленою сесією — 404", async ({ request }) => {
+    const origin = process.env.BASE_URL ?? BASE;
+    const reference = (await request.post("/zzz-not-a-page", { headers: { origin }, form: { x: "1" } })).status();
+    const forged = `${Buffer.from('{"alg":"HS256"}').toString("base64url")}.${Buffer.from(`{"sub":"github:${OWNER_ID}"}`).toString("base64url")}.AAAA`;
+    for (const path of ACTION_PAGES) {
+      for (const cookie of [undefined, `ss_admin=${forged}`]) {
+        const res = await request.post(path, { headers: { origin, "next-action": "00".repeat(20), ...(cookie ? { cookie } : {}) }, form: { x: "1" } });
+        expect(res.status(), `${path}${cookie ? " (підроблена сесія)" : ""}`).toBe(reference);
+        expect(res.status(), path).toBe(404);
+      }
+    }
+  });
+
   test("повернення з GitHub без стану входу — 404, сесії немає", async ({ page }) => {
     const res = await page.goto("/admin/auth/callback?code=abc&state=xyz");
     expect(res?.status()).toBe(404);
