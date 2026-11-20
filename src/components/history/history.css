@@ -1,0 +1,141 @@
+/* «Цей день у Формулі-1» (/history, /history/ММ-ДД). Класи .oth-*; базові .sec, .sec-head, .crumbs — спільні. */
+.oth {
+  padding-top: 36px;
+}
+.oth .sec-head {
+  display: block;
+  margin: 0 0 14px;
+}
+.oth .sec-head h1 {
+  margin: 0;
+  font-size: clamp(28px, 5.4vw, 56px);
+  line-height: 1.04;
+  text-wrap: balance;
+}
+.oth .oth-lead {
+  max-width: 62ch;
+  margin: 0 0 28px;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.oth h2 {
+  margin: 40px 0 6px;
+  font-family: var(--f-display);
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+.oth .oth-note {
+  margin: 0 0 14px;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.oth-list,
+.oth-people {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--rule);
+}
+.oth-list li,
+.oth-people li {
+  display: grid;
+  grid-template-columns: 4.5ch minmax(0, 1fr);
+  gap: 4px 16px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--hair);
+}
+.oth-year {
+  font-family: var(--f-mono);
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+}
+.oth-main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 14px;
+  align-items: baseline;
+}
+.oth-main > a:first-child {
+  font-weight: 700;
+  color: var(--ink);
+}
+.oth-place {
+  color: var(--ink-soft);
+}
+.oth-win {
+  flex-basis: 100%;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.oth-win a,
+.oth-people a {
+  color: var(--ink);
+}
+.oth-people a {
+  font-weight: 700;
+}
+.oth-age {
+  margin-left: 10px;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+.oth-pager {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  margin: 44px 0 0;
+  padding-top: 18px;
+  border-top: 2px solid var(--rule);
+}
+.oth-pager a {
+  color: var(--ink);
+  font-weight: 700;
+}
+.oth-today {
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 10px 18px;
+  background: var(--yellow);
+  color: var(--on-yellow);
+  font-weight: 700;
+  text-decoration: none;
+}
+.oth-month {
+  margin: 0;
+}
+.oth-days {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+  gap: 6px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.oth-days a,
+.oth-days span {
+  display: grid;
+  place-items: center;
+  min-height: 44px;
+  font-family: var(--f-mono);
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  border: 1px solid var(--hair);
+  color: var(--ink);
+  text-decoration: none;
+}
+.oth-days a {
+  border-color: var(--ink);
+}
+.oth-days a:hover {
+  background: var(--yellow);
+  color: var(--on-yellow);
+}
+.oth-days span {
+  color: var(--ink-soft);
+  opacity: 0.6;
+}

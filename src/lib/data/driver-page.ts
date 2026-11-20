@@ -431,3 +431,20 @@ export async function getDriverPage(slug: string, locale: Locale, today = new Da
 function pick(c: Credit): { author: string; license: string } {
   return { author: c.author, license: c.license };
 }
+
+/**
+ * Дати народження й смерті всіх пілотів — для розділу «Цей день у Формулі-1». Ті самі правила, що й на сторінці пілота:
+ * ручні правки з driver-facts.json (перевірені за незалежними джерелами) мають пріоритет над датою бази.
+ */
+export async function getDriverLifeDates(): Promise<Map<string, { born: string | null; died: string | null }>> {
+  const totalsBy = await loadTotals();
+  const out = new Map<string, { born: string | null; died: string | null }>();
+  for (const [id, rows] of totalsBy) {
+    const f = facts[id] ?? {};
+    out.set(id, {
+      born: f.manual?.born ?? rows[0]?.date_of_birth ?? null,
+      died: f.manual?.died !== undefined ? f.manual.died : (f.died ?? null),
+    });
+  }
+  return out;
+}

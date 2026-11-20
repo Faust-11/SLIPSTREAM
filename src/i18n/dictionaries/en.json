@@ -1430,6 +1430,70 @@
     "creditsPhotos": "Photos: authors and licences",
     "dataLine": "Facts and quotes come from the numbered sources at the end of the story. Photos: Wikimedia Commons."
   },
+  "onThisDay": {
+    "title": "This day in Formula 1",
+    "navLabel": "This day in F1",
+    "metaDescription": "Grands Prix, driver birthdays and anniversaries for every day of the year, across all Formula 1 seasons since 1950.",
+    "intro": "Pick a date to see the Grands Prix held on it across every championship season, and the drivers born or lost on that day.",
+    "today": "Today",
+    "monthsGen": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "monthsNom": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "dayTitle": "{day} in Formula 1",
+    "dayDescription": "{day} in Formula 1: {facts}. Winners, circuits and years.",
+    "racesHeading": "Grands Prix on this day",
+    "racesNote": "World Championship races held on {day}, from the oldest to the newest.",
+    "winner": "Winner",
+    "winners": "Winners",
+    "birthsHeading": "Born on this day",
+    "deathsHeading": "Died on this day",
+    "prev": "Previous day",
+    "next": "Next day",
+    "allDays": "All dates",
+    "mapLabel": "Days of the year",
+    "sourceNote": "Race and birth dates come from the Jolpica F1 database; death dates and corrected birth dates from verified sources (see “Sources and licences”).",
+    "racesN": {
+      "one": "Grand Prix",
+      "other": "Grands Prix"
+    },
+    "birthsN": {
+      "one": "driver birthday",
+      "other": "driver birthdays"
+    },
+    "deathsN": {
+      "one": "driver died",
+      "other": "drivers died"
+    },
+    "yearsN": {
+      "one": "{n} year",
+      "other": "{n} years"
+    }
+  },
   "glossary": {
     "more": "In the glossary →"
   }

@@ -5,6 +5,7 @@ import { localizedPath } from "@/i18n/paths";
 import { circuitSlug } from "@/lib/circuit-math";
 import { getCircuitRefs } from "@/lib/data/circuits";
 import { getDriverSlugs } from "@/lib/data/driver-page";
+import { getHistoryDays } from "@/lib/data/on-this-day";
 import { getRaceKeys } from "@/lib/data/race-page";
 import { getSeasonYears } from "@/lib/data/season-page";
 import { getTeamIds } from "@/lib/data/team-page";
@@ -30,7 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const href = new URL(path, base).href;
     return path === "/" ? href.replace(/\/$/, "") : href;
   };
-  const [years, races, drivers, circuits] = await Promise.all([getSeasonYears(), getRaceKeys(), getDriverSlugs(), getCircuitRefs()]);
+  const [years, races, drivers, circuits, historyDays] = await Promise.all([getSeasonYears(), getRaceKeys(), getDriverSlugs(), getCircuitRefs(), getHistoryDays()]);
   const paths = [
     "/",
     ...NAV.map((item) => item.href),
@@ -41,6 +42,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...getTeamIds().map((id) => `/teams/${id}`),
     ...circuits.map((ref) => `/circuits/${circuitSlug(ref)}`),
     ...getStorySlugs().map((slug) => `/stories/${slug}`),
+    "/history",
+    ...historyDays.map((day) => `/history/${day}`),
   ];
   return [...new Set(paths)].flatMap((path) => {
     const languages = languageAlternates(path, abs);
