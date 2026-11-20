@@ -10,6 +10,7 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
+    "glossary:report": "GLOSSARY_REPORT=1 vitest run src/lib/glossary/__tests__/report.test.ts --reporter=dot",
     "e2e": "playwright test",
     "lighthouse": "node scripts/lighthouse.mjs",
     "db:fake": "node scripts/dev/fake-postgrest.mjs"

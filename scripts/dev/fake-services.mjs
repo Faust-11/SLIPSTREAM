@@ -18,6 +18,7 @@
  *   POST /__override {path, content} / DELETE /__override?path= — підмінити вміст файла лише для читання через фейковий GitHub
  *     (перегляд чернетки: «у main» історія — чернетка, а файли на диску й збірка — ні).
  *   POST /__merge?has=<частина назви> — позначити останній такий PR злитим (журнал версій, відкат).
+ *   PATCH /pulls/:n {state:"closed"} — закрити PR без злиття (кнопка «Закрити PR» в адмінці).
  */
 import { createHash, randomBytes } from "node:crypto";
 import { createServer } from "node:http";
@@ -169,13 +170,13 @@ createServer(async (req, res) => {
     if (req.method === "GET" && p.startsWith("/actions/workflows/")) return json(res, 200, { workflow_runs: [{ status: "completed", conclusion: "success", created_at: now, html_url: "https://github.com/x", head_sha: "main0" }] });
     if (req.method === "GET" && p === "/pulls") {
       const open = url.searchParams.get("state") === "open";
-      return json(res, 200, prs.filter((x) => (open ? !x.merged_at : x.merged_at)));
+      return json(res, 200, prs.filter((x) => (open ? !x.merged_at && !x.closed : x.merged_at)).map((x) => ({ ...x, state: x.merged_at || x.closed ? "closed" : "open" })));
     }
     const one = p.match(/^\/pulls\/(\d+)(\/files)?$/);
     if (req.method === "GET" && one) {
       const pr = prs.find((x) => x.number === Number(one[1]));
       if (!pr) return json(res, 404, { message: "Not Found" });
-      if (!one[2]) return json(res, 200, { ...pr, commits: 1, base: { ref: "main" }, merge_commit_sha: pr.merged_at ? "merge0" : null });
+      if (!one[2]) return json(res, 200, { ...pr, state: pr.merged_at || pr.closed ? "closed" : "open", commits: 1, base: { ref: "main" }, merge_commit_sha: pr.merged_at ? "merge0" : null });
       const out = [];
       for (const path of pr.paths) {
         const next = pr.files[path];
@@ -187,6 +188,13 @@ createServer(async (req, res) => {
         out.push({ filename: path, status: old ? "modified" : "added", ...unifiedDiff(old, next) });
       }
       return json(res, 200, out);
+    }
+    if (req.method === "PATCH" && one && !one[2]) {
+      const pr = prs.find((x) => x.number === Number(one[1]));
+      if (!pr) return json(res, 404, { message: "Not Found" });
+      const b = JSON.parse((await body(req)) || "{}");
+      if (b.state === "closed" && !pr.merged_at) pr.closed = true;
+      return json(res, 200, { number: pr.number, state: pr.merged_at || pr.closed ? "closed" : "open" });
     }
     if (req.method === "POST") {
       const b = JSON.parse((await body(req)) || "{}");
