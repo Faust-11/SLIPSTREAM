@@ -52,7 +52,7 @@ test.describe("сторонній адмінки не бачить", () => {
   test("кожна адреса /admin — той самий 404, що й неіснуюча сторінка", async ({ page }) => {
     const reference = await notFoundSnapshot(page, "/zzz-not-a-page");
     expect(reference.status).toBe(404);
-    for (const path of ["/admin", "/admin/", "/admin/system", "/admin/photos", "/admin/stories", "/admin/stories?f=draft", "/admin/stories/jerez-1997", "/admin/stories/jerez-1997/photos", "/admin/stories/jerez-1997/photos/m1", "/admin/stories/jerez-1997/photos/new", "/admin/auth/logout"]) {
+    for (const path of ["/admin", "/admin/", "/admin/system", "/admin/photos", "/admin/stories", "/admin/stories?f=draft", "/admin/stories/jerez-1997", "/admin/stories/jerez-1997/photos", "/admin/stories/jerez-1997/photos/m1", "/admin/stories/jerez-1997/photos/new", "/admin/stories/jerez-1997/versions", "/admin/stories/jerez-1997/versions/1", "/admin/auth/logout"]) {
       expect(await notFoundSnapshot(page, path), path).toEqual(reference);
     }
   });
