@@ -5,7 +5,7 @@
  */
 export { NICK_MAX, NICK_MIN, normalizeNick, nickProblem, nickSkeleton } from "./nick-rules.mjs";
 
-export type NickProblem = "short" | "long" | "chars" | "reserved";
+export type NickProblem = "short" | "long" | "chars" | "mixed" | "reserved";
 
 export function normalizeEmail(raw: string): string {
   return raw.trim().toLowerCase();
