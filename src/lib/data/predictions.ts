@@ -34,8 +34,9 @@ export type PickDriver = {
   /** Три літери: код з бази або перші три літери прізвища. */
   code: string;
   number: number | null;
-  /** Слаг команди (curated) і колір для позначки. */
+  /** Слаг команди (curated), її назва й колір для позначки. */
   team: string | null;
+  teamName: string | null;
   color: string;
   /** Місце в чемпіонаті зараз (для «підставити за заліком»); null — без очок. */
   position: number | null;
@@ -138,6 +139,7 @@ export async function getPredictionsData(locale: Locale): Promise<PredictionsDat
       code: (r.code ?? r.surname.slice(0, 3)).toUpperCase(),
       number: r.current_number,
       team: slug,
+      teamName: team?.name ?? null,
       color: team?.color ?? "#767C8D",
       position: r.current_position,
     });

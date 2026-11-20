@@ -16,6 +16,14 @@
       "src": "/og/section/calendar-uk.jpg",
       "alt": "Outlap — Календар. Календар Формули-1: дати, траси й розклад сесій."
     },
+    "predictions-en": {
+      "src": "/og/section/home-en.jpg",
+      "alt": "Outlap — Predictions. Predict qualifying and the race, earn points and compete for the season title."
+    },
+    "predictions-uk": {
+      "src": "/og/section/home-uk.jpg",
+      "alt": "Outlap — Прогнози. Прогнозуйте кваліфікацію й гонку, здобувайте очки та боріться за титул сезону."
+    },
     "circuits-en": {
       "src": "/og/section/circuits-en.jpg",
       "alt": "Outlap — Circuits. Formula 1 circuits: layout, length, corners and winners."
