@@ -135,6 +135,16 @@ if (!only || only === "sections" || only === "kyiv") {
   }
 }
 
+// «Цей день у Формулі-1» (/history): текст картки — onThisDay.title і metaDescription.
+if (!only || only === "sections" || only === "history") {
+  for (const locale of LOCALES) {
+    const d = json(`src/i18n/dictionaries/${locale}.json`);
+    const rel = `/og/section/history-${locale}.jpg`;
+    await shoot(page, sectionHtml(d.onThisDay.title, d.onThisDay.metaDescription), join(ROOT, "public", rel));
+    manifest.sections[`history-${locale}`] = { src: rel, alt: `Outlap — ${d.onThisDay.title}. ${d.onThisDay.metaDescription}` };
+  }
+}
+
 if (!only || only === "sections" || only === "service") {
   for (const locale of LOCALES) {
     const c = json(`content/service/${locale}.json`);

@@ -40,6 +40,14 @@
       "src": "/og/section/game-uk.jpg",
       "alt": "Outlap — Гра. «Гаряче коло» — міні-гра в браузері: вигадані траси, бот і власний привид."
     },
+    "history-en": {
+      "src": "/og/section/history-en.jpg",
+      "alt": "Outlap — This day in Formula 1. Grands Prix, driver birthdays and anniversaries for every day of the year, across all Formula 1 seasons since 1950."
+    },
+    "history-uk": {
+      "src": "/og/section/history-uk.jpg",
+      "alt": "Outlap — Цей день у Формулі-1. Гран-прі, дні народження й пам'ятні дати пілотів Формули-1 на кожен день року — з усіх сезонів від 1950 року."
+    },
     "home-en": {
       "src": "/og/section/home-en.jpg",
       "alt": "Outlap. An unofficial Formula 1 fan site: seasons, races, drivers, teams, circuits and stories."
