@@ -24,13 +24,59 @@ $$;
 revoke all on function play.delete_my_account() from public, anon;
 grant execute on function play.delete_my_account() to authenticated, service_role;
 
--- Нік: НЕвидимі символи форматування й «дивні» пробіли (рев'ю 20.11). 0015 забороняв лише ASCII/C1 керуючі та «@»; нік «Max» і
--- «Max» + U+200B вважалися різними за lower(nick), але на таблиці виглядали однаково (підміна імені). Той самий список у
--- src/lib/play/validate.ts (HIDDEN_OR_ODD). Назву обмеження лишаємо (`profiles_nick_chk`): її вже чекають тести й обробка помилок.
--- Рядків у play.profiles на момент застосування немає (0015 і 0016 застосовуються разом), тож перевірка наявних даних безпечна.
+-- ---------------------------------------------------------------------------
+-- Нік: allowlist + NFKC + унікальність за «скелетом» (рішення 20.11; правила — src/lib/play/nick-rules.mjs, тест паритету
+-- scripts/db/fixtures/nick_parity.json). 0015 забороняв лише ASCII/C1 керуючі та «@» — нік «Max» і «Max»+U+200B були різними за
+-- lower(nick), а виглядали однаково (підміна імені в публічній таблиці).
+--  • play.nick_valid: нік уже в NFKC; 3–24 символи; лише A–Z, 0–9, кирилиця (U+0400–U+0481, U+048A–U+04FF) та роздільники «. _ -»
+--    і ОДИН пробіл; перший/останній символ — літера чи цифра; без подвійних пробілів; префікс «Гравець» (за скелетом) зарезервовано
+--    під приховані ніки. Явні діапазони, а не [[:alpha:]]/\p{L}: у Postgres ці класи залежать від локалі БД (на хмарному Supabase,
+--    ймовірно, C.UTF-8 — не перевірено), а правило має бути однаковим у JS і SQL.
+--  • play.nick_skeleton: NFKC → мала кирилиця (явна таблиця) → мала ASCII → схожі кириличні літери стають латинськими
+--    (а/a в/b е/e к/k м/m н/h о/o р/p с/c т/t у/y х/x і/i ј/j ѕ/s) → без роздільників. IMMUTABLE (генерована колонка й індекс).
+create or replace function play.nick_skeleton(p text) returns text
+language sql immutable parallel safe set search_path = pg_catalog as $$
+  select translate(
+           translate(
+             translate(
+               translate(normalize(p, NFKC), 'ЀЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯҐ', 'ѐёђѓєѕіїјљњћќѝўџабвгдежзийклмнопрстуфхцчшщъыьэюяґ'),
+               'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'),
+             'авекмнорстухіјѕ', 'abekmhopctyxijs'),
+           '_.- ', '')
+$$;
+
+create or replace function play.nick_valid(p text) returns boolean
+language sql immutable parallel safe set search_path = pg_catalog as $$
+  select p is not null
+     and p = normalize(p, NFKC)
+     and char_length(p) between 3 and 24
+     and p ~ '^[A-Za-z0-9\u0400-\u0481\u048A-\u04FF]([A-Za-z0-9\u0400-\u0481\u048A-\u04FF_. -]*[A-Za-z0-9\u0400-\u0481\u048A-\u04FF])?$'
+     and p !~ '  '
+     and play.nick_skeleton(p) not like play.nick_skeleton('Гравець') || '%'
+$$;
+revoke all on function play.nick_skeleton(text), play.nick_valid(text) from public, anon, authenticated;
+grant execute on function play.nick_skeleton(text), play.nick_valid(text) to service_role;
+-- Виклик усередині CHECK/генерованої колонки/індексу — з правами власника таблиці; гравцям прямий виклик не потрібен.
+
 alter table play.profiles drop constraint profiles_nick_chk;
-alter table play.profiles add constraint profiles_nick_chk check (
-  nick = btrim(nick) and char_length(nick) between 3 and 24
-  and nick !~ '[[:cntrl:]@]' and nick !~ '^[Гг]равець '
-  and nick !~ E'[\u00a0\u00ad\u1680\u180e\u2000-\u200f\u2028-\u202f\u205f-\u206f\u3000\ufeff]'
-);
+alter table play.profiles add constraint profiles_nick_chk check (play.nick_valid(nick));
+alter table play.profiles add column nick_key text generated always as (play.nick_skeleton(nick)) stored;
+drop index if exists play.profiles_nick_lower_idx;
+create unique index profiles_nick_key_idx on play.profiles (nick_key);
+
+-- set_nick: нік нормалізуємо NFKC на боці бази (прямий виклик RPC з публічним ключем обходить сайт); решта — як у 0015
+-- (блокування, upsert). Порушення формату — 23514 (profiles_nick_chk), зайнятий/надто схожий — 23505 (profiles_nick_key_idx).
+create or replace function play.set_nick(p_nick text) returns void
+language plpgsql security definer set search_path = pg_catalog, f1, play as $$
+declare
+  v_uid uuid := auth.uid();
+  v_nick text := normalize(p_nick, NFKC);
+begin
+  if v_uid is null then raise exception 'not_authenticated' using errcode = '28000'; end if;
+  if exists (select 1 from play.blocked_users where user_id = v_uid) then
+    raise exception 'blocked' using errcode = 'P0001';
+  end if;
+  insert into play.profiles (user_id, nick) values (v_uid, v_nick)
+  on conflict (user_id) do update set nick = excluded.nick;
+end;
+$$;

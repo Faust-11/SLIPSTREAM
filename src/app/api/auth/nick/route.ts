@@ -2,7 +2,7 @@ import { json, readJson, sameOrigin } from "@/lib/play/http";
 import { allow, allowFrom } from "@/lib/play/limiter";
 import { setNick } from "@/lib/play/rest";
 import { currentPlayer } from "@/lib/play/session";
-import { nickProblem } from "@/lib/play/validate";
+import { nickProblem, normalizeNick } from "@/lib/play/validate";
 
 export const dynamic = "force-dynamic";
 
@@ -10,7 +10,8 @@ export const dynamic = "force-dynamic";
 export async function POST(request: Request) {
   if (!sameOrigin(request)) return json(403, { error: "origin" });
   const body = await readJson(request);
-  const nick = typeof body?.nick === "string" ? body.nick.trim() : "";
+  // NFKC + обрізані краї ПЕРЕД перевіркою (nbsp, повна ширина, лігатури → звичайні символи); база нормалізує ще раз.
+  const nick = normalizeNick(typeof body?.nick === "string" ? body.nick : "");
   const problem = nickProblem(nick);
   if (problem) return json(400, { error: "invalid", problem });
   const state = await currentPlayer();

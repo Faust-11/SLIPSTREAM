@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useRef, useState } from "react";
-import { nickProblem } from "@/lib/play/validate";
+import { nickProblem, normalizeNick } from "@/lib/play/validate";
 import { setNick as storeNick } from "./account-store";
 import { postJson } from "./post";
 
@@ -34,7 +34,7 @@ export function NickForm({ text, initial = "", headingLevel = 2, onDone, autoFoc
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (busy) return;
-    const nick = value.trim();
+    const nick = normalizeNick(value);
     const problem = nickProblem(nick);
     if (problem) {
       setError(text.errors[problem]);

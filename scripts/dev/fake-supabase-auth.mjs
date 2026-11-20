@@ -16,6 +16,7 @@
  *   access для нових токенів користувача) · POST /__auth/block?email= · POST /__auth/revoke?email= · GET /__auth/stats?email=
  */
 import { generateKeyPairSync, randomBytes, randomUUID, sign, verify } from "node:crypto";
+import { nickProblem, nickSkeleton } from "../../src/lib/play/nick-rules.mjs";
 const b64u = (v) => Buffer.from(v).toString("base64url");
 const { privateKey, publicKey } = generateKeyPairSync("ec", { namedCurve: "P-256" });
 const KID = "fake-es256-key";
@@ -71,12 +72,12 @@ function bearerUser(req, origin) {
 }
 const require_verify = (p) => verify("sha256", Buffer.from(`${p[0]}.${p[1]}`), { key: publicKey, dsaEncoding: "ieee-p1363" }, Buffer.from(p[2], "base64url"));
 
-const NICK_BAD_CHARS = /[\u0000-\u001f\u007f-\u009f@\u00a0\u00ad\u1680\u180e\u2000-\u200f\u2028-\u202f\u205f-\u206f\u3000\ufeff]/;
-function nickError(nick) {
-  const len = [...nick].length;
-  if (typeof nick !== "string" || len < 3 || len > 24 || nick !== nick.trim() || NICK_BAD_CHARS.test(nick) || /^[Гг]равець /.test(nick)) return { status: 400, body: { code: "23514", message: 'new row for relation "profiles" violates check constraint "profiles_nick_chk"' } };
-  const taken = [...users.values()].some((u) => u.nick && u.nick.toLowerCase() === nick.toLowerCase());
-  if (taken) return { status: 409, body: { code: "23505", message: 'duplicate key value violates unique constraint "profiles_nick_lower_idx"' } };
+function nickError(raw) {
+  // Те саме, що play.set_nick: NFKC → play.nick_valid (23514) → унікальність за скелетом (23505). Правила — src/lib/play/nick-rules.mjs.
+  const nick = String(raw ?? "").normalize("NFKC");
+  if (nickProblem(nick)) return { status: 400, body: { code: "23514", message: 'new row for relation "profiles" violates check constraint "profiles_nick_chk"' } };
+  const key = nickSkeleton(nick);
+  if ([...users.values()].some((u) => u.nick && nickSkeleton(u.nick) === key)) return { status: 409, body: { code: "23505", message: 'duplicate key value violates unique constraint "profiles_nick_key_idx"' } };
   return null;
 }
 
@@ -165,7 +166,7 @@ export async function handleSupabaseFake(req, res, url, port) {
       if (u.blocked) return json(res, 400, { code: "P0001", message: "blocked" }), true;
       const err = nickError(body.p_nick);
       if (err) return json(res, err.status, err.body), true;
-      u.nick = body.p_nick;
+      u.nick = String(body.p_nick).normalize("NFKC");
       return res.writeHead(204).end(), true;
     }
     if (u.blocked) { u.nick = null; return json(res, 200, "data_only_blocked"), true; }
