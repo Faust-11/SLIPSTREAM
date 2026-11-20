@@ -298,3 +298,62 @@ test("версії: чужий номер PR, неіснуюча історія 
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Версії історії");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
+
+test("джерела: перевірка посилань (працює/мертве/не вдалося, редирект у приватну мережу відхилено), пошук і збереження копій, запис у PR", async ({ page }) => {
+  await openStory(page, "abu-dhabi-2021");
+  await page.getByRole("link", { name: "Здоров'я джерел" }).click();
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Здоров'я джерел");
+  const rows = page.locator(".ad-stories tbody tr");
+  await expect(rows).toHaveCount(22);
+  await expect(page.getByText("не перевірялось").first()).toBeVisible();
+  await expectNoA11yViolations(page);
+
+  // Перевірка посилань: пачками, з прогресом; рядки — за хостом фейкового сайту.
+  await page.getByRole("button", { name: "Перевірити посилання" }).click();
+  await expect(page.getByRole("status").filter({ hasText: "Перевірено 22 з 22" })).toBeVisible();
+  const row = (publisher: string, n: number) => rows.filter({ hasText: new RegExp(`^${n}\\. ${publisher}`) }).first();
+  await expect(row("FIA", 3).locator('td[data-label="Посилання"]')).toContainText("Працює");
+  await expect(row("Motorsport.com", 8).locator('td[data-label="Посилання"]')).toContainText("Мертве");
+  await expect(row("Sky Sports", 7).locator('td[data-label="Посилання"]')).toContainText("Не вдалося перевірити");
+  await expect(row("Sky Sports", 7).locator('td[data-label="Посилання"]')).toContainText("429");
+  // SSRF: фейковий сайт відповів перенаправленням на 169.254.169.254 — адмінка за ним не пішла.
+  const yahoo = rows.filter({ hasText: "Yahoo" }).first().locator('td[data-label="Посилання"]');
+  await expect(yahoo).toContainText("Не вдалося перевірити");
+  await expect(yahoo).toContainText("перенаправлення відхилено: приватна адреса");
+  await expect(page.getByRole("status").filter({ hasText: "мертвих: 2" })).toBeVisible(); // motorsport ×2 (s8, s15)
+
+  // Копії: Availability API знаходить знімки лише для fia та aljazeera.
+  await page.getByRole("button", { name: /Знайти копії в Web Archive/ }).click();
+  await expect(page.getByRole("status").filter({ hasText: /Опрацьовано 22 з 22/ })).toBeVisible();
+  await expect(row("FIA", 3).locator('td[data-label="Копія в Web Archive"]').getByRole("link", { name: /Є копія/ })).toHaveAttribute("href", /^https:\/\/web\.archive\.org\/web\/20260421173102\/https:\/\/www\.fia\.com\//);
+  await expect(row("Motorsport.com", 8).locator('td[data-label="Копія в Web Archive"]')).toContainText("копії немає");
+
+  // Save Page Now для Sky Sports (302 на знімок) і помилка для GPFans (520).
+  await row("Sky Sports", 7).getByRole("button", { name: /Зберегти в Web Archive/ }).click();
+  await expect(page.getByRole("status").filter({ hasText: "Збережено" })).toBeVisible();
+  await expect(row("Sky Sports", 7).getByRole("link", { name: /Є копія/ })).toHaveAttribute("href", /web\.archive\.org\/web\/20261120140746\//);
+  await row("GPFans", 12).getByRole("button", { name: /Зберегти в Web Archive/ }).click();
+  await expect(page.getByRole("status").filter({ hasText: "Web Archive: 520" })).toBeVisible();
+
+  // Записати знайдені копії: PR лише зі story.json; копії лише в джерелах, де вони є; чужі джерела не чіпаємо.
+  await page.getByRole("button", { name: /Записати знайдені копії в історію/ }).click();
+  await expect(page.getByRole("status").filter({ hasText: "Копії записано" })).toBeVisible();
+  const pr = await lastPr(page, "abu-dhabi-2021");
+  expect(pr.title).toMatch(/^Історія · abu-dhabi-2021: копії джерел у Web Archive \(\d+\)$/);
+  expect(pr.paths).toEqual(["content/stories/abu-dhabi-2021/story.json"]);
+  const json = JSON.parse(pr.files["content/stories/abu-dhabi-2021/story.json"]) as { sources: { id: string; archive?: string }[] };
+  const withArchive = json.sources.filter((s) => s.archive).map((s) => s.id);
+  expect(withArchive).toEqual(expect.arrayContaining(["s1", "s3", "s7", "s10"]));
+  expect(withArchive).not.toContain("s8"); // motorsport — копії немає
+  expect(withArchive).not.toContain("s12"); // gpfans — збереження не вдалось
+  for (const s of json.sources) if (s.archive) expect(s.archive).toMatch(/^https:\/\/web\.archive\.org\/web\/\d{14}\/https:\/\//);
+});
+
+test("джерела: 404 для неіснуючої історії; вузький екран без горизонтального скролу", async ({ page }) => {
+  await login(page);
+  expect((await page.goto("/admin/stories/no-such-story/sources"))?.status()).toBe(404);
+  await page.setViewportSize({ width: 360, height: 800 });
+  await page.goto("/admin/stories/jerez-1997/sources");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Здоров'я джерел");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+});

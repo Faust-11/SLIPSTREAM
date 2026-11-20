@@ -1394,6 +1394,7 @@
     "disputedToc": "Disputed",
     "sources": "Sources",
     "sourcesNote": "Footnote numbers are the numbers of the sources in this list.",
+    "archiveCopy": "Web Archive copy",
     "status": {
       "ok": "two or more sources",
       "one": "one source",

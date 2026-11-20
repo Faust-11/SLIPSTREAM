@@ -170,6 +170,8 @@ def check(story_dir: Path) -> tuple[list[str], list[str], str]:
     for s in sources:
         if "author" in s and not isinstance(s["author"], str):
             errors.append(f"джерело {s.get('id')}: author — не рядок")
+        if "archive" in s and not (isinstance(s["archive"], str) and re.fullmatch(r"https://web\.archive\.org/web/[0-9]{14}/https?://\S+", s["archive"])):
+            errors.append(f"джерело {s.get('id')}: archive — не адреса знімка web.archive.org")
     if "uk" in marks:
         orphan = set(claim_ids) - marks["uk"]
         if orphan:

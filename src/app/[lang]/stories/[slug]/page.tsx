@@ -231,6 +231,14 @@ export default async function StoryPageRoute(props: Props) {
                     {[s.publisher, s.date].filter(Boolean).join(", ")}: {lang === "uk" ? `«${s.title}»` : `“${s.title}”`}
                     {s.author ? ` (${s.author})` : ""}
                   </a>
+                  {s.archive && (
+                    <>
+                      {" · "}
+                      <a href={s.archive} rel="noopener">
+                        {t.archiveCopy}
+                      </a>
+                    </>
+                  )}
                 </li>
               ))}
             </ol>

@@ -12,6 +12,9 @@
  * Commons: /w/api.php (пошук і файл) — 3 файли з різними ліцензіями; /thumb/<n>.jpg — справжній JPEG 1600×1000.
  * GitHub API (токен `test-gh-token`): вміст файлів — з локального репозиторію; коміт/PR записуються,
  *   GET /__last-pr — останній PR і шляхи його дерева (для e2e).
+ *   GET /__link?u=<адреса> — «сайт джерела» для перевірки посилань: статус за хостом (fia — 200, motorsport — 404, skysports — 429,
+ *     yahoo — 302 у 169.254.169.254, решта — 200). GET /wayback/available?url= і /save/<адреса> — «Web Archive» (знімок є лише для fia
+ *     і aljazeera; Save Page Now: skysports — 302 на знімок, gpfans — 520, решта — 200 без адреси).
  *   POST /__merge?has=<частина назви> — позначити останній такий PR злитим (журнал версій, відкат).
  */
 import { createHash, randomBytes } from "node:crypto";
@@ -225,6 +228,27 @@ createServer(async (req, res) => {
     const has = url.searchParams.get("has") ?? "";
     const pr = prs.filter((p) => p.title.includes(has)).at(-1);
     return pr ? json(res, 200, pr) : json(res, 404, {});
+  }
+
+  if (req.method === "GET" && url.pathname === "/__link") {
+    const host = new URL(url.searchParams.get("u") ?? "https://x.example").hostname;
+    if (host.endsWith("motorsport.com")) return res.writeHead(404).end();
+    if (host.endsWith("skysports.com")) return res.writeHead(429).end();
+    if (host.endsWith("yahoo.com")) return res.writeHead(302, { location: "http://169.254.169.254/latest/meta-data/" }).end();
+    return res.writeHead(200).end("ok");
+  }
+  if (req.method === "GET" && url.pathname === "/wayback/available") {
+    const target = url.searchParams.get("url") ?? "";
+    const host = new URL(target).hostname;
+    const has = host.endsWith("fia.com") || host.endsWith("aljazeera.com");
+    return json(res, 200, has ? { url: target, archived_snapshots: { closest: { status: "200", available: true, url: `http://web.archive.org/web/20260421173102/${target}`, timestamp: "20260421173102" } } } : { url: target, archived_snapshots: {} });
+  }
+  if (req.method === "GET" && url.pathname.startsWith("/save/")) {
+    const target = req.url.slice("/save/".length);
+    const host = new URL(target).hostname;
+    if (host.endsWith("skysports.com")) return res.writeHead(302, { location: `https://web.archive.org/web/20261120140746/${target}` }).end();
+    if (host.endsWith("gpfans.com")) return res.writeHead(520).end();
+    return res.writeHead(200).end("ok");
   }
 
   if (req.method === "POST" && url.pathname === "/__merge") {
