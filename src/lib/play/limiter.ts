@@ -21,8 +21,19 @@ export function allow(key: string, limit: number, windowMs: number, now = Date.n
   return true;
 }
 
-export function clientKey(request: Request): string {
-  const real = request.headers.get("x-real-ip");
-  if (real) return real.trim();
-  return (request.headers.get("x-forwarded-for") ?? "").split(",")[0]?.trim() || "unknown";
+/**
+ * Джерело запиту: заголовок платформи (Vercel: x-vercel-forwarded-for, x-real-ip, x-forwarded-for). null — довіреної адреси немає
+ * (локальний next start без проксі): ліміт за джерелом тоді ПРОПУСКАЄМО, а не збираємо всіх в один спільний кошик — інакше 8 запитів
+ * від будь-кого вичерпали б вхід для всіх (рев'ю 20.11).
+ */
+export function clientKey(request: Request): string | null {
+  const h = request.headers;
+  const v = h.get("x-vercel-forwarded-for") || h.get("x-real-ip") || (h.get("x-forwarded-for") ?? "").split(",")[0] || "";
+  return v.trim() || null;
+}
+
+/** Ліміт за джерелом; без відомого джерела — дозволено. */
+export function allowFrom(request: Request, name: string, limit: number, windowMs: number): boolean {
+  const ip = clientKey(request);
+  return ip ? allow(`${name}:ip:${ip}`, limit, windowMs) : true;
 }

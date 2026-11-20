@@ -71,7 +71,7 @@ function bearerUser(req, origin) {
 }
 const require_verify = (p) => verify("sha256", Buffer.from(`${p[0]}.${p[1]}`), { key: publicKey, dsaEncoding: "ieee-p1363" }, Buffer.from(p[2], "base64url"));
 
-const NICK_BAD_CHARS = /[\u0000-\u001f\u007f-\u009f@]/;
+const NICK_BAD_CHARS = /[\u0000-\u001f\u007f-\u009f@\u00a0\u00ad\u1680\u180e\u2000-\u200f\u2028-\u202f\u205f-\u206f\u3000\ufeff]/;
 function nickError(nick) {
   const len = [...nick].length;
   if (typeof nick !== "string" || len < 3 || len > 24 || nick !== nick.trim() || NICK_BAD_CHARS.test(nick) || /^[Гг]равець /.test(nick)) return { status: 400, body: { code: "23514", message: 'new row for relation "profiles" violates check constraint "profiles_nick_chk"' } };

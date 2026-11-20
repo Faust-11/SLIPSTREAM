@@ -197,6 +197,8 @@ for name in U:
 fails("нік: дубль без урахування регістру — відмова", "profiles_nick_lower_idx", "select play.set_nick(%s)", "player a", as_role="authenticated", uid=U["b"])
 fails("нік: занадто короткий — відмова", "profiles_nick_chk", "select play.set_nick(%s)", "ab", as_role="authenticated", uid=U["b"])
 fails("нік: з @ (схоже на email) — відмова", "profiles_nick_chk", "select play.set_nick(%s)", "me@example.test", as_role="authenticated", uid=U["b"])
+for label, bad in (("нульової ширини U+200B", "Max\u200b"), ("м'який перенос U+00AD", "Ma\u00adx"), ("напрям тексту U+202E", "Ma\u202ex"), ("nbsp U+00A0", "Max\u00a0Z"), ("BOM U+FEFF", "\ufeffMax")):
+    fails(f"нік: невидимий/дивний символ ({label}) — відмова", "profiles_nick_chk", "select play.set_nick(%s)", bad, as_role="authenticated", uid=U["b"])
 fails("нік: пробіл на краю — відмова", "profiles_nick_chk", "select play.set_nick(%s)", " Padded", as_role="authenticated", uid=U["b"])
 fails("нік: «Гравець …» зарезервовано під приховані", "profiles_nick_chk", "select play.set_nick(%s)", "Гравець 1A2B", as_role="authenticated", uid=U["b"])
 fails("set_nick без входу — відмова", "not_authenticated", "select play.set_nick(%s)", "Nobody", as_role="authenticated")

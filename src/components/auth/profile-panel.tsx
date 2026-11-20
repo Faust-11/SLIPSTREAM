@@ -37,6 +37,7 @@ export function ProfilePanel({ text, nick, loginHref, homeHref }: { text: Profil
   const dialog = useRef<HTMLDialogElement>(null);
   const [editing, setEditing] = useState(false);
   const [signingOut, setSigningOut] = useState(false);
+  const [signOutError, setSignOutError] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [deleteError, setDeleteError] = useState(false);
@@ -44,9 +45,12 @@ export function ProfilePanel({ text, nick, loginHref, homeHref }: { text: Profil
 
   async function signOut() {
     setSigningOut(true);
-    await postJson("/api/auth/logout", {});
-    setAnonymous();
+    setSignOutError(false);
+    const res = await postJson("/api/auth/logout", {});
     setSigningOut(false);
+    // Не вийшло (мережа, 5xx) — cookie лишилась, тож «ви не ввійшли» було б неправдою (спільний комп'ютер): лишаємо стан і кажемо.
+    if (res.status === 200) setAnonymous();
+    else setSignOutError(true);
   }
 
   async function remove() {
@@ -107,6 +111,9 @@ export function ProfilePanel({ text, nick, loginHref, homeHref }: { text: Profil
                 {signingOut ? text.signingOut : text.signOut}
               </button>
             </div>
+            <p className="au-err" role="alert">
+              {signOutError ? text.unavailable : null}
+            </p>
           </>
         ) : (
           <>

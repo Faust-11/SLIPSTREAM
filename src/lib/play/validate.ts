@@ -6,6 +6,13 @@
 export const NICK_MIN = 3;
 export const NICK_MAX = 24;
 
+/**
+ * Заборонено в ніку: `@`, керуючі (C0/C1), НЕвидимі символи форматування (нульової ширини, напрямку тексту, м'який перенос,
+ * BOM) і всі пробіли, крім звичайного U+0020 (nbsp, en/em, ideographic…) — інакше «Max» і «Max\u200b» вважалися б різними
+ * за lower(nick), але на таблиці виглядали б однаково (рев'ю 20.11). Той самий список — у БД (міграція 0016, profiles_nick_chk).
+ */
+export const HIDDEN_OR_ODD = /[\u0000-\u001f\u007f-\u009f@\u00a0\u00ad\u1680\u180e\u2000-\u200f\u2028-\u202f\u205f-\u206f\u3000\ufeff]/;
+
 export function normalizeEmail(raw: string): string {
   return raw.trim().toLowerCase();
 }
@@ -26,7 +33,7 @@ export function nickProblem(nick: string): NickProblem | null {
   const len = [...nick].length;
   if (len < NICK_MIN) return "short";
   if (len > NICK_MAX) return "long";
-  if (nick !== nick.trim() || /[\u0000-\u001f\u007f-\u009f@]/.test(nick)) return "chars";
+  if (nick !== nick.trim() || HIDDEN_OR_ODD.test(nick)) return "chars";
   if (/^[Гг]равець /.test(nick)) return "reserved";
   return null;
 }

@@ -14,6 +14,8 @@ export type AuthFailure = "invalid_email" | "invalid_code" | "rate_limited" | "b
 export type AuthResult<T> = { ok: true; value: T } | { ok: false; reason: AuthFailure };
 
 const TIMEOUT_MS = 8000;
+/** error_code GoTrue, що означають «refresh-токен/сесія/користувач недійсні». */
+const REVOKED_CODES = new Set(["refresh_token_not_found", "refresh_token_already_used", "session_not_found", "session_expired", "user_not_found"]);
 
 async function call(cfg: PlayConfig, path: string, init: { method: string; body?: unknown; bearer?: string }): Promise<Response | null> {
   try {
@@ -64,9 +66,16 @@ export async function verifyCode(cfg: PlayConfig, email: string, token: string):
 export async function refreshSession(cfg: PlayConfig, refreshToken: string): Promise<AuthResult<Session>> {
   const res = await call(cfg, "/token?grant_type=refresh_token", { method: "POST", body: { refresh_token: refreshToken } });
   if (!res) return { ok: false, reason: "unavailable" };
-  // 400/401/403 — токен відкликано, використано чи користувача видалено: сесії більше немає. 5xx/мережа — тимчасово.
-  if (res.status >= 400 && res.status < 500 && res.status !== 429) return { ok: false, reason: "bad_refresh" };
-  if (!res.ok) return { ok: false, reason: "unavailable" };
+  if (!res.ok) {
+    // «Сесії більше немає» — лише за відповідями про сам refresh-токен/сесію/користувача (400/403 з error_code). Усе інше —
+    // 401 «Invalid API key» (ключ ротовано чи не задано на Vercel), 422, 429, 5xx, мережа — збій розгортання/сервісу, не
+    // відкликання: користувача НЕ розлогінюємо (рев'ю 20.11).
+    const err = (await res.json().catch(() => null)) as { error_code?: unknown; code?: unknown; error?: unknown; error_description?: unknown; msg?: unknown } | null;
+    const code = typeof err?.error_code === "string" ? err.error_code : typeof err?.code === "string" ? err.code : "";
+    const text = `${err?.error_description ?? ""} ${err?.msg ?? ""}`;
+    const revoked = REVOKED_CODES.has(code) || ((res.status === 400 || res.status === 403) && /refresh token|session.*(not found|expired)|user.*not found/i.test(text));
+    return { ok: false, reason: revoked && (res.status === 400 || res.status === 401 || res.status === 403) ? "bad_refresh" : "unavailable" };
+  }
   const session = asSession(await res.json().catch(() => null));
   return session ? { ok: true, value: session } : { ok: false, reason: "unavailable" };
 }

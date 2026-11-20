@@ -12,7 +12,7 @@ import { MobileMenu } from "./mobile-menu";
 
 export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const items = navItems(locale, dict);
-  const account = { labels: dict.auth, loginHref: localizedPath("/login", locale), profileHref: localizedPath("/profile", locale) };
+  const account = { labels: { signIn: dict.auth.signIn, account: dict.auth.account, accountNick: dict.auth.accountNick }, loginHref: localizedPath("/login", locale), profileHref: localizedPath("/profile", locale) };
   return (
     <>
       <header className="site-head">

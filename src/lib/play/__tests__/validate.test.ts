@@ -16,6 +16,11 @@ describe("нік (дзеркало play.profiles_nick_chk)", () => {
     expect(nickProblem("pad\u0000ded")).toBe("chars");
     expect(nickProblem("Пілот Шумі")).toBeNull();
   });
+  it("невидимі символи й «дивні» пробіли — відмова (підміна імені)", () => {
+    for (const bad of ["Max\u200b", "Ma\u00adx", "Ma\u202ex", "Max\u00a0Z", "\ufeffMax", "Max\u2003Z", "Ma\u2060x", "Max\u3000Z"]) expect(nickProblem(bad), JSON.stringify(bad)).toBe("chars");
+    expect(nickProblem("Max Verstappen")).toBeNull(); // звичайний пробіл всередині — можна
+    expect(nickProblem("Ёж-Єнот_7")).toBeNull();
+  });
   it("«Гравець …» зарезервовано під приховані ніки", () => {
     expect(nickProblem("Гравець 1A2B")).toBe("reserved");
     expect(nickProblem("гравець x")).toBe("reserved");

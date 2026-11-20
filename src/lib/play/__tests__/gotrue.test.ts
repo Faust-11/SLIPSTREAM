@@ -45,9 +45,19 @@ describe("Supabase Auth REST", () => {
     reply(200, { nothing: true });
     expect(await verifyCode(cfg, "a@b.co", "12345678")).toEqual({ ok: false, reason: "unavailable" });
   });
-  it("refresh: 4xx — сесії немає (bad_refresh), 429/5xx/мережа — тимчасово", async () => {
-    reply(400, { error_code: "refresh_token_not_found" });
+  it("refresh: лише відповіді про сам refresh/сесію/користувача — сесії немає (bad_refresh); решта 4xx, 429, 5xx, мережа — збій", async () => {
+    for (const code of ["refresh_token_not_found", "refresh_token_already_used", "session_not_found", "user_not_found"]) {
+      reply(400, { error_code: code });
+      expect(await refreshSession(cfg, "R"), code).toEqual({ ok: false, reason: "bad_refresh" });
+    }
+    reply(400, { error: "invalid_grant", error_description: "Invalid Refresh Token: Refresh Token Not Found" }); // старий формат
     expect(await refreshSession(cfg, "R")).toEqual({ ok: false, reason: "bad_refresh" });
+    reply(401, { message: "Invalid API key" }); // ключ ротовано / не задано — не відкликання сесії
+    expect(await refreshSession(cfg, "R")).toEqual({ ok: false, reason: "unavailable" });
+    reply(422, { error_code: "validation_failed" });
+    expect(await refreshSession(cfg, "R")).toEqual({ ok: false, reason: "unavailable" });
+    reply(400, {});
+    expect(await refreshSession(cfg, "R")).toEqual({ ok: false, reason: "unavailable" });
     reply(429);
     expect(await refreshSession(cfg, "R")).toEqual({ ok: false, reason: "unavailable" });
     reply(502);

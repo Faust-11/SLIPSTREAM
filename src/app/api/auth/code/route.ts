@@ -1,7 +1,7 @@
 import { playConfig } from "@/lib/play/config";
 import { sendCode } from "@/lib/play/gotrue";
 import { json, readJson, sameOrigin } from "@/lib/play/http";
-import { allow, clientKey } from "@/lib/play/limiter";
+import { allowFrom } from "@/lib/play/limiter";
 import { isValidEmail, normalizeEmail } from "@/lib/play/validate";
 
 export const dynamic = "force-dynamic";
@@ -17,8 +17,9 @@ export async function POST(request: Request) {
   const body = await readJson(request);
   const email = typeof body?.email === "string" ? normalizeEmail(body.email) : "";
   if (!isValidEmail(email)) return json(400, { error: "invalid_email" });
-  // М'який ліміт на джерело й на адресу (не межа безпеки — див. limiter.ts); Supabase має свої.
-  if (!allow(`code:ip:${clientKey(request)}`, 8, 10 * 60_000) || !allow(`code:mail:${email}`, 4, 10 * 60_000)) return json(429, { error: "rate_limited" });
+  // М'який ліміт ЛИШЕ за джерелом (не межа безпеки — див. limiter.ts). Окремого ліміту на адресу немає: його міг би вичерпати
+  // будь-хто, знаючи чужу пошту, і заблокувати власнику вхід; пауза на адресу — у Supabase (60 с).
+  if (!allowFrom(request, "code", 8, 10 * 60_000)) return json(429, { error: "rate_limited" });
   const sent = await sendCode(cfg, email);
   if (!sent.ok) {
     const status = sent.reason === "rate_limited" ? 429 : sent.reason === "invalid_email" ? 400 : 503;
