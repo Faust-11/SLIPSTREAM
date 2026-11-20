@@ -130,11 +130,17 @@ export default async function AdminStories({ searchParams }: { searchParams: Pro
                         {r.slug}
                         {r.year !== null && ` · ${r.year}`}
                       </small>
-                      {r.status === "published" && (
+                      {r.status === "published" ? (
                         <small>
                           <a href={`/uk/stories/${r.slug}`} target="_blank" rel="noopener">
                             На сайті<span className="ad-sr"> (нова вкладка): {r.title}</span> ↗
                           </a>
+                        </small>
+                      ) : (
+                        <small>
+                          <Link href={`/admin/stories/${r.slug}/preview`}>
+                            Перегляд<span className="ad-sr">: {r.title}</span>
+                          </Link>
                         </small>
                       )}
                     </th>

@@ -115,3 +115,18 @@ describe("archiveUrl — копія джерела в Web Archive на стор�
     }
   });
 });
+
+describe("buildStoryPage / parseLoaded — перегляд чернетки з файлів поза збіркою", () => {
+  it("зібрана з файлів сторінка збігається з getStory; чужий slug — помилка", async () => {
+    const { readFileSync } = await import("node:fs");
+    const { join } = await import("node:path");
+    const { buildStoryPage, getStoryList, parseLoaded } = await import("../content");
+    const dir = join(process.cwd(), "content/stories/spa-2021");
+    const read = (f: string) => readFileSync(join(dir, f), "utf8");
+    for (const lang of ["uk", "en"] as const) {
+      const built = buildStoryPage(parseLoaded("spa-2021", read("story.json"), read("uk.md"), read("en.md")), lang, getStoryList(lang));
+      expect(JSON.parse(JSON.stringify(built))).toEqual(JSON.parse(JSON.stringify(getStory("spa-2021", lang))));
+    }
+    expect(() => parseLoaded("other", read("story.json"), "", "")).toThrow(/slug у story.json/);
+  });
+});

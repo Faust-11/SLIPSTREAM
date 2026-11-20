@@ -15,6 +15,8 @@
  *   GET /__link?u=<адреса> — «сайт джерела» для перевірки посилань: статус за хостом (fia — 200, motorsport — 404, skysports — 429,
  *     yahoo — 302 у 169.254.169.254, решта — 200). GET /wayback/available?url= і /save/<адреса> — «Web Archive» (знімок є лише для fia
  *     і aljazeera; Save Page Now: skysports — 302 на знімок, gpfans — 520, решта — 200 без адреси).
+ *   POST /__override {path, content} / DELETE /__override?path= — підмінити вміст файла лише для читання через фейковий GitHub
+ *     (перегляд чернетки: «у main» історія — чернетка, а файли на диску й збірка — ні).
  *   POST /__merge?has=<частина назви> — позначити останній такий PR злитим (журнал версій, відкат).
  */
 import { createHash, randomBytes } from "node:crypto";
@@ -40,6 +42,7 @@ const prs = [];
 const trees = new Map(); // дерево → шляхи
 const commits = new Map(); // коміт → дерево
 const refs = new Map(); // гілка → коміт
+const overrides = new Map(); // шлях → вміст: що «лежить у main» замість файла на диску
 const blobs = new Map(); // blob → вміст (Buffer): e2e бачать, що саме опубліковано
 const treeBlobs = new Map(); // дерево → { шлях: blob }
 let seq = 0;
@@ -153,7 +156,7 @@ createServer(async (req, res) => {
           const entries = await readdir(target, { withFileTypes: true });
           return json(res, 200, await Promise.all(entries.map(async (e) => ({ name: e.name, path: `${target}/${e.name}`, type: e.isDirectory() ? "dir" : "file", sha: e.isDirectory() ? "tree-x" : "blob-" + (await stat(`${target}/${e.name}`)).size }))));
         }
-        const buf = await readFile(target);
+        const buf = overrides.has(target) ? Buffer.from(overrides.get(target), "utf8") : await readFile(target);
         return json(res, 200, { content: buf.toString("base64"), encoding: "base64", size: buf.length, sha: "blob-" + buf.length });
       } catch {
         return json(res, 404, { message: "Not Found" });
@@ -255,6 +258,18 @@ createServer(async (req, res) => {
     if (host.endsWith("skysports.com")) return res.writeHead(302, { location: `https://web.archive.org/web/20261120140746/${target}` }).end();
     if (host.endsWith("gpfans.com")) return res.writeHead(520).end();
     return res.writeHead(200).end("ok");
+  }
+
+  if (url.pathname === "/__override") {
+    if (req.method === "POST") {
+      const b = JSON.parse((await body(req)) || "{}");
+      overrides.set(String(b.path), String(b.content));
+      return json(res, 200, {});
+    }
+    if (req.method === "DELETE") {
+      overrides.delete(url.searchParams.get("path") ?? "");
+      return json(res, 200, {});
+    }
   }
 
   if (req.method === "POST" && url.pathname === "/__merge") {

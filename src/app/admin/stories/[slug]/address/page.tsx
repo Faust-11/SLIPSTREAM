@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { GitHub, githubEnv } from "@/lib/admin/github";
+import { GitHub, GitHubError, githubEnv } from "@/lib/admin/github";
 import { requireAdmin } from "@/lib/admin/session";
 import { SLUG_RE, planRename } from "@/lib/admin/stories/rename";
 import { loadRenameInput, openConflicts } from "@/lib/admin/stories/rename-io";
 import type { OpenPr } from "@/lib/admin/stories/store";
-import { isSlug } from "@/lib/admin/stories/store";
+import { isSlug, readStory } from "@/lib/admin/stories/store";
 import { renameStoryAction } from "../../rename-actions";
 
 export const metadata: Metadata = { title: "Адреса історії" };
@@ -53,7 +53,13 @@ export default async function AdminStoryAddress({ params, searchParams }: { para
   const gh = new GitHub(env);
   let preview: { errors: string[]; summary?: { photos: number; linkedStories: string[]; mediaRewritten: number }; conflicts: OpenPr[] } | null = null;
   let loadFailed = false;
-  if (to) {
+  if (!to) {
+    // Без новой адреси історію теж перевіряємо: неіснуюча — той самий 404, що й у решти сторінок історії.
+    await readStory(gh, slug).catch((e) => {
+      if (e instanceof GitHubError && e.status === 404) notFound();
+      loadFailed = true;
+    });
+  } else {
     try {
       const loaded = await loadRenameInput(gh, slug, to);
       if (!loaded) notFound();
