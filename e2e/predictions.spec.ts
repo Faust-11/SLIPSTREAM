@@ -120,7 +120,7 @@ test.describe("сторінка етапу", () => {
     await page.goto("/predictions/22");
     await expect(page.getByRole("heading", { level: 1 })).toContainText("Grand Prix");
     await expect(page.getByRole("heading", { name: "Sign in to make a prediction" })).toBeVisible();
-    await expect(page.getByRole("link", { name: "Sign in" })).toHaveAttribute("href", "/login?next=%2Fpredictions%2F22");
+    await expect(page.getByRole("main").getByRole("link", { name: "Sign in" })).toHaveAttribute("href", "/login?next=%2Fpredictions%2F22"); // в шапці теж є «Sign in» — шукаємо лише в main
     await expect(page.locator(".pd-left")).toContainText(/left/); // відлік за часом сервера
     expect(external, "браузер говорить лише з нашим origin (CSP connect-src 'self')").toEqual([]);
     await expectNoA11yViolations(page);
@@ -265,9 +265,11 @@ test.describe("чужі прогнози й приватність", () => {
     await setDeadline(page, 18, -1);
     const after = await state();
     expect(after.closed).toBe(true);
-    expect(after.revealed).toEqual([expect.objectContaining({ kind: "Q", player: name, picks: expect.arrayContaining([ANTONELLI]) })]);
+    // Фейк живе весь прогін (і ретраї): рядків може бути більше, ніж мій, — перевіряємо мій і форму кожного.
+    const mine = after.revealed.filter((x: { player: string }) => x.player === name);
+    expect(mine).toEqual([expect.objectContaining({ kind: "Q", picks: expect.arrayContaining([ANTONELLI]) })]);
     expect(JSON.stringify(after)).not.toContain(email);
-    expect(Object.keys(after.revealed[0]).sort()).toEqual(["allFinish", "dnfTeam", "kind", "picks", "player", "points"]);
+    for (const row of after.revealed) expect(Object.keys(row).sort()).toEqual(["allFinish", "dnfTeam", "kind", "picks", "player", "points"]);
 
     await visitor.goto("/predictions/18");
     await expect(visitor.getByRole("row", { name: new RegExp(name) })).toContainText("ANT");
