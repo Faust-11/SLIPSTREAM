@@ -61,11 +61,28 @@ beforeEach(() => {
 afterEach(() => vi.restoreAllMocks());
 
 describe("currentPlayer: виклики Supabase за cookie (рев'ю 20.11, знахідка 2)", () => {
-  it("сміттєва cookie {a:'x',r:'y'} не породжує запиту /token — аноним", async () => {
+  it("сміттєва cookie {a:'x',r:'y'} не породжує запиту /token — аноним, cookie знято", async () => {
     cookieValue = encodeSession({ a: "x", r: "y" });
     const state = await currentPlayer();
     expect(state).toMatchObject({ user: null, unavailable: false });
     expect(tokenCalls).toBe(0);
+    expect(written[SESSION_COOKIE]).toBe("");
+  });
+  it("токен нашого проєкту, але alg поза ES256/RS256 (HS256 — відкат ключів): «недоступно», БЕЗ зняття cookie й БЕЗ refresh", async () => {
+    const secret = await crypto.subtle.importKey("raw", new Uint8Array(32), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+    const hs = await new SignJWT({ role: "authenticated" })
+      .setProtectedHeader({ alg: "HS256" })
+      .setIssuer(cfg.issuer)
+      .setAudience("authenticated")
+      .setSubject("user-1")
+      .setExpirationTime(now() + 3600)
+      .sign(secret);
+    cookieValue = encodeSession({ a: hs, r: "R1" });
+    reqHeaders = { "x-real-ip": "203.0.113.79" };
+    const state = await currentPlayer();
+    expect(state).toMatchObject({ user: null, unavailable: true });
+    expect(tokenCalls).toBe(0); // одноразовий refresh-токен не ротуємо даремно
+    expect(SESSION_COOKIE in written).toBe(false); // сесію не знято: вхід не «успішний, але одразу скинутий», код не горить
   });
   it("підроблений токен зі «схожою» структурою й нашим issuer: запитів /token з одного джерела — не більше 30 за 10 хв", async () => {
     const other = (await generateKeyPair("ES256")).privateKey;
