@@ -4,7 +4,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { fill } from "@/i18n/fill";
 import { isValidCode, isValidEmail, normalizeEmail, safeNext } from "@/lib/play/validate";
-import { refreshAccount } from "./account-store";
+import { getAccount, refreshAccount } from "./account-store";
 import { NickForm, type NickText } from "./nick-form";
 import { postJson } from "./post";
 
@@ -110,6 +110,13 @@ export function LoginForm({ text, nick, fallbackHref }: { text: LoginText; nick:
     }
     await refreshAccount();
     setBusy(false);
+    // Сесії в браузері немає (cookie заблоковано/не збережено) чи /api/session недоступний: форма ніка дала б 401, а код уже згорів —
+    // кажемо чесно й лишаємо крок коду (новий код — «Надіслати новий код»).
+    if (getAccount().status !== "user") {
+      setError(text.errors.unavailable);
+      codeRef.current?.focus();
+      return;
+    }
     // profile:false — профіль не вдалося прочитати (збій/схему play ще не відкрито): це «невідомо», а не «ніка немає». Не питаємо
     // нік наново — set_nick перезаписав би наявний; профіль сам покаже стан.
     if (res.body.nick || res.body.profile === false) router.push(target());
