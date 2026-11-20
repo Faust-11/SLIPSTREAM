@@ -193,10 +193,13 @@ test("фото: заміна hero з Commons — ND не обрати, NC з п�
   await expect(page.getByText("Лише некомерційно: якщо на сайті")).toBeVisible();
   await page.goBack();
   await page.locator(".ad-cands li").first().getByRole("link", { name: "Обрати" }).click();
-  // Підписи старого фото підставлено й обов'язкові; фокус-картка є.
-  await expect(page.locator('textarea[name="caption_uk"]')).not.toHaveValue("");
-  await page.locator('textarea[name="caption_en"]').fill("Fake caption for the new hero photo.");
-  await page.getByRole("button", { name: "Опублікувати" }).first().click();
+  // Форма обраного фото — лише всередині секції «Обране фото» (у «Своє фото» такі самі поля, і React лишає їх у DOM під час переходу).
+  const chosen = page.locator('section[aria-labelledby="ad-pick"]');
+  await expect(chosen).toBeVisible();
+  // Підписи старого фото підставлено й обов'язкові.
+  await expect(chosen.locator('textarea[name="caption_uk"]')).not.toHaveValue("");
+  await chosen.locator('textarea[name="caption_en"]').fill("Fake caption for the new hero photo.");
+  await chosen.getByRole("button", { name: "Опублікувати" }).click();
   await expect(page.getByRole("status").filter({ hasText: "Опубліковано" })).toBeVisible();
 
   const pr = await lastPr(page, "how-f1-began");
@@ -225,8 +228,10 @@ test("фото: нове inline-фото — наступний id, файли 8
   const nextId = `m${Math.max(...before.map((m) => Number(m.id.slice(1)))) + 1}`;
   await page.goto("/admin/stories/pit-stop-evolution/photos/new");
   await page.locator(".ad-cands li").first().getByRole("link", { name: "Обрати" }).click();
-  for (const [name, text] of [["caption_uk", "Підпис"], ["caption_en", "Caption"], ["alt_uk", "Опис"], ["alt_en", "Alt"]] as const) await page.locator(`textarea[name="${name}"]`).fill(text);
-  await page.getByRole("button", { name: "Опублікувати" }).first().click();
+  const chosen = page.locator('section[aria-labelledby="ad-pick"]');
+  await expect(chosen).toBeVisible();
+  for (const [name, text] of [["caption_uk", "Підпис"], ["caption_en", "Caption"], ["alt_uk", "Опис"], ["alt_en", "Alt"]] as const) await chosen.locator(`textarea[name="${name}"]`).fill(text);
+  await chosen.getByRole("button", { name: "Опублікувати" }).click();
   await expect(page.getByRole("status").filter({ hasText: "Опубліковано" })).toBeVisible();
   const pr = await lastPr(page, "pit-stop-evolution");
   expect(pr.title).toBe(`Історія · pit-stop-evolution: нове фото ${nextId}`);
