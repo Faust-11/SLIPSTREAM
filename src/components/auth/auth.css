@@ -129,7 +129,8 @@
 .au-btn-danger {
   background: var(--red-text);
   border-color: var(--red-text);
-  color: var(--on-color);
+  /* Текст — кольором паперу: білий на --red-text у темній темі мав контраст 2,8; папір дає 5,3 (світла) і 6,7 (темна). */
+  color: var(--paper);
 }
 .au-btn-danger:hover:not(:disabled) {
   background: transparent;

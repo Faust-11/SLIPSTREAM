@@ -124,6 +124,13 @@ test.describe("вхід кодом на пошту", () => {
     await expect(page.locator(".au-err:visible")).toContainText("Too many attempts");
   });
 
+  test("у полях форм немає name: сабміт до гідратації (GET) не кладе пошту, код чи нік в адресу", async ({ page }) => {
+    await page.goto("/login");
+    await expect(page.locator("form input[name]")).toHaveCount(0);
+    await requestCode(page, mail());
+    await expect(page.locator("form input[name]")).toHaveCount(0);
+  });
+
   test("некоректна пошта — помилка на місці", async ({ page }) => {
     await page.goto("/login");
     await page.getByLabel("Email").fill("not-an-email");
@@ -343,7 +350,9 @@ test.describe("сторінки", () => {
     await signUp(page);
     await expectNoA11yViolations(page);
     await page.getByRole("button", { name: "Delete my account" }).click();
-    await expectNoA11yViolations(page);
+    await expectNoA11yViolations(page); // кнопка «Delete forever» вимкнена — axe її контраст не міряє
+    await page.getByLabel("I understand this cannot be undone").check();
+    await expectNoA11yViolations(page); // увімкнена (темна тема): текст кольором паперу, контраст ≥ 4,5
   });
 
   test("320 px: без горизонтального скролу (вхід, код, профіль, шапка з меню)", async ({ page }) => {

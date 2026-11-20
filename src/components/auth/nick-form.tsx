@@ -68,7 +68,6 @@ export function NickForm({ text, initial = "", headingLevel = 2, onDone, autoFoc
         id={`${id}-nick`}
         className="au-input"
         type="text"
-        name="nickname"
         autoComplete="nickname"
         autoCapitalize="off"
         spellCheck={false}
