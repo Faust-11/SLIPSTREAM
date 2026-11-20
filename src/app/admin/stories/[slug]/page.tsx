@@ -81,6 +81,9 @@ export default async function AdminStory({ params }: { params: Promise<{ slug: s
           <Link className="ad-btn" href={`/admin/stories/${slug}/photos`}>
             Фото історії
           </Link>
+          <Link className="ad-btn" href={`/admin/stories/${slug}/versions`}>
+            Версії
+          </Link>
           {!draft && (
             <a className="ad-btn" href={`/uk/stories/${slug}`} target="_blank" rel="noopener">
               На сайті<span className="ad-sr"> (нова вкладка)</span> ↗

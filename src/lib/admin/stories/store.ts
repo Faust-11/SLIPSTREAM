@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import type { GitHub } from "../github";
 import { readMain } from "../github";
 import type { StoryFiles } from "./types";
+import { prKind } from "./versions";
 
 /** Адреса історії: латиниця, цифри, дефіси; гілка адмінки `admin/stories-<slug>-<час>` не довша за 64 знаки. */
 export const SLUG_RE = /^[a-z0-9][a-z0-9-]{0,55}$/;
@@ -28,9 +29,8 @@ export function hashFiles(f: StoryFiles): string {
 
 export type OpenPr = { number: number; title: string; draft: boolean; url: string };
 
-/** Відкриті PR адмінки з правками саме цієї історії (гілка `admin/stories-<slug>-<yyyymmdd>-<hhmmss>`). */
+/** Відкриті PR адмінки з правками саме цієї історії (гілка `admin/stories-<slug>-<yyyymmdd>-<hhmmss>`) і відкати її правок. */
 export async function openStoryPrs(gh: GitHub, slug: string): Promise<OpenPr[]> {
   const prs = await gh.request<{ number: number; title: string; draft?: boolean; html_url: string; head: { ref: string } }[]>("GET", "/pulls?state=open&per_page=100");
-  const re = new RegExp(`^admin/stories-${slug}-\\d{8}-\\d{6}$`);
-  return prs.filter((p) => re.test(p.head.ref)).map((p) => ({ number: p.number, title: p.title, draft: p.draft === true, url: p.html_url }));
+  return prs.filter((p) => prKind(slug, p) !== null).map((p) => ({ number: p.number, title: p.title, draft: p.draft === true, url: p.html_url }));
 }
