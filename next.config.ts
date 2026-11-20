@@ -1,5 +1,8 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import type { NextConfig } from "next";
 import { localeRewritePattern } from "./src/i18n/routing";
+import { parseRedirects, storyRedirectRules } from "./src/lib/stories/redirects";
 
 const isDev = process.env.NODE_ENV === "development";
 // Збірка на Vercel (там своя маршрутизація RSC — див. rewrites).
@@ -57,6 +60,15 @@ const securityHeaders = [
 export const CANONICAL_ORIGIN = "https://outlap.org";
 export const CANONICAL_REDIRECT_HOSTS = ["www.outlap.org", "slipstream-bice-eight.vercel.app"];
 
+// Старі адреси історій (адмінка 7c пише сюди при зміні адреси). Немає файла чи він зіпсований — просто без редиректів.
+const storyRedirects = (() => {
+  try {
+    return parseRedirects(JSON.parse(readFileSync(join(process.cwd(), "src/data/curated/story-redirects.json"), "utf8")));
+  } catch {
+    return {};
+  }
+})();
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
 
@@ -101,6 +113,8 @@ const nextConfig: NextConfig = {
         destination: `${CANONICAL_ORIGIN}/:path*`,
         permanent: true,
       })),
+
+      ...storyRedirectRules(storyRedirects),
       { source: "/en", destination: "/", permanent: true },
       { source: "/en/:path*", destination: "/:path*", permanent: true },
     ];

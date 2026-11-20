@@ -19,7 +19,7 @@
  */
 import { createHash, randomBytes } from "node:crypto";
 import { createServer } from "node:http";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir, stat } from "node:fs/promises";
 import sharp from "sharp";
 
 const args = process.argv.slice(2);
@@ -147,7 +147,13 @@ createServer(async (req, res) => {
     const now = new Date().toISOString();
     if (req.method === "GET" && p.startsWith("/contents/")) {
       try {
-        const buf = await readFile(decodeURIComponent(p.slice("/contents/".length)));
+        const target = decodeURIComponent(p.slice("/contents/".length));
+        if ((await stat(target)).isDirectory()) {
+          // Перелік теки (Contents API): назва, тип, sha blob — для зміни адреси історії (фото переносяться за sha).
+          const entries = await readdir(target, { withFileTypes: true });
+          return json(res, 200, await Promise.all(entries.map(async (e) => ({ name: e.name, path: `${target}/${e.name}`, type: e.isDirectory() ? "dir" : "file", sha: e.isDirectory() ? "tree-x" : "blob-" + (await stat(`${target}/${e.name}`)).size }))));
+        }
+        const buf = await readFile(target);
         return json(res, 200, { content: buf.toString("base64"), encoding: "base64", size: buf.length, sha: "blob-" + buf.length });
       } catch {
         return json(res, 404, { message: "Not Found" });

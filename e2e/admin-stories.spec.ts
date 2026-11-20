@@ -357,3 +357,60 @@ test("джерела: 404 для неіснуючої історії; вузьк
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Здоров'я джерел");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
+
+test("адреса: попередній перегляд, зміна адреси → один PR (теки, фото за sha, посилання в іншій історії, редирект); повторна зміна заблокована", async ({ page }) => {
+  await openStory(page, "brawn-gp-2009");
+  await page.getByRole("link", { name: "Адреса", exact: true }).click();
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Адреса історії");
+  await page.getByLabel("Нова адреса").fill("brawn-champions");
+  await page.getByRole("button", { name: "Показати, що зміниться" }).click();
+  await expect(page).toHaveURL(/to=brawn-champions/);
+  const plan = page.locator('section[aria-labelledby="ad-plan"]');
+  await expect(plan).toContainText("/uk/stories/brawn-champions");
+  await expect(plan).toContainText("button-canada-2011"); // на цю історію посилається інша
+  await expectNoA11yViolations(page);
+
+  await plan.getByRole("button", { name: "Змінити адресу на «brawn-champions»" }).click();
+  await expect(page.getByRole("status").filter({ hasText: "Зміну адреси створено" })).toBeVisible();
+  const pr = await lastPr(page, "brawn-gp-2009: адреса");
+  expect(pr.title).toBe("Історія · brawn-gp-2009: адреса змінена на brawn-champions");
+  expect(pr.draft).toBe(false);
+  const has = (p: string) => expect(pr.paths, p).toContain(p);
+  for (const f of ["story.json", "uk.md", "en.md"]) {
+    has(`content/stories/brawn-gp-2009/${f}`); // видалення старих
+    has(`content/stories/brawn-champions/${f}`); // нові
+  }
+  has("content/stories/button-canada-2011/story.json");
+  has("src/data/curated/story-redirects.json");
+  expect(pr.paths.filter((p: string) => p.startsWith("public/img/stories/brawn-gp-2009/")).length).toBeGreaterThan(0);
+  expect(pr.paths.filter((p: string) => p.startsWith("public/img/stories/brawn-champions/")).length).toBe(pr.paths.filter((p: string) => p.startsWith("public/img/stories/brawn-gp-2009/")).length);
+  const story = JSON.parse(pr.files["content/stories/brawn-champions/story.json"]);
+  expect(story.slug).toBe("brawn-champions");
+  expect(JSON.stringify(story.media)).not.toContain("brawn-gp-2009");
+  expect(JSON.stringify(story.media)).toContain("/img/stories/brawn-champions/");
+  expect(JSON.parse(pr.files["content/stories/button-canada-2011/story.json"]).links.stories).toContain("brawn-champions");
+  expect(JSON.parse(pr.files["src/data/curated/story-redirects.json"])).toEqual({ "brawn-gp-2009": "brawn-champions" });
+
+  // Пока PR відкритий, ту саму історію не перейменувати вдруге й не редагувати.
+  await page.goto("/admin/stories/brawn-gp-2009/address?to=brawn-other");
+  await expect(page.getByRole("status").filter({ hasText: "Чекають злиття" })).toBeVisible();
+  await expect(page.getByRole("button", { name: /Змінити адресу на/ })).toHaveCount(0);
+});
+
+test("адреса: відмови — адреса в коді, зайнята, некоректна; неіснуюча історія — 404", async ({ page }) => {
+  await login(page);
+  await page.goto("/admin/stories/jerez-1997/address?to=jerez-final");
+  await expect(page.locator(".ad-result.is-bad")).toContainText("прописана в коді");
+  await expect(page.getByRole("button", { name: /Змінити адресу на/ })).toHaveCount(0);
+  await page.goto("/admin/stories/women-in-f1/address?to=spa-2021");
+  await expect(page.locator(".ad-result.is-bad")).toContainText("уже є в іншої історії");
+  await page.goto("/admin/stories/women-in-f1/address?to=Bad_Slug");
+  await expect(page.locator(".ad-result.is-bad")).toContainText("лише малі латинські літери");
+  await expect(page.getByRole("button", { name: /Змінити адресу на/ })).toHaveCount(0);
+  expect((await page.goto("/admin/stories/no-such-story/address"))?.status()).toBe(404);
+  expect((await page.goto("/admin/stories/no-such-story/address?to=abc"))?.status()).toBe(404);
+  await page.setViewportSize({ width: 360, height: 800 });
+  await page.goto("/admin/stories/women-in-f1/address");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Адреса історії");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+});
