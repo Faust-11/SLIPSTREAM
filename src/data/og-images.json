@@ -48,6 +48,14 @@
       "src": "/og/section/home-uk.jpg",
       "alt": "Outlap. Неофіційний фанатський сайт про Формулу-1: сезони, гонки, пілоти, команди, траси й історії."
     },
+    "kyiv-time-en": {
+      "src": "/og/section/kyiv-time-en.jpg",
+      "alt": "Outlap — Formula 1 schedule in Kyiv time. Sessions of the next round and the start of every race in Kyiv time: UTC+2 in winter, UTC+3 in summer."
+    },
+    "kyiv-time-uk": {
+      "src": "/og/section/kyiv-time-uk.jpg",
+      "alt": "Outlap — Розклад Формули-1 за київським часом. Сесії наступного етапу й старт кожної гонки за Києвом: UTC+2 узимку, UTC+3 влітку."
+    },
     "newbie-en": {
       "src": "/og/section/newbie-en.jpg",
       "alt": "Outlap — New to F1. New to Formula 1? The rules, terms and race weekend explained."

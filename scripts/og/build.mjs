@@ -60,7 +60,7 @@ function sectionHtml(title, text, home = false) {
   return `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="${FONTS}"><style>${BASE_CSS}
   .wrap { position: absolute; inset: 0 0 18px 0; padding: 64px 72px; display: flex; flex-direction: column; }
   .bar { position: absolute; left: 0; top: 0; bottom: 18px; width: 22px; background: #ffc400; }
-  h1 { margin-top: auto; font: 400 ${title.length > 9 ? 92 : 112}px/1.02 "Rubik Mono One", sans-serif; color: #ffc400;
+  h1 { margin-top: auto; font: 400 ${title.length > 24 ? 64 : title.length > 9 ? 92 : 112}px/1.02 "Rubik Mono One", sans-serif; color: #ffc400;
        letter-spacing: -0.01em; text-wrap: balance; }
   .big svg { height: 300px; width: auto; display: block; }
   p { margin-top: 28px; font-size: 36px; line-height: 1.3; color: #d5d8dd; max-width: 980px; text-wrap: pretty; }
@@ -122,6 +122,16 @@ if (!only || only === "sections") {
       await shoot(page, sectionHtml(title, text, s === "home"), join(ROOT, "public", rel));
       manifest.sections[`${s}-${locale}`] = { src: rel, alt: s === "home" ? `Outlap. ${text}` : `Outlap — ${title}. ${text}` };
     }
+  }
+}
+
+// Окремі сторінки поза меню з власною карткою: /kyiv-time (текст — kyivPage.ogText).
+if (!only || only === "sections" || only === "kyiv") {
+  for (const locale of LOCALES) {
+    const d = json(`src/i18n/dictionaries/${locale}.json`);
+    const rel = `/og/section/kyiv-time-${locale}.jpg`;
+    await shoot(page, sectionHtml(d.kyivPage.title, d.kyivPage.ogText), join(ROOT, "public", rel));
+    manifest.sections[`kyiv-time-${locale}`] = { src: rel, alt: `Outlap — ${d.kyivPage.title}. ${d.kyivPage.ogText}` };
   }
 }
 

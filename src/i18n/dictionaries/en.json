@@ -993,6 +993,28 @@
       "short": "{short} circuit"
     }
   },
+  "kyivPage": {
+    "title": "Formula 1 schedule in Kyiv time",
+    "ogText": "Sessions of the next round and the start of every race in Kyiv time: UTC+2 in winter, UTC+3 in summer.",
+    "metaDescription": "The {season} Formula 1 Grand Prix schedule in Kyiv time (Europe/Kyiv): practice, qualifying, sprints and races. Start times for the next race and every round of the season.",
+    "lead": "Kyiv time is UTC+2 in winter and UTC+3 in summer: daylight saving runs from the last Sunday of March to the last Sunday of October. Below are all sessions of the next round and the race start of every round of the {season} season.",
+    "nextTitle": "Next round",
+    "roundN": "Round {n}",
+    "sessionsLabel": "Round sessions in Kyiv time",
+    "raceStart": "Race start",
+    "tbd": "time to be confirmed",
+    "allTitle": "Every round of the {season} season",
+    "tableLabel": "Race start times of the season in Kyiv time",
+    "colRound": "Round",
+    "colGp": "Grand Prix",
+    "colRace": "Race (Kyiv)",
+    "colOffset": "Offset",
+    "results": "Results",
+    "sprintTag": "sprint",
+    "seasonOver": "The season is over. The next season's schedule will appear as soon as the organisers publish it.",
+    "note": "We refresh the schedule twice a week, and organisers can change session times. For times in your own time zone and a countdown to the start, open the {calendar}.",
+    "calendarLink": "season calendar"
+  },
   "calendarPage": {
     "metaDescription": {
       "one": "Formula 1 {season} calendar: {n} round — results of those already run and session times in your time zone.",
@@ -1014,6 +1036,7 @@
       "other": "Season {season} finished · {total} rounds"
     },
     "lead": "Every round of the season: results of the ones already run and session times for the ones ahead.",
+    "kyivLink": "Schedule in Kyiv time →",
     "tzUtc": "Times in UTC.",
     "tzLocal": "Times in your time zone ({tz}).",
     "factsLabel": "Season in numbers",

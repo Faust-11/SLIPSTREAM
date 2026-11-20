@@ -15,7 +15,7 @@ import { getStorySlugs } from "@/lib/stories/content";
  * Службові сторінки (не в меню) і сторінки, що додаються окремими фазами. Нова публічна сторінка — сюди.
  * Сторінки входу, кабінет, callback і API в sitemap НЕ потрапляють (і мають noindex у метаданих).
  */
-const EXTRA_PATHS = ["/about", "/sources"];
+const EXTRA_PATHS = ["/about", "/sources", "/kyiv-time"];
 
 /**
  * Кожна сторінка обома мовами; у кожного запису — hreflang-альтернативи (en, uk, x-default).

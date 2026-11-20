@@ -1,0 +1,127 @@
+/* Розклад за київським часом (/kyiv-time). Класи з префіксом kt-; спільні атоми сайту — .wrap, .num. */
+.kt-body {
+  display: grid;
+  gap: 40px;
+  padding-block: 40px 64px;
+}
+.kt-lead,
+.kt-note,
+.kt-over {
+  max-width: 68ch;
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+.kt-note {
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+}
+.kt-note a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+.kt-body h2 {
+  margin: 0 0 12px;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+.kt-next {
+  display: grid;
+  gap: 8px;
+  padding: 24px;
+  border: var(--b) solid var(--rule);
+  max-width: 640px;
+}
+.kt-next h2 {
+  margin: 0;
+}
+.kt-eyebrow {
+  margin: 0;
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.kt-place {
+  margin: 0 0 8px;
+  color: var(--ink-soft);
+}
+.kt-sess {
+  display: grid;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.kt-sess li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 10px 0;
+  border-top: 1px solid var(--rule);
+}
+.kt-sess li.race {
+  font-weight: 700;
+}
+.kt-off,
+.kt-tbd {
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+}
+.kt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+.kt-table th,
+.kt-table td {
+  padding: 10px 12px 10px 0;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid var(--rule);
+  overflow-wrap: anywhere;
+}
+.kt-table thead th {
+  border-top: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.kt-table tbody th {
+  font-weight: 600;
+}
+.kt-table tr.done {
+  color: var(--ink-soft);
+}
+.kt-table tr.next {
+  background: color-mix(in srgb, var(--yellow) 18%, transparent);
+}
+.kt-table a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+.kt-sub {
+  display: block;
+  font-weight: 400;
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+}
+.kt-tag {
+  margin-left: 8px;
+  padding: 1px 6px;
+  border: 1px solid currentcolor;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+@media (max-width: 560px) {
+  .kt-offcol {
+    display: none;
+  }
+  .kt-next {
+    padding: 16px;
+  }
+}
