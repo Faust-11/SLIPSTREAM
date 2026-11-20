@@ -81,6 +81,12 @@ jobs:
       # реальних результатах 2025 з дампу (scripts/db/play_reference.py, фікстура — scripts/db/fixtures).
       - name: "Схема play (прогнози) — очки, дедлайн, права, паритет 2025"
         run: python scripts/db/test_play.py
+      # Міграція 0016 має переживати повторне виконання (рев'ю PR #65): журнал apply_migrations.py застосовує файл раз, але ручний
+      # прогін у SQL Editor чи відновлення після збою не повинні падати на «already exists».
+      - name: "Міграція 0016 повторно (ідемпотентність)"
+        run: |
+          python -c "import os, psycopg; c = psycopg.connect(os.environ['DATABASE_URL'], autocommit=True); c.execute(open('supabase/migrations/0016_play_delete_account.sql').read()); r = c.execute(\"select (select count(*) from pg_indexes where schemaname='play' and indexname='profiles_nick_key_idx'), (select count(*) from information_schema.columns where table_schema='play' and table_name='profiles' and column_name='nick_key'), (select count(*) from pg_constraint where conname='profiles_nick_chk')\").fetchone(); assert r == (1, 1, 1), r; print('0016 повторно: ок', r)"
+          python scripts/db/rls_smoke.py
       - name: Фікстура для сайту (unit/e2e) — артефакт
         run: python scripts/db/export_fixture.py db-fixture
       # Бойовий порядок data-sync.yml: завантажувачі не оновлюють подання, check_live --publish — лише після перевірки.
