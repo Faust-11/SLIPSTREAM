@@ -101,7 +101,7 @@ test.describe("список етапів", () => {
   test("українською: «Прогнози» в меню, тексти й посилання з префіксом /uk", async ({ page }) => {
     await page.goto("/uk/predictions");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Прогнози на гонки");
-    await expect(page.getByRole("navigation", { name: "Розділи" }).getByRole("link", { name: "Прогнози" })).toHaveAttribute("aria-current", "page");
+    await expect(page.getByRole("navigation", { name: "Головне меню" }).getByRole("link", { name: "Прогнози" })).toHaveAttribute("aria-current", "page");
     await expect(page.locator("li.pd-round").first().getByRole("link").first()).toHaveAttribute("href", /^\/uk\/predictions\/\d+$/);
   });
 
