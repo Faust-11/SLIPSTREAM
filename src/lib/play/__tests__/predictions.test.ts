@@ -42,7 +42,9 @@ describe("тіло POST /api/predictions", () => {
   });
   it("«усі фінішують» без команди; поля extras необов'язкові", () => {
     expect(parsePrediction({ ...base, allFinish: true })).toMatchObject({ ok: true });
-    const { dnfTeam: _a, allFinish: _b, ...bare } = base;
+    const bare: Record<string, unknown> = { ...base };
+    delete bare.dnfTeam;
+    delete bare.allFinish;
     expect(parsePrediction(bare)).toEqual({ ok: true, value: base });
   });
   it("кваліфікація не приймає «команду без фінішу» і «усі фінішують»", () => {
