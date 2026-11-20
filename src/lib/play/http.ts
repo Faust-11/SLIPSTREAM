@@ -30,7 +30,7 @@ export async function readJson(request: Request, maxBytes = 2048): Promise<Recor
   if (declared > maxBytes) return null;
   try {
     const text = await request.text();
-    if (text.length > maxBytes) return null;
+    if (new TextEncoder().encode(text).length > maxBytes) return null; // байти, не одиниці UTF-16: кирилиця — 2 байти на літеру
     const v = JSON.parse(text) as unknown;
     return v && typeof v === "object" && !Array.isArray(v) ? (v as Record<string, unknown>) : null;
   } catch {
