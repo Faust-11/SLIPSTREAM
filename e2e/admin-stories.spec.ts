@@ -550,5 +550,6 @@ test("застряглий PR: «Закрити PR» знімає блокува
   // Після редиректу форма нова: заголовок знову як у main, тож додаємо зміну заново.
   await title.fill((await title.inputValue()) + " (тест 2)");
   await page.getByRole("button", { name: "Опублікувати зміни" }).click();
-  await expect(page.getByRole("status").filter({ hasText: "PR #" })).toContainText("створено");
+  // Стара плашка «PR закрито» ще на сторінці — шукаємо саме нову.
+  await expect(page.getByRole("status").filter({ hasText: "створено" })).toBeVisible();
 });
