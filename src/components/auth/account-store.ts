@@ -15,6 +15,8 @@ export type Account =
 const SERVER: Account = { status: "anon" };
 let state: Account = { status: "loading" };
 let started = false;
+/** Номер останнього запиту/локальної зміни: відповідь старішого /api/session не має перезаписувати новіший стан. */
+let seq = 0;
 const listeners = new Set<() => void>();
 
 function set(next: Account) {
@@ -26,26 +28,36 @@ function hasFlag(): boolean {
   return document.cookie.split("; ").includes("outlap_in=1");
 }
 
-/** Запитати сервер. Позначки немає — одразу «анонім», без запиту. */
+/** Запитати сервер. Позначки немає — одразу «анонім», без запиту. Застарілу відповідь (її випередив новіший запит чи локальна зміна) ігноруємо. */
 export async function refreshAccount(): Promise<void> {
+  const mine = ++seq;
   if (!hasFlag()) return set({ status: "anon" });
   try {
     const res = await fetch("/api/session", { cache: "no-store", credentials: "same-origin" });
-    if (!res.ok) return set({ status: "unavailable" });
+    if (!res.ok) return mine === seq ? set({ status: "unavailable" }) : undefined;
     const body = (await res.json()) as { user: { nick: string | null; profile?: boolean } | null; unavailable?: boolean };
+    if (mine !== seq) return;
     if (body.user) set({ status: "user", nick: body.user.nick, profile: body.user.profile !== false });
     else set({ status: body.unavailable ? "unavailable" : "anon" });
   } catch {
-    set({ status: "unavailable" });
+    if (mine === seq) set({ status: "unavailable" });
   }
 }
 
+/** Поточний стан поза React (форма входу після refreshAccount). */
+export function getAccount(): Account {
+  return state;
+}
+
 export function setAnonymous(): void {
+  seq++;
   set({ status: "anon" });
 }
 
 export function setNick(nick: string): void {
-  if (state.status === "user") set({ ...state, nick, profile: true });
+  if (state.status !== "user") return;
+  seq++;
+  set({ ...state, nick, profile: true });
 }
 
 function subscribe(listener: () => void): () => void {
