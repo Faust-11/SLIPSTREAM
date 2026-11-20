@@ -12,10 +12,15 @@
  *   GET  /auth/v1/.well-known/jwks.json         → публічний ключ ES256 (як на справжньому проєкті — замір 19.11)
  *   GET  /rest/v1/profiles (Accept-Profile: play) · POST /rest/v1/rpc/set_nick · POST /rest/v1/rpc/delete_my_account
  *                                               — перевірка JWT, ті самі коди помилок, що в базі (23505, 23514, P0001 blocked)
+ *   Прогнози (фаза 9c): POST /rest/v1/rpc/deadline (анонімно) · POST /rest/v1/rpc/save_prediction (JWT; ті самі перевірки й коди,
+ *   що play.save_prediction з 0015) · GET /rest/v1/predictions (свої) · GET /rest/v1/revealed_predictions (анонімно, лише після дедлайну).
+ *   Дедлайн етапу: за замовчуванням етапи ≤ 21 закриті, ≥ 22 відкриті (від «зараз», тож тести не залежать від дати запуску);
+ *   POST /__play/deadline?year=&round=&in=<с | null> ставить абсолютний момент від «зараз»; GET /__play/predictions?email= — збережене.
  * Тестові керування: GET /__auth/last-code?email= · POST /__auth/expire-code?email= · POST /__auth/reset-rate?email= (знімає паузу 60 с) · POST /__auth/ttl?email=&s= (термін
  *   access для нових токенів користувача) · POST /__auth/block?email= · POST /__auth/revoke?email= · GET /__auth/stats?email=
  */
 import { generateKeyPairSync, randomBytes, randomUUID, sign, verify } from "node:crypto";
+import { readFileSync } from "node:fs";
 import { nickProblem, nickSkeleton } from "../../src/lib/play/nick-rules.mjs";
 const b64u = (v) => Buffer.from(v).toString("base64url");
 const { privateKey, publicKey } = generateKeyPairSync("ec", { namedCurve: "P-256" });
@@ -79,6 +84,128 @@ function nickError(raw) {
   const key = nickSkeleton(nick);
   if ([...users.values()].some((u) => u.nick && nickSkeleton(u.nick) === key)) return { status: 409, body: { code: "23505", message: 'duplicate key value violates unique constraint "profiles_nick_key_idx"' } };
   return null;
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Прогнози (фаза 9c). Знання пілотів і команд — з тих самих фікстур, що й збірка сайту (e2e/fixtures/db): так id, які бачить
+// форма, збігаються з тими, що «знає» база (play.save_prediction → unknown_driver / unknown_team).
+// ---------------------------------------------------------------------------------------------------------------------
+const fixture = (name) => JSON.parse(readFileSync(new URL(`../../e2e/fixtures/db/${name}.json`, import.meta.url), "utf8"));
+const KNOWN_DRIVERS = new Set(fixture("drivers").map((d) => d.id));
+const KNOWN_TEAMS = new Set(fixture("results").map((r) => r.team_id));
+/** "рік/етап" → абсолютний момент дедлайну (мс) або null (невідомий) — лише ті, що поставив тест. */
+const deadlineSet = new Map();
+/** {userId, year, round, kind, picks, dnfTeam, allFinish, updatedAt} */
+let predictions = [];
+
+function deadlineMs(year, round) {
+  const key = `${year}/${round}`;
+  if (deadlineSet.has(key)) return deadlineSet.get(key);
+  return Date.now() + (round <= 21 ? -3_600_000 : 3 * 86_400_000);
+}
+const pgError = (res, status, code, message) => json(res, status, { code, message, details: null, hint: null });
+
+function picksValid(p) {
+  if (!Array.isArray(p) || p.length !== 10 || !p.every((v) => v === null || Number.isSafeInteger(v))) return false;
+  if (p[0] === null || p[1] === null || p[2] === null) return false;
+  const chosen = p.filter((v) => v !== null);
+  return new Set(chosen).size === chosen.length;
+}
+
+/** Перевірки play.save_prediction у тому ж порядку, що й у міграції 0015; дедлайн — останнім (тригер). */
+function savePredictionError(u, a) {
+  if (u.blocked) return "blocked";
+  if (!u.nick) return "no_profile";
+  if (a.p_kind !== "Q" && a.p_kind !== "R") return "bad_kind";
+  if (a.p_year !== 2026 || !Number.isInteger(a.p_round) || a.p_round < 1 || a.p_round > 23) return "unknown_round";
+  if (!picksValid(a.p_picks)) return "bad_picks";
+  if (a.p_picks.some((d) => d !== null && !KNOWN_DRIVERS.has(d))) return "unknown_driver";
+  if (a.p_kind === "Q" && (a.p_dnf_team != null || a.p_all_finish === true)) return "bad_extras";
+  if (a.p_dnf_team != null && !KNOWN_TEAMS.has(a.p_dnf_team)) return "unknown_team";
+  if (a.p_all_finish === true && a.p_dnf_team != null) return "bad_extras";
+  const dl = deadlineMs(a.p_year, a.p_round);
+  if (dl === null || Date.now() >= dl) return "prediction_closed";
+  return null;
+}
+
+const eq = (url, name) => {
+  const v = url.searchParams.get(name);
+  return v?.startsWith("eq.") ? Number(v.slice(3)) : NaN;
+};
+const project = (rows, select, allowed, res) => {
+  const cols = (select ?? "*") === "*" ? allowed : select.split(",");
+  const bad = cols.find((c) => !allowed.includes(c));
+  if (bad) return void pgError(res, 400, "42703", `column ${bad} does not exist`);
+  return rows.map((r) => Object.fromEntries(cols.map((c) => [c, r[c]])));
+};
+
+/** Прогнози й тестові керування; true — запит оброблено. */
+async function handlePredictionsFake(req, res, url, origin) {
+  const p = url.pathname;
+  if (p === "/__play/deadline" && req.method === "POST") {
+    const raw = url.searchParams.get("in");
+    deadlineSet.set(`${url.searchParams.get("year")}/${url.searchParams.get("round")}`, raw === "null" ? null : Date.now() + Number(raw) * 1000);
+    return json(res, 200, { ok: true }), true;
+  }
+  if (p === "/__play/predictions" && req.method === "GET") {
+    const u = users.get((url.searchParams.get("email") ?? "").toLowerCase());
+    return json(res, 200, predictions.filter((x) => u && x.userId === u.id)), true;
+  }
+
+  if (p === "/rest/v1/rpc/deadline" && req.method === "POST") {
+    if (!req.headers.apikey) return json(res, 401, { message: "No API key found in request" }), true;
+    if (req.headers["content-profile"] !== "play") return pgError(res, 406, "PGRST106", "The schema must be one of the following: f1"), true;
+    const a = parse(await readBody(req));
+    const dl = deadlineMs(a.p_year, a.p_round);
+    return json(res, 200, dl === null ? null : new Date(dl).toISOString()), true;
+  }
+
+  if (p === "/rest/v1/revealed_predictions" && req.method === "GET") {
+    if (!req.headers.apikey) return json(res, 401, { message: "No API key found in request" }), true;
+    if (req.headers["accept-profile"] !== "play") return pgError(res, 406, "PGRST106", "The schema must be one of the following: f1"), true;
+    const year = eq(url, "season_year");
+    const round = eq(url, "round");
+    // Подання бази показує прогнози лише після дедлайну й лише гравців з ніком, що не заблоковані.
+    const byId = new Map([...users.values()].map((x) => [x.id, x]));
+    const rows = predictions
+      .filter((x) => x.year === year && x.round === round)
+      .filter((x) => {
+        const dl = deadlineMs(x.year, x.round);
+        const owner = byId.get(x.userId);
+        return dl !== null && Date.now() >= dl && owner?.nick && !owner.blocked;
+      })
+      .map((x) => ({ id: 1, season_year: x.year, round: x.round, kind: x.kind, player: byId.get(x.userId).nick, picks: x.picks, dnf_team_id: x.dnfTeam, all_finish: x.allFinish, points: null }))
+      .sort((a, b) => a.player.localeCompare(b.player));
+    const out = project(rows, url.searchParams.get("select"), ["id", "season_year", "round", "kind", "player", "picks", "dnf_team_id", "all_finish", "points"], res);
+    return out ? (json(res, 200, out), true) : true;
+  }
+
+  const own = p === "/rest/v1/predictions" && req.method === "GET";
+  const save = p === "/rest/v1/rpc/save_prediction" && req.method === "POST";
+  if (!own && !save) return false;
+  if (!req.headers.apikey) return json(res, 401, { message: "No API key found in request" }), true;
+  const profile = own ? req.headers["accept-profile"] : req.headers["content-profile"];
+  if (profile !== "play") return pgError(res, 406, "PGRST106", "The schema must be one of the following: f1"), true;
+  const u = bearerUser(req, origin);
+  if (!u) return pgError(res, 401, "PGRST301", "JWT expired or invalid"), true;
+
+  if (own) {
+    const year = eq(url, "season_year");
+    const round = eq(url, "round");
+    const rows = predictions
+      .filter((x) => x.userId === u.id && x.year === year && x.round === round)
+      .map((x) => ({ kind: x.kind, picks: x.picks, dnf_team_id: x.dnfTeam, all_finish: x.allFinish, updated_at: new Date(x.updatedAt).toISOString() }));
+    const out = project(rows, url.searchParams.get("select"), ["kind", "picks", "dnf_team_id", "all_finish", "updated_at"], res);
+    return out ? (json(res, 200, out), true) : true;
+  }
+
+  const a = parse(await readBody(req));
+  const err = savePredictionError(u, a);
+  if (err) return pgError(res, 400, "P0001", err), true;
+  const row = { userId: u.id, year: a.p_year, round: a.p_round, kind: a.p_kind, picks: a.p_picks, dnfTeam: a.p_dnf_team ?? null, allFinish: a.p_all_finish === true, updatedAt: Date.now() };
+  predictions = predictions.filter((x) => !(x.userId === u.id && x.year === row.year && x.round === row.round && x.kind === row.kind));
+  predictions.push(row);
+  return res.writeHead(204).end(), true;
 }
 
 /** Повертає true, якщо запит оброблено (інакше — далі фейковий PostgREST зі схемою f1). */
@@ -152,6 +279,9 @@ export async function handleSupabaseFake(req, res, url, port) {
     return json(res, 404, { msg: "not found" }), true;
   }
 
+  if (await handlePredictionsFake(req, res, url, origin)) return true;
+  if (p.startsWith("/__play/")) return json(res, 404, { error: "unknown hook" }), true;
+
   const rpc = /^\/rest\/v1\/rpc\/(set_nick|delete_my_account)$/.exec(p);
   const isProfiles = p === "/rest/v1/profiles" && req.method === "GET";
   if ((rpc && req.method === "POST") || isProfiles) {
@@ -169,6 +299,7 @@ export async function handleSupabaseFake(req, res, url, port) {
       u.nick = String(body.p_nick).normalize("NFKC");
       return res.writeHead(204).end(), true;
     }
+    predictions = predictions.filter((x) => x.userId !== u.id); // каскад у базі: профіль → прогнози
     if (u.blocked) { u.nick = null; return json(res, 200, "data_only_blocked"), true; }
     users.delete(u.email);
     for (const [t, r] of refresh) if (r.email === u.email) refresh.delete(t);
