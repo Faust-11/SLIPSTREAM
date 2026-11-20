@@ -13,7 +13,7 @@ export type NickText = {
   save: string;
   saving: string;
   saved: string;
-  errors: Record<"short" | "long" | "chars" | "reserved" | "taken" | "invalid" | "blocked" | "unauthorized" | "unavailable" | "rateLimited", string>;
+  errors: Record<"short" | "long" | "chars" | "mixed" | "reserved" | "taken" | "invalid" | "blocked" | "unauthorized" | "unavailable" | "rateLimited", string>;
 };
 
 /** Вибір або зміна ніка: швидка перевірка формату на місці, остаточна — у базі (набір помилок з /api/auth/nick). */

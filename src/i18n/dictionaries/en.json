@@ -1460,7 +1460,8 @@
         "blocked": "This account cannot change the nickname.",
         "unauthorized": "Your session has expired. Please sign in again.",
         "unavailable": "Could not save right now. Please try again later.",
-        "rateLimited": "Too many attempts. Please wait a little."
+        "rateLimited": "Too many attempts. Please wait a little.",
+        "mixed": "Use letters from one alphabet only: Latin or Cyrillic, not both. Digits are fine with either."
       }
     },
     "profile": {

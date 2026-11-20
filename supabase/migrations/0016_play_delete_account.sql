@@ -29,11 +29,12 @@ grant execute on function play.delete_my_account() to authenticated, service_rol
 -- scripts/db/fixtures/nick_parity.json). 0015 забороняв лише ASCII/C1 керуючі та «@» — нік «Max» і «Max»+U+200B були різними за
 -- lower(nick), а виглядали однаково (підміна імені в публічній таблиці).
 --  • play.nick_valid: нік уже в NFKC; 3–24 символи; лише A–Z, 0–9, кирилиця (лише U+0400–U+045F та Ґ/ґ — без Ӏ U+04C0 та інших двійників латиниці) та роздільники «. _ -»
---    і ОДИН пробіл; перший/останній символ — літера чи цифра; без подвійних пробілів; префікс «Гравець» (за скелетом) зарезервовано
+--    і ОДИН пробіл; літери лише з ОДНОГО скрипту (латиниця АБО кирилиця; цифри й роздільники — з будь-яким, UTS #39);
+--    перший/останній символ — літера чи цифра; без подвійних пробілів; префікс «Гравець» (за скелетом) зарезервовано
 --    під приховані ніки. Явні діапазони, а не [[:alpha:]]/\p{L}: у Postgres ці класи залежать від локалі БД (на хмарному Supabase,
 --    ймовірно, C.UTF-8 — не перевірено), а правило має бути однаковим у JS і SQL.
 --  • play.nick_skeleton: NFKC → мала кирилиця (явна таблиця) → мала ASCII → схожі кириличні літери стають латинськими
---    (а/a в/b е/e к/k м/m н/h о/o р/p с/c т/t у/y х/x і/i ј/j ѕ/s) → i, 1 → l (I/l/1/і — один символ), 0 → o (O/0/о — один)
+--    (а/a в/b е/e к/k м/m н/h о/o р/p с/c т/t у/y х/x і/i ј/j ѕ/s г/r п/n; цифро-подібні з/3 б/6 ч/4) → i, 1 → l (I/l/1/і — один символ), 0 → o (O/0/о — один)
 --    → без роздільників. IMMUTABLE (генерована колонка й індекс). Свідомий компроміс: «Alex1» і «Alexl» — дубль.
 create or replace function play.nick_skeleton(p text) returns text
 language sql immutable parallel safe set search_path = pg_catalog as $$
@@ -43,7 +44,7 @@ language sql immutable parallel safe set search_path = pg_catalog as $$
                translate(
                  translate(normalize(p, NFKC), 'ЀЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯҐ', 'ѐёђѓєѕіїјљњћќѝўџабвгдежзийклмнопрстуфхцчшщъыьэюяґ'),
                'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'),
-             'авекмнорстухіјѕ', 'abekmhopctyxijs'),
+             'авекмнорстухіјѕзбчгп', 'abekmhopctyxijs364rn'),
            'i10', 'llo'),
            '_.- ', '')
 $$;
@@ -55,6 +56,7 @@ language sql immutable parallel safe set search_path = pg_catalog as $$
      and char_length(p) between 3 and 24
      and p ~ '^[A-Za-z0-9\u0400-\u045F\u0490\u0491]([A-Za-z0-9\u0400-\u045F\u0490\u0491_. -]*[A-Za-z0-9\u0400-\u045F\u0490\u0491])?$'
      and p !~ '  '
+     and not (p ~ '[A-Za-z]' and p ~ '[\u0400-\u045F\u0490\u0491]')
      and play.nick_skeleton(p) not like play.nick_skeleton('Гравець') || '%'
 $$;
 revoke all on function play.nick_skeleton(text), play.nick_valid(text) from public, anon, authenticated;
