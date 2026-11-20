@@ -8,6 +8,9 @@
 export const PREDICTION_KINDS = ["Q", "R"] as const;
 export type PredictionKind = (typeof PREDICTION_KINDS)[number];
 
+/** Скільки прогнозів гравців віддаємо за раз після дедлайну (таблиця на сторінці, не вивантаження бази). */
+export const REVEALED_LIMIT = 200;
+
 export const SLOTS = 10;
 /** Скільки перших слотів обов'язкові (подіум). */
 export const REQUIRED_SLOTS = 3;

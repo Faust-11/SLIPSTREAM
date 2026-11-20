@@ -2,7 +2,7 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";
 
-export type NavKey = "seasons" | "calendar" | "news" | "drivers" | "teams" | "circuits" | "stories" | "newbie" | "game";
+export type NavKey = "seasons" | "calendar" | "predictions" | "news" | "drivers" | "teams" | "circuits" | "stories" | "newbie" | "game";
 
 export type NavItem = { key: NavKey; href: string; accent?: "yellow" };
 
@@ -10,6 +10,7 @@ export type NavItem = { key: NavKey; href: string; accent?: "yellow" };
 export const NAV: readonly NavItem[] = [
   { key: "seasons", href: "/seasons" },
   { key: "calendar", href: "/calendar" },
+  { key: "predictions", href: "/predictions" },
   { key: "news", href: "/news" },
   { key: "drivers", href: "/drivers" },
   { key: "teams", href: "/teams" },
