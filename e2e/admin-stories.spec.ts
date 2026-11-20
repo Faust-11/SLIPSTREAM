@@ -166,3 +166,78 @@ test("переклад: застарілі фрагменти видно в ре
     writeFileSync(file, original);
   }
 });
+
+// ── Фото історії (7c, задача 5). Фейковий Commons: 1-й файл — суспільне надбання, 2-й — NC, 3-й — ND (не обрати). ──
+test("фото: список показує hero й inline, підписи, ліцензію; без помилок доступності й горизонтального скролу", async ({ page }) => {
+  await login(page);
+  await page.goto("/admin/stories/jerez-1997/photos");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Фото");
+  const first = page.locator(".ad-media li").first();
+  await expect(first).toContainText("m1");
+  await expect(first).toContainText("Головне");
+  await expect(first).toContainText("CC BY-SA 2.0");
+  await expect(first.getByRole("link", { name: /Замінити/ })).toHaveAttribute("href", "/admin/stories/jerez-1997/photos/m1");
+  await expect(page.getByRole("link", { name: "Додати фото в текст" })).toBeVisible();
+  await expectNoA11yViolations(page);
+  await page.setViewportSize({ width: 360, height: 800 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+});
+
+test("фото: заміна hero з Commons — ND не обрати, NC з попередженням; PR із 3 файлами 1280/800/480 і story.json лише з m1", async ({ page }) => {
+  await login(page);
+  await page.goto("/admin/stories/how-f1-began/photos/m1");
+  const cards = page.locator(".ad-cands li");
+  await expect(cards).toHaveCount(3);
+  await expect(cards.nth(2).getByRole("link", { name: "Обрати" })).toHaveCount(0);
+  await cards.nth(1).getByRole("link", { name: "Обрати" }).click();
+  await expect(page.getByText("Лише некомерційно: якщо на сайті")).toBeVisible();
+  await page.goBack();
+  await page.locator(".ad-cands li").first().getByRole("link", { name: "Обрати" }).click();
+  // Підписи старого фото підставлено й обов'язкові; фокус-картка є.
+  await expect(page.locator('textarea[name="caption_uk"]')).not.toHaveValue("");
+  await page.locator('textarea[name="caption_en"]').fill("Fake caption for the new hero photo.");
+  await page.getByRole("button", { name: "Опублікувати" }).first().click();
+  await expect(page.getByRole("status").filter({ hasText: "Опубліковано" })).toBeVisible();
+
+  const pr = await lastPr(page, "how-f1-began");
+  expect(pr.title).toBe("Історія · how-f1-began: головне фото");
+  expect(pr.draft).toBe(false);
+  expect(pr.body).toContain("Fake Photographer");
+  expect(pr.paths).toEqual([
+    "public/img/stories/how-f1-began/m1-1280.webp",
+    "public/img/stories/how-f1-began/m1-800.webp",
+    "public/img/stories/how-f1-began/m1-480.webp",
+    "content/stories/how-f1-began/story.json",
+  ]);
+  const json = JSON.parse(pr.files["content/stories/how-f1-began/story.json"]);
+  const m1 = json.media.find((m: { id: string }) => m.id === "m1");
+  expect(m1.role).toBe("hero");
+  expect(m1.credit).toMatchObject({ author: "Fake Photographer", license: "Public domain" });
+  expect(m1.caption.en).toBe("Fake caption for the new hero photo.");
+  expect(m1.srcSet).toBe(
+    "/img/stories/how-f1-began/m1-1280.webp 1280w, /img/stories/how-f1-began/m1-800.webp 800w, /img/stories/how-f1-began/m1-480.webp 480w",
+  );
+});
+
+test("фото: нове inline-фото — наступний id, файли 800/480, роль inline", async ({ page }) => {
+  await login(page);
+  const before = JSON.parse(readFileSync(join(process.cwd(), "content/stories/pit-stop-evolution/story.json"), "utf8")).media as { id: string }[];
+  const nextId = `m${Math.max(...before.map((m) => Number(m.id.slice(1)))) + 1}`;
+  await page.goto("/admin/stories/pit-stop-evolution/photos/new");
+  await page.locator(".ad-cands li").first().getByRole("link", { name: "Обрати" }).click();
+  for (const [name, text] of [["caption_uk", "Підпис"], ["caption_en", "Caption"], ["alt_uk", "Опис"], ["alt_en", "Alt"]] as const) await page.locator(`textarea[name="${name}"]`).fill(text);
+  await page.getByRole("button", { name: "Опублікувати" }).first().click();
+  await expect(page.getByRole("status").filter({ hasText: "Опубліковано" })).toBeVisible();
+  const pr = await lastPr(page, "pit-stop-evolution");
+  expect(pr.title).toBe(`Історія · pit-stop-evolution: нове фото ${nextId}`);
+  expect(pr.paths).toEqual([`public/img/stories/pit-stop-evolution/${nextId}-800.webp`, `public/img/stories/pit-stop-evolution/${nextId}-480.webp`, "content/stories/pit-stop-evolution/story.json"]);
+  const json = JSON.parse(pr.files["content/stories/pit-stop-evolution/story.json"]);
+  expect(json.media.at(-1)).toMatchObject({ id: nextId, role: "inline" });
+  expect(json.media).toHaveLength(before.length + 1);
+});
+
+test("фото: неіснуюче фото й некоректний id — 404", async ({ page }) => {
+  await login(page);
+  expect((await page.goto("/admin/stories/jerez-1997/photos/m99"))?.status()).toBe(404);
+  expect((await page.goto("/admin/stories/jerez-1997/photos/..%2Fx"))?.status()).toBe(404);
+});
