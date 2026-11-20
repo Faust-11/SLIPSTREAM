@@ -462,3 +462,32 @@ test("перегляд: неіснуюча історія — 404; невідо�
   await page.goto("/admin/stories/women-in-f1/preview?lang=xx");
   await expect(page.locator(".ad-preview")).toHaveAttribute("lang", "uk");
 });
+
+test("джерела: адреси з приватної мережі й не-http — пропускаються (SSRF), ні перевірка, ні пошук копій, ні збереження до них не ходять", async ({ page }) => {
+  const slug = "imola-1994";
+  const jsonPath = `content/stories/${slug}/story.json`;
+  const story = JSON.parse(readFileSync(join(process.cwd(), jsonPath), "utf8")) as { sources: { url: string }[] };
+  const bad = ["http://169.254.169.254/latest/meta-data/", "http://localhost/admin", "file:///etc/passwd", "http://[::1]/", "https://user:pw@example.com/", "http://2130706433/"];
+  story.sources = story.sources.slice(0, bad.length).map((s, i) => ({ ...s, url: bad[i]! }));
+  try {
+    await page.request.post(`${FAKE}/__override`, { data: { path: jsonPath, content: JSON.stringify(story, null, 2) + "\n" } });
+    await login(page);
+    await page.goto(`/admin/stories/${slug}/sources`);
+    const rows = page.locator(".ad-stories tbody tr");
+    await expect(rows).toHaveCount(bad.length);
+    await page.getByRole("button", { name: "Перевірити посилання" }).click();
+    await expect(page.getByRole("status").filter({ hasText: /Перевірено \d+ з \d+/ })).toBeVisible();
+    for (let i = 0; i < bad.length; i++) {
+      const cell = rows.nth(i).locator('td[data-label="Посилання"]');
+      await expect(cell).toContainText("Не вдалося перевірити");
+      await expect(cell).toContainText("пропущено");
+    }
+    await page.getByRole("button", { name: /Знайти копії в Web Archive/ }).click();
+    await expect(page.getByRole("status").filter({ hasText: /Опрацьовано \d+ з \d+/ })).toBeVisible();
+    for (let i = 0; i < bad.length; i++) await expect(rows.nth(i).locator('td[data-label="Копія в Web Archive"]')).toContainText("пропущено");
+    await rows.first().getByRole("button", { name: /Зберегти в Web Archive/ }).click();
+    await expect(page.getByRole("status").filter({ hasText: "Не архівуємо: приватна адреса" })).toBeVisible();
+  } finally {
+    await page.request.delete(`${FAKE}/__override?path=${encodeURIComponent(jsonPath)}`);
+  }
+});
