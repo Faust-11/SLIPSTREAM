@@ -1,7 +1,7 @@
 import { playConfig } from "@/lib/play/config";
 import { verifyCode } from "@/lib/play/gotrue";
 import { json, readJson, sameOrigin } from "@/lib/play/http";
-import { allow, clientKey } from "@/lib/play/limiter";
+import { allowVerify, clientKey } from "@/lib/play/limiter";
 import { getProfile } from "@/lib/play/rest";
 import { startPlaySession } from "@/lib/play/session";
 import { isValidCode, isValidEmail, normalizeEmail } from "@/lib/play/validate";
@@ -17,10 +17,9 @@ export async function POST(request: Request) {
   const email = typeof body?.email === "string" ? normalizeEmail(body.email) : "";
   const code = typeof body?.code === "string" ? body.code.replace(/\s/g, "") : "";
   if (!isValidEmail(email) || !isValidCode(code)) return json(400, { error: "invalid_code" });
-  // Перебір коду: 8 цифр = 10⁸ варіантів; м'яко — 10 спроб за 10 хв на ПАРУ «джерело + адреса» і 30 на джерело. Лише адреса як ключ
-  // дозволила б будь-кому «спалити» спроби власника (рев'ю 20.11); перебір з багатьох джерел обмежує сам Supabase.
-  const ip = clientKey(request);
-  if (ip && (!allow(`verify:pair:${ip}:${email}`, 10, 10 * 60_000) || !allow(`verify:ip:${ip}`, 30, 10 * 60_000))) return json(429, { error: "rate_limited" });
+  // Перебір коду: 8 цифр = 10⁸ варіантів; м'яко — 30 спроб за 10 хв на джерело і 10 на ПАРУ «джерело + адреса» (limiter.ts). Лише
+  // адреса як ключ дозволила б будь-кому «спалити» спроби власника (рев'ю 20.11); перебір з багатьох джерел обмежує сам Supabase.
+  if (!allowVerify(clientKey(request), email)) return json(429, { error: "rate_limited" });
   const verified = await verifyCode(cfg, email, code);
   if (!verified.ok) return json(verified.reason === "rate_limited" ? 429 : verified.reason === "invalid_code" ? 400 : 503, { error: verified.reason });
   await startPlaySession(verified.value);
