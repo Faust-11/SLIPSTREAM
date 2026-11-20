@@ -1479,18 +1479,26 @@
     "sourceNote": "Race and birth dates come from the Jolpica F1 database; death dates and corrected birth dates from verified sources (see “Sources and licences”).",
     "racesN": {
       "one": "Grand Prix",
+      "few": "Grands Prix",
+      "many": "Grands Prix",
       "other": "Grands Prix"
     },
     "birthsN": {
       "one": "driver birthday",
+      "few": "driver birthdays",
+      "many": "driver birthdays",
       "other": "driver birthdays"
     },
     "deathsN": {
       "one": "driver died",
+      "few": "drivers died",
+      "many": "drivers died",
       "other": "drivers died"
     },
     "yearsN": {
       "one": "{n} year",
+      "few": "{n} years",
+      "many": "{n} years",
       "other": "{n} years"
     }
   },
