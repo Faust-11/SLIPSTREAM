@@ -37,6 +37,9 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             <Link href={localizedPath("/sources", locale)} prefetch={false}>
               {dict.footer.sources}
             </Link>
+            <Link href={localizedPath("/history", locale)} prefetch={false}>
+              {dict.onThisDay.navLabel}
+            </Link>
           </nav>
           <p className="credits">
             {dict.footer.dataLabel}:{" "}
