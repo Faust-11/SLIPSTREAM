@@ -7,6 +7,8 @@ import { isSlug, openStoryPrs, readStory, type OpenPr } from "@/lib/admin/storie
 import { listVersions, type Version } from "@/lib/admin/stories/versions";
 import { revertStoryAction } from "../../version-actions";
 
+/** Збереження/відкат — ≈15–20 послідовних запитів до GitHub (як на сторінці фото). */
+export const maxDuration = 60;
 export const metadata: Metadata = { title: "Версії історії" };
 
 const RESULT: Record<string, { level: "ok" | "one" | "bad"; text: string }> = {

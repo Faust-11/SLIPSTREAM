@@ -1,5 +1,6 @@
 import type { FileChange } from "../github";
 import { parseStoryJson, serializeStoryJson } from "./format";
+import { CODE_PINNED, e2eWarning } from "./pinned";
 import type { StoryFiles } from "./types";
 import { validateStory } from "./validate";
 
@@ -12,12 +13,7 @@ import { validateStory } from "./validate";
  * шлях веде на новий; ланцюжки стискаються). Чого не змінює і чому блокує: адреси, прописані в КОДІ (головна, Lighthouse) —
  * їх міняє лише кодовий PR.
  */
-export const CODE_PINNED: Record<string, string> = {
-  "suzuka-1989": "головна сторінка (src/app/[lang]/page.tsx)",
-  "jerez-1997": "головна сторінка (src/app/[lang]/page.tsx)",
-  "singapore-2008": "головна сторінка і перевірка Lighthouse (src/app/[lang]/page.tsx, scripts/lighthouse*.mjs)",
-};
-
+export { CODE_PINNED };
 export const SLUG_RE = /^[a-z0-9][a-z0-9-]{0,55}$/;
 export const REDIRECTS_PATH = "src/data/curated/story-redirects.json";
 export const photoDir = (slug: string): string => `public/img/stories/${slug}`;
@@ -41,7 +37,7 @@ export type RenamePlan =
   | {
       ok: true;
       changes: FileChange[];
-      summary: { photos: number; linkedStories: string[]; mediaRewritten: number; redirects: number };
+      summary: { photos: number; linkedStories: string[]; mediaRewritten: number; redirects: number; warnings: string[] };
     }
   | { ok: false; errors: string[] };
 
@@ -116,5 +112,5 @@ export function planRename(input: RenameInput): RenamePlan {
   const sorted = Object.fromEntries(Object.entries(next).sort(([x], [y]) => x.localeCompare(y)));
   changes.push({ path: REDIRECTS_PATH, content: `${JSON.stringify(sorted, null, 2)}\n` });
 
-  return { ok: true, changes, summary: { photos: photos.length, linkedStories, mediaRewritten, redirects: Object.keys(sorted).length } };
+  return { ok: true, changes, summary: { photos: photos.length, linkedStories, mediaRewritten, redirects: Object.keys(sorted).length, warnings: [e2eWarning(from)].filter((w): w is string => w !== null) } };
 }

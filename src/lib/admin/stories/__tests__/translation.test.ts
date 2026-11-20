@@ -109,13 +109,13 @@ describe("scripts/content/stamp_translation.mjs", () => {
       writeFileSync(p, JSON.stringify(j, null, 2) + "\n");
     }
     const before = readFileSync(join(root, "b", "story.json"), "utf8");
-    const out = execFileSync("node", ["--no-warnings", "scripts/content/stamp_translation.mjs", "a"], { env: { ...process.env, STORIES_ROOT: root }, encoding: "utf8" });
+    const out = execFileSync("node", ["--no-warnings", "--experimental-strip-types", "scripts/content/stamp_translation.mjs", "a"], { env: { ...process.env, STORIES_ROOT: root }, encoding: "utf8" });
     expect(out).toContain("Відмічено: 1 з 1");
     expect(readFileSync(join(root, "b", "story.json"), "utf8")).toBe(before);
     const a = readFileSync(join(root, "a", "story.json"), "utf8");
     const { story } = parseStoryJson(a);
     expect(story.translated).toEqual(stampTranslation(story, readFileSync(join(root, "a", "uk.md"), "utf8")));
     // другий запуск на тих самих даних — без змін
-    expect(execFileSync("node", ["--no-warnings", "scripts/content/stamp_translation.mjs", "--missing"], { env: { ...process.env, STORIES_ROOT: root }, encoding: "utf8" })).toContain("Відмічено: 1 з 2");
+    expect(execFileSync("node", ["--no-warnings", "--experimental-strip-types", "scripts/content/stamp_translation.mjs", "--missing"], { env: { ...process.env, STORIES_ROOT: root }, encoding: "utf8" })).toContain("Відмічено: 1 з 2");
   });
 });
