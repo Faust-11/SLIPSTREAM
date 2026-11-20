@@ -85,7 +85,7 @@ test("метадані: canonical, hreflang, JSON-LD SportsEvent", async ({ page
   await page.goto("/uk/seasons/2025/24");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", /\/uk\/seasons\/2025\/24$/);
   await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", /\/seasons\/2025\/24$/);
-  const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').textContent()) ?? "{}");
+  const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').first().textContent()) ?? "{}");
   expect(ld).toMatchObject({ "@type": "SportsEvent", endDate: "2025-12-07" });
 });
 

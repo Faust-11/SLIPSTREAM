@@ -71,7 +71,7 @@ test("метадані: canonical, hreflang, JSON-LD SportsTeam", async ({ page 
   await page.goto("/uk/teams/mclaren");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", /\/uk\/teams\/mclaren$/);
   await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", /\/teams\/mclaren$/);
-  const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').textContent()) ?? "{}");
+  const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').first().textContent()) ?? "{}");
   expect(ld).toMatchObject({ "@type": "SportsTeam", name: "McLaren", founder: [{ name: "Брюс Макларен" }] });
 });
 

@@ -135,7 +135,7 @@ test("метадані: canonical, hreflang, JSON-LD Person", async ({ page }) =
   await expect(page).toHaveTitle(/Айртон Сенна/);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", /\/uk\/drivers\/senna$/);
   await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", /\/drivers\/senna$/);
-  const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').textContent()) ?? "{}");
+  const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').first().textContent()) ?? "{}");
   expect(ld).toMatchObject({ "@type": "Person", name: "Айртон Сенна", alternateName: "Ayrton Senna", birthDate: "1960-03-21", deathDate: "1994-05-01" });
 });
 
