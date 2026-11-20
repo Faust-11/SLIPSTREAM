@@ -116,7 +116,7 @@ export function SourceHealth({ slug, rows, blocked }: { slug: string; rows: Sour
           </button>
         )}
       </div>
-      <p className="ad-note" role="status" aria-live="polite">
+      <p className="ad-note ad-sh-status" role="status" aria-live="polite">
         {status}
         {checked > 0 && ` Працює: ${counts.ok} · мертвих: ${counts.dead} · не вдалося перевірити: ${counts.unknown}.`}
       </p>
@@ -172,12 +172,12 @@ export function SourceHealth({ slug, rows, blocked }: { slug: string; rows: Sour
                         {!r.archive && <small>Знайдено, ще не записано в історію.</small>}
                       </>
                     ) : (
-                      <>
+                      <div className="ad-cp">
                         <span className="ad-note">{c?.state === "none" ? "копії немає" : c?.state === "pending" ? "ще зберігається" : c?.state === "error" || c?.state === "failed" || c?.state === "refused" ? (c as { detail: string }).detail : "немає"}</span>
                         <button type="button" className="ad-btn ad-btn-sm ad-btn-ghost" onClick={() => saveOne(r.id)} disabled={running || busy}>
                           Зберегти в Web Archive<span className="ad-sr"> — {r.title}</span>
                         </button>
-                      </>
+                      </div>
                     )}
                   </td>
                 </tr>

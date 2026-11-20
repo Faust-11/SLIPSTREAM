@@ -108,7 +108,7 @@ export default async function AdminStoryAddress({ params, searchParams }: { para
       {preview && preview.summary && (
         <section className="ad-panel" aria-labelledby="ad-plan">
           <h2 id="ad-plan">Що зміниться</h2>
-          <ul>
+          <ul className="ad-plan">
             <li>
               Нове посилання: <span className="ad-mono">/uk/stories/{to}</span>
             </li>

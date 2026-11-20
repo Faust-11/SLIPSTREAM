@@ -1214,6 +1214,37 @@ details.ad-panel[open] summary {
   border: 1.5px solid var(--ad-hair);
   padding: 12px;
 }
+/* .ad-parts label (чекбокси 7b) робить мітку рядком «мітка | поле»; у підписах фото мітка стоїть НАД полем, на всю ширину (скриншот 320 px). */
+.ad-ptext label.ad-fld {
+  display: grid;
+  align-items: start;
+  min-height: 0;
+  gap: 6px;
+}
+.ad-ptext textarea {
+  inline-size: 100%;
+  box-sizing: border-box;
+}
+
+/* Зміна адреси: перелік «що зміниться» — з маркерами й проміжками (без них пункти зливались у суцільний текст). */
+.ad-plan {
+  margin: 8px 0 16px;
+  padding-inline-start: 1.25em;
+  list-style: disc;
+  display: grid;
+  gap: 8px;
+}
+
+/* Здоров'я джерел: стан дії над таблицею і комірка «копія» (текст і кнопка — стовпчиком, не впритул). */
+.ad-sh-status {
+  margin-block: 10px 16px;
+}
+.ad-cp {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
 
 /* Версії історії (7c, задача 6): журнал PR і diff правки */
 .ad-ver li > form {
