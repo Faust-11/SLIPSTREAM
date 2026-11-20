@@ -26,7 +26,11 @@ describe("planFormat — розміри як у файлів сайту", () => 
       [800, 533],
       [480, 320],
     ]);
-    expect(planFormat("storyMedia", 1000, 500, "/img/stories/s/m1", C).variants[0]).toEqual({ name: "/img/stories/s/m1-1280.webp", width: 1000, height: 500 });
+    expect(planFormat("storyHero", 1000, 500, "/img/stories/s/m1", C).variants[0]).toEqual({ name: "/img/stories/s/m1-1280.webp", width: 1000, height: 500 });
+    expect(planFormat("storyInline", 1000, 500, "/img/stories/s/m2", C).variants.map((v) => [v.name, v.width, v.height])).toEqual([
+      ["/img/stories/s/m2-800.webp", 800, 400],
+      ["/img/stories/s/m2-480.webp", 480, 240],
+    ]);
   });
   it("картка сезону: full ≤ 560, small 280", () => {
     expect(planFormat("seasonCard", 489, 700, "/img/seasons/1950", C).variants.map((v) => v.width)).toEqual([489, 280]);

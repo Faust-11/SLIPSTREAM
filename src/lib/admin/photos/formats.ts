@@ -6,7 +6,7 @@ import { crop4x5, cropRatio, squareFocus, type Box, type Focus } from "./crop";
  */
 export type Variant = { name: string; width: number; height: number };
 export type FormatPlan = { crop: Box | null; variants: Variant[]; quality: number };
-export type FormatKind = "avatar" | "driverHero" | "teamCard" | "wideHero" | "seasonCard" | "storyMedia";
+export type FormatKind = "avatar" | "driverHero" | "teamCard" | "wideHero" | "seasonCard" | "storyHero" | "storyInline";
 
 /** Мінімальна ширина джерела (після кадру), менше — відмова. */
 export const MIN_SOURCE: Record<FormatKind, number> = {
@@ -15,10 +15,12 @@ export const MIN_SOURCE: Record<FormatKind, number> = {
   teamCard: 480,
   wideHero: 960, // season_heroes.py / circuit_heroes.py MIN_WIDTH (= HERO_MIN_WIDTH сайту)
   seasonCard: 280,
-  storyMedia: 480,
+  storyHero: 960, // content/stories/README.md: hero — щонайменше 960 px (краще ≥ 1280)
+  storyInline: 640, // inline — ≥ 640
 };
 
 const WIDE = [1280, 800, 480];
+const INLINE = [800, 480];
 
 /** base — шлях без розширення й суфікса розміру, напр. "/img/drivers/senna". */
 export function planFormat(kind: FormatKind, w: number, h: number, base: string, focus: Focus): FormatPlan {
@@ -62,19 +64,21 @@ export function planFormat(kind: FormatKind, w: number, h: number, base: string,
         quality: 72,
       };
     }
-    case "wideHero":
-    case "storyMedia": {
+    case "wideHero": {
       // hero_photos.py: без кадру (фокус — CSS object-position у JSON), ширини 1280/800/480 не ширші за джерело, якість 72.
-      // Фото історій — той самий набір ширин (заміри файлів: m1-800 = 800×522, пропорції джерела).
-      const name = (x: number) => (kind === "wideHero" ? `${base}-hero-${x}.webp` : `${base}-${x}.webp`);
-      return {
-        crop: null,
-        variants: WIDE.map((x) => {
-          const tw = Math.min(x, w);
-          return { name: name(x), width: tw, height: Math.round((h * tw) / w) };
-        }),
-        quality: 72,
-      };
+      return { crop: null, variants: scaled(WIDE, w, h, (x) => `${base}-hero-${x}.webp`), quality: 72 };
+    }
+    case "storyHero":
+    case "storyInline": {
+      // Фото історій (README: hero 1280/800/480, inline 800/480): імена `<id>-<ширина>.webp`, пропорції джерела (заміри
+      // файлів: m1-800 = 800×522), без кадру — фокус у `focus` (CSS object-position).
+      return { crop: null, variants: scaled(kind === "storyHero" ? WIDE : INLINE, w, h, (x) => `${base}-${x}.webp`), quality: 72 };
     }
   }
 }
+
+const scaled = (widths: number[], w: number, h: number, name: (x: number) => string): Variant[] =>
+  widths.map((x) => {
+    const tw = Math.min(x, w);
+    return { name: name(x), width: tw, height: Math.round((h * tw) / w) };
+  });

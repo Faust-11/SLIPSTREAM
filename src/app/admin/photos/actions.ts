@@ -2,13 +2,11 @@
 
 import { redirect } from "next/navigation";
 import { GitHub, githubEnv, publish, readMain } from "@/lib/admin/github";
-import { commonsFile, downloadThumb } from "@/lib/admin/photos/commons";
+import { acquireImage } from "@/lib/admin/photos/acquire";
 import { findItem, targetOf, type Kind } from "@/lib/admin/photos/catalog";
-import { classifyLicense } from "@/lib/admin/photos/license";
 import { PhotoError, renderFormat } from "@/lib/admin/photos/render";
 import { NothingToRemove, applySlot, formatsFor, jsonFor, removeSlot, type Part, type RenderedSet } from "@/lib/admin/photos/slots";
 import { requireAdmin } from "@/lib/admin/session";
-import type { Credit } from "@/lib/data/types";
 
 /**
  * Публікація фото (7b). Публічний POST — тож requireAdmin() першим; з форми — лише ідентифікатори й вибір, решта
@@ -17,12 +15,6 @@ import type { Credit } from "@/lib/data/types";
  */
 const KINDS = new Set<Kind>(["driver", "team", "season", "circuit", "race"]);
 const PARTS = new Set<Part>(["both", "card", "hero"]);
-const MAX_UPLOAD = 4 * 1024 * 1024;
-const UPLOAD_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
-/** Ліцензії власного фото — рівно ті, що у формі (вільний текст не приймаємо: «Attribution-NoDerivatives» класифікатор
- *  пропустив би як «вільну» — рев'ю 7b). */
-const UPLOAD_LICENSES = ["CC BY 4.0", "CC BY-SA 4.0", "CC0", "CC BY-NC 4.0"] as const;
-
 const str = (f: FormData, k: string, max = 300) => String(f.get(k) ?? "").trim().slice(0, max);
 
 export async function publishPhotoAction(form: FormData): Promise<void> {
@@ -47,29 +39,9 @@ export async function publishPhotoAction(form: FormData): Promise<void> {
   };
   const focus = { x: pct("fx"), y: pct("fy") };
 
-  let bytes: Uint8Array;
-  let credit: Credit;
-  let nc = false;
-  if (str(form, "source") === "upload") {
-    const file = form.get("file");
-    const author = str(form, "author", 200);
-    const license = str(form, "license", 100);
-    const page = str(form, "page", 500);
-    if (!(file instanceof File) || file.size === 0 || file.size > MAX_UPLOAD || !UPLOAD_TYPES.has(file.type)) back("upload-file");
-    if (!author || !(UPLOAD_LICENSES as readonly string[]).includes(license) || form.get("rights") !== "on" || !/^https:\/\/[^\s]+$/.test(page)) back("upload-fields");
-    const verdict = classifyLicense(license);
-    if (verdict.level === "no") back("license");
-    nc = verdict.level === "nc";
-    bytes = new Uint8Array(await (file as File).arrayBuffer());
-    credit = { page, author, license };
-  } else {
-    const file = await commonsFile(str(form, "title", 240), 1280).catch(() => null);
-    if (!file) back("commons");
-    if (file!.verdict.level === "no") back("license");
-    nc = file!.verdict.level === "nc";
-    bytes = await downloadThumb(file!.thumb).catch(() => back("commons") as never);
-    credit = { page: file!.page, author: file!.author, license: file!.license };
-  }
+  const got = await acquireImage(form);
+  if (!got.ok) back(got.code);
+  const { bytes, credit, nc } = got as Extract<typeof got, { ok: true }>;
 
   let sets: RenderedSet[];
   try {
