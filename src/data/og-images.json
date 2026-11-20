@@ -26,19 +26,19 @@
     },
     "drivers-en": {
       "src": "/og/section/drivers-en.jpg",
-      "alt": "Outlap — Drivers. Formula 1 drivers: careers, wins, poles and teams."
+      "alt": "Outlap — Drivers. Every Formula 1 driver since 1950: wins, poles, titles and careers."
     },
     "drivers-uk": {
       "src": "/og/section/drivers-uk.jpg",
-      "alt": "Outlap — Пілоти. Пілоти Формули-1: кар’єра, перемоги, поули й команди."
+      "alt": "Outlap — Пілоти. Усі пілоти Формули-1 з 1950 року: перемоги, поули, титули й кар'єри."
     },
     "game-en": {
       "src": "/og/section/game-en.jpg",
-      "alt": "Outlap — Play. Hot Lap: a browser racing game on four circuits."
+      "alt": "Outlap — Play. Hot lap: a quick browser mini-game on made-up circuits against a bot and your own ghost."
     },
     "game-uk": {
       "src": "/og/section/game-uk.jpg",
-      "alt": "Outlap — Гра. «Гаряче коло» — браузерна гоночна гра на чотирьох трасах."
+      "alt": "Outlap — Гра. «Гаряче коло» — міні-гра в браузері: вигадані траси, бот і власний привид."
     },
     "home-en": {
       "src": "/og/section/home-en.jpg",
@@ -58,11 +58,11 @@
     },
     "news-en": {
       "src": "/og/section/news-en.jpg",
-      "alt": "Outlap — News. Formula 1 news from trusted sources."
+      "alt": "Outlap — News. Formula 1 news from outlets and journalists in one place, with a countdown to the next race."
     },
     "news-uk": {
       "src": "/og/section/news-uk.jpg",
-      "alt": "Outlap — Новини. Новини Формули-1 з перевірених джерел."
+      "alt": "Outlap — Новини. Новини Формули-1 від видань і журналістів в одному місці, з відліком до наступної гонки."
     },
     "seasons-en": {
       "src": "/og/section/seasons-en.jpg",
@@ -82,19 +82,19 @@
     },
     "stories-en": {
       "src": "/og/section/stories-en.jpg",
-      "alt": "Outlap — Stories. Stories from Formula 1 history, with sources."
+      "alt": "Outlap — Stories. Long reads on the races and rules that shaped Formula 1, with every claim sourced."
     },
     "stories-uk": {
       "src": "/og/section/stories-uk.jpg",
-      "alt": "Outlap — Історії. Історії з минулого Формули-1 — з джерелами."
+      "alt": "Outlap — Історії. Історії про гонки й правила, що змінили Формулу-1, — кожне твердження з джерелом."
     },
     "teams-en": {
       "src": "/og/section/teams-en.jpg",
-      "alt": "Outlap — Teams. Formula 1 teams: history, titles and drivers."
+      "alt": "Outlap — Teams. Every Formula 1 team since 1950: history, titles, wins and drivers."
     },
     "teams-uk": {
       "src": "/og/section/teams-uk.jpg",
-      "alt": "Outlap — Команди. Команди Формули-1: історія, титули й пілоти."
+      "alt": "Outlap — Команди. Усі команди Формули-1 з 1950 року: історія, титули, перемоги й пілоти."
     }
   },
   "photos": {
