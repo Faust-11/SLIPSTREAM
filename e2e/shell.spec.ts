@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 import { expectNoA11yViolations } from "./axe";
 import { NEXT_CHUNKS } from "./next-chunks";
 
-const SECTIONS = ["/seasons", "/calendar", "/news", "/drivers", "/teams", "/circuits", "/stories", "/newbie", "/game"];
+const SECTIONS = ["/seasons", "/calendar", "/predictions", "/news", "/drivers", "/teams", "/circuits", "/stories", "/newbie", "/game"];
 
 for (const width of [320, 360, 390]) {
   test(`${width} px: шапка влазить, бургер є, десктопного меню немає`, async ({ page }) => {
@@ -39,12 +39,12 @@ for (const width of [861, 1024, 1100, 1140, 1141, 1280, 1440]) {
   });
 }
 
-test("1280 px: десктопне меню з 9 розділами, бургера немає", async ({ page }) => {
+test("1280 px: десктопне меню з 10 розділами, бургера немає", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.goto("/");
   const nav = page.getByRole("navigation", { name: "Main" });
   await expect(nav).toBeVisible();
-  await expect(nav.getByRole("link")).toHaveCount(9);
+  await expect(nav.getByRole("link")).toHaveCount(10);
   await expect(page.locator(".mnav-btn")).toBeHidden();
   // «Гра» — заливна жовта плашка (рішення користувача 11.11).
   const play = nav.getByRole("link", { name: "Play" });
@@ -167,9 +167,9 @@ test.describe("мобільне меню", () => {
     await page.goto("/");
     await openMenu(page);
     const panel = page.locator(".mnav");
-    // 9 розділів + вхід/акаунт (фаза 9a) після списку
-    await expect(panel.locator("ul").getByRole("link")).toHaveCount(9);
-    await expect(panel.getByRole("link")).toHaveCount(10);
+    // 10 розділів (з фази 9c — і «Прогнози») + вхід/акаунт (фаза 9a) після списку
+    await expect(panel.locator("ul").getByRole("link")).toHaveCount(10);
+    await expect(panel.getByRole("link")).toHaveCount(11);
     await expect(page.locator("main")).toHaveAttribute("inert", "");
     await expect(page.getByRole("link", { name: "Skip to content" })).toBeHidden();
     await expectNoA11yViolations(page);
@@ -220,7 +220,7 @@ test.describe("мобільне меню", () => {
   });
 });
 
-test("футер містить усі 9 розділів обома мовами", async ({ page }) => {
+test("футер містить усі 10 розділів обома мовами", async ({ page }) => {
   for (const [path, prefix] of [["/", ""], ["/uk", "/uk"]] as const) {
     await page.goto(path);
     const hrefs = await page.locator(".foot-nav a").evaluateAll((as) => as.map((a) => a.getAttribute("href")));
@@ -246,7 +246,7 @@ test.describe("без JavaScript", () => {
     await expect(fallback).toBeVisible();
     await expect(fallback).toHaveAttribute("href", "#sections");
     const links = page.locator(".foot-nav a");
-    await expect(links).toHaveCount(9);
+    await expect(links).toHaveCount(10);
     for (const link of await links.all()) await expect(link).toBeVisible();
   });
 });
