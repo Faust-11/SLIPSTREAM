@@ -121,7 +121,7 @@ test("метадані: canonical, hreflang, JSON-LD ItemList", async ({ page })
   await page.goto("/uk/seasons");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", /\/uk\/seasons$/);
   await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", /\/seasons$/);
-  const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').textContent()) ?? "{}");
+  const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').first().textContent()) ?? "{}");
   expect(ld["@type"]).toBe("ItemList");
   expect(ld.numberOfItems).toBe(await page.locator(".slot").count());
   expect(ld.itemListElement.at(-1)).toMatchObject({ position: ld.numberOfItems, name: expect.stringContaining("1950") });

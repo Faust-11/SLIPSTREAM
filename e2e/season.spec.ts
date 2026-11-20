@@ -109,15 +109,15 @@ test.describe("без JavaScript", () => {
   });
 });
 
-test("метадані: canonical, hreflang, JSON-LD SportsEvent", async ({ page }) => {
+test("метадані: canonical, hreflang, JSON-LD EventSeries", async ({ page }) => {
   await page.goto("/uk/seasons/2025");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", /\/uk\/seasons\/2025$/);
   await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", /\/seasons\/2025$/);
-  const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').textContent()) ?? "{}");
-  expect(ld).toMatchObject({ "@type": "SportsEvent", name: "Сезон 2025", startDate: "2025-03-16", endDate: "2025-12-07" });
+  const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').first().textContent()) ?? "{}");
+  expect(ld).toMatchObject({ "@type": "EventSeries", name: "Сезон 2025", startDate: "2025-03-16", endDate: "2025-12-07" });
   // 2026: скасований етап (Саудівська Аравія, 19 квітня) не стає кінцем сезону (рев'ю 13.11).
   await page.goto("/uk/seasons/2026");
-  const ld26 = JSON.parse((await page.locator('script[type="application/ld+json"]').textContent()) ?? "{}");
+  const ld26 = JSON.parse((await page.locator('script[type="application/ld+json"]').first().textContent()) ?? "{}");
   expect(ld26.endDate > "2026-11-01").toBe(true);
 });
 

@@ -145,7 +145,7 @@ test("метадані: canonical, hreflang, JSON-LD", async ({ page }) => {
   await page.goto("/uk/circuits/yas-marina");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", /\/uk\/circuits\/yas-marina$/);
   await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", /\/circuits\/yas-marina$/);
-  const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').textContent()) ?? "{}");
+  const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').first().textContent()) ?? "{}");
   expect(ld).toMatchObject({ "@type": "SportsActivityLocation", name: "Yas Marina Circuit" });
 });
 
