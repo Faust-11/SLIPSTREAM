@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { sameOrigin } from "../http";
+import { readJson, sameOrigin } from "../http";
 
 const req = (headers: Record<string, string>) => new Request("https://outlap.org/api/auth/code", { method: "POST", headers });
 
@@ -20,5 +20,21 @@ describe("sameOrigin — Origin проти хоста запиту", () => {
     expect(sameOrigin(req({ origin: "not a url", host: "outlap.org" }))).toBe(false);
     expect(sameOrigin(req({ host: "outlap.org" }))).toBe(false);
     expect(sameOrigin(req({ origin: "ftp://outlap.org", host: "outlap.org" }))).toBe(false);
+  });
+});
+
+describe("readJson — ліміт у БАЙТАХ, а не в одиницях UTF-16 (/code-review high)", () => {
+  const post = (body: string) => new Request("https://outlap.org/api/auth/nick", { method: "POST", body });
+  it("кирилиця: 1100 літер = 2200 байт > 2048 — відмова (за довжиною рядка проходило б)", async () => {
+    const body = JSON.stringify({ nick: "я".repeat(1100) });
+    expect(body.length).toBeLessThanOrEqual(2048);
+    expect(new TextEncoder().encode(body).length).toBeGreaterThan(2048);
+    expect(await readJson(post(body))).toBeNull();
+  });
+  it("у межах ліміту — розбирається; ASCII на межі проходить", async () => {
+    expect(await readJson(post(JSON.stringify({ nick: "Макс" })))).toEqual({ nick: "Макс" });
+    const edge = JSON.stringify({ a: "x".repeat(2048 - 8) });
+    expect(new TextEncoder().encode(edge).length).toBe(2048);
+    expect(await readJson(post(edge))).toEqual({ a: "x".repeat(2048 - 8) });
   });
 });
