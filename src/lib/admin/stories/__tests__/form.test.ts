@@ -25,6 +25,11 @@ describe("файли → поля → файли", () => {
       expect(r.files, slug).toEqual(f);
     }
   });
+  it("лід (textarea): перенос рядка з браузера (CRLF) зберігається як LF, не як \\r\\n у JSON", () => {
+    const r = edit({ dek_uk: "Перший рядок.\r\nДругий рядок." });
+    expect(JSON.parse(r.files.json).dek.uk).toBe("Перший рядок.\nДругий рядок.");
+    expect(r.files.json).not.toContain("\\r");
+  });
   it("браузерні CRLF у textarea зводяться до LF; без кінцевого \\n його дописано", () => {
     const r = edit({ md_uk: files.uk.replace(/\n/g, "\r\n") });
     expect(r.files.uk).toBe(files.uk);

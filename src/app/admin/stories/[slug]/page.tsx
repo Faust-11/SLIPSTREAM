@@ -10,6 +10,8 @@ import { checkTranslation, staleSummary } from "@/lib/admin/stories/translation"
 import { validateStory } from "@/lib/admin/stories/validate";
 import { StoryForm } from "./story-form";
 
+/** Збереження/відкат — ≈15–20 послідовних запитів до GitHub (як на сторінці фото). */
+export const maxDuration = 60;
 export const metadata: Metadata = { title: "Редактор історії" };
 
 /**

@@ -4,6 +4,7 @@ import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { parseRedirects, storyRedirectRules } from "@/lib/stories/redirects";
+import { E2E_FIXTURES, e2eWarning, pinnedDraftError } from "../pinned";
 import { CODE_PINNED, REDIRECTS_PATH, checkNewSlug, planRename, type RenameInput } from "../rename";
 import { validateStory } from "../validate";
 
@@ -129,18 +130,32 @@ describe("story-redirects.json у репозиторії — сторож (CI з
   });
 });
 
-describe("CODE_PINNED — список адрес, прописаних у коді, правдивий", () => {
-  it("кожна історія, чия адреса згадана в коді (src, scripts), є в CODE_PINNED, і навпаки", () => {
-    const found = new Set<string>();
-    for (const s of slugs) {
-      let files: string[] = [];
-      try {
-        files = execFileSync("git", ["grep", "-lF", "-e", s, "--", "src", "scripts", "next.config.ts", ":!src/data", ":!**/__tests__/**", ":!src/i18n"], { cwd: ROOT, encoding: "utf8" }).split("\n").filter(Boolean);
-      } catch {
-        /* git grep без збігів повертає код 1 */
-      }
-      if (files.length) found.add(s);
-    }
-    expect([...found].sort()).toEqual(Object.keys(CODE_PINNED).sort());
+const grep = (slug: string, pathspec: string[]): boolean => {
+  try {
+    return execFileSync("git", ["grep", "-lF", "-e", slug, "--", ...pathspec], { cwd: ROOT, encoding: "utf8" }).trim().length > 0;
+  } catch {
+    return false; // git grep без збігів повертає код 1
+  }
+};
+
+describe("CODE_PINNED і E2E_FIXTURES — списки адрес, прописаних у коді й автотестах, правдиві", () => {
+  it("адреси в коді (src, scripts, next.config.ts, публічні e2e) = CODE_PINNED", () => {
+    const found = slugs.filter((s) => grep(s, ["src", "scripts", "next.config.ts", "e2e", ":!src/data", ":!**/__tests__/**", ":!src/i18n", ":!e2e/admin*.spec.ts", ":!src/lib/admin/stories/pinned.ts"]));
+    expect(found.sort()).toEqual(Object.keys(CODE_PINNED).sort());
+  });
+  it("адреси в автотестах адмінки (e2e/admin*.spec.ts), крім закодованих = E2E_FIXTURES", () => {
+    const found = slugs.filter((s) => !(s in CODE_PINNED) && grep(s, ["e2e/admin*.spec.ts"]));
+    expect(found.sort()).toEqual([...E2E_FIXTURES].sort());
+  });
+  it("попередження про автотести — для фікстур; чернетка закодованої історії — відмова", () => {
+    expect(e2eWarning("women-in-f1")).toContain("автотести");
+    expect(e2eWarning("f1-budget-cap")).toBeNull();
+    expect(pinnedDraftError("singapore-2008", "draft")).toContain("не можна зробити чернеткою");
+    expect(pinnedDraftError("singapore-2008", undefined)).toBeNull();
+    expect(pinnedDraftError("f1-budget-cap", "draft")).toBeNull();
+  });
+  it("план для історії з автотестами містить попередження, але не помилку", () => {
+    const plan = planRename(input("brawn-gp-2009", "brawn-champions"));
+    expect(plan.ok && plan.summary.warnings.length).toBe(1);
   });
 });

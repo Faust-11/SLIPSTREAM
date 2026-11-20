@@ -368,12 +368,14 @@ test("адреса: попередній перегляд, зміна адрес
   const plan = page.locator('section[aria-labelledby="ad-plan"]');
   await expect(plan).toContainText("/uk/stories/brawn-champions");
   await expect(plan).toContainText("button-canada-2011"); // на цю історію посилається інша
+  await expect(plan).toContainText("автотести адмінки"); // brawn-gp-2009 — фікстура e2e: попередження, не блок
   await expectNoA11yViolations(page);
 
   await plan.getByRole("button", { name: "Змінити адресу на «brawn-champions»" }).click();
   await expect(page.getByRole("status").filter({ hasText: "Зміну адреси створено" })).toBeVisible();
-  const pr = await lastPr(page, "brawn-gp-2009: адреса");
-  expect(pr.title).toBe("Історія · brawn-gp-2009: адреса змінена на brawn-champions");
+  const pr = await lastPr(page, "brawn-champions: адреса");
+  expect(pr.title).toBe("Історія · brawn-champions: адреса змінена з brawn-gp-2009");
+  expect(pr.head.ref).toMatch(/^admin\/stories-brawn-champions-\d{8}-\d{6}$/); // гілка за НОВОЮ адресою — потрапляє в журнал версій нової історії
   expect(pr.draft).toBe(false);
   const has = (p: string) => expect(pr.paths, p).toContain(p);
   for (const f of ["story.json", "uk.md", "en.md"]) {
@@ -395,6 +397,12 @@ test("адреса: попередній перегляд, зміна адрес
   await page.goto("/admin/stories/brawn-gp-2009/address?to=brawn-other");
   await expect(page.getByRole("status").filter({ hasText: "Чекають злиття" })).toBeVisible();
   await expect(page.getByRole("button", { name: /Змінити адресу на/ })).toHaveCount(0);
+  // Історія, чий story.json правит цей PR (посилається на стару адресу), теж заблокована — інакше другий PR зіткнувся б при злитті.
+  await page.goto("/admin/stories/button-canada-2011");
+  await expect(page.getByRole("status").filter({ hasText: "чекають злиття" })).toBeVisible();
+  // Інша зміна адреси, що чіпала б спільний файл редиректів, — теж чекає.
+  await page.goto("/admin/stories/women-in-f1/address?to=women-racing");
+  await expect(page.getByRole("status").filter({ hasText: "Чекають злиття" })).toBeVisible();
 });
 
 test("адреса: відмови — адреса в коді, зайнята, некоректна; неіснуюча історія — 404", async ({ page }) => {
@@ -487,6 +495,33 @@ test("джерела: адреси з приватної мережі й не-ht
     for (let i = 0; i < bad.length; i++) await expect(rows.nth(i).locator('td[data-label="Копія в Web Archive"]')).toContainText("пропущено");
     await rows.first().getByRole("button", { name: /Зберегти в Web Archive/ }).click();
     await expect(page.getByRole("status").filter({ hasText: "Не архівуємо: приватна адреса" })).toBeVisible();
+  } finally {
+    await page.request.delete(`${FAKE}/__override?path=${encodeURIComponent(jsonPath)}`);
+  }
+});
+
+test("редактор: закодовану на головній/в автотестах історію не зробити чернеткою — відмова без PR", async ({ page }) => {
+  await openStory(page, "singapore-2008");
+  await page.locator('select[name="status"]').selectOption("draft");
+  await page.getByRole("button", { name: "Опублікувати зміни" }).click();
+  await expect(summary(page).getByRole("alert")).toContainText("не можна зробити чернеткою");
+  await expect((await page.request.get(`${FAKE}/__last-pr?has=${encodeURIComponent("singapore-2008")}`)).status()).toBe(404);
+});
+
+test("редактор: історія змінилась у main, поки форма відкрита, — відмова зі збереженими полями (захист від затирання чужої правки)", async ({ page }) => {
+  const slug = "f1-points-history";
+  const jsonPath = `content/stories/${slug}/story.json`;
+  const story = JSON.parse(readFileSync(join(process.cwd(), jsonPath), "utf8"));
+  try {
+    await openStory(page, slug);
+    const title = page.locator('input[name="title_en"]');
+    await title.fill("Моя правка, яку не можна втратити");
+    // «Хтось інший» змінив історію в main після відкриття форми.
+    await page.request.post(`${FAKE}/__override`, { data: { path: jsonPath, content: JSON.stringify({ ...story, checked: "2026-11-20" }, null, 2) + "\n" } });
+    await page.getByRole("button", { name: "Опублікувати зміни" }).click();
+    await expect(summary(page).getByRole("alert")).toContainText("Історія змінилась у репозиторії");
+    await expect(title).toHaveValue("Моя правка, яку не можна втратити"); // значення форми лишились
+    expect((await page.request.get(`${FAKE}/__last-pr?has=${encodeURIComponent(slug)}`)).status()).toBe(404);
   } finally {
     await page.request.delete(`${FAKE}/__override?path=${encodeURIComponent(jsonPath)}`);
   }

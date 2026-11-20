@@ -17,7 +17,7 @@ export const metadata: Metadata = { title: "Фото історії" };
 export const maxDuration = 60;
 
 const RESULTS: Record<string, { level: "ok" | "bad"; text: string }> = {
-  published: { level: "ok", text: "Опубліковано: PR пройде перевірки й зіллється сам (≈ 10–25 хв, є Lighthouse), потім фото з'явиться на сайті." },
+  published: { level: "ok", text: "Опубліковано: PR пройде перевірки й зіллється сам (≈ 10–25 хв, є Lighthouse), потім фото з'явиться на сайті. Картка для соцмереж (og) головного фото сама не оновиться — лише після scripts/og/build.mjs." },
   bad: { level: "bad", text: "Некоректний запит." },
   text: { level: "bad", text: "Підписи й опис фото (uk та en) обов'язкові." },
   "no-github": { level: "bad", text: "GitHub не підключено — публікація неможлива (див. «Система»)." },

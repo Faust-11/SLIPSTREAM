@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { describe, expect, it } from "vitest";
 import { GitHub } from "../../github";
-import { openStoryPrs } from "../store";
+import { openPrsTouching, openStoryPrs } from "../store";
 import { listVersions, loadVersion, parsePatch, prKind } from "../versions";
 
 const admin = [{ name: "admin" }];
@@ -102,15 +102,45 @@ describe("loadVersion", () => {
   });
 });
 
-describe("openStoryPrs: відкат історії теж блокує нові правки", () => {
-  it("правка, фото й відкат цієї історії — так; чужі — ні", async () => {
-    const open = [
-      { ...pr(11, "admin/stories-alpha-20261120-100000", "Історія · alpha: текст", null), draft: true },
-      pr(12, "admin/revert-20261120-110000", "Відкат: Історія · alpha: текст", null),
-      pr(13, "admin/revert-20261120-120000", "Відкат: Історія · beta: текст", null),
-      pr(14, "admin/stories-beta-20261120-100000", "Історія · beta: текст", null),
-    ];
-    const { gh: g } = gh({ "/pulls?state=open&per_page=100": open });
+describe("openStoryPrs / openPrsTouching: гілка І файли", () => {
+  const open = [
+    { ...pr(11, "admin/stories-alpha-20261120-100000", "Історія · alpha: текст", null), draft: true },
+    pr(12, "admin/revert-20261120-110000", "Відкат: Історія · alpha: текст", null),
+    pr(13, "admin/revert-20261120-120000", "Відкат: Історія · beta: текст", null),
+    pr(14, "admin/stories-beta-20261120-100000", "Історія · beta: текст", null),
+    pr(15, "feature/x", "не адмінка", null),
+  ];
+  const files = (...names: string[]) => names.map((filename) => ({ filename }));
+  it("правка, фото й відкат цієї історії — так; чужі — ні (файли чужих PR запитуються й не збігаються)", async () => {
+    const { gh: g, calls } = gh({
+      "/pulls?state=open&per_page=100": open,
+      "/pulls/13/files?per_page=100": files("content/stories/beta/story.json"),
+      "/pulls/14/files?per_page=100": files("content/stories/beta/uk.md"),
+    });
     expect((await openStoryPrs(g, "alpha")).map((p) => p.number)).toEqual([11, 12]);
+    expect(calls).not.toContain("/pulls/15/files?per_page=100"); // не гілка адмінки — файли не потрібні
+  });
+  it("PR зміни адреси (гілка за іншою історією) блокує історію, чий story.json він правит, і фото", async () => {
+    const { gh: g } = gh({
+      "/pulls?state=open&per_page=100": [pr(20, "admin/stories-brawn-champions-20261120-100000", "Історія · brawn-champions: адреса змінена з brawn-gp-2009", null)],
+    });
+    // Гілка — за brawn-champions; button-canada-2011 і brawn-gp-2009 підхоплюються лише через файли.
+    const routes = { "/pulls?state=open&per_page=100": [pr(20, "admin/stories-brawn-champions-20261120-100000", "x", null)], "/pulls/20/files?per_page=100": files("content/stories/button-canada-2011/story.json", "public/img/stories/brawn-gp-2009/m1-800.webp", "src/data/curated/story-redirects.json") };
+    void g;
+    const { gh: g2 } = gh(routes);
+    expect((await openPrsTouching(g2, ["button-canada-2011"])).map((p) => p.number)).toEqual([20]);
+    expect((await openPrsTouching(g2, ["brawn-gp-2009"])).map((p) => p.number)).toEqual([20]); // фото старої адреси
+    expect((await openPrsTouching(g2, ["spa-2021"])).map((p) => p.number)).toEqual([]);
+    expect((await openPrsTouching(g2, ["spa-2021"], ["src/data/curated/story-redirects.json"])).map((p) => p.number)).toEqual([20]); // спільний файл редиректів
+  });
+  it("префікс адреси не збігається з іншою адресою (spa ≠ spa-2021)", async () => {
+    const { gh: g } = gh({ "/pulls?state=open&per_page=100": [pr(21, "admin/races-20261120-100000", "x", null)], "/pulls/21/files?per_page=100": files("content/stories/spa-2021/story.json") });
+    expect(await openPrsTouching(g, ["spa"])).toEqual([]);
+    expect((await openPrsTouching(g, ["spa-2021"])).length).toBe(1);
+  });
+  it("100 файлів — відповідь могла обрізатись: вважаємо, що чіпає", async () => {
+    const many = Array.from({ length: 100 }, (_, i) => ({ filename: `public/img/other/${i}.webp` }));
+    const { gh: g } = gh({ "/pulls?state=open&per_page=100": [pr(22, "admin/photos-20261120-100000", "x", null)], "/pulls/22/files?per_page=100": many });
+    expect((await openPrsTouching(g, ["alpha"])).length).toBe(1);
   });
 });

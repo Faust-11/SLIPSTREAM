@@ -43,6 +43,9 @@ const cases: Case[] = [
   { name: "unused-source", mutate: (m) => void m.sources.push({ id: "s900", title: "t", publisher: "P", url: "https://x.example", kind: "primary", lang: "en" }) },
   { name: "race", mutate: (m) => void (m.race = "1997-17") },
   { name: "author", mutate: (m) => void ((m.sources[0] as { author?: unknown }).author = 5) },
+  { name: "checked-text", mutate: (m) => void (m.checked = "вчора") },
+  { name: "checked-impossible-date", mutate: (m) => void (m.checked = "2026-02-30") },
+  { name: "checked-iso-ok", mutate: (m) => void (m.checked = "2026-11-19") },
   { name: "archive-not-string", mutate: (m) => void ((m.sources[0] as { archive?: unknown }).archive = 5) },
   { name: "archive-foreign", mutate: (m) => void ((m.sources[0] as { archive?: unknown }).archive = "https://evil.example/web/20260101000000/https://a.example/") },
   { name: "archive-empty", mutate: (m) => void ((m.sources[0] as { archive?: unknown }).archive = "") },
@@ -123,7 +126,7 @@ describe.skipIf(!python)("TS-валідатор = check_stories.py", () => {
     }
     expect(failing).toEqual([]);
     // Кожен випадок справді щось знаходить (крім clean) — інакше тест нічого не доводить.
-    for (const c of cases.filter((x) => x.name !== "clean" && x.name !== "archive-ok")) {
+    for (const c of cases.filter((x) => x.name !== "clean" && x.name !== "archive-ok" && x.name !== "checked-iso-ok")) {
       const r = py.get(`m-${c.name}`)!;
       expect(r.errors.length + r.warnings.length, c.name).toBeGreaterThan(0);
     }
