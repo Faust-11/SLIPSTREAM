@@ -547,7 +547,8 @@ test("застряглий PR: «Закрити PR» знімає блокува
   await expectNoA11yViolations(page);
 
   // Блокування знято: історію знову можна опублікувати.
-  await title.fill((await title.inputValue()).replace(" (тест)", " (тест 2)"));
+  // Після редиректу форма нова: заголовок знову як у main, тож додаємо зміну заново.
+  await title.fill((await title.inputValue()) + " (тест 2)");
   await page.getByRole("button", { name: "Опублікувати зміни" }).click();
   await expect(page.getByRole("status").filter({ hasText: "PR #" })).toContainText("створено");
 });
