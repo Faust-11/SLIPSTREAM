@@ -73,7 +73,7 @@ test.describe("вхід кодом на пошту", () => {
   });
 
   test("помилки ніка: короткий, з @, зайнятий (без урахування регістру)", async ({ page, browser }) => {
-    const first = nick();
+    const first = `Pxa${Date.now()}`; // латиниця + цифри: є повний кириличний двійник «Рха…»
     await signUp(page, mail(), first);
     const other = await (await browser.newContext({ baseURL: BASE, extraHTTPHeaders: { "x-forwarded-for": "10.9.9.9" } })).newPage();
     await loginToNick(other, mail());
@@ -87,8 +87,10 @@ test.describe("вхід кодом на пошту", () => {
     await expect(other.locator(".au-err:visible")).toContainText("Use only Latin or Cyrillic letters");
     await saveNick(other, first.toUpperCase());
     await expect(other.locator(".au-err:visible")).toHaveText("This nickname is taken or looks too much like another one.");
-    await saveNick(other, `\u0420${first.slice(1)}`); // кирилична Р замість латинської P: той самий скелет
+    await saveNick(other, `\u0420\u0445\u0430${first.slice(3)}`); // повна кирилиця «Рха…» — той самий скелет
     await expect(other.locator(".au-err:visible")).toHaveText("This nickname is taken or looks too much like another one.");
+    await saveNick(other, `\u0420${first.slice(1)}`); // кирилична Р + латиниця: змішані скрипти
+    await expect(other.locator(".au-err:visible")).toContainText("one alphabet only");
     await saveNick(other, nick());
     await expect(other).toHaveURL(`${BASE}/profile`);
     await other.context().close();

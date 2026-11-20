@@ -202,13 +202,17 @@ for label, bad in (("нульової ширини U+200B", "Max\u200b"), ("м'�
 # Allowlist + NFKC + «скелет» (міграція 0016, рішення 20.11): підміна імені невидимими/схожими символами неможлива
 for label, bad in (("emoji", "Max😀"), ("діакритична латиниця", "Räikkönen"), ("грецька", "Μαξ"), ("комбівний знак", "Ma\u0483x"), ("« ! »", "Max!"), ("подвійний пробіл", "Max  Two"), ("_ на краю", "_Maxx")):
     fails(f"нік: поза allowlist ({label}) — відмова", "profiles_nick_chk", "select play.set_nick(%s)", bad, as_role="authenticated", uid=U["b"])
-SPOOFS = [("Admin", "Аdmin", "кирилична А замість латинської"), ("Pavel", "Рavel", "кирилична Р"), ("Ad min", "AD_MIN", "роздільники й регістр"), ("Борис", "БОРИС", "регістр кирилиці"), ("Сергій", "Cергій", "латинська C замість кириличної"), ("Ben1", "BenI", "1 та велика I"), ("Benl", "Ben1", "мала L та 1"), ("Alex", "Аlех", "кириличні А, е, х"), ("Alex1", "Alexl", "1 та мала L"), ("Oleg", "0leg", "нуль замість O")]
-
+SPOOFS = [("Admin", "ADMIN", "регістр"), ("Ad min", "AD_MIN", "роздільники й регістр"), ("Борис", "БОРИС", "регістр кирилиці"), ("Ben1", "BenI", "1 та велика I"), ("Benl", "Ben1", "мала L та 1"),
+          ("Alex", "AIex", "велика I замість l"), ("Oleg", "0leg", "нуль замість O"), ("Max3", "Мах3", "повна кирилиця: М, а, х + цифра 3"), ("Max3", "МахЗ", "повна кирилиця, З замість 3"),
+          ("Max6", "Махб", "б замість 6"), ("Max4", "Махч", "ч замість 4"), ("Pxa", "Рха", "повна кирилиця: Р, х, а"), ("Nah", "Пан", "п → n, н → h"), ("Rex", "Гех", "г → r")]
+MIXED = ["Аdmin", "Рavel", "Cергій", "MaxЗ", "BenІ", "Гpавець", "Лев Tolstoy"]  # латиниця + кирилиця в літерах — відмова за одним скриптом (UTS #39)
 
 def set_nick_as(name: str, nick: str):
     return attempt("select play.set_nick(%s)", nick, as_role="authenticated", uid=U[name])
 
 
+for bad in MIXED:
+    fails(f"нік: змішані скрипти «{bad}» — відмова (profiles_nick_chk)", "profiles_nick_chk", "select play.set_nick(%s)", bad, as_role="authenticated", uid=U["b"])
 for first, spoof, why in SPOOFS:
     ok, err = set_nick_as("c", first)  # set_nick — upsert: профіль c лише змінює нік
     check(f"нік «{first}» (c) збережено", ok, err)

@@ -44,21 +44,37 @@ describe("нік: allowlist + NFKC + скелет (дзеркало play.nick_va
     for (const bad of [" Max", "Max ", "Max  V", "_Max", "Max_", ".Max", "---", "a--", "Max/V", "Max!", "me@mail.test"]) expect(nickProblem(bad), bad).toBe("chars");
   });
 
-  it("скелет: регістр, роздільники й схожа кирилиця дають один нік (підміна неможлива)", () => {
+  it("ОДИН СКРИПТ: латиниця + кирилиця в літерах — відмова «mixed»; цифри й роздільники — з будь-яким (UTS #39)", () => {
+    for (const bad of ["Аdmin", "Max\u0417", "\u041cax", "Ben\u0406", "\u0420avel", "C\u0435rgiy", "Гpавець", "Лев Tolstoy"]) expect(nickProblem(bad), JSON.stringify(bad)).toBe("mixed");
+    for (const ok of ["Admin", "Борис", "Борис_2024", "Max3", "Мах3", "Лев 7-11", "x.y.z-1"]) expect(nickProblem(ok), ok).toBeNull();
+  });
+
+  it("скелет: регістр, роздільники й повноскриптові кириличні двійники дають один нік", () => {
     const same = (...names: string[]) => expect(new Set(names.map(nickSkeleton)).size).toBe(1);
-    same("Admin", "Аdmin", "аdmin", "ADMIN", "Ad_min", "Ad min", "A.d-m i n");
-    same("Pavel", "Рavel", "pаvel");
-    same("Борис", "борис", "БОРИС");
-    same("Сергій", "Cергій");
-    same("Max", "Мах"); // кириличні М, а, х
+    same("Admin", "ADMIN", "Ad_min", "Ad min", "A.d-m i n"); // латиниця: регістр і роздільники
+    same("Борис", "борис", "БОРИС"); // кирилиця: регістр
+    same("Мах", "МАХ", "мах", "Max", "MAX"); // кирилична М, а, х ↔ латинська Max (повноскриптова підміна)
+    same("Pxa", "Рха", "РХА");
     // I / l / 1 / і — один символ; O / 0 / о — один
     same("Ben1", "Benl", "BenI", "Beni", "Ben\u0456", "Ben\u0406");
-    same("Alex", "AIex", "Аlех", "Aiex"); // l / I / кирилична А, е, х
+    same("Alex", "AIex", "Aiex");
     same("Alex1", "Alexl", "Alexi", "AIexI");
     same("Oleg", "0leg", "\u041eleg", "\u043eleg");
-    same("B0ris", "Boris", "Bor1s", "Borls", "\u0411\u043eris".replace("\u0411", "B"));
+    same("B0ris", "Boris", "Bor1s", "Borls");
+    // цифро- і літеро-подібна кирилиця: з/3, б/6, ч/4, г/r, п/n
+    same("Max3", "Мах3", "МахЗ", "махз");
+    same("Max6", "Мах6", "Махб");
+    same("Max4", "Мах4", "Махч");
+    same("Nah", "Пан", "ПАН");
+    same("Rex", "Гех");
     expect(nickSkeleton("Max")).not.toBe(nickSkeleton("Maxx"));
-    expect(nickSkeleton("Борис")).not.toBe(nickSkeleton("Boris")); // б, и — без латинських двійників: різні
+    expect(nickSkeleton("Борис")).not.toBe(nickSkeleton("Boris")); // б → 6, и без латинського двійника: різні
+  });
+
+  it("кирилиця, яку свідомо НЕ вважаємо двійником латиниці/цифр: д, л, ф, ы, э, ю, я, ж, ц, ш, щ, и, й, ь, ъ", () => {
+    const own = ["д", "л", "ф", "ы", "э", "ю", "я", "ж", "ц", "ш", "щ", "и", "й", "ь", "ъ"];
+    // скелет кожної — сама ця літера (мала), без латинського відповідника
+    for (const c of own) expect(nickSkeleton(c), c).toBe(c);
   });
 
   it("Ӏ (U+04C0), ӏ (U+04CF), ѡ, ҁ, Ҋ та решта кирилиці поза U+0400–U+045F і Ґ/ґ — відмова; повні пари з таблиці — дозволено", () => {
@@ -67,6 +83,7 @@ describe("нік: allowlist + NFKC + скелет (дзеркало play.nick_va
   });
 
   it("«Гравець …» зарезервовано за скелетом: і з латинськими двійниками, і з регістром", () => {
-    for (const bad of ["Гравець 1A2B", "гравець x", "Гpавець", "ГРАВЕЦЬ", "Гравецьx"]) expect(nickProblem(bad), bad).toBe("reserved");
+    for (const bad of ["Гравець 1234", "гравець 7", "ГРАВЕЦЬ", "Гравець_1", "Гравецький"]) expect(nickProblem(bad), bad).toBe("reserved");
+    for (const bad of ["Гравець 1A2B", "гравець x", "Гpавець"]) expect(nickProblem(bad), bad).toBe("mixed"); // змішані — відхилено ще раніше
   });
 });
