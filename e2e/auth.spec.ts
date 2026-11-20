@@ -80,11 +80,15 @@ test.describe("вхід кодом на пошту", () => {
     await saveNick(other, "ab");
     await expect(other.locator(".au-err:visible")).toHaveText("At least 3 characters.");
     await saveNick(other, "me@mail.test");
-    await expect(other.locator(".au-err:visible")).toContainText("special characters");
+    await expect(other.locator(".au-err:visible")).toContainText("Use only Latin or Cyrillic letters");
     await saveNick(other, `${nick()}\u200b`); // невидимий символ — підміна імені
-    await expect(other.locator(".au-err:visible")).toContainText("special characters");
+    await expect(other.locator(".au-err:visible")).toContainText("Use only Latin or Cyrillic letters");
+    await saveNick(other, `${nick()}😀`);
+    await expect(other.locator(".au-err:visible")).toContainText("Use only Latin or Cyrillic letters");
     await saveNick(other, first.toUpperCase());
-    await expect(other.locator(".au-err:visible")).toHaveText("This nickname is already taken.");
+    await expect(other.locator(".au-err:visible")).toHaveText("This nickname is taken or looks too much like another one.");
+    await saveNick(other, `\u0420${first.slice(1)}`); // кирилична Р замість латинської P: той самий скелет
+    await expect(other.locator(".au-err:visible")).toHaveText("This nickname is taken or looks too much like another one.");
     await saveNick(other, nick());
     await expect(other).toHaveURL(`${BASE}/profile`);
     await other.context().close();

@@ -194,11 +194,38 @@ def breakdown(user: str, rnd: int, kind: str) -> dict:
 for name in U:
     ok, err = attempt("select play.set_nick(%s)", f"Player {name.upper()}", as_role="authenticated", uid=U[name])
     check(f"set_nick: профіль {name}", ok, err)
-fails("нік: дубль без урахування регістру — відмова", "profiles_nick_lower_idx", "select play.set_nick(%s)", "player a", as_role="authenticated", uid=U["b"])
+fails("нік: дубль без урахування регістру — відмова", "profiles_nick_key_idx", "select play.set_nick(%s)", "player a", as_role="authenticated", uid=U["b"])
 fails("нік: занадто короткий — відмова", "profiles_nick_chk", "select play.set_nick(%s)", "ab", as_role="authenticated", uid=U["b"])
 fails("нік: з @ (схоже на email) — відмова", "profiles_nick_chk", "select play.set_nick(%s)", "me@example.test", as_role="authenticated", uid=U["b"])
-for label, bad in (("нульової ширини U+200B", "Max\u200b"), ("м'який перенос U+00AD", "Ma\u00adx"), ("напрям тексту U+202E", "Ma\u202ex"), ("nbsp U+00A0", "Max\u00a0Z"), ("BOM U+FEFF", "\ufeffMax")):
+for label, bad in (("нульової ширини U+200B", "Max\u200b"), ("м'який перенос U+00AD", "Ma\u00adx"), ("напрям тексту U+202E", "Ma\u202ex"), ("BOM U+FEFF", "\ufeffMax")):
     fails(f"нік: невидимий/дивний символ ({label}) — відмова", "profiles_nick_chk", "select play.set_nick(%s)", bad, as_role="authenticated", uid=U["b"])
+# Allowlist + NFKC + «скелет» (міграція 0016, рішення 20.11): підміна імені невидимими/схожими символами неможлива
+for label, bad in (("emoji", "Max😀"), ("діакритична латиниця", "Räikkönen"), ("грецька", "Μαξ"), ("комбівний знак", "Ma\u0483x"), ("« ! »", "Max!"), ("подвійний пробіл", "Max  Two"), ("_ на краю", "_Maxx")):
+    fails(f"нік: поза allowlist ({label}) — відмова", "profiles_nick_chk", "select play.set_nick(%s)", bad, as_role="authenticated", uid=U["b"])
+SPOOFS = [("Admin", "Аdmin", "кирилична А замість латинської"), ("Pavel", "Рavel", "кирилична Р"), ("Ad min", "AD_MIN", "роздільники й регістр"), ("Борис", "БОРИС", "регістр кирилиці"), ("Сергій", "Cергій", "латинська C замість кириличної")]
+
+
+def set_nick_as(name: str, nick: str):
+    return attempt("select play.set_nick(%s)", nick, as_role="authenticated", uid=U[name])
+
+
+for first, spoof, why in SPOOFS:
+    ok, err = set_nick_as("c", first)  # set_nick — upsert: профіль c лише змінює нік
+    check(f"нік «{first}» (c) збережено", ok, err)
+    fails(f"нік: «{spoof}» не займає «{first}» ({why})", "profiles_nick_key_idx", "select play.set_nick(%s)", spoof, as_role="authenticated", uid=U["b"])
+ok, err = set_nick_as("b", "Ｍａｘ\u00a0Ｚed")
+check("нік нормалізується NFKC на боці бази: «Ｍａｘ\u00a0Ｚed» → «Max Zed»", ok and one("select nick from play.profiles where user_id=%s", U["b"]) == "Max Zed", err)
+for name in ("b", "c"):
+    ok, err = set_nick_as(name, f"Player {name.upper()}")
+    check(f"набір ніків відновлено ({name})", ok, err)
+# Паритет JS↔SQL: та сама фікстура (scripts/db/gen_nick_fixture.mjs з src/lib/play/nick-rules.mjs), що її перевіряє vitest
+NICK_FX = json.loads((Path(__file__).resolve().parent / "fixtures" / "nick_parity.json").read_text(encoding="utf-8"))
+nick_bad = []
+for row in NICK_FX:
+    valid, skel = q("select play.nick_valid(normalize(%s, NFKC)), play.nick_skeleton(normalize(%s, NFKC))", row["input"], row["input"])[0]
+    if valid != row["valid"] or skel != row["skeleton"]:
+        nick_bad.append((row["input"], row["valid"], valid, row["skeleton"], skel))
+check(f"паритет JS↔SQL: play.nick_valid і play.nick_skeleton збігаються з nick-rules.mjs на {len(NICK_FX)} зразках", not nick_bad, nick_bad[:5])
 fails("нік: пробіл на краю — відмова", "profiles_nick_chk", "select play.set_nick(%s)", " Padded", as_role="authenticated", uid=U["b"])
 fails("нік: «Гравець …» зарезервовано під приховані", "profiles_nick_chk", "select play.set_nick(%s)", "Гравець 1A2B", as_role="authenticated", uid=U["b"])
 fails("set_nick без входу — відмова", "not_authenticated", "select play.set_nick(%s)", "Nobody", as_role="authenticated")

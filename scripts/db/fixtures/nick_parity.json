@@ -1,0 +1,470 @@
+[
+ {
+  "input": "Max",
+  "valid": true,
+  "problem": null,
+  "skeleton": "max"
+ },
+ {
+  "input": "max",
+  "valid": true,
+  "problem": null,
+  "skeleton": "max"
+ },
+ {
+  "input": "MAX",
+  "valid": true,
+  "problem": null,
+  "skeleton": "max"
+ },
+ {
+  "input": "Max Verstappen",
+  "valid": true,
+  "problem": null,
+  "skeleton": "maxverstappen"
+ },
+ {
+  "input": "Max_V",
+  "valid": true,
+  "problem": null,
+  "skeleton": "maxv"
+ },
+ {
+  "input": "Max.V",
+  "valid": true,
+  "problem": null,
+  "skeleton": "maxv"
+ },
+ {
+  "input": "Max-V",
+  "valid": true,
+  "problem": null,
+  "skeleton": "maxv"
+ },
+ {
+  "input": "Pilot42",
+  "valid": true,
+  "problem": null,
+  "skeleton": "pilot42"
+ },
+ {
+  "input": "Ukrainian_Fan-1",
+  "valid": true,
+  "problem": null,
+  "skeleton": "ukrainianfan1"
+ },
+ {
+  "input": "a1b",
+  "valid": true,
+  "problem": null,
+  "skeleton": "a1b"
+ },
+ {
+  "input": "Борис",
+  "valid": true,
+  "problem": null,
+  "skeleton": "бopиc"
+ },
+ {
+  "input": "борис",
+  "valid": true,
+  "problem": null,
+  "skeleton": "бopиc"
+ },
+ {
+  "input": "БОРИС",
+  "valid": true,
+  "problem": null,
+  "skeleton": "бopиc"
+ },
+ {
+  "input": "Ґанна",
+  "valid": true,
+  "problem": null,
+  "skeleton": "ґahha"
+ },
+ {
+  "input": "Їжак",
+  "valid": true,
+  "problem": null,
+  "skeleton": "їжak"
+ },
+ {
+  "input": "Ёлка",
+  "valid": true,
+  "problem": null,
+  "skeleton": "ёлka"
+ },
+ {
+  "input": "Київ",
+  "valid": true,
+  "problem": null,
+  "skeleton": "kиїb"
+ },
+ {
+  "input": "Лев Толстой",
+  "valid": true,
+  "problem": null,
+  "skeleton": "лebtoлctoй"
+ },
+ {
+  "input": "Лев_Толстой",
+  "valid": true,
+  "problem": null,
+  "skeleton": "лebtoлctoй"
+ },
+ {
+  "input": "Аdmin",
+  "valid": true,
+  "problem": null,
+  "skeleton": "admin"
+ },
+ {
+  "input": "Admin",
+  "valid": true,
+  "problem": null,
+  "skeleton": "admin"
+ },
+ {
+  "input": "аdmin",
+  "valid": true,
+  "problem": null,
+  "skeleton": "admin"
+ },
+ {
+  "input": "ADMIN",
+  "valid": true,
+  "problem": null,
+  "skeleton": "admin"
+ },
+ {
+  "input": "Ad_min",
+  "valid": true,
+  "problem": null,
+  "skeleton": "admin"
+ },
+ {
+  "input": "Ad min",
+  "valid": true,
+  "problem": null,
+  "skeleton": "admin"
+ },
+ {
+  "input": "Рavel",
+  "valid": true,
+  "problem": null,
+  "skeleton": "pavel"
+ },
+ {
+  "input": "Pavel",
+  "valid": true,
+  "problem": null,
+  "skeleton": "pavel"
+ },
+ {
+  "input": "Сергій",
+  "valid": true,
+  "problem": null,
+  "skeleton": "cepгiй"
+ },
+ {
+  "input": "Cергій",
+  "valid": true,
+  "problem": null,
+  "skeleton": "cepгiй"
+ },
+ {
+  "input": "Ｍａｘ１",
+  "valid": true,
+  "problem": null,
+  "skeleton": "max1"
+ },
+ {
+  "input": "Max Zed",
+  "valid": true,
+  "problem": null,
+  "skeleton": "maxzed"
+ },
+ {
+  "input": "ﬁsher",
+  "valid": true,
+  "problem": null,
+  "skeleton": "fisher"
+ },
+ {
+  "input": "ab",
+  "valid": false,
+  "problem": "short",
+  "skeleton": "ab"
+ },
+ {
+  "input": "",
+  "valid": false,
+  "problem": "short",
+  "skeleton": ""
+ },
+ {
+  "input": "a",
+  "valid": false,
+  "problem": "short",
+  "skeleton": "a"
+ },
+ {
+  "input": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+  "valid": false,
+  "problem": "long",
+  "skeleton": "aaaaaaaaaaaaaaaaaaaaaaaaa"
+ },
+ {
+  "input": "БББББББББББББББББББББББББ",
+  "valid": false,
+  "problem": "long",
+  "skeleton": "ббббббббббббббббббббббббб"
+ },
+ {
+  "input": "Max​",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "max​"
+ },
+ {
+  "input": "​Max",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "​max"
+ },
+ {
+  "input": "Ma­x",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "ma­x"
+ },
+ {
+  "input": "Ma‮x",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "ma‮x"
+ },
+ {
+  "input": "Ma‎x",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "ma‎x"
+ },
+ {
+  "input": "Ma⁠x",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "ma⁠x"
+ },
+ {
+  "input": "﻿Max",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "﻿max"
+ },
+ {
+  "input": "Ma‍x",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "ma‍x"
+ },
+ {
+  "input": "Max　Z",
+  "valid": true,
+  "problem": null,
+  "skeleton": "maxz"
+ },
+ {
+  "input": "Max Z",
+  "valid": true,
+  "problem": null,
+  "skeleton": "maxz"
+ },
+ {
+  "input": "Maéx",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "maéx"
+ },
+ {
+  "input": "Räikkönen",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "räikkönen"
+ },
+ {
+  "input": "Max😀",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "max😀"
+ },
+ {
+  "input": "😀😀😀",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "😀😀😀"
+ },
+ {
+  "input": "Μαξ",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "Μαξ"
+ },
+ {
+  "input": "Max♥",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "max♥"
+ },
+ {
+  "input": "Max!",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "max!"
+ },
+ {
+  "input": "Max#1",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "max#1"
+ },
+ {
+  "input": "me@mail.test",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "me@mailtest"
+ },
+ {
+  "input": "Max/V",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "max/v"
+ },
+ {
+  "input": "Max'V",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "max'v"
+ },
+ {
+  "input": "Max+V",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "max+v"
+ },
+ {
+  "input": "Max&V",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "max&v"
+ },
+ {
+  "input": "Max,V",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "max,v"
+ },
+ {
+  "input": "日本語名前",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "日本語名前"
+ },
+ {
+  "input": "Ma҃x",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "ma҃x"
+ },
+ {
+  "input": " Max",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "max"
+ },
+ {
+  "input": "Max ",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "max"
+ },
+ {
+  "input": "Max  V",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "maxv"
+ },
+ {
+  "input": "_Max",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "max"
+ },
+ {
+  "input": "Max_",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "max"
+ },
+ {
+  "input": ".Max",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "max"
+ },
+ {
+  "input": "Max-",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "max"
+ },
+ {
+  "input": "---",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": ""
+ },
+ {
+  "input": "___",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": ""
+ },
+ {
+  "input": "a--",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "a"
+ },
+ {
+  "input": "Гравець 1A2B",
+  "valid": false,
+  "problem": "reserved",
+  "skeleton": "гpabeць1a2b"
+ },
+ {
+  "input": "гравець x",
+  "valid": false,
+  "problem": "reserved",
+  "skeleton": "гpabeцьx"
+ },
+ {
+  "input": "Гpавець",
+  "valid": false,
+  "problem": "reserved",
+  "skeleton": "гpabeць"
+ },
+ {
+  "input": "Гравецьx",
+  "valid": false,
+  "problem": "reserved",
+  "skeleton": "гpabeцьx"
+ },
+ {
+  "input": "ГРАВЕЦЬ",
+  "valid": false,
+  "problem": "reserved",
+  "skeleton": "гpabeць"
+ }
+]
