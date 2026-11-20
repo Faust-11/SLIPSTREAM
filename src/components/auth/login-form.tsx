@@ -54,9 +54,12 @@ export function LoginForm({ text, nick, fallbackHref }: { text: LoginText; nick:
     return () => clearTimeout(t);
   }, [wait]);
 
+  // Фокус — у поле поточного кроку після КОЖНОЇ відповіді сервера (успіх чи помилка): кнопка під час запиту блокується, і фокус
+  // із неї провалювався в body (рев'ю 20.11) — для «Надіслати новий код» крок той самий, тож один [step] не спрацьовував.
+  const [settled, setSettled] = useState(0);
   useEffect(() => {
     (step === "email" ? emailRef : codeRef).current?.focus();
-  }, [step]);
+  }, [step, settled]);
 
   function failure(status: number, body: { error?: string }) {
     if (body.error === "invalid_email") return text.errors.invalidEmail;
@@ -78,6 +81,7 @@ export function LoginForm({ text, nick, fallbackHref }: { text: LoginText; nick:
     setInfo(null);
     const res = await postJson<{ error?: string }>("/api/auth/code", { email: addr });
     setBusy(false);
+    setSettled((n) => n + 1);
     if (res.status !== 200) return setError(failure(res.status, res.body));
     setEmail(addr);
     setWait(RESEND_S);
