@@ -210,6 +210,9 @@ export default async function CalendarPage({ params }: Props) {
               {t.title} <span>{page.season}</span>
             </h1>
             <p className="cl-lead">{t.lead}</p>
+            <p className="cl-lead">
+              <a href={path("/kyiv-time")}>{t.kyivLink}</a>
+            </p>
             <dl className="cl-kf" aria-label={t.factsLabel}>
               {page.champion && (
                 <div>

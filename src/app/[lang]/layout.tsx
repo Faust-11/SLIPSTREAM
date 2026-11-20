@@ -16,6 +16,7 @@ import "@/components/season/season.css";
 import "@/components/race/race.css";
 import "@/components/circuits/circuits.css";
 import "@/components/calendar/calendar.css";
+import "@/components/calendar/kyiv.css";
 import "@/components/news/news.css";
 import "@/components/home/home.css";
 import "@/components/game/game.css";
