@@ -52,13 +52,13 @@
     "sections": {
       "seasons": "Every Formula 1 season since 1950: champions, standings and races.",
       "calendar": "The Formula 1 calendar: dates, circuits and session times.",
-      "news": "Formula 1 news from trusted sources.",
-      "drivers": "Formula 1 drivers: careers, wins, poles and teams.",
-      "teams": "Formula 1 teams: history, titles and drivers.",
+      "news": "Formula 1 news from outlets and journalists in one place, with a countdown to the next race.",
+      "drivers": "Every Formula 1 driver since 1950: wins, poles, titles and careers.",
+      "teams": "Every Formula 1 team since 1950: history, titles, wins and drivers.",
       "circuits": "Formula 1 circuits: layout, length, corners and winners.",
-      "stories": "Stories from Formula 1 history, with sources.",
+      "stories": "Long reads on the races and rules that shaped Formula 1, with every claim sourced.",
       "newbie": "New to Formula 1? The rules, terms and race weekend explained.",
-      "game": "Hot Lap: a browser racing game on four circuits."
+      "game": "Hot lap: a quick browser mini-game on made-up circuits against a bot and your own ghost."
     }
   },
   "teams": {
@@ -604,7 +604,7 @@
     }
   },
   "seasonPage": {
-    "metaDescription": "The {year} Formula 1 season: {who}. The title fight after every round, the calendar with winners and poles, and the final drivers' and constructors' standings.",
+    "metaDescription": "The {year} Formula 1 season: {who}. Title fight after every round, calendar with winners and poles, final standings.",
     "metaChampion": "champion {driver}",
     "metaLeader": "leader {driver}",
     "crumbs": "Seasons",
@@ -765,7 +765,7 @@
     "deciderBy": "Title clinched by {name}"
   },
   "racePage": {
-    "metaDescription": "{gp} {year}: round {round} of the Formula 1 championship. {who} Race and qualifying results, lap-by-lap positions, the weekend's sessions.",
+    "metaDescription": "{gp} {year}: round {round} of the Formula 1 championship. {who} Race and qualifying results, lap-by-lap positions, sessions.",
     "metaWinner": "Won by {driver}.",
     "crumbs": "Seasons",
     "roundPlace": "Round {n} · {place}",

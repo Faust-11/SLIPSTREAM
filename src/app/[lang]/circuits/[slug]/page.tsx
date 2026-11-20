@@ -14,6 +14,8 @@ import { circuitPhotoAlt } from "@/lib/image-alt";
 import { plural } from "@/lib/plural";
 import { lapTime } from "@/lib/race-math";
 import { pageMetadata, siteUrl } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbList } from "@/lib/jsonld";
 
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
@@ -155,7 +157,8 @@ export default async function CircuitPageView(props: Props) {
 
   return (
     <div className="ct-page">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbList(lang, [{ name: dict.nav.circuits, path: "/circuits" }, { name: page.name, path: `/circuits/${page.slug}` }])} />
       <nav className="crumbs ct-crumbs" aria-label="Breadcrumb">
         <div className="wrap">
           <a href={path("/circuits")}>{t.crumbs}</a>

@@ -6,6 +6,8 @@ import { requireLocale } from "@/i18n/require-locale";
 import { TRACK_KEYS, TRACK_SPECS, fmtLap } from "@/lib/game/physics";
 import { trackThumb } from "@/lib/game/thumb";
 import { pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbList } from "@/lib/jsonld";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -35,6 +37,7 @@ export default async function GamePage({ params }: Props) {
 
   return (
     <>
+      <JsonLd data={breadcrumbList(lang, [{ name: dict.nav.game, path: "/game" }])} />
       <section className="gm-hero">
         <div className="wrap">
           <div>

@@ -26,6 +26,8 @@ import type { SeasonDriver, SeasonTeamRef } from "@/lib/data/season-page";
 import { plural } from "@/lib/plural";
 import { gapTime, lapTime, raceTime } from "@/lib/race-math";
 import { pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
+import { siteIdentity } from "@/lib/jsonld";
 import { getStoryList } from "@/lib/stories/content";
 
 /** Історії на головній — три з макета (вибір користувача: «найцікавіші»), у порядку макета. */
@@ -151,6 +153,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
 
   return (
     <div className="hm" data-section="home">
+      <JsonLd data={siteIdentity(lang, dict.meta.home.description)} />
       {/* ---------- герой ---------- */}
       <section className="hm-hero">
         <div className="wrap">

@@ -13,7 +13,9 @@ import { localizedPath } from "@/i18n/paths";
 import { requireLocale } from "@/i18n/require-locale";
 import { circuitPath } from "@/lib/circuit-math";
 import { getSeasonPage } from "@/lib/data/season-page";
-import { pageMetadata, siteUrl } from "@/lib/seo";
+import { pageMetadata, siteUrl, clipDescription } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbList } from "@/lib/jsonld";
 import { getStory, getStorySlugs } from "@/lib/stories/content";
 
 type Props = { params: Promise<{ lang: string; slug: string }> };
@@ -54,7 +56,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     locale: lang,
     path: `/stories/${story.slug}`,
     title: story.title.full,
-    description: story.dek,
+    description: clipDescription(story.dek),
     image: story.hero ? { src: story.hero.src, alt: story.hero.alt } : undefined,
     article: { modified: story.checked },
   });
@@ -92,7 +94,8 @@ export default async function StoryPageRoute(props: Props) {
 
   return (
     <div className="st-page">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbList(lang, [{ name: dict.nav.stories, path: "/stories" }, { name: title, path: `/stories/${story.slug}` }])} />
       <section className={hero ? "st-hero st-s-hero has-photo" : "st-hero st-s-hero"}>
         <div className="wrap">
           <div className="st-s-hero-txt">

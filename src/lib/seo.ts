@@ -123,3 +123,15 @@ export function pageMetadata({
     robots: robotsMetadata(),
   };
 }
+
+/**
+ * Опис для <meta name="description">: до max символів, обрізаний по межі слова з «…». Пошуковик усе одно може показати
+ * свій уривок, але довгий редакторський «дек» не має ламатися на середині слова (дек історій — до 216 знаків).
+ */
+export function clipDescription(text: string, max = 160): string {
+  const t = text.replace(/\s+/g, " ").trim();
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max - 1);
+  const space = cut.lastIndexOf(" ");
+  return `${(space > max * 0.6 ? cut.slice(0, space) : cut).replace(/[\s,;:.\-–—]+$/, "")}…`;
+}

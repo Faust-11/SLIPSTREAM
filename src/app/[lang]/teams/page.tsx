@@ -7,6 +7,8 @@ import { requireLocale } from "@/i18n/require-locale";
 import { getTeamsCredits, getTeamsIndex, getTeamsSeason, TEAMS_PAGE_SIZE } from "@/lib/data/teams";
 import { plural } from "@/lib/plural";
 import { pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbList } from "@/lib/jsonld";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -27,6 +29,7 @@ export default async function TeamsPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd data={breadcrumbList(lang, [{ name: dict.nav.teams, path: "/teams" }])} />
       <TeamsIntro
         title={dict.nav.teams}
         factsLabel={t.factsLabel}

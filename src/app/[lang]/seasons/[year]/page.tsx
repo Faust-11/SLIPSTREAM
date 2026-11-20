@@ -12,6 +12,8 @@ import { getSeasonPage, getSeasonYears, type SeasonDriver, type SeasonTeamRef } 
 import { seasonPhotoAlt } from "@/lib/image-alt";
 import { plural } from "@/lib/plural";
 import { pageMetadata, siteUrl } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbList } from "@/lib/jsonld";
 
 type Props = { params: Promise<{ lang: string; year: string }> };
 
@@ -204,7 +206,8 @@ export default async function SeasonPage(props: Props) {
     .sort();
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "SportsEvent",
+    // Сезон — серія етапів у різних місцях, а не одна подія: EventSeries (SportsEvent вимагає location).
+    "@type": "EventSeries",
     name: fill(t.title, { year: page.year }),
     sport: "Formula One",
     url: new URL(path(`/seasons/${page.year}`), siteUrl()).href,
@@ -219,7 +222,8 @@ export default async function SeasonPage(props: Props) {
 
   return (
     <div className="season-page" style={style}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbList(lang, [{ name: dict.nav.seasons, path: "/seasons" }, { name: String(page.year), path: `/seasons/${page.year}` }])} />
       <nav className="crumbs sp-crumbs" aria-label="Breadcrumb">
         <div className="wrap">
           <a href={path("/seasons")}>{t.all}</a>

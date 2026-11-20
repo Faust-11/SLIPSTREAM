@@ -12,6 +12,8 @@ import { driverPath } from "@/lib/driver-slug";
 import { DEFAULT_DRIVERS_QUERY, selectDrivers } from "@/lib/drivers-list";
 import { plural } from "@/lib/plural";
 import { pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbList } from "@/lib/jsonld";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -37,6 +39,7 @@ export default async function DriversPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd data={breadcrumbList(lang, [{ name: dict.nav.drivers, path: "/drivers" }])} />
       <TeamsIntro
         title={dict.nav.drivers}
         factsLabel={t.factsLabel}

@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
-import { ogImage, pageMetadata, robotsMetadata, siteUrl } from "../seo";
+import { clipDescription, ogImage, pageMetadata, robotsMetadata, siteUrl } from "../seo";
 import ogImages from "@/data/og-images.json";
 import { locales } from "@/i18n/config";
 
@@ -114,5 +114,24 @@ describe("прев'ю посилань (og:image)", () => {
     expect(og.url).toMatch(/^https?:\/\/.+\/og\/section\/teams-uk\.jpg$/);
     expect(og.width).toBe(1200);
     expect(m.twitter).toMatchObject({ card: "summary_large_image", images: [og] });
+  });
+});
+
+describe("clipDescription", () => {
+  it("короткий текст — без змін, пробіли нормалізуються", () => {
+    expect(clipDescription("  Короткий   опис  ")).toBe("Короткий опис");
+  });
+
+  it("довгий — до 160 символів, по межі слова, з «…»", () => {
+    const text = "слово ".repeat(60).trim();
+    const out = clipDescription(text);
+    expect(out.length).toBeLessThanOrEqual(160);
+    expect(out.endsWith("…")).toBe(true);
+    expect(out.slice(0, -1).trim().split(" ").every((w) => w === "слово")).toBe(true);
+  });
+
+  it("не залишає розділові знаки перед «…»", () => {
+    const out = clipDescription(`${"a".repeat(100)}, ${"b".repeat(100)}`, 110);
+    expect(out).not.toMatch(/[,;:.\-–—]…$/);
   });
 });

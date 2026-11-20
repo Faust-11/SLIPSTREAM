@@ -12,6 +12,8 @@ import { requireLocale } from "@/i18n/require-locale";
 import { getCalendarPage } from "@/lib/data/calendar";
 import { BSKY_HANDLES, getNews, RSS_SOURCES, type Headline, type Post, type SourceKey } from "@/lib/data/news";
 import { pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbList } from "@/lib/jsonld";
 
 // ISR: новини збираються щонайбільше раз на 30 хв (рішення користувача 14.11; кеш fetch — той самий).
 export const revalidate = 1800;
@@ -114,6 +116,7 @@ export default async function NewsPage({ params }: Props) {
 
   return (
     <div className="nw-page">
+      <JsonLd data={breadcrumbList(lang, [{ name: dict.nav.news, path: "/news" }])} />
       <section className="nw-hero">
         <div className="wrap">
           <div className="nw-ttl">

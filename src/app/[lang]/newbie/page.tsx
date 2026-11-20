@@ -18,6 +18,8 @@ import { newbieChecked, newbieText, SECTIONS, sectionSources, type NewbieText, t
 import { ukOrdinal } from "@/lib/ordinal";
 import { plural } from "@/lib/plural";
 import { pageMetadata, siteUrl } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbList } from "@/lib/jsonld";
 import type { Inline } from "@/lib/stories/markdown";
 
 type Props = { params: Promise<{ lang: string }> };
@@ -226,7 +228,8 @@ export default async function NewbiePage({ params }: Props) {
 
   return (
     <div className="nb-page">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbList(lang, [{ name: dict.nav.newbie, path: "/newbie" }])} />
       <section className="nb-hero">
         <div className="wrap">
           <div className="nb-hero-main">

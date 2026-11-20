@@ -9,6 +9,8 @@ import { requireLocale } from "@/i18n/require-locale";
 import { CIRCUITS_PAGE_SIZE, getCircuitsIndex } from "@/lib/data/circuits";
 import { plural } from "@/lib/plural";
 import { pageMetadata, siteUrl } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbList } from "@/lib/jsonld";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -41,7 +43,8 @@ export default async function CircuitsPage({ params }: Props) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbList(lang, [{ name: dict.nav.circuits, path: "/circuits" }])} />
       <TeamsIntro
         title={dict.nav.circuits}
         factsLabel={t.factsLabel}
