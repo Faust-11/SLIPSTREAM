@@ -77,11 +77,16 @@ export default async function AdminStory({ params }: { params: Promise<{ slug: s
             {meta.title?.uk || slug}
           </h1>
         </div>
-        {!draft && (
-          <a className="ad-btn" href={`/uk/stories/${slug}`} target="_blank" rel="noopener">
-            На сайті<span className="ad-sr"> (нова вкладка)</span> ↗
-          </a>
-        )}
+        <div className="ad-acts">
+          <Link className="ad-btn" href={`/admin/stories/${slug}/photos`}>
+            Фото історії
+          </Link>
+          {!draft && (
+            <a className="ad-btn" href={`/uk/stories/${slug}`} target="_blank" rel="noopener">
+              На сайті<span className="ad-sr"> (нова вкладка)</span> ↗
+            </a>
+          )}
+        </div>
       </header>
       <p className="ad-lede">
         <span className={`ad-chip ${draft ? "is-one" : "is-ok"}`}>{draft ? "Чернетка" : "Опубліковано"}</span>{" "}
