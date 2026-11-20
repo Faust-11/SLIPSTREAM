@@ -19,6 +19,9 @@ const FAKE_ADMIN_ENV = {
   ADMIN_GITHUB_TOKEN: "test-gh-token",
   ADMIN_GITHUB_API: `http://127.0.0.1:${AUTH_PORT}`,
   ADMIN_YOUTUBE_API: `http://127.0.0.1:${AUTH_PORT}`,
+  // Здоров'я джерел (7c): сайти джерел і Web Archive — фейк (справжніх зовнішніх запитів e2e не робить).
+  ADMIN_LINKS_FAKE: `http://127.0.0.1:${AUTH_PORT}`,
+  ADMIN_ARCHIVE_FAKE: `http://127.0.0.1:${AUTH_PORT}`,
 };
 const externalBaseURL = process.env.BASE_URL;
 const baseURL = externalBaseURL ?? `http://localhost:${PORT}`;

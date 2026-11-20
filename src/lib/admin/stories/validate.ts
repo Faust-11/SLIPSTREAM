@@ -164,6 +164,9 @@ export function validateStory(slug: string, metaIn: unknown, md: { uk?: string; 
   if (race !== undefined && race !== null && !/^\d{4}\/\d{1,2}$/.test(String(race))) errors.push(`race «${String(race)}» — не у форматі рік/етап`);
   for (const s of sources) {
     if ("author" in s && typeof s.author !== "string") errors.push(`джерело ${str(s.id)}: author — не рядок`);
+    if ("archive" in s && !(typeof s.archive === "string" && /^https:\/\/web\.archive\.org\/web\/[0-9]{14}\/https?:\/\/\S+$/.test(s.archive))) {
+      errors.push(`джерело ${str(s.id)}: archive — не адреса знімка web.archive.org`);
+    }
   }
   if (marks.uk) {
     const orphan = claimIds.filter((x) => !marks.uk!.has(x));
