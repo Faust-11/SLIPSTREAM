@@ -8,17 +8,18 @@ import "server-only";
 const hits = new Map<string, number[]>();
 const MAX_KEYS = 5000;
 
-/** true — дозволено (і зараховано); false — ліміт вичерпано. */
+/**
+ * true — дозволено (і зараховано); false — ліміт вичерпано. Map тримає порядок «давно не використаних»: при кожному зверненні
+ * ключ переходить у кінець, а при переповненні зникають найдавніші — активні лічильники не вилучаються першими.
+ */
 export function allow(key: string, limit: number, windowMs: number, now = Date.now()): boolean {
   const recent = (hits.get(key) ?? []).filter((t) => now - t < windowMs);
-  if (recent.length >= limit) {
-    hits.set(key, recent);
-    return false;
-  }
-  recent.push(now);
+  const ok = recent.length < limit;
+  if (ok) recent.push(now);
+  hits.delete(key);
   hits.set(key, recent);
   if (hits.size > MAX_KEYS) for (const k of hits.keys()) { hits.delete(k); if (hits.size <= MAX_KEYS / 2) break; }
-  return true;
+  return ok;
 }
 
 /**
@@ -36,4 +37,14 @@ export function clientKey(request: Request): string | null {
 export function allowFrom(request: Request, name: string, limit: number, windowMs: number): boolean {
   const ip = clientKey(request);
   return ip ? allow(`${name}:ip:${ip}`, limit, windowMs) : true;
+}
+
+/**
+ * Спроби коду: 30 за 10 хв на джерело і 10 на пару «джерело + адреса». Джерело перевіряємо ПЕРШИМ: відхилений запит не створює
+ * ключа пари, тож заливка унікальними адресами з одного джерела не роздимає Map і не вичавлює лічильники самого зловмисника
+ * (рев'ю 20.11: так обходився ліміт — за 5200 унікальних адрес лічильники скидалися). Джерела немає — ліміт пропускаємо (див. clientKey).
+ */
+export function allowVerify(ip: string | null, email: string, now = Date.now()): boolean {
+  if (!ip) return true;
+  return allow(`verify:ip:${ip}`, 30, 10 * 60_000, now) && allow(`verify:pair:${ip}:${email}`, 10, 10 * 60_000, now);
 }
