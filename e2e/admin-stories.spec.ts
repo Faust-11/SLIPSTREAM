@@ -531,7 +531,7 @@ test("застряглий PR: «Закрити PR» знімає блокува
   const slug = "vettel-monza-2008";
   await openStory(page, slug);
   const title = page.locator('input[name="title_uk"]');
-  await title.fill((await title.inputValue()) + " ");
+  await title.fill((await title.inputValue()) + " (тест)"); // пробіл у кінці обрізається — змін не було б
   await page.getByRole("button", { name: "Опублікувати зміни" }).click();
   await expect(page.getByRole("status").filter({ hasText: "PR #" })).toBeVisible();
   const pr = await lastPr(page, slug);
@@ -547,7 +547,7 @@ test("застряглий PR: «Закрити PR» знімає блокува
   await expectNoA11yViolations(page);
 
   // Блокування знято: історію знову можна опублікувати.
-  await title.fill((await title.inputValue()) + ".");
+  await title.fill((await title.inputValue()).replace(" (тест)", " (тест 2)"));
   await page.getByRole("button", { name: "Опублікувати зміни" }).click();
   await expect(page.getByRole("status").filter({ hasText: "PR #" })).toContainText("створено");
 });
