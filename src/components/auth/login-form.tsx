@@ -131,7 +131,6 @@ export function LoginForm({ text, nick, fallbackHref }: { text: LoginText; nick:
           id={`${id}-code`}
           className="au-input au-code"
           type="text"
-          name="code"
           inputMode="numeric"
           pattern="[0-9]*"
           autoComplete="one-time-code"
@@ -190,7 +189,6 @@ export function LoginForm({ text, nick, fallbackHref }: { text: LoginText; nick:
         id={`${id}-email`}
         className="au-input"
         type="email"
-        name="email"
         inputMode="email"
         autoComplete="email"
         autoCapitalize="off"
