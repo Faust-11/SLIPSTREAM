@@ -12,26 +12,28 @@ import type { PlayConfig } from "./config";
 export type Access = { userId: string; exp: number };
 
 /**
- * Дешева перевірка БЕЗ підпису: чи схожий рядок на access-токен НАШОГО проєкту (три сегменти, дозволений alg, наш issuer, aud
- * `authenticated`, sub і exp). Це не безпека (підробити таку «обкладинку» легко, issuer публічний) — лише відсікання сміття перед
- * дорогим викликом refresh у GoTrue; рівень зловживання тримає обмежувач у session.ts. Прострочення тут свідомо НЕ вимагаємо: після
- * ротації ключів проєкту справжній токен із майбутнім exp не пройде підпис, і саме refresh видасть новий.
+ * Дешева класифікація БЕЗ перевірки підпису — чи схожий рядок на access-токен НАШОГО проєкту (три сегменти, issuer, aud
+ * `authenticated`, sub і exp):
+ *  - `supported` — alg ES256/RS256: справжній токен, що не пройшов перевірку (прострочений, ротація ключів) — refresh доречний;
+ *  - `foreign_alg` — наш проєкт, але alg поза ES256/RS256 (типово HS256 — відкат ключів проєкту): це збій налаштувань, а не сміття —
+ *    сесію не знімаємо й refresh не ротуємо даремно, користувач бачить «недоступно»;
+ *  - `junk` — не токен: cookie знімаємо.
+ * Це не безпека (підробити таку «обкладинку» легко, issuer публічний) — лише відсікання сміття перед дорогим викликом refresh у GoTrue;
+ * рівень зловживання тримає обмежувач у session.ts. Прострочення свідомо НЕ вимагаємо: після ротації ключів проєкту справжній токен із
+ * майбутнім exp не пройде підпис, і саме refresh видасть новий.
  */
-export function looksLikeOurAccess(cfg: PlayConfig, token: string): boolean {
+export type AccessShape = "supported" | "foreign_alg" | "junk";
+
+export function accessShape(cfg: PlayConfig, token: string): AccessShape {
   const parts = token.split(".");
-  if (parts.length !== 3 || parts.some((p) => !/^[A-Za-z0-9_-]+$/.test(p))) return false;
+  if (parts.length !== 3 || parts.some((p) => !/^[A-Za-z0-9_-]+$/.test(p))) return "junk";
   try {
     const head = JSON.parse(Buffer.from(parts[0]!, "base64url").toString("utf8")) as { alg?: unknown };
     const body = JSON.parse(Buffer.from(parts[1]!, "base64url").toString("utf8")) as { iss?: unknown; aud?: unknown; sub?: unknown; exp?: unknown };
-    return (
-      (head.alg === "ES256" || head.alg === "RS256") &&
-      body.iss === cfg.issuer &&
-      body.aud === "authenticated" &&
-      typeof body.sub === "string" &&
-      typeof body.exp === "number"
-    );
+    if (typeof head.alg !== "string" || body.iss !== cfg.issuer || body.aud !== "authenticated" || typeof body.sub !== "string" || typeof body.exp !== "number") return "junk";
+    return head.alg === "ES256" || head.alg === "RS256" ? "supported" : "foreign_alg";
   } catch {
-    return false;
+    return "junk";
   }
 }
 

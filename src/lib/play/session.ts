@@ -1,6 +1,6 @@
 import "server-only";
 import { cookies, headers } from "next/headers";
-import { looksLikeOurAccess, verifyAccess } from "./access";
+import { accessShape, verifyAccess } from "./access";
 import { playConfig, type PlayConfig } from "./config";
 import { SESSION_COOKIE, SIGNED_IN_COOKIE, decodeSession, encodeSession, flagCookieOptions, sessionCookieOptions } from "./cookie";
 import { refreshSession, type Session } from "./gotrue";
@@ -40,10 +40,17 @@ export async function currentPlayer(): Promise<SessionState | null> {
   if (!pair) return { cfg, user: null, unavailable: false };
   const access = await verifyAccess(cfg, pair.a);
   if (access && access.exp - Date.now() / 1000 > REFRESH_MARGIN_S) return { cfg, user: { userId: access.userId, accessToken: pair.a }, unavailable: false };
-  // Не схоже на наш access-токен (сміття в cookie) — це не сесія: не турбуємо GoTrue, знімаємо cookie (рев'ю 20.11).
-  if (!access && !looksLikeOurAccess(cfg, pair.a)) {
-    await clearPlaySession();
-    return { cfg, user: null, unavailable: false };
+  if (!access) {
+    const shape = accessShape(cfg, pair.a);
+    // Не схоже на наш access-токен (сміття в cookie) — це не сесія: не турбуємо GoTrue, знімаємо cookie (рев'ю 20.11).
+    if (shape === "junk") {
+      await clearPlaySession();
+      return { cfg, user: null, unavailable: false };
+    }
+    // Токен нашого проєкту, але alg поза ES256/RS256 (HS256 — відкат ключів): справжня сесія, яку ми не вміємо перевірити. Це збій
+    // налаштувань, а не відкликання: cookie не знімаємо (вхід не «успішний і одразу скинутий», код не горить) і refresh не ротуємо
+    // даремно (токен одноразовий, а новий був би таким самим) — «недоступно».
+    if (shape === "foreign_alg") return { cfg, user: null, unavailable: true };
   }
   // Підробка зі схожою структурою пройшла б вище, тож стеля на джерело: інакше анонім міг би змушувати функції Vercel слати в GoTrue
   // стільки POST /token, скільки встигне, і вичерпати ліміт GoTrue по IP для всіх. Вичерпано — як збій: нічого не знімаємо.
