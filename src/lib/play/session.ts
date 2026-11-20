@@ -46,10 +46,12 @@ export async function currentPlayer(): Promise<SessionState | null> {
     await clearPlaySession();
     return { cfg, user: null, unavailable: false };
   }
+  // Нову пару зберігаємо ОДРАЗУ: refresh-токен Supabase одноразовий — якщо не записати новий, у cookie лишиться вже використаний,
+  // і наступне оновлення (після інтервалу повторного використання) розлогінить користувача (рев'ю 20.11).
+  await startPlaySession(renewed.value);
   const fresh = await verifyAccess(cfg, renewed.value.access_token);
   // Свіжий токен не пройшов перевірку підпису (JWKS недоступний чи проєкт змінив ключ) — сесію не знімаємо: це збій
   // сервісу, а не відкликання; користувач бачить «недоступно», а не мовчки розлогінюється.
   if (!fresh) return { cfg, user: null, unavailable: true };
-  await startPlaySession(renewed.value);
   return { cfg, user: { userId: fresh.userId, accessToken: renewed.value.access_token }, unavailable: false };
 }

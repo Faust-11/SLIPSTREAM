@@ -97,7 +97,7 @@ export function LoginForm({ text, nick, fallbackHref }: { text: LoginText; nick:
     }
     setBusy(true);
     setError(null);
-    const res = await postJson<{ error?: string; nick?: string | null }>("/api/auth/verify", { email, code: digits });
+    const res = await postJson<{ error?: string; nick?: string | null; profile?: boolean }>("/api/auth/verify", { email, code: digits });
     if (res.status !== 200) {
       setBusy(false);
       setError(failure(res.status, res.body));
@@ -106,7 +106,9 @@ export function LoginForm({ text, nick, fallbackHref }: { text: LoginText; nick:
     }
     await refreshAccount();
     setBusy(false);
-    if (res.body.nick) router.push(target());
+    // profile:false — профіль не вдалося прочитати (збій/схему play ще не відкрито): це «невідомо», а не «ніка немає». Не питаємо
+    // нік наново — set_nick перезаписав би наявний; профіль сам покаже стан.
+    if (res.body.nick || res.body.profile === false) router.push(target());
     else setStep("nick");
   }
 
