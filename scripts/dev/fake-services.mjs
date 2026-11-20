@@ -12,6 +12,7 @@
  * Commons: /w/api.php (пошук і файл) — 3 файли з різними ліцензіями; /thumb/<n>.jpg — справжній JPEG 1600×1000.
  * GitHub API (токен `test-gh-token`): вміст файлів — з локального репозиторію; коміт/PR записуються,
  *   GET /__last-pr — останній PR і шляхи його дерева (для e2e).
+ *   POST /__merge?has=<частина назви> — позначити останній такий PR злитим (журнал версій, відкат).
  */
 import { createHash, randomBytes } from "node:crypto";
 import { createServer } from "node:http";
@@ -45,6 +46,19 @@ const FILES = [
   { title: "File:Fake ND Photo.jpg", license: "CC BY-ND 2.0", artist: "ND Author" },
 ];
 let jpeg;
+/** Найпростіший unified diff: однакові початок і кінець зрізаємо, середина — «−старе +нове» (для e2e цього досить). */
+function unifiedDiff(a, b) {
+  const x = a.split("\n");
+  const y = b.split("\n");
+  let i = 0;
+  while (i < x.length && i < y.length && x[i] === y[i]) i++;
+  let j = 0;
+  while (j < x.length - i && j < y.length - i && x[x.length - 1 - j] === y[y.length - 1 - j]) j++;
+  const del = x.slice(i, x.length - j);
+  const add = y.slice(i, y.length - j);
+  const patch = [`@@ -${i + 1},${del.length} +${i + 1},${add.length} @@`, ...del.map((l) => `-${l}`), ...add.map((l) => `+${l}`)].join("\n");
+  return { additions: add.length, deletions: del.length, patch };
+}
 const thumb = async () => (jpeg ??= await sharp({ create: { width: 1600, height: 1000, channels: 3, background: { r: 30, g: 90, b: 160 } } }).jpeg().toBuffer());
 const page = (f, i) => ({
   title: f.title,
@@ -145,6 +159,23 @@ createServer(async (req, res) => {
       const open = url.searchParams.get("state") === "open";
       return json(res, 200, prs.filter((x) => (open ? !x.merged_at : x.merged_at)));
     }
+    const one = p.match(/^\/pulls\/(\d+)(\/files)?$/);
+    if (req.method === "GET" && one) {
+      const pr = prs.find((x) => x.number === Number(one[1]));
+      if (!pr) return json(res, 404, { message: "Not Found" });
+      if (!one[2]) return json(res, 200, { ...pr, commits: 1, base: { ref: "main" }, merge_commit_sha: pr.merged_at ? "merge0" : null });
+      const out = [];
+      for (const path of pr.paths) {
+        const next = pr.files[path];
+        if (next === undefined) {
+          out.push({ filename: path, status: "added", additions: 0, deletions: 0 }); // фото: patch немає, як у GitHub для зображень
+          continue;
+        }
+        const old = await readFile(path, "utf8").catch(() => "");
+        out.push({ filename: path, status: old ? "modified" : "added", ...unifiedDiff(old, next) });
+      }
+      return json(res, 200, out);
+    }
     if (req.method === "POST") {
       const b = JSON.parse((await body(req)) || "{}");
       if (p === "/git/blobs") {
@@ -194,6 +225,14 @@ createServer(async (req, res) => {
     const has = url.searchParams.get("has") ?? "";
     const pr = prs.filter((p) => p.title.includes(has)).at(-1);
     return pr ? json(res, 200, pr) : json(res, 404, {});
+  }
+
+  if (req.method === "POST" && url.pathname === "/__merge") {
+    const has = url.searchParams.get("has") ?? "";
+    const pr = prs.filter((x) => x.title.includes(has) && !x.merged_at).at(-1);
+    if (!pr) return json(res, 404, {});
+    pr.merged_at = new Date().toISOString();
+    return json(res, 200, { number: pr.number });
   }
 
   if (req.method === "GET" && url.pathname === "/__mail") {

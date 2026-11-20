@@ -1225,3 +1225,44 @@ details.ad-panel[open] summary {
   border: 1.5px solid var(--ad-hair);
   padding: 12px;
 }
+
+/* Версії історії (7c, задача 6): журнал PR і diff правки */
+.ad-ver li > form {
+  margin: 0;
+}
+.ad-diff {
+  margin: 8px 0 0;
+  padding: 0;
+  max-height: 60vh;
+  overflow: auto;
+  border: 1px solid var(--ad-hair);
+  font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.ad-dl {
+  display: block;
+  padding: 0 8px 0 26px;
+  text-indent: -18px;
+}
+.ad-dm {
+  display: inline-block;
+  inline-size: 18px;
+  text-indent: 0;
+  font-weight: 700;
+}
+.ad-dl.is-add {
+  background: color-mix(in srgb, var(--ad-ok) 16%, transparent);
+}
+.ad-dl.is-del {
+  background: color-mix(in srgb, var(--ad-bad) 16%, transparent);
+}
+.ad-dl.is-hunk {
+  color: var(--ad-one);
+}
+.ad-diff-n.is-add {
+  color: var(--ad-ok);
+}
+.ad-diff-n.is-del {
+  color: var(--ad-bad);
+}

@@ -246,3 +246,55 @@ test("фото: неіснуюче фото й некоректний id — 404
   expect((await page.goto("/admin/stories/jerez-1997/photos/m99"))?.status()).toBe(404);
   expect((await page.goto("/admin/stories/jerez-1997/photos/..%2Fx"))?.status()).toBe(404);
 });
+
+test("версії: злита правка з'являється в журналі, diff показує зміну, відкат створює PR і блокує нові правки", async ({ page }) => {
+  await openStory(page, "hunt-lauda-1976");
+  const title = page.locator('input[name="title_en"]');
+  const before = await title.inputValue();
+  await title.fill(`${before} (версія)`);
+  await page.getByRole("button", { name: "Опублікувати зміни" }).click();
+  await expect(page.getByRole("status").filter({ hasText: "PR #" })).toContainText("створено");
+
+  // Поки PR не злитий — у журналі його немає, а в «Чекають злиття» він є.
+  await page.getByRole("link", { name: "Версії", exact: true }).click();
+  await expect(page).toHaveURL(`${BASE}/admin/stories/hunt-lauda-1976/versions`);
+  await expect(page.getByText("Правок цієї історії з адмінки ще не було.")).toBeVisible();
+  await expect(page.getByRole("status").filter({ hasText: "Чекають злиття" })).toBeVisible();
+
+  // Злили — журнал показує правку; відкриваємо diff.
+  expect((await page.request.post(`${FAKE}/__merge?has=${encodeURIComponent("Історія · hunt-lauda-1976")}`)).ok()).toBe(true);
+  await page.reload();
+  const row = page.locator(".ad-ver li").first();
+  await expect(row).toContainText("Історія · hunt-lauda-1976: заголовок");
+  await expect(row.getByRole("button", { name: /Відкотити/ })).toBeEnabled();
+  await expectNoA11yViolations(page);
+  await row.getByRole("link", { name: /Історія · hunt-lauda-1976/ }).click();
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("hunt-lauda-1976: заголовок");
+  const diff = page.locator(".ad-diff").first();
+  await expect(diff.locator(".ad-dl.is-add").filter({ hasText: `(версія)` })).toHaveCount(1);
+  await expect(diff.locator(".ad-dl.is-del").filter({ hasText: before })).toHaveCount(1);
+  await expectNoA11yViolations(page);
+
+  // Відкат: новий PR «Відкат: …» зі шляхом story.json; далі нові правки історії заблоковані, поки він не злитий.
+  await page.getByRole("link", { name: "Версії", exact: true }).click();
+  await page.locator(".ad-ver li").first().getByRole("button", { name: /Відкотити/ }).click();
+  await expect(page.getByRole("status").filter({ hasText: "Відкат створено" })).toBeVisible();
+  const rev = await lastPr(page, "Відкат: Історія · hunt-lauda-1976");
+  expect(rev.head.ref).toMatch(/^admin\/revert-\d{8}-\d{6}$/);
+  expect(rev.paths).toEqual(["content/stories/hunt-lauda-1976/story.json"]);
+  await expect(page.getByRole("status").filter({ hasText: "Чекають злиття" })).toBeVisible();
+  await expect(page.locator(".ad-ver li").first().getByRole("button", { name: /Відкотити/ })).toBeDisabled();
+  await page.goto("/admin/stories/hunt-lauda-1976");
+  await expect(page.getByRole("status").filter({ hasText: "чекають злиття" })).toBeVisible();
+});
+
+test("версії: чужий номер PR, неіснуюча історія й некоректна адреса — 404; вузький екран без горизонтального скролу", async ({ page }) => {
+  await login(page);
+  expect((await page.goto("/admin/stories/jerez-1997/versions/999999"))?.status()).toBe(404);
+  expect((await page.goto("/admin/stories/jerez-1997/versions/abc"))?.status()).toBe(404);
+  expect((await page.goto("/admin/stories/no-such-story/versions"))?.status()).toBe(404);
+  await page.setViewportSize({ width: 360, height: 800 });
+  await page.goto("/admin/stories/jerez-1997/versions");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Версії історії");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+});
