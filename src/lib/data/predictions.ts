@@ -4,7 +4,7 @@
 import "server-only";
 import type { Locale } from "@/i18n/config";
 import { getCalendarPage, type CalendarCard, type RoundState } from "./calendar";
-import { dbSelect } from "./db";
+import { dbSelect, dbSelectAll } from "./db";
 import { driverName, loadDriverIndex } from "./drivers";
 import { once } from "./once";
 import { curatedDrivers, curatedTeams } from "./teams";
@@ -80,10 +80,11 @@ async function driverIds(refs: string[]): Promise<Map<string, number>> {
 async function latestTeamIds(season: number): Promise<Map<number, number>> {
   let rows: ResultRow[];
   try {
-    rows = await dbSelect<ResultRow>(
+    // Сторінками з перевіркою загальної кількості: PostgREST мовчки обрізає відповідь на max-rows (1000), а сезон — ≈ 500 рядків.
+    rows = await dbSelectAll<ResultRow>(
       "results",
       "select=driver_id,team_id,sessions!inner(type,rounds!inner(season_year,number))" +
-        `&sessions.type=eq.R&sessions.rounds.season_year=eq.${season}&order=driver_id`,
+        `&sessions.type=eq.R&sessions.rounds.season_year=eq.${season}&order=session_id,driver_id`,
     );
   } catch (e) {
     if (e instanceof Error && e.message.includes("порожня відповідь")) return new Map();
