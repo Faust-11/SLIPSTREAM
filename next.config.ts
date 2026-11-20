@@ -1,5 +1,8 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import type { NextConfig } from "next";
 import { localeRewritePattern } from "./src/i18n/routing";
+import { parseRedirects, storyRedirectRules } from "./src/lib/stories/redirects";
 
 const isDev = process.env.NODE_ENV === "development";
 // Збірка на Vercel (там своя маршрутизація RSC — див. rewrites).
@@ -53,6 +56,15 @@ const securityHeaders = [
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
 ];
 
+// Старі адреси історій (адмінка 7c пише сюди при зміні адреси). Немає файла чи він зіпсований — просто без редиректів.
+const storyRedirects = (() => {
+  try {
+    return parseRedirects(JSON.parse(readFileSync(join(process.cwd(), "src/data/curated/story-redirects.json"), "utf8")));
+  } catch {
+    return {};
+  }
+})();
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
 
@@ -89,6 +101,7 @@ const nextConfig: NextConfig = {
   // без виклику функції на кожен запит (docs: next-config-js/rewrites.md, «order Next.js routes are checked»).
   async redirects() {
     return [
+      ...storyRedirectRules(storyRedirects),
       { source: "/en", destination: "/", permanent: true },
       { source: "/en/:path*", destination: "/:path*", permanent: true },
     ];
