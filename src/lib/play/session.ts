@@ -1,12 +1,15 @@
 import "server-only";
-import { cookies } from "next/headers";
-import { verifyAccess } from "./access";
+import { cookies, headers } from "next/headers";
+import { looksLikeOurAccess, verifyAccess } from "./access";
 import { playConfig, type PlayConfig } from "./config";
 import { SESSION_COOKIE, SIGNED_IN_COOKIE, decodeSession, encodeSession, flagCookieOptions, sessionCookieOptions } from "./cookie";
 import { refreshSession, type Session } from "./gotrue";
+import { allow, sourceKey } from "./limiter";
 
 /** Не оновлюємо, поки до кінця дії access більше цього запасу (с). */
 const REFRESH_MARGIN_S = 30;
+/** М'яка стеля оновлень за джерелом (див. limiter.ts): законному гравцю потрібне раз на годину, а не 30 за 10 хв. */
+const REFRESH_PER_SOURCE = 30;
 
 export type PlayUser = { userId: string; accessToken: string };
 export type SessionState = { cfg: PlayConfig; user: PlayUser | null; unavailable: boolean };
@@ -37,6 +40,17 @@ export async function currentPlayer(): Promise<SessionState | null> {
   if (!pair) return { cfg, user: null, unavailable: false };
   const access = await verifyAccess(cfg, pair.a);
   if (access && access.exp - Date.now() / 1000 > REFRESH_MARGIN_S) return { cfg, user: { userId: access.userId, accessToken: pair.a }, unavailable: false };
+  // Не схоже на наш access-токен (сміття в cookie) — це не сесія: не турбуємо GoTrue, знімаємо cookie (рев'ю 20.11).
+  if (!access && !looksLikeOurAccess(cfg, pair.a)) {
+    await clearPlaySession();
+    return { cfg, user: null, unavailable: false };
+  }
+  // Підробка зі схожою структурою пройшла б вище, тож стеля на джерело: інакше анонім міг би змушувати функції Vercel слати в GoTrue
+  // стільки POST /token, скільки встигне, і вичерпати ліміт GoTrue по IP для всіх. Вичерпано — як збій: нічого не знімаємо.
+  const source = sourceKey(await headers());
+  if (source && !allow(`refresh:ip:${source}`, REFRESH_PER_SOURCE, 10 * 60_000)) {
+    return access ? { cfg, user: { userId: access.userId, accessToken: pair.a }, unavailable: true } : { cfg, user: null, unavailable: true };
+  }
   const renewed = await refreshSession(cfg, pair.r);
   if (!renewed.ok) {
     if (renewed.reason === "unavailable") {

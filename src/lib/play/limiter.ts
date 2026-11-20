@@ -28,7 +28,11 @@ export function allow(key: string, limit: number, windowMs: number, now = Date.n
  * від будь-кого вичерпали б вхід для всіх (рев'ю 20.11).
  */
 export function clientKey(request: Request): string | null {
-  const h = request.headers;
+  return sourceKey(request.headers);
+}
+
+/** Те саме для заголовків без Request (next/headers у session.ts). */
+export function sourceKey(h: Headers): string | null {
   const v = h.get("x-vercel-forwarded-for") || h.get("x-real-ip") || (h.get("x-forwarded-for") ?? "").split(",")[0] || "";
   return v.trim() || null;
 }
