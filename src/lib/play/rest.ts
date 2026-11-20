@@ -44,7 +44,9 @@ export async function setNick(cfg: PlayConfig, token: string, nick: string): Pro
   const res = await rest(cfg, token, "rpc/set_nick", { method: "POST", body: { p_nick: nick } });
   if (!res) return { ok: false, reason: "unavailable" };
   if (res.ok) return { ok: true };
-  if (res.status === 401 || res.status === 403) return { ok: false, reason: "unauthorized" };
+  // 401 — токен недійсний (PGRST301/303). 403 — немає права (42501: не видано grant, RLS) — це налаштування, а не «сесія завершилась»:
+  // «unauthorized» зробив би з цього петлю «увійти знову → 403» (рев'ю 20.11).
+  if (res.status === 401) return { ok: false, reason: "unauthorized" };
   const err = (await res.json().catch(() => null)) as { code?: string; message?: string } | null;
   if (err?.code === "23505") return { ok: false, reason: "taken" };
   if (err?.code === "23514") return { ok: false, reason: "invalid" };
@@ -56,7 +58,7 @@ export async function setNick(cfg: PlayConfig, token: string, nick: string): Pro
 export async function deleteAccount(cfg: PlayConfig, token: string): Promise<DeleteResult> {
   const res = await rest(cfg, token, "rpc/delete_my_account", { method: "POST", body: {} });
   if (!res) return { ok: false, reason: "unavailable" };
-  if (res.status === 401 || res.status === 403) return { ok: false, reason: "unauthorized" };
+  if (res.status === 401) return { ok: false, reason: "unauthorized" };
   if (!res.ok) return { ok: false, reason: "unavailable" };
   const kind = await res.json().catch(() => null);
   return kind === "deleted" || kind === "data_only_blocked" ? { ok: true, kind } : { ok: false, reason: "unavailable" };
