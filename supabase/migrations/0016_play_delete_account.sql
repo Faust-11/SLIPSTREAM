@@ -63,11 +63,14 @@ revoke all on function play.nick_skeleton(text), play.nick_valid(text) from publ
 grant execute on function play.nick_skeleton(text), play.nick_valid(text) to service_role;
 -- Виклик усередині CHECK/генерованої колонки/індексу — з правами власника таблиці; гравцям прямий виклик не потрібен.
 
-alter table play.profiles drop constraint profiles_nick_chk;
+-- Ідемпотентно (повторне виконання не падає; перевіряє db.yml, крок «Міграція 0016 повторно»): constraint — drop if exists + add,
+-- колонка й індекс — if not exists. Повтор перевіряє CHECK наново на наявних рядках — на бою профілів, що не проходять
+-- play.nick_valid, немає (перед застосуванням див. чек-лист у docs/decisions.md, «Фаза 9a»).
+alter table play.profiles drop constraint if exists profiles_nick_chk;
 alter table play.profiles add constraint profiles_nick_chk check (play.nick_valid(nick));
-alter table play.profiles add column nick_key text generated always as (play.nick_skeleton(nick)) stored;
+alter table play.profiles add column if not exists nick_key text generated always as (play.nick_skeleton(nick)) stored;
 drop index if exists play.profiles_nick_lower_idx;
-create unique index profiles_nick_key_idx on play.profiles (nick_key);
+create unique index if not exists profiles_nick_key_idx on play.profiles (nick_key);
 
 -- set_nick: нік нормалізуємо NFKC на боці бази (прямий виклик RPC з публічним ключем обходить сайт); решта — як у 0015
 -- (блокування, upsert). Порушення формату — 23514 (profiles_nick_chk), зайнятий/надто схожий — 23505 (profiles_nick_key_idx).
