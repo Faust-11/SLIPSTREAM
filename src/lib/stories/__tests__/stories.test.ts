@@ -104,3 +104,14 @@ describe("історії з content/stories (усі файли репозито�
     expect(s.related.some((r) => r.slug === "brawn-gp-2009")).toBe(false);
   });
 });
+
+describe("archiveUrl — копія джерела в Web Archive на сторінці історії", () => {
+  it("показуємо лише справжній знімок web.archive.org; решту з даних ігноруємо", async () => {
+    const { archiveUrl } = await import("../content");
+    const ok = "https://web.archive.org/web/20261120140746/https://www.fia.com/news/x";
+    expect(archiveUrl(ok)).toBe(ok);
+    for (const bad of [undefined, null, 5, "", "javascript:alert(1)", "https://evil.example/web/20261120140746/https://a.example/", "http://web.archive.org/web/20261120140746/https://a.example/", "https://web.archive.org/web/2026/https://a.example/", `${ok} <script>`]) {
+      expect(archiveUrl(bad), String(bad)).toBeNull();
+    }
+  });
+});

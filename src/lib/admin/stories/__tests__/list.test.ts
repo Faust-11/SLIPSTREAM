@@ -17,7 +17,7 @@ function put(slug: string, patch: Record<string, unknown> = {}, md: { uk?: strin
     race: "1997/17",
     title: { uk: `Історія ${slug}`, en: slug },
     dek: { uk: "л", en: "l" },
-    sources: [src("s1", "FIA", "https://fia.example/a", "https://web.archive.org/web/2026/https://fia.example/a"), src("s2", "Autosport", "https://autosport.example/b"), src("s3", "Jolpica", "https://api.jolpi.ca/x")],
+    sources: [src("s1", "FIA", "https://fia.example/a", "https://web.archive.org/web/20261120140746/https://fia.example/a"), src("s2", "Autosport", "https://autosport.example/b"), src("s3", "Jolpica", "https://api.jolpi.ca/x")],
     claims: [{ id: "c1", text: "t", sources: ["s1", "s2"], status: "ok" }],
     ...patch,
   };

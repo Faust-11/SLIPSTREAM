@@ -17,7 +17,10 @@ export const CATEGORIES: Category[] = ["scandal", "sensation", "history", "expla
 export type Status = "ok" | "one" | "dis";
 type L10n = { uk: string; en: string };
 
-type RawSource = { id: string; title: string; publisher: string; date?: string; url: string; author?: string };
+/** Копія джерела в Web Archive (її пише адмінка, 7c): показуємо лише справжню адресу знімка, решту з даних ігноруємо. */
+export const archiveUrl = (v: unknown): string | null => (typeof v === "string" && /^https:\/\/web\.archive\.org\/web\/\d{14}\/https?:\/\/\S+$/.test(v) ? v : null);
+
+type RawSource = { id: string; title: string; publisher: string; date?: string; url: string; author?: string; archive?: string };
 type RawClaim = { id: string; text: string; sources: string[]; status: Status; note?: string; label?: L10n; reader?: L10n };
 type RawMedia = {
   id: string;
@@ -70,7 +73,7 @@ export type StoryCard = {
 };
 
 export type StoryClaim = { id: string; status: Status; sources: number[]; label: string | null; reader: string | null };
-export type StorySource = { n: number; id: string; title: string; publisher: string; date: string | null; author: string | null; url: string };
+export type StorySource = { n: number; id: string; title: string; publisher: string; date: string | null; author: string | null; url: string; archive: string | null };
 
 export type StoryPage = StoryCard & {
   blocks: Block[];
@@ -227,7 +230,7 @@ export function getStory(slug: string, locale: Locale): StoryPage | null {
     ...card(self, locale),
     blocks,
     claims,
-    sources: raw.sources.map((s, i) => ({ n: i + 1, id: s.id, title: s.title, publisher: s.publisher, date: s.date ?? null, author: s.author ?? null, url: s.url })),
+    sources: raw.sources.map((s, i) => ({ n: i + 1, id: s.id, title: s.title, publisher: s.publisher, date: s.date ?? null, author: s.author ?? null, url: s.url, archive: archiveUrl(s.archive) })),
     media: Object.fromEntries((raw.media ?? []).map((m) => [m.id, photo(m, locale)])),
     disputes: raw.claims.filter((c) => c.status === "dis").map((c) => claims[c.id]!),
     toc,

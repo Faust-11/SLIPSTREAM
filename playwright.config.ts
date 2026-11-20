@@ -19,6 +19,9 @@ const FAKE_ADMIN_ENV = {
   ADMIN_GITHUB_TOKEN: "test-gh-token",
   ADMIN_GITHUB_API: `http://127.0.0.1:${AUTH_PORT}`,
   ADMIN_YOUTUBE_API: `http://127.0.0.1:${AUTH_PORT}`,
+  // Здоров'я джерел (7c): сайти джерел і Web Archive — фейк (справжніх зовнішніх запитів e2e не робить).
+  ADMIN_LINKS_FAKE: `http://127.0.0.1:${AUTH_PORT}`,
+  ADMIN_ARCHIVE_FAKE: `http://127.0.0.1:${AUTH_PORT}`,
 };
 // Погода вікенду (OpenF1 / MET Norway): у e2e назовні не ходимо — адреси ведуть на фейк-сервіс (404 → сторінка гонки без
 // блока погоди); сам блок перевіряється підміною /api/weather у браузері (e2e/race.spec.ts).
