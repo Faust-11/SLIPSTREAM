@@ -199,7 +199,7 @@
 .au-link:hover {
   opacity: 1;
 }
-.site-head .au-link {
+.site-head .wrap > .au-link {
   margin-left: -16px;
 }
 .au-link svg {
@@ -215,8 +215,9 @@
   white-space: nowrap;
   max-width: 14em;
 }
+/* На вузьких екранах значка в шапці немає (там логотип + мова + бургер) — акаунт у мобільному меню (.mnav .au-link). */
 @media (width <= 1140px) {
-  .site-head .au-link {
+  .site-head .wrap > .au-link {
     display: none;
   }
 }
