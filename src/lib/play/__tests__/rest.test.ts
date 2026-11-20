@@ -32,6 +32,10 @@ describe("PostgREST схеми play", () => {
       [400, { code: "P0001", message: "blocked" }, "blocked"],
       [400, { code: "28000", message: "not_authenticated" }, "unauthorized"],
       [401, { code: "PGRST301" }, "unauthorized"],
+      // 403 PostgREST — немає права (42501: не видано grant / RLS), тобто налаштування, а не «сесія завершилась»: інакше гравець
+      // ходив би колом «увійти знову → 403» (рев'ю 20.11, знахідка 5)
+      [403, { code: "42501", message: "permission denied for schema play" }, "unavailable"],
+      [403, {}, "unavailable"],
       [500, { code: "XX000" }, "unavailable"],
     ];
     for (const [status, body, reason] of cases) {
@@ -48,5 +52,7 @@ describe("PostgREST схеми play", () => {
     expect(await deleteAccount(cfg, "T")).toEqual({ ok: false, reason: "unavailable" });
     reply(401, {});
     expect(await deleteAccount(cfg, "T")).toEqual({ ok: false, reason: "unauthorized" });
+    reply(403, { code: "42501" });
+    expect(await deleteAccount(cfg, "T")).toEqual({ ok: false, reason: "unavailable" });
   });
 });

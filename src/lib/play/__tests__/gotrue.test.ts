@@ -28,12 +28,37 @@ describe("Supabase Auth REST", () => {
   it("sendCode: 429 → rate_limited, 422 → invalid_email, 500 → unavailable, мережа → unavailable", async () => {
     reply(429);
     expect(await sendCode(cfg, "a@b.co")).toEqual({ ok: false, reason: "rate_limited" });
-    reply(422);
+    reply(422, { error_code: "email_address_invalid" });
     expect(await sendCode(cfg, "a@b.co")).toEqual({ ok: false, reason: "invalid_email" });
     reply(500);
     expect(await sendCode(cfg, "a@b.co")).toEqual({ ok: false, reason: "unavailable" });
     vi.spyOn(globalThis, "fetch").mockRejectedValue(new Error("net"));
     expect(await sendCode(cfg, "a@b.co")).toEqual({ ok: false, reason: "unavailable" });
+  });
+  it("sendCode: причина — за error_code, а не лише за статусом (рев'ю 20.11, знахідка 5)", async () => {
+    reply(400, { error_code: "validation_failed", msg: "Unable to validate email address: invalid format" });
+    expect(await sendCode(cfg, "a@b.co")).toEqual({ ok: false, reason: "invalid_email" });
+    // налаштування проєкту — не помилка користувача: «це не схоже на адресу» при валідній адресі було б неправдою
+    for (const [status, code] of [[422, "signup_disabled"], [400, "email_provider_disabled"], [400, "email_address_not_authorized"], [422, "validation_failed"], [422, undefined]] as const) {
+      reply(status, code ? { error_code: code } : {});
+      expect(await sendCode(cfg, "a@b.co"), `${status} ${code}`).toEqual({ ok: false, reason: "unavailable" });
+    }
+    for (const [status, code] of [[429, "over_email_send_rate_limit"], [429, "over_request_rate_limit"], [400, "over_email_send_rate_limit"]] as const) {
+      reply(status, { error_code: code });
+      expect(await sendCode(cfg, "a@b.co"), `${status} ${code}`).toEqual({ ok: false, reason: "rate_limited" });
+    }
+  });
+  it("verifyCode: «невірний код» лише за otp_expired/otp_invalid; конфігурація й валідація — unavailable; ліміти — rate_limited", async () => {
+    for (const [status, body] of [[403, { error_code: "otp_expired" }], [400, { error_code: "otp_expired" }], [403, { msg: "Token has expired or is invalid" }], [403, { error_code: "otp_invalid" }]] as const) {
+      reply(status, body);
+      expect(await verifyCode(cfg, "a@b.co", "00000000"), JSON.stringify(body)).toEqual({ ok: false, reason: "invalid_code" });
+    }
+    for (const [status, body] of [[422, { error_code: "validation_failed" }], [400, { error_code: "email_provider_disabled" }], [422, { error_code: "signup_disabled" }], [403, {}], [400, {}]] as const) {
+      reply(status, body);
+      expect(await verifyCode(cfg, "a@b.co", "00000000"), JSON.stringify(body)).toEqual({ ok: false, reason: "unavailable" });
+    }
+    reply(429, { error_code: "over_request_rate_limit" });
+    expect(await verifyCode(cfg, "a@b.co", "00000000")).toEqual({ ok: false, reason: "rate_limited" });
   });
   it("verifyCode: type=email; 403 otp_expired → invalid_code; успіх → сесія", async () => {
     const spy = reply(200, { access_token: "A", refresh_token: "R", expires_in: 3600, user: { email: "secret@b.co" } });

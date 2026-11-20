@@ -43,22 +43,41 @@ function asSession(v: unknown): Session | null {
     : null;
 }
 
-/** Лист із кодом. 200 для будь-якої адреси (створює користувача, якщо його немає); 429 — ліміт Supabase на адресу/проєкт. */
+/** error_code і текст помилки GoTrue (нові версії — `error_code`, старі — `msg`/`error_description`). */
+async function errorInfo(res: Response): Promise<{ code: string; text: string }> {
+  const err = (await res.json().catch(() => null)) as { error_code?: unknown; code?: unknown; error_description?: unknown; msg?: unknown; message?: unknown } | null;
+  const code = typeof err?.error_code === "string" ? err.error_code : typeof err?.code === "string" ? err.code : "";
+  return { code, text: [err?.error_description, err?.msg, err?.message].filter((v) => typeof v === "string").join(" ") };
+}
+/** `over_email_send_rate_limit`, `over_request_rate_limit`, … — ліміти Supabase (приходять і як 429, і як 400). */
+const isRateLimit = (status: number, code: string) => status === 429 || /^over_.*rate_limit$/.test(code);
+
+/**
+ * Лист із кодом. 200 для будь-якої адреси (створює користувача, якщо його немає); ліміт Supabase → rate_limited. «Не схоже на
+ * адресу» — лише за `email_address_invalid` (чи `validation_failed` про пошту); решта 4xx (`signup_disabled`,
+ * `email_provider_disabled`, `email_address_not_authorized`, …) — налаштування проєкту, а не помилка користувача: «unavailable».
+ */
 export async function sendCode(cfg: PlayConfig, email: string): Promise<AuthResult<true>> {
   const res = await call(cfg, "/otp", { method: "POST", body: { email, create_user: true } });
   if (!res) return { ok: false, reason: "unavailable" };
   if (res.ok) return { ok: true, value: true };
-  if (res.status === 429) return { ok: false, reason: "rate_limited" };
-  if (res.status === 400 || res.status === 422) return { ok: false, reason: "invalid_email" };
+  const { code, text } = await errorInfo(res);
+  if (isRateLimit(res.status, code)) return { ok: false, reason: "rate_limited" };
+  const badEmail = code === "email_address_invalid" || (code === "validation_failed" && /email/i.test(text)) || (!code && /unable to validate email/i.test(text));
+  if ((res.status === 400 || res.status === 422) && badEmail) return { ok: false, reason: "invalid_email" };
   return { ok: false, reason: "unavailable" };
 }
 
+/** «Невірний або прострочений код» — лише за `otp_expired`/`otp_invalid` (старі версії: 403 «Token has expired or is invalid»). */
 export async function verifyCode(cfg: PlayConfig, email: string, token: string): Promise<AuthResult<Session>> {
   const res = await call(cfg, "/verify", { method: "POST", body: { type: "email", email, token } });
   if (!res) return { ok: false, reason: "unavailable" };
-  if (res.status === 429) return { ok: false, reason: "rate_limited" };
-  if (res.status === 403 || res.status === 400 || res.status === 422) return { ok: false, reason: "invalid_code" };
-  if (!res.ok) return { ok: false, reason: "unavailable" };
+  if (!res.ok) {
+    const { code, text } = await errorInfo(res);
+    if (isRateLimit(res.status, code)) return { ok: false, reason: "rate_limited" };
+    const badCode = code === "otp_expired" || code === "otp_invalid" || (!code && res.status === 403 && /expired|invalid/i.test(text));
+    return { ok: false, reason: badCode ? "invalid_code" : "unavailable" };
+  }
   const session = asSession(await res.json().catch(() => null));
   return session ? { ok: true, value: session } : { ok: false, reason: "unavailable" };
 }
