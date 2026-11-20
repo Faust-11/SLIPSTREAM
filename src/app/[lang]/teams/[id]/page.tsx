@@ -15,6 +15,8 @@ import { driverPath } from "@/lib/driver-slug";
 import { ukOrdinal } from "@/lib/ordinal";
 import { plural } from "@/lib/plural";
 import { pageMetadata, siteUrl } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbList } from "@/lib/jsonld";
 
 type Props = { params: Promise<{ lang: string; id: string }> };
 
@@ -176,7 +178,8 @@ export default async function TeamPageView(props: Props) {
 
   return (
     <div className="team-page" style={style}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbList(lang, [{ name: dict.nav.teams, path: "/teams" }, { name: team.name, path: `/teams/${team.id}` }])} />
       <nav className="crumbs" aria-label="Breadcrumb">
         <div className="wrap">
           <a href={localizedPath("/teams", lang)}>{t.crumbs}</a>

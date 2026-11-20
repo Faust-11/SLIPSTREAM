@@ -11,6 +11,8 @@ import { getSeasonsIndex, type SeasonCard } from "@/lib/data/seasons";
 import { seasonPhotoAlt } from "@/lib/image-alt";
 import { plural } from "@/lib/plural";
 import { pageMetadata, siteUrl } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbList } from "@/lib/jsonld";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -137,7 +139,8 @@ export default async function SeasonsPage({ params }: Props) {
 
   return (
     <div className="seasons-page">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbList(lang, [{ name: dict.nav.seasons, path: "/seasons" }])} />
       <section className="sn-intro">
         <div className="wrap">
           <div>

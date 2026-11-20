@@ -15,6 +15,8 @@ import { driverPortrait } from "@/lib/data/drivers";
 import type { SeasonDriver, SeasonTeamRef } from "@/lib/data/season-page";
 import { plural } from "@/lib/plural";
 import { pageMetadata, siteUrl } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbList } from "@/lib/jsonld";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -194,7 +196,8 @@ export default async function CalendarPage({ params }: Props) {
   return (
     <div className="cl-page" id="cl-page">
       <LiveRounds rootId="cl-page" />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbList(lang, [{ name: dict.nav.calendar, path: "/calendar" }])} />
       <section className="cl-hero">
         <div className="wrap">
           <div>

@@ -8,6 +8,8 @@ import { localizedPath } from "@/i18n/paths";
 import { requireLocale } from "@/i18n/require-locale";
 import { plural } from "@/lib/plural";
 import { pageMetadata, siteUrl } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbList } from "@/lib/jsonld";
 import { getStoryList, type StoryCard as Card } from "@/lib/stories/content";
 import { STORY_FILTERS, type StoryFilter } from "@/lib/stories/filters";
 
@@ -81,7 +83,8 @@ export default async function StoriesPage({ params }: Props) {
 
   return (
     <div className="st-page">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbList(lang, [{ name: dict.nav.stories, path: "/stories" }])} />
       <section className="st-hero">
         <div className="wrap">
           <p className="st-stamp">{t.stamp}</p>

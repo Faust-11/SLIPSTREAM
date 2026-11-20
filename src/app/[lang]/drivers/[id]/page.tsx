@@ -13,6 +13,8 @@ import { getDriverPage, getDriverSlugs, type DriverPage, type Milestone, type Te
 import { ukOrdinal } from "@/lib/ordinal";
 import { plural } from "@/lib/plural";
 import { pageMetadata, siteUrl } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbList } from "@/lib/jsonld";
 
 type Props = { params: Promise<{ lang: string; id: string }> };
 type Dict = Awaited<ReturnType<typeof getDictionary>>["driver"];
@@ -212,7 +214,8 @@ export default async function DriverPageView(props: Props) {
 
   return (
     <div className="team-page driver-page" style={style}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbList(lang, [{ name: dict.nav.drivers, path: "/drivers" }, { name: page.name, path: `/drivers/${page.slug}` }])} />
       <nav className="crumbs" aria-label="Breadcrumb">
         <div className="wrap">
           <a href={path("/drivers")}>{t.crumbs}</a>

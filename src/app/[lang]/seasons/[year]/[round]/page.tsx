@@ -19,6 +19,8 @@ import { plural } from "@/lib/plural";
 import { gapTime, lapTime, raceTime } from "@/lib/race-math";
 import { circuitPhotoAlt } from "@/lib/image-alt";
 import { pageMetadata, siteUrl } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbList } from "@/lib/jsonld";
 
 type Props = { params: Promise<{ lang: string; year: string; round: string }> };
 
@@ -278,7 +280,8 @@ export default async function RacePage(props: Props) {
 
   return (
     <div className="race-page" style={style}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbList(lang, [{ name: dict.nav.seasons, path: "/seasons" }, { name: String(page.year), path: `/seasons/${page.year}` }, { name: `${page.gp} ${page.year}`, path: `/seasons/${page.year}/${page.round}` }])} />
       <nav className="crumbs rc-crumbs" aria-label="Breadcrumb">
         <div className="wrap">
           <a href={path("/seasons")}>{t.crumbs}</a>

@@ -10,6 +10,8 @@ import { getTerms } from "@/lib/glossary/terms";
 import { analyticsEnabled, contactEmail, serviceText } from "@/lib/service/content";
 import { plural } from "@/lib/plural";
 import { pageMetadata, siteUrl } from "@/lib/seo";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbList } from "@/lib/jsonld";
 import { getStoryList } from "@/lib/stories/content";
 
 type Props = { params: Promise<{ lang: string }> };
@@ -43,7 +45,8 @@ export default async function AboutPage({ params }: Props) {
 
   return (
     <div className="sv-page">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbList(lang, [{ name: t.title, path: "/about" }])} />
       <ServiceHero
         stamp={t.stamp}
         h1={t.h1}

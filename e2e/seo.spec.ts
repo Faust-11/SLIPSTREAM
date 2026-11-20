@@ -71,24 +71,64 @@ test("/robots.txt забороняє все до запуску й вказує 
   expect(body).toMatch(/^Sitemap: https?:\/\/.+\/sitemap\.xml$/m);
 });
 
-test("/sitemap.xml: кожна сторінка обома мовами з hreflang, <loc> = canonical", async ({ request, baseURL }) => {
+/** Типи сторінок-деталей у sitemap (адреса без префікса мови). */
+const DETAIL_KINDS: [string, RegExp][] = [
+  ["сезон", /^\/seasons\/\d{4}$/],
+  ["гонка", /^\/seasons\/\d{4}\/\d+$/],
+  ["пілот", /^\/drivers\/[a-z0-9-]+$/],
+  ["команда", /^\/teams\/[a-z0-9-]+$/],
+  ["траса", /^\/circuits\/[a-z0-9-]+$/],
+  ["історія", /^\/stories\/[a-z0-9-]+$/],
+];
+
+async function sitemapLocs(request: import("@playwright/test").APIRequestContext) {
   const res = await request.get("/sitemap.xml");
   expect(res.status()).toBe(200);
   const xml = await res.text();
-  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]!);
-  expect(locs.sort()).toEqual([...PAGES, ...PAGES.map(uk)].map((p) => absolute(baseURL, p)).sort());
-  expect((xml.match(/hreflang="x-default"/g) ?? []).length).toBe(PAGES.length * 2);
+  return { xml, locs: [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]!) };
+}
+
+test("/sitemap.xml: розділи й сторінки-деталі обома мовами з hreflang, <loc> унікальні", async ({ request, baseURL }) => {
+  const { xml, locs } = await sitemapLocs(request);
+  expect(new Set(locs).size, "дублі <loc>").toBe(locs.length);
+  for (const p of [...PAGES, ...PAGES.map(uk)]) expect(locs, p).toContain(absolute(baseURL, p));
+  // Кожен тип сторінки-деталі — обома мовами (UK-адреса = /uk + EN-адреса).
+  const site = absolute(baseURL, "/");
+  const paths = locs.map((l) => (l === site ? "/" : l.slice(site.length)));
+  for (const [name, re] of DETAIL_KINDS) {
+    const en = paths.filter((p) => re.test(p));
+    expect(en.length, `${name}: сторінок в sitemap`).toBeGreaterThan(0);
+    for (const p of en.slice(0, 5)) expect(paths, `${name}: UK-пара для ${p}`).toContain(uk(p));
+  }
+  expect((xml.match(/hreflang="x-default"/g) ?? []).length).toBe(locs.length);
 });
 
-test("кожна сторінка з sitemap — noindex і canonical на себе (сторінки без pageMetadata теж)", async ({ request, baseURL }) => {
-  const xml = await (await request.get("/sitemap.xml")).text();
-  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]!);
+test("вибірка сторінок з sitemap — noindex і canonical на себе (сторінки без pageMetadata теж)", async ({ request, baseURL }) => {
+  const { locs } = await sitemapLocs(request);
   const site = absolute(baseURL, "/");
-  for (const loc of locs) {
-    const path = loc === site ? "/" : loc.slice(site.length);
-    const html = await (await request.get(path)).text();
+  const pathOf = (l: string) => (l === site ? "/" : l.slice(site.length));
+  // Усі розділи + по три сторінки кожного типу-деталі (повний обхід ≈ тисячі адрес — задовго для CI).
+  const picked = new Set(locs.filter((l) => PAGES.some((p) => l === absolute(baseURL, p) || l === absolute(baseURL, uk(p)))));
+  for (const [, re] of DETAIL_KINDS) {
+    for (const l of locs.filter((x) => re.test(pathOf(x).replace(/^\/uk(?=\/)/, ""))).slice(0, 3)) picked.add(l);
+  }
+  for (const loc of picked) {
+    const html = await (await request.get(pathOf(loc))).text();
     expect(html, loc).toContain('<meta name="robots" content="noindex, nofollow"/>');
     expect(html, loc).toContain(`<link rel="canonical" href="${loc}"/>`);
+  }
+});
+
+test("розмітка schema.org: головна — WebSite+Organization, деталі — BreadcrumbList; JSON-LD валідний", async ({ request }) => {
+  const types = async (path: string) => {
+    const html = await (await request.get(path)).text();
+    const blocks = [...html.matchAll(/<script type="application\/ld\+json">([^<]*)<\/script>/g)].map((m) => JSON.parse(m[1]!));
+    return blocks.map((b) => b["@type"]);
+  };
+  expect(await types("/")).toEqual(expect.arrayContaining(["WebSite", "Organization"]));
+  expect(await types("/uk")).toEqual(expect.arrayContaining(["WebSite", "Organization"]));
+  for (const path of ["/drivers", "/teams", "/circuits", "/seasons", "/stories", "/game", "/news", "/uk/calendar"]) {
+    expect(await types(path), path).toContain("BreadcrumbList");
   }
 });
 
