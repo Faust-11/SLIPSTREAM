@@ -31,11 +31,11 @@ const head = (s: string, n: number): string => Array.from(s).slice(0, n).join(""
 const findAll = (re: RegExp, text: string): string[] => Array.from(text.matchAll(re), (m) => m[1]!);
 const byNum = (a: string, b: string): number => Number(a.slice(1)) - Number(b.slice(1));
 
-/** Видавець для незалежності: «FIA (Stewards)» = FIA; власний розрахунок Slipstream з даних Jolpica = Jolpica. */
+/** Видавець для незалежності: «FIA (Stewards)» = FIA; власний розрахунок Outlap з даних Jolpica = Jolpica. */
 export function publisherKey(name: unknown): string {
   const text = String(name);
   const key = text.split("(")[0]!.trim().toLowerCase();
-  if (key.startsWith("slipstream") && text.toLowerCase().includes("jolpica")) return "jolpica";
+  if (key.startsWith("outlap") && text.toLowerCase().includes("jolpica")) return "jolpica";
   return key;
 }
 

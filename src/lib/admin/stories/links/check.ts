@@ -18,7 +18,7 @@ const TIMEOUT_MS = 8_000;
 const MAX_REDIRECTS = 5;
 /** Усі перенаправлення однієї адреси разом: пачка з 6 адрес не має висіти довше за ліміт функції. */
 const TOTAL_MS = 20_000;
-const UA = "Mozilla/5.0 (compatible; SlipstreamLinkCheck/1.0; +https://outlap.org)";
+const UA = "Mozilla/5.0 (compatible; OutlapLinkCheck/1.0; +https://outlap.org)";
 
 type Hop = { status: number; location?: string };
 export type Transport = (url: URL) => Promise<Hop>;
