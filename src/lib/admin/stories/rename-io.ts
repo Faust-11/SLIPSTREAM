@@ -1,16 +1,11 @@
 import "server-only";
-import { existsSync, readFileSync, readdirSync } from "node:fs";
-import { join } from "node:path";
 import { GitHub, GitHubError } from "../github";
-import { parseStoryJson } from "./format";
 import { REDIRECTS_PATH, photoDir, type RenameInput } from "./rename";
-import { SLUG_RE, readStory, type OpenPr } from "./store";
-import { prKind } from "./versions";
+import { SLUG_RE, readStory } from "./store";
 
 /**
  * Завантаження для зміни адреси (7c, задача 8): усе — з ОДНОГО коміту main (sha з readStory), щоб план не змішав стани.
- * Кандидати на «посилаються на цю історію» — з файлів збірки (одним проходом, без запитів) плюс історії, що з'явились у main
- * пізніше за збірку; самі файли кандидатів читаються з main.
+ * Посилання `links.stories` шукаємо в УСІХ історіях main (≈33 запити пачками по 8).
  */
 const enc = (p: string): string => p.split("/").map(encodeURIComponent).join("/");
 
@@ -23,23 +18,6 @@ async function listDir(gh: GitHub, path: string, ref: string): Promise<Entry[]> 
     if (e instanceof GitHubError && e.status === 404) return [];
     throw e;
   }
-}
-
-/** Історії зі збірки, у яких `links.stories` містить адресу (дешево: файли вже в функції). */
-function localReferrers(from: string): { slugs: string[]; all: string[] } {
-  const root = join(process.cwd(), "content/stories");
-  if (!existsSync(root)) return { slugs: [], all: [] };
-  const all = readdirSync(root, { withFileTypes: true }).filter((d) => d.isDirectory() && existsSync(join(root, d.name, "story.json"))).map((d) => d.name);
-  const slugs = all.filter((s) => {
-    if (s === from) return false;
-    try {
-      const list = parseStoryJson(readFileSync(join(root, s, "story.json"), "utf8")).story.links?.stories;
-      return Array.isArray(list) && list.includes(from);
-    } catch {
-      return false;
-    }
-  });
-  return { slugs, all };
 }
 
 export async function loadRenameInput(gh: GitHub, from: string, to: string): Promise<{ input: RenameInput; sha: string } | null> {
@@ -61,12 +39,20 @@ export async function loadRenameInput(gh: GitHub, from: string, to: string): Pro
     }),
   ]);
   const existing = dirs.filter((d) => d.type === "dir").map((d) => d.name);
-  const local = localReferrers(from);
-  const candidates = [...new Set([...local.slugs, ...existing.filter((s) => s !== from && !local.all.includes(s))])];
+  // Усі інші історії — з main на тому самому коміті (не зі збірки: вона може відставати, а історію могли видалити чи дописати в неї посилання).
   const referrers: { slug: string; json: string }[] = [];
-  for (const slug of candidates) {
-    const f = await gh.request<{ content?: string; encoding?: string }>("GET", `/contents/${enc(`content/stories/${slug}/story.json`)}?ref=${sha}`);
-    if (f.encoding === "base64" && f.content !== undefined) referrers.push({ slug, json: Buffer.from(f.content, "base64").toString("utf8") });
+  const others = existing.filter((s) => s !== from);
+  for (let i = 0; i < others.length; i += 8) {
+    const batch = await Promise.all(
+      others.slice(i, i + 8).map(async (slug) => {
+        const f = await gh.request<{ content?: string; encoding?: string }>("GET", `/contents/${enc(`content/stories/${slug}/story.json`)}?ref=${sha}`).catch((e) => {
+          if (e instanceof GitHubError && e.status === 404) return null; // тека без story.json — не історія
+          throw e;
+        });
+        return f && f.encoding === "base64" && f.content !== undefined ? { slug, json: Buffer.from(f.content, "base64").toString("utf8") } : null;
+      }),
+    );
+    for (const b of batch) if (b) referrers.push(b);
   }
   let redirects: Record<string, string> = {};
   if (redirectsFile?.content) {
@@ -89,10 +75,4 @@ export async function loadRenameInput(gh: GitHub, from: string, to: string): Pro
       redirects,
     },
   };
-}
-
-/** Відкриті PR адмінки, що чіпають будь-яку з цих історій (правка, фото, відкат): зміна адреси з ними зіткнулась би при злитті. */
-export async function openConflicts(gh: GitHub, slugs: string[]): Promise<OpenPr[]> {
-  const prs = await gh.request<{ number: number; title: string; draft?: boolean; html_url: string; head: { ref: string } }[]>("GET", "/pulls?state=open&per_page=100");
-  return prs.filter((p) => slugs.some((s) => prKind(s, p) !== null)).map((p) => ({ number: p.number, title: p.title, draft: p.draft === true, url: p.html_url }));
 }

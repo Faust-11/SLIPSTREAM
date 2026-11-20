@@ -3,10 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { GitHub, GitHubError, githubEnv } from "@/lib/admin/github";
 import { requireAdmin } from "@/lib/admin/session";
-import { SLUG_RE, planRename } from "@/lib/admin/stories/rename";
-import { loadRenameInput, openConflicts } from "@/lib/admin/stories/rename-io";
+import { REDIRECTS_PATH, SLUG_RE, planRename } from "@/lib/admin/stories/rename";
+import { loadRenameInput } from "@/lib/admin/stories/rename-io";
 import type { OpenPr } from "@/lib/admin/stories/store";
-import { isSlug, readStory } from "@/lib/admin/stories/store";
+import { isSlug, openPrsTouching, readStory } from "@/lib/admin/stories/store";
 import { renameStoryAction } from "../../rename-actions";
 
 export const metadata: Metadata = { title: "Адреса історії" };
@@ -51,7 +51,7 @@ export default async function AdminStoryAddress({ params, searchParams }: { para
     );
   }
   const gh = new GitHub(env);
-  let preview: { errors: string[]; summary?: { photos: number; linkedStories: string[]; mediaRewritten: number }; conflicts: OpenPr[] } | null = null;
+  let preview: { errors: string[]; summary?: { photos: number; linkedStories: string[]; mediaRewritten: number; warnings: string[] }; conflicts: OpenPr[] } | null = null;
   let loadFailed = false;
   if (!to) {
     // Без новой адреси історію теж перевіряємо: неіснуюча — той самий 404, що й у решти сторінок історії.
@@ -64,7 +64,7 @@ export default async function AdminStoryAddress({ params, searchParams }: { para
       const loaded = await loadRenameInput(gh, slug, to);
       if (!loaded) notFound();
       const plan = planRename(loaded.input);
-      const conflicts = await openConflicts(gh, [slug, ...(plan.ok ? plan.summary.linkedStories : [])]);
+      const conflicts = await openPrsTouching(gh, [slug, to, ...(plan.ok ? plan.summary.linkedStories : [])], [REDIRECTS_PATH]);
       preview = plan.ok ? { errors: [], summary: plan.summary, conflicts } : { errors: plan.errors, conflicts };
     } catch (e) {
       if ((e as { digest?: string }).digest?.startsWith("NEXT_HTTP_ERROR_FALLBACK")) throw e; // notFound()
@@ -120,6 +120,11 @@ export default async function AdminStoryAddress({ params, searchParams }: { para
               Посилання в інших історіях:{" "}
               {preview.summary.linkedStories.length ? preview.summary.linkedStories.map((s) => <span key={s} className="ad-mono">{s} </span>) : "немає"}.
             </li>
+            {preview.summary.warnings.map((w) => (
+              <li key={w}>
+                <b>Увага:</b> {w}
+              </li>
+            ))}
             <li>
               Картка для соцмереж (og) у нової адреси — загальна картка розділу, доки не перезапущено <span className="ad-mono">scripts/og/build.mjs</span>.
             </li>

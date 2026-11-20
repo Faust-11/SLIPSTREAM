@@ -88,7 +88,7 @@ export function applyFields(current: StoryFiles, f: Fields): Applied {
   const story = structuredClone(before);
 
   story.title = { ...(story.title ?? {}), uk: trim(f.title_uk), en: trim(f.title_en) };
-  story.dek = { ...(story.dek ?? {}), uk: trim(f.dek_uk), en: trim(f.dek_en) };
+  story.dek = { ...(story.dek ?? {}), uk: trim(lf(f.dek_uk)), en: trim(lf(f.dek_en)) };
   setPair(story, "kicker", trim(f.kicker_uk), trim(f.kicker_en));
   if (trim(f.checked)) story.checked = trim(f.checked);
   else delete story.checked;

@@ -29,8 +29,26 @@ export function hashFiles(f: StoryFiles): string {
 
 export type OpenPr = { number: number; title: string; draft: boolean; url: string };
 
-/** Відкриті PR адмінки з правками саме цієї історії (гілка `admin/stories-<slug>-<yyyymmdd>-<hhmmss>`) і відкати її правок. */
-export async function openStoryPrs(gh: GitHub, slug: string): Promise<OpenPr[]> {
+/**
+ * Відкриті PR адмінки, що чіпають ці історії: за гілкою (`admin/stories-<slug>-…`, відкат) АБО за файлами (`content/stories/<slug>/`,
+ * `public/img/stories/<slug>/`). Другий спосіб потрібен, бо PR зміни адреси А→Б править і story.json інших історій (`links.stories`), а
+ * гілка в нього — за А: правка історії Х, що посилається на А, інакше створила б другий PR від тієї самої бази й зіткнулась би при злитті.
+ * Файли запитуються лише в чужих PR адмінки (їх зазвичай 0–3).
+ */
+export async function openPrsTouching(gh: GitHub, slugs: string[], extraPaths: string[] = []): Promise<OpenPr[]> {
   const prs = await gh.request<{ number: number; title: string; draft?: boolean; html_url: string; head: { ref: string } }[]>("GET", "/pulls?state=open&per_page=100");
-  return prs.filter((p) => prKind(slug, p) !== null).map((p) => ({ number: p.number, title: p.title, draft: p.draft === true, url: p.html_url }));
+  const out: OpenPr[] = [];
+  for (const p of prs) {
+    let hit = slugs.some((s) => prKind(s, p) !== null);
+    if (!hit && p.head.ref.startsWith("admin/")) {
+      const files = await gh.request<{ filename: string }[]>("GET", `/pulls/${p.number}/files?per_page=100`);
+      // 100 файлів — відповідь могла обрізатись: вважаємо, що чіпає (краще зайва пауза, ніж конфлікт при злитті).
+      hit = files.length >= 100 || files.some((f) => extraPaths.includes(f.filename) || slugs.some((s) => f.filename.startsWith(`content/stories/${s}/`) || f.filename.startsWith(`public/img/stories/${s}/`)));
+    }
+    if (hit) out.push({ number: p.number, title: p.title, draft: p.draft === true, url: p.html_url });
+  }
+  return out;
 }
+
+/** Відкриті PR адмінки з правками саме цієї історії (див. openPrsTouching). */
+export const openStoryPrs = (gh: GitHub, slug: string): Promise<OpenPr[]> => openPrsTouching(gh, [slug]);

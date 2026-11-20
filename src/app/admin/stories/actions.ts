@@ -3,6 +3,7 @@
 import { GitHub, githubEnv, publish } from "@/lib/admin/github";
 import { requireAdmin } from "@/lib/admin/session";
 import { applyFields, describeChanges, type Fields } from "@/lib/admin/stories/form";
+import { pinnedDraftError } from "@/lib/admin/stories/pinned";
 import { hashFiles, isSlug, openStoryPrs, readStory, storyPaths } from "@/lib/admin/stories/store";
 import { validateStory } from "@/lib/admin/stories/validate";
 
@@ -61,6 +62,8 @@ export async function saveStoryAction(_prev: SaveState, form: FormData): Promise
 
   const applied = applyFields(main.files, fields);
   if (!applied.changed) return fail("Немає змін.");
+  const pinned = pinnedDraftError(slug, applied.story.status);
+  if (pinned) return fail(pinned);
   const v = validateStory(slug, applied.story, { uk: applied.files.uk, en: applied.files.en });
   if (v.errors.length) return fail(...v.errors);
 

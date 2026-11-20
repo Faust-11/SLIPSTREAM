@@ -160,6 +160,11 @@ export function validateStory(slug: string, metaIn: unknown, md: { uk?: string; 
   if (blocks.uk && blocks.en && JSON.stringify(blocks.uk) !== JSON.stringify(blocks.en)) {
     errors.push(`блоки [[block:…]] різняться між мовами: uk ${pyList(blocks.uk)}, en ${pyList(blocks.en)}`);
   }
+  if (meta.checked !== undefined && meta.checked !== null) {
+    const c = String(meta.checked);
+    const d = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(c) ? new Date(`${c}T00:00:00Z`) : null;
+    if (!d || Number.isNaN(d.getTime()) || d.toISOString().slice(0, 10) !== c) errors.push(`checked «${c}» — не дата у форматі РРРР-ММ-ДД`);
+  }
   const race = meta.race;
   if (race !== undefined && race !== null && !/^\d{4}\/\d{1,2}$/.test(String(race))) errors.push(`race «${String(race)}» — не у форматі рік/етап`);
   for (const s of sources) {

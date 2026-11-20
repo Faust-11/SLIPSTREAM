@@ -16,6 +16,8 @@ export type LinkResult = { state: LinkState; detail: string; status?: number; fi
 
 const TIMEOUT_MS = 8_000;
 const MAX_REDIRECTS = 5;
+/** Усі перенаправлення однієї адреси разом: пачка з 6 адрес не має висіти довше за ліміт функції. */
+const TOTAL_MS = 20_000;
 const UA = "Mozilla/5.0 (compatible; SlipstreamLinkCheck/1.0; +https://outlap.org)";
 
 type Hop = { status: number; location?: string };
@@ -36,6 +38,7 @@ export const safeLookup: LookupFunction = (hostname, options, callback) => {
 
 const realTransport: Transport = (url) =>
   new Promise((resolve, reject) => {
+    const guard: { timer?: ReturnType<typeof setTimeout> } = {};
     const req = (url.protocol === "https:" ? httpsRequest : httpRequest)(
       {
         protocol: url.protocol,
@@ -49,12 +52,18 @@ const realTransport: Transport = (url) =>
         headers: { "user-agent": UA, accept: "text/html,application/pdf;q=0.9,*/*;q=0.5" },
       },
       (res) => {
+        clearTimeout(guard.timer);
         resolve({ status: res.statusCode ?? 0, location: typeof res.headers.location === "string" ? res.headers.location : undefined });
         res.destroy(); // тіло не потрібне
       },
     );
+    // Абсолютний дедлайн до отримання заголовків: `timeout` сокета рахує лише простій, і сайт, що віддає заголовки по байту, тримав би з'єднання.
+    guard.timer = setTimeout(() => req.destroy(Object.assign(new Error("timeout"), { code: "ETIMEDOUT" })), TIMEOUT_MS);
     req.on("timeout", () => req.destroy(Object.assign(new Error("timeout"), { code: "ETIMEDOUT" })));
-    req.on("error", reject);
+    req.on("error", (e) => {
+      clearTimeout(guard.timer);
+      reject(e);
+    });
     req.end();
   });
 
@@ -91,8 +100,10 @@ export async function checkUrl(raw: string, transport: Transport = fakeBase() ? 
   let current = parseCheckUrl(raw);
   if (!current.ok) return { state: "unknown", detail: `пропущено: ${current.reason}` };
   let url = current.url;
+  const until = Date.now() + TOTAL_MS;
   try {
     for (let hop = 0; hop <= MAX_REDIRECTS; hop++) {
+      if (Date.now() > until) return { state: "unknown", detail: "таймаут" };
       const res = await transport(url);
       if (res.status >= 300 && res.status < 400 && res.location) {
         if (hop === MAX_REDIRECTS) return { state: "unknown", detail: "забагато перенаправлень" };

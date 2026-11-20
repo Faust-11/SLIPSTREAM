@@ -10,6 +10,7 @@ dis — з поясненням note); набір виносок однаков�
 """
 from __future__ import annotations
 
+import datetime
 import json
 import os
 import re
@@ -164,6 +165,16 @@ def check(story_dir: Path) -> tuple[list[str], list[str], str]:
         errors.append(f"виноски різняться: лише uk {only_uk}, лише en {only_en}")
     if "uk" in blocks and "en" in blocks and blocks["uk"] != blocks["en"]:
         errors.append(f"блоки [[block:…]] різняться між мовами: uk {blocks['uk']}, en {blocks['en']}")
+    checked = meta.get("checked")
+    if checked is not None:
+        ok_date = False
+        if re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2}", str(checked)):
+            try:
+                ok_date = datetime.date.fromisoformat(str(checked)).isoformat() == str(checked)
+            except ValueError:
+                ok_date = False
+        if not ok_date:
+            errors.append(f"checked «{checked}» — не дата у форматі РРРР-ММ-ДД")
     race = meta.get("race")
     if race is not None and not re.fullmatch(r"\d{4}/\d{1,2}", str(race)):
         errors.append(f"race «{race}» — не у форматі рік/етап")

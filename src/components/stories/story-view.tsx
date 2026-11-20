@@ -22,7 +22,11 @@ const dayFmt = {
   uk: new Intl.DateTimeFormat("uk", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }),
   en: new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }),
 };
-const day = (iso: string, lang: Locale) => dayFmt[lang].format(new Date(`${iso.slice(0, 10)}T00:00:00Z`));
+/** Некоректна дата в даних не має валити збірку чи сторінку: показуємо її як є (валідатори історій такі дати не пропускають). */
+const day = (iso: string, lang: Locale) => {
+  const d = new Date(`${iso.slice(0, 10)}T00:00:00Z`);
+  return Number.isNaN(d.getTime()) ? iso : dayFmt[lang].format(d);
+};
 
 type Props = { lang: Locale; story: StoryPage; dict: Awaited<ReturnType<typeof getDictionary>>; facts: RaceFacts | null; preview?: boolean };
 

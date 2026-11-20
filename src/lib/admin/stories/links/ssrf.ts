@@ -29,14 +29,17 @@ for (const [net, bits] of [
 // ::ffff:0:0/96 заборонило б усі публічні адреси (замір 20.11). Mapped-адреса перевіряється правилами IPv4 вище.
 for (const [net, bits] of [
   ["::", 128],
+  ["::", 96], // IPv4-сумісні (::127.0.0.1) — застарілий формат, на публічних адресах не вживається
   ["::1", 128],
   ["64:ff9b::", 96], // NAT64
+  ["64:ff9b:1::", 48], // NAT64 локальний
   ["100::", 64],
   ["2001::", 32], // Teredo
   ["2001:db8::", 32],
   ["2002::", 16], // 6to4
   ["fc00::", 7], // unique local
   ["fe80::", 10], // link-local
+  ["fec0::", 10], // site-local (застарілий, але маршрутизований всередині мереж)
   ["ff00::", 8], // multicast
 ] as const) {
   blocked.addSubnet(net, bits, "ipv6");
@@ -62,7 +65,8 @@ export function parseCheckUrl(raw: string): ParsedUrl {
   if (url.protocol !== "http:" && url.protocol !== "https:") return { ok: false, reason: "не http(s)" };
   if (url.username || url.password) return { ok: false, reason: "логін у адресі" };
   if (url.port && url.port !== (url.protocol === "https:" ? "443" : "80")) return { ok: false, reason: "нестандартний порт" };
-  const host = url.hostname.replace(/^\[|\]$/g, "").toLowerCase();
+  // «localhost.» — те саме ім'я з кореневою крапкою: без цього воно проходило б розбір (з'єднання його все одно відхиляє).
+  const host = url.hostname.replace(/^\[|\]$/g, "").toLowerCase().replace(/\.+$/, "");
   if (!host) return { ok: false, reason: "немає хоста" };
   if (isIP(host)) return isPublicAddress(host) ? { ok: true, url } : { ok: false, reason: "приватна адреса" };
   if (host === "localhost" || host.endsWith(".localhost") || host.endsWith(".local") || host.endsWith(".internal") || !host.includes(".")) {

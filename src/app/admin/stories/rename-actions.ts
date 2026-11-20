@@ -3,14 +3,15 @@
 import { redirect } from "next/navigation";
 import { GitHub, githubEnv, publish } from "@/lib/admin/github";
 import { requireAdmin } from "@/lib/admin/session";
-import { planRename } from "@/lib/admin/stories/rename";
-import { loadRenameInput, openConflicts } from "@/lib/admin/stories/rename-io";
-import { isSlug } from "@/lib/admin/stories/store";
+import { REDIRECTS_PATH, planRename } from "@/lib/admin/stories/rename";
+import { loadRenameInput } from "@/lib/admin/stories/rename-io";
+import { isSlug, openPrsTouching } from "@/lib/admin/stories/store";
 
 /**
  * Зміна адреси історії (7c, задача 8). Публічний POST — requireAdmin() першим. З форми — лише стара й нова адреса; усе інше
  * (файли, фото, посилання, редиректи) сервер бере з main і рахує заново: попередній перегляд на сторінці — зручність, не довіра.
- * Гілка `admin/stories-<стара>-…`: поки PR відкритий, стара адреса заблокована для будь-яких інших правок (як і в редакторі).
+ * Гілка й назва — за НОВОЮ адресою (`admin/stories-<нова>-…`, «Історія · <нова>: …»): так зміна потрапляє в журнал версій нової історії, і її можна
+ * відкотити з адмінки. Блокування старої адреси, посилальних історій і файла редиректів — за файлами PR (store.ts, openPrsTouching).
  */
 export async function renameStoryAction(form: FormData): Promise<void> {
   await requireAdmin();
@@ -28,7 +29,7 @@ export async function renameStoryAction(form: FormData): Promise<void> {
   const plan = planRename(loaded!.input);
   if (!plan.ok) back("invalid", `&to=${encodeURIComponent(to)}`);
   const ok = plan as Extract<typeof plan, { ok: true }>;
-  const conflicts = await openConflicts(gh, [from, ...ok.summary.linkedStories]).catch(() => null);
+  const conflicts = await openPrsTouching(gh, [from, to, ...ok.summary.linkedStories], [REDIRECTS_PATH]).catch(() => null);
   if (!conflicts) back("github");
   if (conflicts!.length) back("open-pr", `&to=${encodeURIComponent(to)}`);
 
@@ -38,8 +39,8 @@ export async function renameStoryAction(form: FormData): Promise<void> {
     const res = await publish(
       gh,
       {
-        section: `stories-${from}`,
-        title: `Історія · ${from}: адреса змінена на ${to}`,
+        section: `stories-${to}`,
+        title: `Історія · ${to}: адреса змінена з ${from}`,
         body: [
           `Адреса історії **${from}** → **${to}**.`,
           `Файли: тека історії (3), фото: ${ok.summary.photos}, посилання в інших історіях: ${ok.summary.linkedStories.join(", ") || "немає"}.`,
