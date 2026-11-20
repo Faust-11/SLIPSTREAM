@@ -89,7 +89,9 @@ function photoJobs() {
   for (const slug of readdirSync(dir)) {
     const p = join(dir, slug, "story.json");
     if (!existsSync(p)) continue;
-    const hero = JSON.parse(readFileSync(p, "utf8")).media?.find((m) => m.role === "hero");
+    const story = JSON.parse(readFileSync(p, "utf8"));
+    if (story.status === "draft") continue; // чернетки на сайт не виходять — картки для них не потрібні
+    const hero = story.media?.find((m) => m.role === "hero");
     if (hero) jobs.push({ kind: "stories", id: slug, src: hero.src, focus: hero.focus ?? "50% 50%" });
   }
   return jobs;

@@ -414,3 +414,51 @@ test("адреса: відмови — адреса в коді, зайнята,
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Адреса історії");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
+
+test("перегляд: сторінка історії в адмінці — розмітка сайту без структурованих даних і «Читайте також»; мова перемикається", async ({ page }) => {
+  await openStory(page, "women-in-f1");
+  await page.getByRole("link", { name: "Перегляд", exact: true }).click();
+  await expect(page).toHaveURL(`${BASE}/admin/stories/women-in-f1/preview`);
+  const view = page.locator(".ad-preview");
+  await expect(view.getByRole("heading", { level: 1 })).not.toBeEmpty();
+  await expect(view.locator("#sources")).toBeVisible();
+  await expect(view.locator('script[type="application/ld+json"]')).toHaveCount(0);
+  await expect(view.locator(".st-more")).toHaveCount(0);
+  await expect(page.locator(".ad-pv-bar").getByText("Опубліковано")).toBeVisible();
+  const ukTitle = await view.getByRole("heading", { level: 1 }).textContent();
+  await page.getByRole("navigation", { name: "Мова перегляду" }).getByRole("link", { name: "English" }).click();
+  await expect(page).toHaveURL(/lang=en/);
+  await expect(view).toHaveAttribute("lang", "en");
+  expect(await view.getByRole("heading", { level: 1 }).textContent()).not.toBe(ukTitle);
+});
+
+test("перегляд: чернетка «в main» видна в адмінці (список → Перегляд); зламаний текст — повідомлення, а не 500", async ({ page }) => {
+  const slug = "schumacher-debut-1991";
+  const jsonPath = `content/stories/${slug}/story.json`;
+  const mdPath = `content/stories/${slug}/uk.md`;
+  const story = JSON.parse(readFileSync(join(process.cwd(), jsonPath), "utf8"));
+  const override = (path: string, content: string) => page.request.post(`${FAKE}/__override`, { data: { path, content } });
+  try {
+    await override(jsonPath, JSON.stringify({ ...story, status: "draft" }, null, 2) + "\n");
+    await login(page);
+    await page.goto(`/admin/stories/${slug}/preview`);
+    await expect(page.locator(".ad-pv-bar")).toContainText("Чернетка: на сайті цієї сторінки немає");
+    await expect(page.locator(".ad-preview").getByRole("heading", { level: 1 })).toContainText(story.title.uk.split(": ")[0]);
+    await expectNoA11yViolations(page);
+
+    // Зіпсований текст: невідомий термін словника → пояснення на сторінці перегляду.
+    await override(mdPath, `${readFileSync(join(process.cwd(), mdPath), "utf8")}\n[[t:no-such-term|слово]]\n`);
+    await page.reload();
+    await expect(page.locator(".ad-result.is-bad")).toContainText("Сторінку не вдалося зібрати");
+  } finally {
+    await page.request.delete(`${FAKE}/__override?path=${encodeURIComponent(jsonPath)}`);
+    await page.request.delete(`${FAKE}/__override?path=${encodeURIComponent(mdPath)}`);
+  }
+});
+
+test("перегляд: неіснуюча історія — 404; невідома мова в адресі — українська", async ({ page }) => {
+  await login(page);
+  expect((await page.goto("/admin/stories/no-such-story/preview"))?.status()).toBe(404);
+  await page.goto("/admin/stories/women-in-f1/preview?lang=xx");
+  await expect(page.locator(".ad-preview")).toHaveAttribute("lang", "uk");
+});
