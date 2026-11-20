@@ -136,6 +136,7 @@
   color: var(--on-yellow);
 }
 .oth-days span {
+  /* Дата без подій: без прозорості (opacity знижувала контраст нижче WCAG AA); відмінність — колір і пунктирна рамка. */
   color: var(--ink-soft);
-  opacity: 0.6;
+  border-style: dashed;
 }
