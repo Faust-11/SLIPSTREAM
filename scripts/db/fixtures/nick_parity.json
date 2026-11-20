@@ -45,19 +45,19 @@
   "input": "Pilot42",
   "valid": true,
   "problem": null,
-  "skeleton": "pilot42"
+  "skeleton": "pllot42"
  },
  {
   "input": "Ukrainian_Fan-1",
   "valid": true,
   "problem": null,
-  "skeleton": "ukrainianfan1"
+  "skeleton": "ukralnlanfanl"
  },
  {
   "input": "a1b",
   "valid": true,
   "problem": null,
-  "skeleton": "a1b"
+  "skeleton": "alb"
  },
  {
   "input": "Борис",
@@ -117,37 +117,37 @@
   "input": "Аdmin",
   "valid": true,
   "problem": null,
-  "skeleton": "admin"
+  "skeleton": "admln"
  },
  {
   "input": "Admin",
   "valid": true,
   "problem": null,
-  "skeleton": "admin"
+  "skeleton": "admln"
  },
  {
   "input": "аdmin",
   "valid": true,
   "problem": null,
-  "skeleton": "admin"
+  "skeleton": "admln"
  },
  {
   "input": "ADMIN",
   "valid": true,
   "problem": null,
-  "skeleton": "admin"
+  "skeleton": "admln"
  },
  {
   "input": "Ad_min",
   "valid": true,
   "problem": null,
-  "skeleton": "admin"
+  "skeleton": "admln"
  },
  {
   "input": "Ad min",
   "valid": true,
   "problem": null,
-  "skeleton": "admin"
+  "skeleton": "admln"
  },
  {
   "input": "Рavel",
@@ -165,19 +165,19 @@
   "input": "Сергій",
   "valid": true,
   "problem": null,
-  "skeleton": "cepгiй"
+  "skeleton": "cepгlй"
  },
  {
   "input": "Cергій",
   "valid": true,
   "problem": null,
-  "skeleton": "cepгiй"
+  "skeleton": "cepгlй"
  },
  {
   "input": "Ｍａｘ１",
   "valid": true,
   "problem": null,
-  "skeleton": "max1"
+  "skeleton": "maxl"
  },
  {
   "input": "Max Zed",
@@ -189,7 +189,7 @@
   "input": "ﬁsher",
   "valid": true,
   "problem": null,
-  "skeleton": "fisher"
+  "skeleton": "flsher"
  },
  {
   "input": "ab",
@@ -291,7 +291,7 @@
   "input": "Räikkönen",
   "valid": false,
   "problem": "chars",
-  "skeleton": "räikkönen"
+  "skeleton": "rälkkönen"
  },
  {
   "input": "Max😀",
@@ -327,13 +327,13 @@
   "input": "Max#1",
   "valid": false,
   "problem": "chars",
-  "skeleton": "max#1"
+  "skeleton": "max#l"
  },
  {
   "input": "me@mail.test",
   "valid": false,
   "problem": "chars",
-  "skeleton": "me@mailtest"
+  "skeleton": "me@malltest"
  },
  {
   "input": "Max/V",
@@ -438,10 +438,166 @@
   "skeleton": "a"
  },
  {
+  "input": "BenӀ",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "benӀ"
+ },
+ {
+  "input": "Benӏ",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "benӏ"
+ },
+ {
+  "input": "BenѠ",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "benѠ"
+ },
+ {
+  "input": "Benҁ",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "benҁ"
+ },
+ {
+  "input": "BenҊ",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "benҊ"
+ },
+ {
+  "input": "Ӏban",
+  "valid": false,
+  "problem": "chars",
+  "skeleton": "Ӏban"
+ },
+ {
+  "input": "Ben1",
+  "valid": true,
+  "problem": null,
+  "skeleton": "benl"
+ },
+ {
+  "input": "Benl",
+  "valid": true,
+  "problem": null,
+  "skeleton": "benl"
+ },
+ {
+  "input": "BenI",
+  "valid": true,
+  "problem": null,
+  "skeleton": "benl"
+ },
+ {
+  "input": "Beni",
+  "valid": true,
+  "problem": null,
+  "skeleton": "benl"
+ },
+ {
+  "input": "Benі",
+  "valid": true,
+  "problem": null,
+  "skeleton": "benl"
+ },
+ {
+  "input": "BenІ",
+  "valid": true,
+  "problem": null,
+  "skeleton": "benl"
+ },
+ {
+  "input": "Alex1",
+  "valid": true,
+  "problem": null,
+  "skeleton": "alexl"
+ },
+ {
+  "input": "Alexl",
+  "valid": true,
+  "problem": null,
+  "skeleton": "alexl"
+ },
+ {
+  "input": "AIex",
+  "valid": true,
+  "problem": null,
+  "skeleton": "alex"
+ },
+ {
+  "input": "Аlех",
+  "valid": true,
+  "problem": null,
+  "skeleton": "alex"
+ },
+ {
+  "input": "Alexi",
+  "valid": true,
+  "problem": null,
+  "skeleton": "alexl"
+ },
+ {
+  "input": "Oleg",
+  "valid": true,
+  "problem": null,
+  "skeleton": "oleg"
+ },
+ {
+  "input": "0leg",
+  "valid": true,
+  "problem": null,
+  "skeleton": "oleg"
+ },
+ {
+  "input": "Оleg",
+  "valid": true,
+  "problem": null,
+  "skeleton": "oleg"
+ },
+ {
+  "input": "оleg",
+  "valid": true,
+  "problem": null,
+  "skeleton": "oleg"
+ },
+ {
+  "input": "B0ris",
+  "valid": true,
+  "problem": null,
+  "skeleton": "borls"
+ },
+ {
+  "input": "Boris",
+  "valid": true,
+  "problem": null,
+  "skeleton": "borls"
+ },
+ {
+  "input": "Боris",
+  "valid": true,
+  "problem": null,
+  "skeleton": "бorls"
+ },
+ {
+  "input": "Bor1s",
+  "valid": true,
+  "problem": null,
+  "skeleton": "borls"
+ },
+ {
+  "input": "Borls",
+  "valid": true,
+  "problem": null,
+  "skeleton": "borls"
+ },
+ {
   "input": "Гравець 1A2B",
   "valid": false,
   "problem": "reserved",
-  "skeleton": "гpabeць1a2b"
+  "skeleton": "гpabeцьla2b"
  },
  {
   "input": "гравець x",

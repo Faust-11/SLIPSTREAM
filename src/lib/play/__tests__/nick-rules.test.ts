@@ -51,8 +51,19 @@ describe("нік: allowlist + NFKC + скелет (дзеркало play.nick_va
     same("Борис", "борис", "БОРИС");
     same("Сергій", "Cергій");
     same("Max", "Мах"); // кириличні М, а, х
+    // I / l / 1 / і — один символ; O / 0 / о — один
+    same("Ben1", "Benl", "BenI", "Beni", "Ben\u0456", "Ben\u0406");
+    same("Alex", "AIex", "Аlех", "Aiex"); // l / I / кирилична А, е, х
+    same("Alex1", "Alexl", "Alexi", "AIexI");
+    same("Oleg", "0leg", "\u041eleg", "\u043eleg");
+    same("B0ris", "Boris", "Bor1s", "Borls", "\u0411\u043eris".replace("\u0411", "B"));
     expect(nickSkeleton("Max")).not.toBe(nickSkeleton("Maxx"));
     expect(nickSkeleton("Борис")).not.toBe(nickSkeleton("Boris")); // б, и — без латинських двійників: різні
+  });
+
+  it("Ӏ (U+04C0), ӏ (U+04CF), ѡ, ҁ, Ҋ та решта кирилиці поза U+0400–U+045F і Ґ/ґ — відмова; повні пари з таблиці — дозволено", () => {
+    for (const bad of ["Ben\u04c0", "Ben\u04cf", "Ben\u0460", "Ben\u0481", "Ben\u048a", "\u04c0ban"]) expect(nickProblem(bad), JSON.stringify(bad)).toBe("chars");
+    for (const ok of ["Ґанна", "ґанна", "Їжак", "Єва", "Ёлка", "Ђорђе", "Київ"]) expect(nickProblem(ok), ok).toBeNull();
   });
 
   it("«Гравець …» зарезервовано за скелетом: і з латинськими двійниками, і з регістром", () => {
