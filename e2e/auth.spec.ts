@@ -183,9 +183,10 @@ test.describe("сесія", () => {
     await expect(page).toHaveURL(`${BASE}/profile`);
     const before = (await page.context().cookies()).find((c) => c.name === SESSION_COOKIE)!.value;
     await page.reload();
+    // Нік і кнопка з'являються лише після відповіді /api/session — саме вона оновлює cookie; до того cookie ще стара.
+    await expect(page.getByRole("button", { name: "Sign out" })).toBeVisible();
     const after = (await page.context().cookies()).find((c) => c.name === SESSION_COOKIE)!.value;
     expect(after).not.toBe(before);
-    await expect(page.getByRole("button", { name: "Sign out" })).toBeVisible();
     expect((await stats(page, email)).refreshes).toBeGreaterThanOrEqual(1);
   });
 
@@ -300,7 +301,7 @@ test.describe("захист обробників", () => {
   });
 
   test("підроблена cookie сесії — анонім, cookie знято або ігнорується", async ({ page }) => {
-    await page.context().addCookies([{ name: SESSION_COOKIE, value: Buffer.from(JSON.stringify({ a: "fake.jwt.token", r: "nope" })).toString("base64url"), url: BASE }]);
+    await page.context().addCookies([{ name: SESSION_COOKIE, value: Buffer.from(JSON.stringify({ a: "fake.jwt.token", r: "nope" })).toString("base64url"), domain: "localhost", path: "/", secure: true }]);
     const res = await page.request.get("/api/session");
     expect(await res.json()).toMatchObject({ user: null });
   });
