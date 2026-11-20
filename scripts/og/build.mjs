@@ -36,7 +36,7 @@ const json = (p) => JSON.parse(readFileSync(join(ROOT, p), "utf8"));
 const WORDMARK = readFileSync(join(ROOT, "public/brand/outlap-wordmark-for-dark.svg"), "utf8");
 const LOGO_FULL = readFileSync(join(ROOT, "public/brand/outlap-logo-for-dark.svg"), "utf8");
 const LOCALES = ["en", "uk"];
-const SECTIONS = ["home", "seasons", "calendar", "news", "drivers", "teams", "circuits", "stories", "newbie", "game"];
+const SECTIONS = ["home", "seasons", "calendar", "predictions", "news", "drivers", "teams", "circuits", "stories", "newbie", "game"];
 // Службові сторінки (фаза 8) — не в меню: назва й опис з content/service/<мова>.json.
 const SERVICE = ["about", "sources"];
 

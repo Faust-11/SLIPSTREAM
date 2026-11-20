@@ -1,6 +1,6 @@
 import "server-only";
 import type { PlayConfig } from "./config";
-import { isRowId, normalizePicks, type Picks, type PredictionInput, type PredictionKind } from "./predictions";
+import { isRowId, normalizePicks, REVEALED_LIMIT, type Picks, type PredictionInput, type PredictionKind } from "./predictions";
 
 /**
  * PostgREST схеми play для прогнозів. Запис — лише через play.save_prediction від імені гравця (його access-токен у
@@ -102,9 +102,6 @@ export async function getMyPredictions(cfg: PlayConfig, token: string, year: num
 }
 
 export type RevealedPrediction = { kind: PredictionKind; player: string; picks: Picks; dnfTeam: number | null; allFinish: boolean; points: number | null };
-
-/** Скільки рядків віддаємо за раз: таблиця на сторінці, не вивантаження бази. */
-export const REVEALED_LIMIT = 200;
 
 /**
  * Прогнози всіх гравців ПІСЛЯ дедлайну (подання play.revealed_predictions; до дедлайну воно порожнє). Публічне подання:

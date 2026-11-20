@@ -2,9 +2,9 @@ import { describe, expect, it } from "vitest";
 import { NAV, SECTION_HERO, activeNavKey, barePathFromSegments } from "../nav";
 
 describe("NAV", () => {
-  it("9 розділів у порядку меню, Гра — жовта", () => {
+  it("10 розділів у порядку меню, Гра — жовта", () => {
     expect(NAV.map((i) => i.key)).toEqual([
-      "seasons", "calendar", "news", "drivers", "teams", "circuits", "stories", "newbie", "game",
+      "seasons", "calendar", "predictions", "news", "drivers", "teams", "circuits", "stories", "newbie", "game",
     ]);
     expect(NAV.filter((i) => i.accent === "yellow").map((i) => i.key)).toEqual(["game"]);
   });
@@ -19,6 +19,7 @@ describe("NAV", () => {
     expect(activeNavKey([])).toBeNull();
     expect(activeNavKey(["teams"])).toBe("teams");
     expect(activeNavKey(["drivers", "norris"])).toBe("drivers");
+    expect(activeNavKey(["predictions", "22"])).toBe("predictions");
     expect(activeNavKey(["(content)", "stories"])).toBe("stories");
     expect(activeNavKey(["nope"])).toBeNull();
   });

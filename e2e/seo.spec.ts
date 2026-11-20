@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { expectNoA11yViolations } from "./axe";
 
-const SECTIONS = ["/seasons", "/calendar", "/news", "/drivers", "/teams", "/circuits", "/stories", "/newbie", "/game"];
+const SECTIONS = ["/seasons", "/calendar", "/predictions", "/news", "/drivers", "/teams", "/circuits", "/stories", "/newbie", "/game"];
 const PAGES = ["/", ...SECTIONS].concat(["/about", "/sources"]); // службові сторінки (фаза 8) — у sitemap, не в меню
 const uk = (p: string) => (p === "/" ? "/uk" : `/uk${p}`);
 
@@ -137,7 +137,7 @@ test("/uk/nope → 404 українською з посиланнями на р�
   expect(res?.status()).toBe(404);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Сторінку не знайдено");
   const nav = page.getByRole("navigation", { name: "Розділи" });
-  await expect(nav.getByRole("link")).toHaveCount(9);
+  await expect(nav.getByRole("link")).toHaveCount(10);
   await expect(nav.getByRole("link", { name: "Команди" })).toHaveAttribute("href", "/uk/teams");
   await expectNoA11yViolations(page);
 });

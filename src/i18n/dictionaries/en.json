@@ -15,6 +15,7 @@
   "nav": {
     "seasons": "Seasons",
     "calendar": "Calendar",
+    "predictions": "Predictions",
     "news": "News",
     "drivers": "Drivers",
     "teams": "Teams",
@@ -50,6 +51,7 @@
       "description": "An unofficial Formula 1 fan site: seasons, races, drivers, teams, circuits and stories."
     },
     "sections": {
+      "predictions": "Predict qualifying and the race, earn points and compete for the season title.",
       "seasons": "Every Formula 1 season since 1950: champions, standings and races.",
       "calendar": "The Formula 1 calendar: dates, circuits and session times.",
       "news": "Formula 1 news from outlets and journalists in one place, with a countdown to the next race.",
@@ -1621,6 +1623,116 @@
       "deletedBlocked": "Your game data has been deleted. A minimal service record stays because the account was blocked by a moderator.",
       "deleteError": "Could not delete the account right now. Please try again later.",
       "home": "Back to the site"
+    }
+  },
+  "predictions": {
+    "title": "Predictions",
+    "metaDescription": "Predict the top ten of qualifying and the race, plus the team that will not finish. Predictions for a weekend close 5 minutes before qualifying starts.",
+    "stamp": "Predictions · {season} season",
+    "h1": "Race predictions",
+    "lead": "Predict the top ten of qualifying and the race, plus the team that will not finish. Predictions for a weekend close 5 minutes before qualifying starts.",
+    "howH": "How points work",
+    "rules": [
+      "Exact place: 1st is worth 10 points, 2nd 8, 3rd 6, places 4–10 3 each.",
+      "A driver who finishes in the real top ten but not in your place earns 1 point.",
+      "The whole podium exactly right is worth another 10 points. The whole top ten exactly right, another 30.",
+      "In the race: the team that will not finish is worth 10 points if at least one of its cars is not classified, or if you chose “Everyone finishes” and that happened.",
+      "Points appear after the race: qualifying and the race of a round are scored together.",
+      "The season champion has the most points among players who predicted at least half of the rounds. If points are equal, there are several champions."
+    ],
+    "roundsH": "Rounds",
+    "roundN": "Round {n}",
+    "empty": "There are no upcoming rounds in the schedule. The next season will appear here as soon as it is added to the calendar.",
+    "sprint": "Sprint weekend",
+    "open": "Predictions open",
+    "closesIn": "close in {t}",
+    "closed": "Predictions closed",
+    "noTime": "Qualifying time is not announced yet, so predictions are closed for now",
+    "deadline": "Closes:",
+    "make": "Make a prediction",
+    "view": "See predictions",
+    "tz": {
+      "utc": "Times are UTC.",
+      "local": "Times are in your time zone ({tz})."
+    },
+    "round": {
+      "metaTitle": "Prediction: {gp}",
+      "metaDescription": "Prediction for the {gp}: qualifying, the race and the team that will not finish. Predictions close 5 minutes before qualifying starts.",
+      "stamp": "Round {n} · {place}",
+      "back": "All rounds",
+      "loading": "Loading the round…",
+      "unavailable": "Predictions are temporarily unavailable. Please try again in a few minutes.",
+      "retry": "Try again",
+      "deadlineLabel": "Predictions close",
+      "remaining": "{t} left",
+      "closedLead": "Predictions for this round are closed.",
+      "sprintNote": "This is a sprint weekend. We do not predict the sprint yet — only qualifying and the race.",
+      "signIn": {
+        "h": "Sign in to make a prediction",
+        "text": "Sign in with a code sent to your email, no password. Other players see your nickname, nobody sees your email.",
+        "cta": "Sign in"
+      },
+      "playingAs": "You are playing as {nick}.",
+      "kinds": {
+        "Q": {
+          "h": "Qualifying",
+          "hint": "The top ten of qualifying. Places 1–3 are required, the rest can stay empty."
+        },
+        "R": {
+          "h": "Race",
+          "hint": "The top ten of the race and the team that will not finish. Places 1–3 are required, the rest can stay empty."
+        }
+      },
+      "slot": "Place {n}",
+      "required": "required",
+      "choose": "Choose a driver",
+      "none": "Not chosen",
+      "takenAt": "now in place {n}",
+      "swapHint": "This driver is already in another place — they will swap places.",
+      "fillStandings": "Fill from the championship",
+      "clear": "Clear",
+      "dnf": {
+        "h": "Which team will not finish?",
+        "label": "Team without a finish",
+        "none": "Do not specify",
+        "all": "Everyone finishes",
+        "hint": "10 points if at least one car of the chosen team is not classified, or if everyone finishes and you chose that."
+      },
+      "save": {
+        "Q": "Save qualifying",
+        "R": "Save race"
+      },
+      "saving": "Saving…",
+      "saved": "Saved. You can change it until predictions close.",
+      "dirty": "You have unsaved changes.",
+      "errors": {
+        "required": "Choose drivers for places 1–3.",
+        "closed": "Predictions are already closed — your changes were not saved.",
+        "noProfile": "Choose a nickname to save your prediction.",
+        "blocked": "Your account is blocked, so predictions are unavailable.",
+        "unauthorized": "Your session has ended. Please sign in again.",
+        "rateLimited": "Too many requests. Please wait a little and try again.",
+        "invalid": "The prediction did not pass validation. Reload the page and try again.",
+        "unavailable": "Could not save. Please try again."
+      },
+      "mine": {
+        "h": "Your prediction",
+        "none": "You did not make a prediction for this round."
+      },
+      "revealed": {
+        "h": "Players' predictions",
+        "lead": "Once predictions close, everyone's predictions are public. Points appear after the race.",
+        "none": "Nobody made a prediction for this round.",
+        "player": "Player",
+        "points": "Points",
+        "dnf": "Team without a finish",
+        "allFinish": "Everyone finishes",
+        "you": "you",
+        "limit": "Showing the first {n}.",
+        "captionQ": "Qualifying predictions",
+        "captionR": "Race predictions",
+        "unknown": "?"
+      }
     }
   }
 }
