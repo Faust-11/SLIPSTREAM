@@ -108,6 +108,8 @@ test.describe("список етапів", () => {
   });
 
   test("ввійшов: на картках звичайне «Зробити прогноз», не пропозиція входу", async ({ page }) => {
+    // Час фіксуємо: за справжнім годинником дедлайн етапу 21 (21.11, 03:55 UTC) уже минув і картка була б «Дивитися прогнози».
+    await page.clock.setFixedTime(new Date("2026-11-20T12:00:00Z"));
     await signUp(page);
     await page.goto("/predictions");
     await expect(page.getByRole("link", { name: "Make a prediction", exact: true })).toHaveCount(3);
