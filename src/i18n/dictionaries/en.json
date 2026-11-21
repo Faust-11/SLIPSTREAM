@@ -1106,6 +1106,7 @@
     "days": "days",
     "hours": "hrs",
     "minutes": "min",
+    "seconds": "sec",
     "raceStarted": "Round {round} has started — results will appear after the next data update.",
     "seasonOver": "Season {season} is over",
     "stripLabel": "Rounds of the season",
@@ -1182,19 +1183,12 @@
     "openBskyAuthor": "— {name}’s post"
   },
   "homePage": {
-    "eyebrow": "A fan's programme · unofficial",
-    "seasonState": {
-      "one": "Season {season} · {done} of {total} round done",
-      "few": "Season {season} · {done} of {total} rounds done",
-      "many": "Season {season} · {done} of {total} rounds done",
-      "other": "Season {season} · {done} of {total} rounds done"
-    },
     "seasonOver": "Season {season} is over",
     "h1": [
       "All of Formula 1.",
       "Lap by lap."
     ],
-    "lede": "Results of every race since {first}: seasons, drivers, teams and circuits, with sources — and the current season updates on race day.",
+    "lede": "From the first start in {first} to the latest finish. Every race, every driver, every circuit: numbers with sources, and stories you'll want to read to the end.",
     "ctaResults": "Results: {gp}",
     "ctaGame": "Drive a hot lap →",
     "stats": {
@@ -1252,7 +1246,6 @@
     "km": "km per lap",
     "turns": "turns",
     "raceLaps": "race laps",
-    "pastWinners": "Winners here",
     "circuitLink": "Circuit →",
     "raceStart": "Race start",
     "standings": "Championship",
@@ -1281,12 +1274,6 @@
     "seasonLink": "Season {season} →",
     "creditsPhotos": "Photos",
     "creditsPortraits": "Driver portraits",
-    "seasonAhead": {
-      "one": "Season {season} · {total} round ahead",
-      "few": "Season {season} · {total} rounds ahead",
-      "many": "Season {season} · {total} rounds ahead",
-      "other": "Season {season} · {total} rounds ahead"
-    },
     "countdownThen": "Next up — round {round}, {gp}:",
     "finalStandings": "Final {season} standings",
     "newsLoading": "Loading news…",

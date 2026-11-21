@@ -13,7 +13,6 @@
   white-space: nowrap;
 }
 .hm-eyebrow,
-.hm-meta,
 .hm-src,
 .hm-stamp,
 .hm-chip {
@@ -149,6 +148,14 @@
   grid-template-columns: minmax(0, 1fr) 420px;
 }
 .hm-hero-main {
+  /* Шапка — темна панель з фото стартової решітки (21.11): світлий текст в обох темах, як у «Грі» (карбон). */
+  --ink: #f3f4f1;
+  --ink-soft: #c9ccd2;
+  --hair: rgb(255 255 255 / 0.28);
+  --red-text: #ff6b5a;
+  --focus: var(--yellow);
+  position: relative;
+  isolation: isolate;
   container-type: inline-size;
   display: flex;
   flex-direction: column;
@@ -156,13 +163,33 @@
   min-width: 0;
   padding-block: 44px 40px;
   padding-inline-end: 48px;
-  border-inline-end: var(--b) solid var(--rule);
+  border-inline-end: var(--b) solid #0a0b0e;
+  color: var(--ink);
+  background: #14151a;
 }
-.hm-meta {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px 16px;
-  flex-wrap: wrap;
+/* Фото — на всю панель (вилізає ліворуч на відступ, як банери гонок); поверх нього — темний градієнт: зліва густий (там текст),
+   праворуч прозоріший (там боліди), знизу густий під показниками. */
+.hm-hero-photo {
+  position: absolute;
+  z-index: -2;
+  inset-block: 0;
+  inset-inline: calc(-1 * var(--hm-gutter)) 0;
+  inline-size: calc(100% + var(--hm-gutter));
+  block-size: 100%;
+  object-fit: cover;
+  object-position: 30% 55%;
+}
+.hm-hero-main::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset-block: 0;
+  inset-inline: calc(-1 * var(--hm-gutter)) 0;
+  background:
+    linear-gradient(0deg, rgb(10 11 14 / 0.9) 0%, rgb(10 11 14 / 0) 42%),
+    /* Верх густий: ховає портал із рекламою й дерева за заголовком — фото «живе» у нижній половині панелі. */
+    linear-gradient(180deg, rgb(10 11 14 / 0.94) 0%, rgb(10 11 14 / 0.86) 26%, rgb(10 11 14 / 0) 46%),
+    linear-gradient(90deg, rgb(10 11 14 / 0.9) 0%, rgb(10 11 14 / 0.7) 42%, rgb(10 11 14 / 0.2) 100%);
 }
 .hm-hero h1 {
   font-size: min(68px, 8cqi);
@@ -180,9 +207,11 @@
   font-size: 19px;
   line-height: 1.5;
 }
+/* Кнопки — внизу панелі, поруч зі смугою показників (вільне місце посередині віддано фото). */
 .hm-ctas {
   display: flex;
   flex-wrap: wrap;
+  margin-top: auto;
 }
 .hm-btn {
   display: inline-flex;
@@ -208,9 +237,9 @@
 .hm-stats {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin: auto 0 0;
+  margin: 0;
   padding-top: 4px;
-  border-top: var(--b2) solid var(--rule);
+  border-top: var(--b2) solid rgb(255 255 255 / 0.7);
 }
 .hm-stats > div {
   display: flex;
@@ -284,7 +313,8 @@
 }
 .hm-otd-ev {
   display: flex;
-  align-items: baseline;
+  /* Рік і текст — від одного верху (раніше baseline року збігався з дрібним рядком-міткою, і назва «з'їжджала» вниз). */
+  align-items: flex-start;
   gap: 16px;
   padding: 16px 0;
   border-top: var(--b2) solid currentColor;
@@ -293,6 +323,8 @@
   min-inline-size: 4.2ch;
   font-size: 30px;
   line-height: 1;
+  /* Верх цифр — на лінії верху мітки (кегль 11 px, line-height 1): у Rubik Mono One відступ над капітеллю ≈ 0,08 em. */
+  margin-top: -2px;
 }
 .hm-otd-tag {
   display: block;
@@ -710,7 +742,7 @@
 }
 .hm-count {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   border: var(--b2) solid var(--rule);
 }
 .hm-count > div {
@@ -807,24 +839,6 @@
 .hm-spec dt {
   font-size: 12.5px;
   color: var(--ink-soft);
-}
-.hm-past {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.6;
-}
-.hm-past b {
-  display: block;
-  font: 600 11px var(--f-mono);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
-.hm-past a {
-  color: var(--blue-text);
-  /* Посилання в тексті — не лише кольором (axe link-in-text-block). */
-  text-decoration: underline;
-  text-underline-offset: 2px;
 }
 .hm-over h2 {
   font-size: clamp(24px, 3vw, 32px);
@@ -1227,61 +1241,61 @@
   color: #4fd18b;
 }
 
-/* Наступна гонка на ПК — червона панель (відгук користувача 15.11: відокремити від минулої гонки поруч).
+/* Наступна гонка — червона панель (ПК: відгук користувача 15.11, відокремити від минулої гонки поруч; телефон: 21.11 — теж червона).
    #b42518 — глибший за --red: білий текст 6,5:1, приглушений (85 %) 5,1:1, жовтий роундел 4,1:1 (заміри). */
+.hm-next {
+  --hm-next-bg: #b42518;
+  --hm-on: #fff;
+  --hm-on-soft: rgb(255 255 255 / 0.85);
+  --focus: var(--yellow);
+  background: var(--hm-next-bg);
+  color: var(--hm-on);
+}
 @media (min-width: 1101px) {
   .hm-next {
-    --hm-next-bg: #b42518;
-    --hm-on: #fff;
-    --hm-on-soft: rgb(255 255 255 / 0.85);
-    --focus: var(--yellow);
     margin-inline-end: calc(-1 * var(--hm-gutter));
     padding-inline-end: var(--hm-gutter);
-    background: var(--hm-next-bg);
-    color: var(--hm-on);
   }
   .hm-banner-next {
     margin-inline: -36px calc(-1 * var(--hm-gutter));
   }
-  .hm-roundel-next {
-    background: var(--yellow);
-    color: var(--on-yellow);
-    box-shadow: 0 0 0 5px var(--hm-next-bg);
-  }
-  .hm-next .hm-when span,
-  .hm-next .hm-when .cl-tz,
-  .hm-next .hm-count span,
-  .hm-next .hm-count-note,
-  .hm-next .hm-count-started,
-  .hm-next .hm-map figcaption,
-  .hm-next .hm-spec dt,
-  .hm-next .hm-past b {
-    color: var(--hm-on-soft);
-  }
-  .hm-next .hm-count,
-  .hm-next .hm-count > div + div,
-  .hm-next .hm-count-started {
-    border-color: var(--hm-on);
-  }
-  .hm-next .hm-spec {
-    border-color: var(--hm-on);
-  }
-  .hm-next .hm-spec > div + div {
-    border-inline-start-color: rgb(255 255 255 / 0.35);
-  }
-  .hm-next .hm-map {
-    background: rgb(0 0 0 / 0.18);
-  }
-  .hm-next .hm-map-casing {
-    stroke: rgb(255 255 255 / 0.2);
-  }
-  .hm-next .hm-map-line {
-    stroke: #fff;
-  }
-  .hm-next .hm-past a,
-  .hm-next .hm-more {
-    color: var(--hm-on);
-  }
+}
+.hm-roundel-next {
+  background: var(--yellow);
+  color: var(--on-yellow);
+  box-shadow: 0 0 0 5px var(--hm-next-bg);
+}
+.hm-next .hm-when span,
+.hm-next .hm-when .cl-tz,
+.hm-next .hm-count span,
+.hm-next .hm-count-note,
+.hm-next .hm-count-started,
+.hm-next .hm-map figcaption,
+.hm-next .hm-spec dt {
+  color: var(--hm-on-soft);
+}
+.hm-next .hm-count,
+.hm-next .hm-count > div + div,
+.hm-next .hm-count-started {
+  border-color: var(--hm-on);
+}
+.hm-next .hm-spec {
+  border-color: var(--hm-on);
+}
+.hm-next .hm-spec > div + div {
+  border-inline-start-color: rgb(255 255 255 / 0.35);
+}
+.hm-next .hm-map {
+  background: rgb(0 0 0 / 0.18);
+}
+.hm-next .hm-map-casing {
+  stroke: rgb(255 255 255 / 0.2);
+}
+.hm-next .hm-map-line {
+  stroke: #fff;
+}
+.hm-next .hm-more {
+  color: var(--hm-on);
 }
 
 /* ---------- адаптив ---------- */
@@ -1294,7 +1308,7 @@
   .hm-hero-main {
     padding-inline-end: 0;
     border-inline-end: 0;
-    border-bottom: var(--b2) solid var(--rule);
+    border-bottom: var(--b2) solid #0a0b0e;
   }
   .hm-otd {
     margin-inline: calc(-1 * var(--hm-gutter));
@@ -1304,17 +1318,20 @@
     grid-template-columns: minmax(0, 1fr);
     gap: 12px;
   }
+  /* Одна колонка: наступна гонка — над минулою (21.11), тому лінія між ними зайва: червона панель сама є межею. */
   .hm-last {
     padding-inline-end: 0;
     border-inline-end: 0;
-    border-bottom: var(--b) solid var(--rule);
+  }
+  .hm-next {
+    order: -1;
+    margin-inline: calc(-1 * var(--hm-gutter));
+    padding-inline: var(--hm-gutter);
+    margin-block-end: 32px;
   }
   .hm-banner,
   .hm-banner-next {
     margin-inline: calc(-1 * var(--hm-gutter));
-  }
-  .hm-next {
-    padding-inline-start: 0;
   }
   .hm-standings {
     padding-inline-end: 0;
@@ -1402,6 +1419,14 @@
   .hm-ctas .hm-btn {
     flex: 1 1 100%;
     justify-content: center;
+  }
+  /* Телефон: погоду вікенду на головній не показуємо (21.11) — вона є на сторінці календаря. Схований слот не входить у зону
+     IntersectionObserver, тож ні код блока, ні запит до /api/weather не вантажаться. */
+  .hm-next .ww-slot {
+    display: none;
+  }
+  .hm-count b {
+    font-size: 26px;
   }
 }
 
@@ -1631,5 +1656,9 @@
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
     padding-block: 36px;
+  }
+  /* Таблиця трас гри на телефоні займає забагато місця (21.11): лишається на сторінці гри. */
+  .hm-board {
+    display: none;
   }
 }
