@@ -470,6 +470,73 @@ conn.execute("delete from auth.users where id=%s", (U["c"],))
 check("видалення користувача auth каскадом прибирає профіль і прогнози", one("select count(*) from play.profiles where user_id=%s", U["c"]) == 0 and one("select count(*) from play.predictions where user_id=%s", U["c"]) == 0)
 
 # ---------------------------------------------------------------------------
+# Таблиця лідерів гри (міграція 0017): запис лише через save_lap із секретом сервера, публічне — lap_board
+# ---------------------------------------------------------------------------
+LAP_SECRET = "test-lap-secret-0123456789abcdef"
+L = {n: str(uuid.uuid4()) for n in ("a", "b", "c", "d")}   # d — без профілю
+for n, uid in L.items():
+    conn.execute("insert into auth.users(id, email) values (%s, %s)", (uid, f"lap-{n}@example.test"))
+    if n != "d":
+        conn.execute("insert into play.profiles(user_id, nick) values (%s, %s)", (uid, f"Racer {n.upper()}"))
+
+
+def save_lap(user: str | None, secret: str, track: str, ticks: int, jump: bool = False, inputs: str = "1.100"):
+    return attempt("select play.save_lap(%s, %s, %s, %s, %s)", secret, track, ticks, jump, inputs, as_role="authenticated", uid=L[user] if user else None)
+
+
+fails("save_lap: секрет не задано — відмова (fail closed)", "not_configured", "select play.save_lap(%s, 'lyman', 3600, false, '1.100')", LAP_SECRET, as_role="authenticated", uid=L["a"])
+conn.execute("insert into play.secrets(name, value) values ('lap_secret', %s) on conflict (name) do update set value = excluded.value", (LAP_SECRET,))
+for label, msg, args in (
+    ("чужий секрет", "forbidden", (L["a"], "wrong-secret", "lyman", 3600)),
+    ("без входу", "not_authenticated", (None, LAP_SECRET, "lyman", 3600)),
+    ("без профілю", "no_profile", (L["d"], LAP_SECRET, "lyman", 3600)),
+    ("невідома траса", "laps_track_check", (L["a"], LAP_SECRET, "nowhere", 3600)),
+    ("нульовий час", "laps_ticks_check", (L["a"], LAP_SECRET, "lyman", 0)),
+):
+    who = next((k for k, v in L.items() if v == args[0]), None)
+    ok, err = save_lap(who, args[1], args[2], args[3])
+    check(f"save_lap: {label} — відмова ({msg})", not ok and msg in str(err), "виконалось" if ok else str(err).splitlines()[0])
+ok, res = save_lap("a", LAP_SECRET, "lyman", 3600)
+check("save_lap: перше коло збережено, місце 1", ok and res[0][0]["saved"] is True and res[0][0]["place"] == 1, res)
+ok, res = save_lap("b", LAP_SECRET, "lyman", 3500)
+check("save_lap: швидше коло іншого гравця — місце 1", ok and res[0][0]["saved"] and res[0][0]["place"] == 1, res)
+ok, res = save_lap("a", LAP_SECRET, "lyman", 3700)
+check("save_lap: гірше коло не перезаписує (saved=false, ticks=3600, місце 2)", ok and res[0][0]["saved"] is False and res[0][0]["ticks"] == 3600 and res[0][0]["place"] == 2, res)
+ok, res = save_lap("a", LAP_SECRET, "lyman", 3600)
+check("save_lap: той самий час повторно — saved=false", ok and res[0][0]["saved"] is False, res)
+ok, res = save_lap("c", LAP_SECRET, "lyman", 3500)
+check("save_lap: рівний час — спільне місце 1", ok and res[0][0]["place"] == 1, res)
+ok, res = save_lap("a", LAP_SECRET, "lyman", 3400, True)
+check("save_lap: краще коло з фальстартом — saved, jump=true, місце 1", ok and res[0][0]["saved"] and res[0][0]["jump"] is True and res[0][0]["place"] == 1, res)
+ok, res = save_lap("a", LAP_SECRET, "port", 4000)
+check("save_lap: інша траса — окремий рядок", ok and res[0][0]["saved"] and res[0][0]["place"] == 1, res)
+board = q("select player, ticks, place from play.lap_board where track = 'lyman' order by place, ticks, player")
+check("lap_board (anon): 3 рядки, перший — Racer A 3400", len(board) == 3 and board[0][0] == "Racer A" and board[0][1] == 3400, board)
+cols = [r[0] for r in q("select column_name from information_schema.columns where table_schema='play' and table_name='lap_board' order by 1")]
+check("lap_board не віддає user_id чи ввід", "user_id" not in cols and "inputs" not in cols, cols)
+ok, res = attempt("select play.save_lap(%s, 'lyman', 1, false, '1.1')", LAP_SECRET, as_role="anon")
+check("anon не виконує save_lap", not ok and isinstance(res, psycopg.errors.InsufficientPrivilege), res)
+denied("anon не читає play.laps", "select * from play.laps", as_role="anon")
+denied("anon не читає play.secrets", "select * from play.secrets", as_role="anon")
+denied("authenticated не читає play.secrets", "select * from play.secrets", as_role="authenticated", uid=L["a"])
+denied("authenticated не пише в play.laps напряму", "update play.laps set ticks = 1", as_role="authenticated", uid=L["a"])
+ok, res = attempt("select count(*) from play.laps", as_role="authenticated", uid=L["a"])
+check("authenticated бачить у play.laps лише свої рядки (2)", ok and res[0][0] == 2, res)
+ok, res = attempt("select play.my_lap('lyman')", as_role="authenticated", uid=L["a"])
+check("my_lap: моє коло й місце", ok and res[0][0]["ticks"] == 3400 and res[0][0]["place"] == 1, res)
+ok, res = attempt("select play.my_lap('lyman')", as_role="authenticated", uid=L["d"])
+check("my_lap без кола — null", ok and res[0][0] is None, res)
+conn.execute("update play.profiles set nick_hidden = true where user_id = %s", (L["b"],))
+names = [r[0] for r in q("select player from play.lap_board where track = 'lyman' and ticks = 3500")]
+check("lap_board: прихований нік — «Гравець XXXX»", any(n.startswith("Гравець ") for n in names) and "Racer B" not in names, names)
+conn.execute("insert into play.blocked_users(user_id) values (%s)", (L["c"],))
+check("lap_board: заблокований не показується", one("select count(*) from play.lap_board where track = 'lyman'") == 2)
+fails("save_lap: заблокований не пише", "blocked", "select play.save_lap(%s, 'forest', 3000, false, '1.1')", LAP_SECRET, as_role="authenticated", uid=L["c"])
+ok, err = attempt("select play.delete_my_profile()", as_role="authenticated", uid=L["a"])
+check("delete_my_profile виконується (гравець з колами)", ok, err)
+check("видалення профілю каскадом прибирає кола", one("select count(*) from play.laps where user_id = %s", L["a"]) == 0)
+
+# ---------------------------------------------------------------------------
 # Паритет з еталоном (Python) на даних 2025 з повного дампу
 # ---------------------------------------------------------------------------
 conn.execute("rollback")

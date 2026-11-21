@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { checkLap } from "@/lib/game/lap-check";
 import { TRACK_SPECS, unrle } from "@/lib/game/physics";
 import { storeKey } from "@/lib/game/store";
 import { HotLapEngine, type Elements } from "../engine";
@@ -129,7 +130,9 @@ describe("HotLapEngine", () => {
     driveBotLap(engine, "lyman");
     const snap = engine.getSnapshot();
     expect(snap.phase).toBe("done");
-    expect(snap.result).toEqual({ t: 3592, pen: 0, jump: false, isBest: true, prevBest: null });
+    expect(snap.result).toMatchObject({ t: 3592, pen: 0, jump: false, isBest: true, prevBest: null });
+    // Ввід кола для таблиці лідерів: сервер повторює його й отримує ТОЙ САМИЙ час, що показала гра.
+    expect(checkLap("lyman", snap.result!.inputs, false)).toEqual({ ok: true, ticks: 3592, pen: 0, jump: false });
     expect(snap.bestTotal).toBe(3592);
     expect(snap.cardBests.lyman).toBe(3592);
     expect(snap.laps).toHaveLength(1);
@@ -141,7 +144,7 @@ describe("HotLapEngine", () => {
 
     // Друге таке саме коло: сектори = рекорду → фіолетові; рекорд не новий.
     driveBotLap(engine, "lyman");
-    expect(engine.getSnapshot().result).toEqual({ t: 3592, pen: 0, jump: false, isBest: false, prevBest: 3592 });
+    expect(engine.getSnapshot().result).toMatchObject({ t: 3592, pen: 0, jump: false, isBest: false, prevBest: 3592 });
     expect(els.sectors.map((s) => s.className)).toEqual(["gm-chip is-purple", "gm-chip is-purple", "gm-chip is-purple"]);
     expect(engine.getSnapshot().laps).toHaveLength(2);
     // Дельта до привида (рекорд) оновлювалась: те саме коло — у межах кількох тіків (дельта рахується від
@@ -164,7 +167,9 @@ describe("HotLapEngine", () => {
     driveBotLap(engine, "lyman", true);
     // Болід рушив одразу після газу (тік 101 з 480 до згасання), а не чекав вогнів.
     expect(jumpAt).toBe(101);
-    expect(engine.getSnapshot().result).toEqual({ t: 3592 + 120, pen: 0, jump: true, isBest: true, prevBest: null });
+    expect(engine.getSnapshot().result).toMatchObject({ t: 3592 + 120, pen: 0, jump: true, isBest: true, prevBest: null });
+    // Фальстарт сервер не бачить у вводі (ввід пишеться від згасання вогнів): час = повтор + 1 с лише за ознакою jump.
+    expect(checkLap("lyman", engine.getSnapshot().result!.inputs, true)).toMatchObject({ ok: true, ticks: 3592 + 120 });
     expect(els.react.textContent).toBe("JS");
     expect(els.time.textContent).toBe("0:30.933");
     const stored = JSON.parse(localStorage.getItem(storeKey("lyman"))!);

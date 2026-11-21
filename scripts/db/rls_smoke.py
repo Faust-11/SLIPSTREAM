@@ -76,10 +76,10 @@ structure("немає прав «за замовчуванням» для anon/a
     where n.nspname = 'f1' and array_to_string(d.defaclacl, ',') ~ '(^|,)(anon|authenticated)='""")
 
 # --- Схема play (фаза 9b): прогнози. Писати можна лише функціями; публічне — лише перелічені подання. ---
-PLAY_PUBLIC_VIEWS = ("season_standings", "round_standings", "champions", "revealed_predictions")
-PLAY_OWN_TABLES = ("profiles", "predictions", "scores")        # authenticated читає свої рядки через RLS-політики
+PLAY_PUBLIC_VIEWS = ("season_standings", "round_standings", "champions", "revealed_predictions", "lap_board")
+PLAY_OWN_TABLES = ("profiles", "predictions", "scores", "laps")        # authenticated читає свої рядки через RLS-політики
 PLAY_ANON_FUNCTIONS = ("deadline",)
-PLAY_AUTH_FUNCTIONS = ("deadline", "set_nick", "save_prediction", "delete_my_profile", "delete_my_account")
+PLAY_AUTH_FUNCTIONS = ("deadline", "set_nick", "save_prediction", "delete_my_profile", "delete_my_account", "save_lap", "my_lap")
 quote = lambda names: ", ".join(f"'{n}'" for n in names)
 structure("RLS увімкнено на кожній таблиці play", """
     select c.relname from pg_class c join pg_namespace n on n.oid = c.relnamespace
