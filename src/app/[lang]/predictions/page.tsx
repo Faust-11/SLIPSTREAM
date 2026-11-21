@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import "@/components/predictions/predictions.css";
 import { LocalTime } from "@/components/calendar/local-time";
 import { RoundAction, RoundStatus } from "@/components/predictions/round-status";
 import { fill } from "@/i18n/fill";

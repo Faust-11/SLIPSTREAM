@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import "@/components/predictions/predictions.css";
 import { PredictionApp } from "@/components/predictions/prediction-app";
 import { locales } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
