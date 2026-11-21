@@ -198,6 +198,139 @@
   font-size: 13.5px;
 }
 
+/* ---------- погода вікенду (заміри OpenF1 / прогноз MET Norway; клієнтський острів race-weather.tsx) ---------- */
+.rw {
+  padding-bottom: 36px;
+}
+.rw h3 {
+  margin: 4px 0 6px;
+  font-size: clamp(18px, 2.2vw, 22px);
+}
+.rw-note {
+  max-width: 78ch;
+  margin: 0 0 14px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+.rw-credit {
+  margin: 14px 0 0;
+}
+.rw-credit a {
+  color: inherit;
+  text-underline-offset: 2px;
+}
+.rw-tbl {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+.rw-tbl th,
+.rw-tbl td {
+  padding: 11px 14px 11px 0;
+  text-align: start;
+  vertical-align: top;
+  border-top: 1px solid var(--hair);
+}
+.rw-tbl thead th {
+  border-top: 2px solid var(--rule);
+  font: 600 11.5px var(--f-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.rw-tbl tbody th {
+  min-inline-size: 15ch;
+  font-weight: 400;
+}
+.rw-tbl th b,
+.rw-ch b {
+  display: block;
+  font-size: 15.5px;
+}
+.rw-t {
+  display: block;
+  font: 11.5px var(--f-mono);
+  color: var(--ink-soft);
+}
+.rw-src {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 1px 6px;
+  border: 1px solid currentColor;
+  font: 600 11px var(--f-mono);
+  letter-spacing: 0.03em;
+}
+.rw-done {
+  color: var(--blue-text);
+}
+.rw-live {
+  color: var(--red-text);
+}
+.rw-forecast {
+  border-style: dashed;
+  color: var(--ink);
+}
+.rw-none {
+  border-color: transparent;
+  padding-inline: 0;
+  color: var(--ink-soft);
+}
+.rw-cards {
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--rule);
+}
+.rw-cards li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--hair);
+}
+.rw-ch {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 2px 12px;
+}
+.rw-cards dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 16px;
+  margin: 10px 0 0;
+}
+.rw-cards dt {
+  font: 11px var(--f-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.rw-cards dd {
+  margin: 2px 0 0;
+  font-size: 14.5px;
+}
+/* Заглушка до відповіді: стільки рядків, скільки сесій, висотою готового рядка (замір: таблиця 85 px, картка на 390 px — 216 px). */
+.rw-wait {
+  border-top: 2px solid var(--rule);
+}
+.rw-sk {
+  display: block;
+  block-size: 85px;
+  border-top: 1px solid var(--hair);
+  background: color-mix(in srgb, var(--ink) 5%, transparent);
+}
+@media (max-width: 720px) {
+  .rw-tbl {
+    display: none;
+  }
+  .rw-cards {
+    display: block;
+  }
+  .rw-sk {
+    block-size: 216px;
+  }
+}
+
 /* ---------- як вирішився титул ---------- */
 .rc-title {
   display: grid;

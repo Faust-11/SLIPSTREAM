@@ -20,6 +20,9 @@ const FAKE_ADMIN_ENV = {
   ADMIN_GITHUB_API: `http://127.0.0.1:${AUTH_PORT}`,
   ADMIN_YOUTUBE_API: `http://127.0.0.1:${AUTH_PORT}`,
 };
+// Погода вікенду (OpenF1 / MET Norway): у e2e назовні не ходимо — адреси ведуть на фейк-сервіс (404 → сторінка гонки без
+// блока погоди); сам блок перевіряється підміною /api/weather у браузері (e2e/race.spec.ts).
+const FAKE_WEATHER_ENV = { OPENF1_API: `http://127.0.0.1:${AUTH_PORT}/openf1`, MET_API: `http://127.0.0.1:${AUTH_PORT}/met` };
 const externalBaseURL = process.env.BASE_URL;
 const baseURL = externalBaseURL ?? `http://localhost:${PORT}`;
 // Прев'ю Vercel за Deployment Protection: global-setup обмінює секрет на cookie домену прев'ю
@@ -72,7 +75,7 @@ export default defineConfig({
         reuseExistingServer: process.env.PW_REUSE === "1",
         timeout: process.env.CI ? 60_000 : 180_000,
         // Абсолютні canonical/hreflang/sitemap мають вказувати на цей сервер (e2e порівнює рядки повністю).
-        env: { NEXT_TELEMETRY_DISABLED: "1", SITE_URL: `http://localhost:${PORT}`, ...FAKE_DB_ENV, ...FAKE_ADMIN_ENV },
+        env: { NEXT_TELEMETRY_DISABLED: "1", SITE_URL: `http://localhost:${PORT}`, ...FAKE_DB_ENV, ...FAKE_ADMIN_ENV, ...FAKE_WEATHER_ENV },
         },
       ],
 });

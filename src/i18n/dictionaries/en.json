@@ -862,6 +862,55 @@
       "label": "Race highlights",
       "play": "Watch highlights: {title}",
       "credit": "Video: FORMULA 1 / YouTube"
+    },
+    "weather": {
+      "title": "Weather at the track",
+      "caption": "Weather at the track for each session of the weekend",
+      "note": "For sessions that have run: readings at the track during the session. For upcoming ones: a forecast for the middle of the session.",
+      "cols": {
+        "session": "Session",
+        "air": "Air",
+        "track": "Track",
+        "humidity": "Humidity",
+        "wind": "Wind",
+        "precip": "Precipitation"
+      },
+      "src": {
+        "done": "measured at the track",
+        "live": "running now, readings up to this minute",
+        "forecast": "forecast",
+        "none": "no data yet"
+      },
+      "dry": "Dry",
+      "rain": "Rain · {n}% of the time",
+      "mm": "{n} mm",
+      "calm": "calm",
+      "cond": {
+        "clear": "Clear",
+        "partly": "Partly cloudy",
+        "cloudy": "Cloudy",
+        "fog": "Fog",
+        "rain": "Rain",
+        "heavyrain": "Heavy rain",
+        "thunder": "Thunderstorm",
+        "snow": "Snow"
+      },
+      "compass": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "unitWind": "km/h",
+      "windNote": "Wind direction is where it blows from; speed and temperatures are for the session (min–max).",
+      "loading": "Loading the weather…",
+      "creditLead": "Sources:",
+      "creditMeasured": "readings at the track",
+      "creditForecast": "forecast"
     }
   },
   "circuitsPage": {

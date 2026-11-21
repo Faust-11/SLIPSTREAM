@@ -47,7 +47,7 @@ test("/uk/sources: перелік джерел, графік ліцензій = 
   page,
 }) => {
   await page.goto("/uk/sources");
-  await expect(page.locator(".sv-reg tbody tr")).toHaveCount(10);
+  await expect(page.locator(".sv-reg tbody tr")).toHaveCount(12);
   const total = Number(
     (await page.locator(".sv-facts dt").first().textContent())!.replace(
       /\D/g,

@@ -54,6 +54,11 @@ export const FASTEST_LAP_FROM = 2004;
 const loadCircuits = once(async () =>
   new Map((await dbSelectAll<CircuitIndexRow>("circuit_index", "select=ref,name,locality,country,country_code,lat,lng&order=ref")).map((r) => [r.ref, r])),
 );
+/** Координати траси (для прогнозу погоди); без них у базі — null. */
+export async function getCircuitCoords(ref: string): Promise<{ lat: number; lng: number } | null> {
+  const c = (await loadCircuits()).get(ref);
+  return c && c.lat !== null && c.lng !== null ? { lat: c.lat, lng: c.lng } : null;
+}
 /** Протоколи гонок без кіл і піт-стопів (на сторінці траси — лише переможець, подіум, найшвидше коло). */
 const loadRaceRows = once(async () => {
   const rows = await dbSelectAll<{ year: number; round: number; race: RaceResultJson[] }>("race_page", "select=year,round,race&order=year,round");

@@ -180,6 +180,22 @@
           "means": "We credit the source, use it non-commercially and share derived tables on the same terms"
         },
         {
+          "name": "OpenF1",
+          "href": "https://openf1.org",
+          "sub": "independent project, not affiliated with F1 or the FIA",
+          "what": "Weather readings at the track for each session of a weekend (since 2023)",
+          "lic": "CC BY-NC-SA 4.0",
+          "means": "Non-commercial use; we credit the source; free access to history is capped at 30 requests a minute, so data is cached"
+        },
+        {
+          "name": "MET Norway",
+          "href": "https://www.met.no/en",
+          "sub": "Norwegian Meteorological Institute",
+          "what": "Forecast for the upcoming sessions of a weekend (locationforecast, up to 9 days)",
+          "lic": "CC BY 4.0, NLOD 2.0",
+          "means": "We credit the source (“Data from MET Norway”); requests carry an identifying User-Agent and are cached"
+        },
+        {
           "name": "Wikimedia Commons",
           "href": "https://commons.wikimedia.org",
           "sub": "{photos} files",

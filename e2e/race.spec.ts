@@ -131,3 +131,132 @@ test("хайлайт YouTube FORMULA 1: до кліку — мініатюра �
   await page.goto("/uk/seasons/2016/1");
   await expect(page.locator(".rc-video")).toHaveCount(0);
 });
+
+/* ---------- погода вікенду (клієнтський острів; джерела — OpenF1 і MET Norway, у e2e підміняємо /api/weather) ---------- */
+
+type Wx = { air: [number, number]; track: [number, number] | null; humidity: number | null; wind: { kmh: number; from: number | null } | null; rainShare: number | null; mm: number | null; condition: string | null };
+const measured = (over: Partial<Wx> = {}): Wx => ({ air: [23.5, 24.6], track: [39.3, 53.7], humidity: 72.7, wind: { kmh: 6.3, from: 184 }, rainShare: 0, mm: null, condition: null, ...over });
+const WX_ROWS = [
+  { kind: "FP1", state: "done", source: "openf1", data: measured() },
+  { kind: "FP2", state: "done", source: "openf1", data: measured({ rainShare: 0.35, wind: { kmh: 0.4, from: null } }) },
+  { kind: "FP3", state: "forecast", source: "met", data: { air: [19, 19], track: null, humidity: 60, wind: { kmh: 12, from: 315 }, rainShare: null, mm: 0.4, condition: "rain" } satisfies Wx },
+  { kind: "Q", state: "none", source: null, data: null },
+  { kind: "R", state: "forecast", source: "met", data: { air: [21, 21], track: null, humidity: 55, wind: null, rainShare: null, mm: 0, condition: "clear" } satisfies Wx },
+].map((s, i) => ({ ...s, start: `2025-12-0${5 + (i > 1 ? 1 : 0)}T0${i}:30:00.000Z`, end: `2025-12-0${5 + (i > 1 ? 1 : 0)}T0${i + 1}:30:00.000Z` }));
+const mockWeather = (page: import("@playwright/test").Page, sessions: unknown[] | number, delay = 0) =>
+  page.route("**/api/weather/**", async (route) => {
+    if (delay) await new Promise((r) => setTimeout(r, delay));
+    if (typeof sessions === "number") return route.fulfill({ status: sessions, body: "x" });
+    return route.fulfill({ json: { year: 2025, round: 24, updated: "2025-12-07T00:00:00.000Z", sessions } });
+  });
+
+test("/uk/seasons/2025/24: погода по сесіях — заміри, прогноз, штиль, «даних ще немає», джерела", async ({ page }) => {
+  await mockWeather(page, WX_ROWS);
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/uk/seasons/2025/24");
+  const rows = page.locator(".rw-tbl tbody tr");
+  await expect(rows).toHaveCount(5);
+  await expect(page.locator("#rw-h")).toHaveText("Погода на трасі");
+  // Заміри: Math.round(23,5) = 24; напрямок 184° — південь; 0 % дощу — «Сухо».
+  await expect(rows.nth(0)).toContainText("Перше тренування");
+  await expect(rows.nth(0)).toContainText("виміряно на трасі");
+  await expect(rows.nth(0).locator("td")).toHaveText(["24–25 °C", "39–54 °C", "73%", "Пд · 6 км/год", "Сухо"]);
+  await expect(rows.nth(1).locator("td")).toHaveText(["24–25 °C", "39–54 °C", "73%", "штиль", "Дощ · 35% часу"]);
+  // Прогноз: траси нема, напрямок 315° — північний захід, дощ із кількістю опадів.
+  await expect(rows.nth(2)).toContainText("прогноз");
+  await expect(rows.nth(2).locator("td")).toHaveText(["19 °C", "—", "60%", "ПнЗх · 12 км/год", "Дощ · 0,4 мм"]);
+  await expect(rows.nth(3)).toContainText("даних ще немає");
+  await expect(rows.nth(3).locator("td")).toHaveText(["—", "—", "—", "—", "—"]);
+  await expect(rows.nth(4).locator("td").nth(4)).toHaveText("Ясно");
+  await expect(page.locator(".rw-credit a[href='https://openf1.org']")).toHaveText("OpenF1");
+  await expect(page.locator(".rw-credit a[href='https://www.met.no/en']")).toHaveText("MET Norway");
+  // Телефон: таблиця ховається, замість неї — картки з підписами полів.
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.locator(".rw-tbl")).toBeHidden();
+  const cards = page.locator(".rw-cards li");
+  await expect(cards).toHaveCount(5);
+  await expect(cards.nth(0).locator("dd")).toHaveText(["24–25 °C", "39–54 °C", "73%", "Пд · 6 км/год", "Сухо"]);
+  await expect(cards.nth(0).locator("dt").first()).toHaveText("Повітря");
+});
+
+test("/seasons/2025/24 (англійською): назви, одиниці й множина «часу»", async ({ page }) => {
+  await mockWeather(page, WX_ROWS);
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/seasons/2025/24");
+  await expect(page.locator("#rw-h")).toHaveText("Weather at the track");
+  const rows = page.locator(".rw-tbl tbody tr");
+  await expect(rows.nth(1).locator("td")).toHaveText(["24–25 °C", "39–54 °C", "73%", "calm", "Rain · 35% of the time"]);
+  await expect(rows.nth(2).locator("td")).toHaveText(["19 °C", "—", "60%", "NW · 12 km/h", "Rain · 0.4 mm"]);
+});
+
+test("погода: нічого не дали джерела (усі «none», 500, 404) — блоку немає, а сторінка цілу й без помилок", async ({ page }) => {
+  for (const reply of [WX_ROWS.map((s) => ({ ...s, state: "none", source: null, data: null })), 500, 404] as const) {
+    await page.unrouteAll();
+    await mockWeather(page, reply as unknown[] | number);
+    const errors: string[] = [];
+    page.on("pageerror", (e) => errors.push(e.message));
+    const done = page.waitForResponse("**/api/weather/**");
+    await page.goto("/uk/seasons/2025/24");
+    await done;
+    await expect(page.locator(".rc-tl li")).toHaveCount(5);
+    await expect(page.locator(".rw")).toHaveCount(0);
+    expect(errors).toEqual([]);
+  }
+});
+
+test("погода: сезон до 2023 — ні блока, ні запиту; спринт-вікенд 2023 — п'ять рядків", async ({ page }) => {
+  const asked: string[] = [];
+  page.on("request", (r) => r.url().includes("/api/weather/") && asked.push(r.url()));
+  await page.goto("/uk/seasons/2022/1");
+  await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+  await page.waitForTimeout(500);
+  await expect(page.locator(".rw")).toHaveCount(0);
+  expect(asked).toEqual([]);
+  const rows = ["FP1", "Q", "SQ", "SR", "R"].map((kind, i) => ({ kind, state: "done", source: "openf1", data: measured(), start: `2023-04-2${8 + (i > 1 ? 1 : 0)}T0${i}:30:00.000Z`, end: `2023-04-2${8 + (i > 1 ? 1 : 0)}T0${i + 1}:30:00.000Z` }));
+  await mockWeather(page, rows);
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/uk/seasons/2023/4");
+  await expect(page.locator(".rw-tbl tbody tr")).toHaveCount(5);
+  await expect(page.locator(".rw-tbl tbody th b")).toHaveText(["Перше тренування", "Кваліфікація", "Спринт-кваліфікація", "Спринт", "Гонка"]);
+});
+
+test("/api/weather: сезон до 2023 і неіснуюча гонка — 404; у e2e джерела недоступні — 200 без даних, а не 500", async ({ request }) => {
+  expect((await request.get("/api/weather/2022/1")).status()).toBe(404);
+  expect((await request.get("/api/weather/2025/99")).status()).toBe(404);
+  expect((await request.get("/api/weather/abc/1")).status()).toBe(404);
+  const ok = await request.get("/api/weather/2025/24");
+  expect(ok.status()).toBe(200);
+  const body = await ok.json();
+  expect(body.sessions.length).toBe(5);
+  expect(body.sessions.every((s: { data: unknown }) => s.data === null)).toBe(true);
+});
+
+for (const theme of ["light", "dark"] as const)
+  for (const width of [320, 390, 768, 1024, 1280])
+    test(`погода: без порушень axe, ніщо не виходить за екран: ${theme}, ${width} px`, async ({ page }) => {
+      await mockWeather(page, WX_ROWS);
+      await page.emulateMedia({ colorScheme: theme });
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto("/uk/seasons/2025/24");
+      await expect(page.locator("#rw-h")).toBeVisible();
+      await expect(page.locator(width > 720 ? ".rw-tbl tbody tr" : ".rw-cards li").first()).toBeVisible();
+      await expectNoA11yViolations(page);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+    });
+
+for (const width of [390, 1280])
+  test(`погода: заглушка не зсуває сторінку (CLS < 0.1, ${width} px; відповідь із затримкою)`, async ({ page }) => {
+    await mockWeather(page, WX_ROWS, 900);
+    await page.setViewportSize({ width, height: 900 });
+    await page.addInitScript(() => {
+      (window as unknown as { __cls: number }).__cls = 0;
+      new PerformanceObserver((l) => {
+        for (const e of l.getEntries() as (PerformanceEntry & { value: number; hadRecentInput: boolean })[])
+          if (!e.hadRecentInput) (window as unknown as { __cls: number }).__cls += e.value;
+      }).observe({ type: "layout-shift", buffered: true });
+    });
+    await page.goto("/uk/seasons/2025/24", { waitUntil: "load" });
+    await page.locator("#rw-h").scrollIntoViewIfNeeded();
+    await expect(page.locator(width > 720 ? ".rw-tbl tbody tr" : ".rw-cards li").first()).toBeVisible();
+    expect(await page.evaluate(() => (window as unknown as { __cls: number }).__cls)).toBeLessThan(0.1);
+  });

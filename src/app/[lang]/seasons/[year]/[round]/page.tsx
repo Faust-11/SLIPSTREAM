@@ -4,6 +4,7 @@ import { cache } from "react";
 import { Term, TermPopover } from "@/components/glossary/term";
 import { LapChart } from "@/components/race/lap-chart";
 import { RaceVideo } from "@/components/race/race-video";
+import { RaceWeather } from "@/components/race/race-weather";
 import { PageCredits } from "@/components/teams/page-credits";
 import { locales, type Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
@@ -21,6 +22,7 @@ import { circuitPhotoAlt } from "@/lib/image-alt";
 import { pageMetadata, siteUrl } from "@/lib/seo";
 import { JsonLd } from "@/components/site/json-ld";
 import { breadcrumbList } from "@/lib/jsonld";
+import { WEATHER_FROM_YEAR } from "@/lib/weather";
 
 type Props = { params: Promise<{ lang: string; year: string; round: string }> };
 
@@ -418,6 +420,17 @@ export default async function RacePage(props: Props) {
                 </li>
               ))}
             </ol>
+            {/* Погода: клієнтський острів (сторінка статична); заміри OpenF1 є з 2023 року. */}
+            {page.year >= WEATHER_FROM_YEAR && (
+              <RaceWeather
+                year={page.year}
+                round={page.round}
+                locale={lang}
+                kinds={page.sessions.map((s) => s.kind)}
+                sessionNames={t.session}
+                labels={t.weather}
+              />
+            )}
           </div>
         </section>
       )}
