@@ -35,7 +35,8 @@ describe("save_prediction", () => {
       [400, { code: "23514" }, "invalid"],
       [400, { code: "28000", message: "not_authenticated" }, "unauthorized"],
       [401, { code: "PGRST301" }, "unauthorized"],
-      [403, {}, "unauthorized"],
+      [403, {}, "unavailable"], // рев'ю 21.11 (B): 403 від PostgREST (42501: немає grant, схему не відкрито) — збій сервісу, не «сесія закінчилась»
+      [403, { code: "42501", message: "permission denied for schema play" }, "unavailable"],
       [400, { code: "P0001", message: "something_new" }, "unavailable"],
       [500, { code: "XX000" }, "unavailable"],
       [406, { code: "PGRST106" }, "unavailable"], // схему play не відкрито в Exposed schemas
@@ -98,24 +99,69 @@ describe("мої прогнози", () => {
 });
 
 describe("прогнози всіх (публічне подання)", () => {
-  it("без токена; впорядкування й ліміт; без user_id", async () => {
-    const spy = reply(200, [
-      { kind: "R", player: "Max", picks, dnf_team_id: null, all_finish: true, points: 21 },
-      { kind: "Q", player: "Гравець AB12", picks, dnf_team_id: null, all_finish: false, points: null },
-      { kind: "Q", player: 5, picks, dnf_team_id: null, all_finish: false, points: null },
-    ]);
+  const row = (kind: string, player: string, points: number | null = null) => ({ kind, player, picks, dnf_team_id: null, all_finish: false, points });
+  /** Відповідь за адресою: окремі рядки для кожного виду й для «моїх». */
+  const byUrl = (handler: (url: string) => unknown[]) =>
+    vi.spyOn(globalThis, "fetch").mockImplementation(async (input) => new Response(JSON.stringify(handler(String(input))), { status: 200 }));
+
+  it("без токена; впорядкування; без user_id; кривий рядок пропускається", async () => {
+    const spy = byUrl((url) => (url.includes("kind=eq.Q") ? [row("Q", "Max", 21), { ...row("Q", "x"), player: 5 }] : [row("R", "Гравець AB12")]));
     const res = await getRevealed(cfg, 2026, 22);
     expect(res).toEqual({
       ok: true,
       rows: [
-        { kind: "R", player: "Max", picks, dnfTeam: null, allFinish: true, points: 21 },
-        { kind: "Q", player: "Гравець AB12", picks, dnfTeam: null, allFinish: false, points: null },
+        { kind: "Q", player: "Max", picks, dnfTeam: null, allFinish: false, points: 21 },
+        { kind: "R", player: "Гравець AB12", picks, dnfTeam: null, allFinish: false, points: null },
       ],
     });
-    const url = String(spy.mock.calls[0]![0]);
-    expect(url).toContain("revealed_predictions?select=kind,player,picks,dnf_team_id,all_finish,points");
-    expect(url).toContain("order=points.desc.nullslast,player.asc&limit=200");
-    expect(url).not.toMatch(/user_id|email/);
-    expect(headers(spy).authorization).toBeUndefined();
+    for (const [url] of spy.mock.calls) {
+      expect(String(url)).toContain("revealed_predictions?select=kind,player,picks,dnf_team_id,all_finish,points");
+      expect(String(url)).toContain("order=points.desc.nullslast,player.asc&limit=200");
+      expect(String(url)).not.toMatch(/user_id|email/);
+    }
+    expect((spy.mock.calls[0]![1]!.headers as Record<string, string>).authorization).toBeUndefined();
+  });
+
+  it("рев'ю 21.11 (C): запит ПО ВИДУ зі своїм лімітом — інакше один limit=200 на Q+R мовчки губить рядки при > 100 гравців", async () => {
+    const spy = byUrl((url) => (url.includes("kind=eq.Q") ? [row("Q", "A"), row("Q", "B")] : [row("R", "A")]));
+    const res = await getRevealed(cfg, 2026, 22);
+    const urls = spy.mock.calls.map(([u]) => String(u));
+    expect(urls).toHaveLength(2);
+    expect(urls.filter((u) => u.includes("kind=eq.Q") && u.includes("limit=200"))).toHaveLength(1);
+    expect(urls.filter((u) => u.includes("kind=eq.R") && u.includes("limit=200"))).toHaveLength(1);
+    expect(res.ok && res.rows.map((x) => `${x.kind}:${x.player}`)).toEqual(["Q:A", "Q:B", "R:A"]);
+  });
+
+  it("рев'ю 21.11 (C): список виду заповнений до ліміту, а мого рядка в ньому немає — доплановуємо власний рядок окремим запитом", async () => {
+    const full = Array.from({ length: 200 }, (_, i) => row("Q", `P${String(i).padStart(3, "0")}`));
+    const spy = byUrl((url) => {
+      if (url.includes("player=eq.")) return [row("Q", "Гравець AB12")];
+      return url.includes("kind=eq.Q") ? full : [row("R", "A")];
+    });
+    const res = await getRevealed(cfg, 2026, 22, "Гравець AB12");
+    const urls = spy.mock.calls.map(([u]) => String(u));
+    expect(urls).toHaveLength(3);
+    const own = urls.find((u) => u.includes("player=eq."))!;
+    expect(own).toContain("kind=eq.Q");
+    expect(own).toContain(`player=eq.${encodeURIComponent("Гравець AB12")}`);
+    expect(own).toContain("limit=1");
+    expect(res.ok && res.rows.filter((x) => x.player === "Гравець AB12")).toHaveLength(1);
+    expect(res.ok && res.rows).toHaveLength(202);
+  });
+
+  it("мій рядок уже є в списку або список не заповнений — додаткового запиту немає", async () => {
+    const spy = byUrl((url) => (url.includes("kind=eq.Q") ? [row("Q", "Max")] : []));
+    await getRevealed(cfg, 2026, 22, "Max");
+    expect(spy).toHaveBeenCalledTimes(2);
+    const full = Array.from({ length: 200 }, (_, i) => row("Q", i === 7 ? "Max" : `P${i}`));
+    spy.mockClear(); // той самий шпигун: рахуємо виклики другої частини окремо
+    byUrl((url) => (url.includes("kind=eq.Q") ? full : []));
+    await getRevealed(cfg, 2026, 22, "Max");
+    expect(spy).toHaveBeenCalledTimes(2);
+  });
+
+  it("помилка одного з видів — ok:false (не показуємо половину таблиці)", async () => {
+    vi.spyOn(globalThis, "fetch").mockImplementation(async (input) => new Response(JSON.stringify(String(input).includes("kind=eq.R") ? {} : []), { status: String(input).includes("kind=eq.R") ? 500 : 200 }));
+    expect(await getRevealed(cfg, 2026, 22)).toEqual({ ok: false });
   });
 });
