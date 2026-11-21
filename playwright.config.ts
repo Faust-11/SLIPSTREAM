@@ -1,7 +1,8 @@
 import { defineConfig, devices } from "@playwright/test";
 
-const PORT = 3100;
-const DB_PORT = 54321;
+// Порти можна змінити (E2E_PORT, E2E_DB_PORT): другий worktree поруч із уже запущеним сервером на 3100 / 54321.
+const PORT = Number(process.env.E2E_PORT ?? 3100);
+const DB_PORT = Number(process.env.E2E_DB_PORT ?? 54321);
 const FAKE_DB_ENV = { SUPABASE_URL: `http://127.0.0.1:${DB_PORT}`, SUPABASE_ANON_KEY: "test-anon" };
 // Адмінка (фаза 7): фейкові GitHub OAuth, Resend, Commons і GitHub API (scripts/dev/fake-services.mjs) і тестові значення — справжні ключі лише у Vercel.
 const AUTH_PORT = 4455;

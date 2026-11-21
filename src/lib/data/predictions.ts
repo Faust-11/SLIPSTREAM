@@ -22,6 +22,8 @@ export type PredictionRound = {
   /** ISO-момент закриття прогнозів за розкладом календаря; null — час кваліфікації ще не відомий (прогнози закриті). */
   deadlineAt: string | null;
   sprint: boolean;
+  /** Слаг траси (для фото на картці); null — траса невідома. */
+  circuitSlug: string | null;
 };
 
 export type PickDriver = {
@@ -127,7 +129,7 @@ export async function getPredictionsData(locale: Locale): Promise<PredictionsDat
   const [page, grid] = await Promise.all([getCalendarPage(locale), loadGrid()]);
 
   const rounds = page.cards.map(
-    (c): PredictionRound => ({ round: c.round, gp: c.gp, place: c.place, date: c.date, state: c.state, deadlineAt: deadlineOf(c), sprint: c.sprint }),
+    (c): PredictionRound => ({ round: c.round, gp: c.gp, place: c.place, date: c.date, state: c.state, deadlineAt: deadlineOf(c), sprint: c.sprint, circuitSlug: c.circuitSlug }),
   );
 
   const drivers: PickDriver[] = [];

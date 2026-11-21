@@ -1651,6 +1651,7 @@
     "deadline": "Closes:",
     "make": "Make a prediction",
     "view": "See predictions",
+    "creditsPhotos": "Track photos: authors and licences",
     "tz": {
       "utc": "Times are UTC.",
       "local": "Times are in your time zone ({tz})."

@@ -10,8 +10,8 @@ import { expectNoA11yViolations } from "./axe";
  */
 test.skip(!!process.env.BASE_URL, "фейковий Supabase є лише в локальному запуску");
 
-const FAKE = "http://127.0.0.1:54321";
-const BASE = "http://localhost:3100";
+const FAKE = `http://127.0.0.1:${process.env.E2E_DB_PORT ?? 54321}`;
+const BASE = `http://localhost:${process.env.E2E_PORT ?? 3100}`;
 const YEAR = 2026;
 
 // id з фікстури e2e/fixtures/db/drivers.json (поточна сітка): за чемпіонатом 1-2-3-4.
@@ -84,9 +84,34 @@ test.describe("список етапів", () => {
     await expect(rounds.nth(0).locator(".pd-status")).toContainText("Predictions open · close in 15 h 55 min");
     await expect(rounds.nth(0).locator(".pd-status")).toHaveAttribute("data-state", "soon");
     await expect(rounds.nth(1).locator(".pd-status")).toHaveAttribute("data-state", "open");
-    await expect(page.getByRole("link", { name: "Make a prediction" })).toHaveCount(3);
-    await expect(page.locator(".pd-rules li")).toHaveCount(6);
+    // 21.11: гість (немає позначки сесії) після гідратації бачить не «Зробити прогноз», а «Увійти…» — з поверненням на етап.
+    await expect(page.getByRole("link", { name: "Make a prediction", exact: true })).toHaveCount(0);
+    const signIn = page.getByRole("link", { name: "Sign in to make a prediction", exact: true });
+    await expect(signIn).toHaveCount(3);
+    await expect(signIn.first()).toHaveAttribute("href", "/login?next=%2Fpredictions%2F21");
+    await expect(page.locator(".pd-rule-list li")).toHaveCount(6);
+    await expect(page.locator(".pd-scale li")).toHaveCount(4);
     await expectNoA11yViolations(page);
+  });
+
+  test("картки етапів із фото траси або схемою-заглушкою; автори фото — внизу сторінки", async ({ page }) => {
+    await page.goto("/predictions");
+    const pics = page.locator("li.pd-round .pd-pic");
+    await expect(pics).toHaveCount(3);
+    for (const i of [0, 1, 2]) await expect(pics.nth(i).locator("img, svg.pd-pic-layout")).toHaveCount(1);
+    const photos = page.locator("li.pd-round .pd-pic img");
+    expect(await photos.count(), "хоч в одного етапу є фото траси").toBeGreaterThan(0);
+    await expect(photos.first()).toHaveAttribute("loading", "lazy");
+    await expect(photos.first()).toHaveAttribute("srcset", /480w/);
+    await expect(page.locator(".page-credits summary")).toContainText("Track photos");
+    await expect(page.locator(".pd-hero")).toHaveCSS("background-color", "rgb(255, 196, 0)"); // жовта шапка, не сіро-зелена
+  });
+
+  test("ввійшов: на картках звичайне «Зробити прогноз», не пропозиція входу", async ({ page }) => {
+    await signUp(page);
+    await page.goto("/predictions");
+    await expect(page.getByRole("link", { name: "Make a prediction", exact: true })).toHaveCount(3);
+    await expect(page.getByRole("link", { name: "Sign in to make a prediction", exact: true })).toHaveCount(0);
   });
 
   test("після дедлайну етап «закрито», кнопка веде до перегляду", async ({ page }) => {
@@ -120,6 +145,7 @@ test.describe("сторінка етапу", () => {
     await page.goto("/predictions/22");
     await expect(page.getByRole("heading", { level: 1 })).toContainText("Grand Prix");
     await expect(page.getByRole("heading", { name: "Sign in to make a prediction" })).toBeVisible();
+    await expect(page.locator(".pd-app > :first-child")).toHaveClass(/pd-signin/); // перша картка сторінки, не під відліком
     await expect(page.getByRole("main").getByRole("link", { name: "Sign in" })).toHaveAttribute("href", "/login?next=%2Fpredictions%2F22"); // в шапці теж є «Sign in» — шукаємо лише в main
     await expect(page.locator(".pd-left")).toContainText(/left/); // відлік за часом сервера
     expect(external, "браузер говорить лише з нашим origin (CSP connect-src 'self')").toEqual([]);

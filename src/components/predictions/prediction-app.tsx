@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { LocalTime, TzNote } from "@/components/calendar/local-time";
-import { useNow } from "@/components/calendar/clock";
+import { useHydrated, useNow } from "@/components/calendar/clock";
+import { useAccount } from "@/components/auth/account-store";
 import { NickForm, type NickText } from "@/components/auth/nick-form";
 import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
@@ -53,6 +54,8 @@ export function PredictionApp({ text, nickText, locale, year, round, deadlineAt,
   const [failed, setFailed] = useState(false);
   const [offset, setOffset] = useState(0);
   const now = useNow();
+  const hydrated = useHydrated();
+  const account = useAccount();
   const retries = useRef(0);
   const prevClosed = useRef<boolean | null>(null);
   const statusRef = useRef<HTMLElement>(null);
@@ -81,6 +84,9 @@ export function PredictionApp({ text, nickText, locale, year, round, deadlineAt,
   const serverNow = now === null ? null : now + offset;
   const closedByClock = deadlineMs !== null && serverNow !== null && serverNow >= deadlineMs;
   const closed = api ? api.closed || closedByClock : false;
+  // Пропозиція входу — одразу, не чекаючи відповіді API: немає позначки сесії (акаунт-стор: «анонім») — гість точно не ввійшов.
+  // Коли API відповів — слово за ним (позначка могла лишитись від минулої, вже недійсної сесії). Закритий етап входу не потребує.
+  const needSignIn = api ? !api.signedIn && !api.unavailable && !closed : hydrated && account.status === "anon" && !closedByClock;
 
   // Відлік дійшов до нуля, а сервер ще каже «відкрито» (годинник сервера трохи відстає від бази): перечитуємо одразу, далі ще двічі
   // з паузою (2 с, 5 с) і зупиняємось — не вічний цикл запитів; щойно сервер підтверджує «закрито», лічильник скидається (рев'ю 21.11, I).
@@ -115,6 +121,18 @@ export function PredictionApp({ text, nickText, locale, year, round, deadlineAt,
 
   return (
     <div className="pd-app">
+      {needSignIn ? (
+        <section className="au-card pd-signin" aria-labelledby="pd-signin">
+          <h2 className="au-h" id="pd-signin">
+            {t.signIn.h}
+          </h2>
+          <p className="au-note">{t.signIn.text}</p>
+          <Link className="btn au-btn" href={`${loginHref}?next=${encodeURIComponent(selfHref)}`}>
+            {t.signIn.cta}
+          </Link>
+        </section>
+      ) : null}
+
       <section className="pd-deadline au-card" ref={statusRef} tabIndex={-1} aria-label={t.deadlineLabel}>
         <p className="au-label">{t.deadlineLabel}</p>
         {deadline ? (
@@ -149,18 +167,6 @@ export function PredictionApp({ text, nickText, locale, year, round, deadlineAt,
             <p className="au-err au-card" role="alert">
               {t.unavailable}
             </p>
-          ) : null}
-
-          {!closed && !api.signedIn && !api.unavailable ? (
-            <section className="au-card" aria-labelledby="pd-signin">
-              <h2 className="au-h" id="pd-signin">
-                {t.signIn.h}
-              </h2>
-              <p className="au-note">{t.signIn.text}</p>
-              <Link className="btn au-btn" href={`${loginHref}?next=${encodeURIComponent(selfHref)}`}>
-                {t.signIn.cta}
-              </Link>
-            </section>
           ) : null}
 
           {!closed && player !== null && player.nick === null ? (
