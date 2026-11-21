@@ -6,8 +6,6 @@ import { formatDay, LocalDay, LocalTime, TzNote } from "@/components/calendar/lo
 import { HmCountdown } from "@/components/home/countdown";
 import { HmFades } from "@/components/home/fades";
 import { HmOnThisDay } from "@/components/home/on-this-day";
-import { weekendLabels } from "@/components/weather/labels";
-import { LazyWeekendWeather } from "@/components/weather/lazy-weather";
 import { HmNews } from "@/components/home/news";
 import { HmSlider } from "@/components/home/slider";
 import { SeasonPhoto } from "@/components/seasons/season-photo";
@@ -31,7 +29,6 @@ import { pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/site/json-ld";
 import { siteIdentity } from "@/lib/jsonld";
 import { getStoryList } from "@/lib/stories/content";
-import { WEATHER_FROM_YEAR, type SessionKind } from "@/lib/weather";
 
 /** Фон шапки: стартова решітка, Спа 2008 (Mark McArdle, CC BY-SA 2.0, Wikimedia Commons) — підпис у PageCredits унизу. */
 const HERO_PHOTO = {
@@ -503,19 +500,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                         </div>
                       )}
                     </dl>
-                  )}
-                  {/* Погода вікенду: код і запит — лише коли панель наблизилась до екрана й гонка не далі ніж через 12 діб (клієнт). */}
-                  {page.season >= WEATHER_FROM_YEAR && next.weatherKinds.length > 0 && (
-                    <LazyWeekendWeather
-                      year={page.season}
-                      round={next.round}
-                      raceAt={next.raceAt}
-                      locale={lang}
-                      kinds={next.weatherKinds}
-                      fullNames={dict.racePage.session as Record<SessionKind, string>}
-                      labels={weekendLabels(dict.racePage.weather)}
-                      level={3}
-                    />
                   )}
                   {next.circuit && (
                     <a className="hm-more" href={path(`/circuits/${next.circuit.slug}`)}>
