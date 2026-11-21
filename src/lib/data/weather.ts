@@ -3,7 +3,8 @@
 // Ліміти: OpenF1 безкоштовно 3 запити/с і 30/хв — тому на гонку лише ДВА запити (сесії року + заміри всього уікенду за
 // meeting_key); MET просить впізнаваний User-Agent з контактом, координати до 4 знаків і кеш за Expires (беремо 30 хв).
 import "server-only";
-import { buildSessions, findRaceSession, WEATHER_FROM_YEAR, type MetPoint, type OpenSession, type Sample, type WeatherSession } from "@/lib/weather";
+import { buildSessions, findRaceSession, sessionsFromCalendar, WEATHER_FROM_YEAR, type MetPoint, type OpenSession, type PageSession, type Sample, type WeatherSession } from "@/lib/weather";
+import { getCalendarWeatherRound } from "./calendar";
 import { getCircuitCoords } from "./circuits";
 import { getRacePage } from "./race-page";
 
@@ -29,10 +30,22 @@ async function getJson<T>(url: string, revalidate: number, headers: Record<strin
   }
 }
 
+/**
+ * Сторінка гонки є лише після результатів, а погоду хочемо й для етапу, що йде чи попереду, — тоді розклад, дату й трасу
+ * беремо з календаря поточного сезону (f1.calendar_sessions). null — сезон раніше за 2023, не поточний без сторінки,
+ * або такого етапу нема.
+ */
+async function weekendSource(year: number, round: number): Promise<{ date: string | null; circuit: string | null; sessions: PageSession[] } | null> {
+  const page = await getRacePage(year, round, "en");
+  if (page) return { date: page.date, circuit: page.circuit, sessions: page.sessions.map((s) => ({ kind: s.kind, at: s.at, real: s.real })) };
+  const cal = await getCalendarWeatherRound(year, round);
+  return cal ? { date: cal.date, circuit: cal.circuit, sessions: sessionsFromCalendar(cal.sessions.map((s) => ({ kind: s.kind, at: s.at, real: s.real }))) } : null;
+}
+
 /** null — такої гонки нема або сезон раніше за 2023 (заміри OpenF1 безкоштовні з 2023). */
 export async function getRaceWeather(year: number, round: number, now: number = Date.now()): Promise<RaceWeather | null> {
   if (!Number.isInteger(year) || !Number.isInteger(round) || year < WEATHER_FROM_YEAR) return null;
-  const page = await getRacePage(year, round, "en");
+  const page = await weekendSource(year, round);
   if (!page) return null;
 
   const raceMs = page.date ? Date.parse(`${page.date}T12:00:00Z`) : NaN;

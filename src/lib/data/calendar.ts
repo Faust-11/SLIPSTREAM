@@ -133,3 +133,11 @@ export async function getCalendarPage(locale: Locale): Promise<CalendarPage> {
     prev: page ? page.prev : (upcoming?.prev ?? null),
   };
 }
+
+/** Етап поточного календаря для погоди (/api/weather): дата, траса й розклад — навіть коли сторінки гонки ще нема. null — не цей сезон чи нема етапу. */
+export async function getCalendarWeatherRound(year: number, round: number): Promise<{ date: string | null; circuit: string | null; sessions: CalendarSession[] } | null> {
+  const season = await getCalendarSeason().catch(() => null);
+  if (season !== year) return null;
+  const card = (await getCalendarPage("en")).cards.find((c) => c.round === round);
+  return card ? { date: card.date, circuit: card.circuit, sessions: card.sessions } : null;
+}

@@ -221,3 +221,33 @@ export function buildSessions(input: { sessions: PageSession[]; open: OpenSessio
     return { ...base, state: data ? state : "none", source: data ? "openf1" : null, data };
   });
 }
+
+/* ---------- розклад із календаря (етапи, що ще не мають сторінки гонки) ---------- */
+
+/** Види сесій у f1.calendar_sessions: кваліфікація буває Q1/QB/QA (історичні формати), спринт-кваліфікація — SQ1. */
+const CALENDAR_KINDS: Record<string, SessionKind> = { FP1: "FP1", FP2: "FP2", FP3: "FP3", Q1: "Q", QB: "Q", QA: "Q", SQ1: "SQ", SR: "SR", R: "R" };
+
+/**
+ * Розклад етапу з календаря → наш (як у race-page.ts: одна кваліфікація на уїкенд, порядок збережено). Невідомий вид
+ * пропускаємо, а не вгадуємо.
+ */
+export function sessionsFromCalendar(list: { kind: string; at: string | null; real: boolean }[]): PageSession[] {
+  const seen = new Set<SessionKind>();
+  const out: PageSession[] = [];
+  for (const s of list) {
+    const kind = CALENDAR_KINDS[s.kind];
+    if (!kind || seen.has(kind)) continue;
+    seen.add(kind);
+    out.push({ kind, at: s.at, real: s.real });
+  }
+  return out;
+}
+
+/** Блок «Погода вікенду» в картці наступної гонки показуємо, коли гонка не далі ніж через 12 діб (прогноз MET — до ~9 діб) і не раніше ніж 3 доби тому. */
+export const WEEKEND_WEATHER_AHEAD_DAYS = 12;
+const BEHIND_DAYS = 3;
+export function weekendWeatherDue(raceAt: string | null | undefined, now: number): boolean {
+  const t = raceAt ? Date.parse(raceAt) : NaN;
+  if (!Number.isFinite(t)) return false;
+  return t - now <= WEEKEND_WEATHER_AHEAD_DAYS * DAY && now - t <= BEHIND_DAYS * DAY;
+}

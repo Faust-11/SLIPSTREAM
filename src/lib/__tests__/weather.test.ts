@@ -6,6 +6,8 @@ import {
   findRaceSession,
   inWindow,
   kindOfSessionName,
+  sessionsFromCalendar,
+  weekendWeatherDue,
   meanWind,
   pickForecast,
   summarize,
@@ -183,5 +185,43 @@ describe("buildSessions", () => {
   it("прогноз недоступний (далеко чи джерело впало) — none", () => {
     const r = buildSessions({ sessions: [mk("R")], open, samples: [], forecast: null, now: Date.parse("2026-11-10T00:00:00Z") });
     expect(r[0]).toMatchObject({ state: "none", data: null });
+  });
+});
+
+describe("sessionsFromCalendar (розклад етапу з календаря)", () => {
+  const at = (h: number) => `2026-11-2${h}T04:30:00+00:00`;
+  it("види календаря → наші; SQ1 → SQ, кваліфікація Q1/QB/QA — одна на уїкенд", () => {
+    const r = sessionsFromCalendar([
+      { kind: "FP1", at: at(0), real: true },
+      { kind: "SQ1", at: at(1), real: true },
+      { kind: "SR", at: at(1), real: true },
+      { kind: "Q1", at: at(1), real: true },
+      { kind: "QB", at: at(1), real: true },
+      { kind: "R", at: at(2), real: true },
+    ]);
+    expect(r.map((x) => x.kind)).toEqual(["FP1", "SQ", "SR", "Q", "R"]);
+    expect(r[3]).toEqual({ kind: "Q", at: at(1), real: true });
+  });
+  it("невідомий вид пропускається, а не вгадується; порожньо — порожньо", () => {
+    expect(sessionsFromCalendar([{ kind: "XX", at: null, real: false }, { kind: "R", at: null, real: false }]).map((x) => x.kind)).toEqual(["R"]);
+    expect(sessionsFromCalendar([])).toEqual([]);
+  });
+});
+
+describe("weekendWeatherDue (коли показувати блок)", () => {
+  const race = "2026-11-22T04:00:00Z";
+  const day = 86_400_000;
+  it("гонка за 12 діб і ближче — так; за 13 — ні", () => {
+    expect(weekendWeatherDue(race, Date.parse(race) - 12 * day)).toBe(true);
+    expect(weekendWeatherDue(race, Date.parse(race) - 13 * day)).toBe(false);
+  });
+  it("гонка йде чи була до 3 діб тому — так; пізніше — ні", () => {
+    expect(weekendWeatherDue(race, Date.parse(race) + 3_600_000)).toBe(true);
+    expect(weekendWeatherDue(race, Date.parse(race) + 3 * day)).toBe(true);
+    expect(weekendWeatherDue(race, Date.parse(race) + 3 * day + 1)).toBe(false);
+  });
+  it("немає часу гонки чи він некоректний — ні", () => {
+    expect(weekendWeatherDue(null, 0)).toBe(false);
+    expect(weekendWeatherDue("не дата", 0)).toBe(false);
   });
 });

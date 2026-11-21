@@ -1,0 +1,95 @@
+/* Компактна погода вікенду в картці наступної гонки (календар) і в панелі «Наступна гонка» (головна).
+   Кольори — від контейнера: на ПК панель головної червона (--hm-on / --hm-on-soft), на календарі й вужчих екранах — звичайна. */
+.ww {
+  --ww-soft: var(--hm-on-soft, var(--ink-soft));
+  --ww-line: color-mix(in srgb, currentColor 30%, transparent);
+  display: grid;
+  gap: 0;
+  min-width: 0;
+  margin-block: 4px 0;
+}
+.ww-h {
+  margin: 0 0 6px;
+  font-size: 16px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.ww-list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ww-row {
+  display: grid;
+  gap: 2px;
+  align-content: center;
+  min-block-size: 50px;
+  padding: 6px 0;
+  border-top: 1px solid var(--ww-line);
+  font-size: 14px;
+  line-height: 1.3;
+}
+.ww-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+.ww-k {
+  min-width: 0;
+}
+.ww-s {
+  flex-shrink: 0;
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+  color: var(--ww-soft);
+}
+.ww-v {
+  font-size: 13.5px;
+}
+.ww-t {
+  font-weight: 600;
+}
+.ww-p {
+  color: var(--ww-soft);
+}
+.ww-live .ww-s {
+  font-weight: 700;
+}
+.ww-credit {
+  margin: 6px 0 0;
+  font-size: 11.5px;
+  line-height: 1.35;
+  color: var(--ww-soft);
+}
+.ww-credit a {
+  color: inherit;
+  text-underline-offset: 2px;
+}
+/* Заглушка: висоти готового блока (заголовок 26, рядок 50, підпис джерел 2 рядки). */
+.ww-wait {
+  gap: 0;
+}
+.ww-sk {
+  display: block;
+  border-top: 1px solid var(--ww-line);
+  background: color-mix(in srgb, currentColor 6%, transparent);
+}
+.ww-sk-h {
+  block-size: 26px;
+  margin-bottom: 6px;
+  border-top: 0;
+}
+.ww-sk-r {
+  block-size: 50px;
+}
+.ww-sk-c {
+  block-size: 31px;
+  margin-top: 6px;
+  border-top: 0;
+}
+.ww-slot[hidden] {
+  display: none;
+}

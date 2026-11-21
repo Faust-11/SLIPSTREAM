@@ -17,6 +17,9 @@ import { plural } from "@/lib/plural";
 import { pageMetadata, siteUrl } from "@/lib/seo";
 import { JsonLd } from "@/components/site/json-ld";
 import { breadcrumbList } from "@/lib/jsonld";
+import { LazyWeekendWeather } from "@/components/weather/lazy-weather";
+import { weekendLabels } from "@/components/weather/labels";
+import { sessionsFromCalendar, WEATHER_FROM_YEAR, type SessionKind } from "@/lib/weather";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -188,6 +191,19 @@ export default async function CalendarPage({ params }: Props) {
                 </li>
               ))}
           </ul>
+          {/* Погода вікенду — лише в картці наступної гонки: клієнт сам вирішує, чи пора (≤ 12 діб) і вантажить, коли картка поруч. */}
+          {c.state === "next" && page.season >= WEATHER_FROM_YEAR && (
+            <LazyWeekendWeather
+              year={page.season}
+              round={c.round}
+              raceAt={c.raceAt}
+              locale={lang}
+              kinds={sessionsFromCalendar(c.sessions).map((x) => x.kind)}
+              fullNames={sessionNames as Record<SessionKind, string>}
+              labels={weekendLabels(dict.racePage.weather)}
+              level={4}
+            />
+          )}
         </>
       )}
     </li>
