@@ -93,6 +93,13 @@
 .pd-deadline {
   gap: 6px;
 }
+.pd-deadline:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.pd-stale {
+  min-height: 0;
+}
 .pd-when {
   margin: 0;
   font: 700 clamp(20px, 2.6vw, 28px) / 1.2 var(--f-display);

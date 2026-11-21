@@ -14,7 +14,10 @@ export type RoundApi = {
   now: number;
   deadline: string | null;
   closed: boolean;
-  user: { nick: string | null } | null;
+  /** Є дійсна сесія. `signedIn: true` при `user: null` — ввійшов, але профіль прочитати не вдалося (інтерфейс не пропонує входу). */
+  signedIn: boolean;
+  /** nick: null — профілю ще немає; publicName — як гравця бачать у таблиці (нік або «Гравець XXXX»). */
+  user: { nick: string | null; publicName: string | null } | null;
   mine: { Q: SavedPrediction | null; R: SavedPrediction | null } | null;
   revealed: RevealedRow[] | null;
   unavailable: boolean;
