@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import type { Locale } from "@/i18n/config";
-import { fill } from "@/i18n/fill";
+import { DASH, precipText, span } from "@/components/weather/format";
+import { useWeather } from "@/components/weather/use-weather";
 import { fmtSession } from "@/lib/fmt";
 import { compassIndex, type Condition, type SessionKind, type WeatherData, type WeatherSession } from "@/lib/weather";
 
@@ -26,8 +26,6 @@ export type RaceWeatherLabels = {
   creditForecast: string;
 };
 
-type Payload = { sessions: WeatherSession[] };
-const DASH = "—";
 
 /**
  * Погода вікенду в блоці «Вікенд» сторінки гонки: заміри OpenF1 для сесій, що були (чи йдуть), прогноз MET Norway — для
@@ -36,40 +34,18 @@ const DASH = "—";
  * блок не показуємо; без JavaScript його нема взагалі.
  */
 export function RaceWeather({ year, round, locale, kinds, sessionNames, labels }: { year: number; round: number; locale: Locale; kinds: SessionKind[]; sessionNames: Record<SessionKind, string>; labels: RaceWeatherLabels }) {
-  const [data, setData] = useState<Payload | "error" | null>(null);
-
-  useEffect(() => {
-    const ctl = new AbortController();
-    fetch(`/api/weather/${year}/${round}`, { signal: ctl.signal })
-      .then((r) => (r.ok ? (r.json() as Promise<Payload>) : Promise.reject(new Error(String(r.status)))))
-      .then(setData)
-      .catch((e: unknown) => {
-        if (!(e instanceof DOMException && e.name === "AbortError")) setData("error");
-      });
-    return () => ctl.abort();
-  }, [year, round]);
+  const data = useWeather(year, round);
 
   if (data === "error" || (data && !data.sessions.some((s) => s.data))) return null;
 
   const num = (n: number) => String(Math.round(n));
-  const span = (r: [number, number], unit: string) => {
-    const a = Math.round(r[0]);
-    const b = Math.round(r[1]);
-    return a === b ? `${a} ${unit}` : `${a}–${b} ${unit}`;
-  };
-  const mm = (v: number) => fill(labels.mm, { n: locale === "uk" ? v.toFixed(1).replace(".", ",") : v.toFixed(1) });
   const wind = (w: WeatherData["wind"]) => {
     if (!w) return DASH;
     if (w.kmh < 1) return labels.calm;
     const speed = `${num(w.kmh)} ${labels.unitWind}`;
     return w.from === null ? speed : `${labels.compass[compassIndex(w.from)] ?? ""} · ${speed}`;
   };
-  const precip = (d: WeatherData) => {
-    if (d.rainShare !== null) return d.rainShare === 0 ? labels.dry : fill(labels.rain, { n: Math.max(1, Math.round(d.rainShare * 100)) });
-    const cond = d.condition ? labels.cond[d.condition] : null;
-    const amount = d.mm !== null && d.mm >= 0.1 ? mm(d.mm) : null;
-    return cond && amount ? `${cond} · ${amount}` : (cond ?? amount ?? DASH);
-  };
+  const precip = (d: WeatherData) => precipText(d, labels, locale);
   const cells = (d: WeatherData | null): string[] =>
     d ? [span(d.air, "°C"), d.track ? span(d.track, "°C") : DASH, d.humidity !== null ? `${num(d.humidity)}%` : DASH, wind(d.wind), precip(d)] : [DASH, DASH, DASH, DASH, DASH];
   const heads = [labels.cols.air, labels.cols.track, labels.cols.humidity, labels.cols.wind, labels.cols.precip];

@@ -910,7 +910,14 @@
       "loading": "Loading the weather…",
       "creditLead": "Sources:",
       "creditMeasured": "readings at the track",
-      "creditForecast": "forecast"
+      "creditForecast": "forecast",
+      "weekendTitle": "Weekend weather",
+      "srcShort": {
+        "done": "measured",
+        "live": "live now",
+        "forecast": "forecast",
+        "none": "no data yet"
+      }
     }
   },
   "circuitsPage": {

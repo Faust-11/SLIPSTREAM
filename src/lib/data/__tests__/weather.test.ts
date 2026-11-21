@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { getCalendarWeatherRound } from "../calendar";
 import { getRaceWeather } from "../weather";
 
 // Сторінка гонки й координати трас — моки; мережа — підставний fetch за адресами (жодного звернення до OpenF1/MET).
@@ -6,6 +7,22 @@ vi.mock("../race-page", () => ({
   getRacePage: vi.fn(async (year: number, round: number) =>
     year === 2026 && round === 20
       ? { date: "2026-11-08", circuit: "interlagos", sessions: [{ kind: "FP1", at: "2026-11-06T15:30:00+00:00", real: true, best: null }, { kind: "R", at: "2026-11-08T17:00:00+00:00", real: true, best: null }] }
+      : null,
+  ),
+}));
+// Етап без сторінки гонки (ідучий/майбутній) — розклад із календаря поточного сезону (2026, етап 21 — Лас-Вегас).
+vi.mock("../calendar", () => ({
+  getCalendarWeatherRound: vi.fn(async (year: number, round: number) =>
+    year === 2026 && round === 21
+      ? {
+          date: "2026-11-22",
+          circuit: "vegas",
+          sessions: [
+            { kind: "FP1", at: "2026-11-20T00:30:00+00:00", real: true },
+            { kind: "Q1", at: "2026-11-21T04:00:00+00:00", real: true },
+            { kind: "R", at: "2026-11-22T04:00:00+00:00", real: true },
+          ],
+        }
       : null,
   ),
 }));
@@ -75,5 +92,21 @@ describe("getRaceWeather", () => {
     failAll = true;
     const r = await getRaceWeather(2026, 20, Date.parse("2026-11-09T00:00:00Z"));
     expect(r!.sessions.every((s) => s.state === "none" && s.data === null)).toBe(true);
+  });
+
+  it("етап без сторінки гонки — розклад береться з календаря (Q1 → Q): прогноз і 404-кейси", async () => {
+    const r = await getRaceWeather(2026, 21, Date.parse("2026-11-19T00:00:00Z"));
+    expect(r).not.toBeNull();
+    expect(r!.sessions.map((s) => s.kind)).toEqual(["FP1", "Q", "R"]);
+    // Заміри ще не питаємо (жодна сесія не стартувала); прогноз — за координатами траси календаря.
+    expect(calls.some((c) => c.url.includes("/weather?"))).toBe(false);
+    expect(calls.some((c) => c.url.includes("api.met.no"))).toBe(true);
+    expect(getCalendarWeatherRound).toHaveBeenCalledWith(2026, 21);
+  });
+
+  it("етапу нема ні на сторінках гонок, ні в календарі (інший сезон, номер) — null без запитів", async () => {
+    expect(await getRaceWeather(2026, 77)).toBeNull();
+    expect(await getRaceWeather(2025, 21)).toBeNull();
+    expect(calls).toHaveLength(0);
   });
 });

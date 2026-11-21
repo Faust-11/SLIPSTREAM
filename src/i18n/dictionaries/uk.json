@@ -910,7 +910,14 @@
       "loading": "Завантажуємо погоду…",
       "creditLead": "Джерела:",
       "creditMeasured": "заміри на трасі",
-      "creditForecast": "прогноз"
+      "creditForecast": "прогноз",
+      "weekendTitle": "Погода вікенду",
+      "srcShort": {
+        "done": "виміряно",
+        "live": "іде зараз",
+        "forecast": "прогноз",
+        "none": "даних ще немає"
+      }
     }
   },
   "circuitsPage": {
