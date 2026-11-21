@@ -86,10 +86,9 @@ describe("latestKey", () => {
 });
 
 describe("getHomePage — 2026 (фікстура db.yml)", () => {
-  it("сезон: 20 з 23, чемпіон Антонеллі (вирішено), смуга 23 етапи — 20 done, 21 next", async () => {
+  it("сезон: 20 з 23, смуга 23 етапи — 20 done, 21 next", async () => {
     const p = await getHomePage("uk");
     expect([p.season, p.done, p.total, p.phase]).toEqual([2026, 20, 23, "running"]);
-    expect([p.champion?.driver.id, p.champion?.decided]).toEqual(["antonelli", true]);
     expect(p.rail).toHaveLength(23);
     expect(p.rail.filter((r) => r.state === "done")).toHaveLength(20);
     expect(p.rail.find((r) => r.state === "next")?.round).toBe(21);
@@ -122,12 +121,11 @@ describe("getHomePage — 2026 (фікстура db.yml)", () => {
     expect(p.upcoming.map((r) => r.round)).toEqual([21, 22, 23]);
   });
 
-  it("міжсезоння (календар 2027 без результатів): чемпіон і залік — 2026, фаза «ahead», остання гонка — 2026", async () => {
+  it("міжсезоння (календар 2027 без результатів): залік — 2026, фаза «ahead», остання гонка — 2026", async () => {
     ahead.on = true;
     try {
       const p = await getHomePage("uk");
       expect([p.season, p.phase]).toEqual([2027, "ahead"]);
-      expect([p.champion?.season, p.champion?.driver.id]).toEqual([2026, "antonelli"]);
       expect(p.standings.season).toBe(2026);
       expect(p.standings.drivers.length).toBeGreaterThan(10);
       expect(p.last?.year).toBe(2026);

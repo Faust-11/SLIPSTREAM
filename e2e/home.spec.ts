@@ -15,8 +15,9 @@ test("/uk: герой, чемпіон, смуга сезону, остання �
   expect(res?.status()).toBe(200);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Уся Формула-1. Коло за колом.");
   await expect(page.locator(".hm-meta")).toContainText("Сезон 2026 · 20 з 23 етапів позаду");
-  await expect(page.locator(".hm-stamp-champ")).toHaveText("Чемпіон світу 2026");
-  await expect(page.locator(".hm-champ-name")).toContainText("Антонеллі");
+  // Рішення 21.11: картку чемпіона в шапці замінила «Цей день у Формулі-1» (докладно — тести нижче).
+  await expect(page.locator("#hm-otd-h")).toHaveText("Цей день у Формулі-1");
+  await expect(page.locator(".hm-champ")).toHaveCount(0);
   await expect(page.locator(".hm-rail-cell")).toHaveCount(23);
   await expect(page.locator(".hm-rail-cell.hm-rail-next")).toHaveCount(1);
   await expect(page.locator(".hm-rail-cell.hm-rail-next .num")).toHaveText("21");
@@ -208,4 +209,73 @@ test("CLS < 0.1 (390 px); розмір HTML ≤ 100 КБ gzip", async ({ page, r
   const { gzipSync } = await import("node:zlib");
   const res = await request.get("/uk");
   expect(gzipSync(await res.body()).length).toBeLessThan(100 * 1024);
+});
+
+/** Ключі днів, які є в розділі «Цей день» (зі sitemap), — стабільніше за жорстко прописані дати. */
+async function historyDays(request: import("@playwright/test").APIRequestContext): Promise<string[]> {
+  const xml = await (await request.get("/sitemap.xml")).text();
+  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]!);
+  return [...new Set(locs.map((l) => /\/history\/(\d{2}-\d{2})$/.exec(l)?.[1]).filter((d): d is string => !!d))].sort();
+}
+
+test("/uk: «Цей день у Формулі-1» у шапці — дата за годинником, події, посилання, сусідні дні", async ({ page, request }) => {
+  const days = await historyDays(request);
+  const day = days.includes("10-19") ? "10-19" : days[0]!;
+  await page.clock.setFixedTime(new Date(`2026-${day}T12:00:00Z`));
+  const errors: string[] = [];
+  page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
+  await page.goto("/uk");
+  const card = page.locator(".hm-otd");
+  await expect(card.locator(".hm-otd-ev").first()).toBeVisible();
+  const n = await card.locator(".hm-otd-ev").count();
+  expect(n).toBeGreaterThanOrEqual(1);
+  expect(n).toBeLessThanOrEqual(3);
+  await expect(card.locator(".hm-otd-num")).toHaveText(String(Number(day.slice(3))));
+  await expect(card.locator(".hm-otd-date")).toContainText(/[а-яі]/i);
+  const links = await card.locator(".hm-otd-ev a").evaluateAll((as) => as.map((a) => a.getAttribute("href")!));
+  expect(links.every((h) => /^\/uk\/(drivers|seasons)\//.test(h))).toBe(true);
+  await expect(card.locator(".hm-otd-all")).toHaveAttribute("href", `/uk/history/${day}`);
+  for (const rel of ["prev", "next"]) {
+    const href = await card.locator(`a[rel="${rel}"]`).getAttribute("href");
+    expect(href).toMatch(/^\/uk\/history\/\d{2}-\d{2}$/);
+    expect((await request.get(href!)).status()).toBe(200);
+  }
+  expect(errors).toEqual([]);
+});
+
+test("/uk: порожній день — картка показує найближчу дату з подіями й каже про це", async ({ page, request }) => {
+  const days = new Set(await historyDays(request));
+  const all = Array.from({ length: 12 }, (_, m) => Array.from({ length: [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][m]! }, (_, d) => `${String(m + 1).padStart(2, "0")}-${String(d + 1).padStart(2, "0")}`)).flat();
+  const empty = all.find((k) => !days.has(k));
+  test.skip(!empty, "у фікстурі немає порожніх днів");
+  await page.clock.setFixedTime(new Date(`2026-${empty}T12:00:00Z`));
+  await page.goto("/uk");
+  await expect(page.locator(".hm-otd .hm-otd-ev").first()).toBeVisible();
+  await expect(page.locator(".hm-otd-date")).toContainText("найближча дата з подіями");
+  await expect(page.locator(".hm-otd-all")).not.toHaveAttribute("href", `/uk/history/${empty}`);
+});
+
+test("/: англійська версія картки дня", async ({ page, request }) => {
+  const days = await historyDays(request);
+  await page.clock.setFixedTime(new Date(`2026-${days[0]}T12:00:00Z`));
+  await page.goto("/");
+  await expect(page.locator("#hm-otd-h")).toHaveText("This day in Formula 1");
+  await expect(page.locator(".hm-otd .hm-otd-ev").first()).toBeVisible();
+  await expect(page.locator(".hm-otd-all")).toContainText("Full history of the day");
+  await expect(page.locator(".hm-otd-all")).toHaveAttribute("href", new RegExp(`^/history/\\d{2}-\\d{2}$`));
+});
+
+test("/api/on-this-day/<мова>/<день>: JSON дня; чужа мова чи неіснуюча дата — 404", async ({ request }) => {
+  const days = await historyDays(request);
+  const day = days[0]!;
+  const ok = await request.get(`/api/on-this-day/uk/${day}`);
+  expect(ok.status()).toBe(200);
+  const body = await ok.json();
+  expect(body.key).toBe(day);
+  expect(body.exact).toBe(true);
+  expect(body.events.length).toBeGreaterThanOrEqual(1);
+  expect(body.events.length).toBeLessThanOrEqual(3);
+  expect(body.prev).toMatch(/^\d{2}-\d{2}$/);
+  expect((await request.get("/api/on-this-day/xx/10-19")).status()).toBe(404);
+  expect((await request.get("/api/on-this-day/uk/13-40")).status()).toBe(404);
 });

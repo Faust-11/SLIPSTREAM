@@ -1162,28 +1162,6 @@
       },
       "first": "first season"
     },
-    "champion": "{season} World Champion",
-    "leader": "{season} championship leader",
-    "points": {
-      "one": "{n} point",
-      "few": "{n} points",
-      "many": "{n} points",
-      "other": "{n} points"
-    },
-    "wins": {
-      "one": "{n} win",
-      "few": "{n} wins",
-      "many": "{n} wins",
-      "other": "{n} wins"
-    },
-    "decided": {
-      "one": "Title sealed at round {round} ({place}) with {left} round to go.",
-      "few": "Title sealed at round {round} ({place}) with {left} rounds to go.",
-      "many": "Title sealed at round {round} ({place}) with {left} rounds to go.",
-      "other": "Title sealed at round {round} ({place}) with {left} rounds to go."
-    },
-    "decidedLast": "The title went down to the final round ({place}).",
-    "leaderNote": "The title is still open.",
     "railTitle": "Season {season}",
     "railLast": "Round {round} · finished",
     "railNext": "Round {round} · next",
@@ -1259,7 +1237,20 @@
     "morePosts": "All journalists' posts →",
     "recTabWins": "Wins",
     "recTabTitles": "Titles",
-    "recTabCups": "Cups"
+    "recTabCups": "Cups",
+    "otd": {
+      "tags": {
+        "race": "Grand Prix",
+        "born": "Birthday",
+        "died": "In memoriam"
+      },
+      "all": "Full history of the day",
+      "more": "{n} more",
+      "loading": "Loading the day's events…",
+      "error": "Couldn't load this day's events.",
+      "nearest": "nearest date with events",
+      "nav": "Other days"
+    }
   },
   "gamePage": {
     "metaDescription": "Hot lap — the Outlap mini-game: one lap of a made-up circuit against a bot and your own ghost. Four circuits, a record on each.",
