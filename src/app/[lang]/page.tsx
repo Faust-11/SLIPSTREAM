@@ -5,11 +5,11 @@ import type { CSSProperties, ReactNode } from "react";
 import { formatDay, LocalDay, LocalTime, TzNote } from "@/components/calendar/local-time";
 import { HmCountdown } from "@/components/home/countdown";
 import { HmFades } from "@/components/home/fades";
+import { HmOnThisDay } from "@/components/home/on-this-day";
 import { HmNews } from "@/components/home/news";
 import { HmSlider } from "@/components/home/slider";
 import { SeasonPhoto } from "@/components/seasons/season-photo";
 import { StoryCard } from "@/components/stories/story-card";
-import { heroColors } from "@/components/site/section-hero";
 import { Term, TermPopover } from "@/components/glossary/term";
 import { PageCredits } from "@/components/teams/page-credits";
 import type { Locale } from "@/i18n/config";
@@ -20,7 +20,7 @@ import { requireLocale } from "@/i18n/require-locale";
 import { getHomePage, type RecordList } from "@/lib/data/home";
 import { fmtLap, TRACK_KEYS, TRACK_SPECS } from "@/lib/game/physics";
 import { trackThumb } from "@/lib/game/thumb";
-import { circuitPhotoAlt, seasonPhotoAlt } from "@/lib/image-alt";
+import { circuitPhotoAlt } from "@/lib/image-alt";
 import type { ResultRow } from "@/lib/data/race-page";
 import type { SeasonDriver, SeasonTeamRef } from "@/lib/data/season-page";
 import { plural } from "@/lib/plural";
@@ -88,7 +88,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const page = await getHomePage(lang);
   const path = (p: string) => localizedPath(p, lang);
   const n = (v: number) => fmt[lang].format(v);
-  const { champion, last, next } = page;
+  const { last, next } = page;
 
   // Підказки словника в таблиці останньої гонки (рішення 15.11): віконця — один раз унизу (статуси повторюються).
   const tl = termLabels(lang, dict.glossary.more);
@@ -202,53 +202,11 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               </div>
             </dl>
           </div>
-          {champion && (
-            <aside className="hm-champ" aria-labelledby="hm-champ-h">
-              <figure className="hm-champ-photo">
-                {champion.photo && (
-                  <SeasonPhoto
-                    src={champion.photo.src}
-                    alt={seasonPhotoAlt(dict.seasonsPage.photoAlt, champion.driver.name, champion.season, champion.decided)}
-                    srcSet={champion.photo.srcSet}
-                    sizes="(max-width: 1100px) 100vw, 420px"
-                    width={champion.photo.width}
-                    height={champion.photo.height}
-                    priority
-                    eager
-                    style={champion.photo.focus ? { objectPosition: champion.photo.focus } : undefined}
-                  />
-                )}
-                <span className="hm-stamp hm-stamp-champ" id="hm-champ-h">
-                  {fill(champion.decided ? t.champion : t.leader, { season: champion.season })}
-                </span>
-              </figure>
-              <div className="hm-champ-top">
-                <span className="hm-roundel" style={champion.team?.color ? ({ "--c": champion.team.color, "--on": heroColors(champion.team.color).fg } as CSSProperties) : undefined} aria-hidden="true">
-                  {champion.number ?? champion.driver.initials}
-                </span>
-                <div>
-                  <a className="hm-champ-name" href={path(`/drivers/${champion.driver.slug}`)}>
-                    {champion.driver.name}
-                  </a>
-                  <p>
-                    {champion.team && <span translate="no">{champion.team.name}</span>}
-                    {champion.team && " · "}
-                    {fill(plural(champion.points, lang, t.points), { n: n(champion.points) })} · {fill(plural(champion.wins, lang, t.wins), { n: champion.wins })}
-                  </p>
-                </div>
-              </div>
-              {/* Титул вирішено, але етап рішення не визначено однозначно — без підпису (рев'ю PR #25). */}
-              {(champion.decider || !champion.decided) && (
-                <p className="hm-champ-note">
-                  {champion.decider
-                    ? champion.decider.left > 0
-                      ? fill(plural(champion.decider.left, lang, t.decided), { round: champion.decider.round, place: champion.decider.place, left: champion.decider.left })
-                      : fill(t.decidedLast, { place: champion.decider.place })
-                    : t.leaderNote}
-                </p>
-              )}
-            </aside>
-          )}
+          <HmOnThisDay
+            locale={lang}
+            base={path("/history")}
+            labels={{ ...dict.homePage.otd, title: dict.onThisDay.title, months: dict.onThisDay.monthsGen }}
+          />
         </div>
       </section>
 

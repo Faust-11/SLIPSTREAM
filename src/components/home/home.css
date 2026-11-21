@@ -135,10 +135,6 @@
   padding: 8px 12px;
   white-space: nowrap;
 }
-.hm-stamp-champ {
-  background: var(--yellow);
-  color: var(--on-yellow);
-}
 .hm-stamp-fin {
   background: #f3f4f1;
   color: #16181d;
@@ -240,72 +236,129 @@
 .hm-stats > div:last-child dd {
   color: var(--red-text);
 }
-.hm-champ {
+/* ---------- «Цей день у Формулі-1» у шапці (на місці картки чемпіона, рішення користувача 21.11) ---------- */
+.hm-otd {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 20px;
   min-width: 0;
-  padding: 0 0 28px 32px;
-}
-.hm-champ-photo {
-  position: relative;
-  margin: 0 calc(-1 * var(--hm-gutter)) 0 0;
-  block-size: 300px;
-  overflow: hidden;
+  margin-inline-end: calc(-1 * var(--hm-gutter));
+  padding: 28px calc(28px + var(--hm-gutter)) 22px 28px;
   background: var(--card);
+  color: var(--on-card);
 }
-.hm-champ-photo img {
-  display: block;
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: cover;
-}
-.hm-champ-photo .hm-stamp {
-  position: absolute;
-  inset: 0 auto auto 0;
-}
-.hm-champ-top {
-  position: relative;
+.hm-otd-top {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  margin-top: -48px;
+  align-items: center;
+  gap: 18px;
 }
-.hm-champ-top > div {
-  min-width: 0;
-  padding-top: 56px;
-}
-.hm-champ-top .hm-roundel {
-  inline-size: 96px;
-  block-size: 96px;
+.hm-otd-num {
+  display: grid;
+  place-items: center;
+  inline-size: 104px;
+  block-size: 104px;
   flex-shrink: 0;
-  font-size: 36px;
-  box-shadow:
-    0 0 0 5px var(--paper),
-    inset 0 0 0 4px var(--ink);
+  background: var(--yellow);
+  color: var(--on-yellow);
+  font-size: 60px;
+  line-height: 1;
 }
-.hm-champ-name {
-  display: block;
-  font-family: var(--f-display);
-  word-spacing: -0.35em;
-  font-size: 22px;
-  line-height: 1.1;
+.hm-otd h2 {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.02;
   text-transform: uppercase;
+}
+.hm-otd-date {
+  min-block-size: 1.2em;
+  margin: 6px 0 0;
+  font: 600 13px/1.2 var(--f-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.hm-otd-list {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.hm-otd-ev {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: var(--b2) solid currentColor;
+}
+.hm-otd-yr {
+  min-inline-size: 4.2ch;
+  font-size: 30px;
+  line-height: 1;
+}
+.hm-otd-tag {
+  display: block;
+  margin-bottom: 6px;
+  font: 700 11px/1 var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hm-otd-race .hm-otd-tag {
+  color: #ff8b7c;
+}
+.hm-otd-born .hm-otd-tag {
+  color: #9eb2ff;
+}
+.hm-otd-died .hm-otd-tag {
+  color: var(--on-card-soft);
+}
+.hm-otd-name {
+  display: block;
+  font: 700 19px/1.2 var(--f-body);
+  color: inherit;
   text-decoration: none;
 }
-.hm-champ-name:hover {
+.hm-otd-name:hover {
   text-decoration: underline;
 }
-.hm-champ-top p,
-.hm-champ-note {
-  margin: 4px 0 0;
+.hm-otd-sub {
+  display: block;
+  margin-top: 4px;
   font-size: 14px;
-  color: var(--ink-soft);
+  color: var(--on-card-soft);
 }
-.hm-champ-note {
+/* Заглушка, поки дані дня не прийшли: три рядки тієї ж висоти — без зсуву розкладки. */
+.hm-otd-wait p:not(.hm-sr) {
   margin: 0;
-  font-size: 15px;
-  max-width: 44ch;
+  padding-block: 16px;
+  border-top: var(--b2) solid currentColor;
+  color: var(--on-card-soft);
+}
+.hm-otd-sk {
+  display: block;
+  block-size: 98px;
+  border-top: var(--b2) solid currentColor;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+.hm-otd-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 12px;
+  padding-top: 14px;
+  border-top: var(--b2) solid currentColor;
+  font: 600 13px/1.3 var(--f-mono);
+}
+.hm-otd-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+.hm-otd-nav a:hover {
+  text-decoration: underline;
+}
+.hm-otd-nav .hm-otd-all {
+  order: -1;
+  flex-basis: 100%;
+  font-size: 14px;
+  color: var(--yellow);
 }
 
 /* ---------- смуга сезону ---------- */
@@ -1243,11 +1296,9 @@
     border-inline-end: 0;
     border-bottom: var(--b2) solid var(--rule);
   }
-  .hm-champ {
-    padding: 0 0 28px;
-  }
-  .hm-champ-photo {
-    margin-inline-start: calc(-1 * var(--hm-gutter));
+  .hm-otd {
+    margin-inline: calc(-1 * var(--hm-gutter));
+    padding: 24px var(--hm-gutter) 20px;
   }
   .hm-rail .wrap {
     grid-template-columns: minmax(0, 1fr);
@@ -1306,6 +1357,14 @@
   }
 }
 @media (max-width: 600px) {
+  .hm-otd-num {
+    inline-size: 76px;
+    block-size: 76px;
+    font-size: 42px;
+  }
+  .hm-otd h2 {
+    font-size: 22px;
+  }
   /* Телефон: окремий подіум не потрібен — перша трійка вже вгорі таблиці (відгук користувача 15.11). */
   .hm-podium {
     display: none;

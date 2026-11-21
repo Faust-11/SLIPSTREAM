@@ -7,7 +7,7 @@ import { getCalendarPage, type CalendarCard } from "./calendar";
 import { circuitBySlug, getCircuitPage, type CircuitLayout, type CreditItem } from "./circuits";
 import { driverPortrait, loadDriverIndex } from "./drivers";
 import { getRaceKeys, getRacePage, type ResultRow } from "./race-page";
-import { getSeasonPage, loadNames, makeDriver, type SeasonDriver, type SeasonPhoto, type SeasonTeamRef, type StandingRow, type TeamStandingRow } from "./season-page";
+import { getSeasonPage, loadNames, makeDriver, type SeasonDriver, type SeasonPhoto, type StandingRow, type TeamStandingRow } from "./season-page";
 import { loadSeasonIndex } from "./seasons";
 import { getTeamsIndex } from "./teams";
 
@@ -96,18 +96,6 @@ export type HomePage = {
   /** Сезон іде / завершено / ще не стартував (календар нового року без результатів). */
   phase: "running" | "over" | "ahead";
   stats: { seasons: number; drivers: number; circuits: number; first: number };
-  champion: null | {
-    season: number;
-    decided: boolean;
-    driver: SeasonDriver;
-    team: SeasonTeamRef | null;
-    number: number | null;
-    points: number;
-    wins: number;
-    photo: SeasonPhoto | null;
-    /** Етап, після якого титул став недосяжним; null — ще не вирішено або не визначено однозначно. */
-    decider: null | { round: number; place: string; left: number };
-  };
   rail: HomeRail[];
   last: HomeLast | null;
   next: HomeNext | null;
@@ -161,23 +149,6 @@ export async function getHomePage(locale: Locale): Promise<HomePage> {
     nextCircuitPage(nextCard, locale),
   ]);
   const drv = (id: string) => makeDriver(id, names, locale);
-
-  let champion: HomePage["champion"] = null;
-  const lead = seasonPage?.contenders[0];
-  if (seasonPage && lead) {
-    const d = seasonPage.facts.decider;
-    champion = {
-      season: statSeason,
-      decided: seasonPage.decided,
-      driver: lead.driver,
-      team: lead.team,
-      number: lead.number,
-      points: lead.points,
-      wins: lead.wins,
-      photo: lead.photo,
-      decider: seasonPage.decided && d ? { round: d.round, place: d.place, left: seasonPage.rounds - d.round } : null,
-    };
-  }
 
   let last: HomeLast | null = null;
   if (race) {
@@ -252,12 +223,11 @@ export async function getHomePage(locale: Locale): Promise<HomePage> {
     cups: rankRecords(teams.map((t) => ({ who: { id: t.id, name: t.name }, n: t.titles }))),
   };
 
-  // Атрибуція — лише внизу сторінки (правило сайту): фото чемпіона, гонки, траси й портрети лише тих, кого видно.
+  // Атрибуція — лише внизу сторінки (правило сайту): фото гонки, траси й портрети лише тих, кого видно.
   const photos: CreditItem[] = [];
   const pushPhoto = (label: string, c: { page: string; author: string; license: string } | undefined | null) => {
     if (c && !photos.some((p) => p.href === c.page)) photos.push({ label, href: c.page, author: c.author, license: c.license });
   };
-  if (champion?.photo) pushPhoto(champion.driver.name, champion.photo.credit);
   if (last?.photo) pushPhoto(last.photo.label || last.gp, last.photo.credit);
   if (nextCircuit?.hero) pushPhoto(nextCircuit.short, nextCircuit.hero.credit);
   const shown = [
@@ -285,7 +255,6 @@ export async function getHomePage(locale: Locale): Promise<HomePage> {
       circuits: Object.keys(places).length,
       first: Math.min(...seasons.map((s) => s.year)),
     },
-    champion,
     rail: calendar.cards.map((c) => ({ round: c.round, place: c.place, date: c.date, raceAt: c.raceAt, raceTimed: c.raceTimed, state: c.state })),
     last,
     next,
