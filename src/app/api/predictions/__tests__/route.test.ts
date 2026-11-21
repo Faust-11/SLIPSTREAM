@@ -35,7 +35,7 @@ describe("GET — стан етапу", () => {
     const body = await res.json();
     expect(res.status).toBe(200);
     expect(res.headers.get("cache-control")).toBe("no-store");
-    expect(body).toMatchObject({ closed: false, user: null, mine: null, revealed: null, unavailable: false });
+    expect(body).toMatchObject({ closed: false, signedIn: false, user: null, mine: null, revealed: null, unavailable: false });
     expect(typeof body.now).toBe("number");
     expect(rest.getRevealed).not.toHaveBeenCalled();
     expect(rest.getMyPredictions).not.toHaveBeenCalled();
@@ -50,13 +50,28 @@ describe("GET — стан етапу", () => {
     body = await (await GET(get())).json();
     expect(body).toMatchObject({ closed: true, deadline: null });
   });
+  it("рев'ю 21.11 (C/G): після дедлайну getRevealed отримує публічне ім'я гравця (для гарантії його рядка й підсвітки «ви»)", async () => {
+    rest.getDeadline.mockResolvedValue({ ok: true, deadline: new Date(Date.now() - 1000).toISOString() });
+    rest.getRevealed.mockResolvedValue({ ok: true, rows: [] });
+    session.currentPlayer.mockResolvedValue(player);
+    profile.getProfile.mockResolvedValue({ ok: true, profile: { nick: "Max", publicName: "Гравець AB12" } });
+    rest.getMyPredictions.mockResolvedValue({ ok: true, rows: [] });
+    const body = await (await GET(get())).json();
+    expect(body.user).toEqual({ nick: "Max", publicName: "Гравець AB12" });
+    expect(rest.getRevealed).toHaveBeenCalledWith(expect.objectContaining({ url: CFG.url }), 2026, 22, "Гравець AB12");
+    rest.getRevealed.mockClear();
+    session.currentPlayer.mockResolvedValue({ cfg: CFG, user: null, unavailable: false });
+    await GET(get());
+    expect(rest.getRevealed).toHaveBeenCalledWith(expect.anything(), 2026, 22, null);
+  });
   it("ввійшов: нік і свої прогнози; email у відповіді немає", async () => {
     session.currentPlayer.mockResolvedValue(player);
     profile.getProfile.mockResolvedValue({ ok: true, profile: { nick: "Max", publicName: "Max" } });
     rest.getMyPredictions.mockResolvedValue({ ok: true, rows: [{ kind: "R", picks, dnfTeam: 191, allFinish: false, updatedAt: "2026-11-20T10:00:00Z" }] });
     const text = await (await GET(get())).text();
     const body = JSON.parse(text);
-    expect(body.user).toEqual({ nick: "Max" });
+    expect(body.signedIn).toBe(true);
+    expect(body.user).toEqual({ nick: "Max", publicName: "Max" });
     expect(body.mine).toEqual({ Q: null, R: { picks, dnfTeam: 191, allFinish: false, updatedAt: "2026-11-20T10:00:00Z" } });
     expect(rest.getMyPredictions).toHaveBeenCalledWith(expect.objectContaining({ url: CFG.url, key: CFG.key }), "TOK", 2026, 22);
     expect(text).not.toMatch(/email|@|userId|u1/);
@@ -65,14 +80,17 @@ describe("GET — стан етапу", () => {
     session.currentPlayer.mockResolvedValue(player);
     profile.getProfile.mockResolvedValue({ ok: true, profile: null });
     rest.getMyPredictions.mockResolvedValue({ ok: true, rows: [] });
-    expect((await (await GET(get())).json()).user).toEqual({ nick: null });
+    const body = await (await GET(get())).json();
+    expect(body.user).toEqual({ nick: null, publicName: null });
+    expect(body.signedIn).toBe(true);
   });
   it("збій бази для своїх даних → unavailable, але дедлайн віддаємо", async () => {
     session.currentPlayer.mockResolvedValue(player);
     profile.getProfile.mockResolvedValue({ ok: false });
     rest.getMyPredictions.mockResolvedValue({ ok: true, rows: [] });
     const body = await (await GET(get())).json();
-    expect(body).toMatchObject({ unavailable: true, user: null, closed: false });
+    // Рев'ю 21.11 (D): вхід лишається «ввійшов» (signedIn), інакше UI пропонує увійти ввійшлому — петля з /login. unknown ≠ «не ввійшов».
+    expect(body).toMatchObject({ unavailable: true, signedIn: true, user: null, closed: false });
     expect(body.deadline).toEqual(expect.any(String));
   });
   it("кривий запит — 400; немає налаштувань — 503; дедлайн недоступний — 503", async () => {

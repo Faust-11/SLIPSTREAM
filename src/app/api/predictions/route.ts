@@ -14,7 +14,9 @@ const mineJson = (p: MyPrediction) => ({ picks: p.picks, dnfTeam: p.dnfTeam, all
  * Стан етапу для сторінки прогнозу: GET /api/predictions?year=2026&round=22.
  *  - deadline — за годинником БАЗИ (play.deadline); now — час сервера (клієнт рахує відлік за різницею, а не за своїм
  *    годинником, який може йти неправильно). Дедлайн і так перевіряє тригер бази — це лише для показу.
- *  - user — хто я: null (не ввійшов) або { nick } (nick: null — профілю ще немає, треба обрати нік);
+ *  - signedIn — є дійсна сесія (cookie), навіть якщо профіль чи прогнози прочитати не вдалося; user — хто я: null або
+ *    { nick, publicName } (nick: null — профілю ще немає, треба обрати нік; publicName — як мене бачать у таблиці: нік чи «Гравець XXXX»).
+ *    «signedIn: true, user: null, unavailable: true» — ввійшов, але база недоступна: інтерфейс НЕ пропонує увійти (unknown ≠ «не ввійшов»);
  *  - mine — мої прогнози на етап (лише для ввійшлого); revealed — прогнози всіх гравців, ТІЛЬКИ коли дедлайн минув
  *    (подання бази й так нічого не віддасть раніше; зайвого запиту до дедлайну не робимо).
  * Email у відповідь не потрапляє ніколи. Без кешу.
@@ -34,12 +36,12 @@ export async function GET(request: Request) {
 
   const state = await currentPlayer();
   let unavailable = !!state?.unavailable;
-  let user: { nick: string | null } | null = null;
+  let user: { nick: string | null; publicName: string | null } | null = null;
   let mine: Record<PredictionKind, ReturnType<typeof mineJson> | null> | null = null;
   if (state?.user) {
     const [profile, list] = await Promise.all([getProfile(cfg, state.user.accessToken), getMyPredictions(cfg, state.user.accessToken, key.year, key.round)]);
     if (profile.ok && list.ok) {
-      user = { nick: profile.profile?.nick ?? null };
+      user = { nick: profile.profile?.nick ?? null, publicName: profile.profile?.publicName ?? null };
       mine = { Q: null, R: null };
       for (const row of list.rows) mine[row.kind] = mineJson(row);
     } else unavailable = true;
@@ -47,11 +49,11 @@ export async function GET(request: Request) {
 
   let revealed = null;
   if (closed) {
-    const res = await getRevealed(cfg, key.year, key.round);
+    const res = await getRevealed(cfg, key.year, key.round, user?.publicName ?? null);
     if (res.ok) revealed = res.rows;
     else unavailable = true;
   }
-  return json(200, { now, deadline: deadline.deadline, closed, user, mine, revealed, unavailable });
+  return json(200, { now, deadline: deadline.deadline, closed, signedIn: !!state?.user, user, mine, revealed, unavailable });
 }
 
 /**
