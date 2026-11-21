@@ -175,6 +175,8 @@
   inset-block: 0;
   inset-inline: calc(-1 * var(--hm-gutter)) 0;
   inline-size: calc(100% + var(--hm-gutter));
+  /* Глобальне img { max-width: 100% } обрізало б фото по ширині панелі (праворуч лишалась смуга). */
+  max-inline-size: none;
   block-size: 100%;
   object-fit: cover;
   object-position: 30% 55%;
@@ -1305,10 +1307,19 @@
   .hm-champs .wrap {
     grid-template-columns: minmax(0, 1fr);
   }
+  /* Одна колонка: панель шапки — на всю ширину екрана (разом з відступами wrap), інакше фото й фон лишали світлу смугу праворуч (21.11). */
   .hm-hero-main {
-    padding-inline-end: 0;
+    margin-inline: calc(-1 * var(--hm-gutter));
+    padding-inline: var(--hm-gutter);
     border-inline-end: 0;
     border-bottom: var(--b2) solid #0a0b0e;
+  }
+  .hm-hero-photo,
+  .hm-hero-main::before {
+    inset-inline: 0;
+  }
+  .hm-hero-photo {
+    inline-size: 100%;
   }
   .hm-otd {
     margin-inline: calc(-1 * var(--hm-gutter));

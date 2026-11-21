@@ -203,6 +203,20 @@ test("21.11: шапка — кнопки внизу поруч зі смугою
   expect(Math.abs(align)).toBeLessThanOrEqual(4);
 });
 
+for (const width of [320, 390, 768, 1100])
+  test(`шапка в одну колонку (${width} px): панель із фото — від краю до краю екрана, без світлої смуги збоку`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 800 });
+    await page.goto("/uk");
+    const m = await page.evaluate(() => {
+      const q = (s: string) => document.querySelector(s)!.getBoundingClientRect();
+      return { vw: document.documentElement.clientWidth, main: q(".hm-hero-main"), photo: q(".hm-hero-photo") };
+    });
+    expect(m.main.left).toBeLessThanOrEqual(0.5);
+    expect(m.main.right).toBeGreaterThanOrEqual(m.vw - 0.5);
+    expect(m.photo.left).toBeLessThanOrEqual(0.5);
+    expect(m.photo.right).toBeGreaterThanOrEqual(m.vw - 0.5);
+  });
+
 test("телефон 21.11: наступна гонка — червона й над минулою; без погоди вікенду (і без запиту) й без таблиці трас гри", async ({ page }) => {
   const seen: string[] = [];
   await page.route("**/api/weather/**", (route) => {
