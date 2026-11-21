@@ -33,6 +33,18 @@ import { siteIdentity } from "@/lib/jsonld";
 import { getStoryList } from "@/lib/stories/content";
 import { WEATHER_FROM_YEAR, type SessionKind } from "@/lib/weather";
 
+/** Фон шапки: стартова решітка, Спа 2008 (Mark McArdle, CC BY-SA 2.0, Wikimedia Commons) — підпис у PageCredits унизу. */
+const HERO_PHOTO = {
+  src: "/img/home/grid-1100.webp",
+  srcSet: "/img/home/grid-640.webp 640w, /img/home/grid-1100.webp 1100w, /img/home/grid-1600.webp 1600w",
+  credit: {
+    label: "Spa-Francorchamps 2008",
+    href: "https://commons.wikimedia.org/wiki/File:Spa_2008_before_start.jpg",
+    author: "Mark McArdle",
+    license: "CC BY-SA 2.0",
+  },
+};
+
 /** Історії на головній — три з макета (вибір користувача: «найцікавіші»), у порядку макета. */
 const HOME_STORIES = ["suzuka-1989", "jerez-1997", "singapore-2008"];
 
@@ -161,16 +173,19 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <section className="hm-hero">
         <div className="wrap">
           <div className="hm-hero-main">
-            <div className="hm-meta">
-              <span>{t.eyebrow}</span>
-              <span>
-                {page.phase === "running"
-                  ? fill(plural(page.total, lang, t.seasonState), { season: page.season, done: page.done, total: page.total })
-                  : page.phase === "ahead"
-                    ? fill(plural(page.total, lang, t.seasonAhead), { season: page.season, total: page.total })
-                    : fill(t.seasonOver, { season: page.season })}
-              </span>
-            </div>
+            {/* Фото стартової решітки (Спа, 2008) — фон шапки зліва під темним градієнтом; автор і ліцензія — внизу сторінки. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="hm-hero-photo"
+              src={HERO_PHOTO.src}
+              srcSet={HERO_PHOTO.srcSet}
+              sizes="(max-width: 1100px) 100vw, 880px"
+              width={1600}
+              height={1067}
+              alt=""
+              decoding="async"
+              fetchPriority="low"
+            />
             <h1 className="display">
               <span>{t.h1[0]}</span>{" "}
               <span className="hm-accent">{t.h1[1]}</span>
@@ -438,6 +453,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                         days: dict.calendarPage.days,
                         hours: dict.calendarPage.hours,
                         minutes: dict.calendarPage.minutes,
+                        seconds: dict.calendarPage.seconds,
                         started: fill(dict.calendarPage.raceStarted, { round: next.round }),
                         then: t.countdownThen,
                       }}
@@ -500,19 +516,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                       labels={weekendLabels(dict.racePage.weather)}
                       level={3}
                     />
-                  )}
-                  {next.circuit && next.circuit.winners.length > 0 && (
-                    <p className="hm-past">
-                      <b>{t.pastWinners}</b>
-                      <span>
-                        {next.circuit.winners.map((w, i) => (
-                          <span key={`${w.year}-${w.round}`}>
-                            {i > 0 && " · "}
-                            <a href={path(`/seasons/${w.year}/${w.round}`)}>{w.year}</a> {w.drivers.map((d) => d.short).join(" / ")}
-                          </span>
-                        ))}
-                      </span>
-                    </p>
                   )}
                   {next.circuit && (
                     <a className="hm-more" href={path(`/circuits/${next.circuit.slug}`)}>
@@ -676,7 +679,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             <ul className="st-grid hm-st-grid" role="list">
               {homeStories.map((c) => (
                 <li key={c.slug}>
-                  <StoryCard c={c} locale={lang} t={storyLabels} />
+                  <StoryCard c={c} locale={lang} t={storyLabels} meter={false} />
                 </li>
               ))}
             </ul>
@@ -720,6 +723,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           {
             title: t.creditsPhotos,
             items: [
+              HERO_PHOTO.credit,
               ...page.credits.photos,
               ...homeStories.flatMap((c) => (c.hero ? [{ label: c.hero.caption, href: c.hero.credit.page, author: c.hero.credit.author, license: c.hero.credit.license }] : [])),
             ],

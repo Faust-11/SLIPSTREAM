@@ -67,3 +67,43 @@ export function timeLeft(ms: number): { d: number; h: number; m: number } {
   const m = Math.max(0, Math.floor(ms / 60000));
   return { d: Math.floor(m / 1440), h: Math.floor((m % 1440) / 60), m: m % 60 };
 }
+
+/**
+ * Секундний годинник — лише для відліку на головній (там видно секунди). Окремий від 30-секундного: календар і решта
+ * сторінок не перемальовуються щосекунди; підписники секундного знімка живуть, поки відлік змонтований.
+ */
+const SEC = 1000;
+const floorSec = () => Math.floor(Date.now() / SEC) * SEC;
+let secSnap: number | null = null;
+const secListeners = new Set<() => void>();
+let secTimer: ReturnType<typeof setTimeout> | undefined;
+function armSec() {
+  secTimer = setTimeout(() => {
+    secSnap = floorSec();
+    secListeners.forEach((l) => l());
+    armSec();
+  }, SEC - (Date.now() % SEC) + 20);
+}
+function subscribeSec(cb: () => void) {
+  secListeners.add(cb);
+  if (secListeners.size === 1) {
+    secSnap = floorSec();
+    armSec();
+  }
+  return () => {
+    secListeners.delete(cb);
+    if (secListeners.size === 0) clearTimeout(secTimer);
+  };
+}
+const getSec = () => (secSnap ??= floorSec());
+
+/** Час клієнта (мс, кратний секунді); на сервері й під час гідратації — null. */
+export function useNowSeconds(): number | null {
+  return useSyncExternalStore(subscribeSec, getSec, () => null);
+}
+
+/** Залишок до моменту (мс) — дні, години, хвилини, секунди; від'ємне — нулі. */
+export function timeLeftSeconds(ms: number): { d: number; h: number; m: number; s: number } {
+  const t = Math.max(0, Math.floor(ms / 1000));
+  return { d: Math.floor(t / 86400), h: Math.floor((t % 86400) / 3600), m: Math.floor((t % 3600) / 60), s: t % 60 };
+}

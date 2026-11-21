@@ -14,7 +14,10 @@ test("/uk: герой, чемпіон, смуга сезону, остання �
   const res = await page.goto("/uk");
   expect(res?.status()).toBe(200);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Уся Формула-1. Коло за колом.");
-  await expect(page.locator(".hm-meta")).toContainText("Сезон 2026 · 20 з 23 етапів позаду");
+  // 21.11: рядок «Програмка вболівальника · Сезон 2026 · 20 з 23 етапів позаду» прибрано з шапки.
+  await expect(page.locator(".hm-hero-main")).not.toContainText("Програмка вболівальника");
+  await expect(page.locator(".hm-hero-main")).not.toContainText("етапів позаду");
+  await expect(page.locator(".hm-lede")).toContainText("Від першого старту 1950 року");
   // Рішення 21.11: картку чемпіона в шапці замінила «Цей день у Формулі-1» (докладно — тести нижче).
   await expect(page.locator("#hm-otd-h")).toHaveText("Цей день у Формулі-1");
   await expect(page.locator(".hm-champ")).toHaveCount(0);
@@ -171,6 +174,64 @@ test("телефон — без окремого подіуму, таблиця 
   await page.setViewportSize({ width: 1280, height: 900 });
   await expect(page.locator(".hm-podium")).toBeVisible();
   expect(await page.locator(".hm-next").evaluate((el) => getComputedStyle(el).backgroundColor)).toBe("rgb(180, 37, 24)");
+});
+
+test("21.11: шапка — кнопки внизу поруч зі смугою показників, фото решітки під текстом; відлік із секундами; без «Тут вигравали» й підписів «перевірено» в історіях", async ({ page }) => {
+  await page.goto("/uk");
+  await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+  const m = await page.evaluate(() => {
+    const r = (q: string) => document.querySelector(q)!.getBoundingClientRect();
+    return { lede: r(".hm-lede").bottom, ctas: r(".hm-ctas"), stats: r(".hm-stats").top };
+  });
+  expect(m.ctas.top).toBeGreaterThan(m.lede + 40); // між текстом і кнопками — вільне місце під фото
+  expect(m.stats - m.ctas.bottom).toBeLessThan(40); // кнопки впритул до смуги показників
+  await expect(page.locator(".hm-hero-photo")).toHaveAttribute("src", /grid-1100\.webp$/);
+  await expect(page.locator(".page-credits")).toContainText("Mark McArdle");
+  // Відлік: чотири комірки, секунди — дві цифри й змінюються щосекунди.
+  await expect(page.locator(".hm-count b")).toHaveCount(4);
+  await expect(page.locator(".hm-count span").nth(3)).toHaveText("сек");
+  await expect(page.locator(".hm-count b").nth(3)).toHaveText(/^\d{2}$/);
+  await expect(page.locator(".hm-past")).toHaveCount(0);
+  await expect(page.getByText("Тут вигравали")).toHaveCount(0);
+  await expect(page.locator(".hm-stories")).not.toContainText("перевірено");
+  // «Цей день»: рік і текст запису — від одного верху (раніше назва «з'їжджала» нижче року).
+  await page.locator(".hm-otd .hm-otd-ev").first().waitFor();
+  const align = await page.evaluate(() => {
+    const ev = document.querySelector(".hm-otd .hm-otd-ev")!;
+    return ev.querySelector(".hm-otd-yr")!.getBoundingClientRect().top - ev.querySelector(".hm-otd-tag")!.getBoundingClientRect().top;
+  });
+  expect(Math.abs(align)).toBeLessThanOrEqual(4);
+});
+
+test("телефон 21.11: наступна гонка — червона й над минулою; без погоди вікенду (і без запиту) й без таблиці трас гри", async ({ page }) => {
+  const seen: string[] = [];
+  await page.route("**/api/weather/**", (route) => {
+    seen.push(route.request().url());
+    return route.fulfill({ status: 200, contentType: "application/json", body: "{}" });
+  });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/uk");
+  await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+  expect(await page.locator(".hm-next").evaluate((el) => getComputedStyle(el).backgroundColor)).toBe("rgb(180, 37, 24)");
+  const order = await page.evaluate(() => ({
+    next: document.querySelector(".hm-next")!.getBoundingClientRect().top,
+    last: document.querySelector(".hm-last")!.getBoundingClientRect().top,
+  }));
+  expect(order.next).toBeLessThan(order.last);
+  await expect(page.locator(".hm-next .ww-slot")).toBeHidden();
+  await page.locator(".hm-game").scrollIntoViewIfNeeded();
+  await expect(page.locator(".hm-board")).toBeHidden();
+  await page.waitForTimeout(700);
+  expect(seen, "на телефоні запиту до погоди нема").toEqual([]);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+  // ПК: таблиця трас гри на місці, наступна гонка — праворуч від минулої.
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await expect(page.locator(".hm-board")).toBeVisible();
+  const row = await page.evaluate(() => ({
+    next: document.querySelector(".hm-next")!.getBoundingClientRect().left,
+    last: document.querySelector(".hm-last")!.getBoundingClientRect().left,
+  }));
+  expect(row.next).toBeGreaterThan(row.last);
 });
 
 test.describe("без JavaScript", () => {
@@ -348,7 +409,7 @@ for (const [label, body, status] of [["порожня відповідь (дан
   });
 
 for (const theme of ["light", "dark"] as const)
-  for (const width of [320, 390, 1024, 1280])
+  for (const width of [1024, 1280]) // на телефоні (≤600 px) погоди на головній нема — тест «телефон 21.11»
     test(`/uk (головна): погода вікенду без порушень axe і без прокрутки вбік: ${theme}, ${width} px`, async ({ page }) => {
       await mockWeather(page);
       await page.emulateMedia({ colorScheme: theme });

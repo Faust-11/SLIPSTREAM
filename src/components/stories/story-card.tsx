@@ -21,7 +21,7 @@ export function Tagline({ c, t }: { c: Card; t: CardLabels }) {
  * Картка історії. Посилання — лише заголовок (розтягнутий на всю картку через ::after), щоб назва посилання була
  * короткою, а не весь текст картки (модерн-настанова «Card»: окремі посилання всередині картки не потрібні).
  */
-export function StoryCard({ c, locale, t, featured = false }: { c: Card; locale: Locale; t: CardLabels; featured?: boolean }) {
+export function StoryCard({ c, locale, t, featured = false, meter = true }: { c: Card; locale: Locale; t: CardLabels; featured?: boolean; meter?: boolean }) {
   const href = localizedPath(`/stories/${c.slug}`, locale);
   return (
     <article className={featured ? "st-card st-feat" : "st-card"} data-cat={c.category} id={`story-${c.slug}`}>
@@ -68,7 +68,7 @@ export function StoryCard({ c, locale, t, featured = false }: { c: Card; locale:
           </a>
         </h3>
         <p className="st-dek">{c.dek}</p>
-        <Meter m={c.meter} locale={locale} t={t} compact />
+        {meter && <Meter m={c.meter} locale={locale} t={t} compact />}
         <p className="st-go" aria-hidden="true">
           {fill(t.read, { n: c.minutes })}
         </p>
