@@ -107,14 +107,16 @@ async function expectTouchLayout(page: Page) {
 
 test.describe("телефон", () => {
   test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
-  test("390 px: без горизонтальної прокрутки, сенсорні кнопки видно, сцена 4:5", async ({ page }) => {
+  test("390 px: без горизонтальної прокрутки, сенсорні кнопки видно, вікно гри майже на весь екран", async ({ page }) => {
     await page.goto("/uk/game");
     // Сенсорні кнопки показуються за (pointer: coarse) — явна перевірка, щоб падіння було зрозумілим.
     expect(await page.evaluate(() => matchMedia("(pointer: coarse)").matches)).toBe(true);
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
     await expect(page.getByRole("button", { name: "газ" })).toBeVisible();
+    // 21.11: вікно на телефоні майже на весь екран (було 4:5 ≈ 490 px — палець зісковзував на текст під вікном): висота ≈ екран − шапка.
     const box = (await page.locator(".gm-game").boundingBox())!;
-    expect(Math.abs(box.width / box.height - 4 / 5)).toBeLessThan(0.02);
+    expect(box.height).toBeGreaterThanOrEqual(844 * 0.85);
+    expect(Math.abs(box.height - (844 - 88))).toBeLessThanOrEqual(2);
     // На сенсорі без підказки клавіші («Старт», а не «Старт · Пробіл»).
     await expect(page.locator(".gm-btn.is-go")).toHaveText("Старт", { useInnerText: true });
     await expectTouchLayout(page);

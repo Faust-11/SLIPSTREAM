@@ -26,8 +26,8 @@ import { addLap, loadStore, saveStore, type StoredLap } from "@/lib/game/store";
 import { buildScenery, drawMini, drawScene, runPattern, type Scenery, type View } from "./scene";
 
 export type Phase = "ready" | "lights" | "run" | "done";
-/** pen — штрафи за межі траси; jump — фальстарт (+1 с, газ до згасання вогнів). */
-export type Result = { t: number; pen: number; jump: boolean; isBest: boolean; prevBest: number | null };
+/** pen — штрафи за межі траси; jump — фальстарт (+1 с, газ до згасання вогнів); inputs — ввід заїзду (RLE) для таблиці лідерів: сервер повторює коло. */
+export type Result = { t: number; pen: number; jump: boolean; isBest: boolean; prevBest: number | null; inputs: string };
 export type Snapshot = {
   mounted: boolean;
   key: TrackKey;
@@ -382,10 +382,11 @@ export class HotLapEngine {
     const prev = [this.best?.total, stored.best?.total].filter((x): x is number => x !== undefined);
     const prevBest = prev.length ? Math.min(...prev) : null;
     const isBest = prevBest === null || t < prevBest;
+    const inputs = rle(this.rec);
     const st = addLap(
       stored,
       { t, pen: car.pen + (this.jump ? 1 : 0), at: Date.now() },
-      isBest ? { inputs: rle(this.rec), total: t, ...(this.jump ? { jump: true as const } : {}) } : null,
+      isBest ? { inputs, total: t, ...(this.jump ? { jump: true as const } : {}) } : null,
       car.split,
     );
     if (isBest) this.best = { inputs: this.rec.slice(), total: t, split: [...car.split], at: car.at };
@@ -394,7 +395,7 @@ export class HotLapEngine {
     if (this.el) this.el.toast.hidden = true;
     this.toastT = 0;
     const bestTotal = this.best ? this.best.total : null;
-    this.emit({ laps: st.laps, bestTotal, cardBests: { ...this.snap.cardBests, [k]: bestTotal }, phase: "done", result: { t, pen: car.pen, jump: this.jump, isBest, prevBest } });
+    this.emit({ laps: st.laps, bestTotal, cardBests: { ...this.snap.cardBests, [k]: bestTotal }, phase: "done", result: { t, pen: car.pen, jump: this.jump, isBest, prevBest, inputs } });
   }
 
   private tick() {

@@ -6,7 +6,11 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/get-dictionary";
 import { fill } from "@/i18n/fill";
 import { fmtLap, fmtSec, type TrackKey } from "@/lib/game/physics";
-import { HotLapEngine } from "./engine";
+import { useAccount } from "@/components/auth/account-store";
+import { localizedPath } from "@/i18n/paths";
+import { HotLapEngine, type Result } from "./engine";
+import { Leaderboard, loginHref, saveMessage } from "./leaderboard";
+import { sendLap, type SaveOutcome } from "./save-lap";
 
 export type Labels = Dictionary["gamePage"];
 export type TrackCard = { key: TrackKey; points: string; start: [number, number]; length: string; width: string; bot: string };
@@ -26,11 +30,16 @@ function withKey(label: string) {
 /** Колір тегу картки (з макета). */
 const TAG: Record<TrackKey, string> = { lyman: "#4FD18B", port: "#B9BDC5", plateau: "#FF8000", forest: "#93A8FF" };
 
-export function HotLap({ cards, labels: L }: { cards: TrackCard[]; labels: Labels; locale: Locale }) {
+export function HotLap({ cards, labels: L, locale }: { cards: TrackCard[]; labels: Labels; locale: Locale }) {
   const [engine] = useState(() => new HotLapEngine());
   const snap = useSyncExternalStore(engine.subscribe, engine.getSnapshot, engine.getServerSnapshot);
   const { key, phase, result, laps, bestTotal, botTotal, preferBot, cardBests, mounted } = snap;
   const [shareMsg, setShareMsg] = useState<{ for: unknown; text: string } | null>(null);
+  const account = useAccount();
+  // Результат відправки кола в таблицю лідерів (прив'язаний до результату, що його відправляли) і лічильник оновлення таблиці.
+  const [saved, setSaved] = useState<{ for: Result; out: SaveOutcome } | null>(null);
+  const [boardTick, setBoardTick] = useState(0);
+  const sentRef = useRef<Result | null>(null);
 
   const gameRef = useRef<HTMLDivElement>(null);
   const viewRef = useRef<HTMLCanvasElement>(null);
@@ -67,6 +76,18 @@ export function HotLap({ cards, labels: L }: { cards: TrackCard[]; labels: Label
       sectors: [s1.current!, s2.current!, s3.current!],
     });
   }, [engine]);
+
+  // Ввійшов — кожне зараховане коло йде в таблицю лідерів (сервер повторює заїзд і рахує час сам). Один раз на результат: ref
+  // не дає StrictMode (подвійний запуск ефекту) відправити двічі; стан ставимо лише у відповіді на запит.
+  useEffect(() => {
+    if (phase !== "done" || !result || account.status !== "user" || sentRef.current === result) return;
+    sentRef.current = result;
+    const lap = result;
+    sendLap(key, lap.inputs, lap.jump).then((out) => {
+      setSaved({ for: lap, out });
+      if (out.kind === "saved") setBoardTick((n) => n + 1);
+    });
+  }, [phase, result, account.status, key]);
 
   // Після кола фокус — на «Ще коло» (як у макеті): Пробіл/Enter одразу запускає новий заїзд.
   useEffect(() => {
@@ -269,6 +290,11 @@ export function HotLap({ cards, labels: L }: { cards: TrackCard[]; labels: Label
                         </div>
                         <h2>{L.ready}</h2>
                         <p>{L.readyP}</p>
+                        {mounted && account.status === "anon" && (
+                          <p className="gm-lb-hint">
+                            {L.lb.ready} <a href={loginHref(locale)}>{L.lb.readyCta}</a>
+                          </p>
+                        )}
                         <div className="gm-btns">
                           <button type="button" className="gm-btn is-go" onClick={go} disabled={!mounted}>
                             {withKey(L.start)}
@@ -292,6 +318,22 @@ export function HotLap({ cards, labels: L }: { cards: TrackCard[]; labels: Label
                         <p className="gm-share-msg" role="status">
                           {shareMsg?.for === result ? shareMsg.text : null}
                         </p>
+                        {mounted && account.status === "anon" && (
+                          <p className="gm-lb-hint">
+                            {L.lb.done} <a href={loginHref(locale)}>{L.lb.doneCta}</a>
+                          </p>
+                        )}
+                        {account.status === "user" && (
+                          <p className="gm-lb-hint" role="status">
+                            {saved?.for === result ? saveMessage(saved.out, L) : L.lb.sending}
+                            {saved?.for === result && saved.out.kind === "error" && saved.out.reason === "noNick" && (
+                              <>
+                                {" "}
+                                <a href={localizedPath("/profile", locale)}>{L.lb.noNickCta}</a>
+                              </>
+                            )}
+                          </p>
+                        )}
                       </>
                     )}
                   </div>
@@ -392,6 +434,7 @@ export function HotLap({ cards, labels: L }: { cards: TrackCard[]; labels: Label
               </section>
             </aside>
           </div>
+          <Leaderboard track={key} labels={L} locale={locale} refresh={boardTick} />
         </div>
       </section>
     </>

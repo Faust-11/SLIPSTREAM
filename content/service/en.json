@@ -108,7 +108,13 @@
         {
           "tag": "In your browser",
           "name": "Theme, records and game settings",
-          "p": "Your light or dark theme, your best laps and the last track you picked in the game are kept only in your browser. They are never sent to the server.",
+          "p": "Your light or dark theme, your best laps and the last track you picked in the game are kept in your browser. Without signing in, they are never sent to the server.",
+          "requires": null
+        },
+        {
+          "tag": "On the server, only if you sign in",
+          "name": "Game leaderboard",
+          "p": "If you are signed in, your best lap on each circuit goes to the leaderboard: nickname, time, date and a recording of the run (control presses) that the server replays to check the time. Everyone sees the nickname, time and date; the recording stays private. Deleting your account on the profile page deletes your laps too.",
           "requires": null
         },
         {

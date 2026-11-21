@@ -825,3 +825,230 @@
     box-shadow: none;
   }
 }
+
+/* ---------- таблиця лідерів (фаза 9d) ---------- */
+.gm-lb {
+  margin-top: 48px;
+}
+.gm-lb-lead {
+  margin: 0 0 16px;
+  max-width: 64ch;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+.gm-lb-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.gm-lb-tabs button {
+  min-height: 40px;
+  padding: 0 14px;
+  border: 2px solid var(--rule);
+  background: transparent;
+  color: var(--ink);
+  font: 600 13px/1 var(--f-body);
+  cursor: pointer;
+}
+.gm-lb-tabs button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+.gm-lb-tabs button:focus-visible {
+  outline: 3px solid var(--focus, var(--yellow));
+  outline-offset: 2px;
+}
+@media (pointer: coarse) {
+  .gm-lb-tabs button {
+    min-height: 44px;
+  }
+}
+/* Стала мінімальна висота: перемикання траси й завантаження не підстрибують сторінку. */
+.gm-lb-body {
+  min-height: 140px;
+  max-width: 720px;
+}
+.gm-lb-state {
+  margin: 0;
+  padding: 24px 0;
+  color: var(--ink-soft);
+}
+.gm-lb-table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  border-top: var(--b2) solid var(--rule);
+  font-family: var(--f-mono);
+  word-spacing: normal;
+  font-variant-numeric: tabular-nums;
+  font-size: 14px;
+}
+.gm-lb-table th,
+.gm-lb-table td {
+  padding: 11px 10px 11px 0;
+  text-align: start;
+  font-weight: 400;
+  border-bottom: 1px solid var(--hair);
+}
+.gm-lb-table thead th {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.gm-lb-table tbody th {
+  font-family: var(--f-body);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.gm-lb-table th:first-child,
+.gm-lb-table td:first-child {
+  inline-size: 3ch;
+}
+.gm-lb-table tbody tr:nth-child(-n + 3) td:first-child {
+  font-weight: 700;
+}
+.gm-lb-table tbody tr:first-child td:first-child {
+  color: var(--gm-yellow);
+}
+.gm-lb-table .gm-lb-r {
+  text-align: end;
+  padding-inline-end: 0;
+  white-space: nowrap;
+}
+.gm-lb-table .gm-lb-date {
+  padding-inline-start: 14px;
+  color: var(--ink-soft);
+}
+.gm-lb-table tr.is-you {
+  background: color-mix(in srgb, var(--yellow) 24%, transparent);
+  box-shadow: inset 4px 0 0 var(--yellow);
+}
+.gm-lb-table tr.is-you > :first-child {
+  padding-inline-start: 12px;
+}
+.gm-lb-table tr.is-gap > * {
+  border-top: 2px dashed var(--rule);
+}
+.gm-lb-tag {
+  margin-inline-start: 8px;
+  padding: 3px 5px;
+  background: var(--ink);
+  color: var(--paper);
+  font: 700 10px/1 var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  vertical-align: 2px;
+}
+.gm-lb-jump {
+  margin-inline-start: 6px;
+  color: var(--gm-yellow);
+  text-decoration: none;
+  cursor: help;
+}
+.gm-lb-total {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.gm-lb-me {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+  margin-top: 18px;
+}
+.gm-lb-me p {
+  margin: 0;
+}
+.gm-lb-msg:empty {
+  display: none;
+}
+.gm-lb-send {
+  background: var(--ink);
+  color: var(--paper);
+}
+.gm-lb-login {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+  max-width: 720px;
+  margin-top: 22px;
+  padding: 18px 20px;
+  background: var(--card);
+  color: var(--on-card);
+  border-inline-start: 6px solid var(--yellow);
+}
+.gm-lb-login h3 {
+  margin: 0;
+  font: 700 18px/1.2 var(--f-body);
+}
+.gm-lb-login p {
+  margin: 0;
+  max-width: 60ch;
+  font-size: 14px;
+  color: var(--on-card-soft);
+}
+.gm-lb-login a {
+  text-decoration: none;
+}
+/* Кнопка входу в картці (власний клас: .is-go у грі — лише «Старт»/«Ще коло»). */
+.gm-lb-cta {
+  display: inline-flex;
+  align-items: center;
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--on-yellow);
+}
+/* Підказка про вхід усередині нічної сцени (вікно гри — завжди темне). */
+.gm-lb-hint {
+  margin: 12px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #cfd3d8;
+}
+.gm-lb-hint a {
+  color: var(--yellow);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+@media (max-width: 480px) {
+  .gm-lb-table .gm-lb-date {
+    display: none;
+  }
+  .gm-lb-table {
+    font-size: 13px;
+  }
+}
+
+/* ---------- телефон: вікно гри майже на весь екран (21.11) ----------
+   Було 4:5 (≈ 490 px на 390 × 844): кнопки керування лежали біля нижнього краю вікна, і палець, зісковзуючи, зачіпав текст
+   під ним. Тепер вікно — висота видимого екрана за вирахуванням шапки (svh: без лінійки браузера, що ховається), знизу — відступ,
+   а кнопки підняті від краю. */
+.gm-game {
+  overscroll-behavior: contain;
+}
+@media (max-width: 640px) {
+  .gm-game {
+    aspect-ratio: auto;
+    block-size: max(460px, calc(100vh - 88px));
+    block-size: max(460px, calc(100svh - 88px));
+    margin-block-end: 40px;
+  }
+}
+@media (max-width: 640px) and (pointer: coarse) {
+  .gm-touch {
+    padding-block-end: max(24px, env(safe-area-inset-bottom, 0px));
+  }
+  .gm-speed,
+  .gm-trk {
+    bottom: 104px;
+  }
+}
+@media (max-width: 360px) and (pointer: coarse) {
+  .gm-speed,
+  .gm-trk {
+    bottom: 92px;
+  }
+}

@@ -16,6 +16,10 @@
  *   що play.save_prediction з 0015) · GET /rest/v1/predictions (свої) · GET /rest/v1/revealed_predictions (анонімно, лише після дедлайну).
  *   Дедлайн етапу: за замовчуванням етапи ≤ 21 закриті, ≥ 22 відкриті (від «зараз», тож тести не залежать від дати запуску);
  *   POST /__play/deadline?year=&round=&in=<с | null> ставить абсолютний момент від «зараз»; GET /__play/predictions?email= — збережене.
+ *   Таблиця лідерів гри (фаза 9d): POST /rest/v1/rpc/save_lap (JWT + секрет сервера; ті самі коди, що play.save_lap з 0017) ·
+ *   POST /rest/v1/rpc/my_lap · GET /rest/v1/lap_board (анонімно; топ за часом, лише гравці з ніком, що не заблоковані).
+ *   Секрет — FAKE_LAP_SECRET нижче (playwright.config.ts передає його сайту як GAME_LAP_SECRET); POST /__play/laps-reset чистить усе,
+ *   POST /__play/seed-laps {resetTracks?:[track], laps:[{nick,track,ticks,jump?}]} додає чужі кола, GET /__play/laps?email= — коло гравця.
  * Тестові керування: GET /__auth/last-code?email= · POST /__auth/expire-code?email= · POST /__auth/reset-rate?email= (знімає паузу 60 с) · POST /__auth/ttl?email=&s= (термін
  *   access для нових токенів користувача) · POST /__auth/block?email= · POST /__auth/revoke?email= · GET /__auth/stats?email=
  */
@@ -143,6 +147,84 @@ const project = (rows, select, allowed, res) => {
   if (bad) return void pgError(res, 400, "42703", `column ${bad} does not exist`);
   return rows.map((r) => Object.fromEntries(cols.map((c) => [c, r[c]])));
 };
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Таблиця лідерів гри (фаза 9d, міграція 0017). Час тут НЕ перевіряється (його вже повторив сервер сайту) — лише те, що робить база:
+// секрет, профіль, блокування, межі форми, «лише краще коло», місце за правилом rank() (однаковий час — однакове місце).
+// ---------------------------------------------------------------------------------------------------------------------
+export const FAKE_LAP_SECRET = "e2e-lap-secret-0123456789abcdef";
+const LAP_TRACKS = new Set(["lyman", "port", "plateau", "forest"]);
+/** {userId, nick (для чужих із seed — без userId), track, ticks, jump, inputs, setAt} */
+let laps = [];
+
+const lapUserByRow = (row) => (row.userId ? [...users.values()].find((x) => x.id === row.userId) : null);
+const lapNick = (row) => (row.userId ? lapUserByRow(row)?.nick ?? null : row.nick);
+const lapBlocked = (row) => (row.userId ? lapUserByRow(row)?.blocked === true : false);
+/** Публічна таблиця траси: без заблокованих і без видалених профілів; місце — rank() за часом. */
+function lapBoard(track) {
+  const rows = laps.filter((r) => r.track === track && lapNick(r) && !lapBlocked(r)).sort((a, b) => a.ticks - b.ticks || a.setAt - b.setAt);
+  return rows.map((r) => ({ track, player: lapNick(r), ticks: r.ticks, jump: r.jump, set_at: new Date(r.setAt).toISOString(), place: 1 + rows.filter((x) => x.ticks < r.ticks).length }));
+}
+
+async function handleLapsFake(req, res, url, origin) {
+  const p = url.pathname;
+  if (p === "/__play/laps-reset" && req.method === "POST") return (laps = []), json(res, 200, { ok: true }), true;
+  if (p === "/__play/seed-laps" && req.method === "POST") {
+    const body = parse(await readBody(req));
+    // resetTracks — спершу прибрати раніше засіяні чужі кола цих трас (повторний запуск тесту/retry не множить рядки).
+    if (Array.isArray(body.resetTracks)) laps = laps.filter((x) => x.userId || !body.resetTracks.includes(x.track));
+    for (const l of body.laps ?? []) laps.push({ userId: null, nick: l.nick, track: l.track, ticks: l.ticks, jump: l.jump === true, inputs: "1.1", setAt: Date.now() - (l.agoS ?? 0) * 1000 });
+    return json(res, 200, { ok: true, count: laps.length }), true;
+  }
+  if (p === "/__play/laps" && req.method === "GET") {
+    const u = users.get((url.searchParams.get("email") ?? "").toLowerCase());
+    return json(res, 200, laps.filter((x) => u && x.userId === u.id).map((x) => ({ track: x.track, ticks: x.ticks, jump: x.jump, inputs: x.inputs }))), true;
+  }
+
+  if (p === "/rest/v1/lap_board" && req.method === "GET") {
+    if (!req.headers.apikey) return json(res, 401, { message: "No API key found in request" }), true;
+    if (req.headers["accept-profile"] !== "play") return pgError(res, 406, "PGRST106", "The schema must be one of the following: f1"), true;
+    const track = str(url, "track");
+    const all = lapBoard(track);
+    const limit = url.searchParams.has("limit") ? Number(url.searchParams.get("limit")) : all.length;
+    const rows = all.slice(0, limit);
+    const out = project(rows, url.searchParams.get("select"), ["track", "player", "ticks", "jump", "set_at", "place"], res);
+    if (!out) return true;
+    const headers = /count=exact/.test(req.headers.prefer ?? "") ? { "content-range": rows.length ? `0-${rows.length - 1}/${all.length}` : `*/${all.length}` } : {};
+    return json(res, 200, out, headers), true;
+  }
+
+  const save = p === "/rest/v1/rpc/save_lap" && req.method === "POST";
+  const mine = p === "/rest/v1/rpc/my_lap" && req.method === "POST";
+  if (!save && !mine) return false;
+  if (!req.headers.apikey) return json(res, 401, { message: "No API key found in request" }), true;
+  if (req.headers["content-profile"] !== "play") return pgError(res, 406, "PGRST106", "The schema must be one of the following: f1"), true;
+  const u = bearerUser(req, origin);
+  if (!u) return pgError(res, 401, "PGRST301", "JWT expired or invalid"), true;
+  const a = parse(await readBody(req));
+  if (mine) {
+    const row = laps.find((x) => x.userId === u.id && x.track === a.p_track);
+    if (!row || u.blocked) return json(res, 200, null), true;
+    return json(res, 200, { ticks: row.ticks, jump: row.jump, place: 1 + lapBoard(row.track).filter((x) => x.ticks < row.ticks).length }), true;
+  }
+  if (a.p_secret !== FAKE_LAP_SECRET) return pgError(res, 403, "42501", "forbidden"), true;
+  if (u.blocked) return pgError(res, 400, "P0001", "blocked"), true;
+  if (!u.nick) return pgError(res, 400, "P0001", "no_profile"), true;
+  if (!LAP_TRACKS.has(a.p_track) || !Number.isInteger(a.p_ticks) || a.p_ticks < 1 || a.p_ticks > 200000 || typeof a.p_inputs !== "string" || a.p_inputs.length < 1 || a.p_inputs.length > 30000) {
+    return pgError(res, 400, "23514", 'new row for relation "laps" violates check constraint'), true;
+  }
+  const prev = laps.find((x) => x.userId === u.id && x.track === a.p_track);
+  let saved = false;
+  if (!prev) {
+    laps.push({ userId: u.id, track: a.p_track, ticks: a.p_ticks, jump: a.p_jump === true, inputs: a.p_inputs, setAt: Date.now() });
+    saved = true;
+  } else if (a.p_ticks < prev.ticks) {
+    Object.assign(prev, { ticks: a.p_ticks, jump: a.p_jump === true, inputs: a.p_inputs, setAt: Date.now() });
+    saved = true;
+  }
+  const cur = laps.find((x) => x.userId === u.id && x.track === a.p_track);
+  return json(res, 200, { saved, ticks: cur.ticks, jump: cur.jump, place: 1 + lapBoard(cur.track).filter((x) => x.ticks < cur.ticks).length }), true;
+}
 
 /** Прогнози й тестові керування; true — запит оброблено. */
 async function handlePredictionsFake(req, res, url, origin) {
@@ -288,6 +370,7 @@ export async function handleSupabaseFake(req, res, url, port) {
   }
 
   if (await handlePredictionsFake(req, res, url, origin)) return true;
+  if (await handleLapsFake(req, res, url, origin)) return true;
   if (p.startsWith("/__play/")) return json(res, 404, { error: "unknown hook" }), true;
 
   const rpc = /^\/rest\/v1\/rpc\/(set_nick|delete_my_account)$/.exec(p);
@@ -308,6 +391,7 @@ export async function handleSupabaseFake(req, res, url, port) {
       return res.writeHead(204).end(), true;
     }
     predictions = predictions.filter((x) => x.userId !== u.id); // каскад у базі: профіль → прогнози
+    laps = laps.filter((x) => x.userId !== u.id); // …і кола гри (0017)
     if (u.blocked) { u.nick = null; return json(res, 200, "data_only_blocked"), true; }
     users.delete(u.email);
     for (const [t, r] of refresh) if (r.email === u.email) refresh.delete(t);
