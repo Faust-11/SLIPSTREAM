@@ -1645,6 +1645,10 @@
       "none": "Not chosen",
       "takenAt": "now in place {n}",
       "swapHint": "This driver is already in another place — they will swap places.",
+    "stale": "The saved prediction included a driver or team that is no longer on the grid. They were removed from the form — choose a replacement and save.",
+    "gone": "Driver no longer on the grid",
+    "goneTeam": "Team no longer on the grid",
+    "swapped": "{name} is now in place {to}. Place {from}: {other}.",
       "fillStandings": "Fill from the championship",
       "clear": "Clear",
       "dnf": {

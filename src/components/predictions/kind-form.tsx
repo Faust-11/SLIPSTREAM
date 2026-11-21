@@ -16,12 +16,15 @@ const EMPTY: Picks = Array.from({ length: SLOTS }, () => null);
 const dnfValue = (s: SavedPrediction | null) => (s ? (s.allFinish ? "all" : s.dnfTeam ? String(s.dnfTeam) : "") : "");
 const snapshot = (picks: Picks, dnf: string) => JSON.stringify([picks, dnf]);
 
-/** Статус відповіді сервера → ключ тексту помилки. */
-function errorOf(status: number, error: unknown): ErrorKey {
+/**
+ * Відповідь сервера → ключ тексту помилки. «Заблоковано» — лише коли сервер так і сказав (error=blocked); будь-який інший 403
+ * (напр. origin) — збій, а не вирок здоровому гравцеві (рев'ю 21.11, H).
+ */
+export function errorOf(status: number, error: unknown): ErrorKey {
   if (status === 409) return "closed";
   if (status === 401) return "unauthorized";
   if (status === 429) return "rateLimited";
-  if (status === 403) return error === "no_profile" ? "noProfile" : "blocked";
+  if (status === 403) return error === "no_profile" ? "noProfile" : error === "blocked" ? "blocked" : "unavailable";
   if (status === 400) return "invalid";
   return "unavailable";
 }
@@ -29,11 +32,13 @@ function errorOf(status: number, error: unknown): ErrorKey {
 /**
  * Форма прогнозу одного виду (Q — кваліфікація, R — гонка + команда без фінішу): 10 нативних <select> — клавіатура, екранні
  * читачі й системний вибір на телефоні працюють «з коробки», без перетягування. Пілот, уже обраний на іншому місці, не
- * блокується, а міняється місцем з поточним значенням: дублів не буває і нічого не треба спершу «звільняти».
+ * блокується, а міняється місцем з поточним значенням: дублів не буває і нічого не треба «звільняти»; обмін оголошується
+ * в live-регіоні. Збережений пілот чи команда, яких уже немає на сітці, при завантаженні прибираються з форми (інакше вони б
+ * невидимо йшли в запит) — з попередженням.
  * Зберігає лише сервер (/api/predictions → play.save_prediction); дедлайн перевіряє база — відповідь 409 перемикає сторінку
  * в режим «лише перегляд» (onClosed).
  */
-export function KindForm({ kind, year, round, drivers, teams, initial, text, onClosed, onNoProfile }: {
+export function KindForm({ kind, year, round, drivers, teams, initial, text, onClosed, onNoProfile, onUnauthorized }: {
   kind: PredictionKind;
   year: number;
   round: number;
@@ -45,38 +50,60 @@ export function KindForm({ kind, year, round, drivers, teams, initial, text, onC
   onClosed: () => void;
   /** Сервер відповів «немає профілю» (нік зник) — сторінці треба перечитати стан. */
   onNoProfile: () => void;
+  /** Сервер відповів 401 (сесія закінчилась) — сторінці треба перечитати стан: покаже вхід із ?next=. */
+  onUnauthorized: () => void;
 }) {
   const uid = useId();
   const t = text.round;
-  const [picks, setPicks] = useState<Picks>(() => initial?.picks ?? EMPTY);
-  const [dnf, setDnf] = useState(() => dnfValue(initial));
+  // Початковий стан — один раз; id, яких немає на сітці, замінюємо на «порожньо» й запам'ятовуємо, що так було.
+  const [start] = useState(() => {
+    const knownDrivers = new Set(drivers.map((d) => d.id));
+    const picks = (initial?.picks ?? EMPTY).map((p) => (p !== null && knownDrivers.has(p) ? p : null));
+    const dnfRaw = dnfValue(initial);
+    const dnfKnown = dnfRaw === "" || dnfRaw === "all" || teams.some((x) => String(x.id) === dnfRaw);
+    const stale = (initial?.picks ?? EMPTY).some((p, i) => p !== null && picks[i] === null) || !dnfKnown;
+    return { picks, dnf: dnfKnown ? dnfRaw : "", stale };
+  });
+  const [picks, setPicks] = useState<Picks>(start.picks);
+  const [dnf, setDnf] = useState(start.dnf);
+  const [stale, setStale] = useState(start.stale);
+  // Знімок «збереженого» — як у базі (з прибраними id це відрізняється від форми → «є незбережені зміни»).
   const [saved, setSaved] = useState<string | null>(() => (initial ? snapshot(initial.picks, dnfValue(initial)) : null));
   const [status, setStatus] = useState<Status>({ kind: "idle" });
+  const [announce, setAnnounce] = useState("");
   const byId = new Map(drivers.map((d) => [d.id, d]));
   const dirty = snapshot(picks, dnf) !== (saved ?? snapshot(EMPTY, ""));
   const missing = (i: number) => i < REQUIRED_SLOTS && picks[i] === null;
+  const errId = `${uid}-err`;
 
   function choose(slot: number, value: string) {
     const id = value === "" ? null : Number(value);
-    setPicks((prev) => {
-      const next = [...prev];
-      const at = id === null ? -1 : next.indexOf(id);
-      if (at >= 0 && at !== slot) next[at] = next[slot] ?? null; // обмін місцями
-      next[slot] = id;
-      return next;
-    });
+    const at = id === null ? -1 : picks.indexOf(id);
+    const next = [...picks];
+    if (at >= 0 && at !== slot) next[at] = next[slot] ?? null; // обмін місцями
+    next[slot] = id;
+    setPicks(next);
+    const swapped = id !== null && at >= 0 && at !== slot;
+    const other = next[at];
+    setAnnounce(
+      swapped
+        ? fill(t.swapped, { name: byId.get(id)?.short ?? "", to: slot + 1, from: at + 1, other: other === null || other === undefined ? t.none : (byId.get(other)?.short ?? t.none) })
+        : "",
+    );
     if (status.kind !== "saving") setStatus({ kind: "idle" });
   }
 
   function fillFromStandings() {
     const top = drivers.filter((d) => d.position !== null).slice(0, SLOTS).map((d) => d.id);
     setPicks(Array.from({ length: SLOTS }, (_, i) => top[i] ?? null));
+    setAnnounce("");
     setStatus({ kind: "idle" });
   }
 
   function clear() {
     setPicks(EMPTY);
     setDnf("");
+    setAnnounce("");
     setStatus({ kind: "idle" });
   }
 
@@ -100,6 +127,7 @@ export function KindForm({ kind, year, round, drivers, teams, initial, text, onC
     });
     if (res.status === 200) {
       setSaved(sent);
+      setStale(false);
       setStatus({ kind: "saved" });
       return;
     }
@@ -107,6 +135,7 @@ export function KindForm({ kind, year, round, drivers, teams, initial, text, onC
     setStatus({ kind: "error", reason });
     if (reason === "closed") onClosed();
     if (reason === "noProfile") onNoProfile();
+    if (reason === "unauthorized") onUnauthorized();
   }
 
   const label = (d: PickDriver, slot: number) => {
@@ -124,6 +153,11 @@ export function KindForm({ kind, year, round, drivers, teams, initial, text, onC
         {t.kinds[kind].h}
       </h2>
       <p className="au-hint">{t.kinds[kind].hint}</p>
+      {stale ? (
+        <p className="au-err pd-stale" role="status">
+          {t.stale}
+        </p>
+      ) : null}
       <form className="pd-form" onSubmit={submit} noValidate>
         <ol className="pd-slots">
           {picks.map((pick, i) => {
@@ -142,7 +176,9 @@ export function KindForm({ kind, year, round, drivers, teams, initial, text, onC
                     name={`${kind}-p${i + 1}`}
                     className="pd-select"
                     value={pick === null ? "" : String(pick)}
+                    aria-required={i < REQUIRED_SLOTS ? true : undefined}
                     aria-invalid={invalid || undefined}
+                    aria-describedby={invalid ? errId : undefined}
                     onChange={(e) => choose(i, e.target.value)}
                   >
                     <option value="">{i < REQUIRED_SLOTS ? t.choose : t.none}</option>
@@ -158,6 +194,9 @@ export function KindForm({ kind, year, round, drivers, teams, initial, text, onC
           })}
         </ol>
         <p className="au-hint">{t.swapHint}</p>
+        <p className="sr-only" aria-live="polite">
+          {announce}
+        </p>
 
         {kind === "R" ? (
           <div className="pd-dnf">
@@ -206,7 +245,7 @@ export function KindForm({ kind, year, round, drivers, teams, initial, text, onC
         <p className="au-ok" role="status">
           {message}
         </p>
-        <p className="au-err" role="alert">
+        <p className="au-err" id={errId} role="alert">
           {status.kind === "error" ? t.errors[status.reason] : null}
         </p>
       </form>

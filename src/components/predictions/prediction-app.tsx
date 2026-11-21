@@ -53,7 +53,9 @@ export function PredictionApp({ text, nickText, locale, year, round, deadlineAt,
   const [failed, setFailed] = useState(false);
   const [offset, setOffset] = useState(0);
   const now = useNow();
-  const refetchedAtClose = useRef(false);
+  const retries = useRef(0);
+  const prevClosed = useRef<boolean | null>(null);
+  const statusRef = useRef<HTMLElement>(null);
 
   const apply = useCallback((res: Fetched) => {
     if (res.ok) {
@@ -80,13 +82,31 @@ export function PredictionApp({ text, nickText, locale, year, round, deadlineAt,
   const closedByClock = deadlineMs !== null && serverNow !== null && serverNow >= deadlineMs;
   const closed = api ? api.closed || closedByClock : false;
 
-  // Відлік дійшов до нуля, а база ще не повідомила «закрито» — перечитуємо раз (там же чужі прогнози).
+  // Відлік дійшов до нуля, а сервер ще каже «відкрито» (годинник сервера трохи відстає від бази): перечитуємо одразу, далі ще двічі
+  // з паузою (2 с, 5 с) і зупиняємось — не вічний цикл запитів; щойно сервер підтверджує «закрито», лічильник скидається (рев'ю 21.11, I).
+  const lagging = !!api && !api.closed && closedByClock;
   useEffect(() => {
-    if (api && !api.closed && closedByClock && !refetchedAtClose.current) {
-      refetchedAtClose.current = true;
-      load();
+    if (!api) return;
+    if (!lagging) {
+      if (api.closed) retries.current = 0;
+      return;
     }
-  }, [api, closedByClock, load]);
+    const attempt = retries.current;
+    if (attempt > 2) return;
+    const timer = setTimeout(() => {
+      retries.current = attempt + 1;
+      load();
+    }, attempt === 0 ? 0 : attempt === 1 ? 2000 : 5000);
+    return () => clearTimeout(timer);
+  }, [api, lagging, load]);
+
+  // Форма розмонтовується при переході «відкрито → закрито» — фокус, що був у ній, зникає: переносимо його на блок стану.
+  // Перший кадр, який уже «закрито», фокус не краде (prevClosed тоді ще null).
+  useEffect(() => {
+    if (!api) return;
+    if (prevClosed.current === false && closed) statusRef.current?.focus();
+    prevClosed.current = closed;
+  }, [api, closed]);
 
   const left = deadlineMs !== null && serverNow !== null ? deadlineMs - serverNow : null;
   const player = api?.user ?? null;
@@ -95,7 +115,7 @@ export function PredictionApp({ text, nickText, locale, year, round, deadlineAt,
 
   return (
     <div className="pd-app">
-      <div className="pd-deadline au-card">
+      <section className="pd-deadline au-card" ref={statusRef} tabIndex={-1} aria-label={t.deadlineLabel}>
         <p className="au-label">{t.deadlineLabel}</p>
         {deadline ? (
           <p className="pd-when">
@@ -108,7 +128,7 @@ export function PredictionApp({ text, nickText, locale, year, round, deadlineAt,
           {api === null ? "" : closed || deadlineMs === null ? t.closedLead : left !== null ? fill(t.remaining, { t: countdown(left, locale).text }) : ""}
         </p>
         <TzNote utc={text.tz.utc} local={text.tz.local} />
-      </div>
+      </section>
 
       {api === null ? (
         failed ? (
@@ -131,7 +151,7 @@ export function PredictionApp({ text, nickText, locale, year, round, deadlineAt,
             </p>
           ) : null}
 
-          {!closed && player === null ? (
+          {!closed && !api.signedIn && !api.unavailable ? (
             <section className="au-card" aria-labelledby="pd-signin">
               <h2 className="au-h" id="pd-signin">
                 {t.signIn.h}
@@ -165,6 +185,7 @@ export function PredictionApp({ text, nickText, locale, year, round, deadlineAt,
                     text={text}
                     onClosed={load}
                     onNoProfile={load}
+                    onUnauthorized={load}
                   />
                 ))}
               </div>
@@ -181,8 +202,8 @@ export function PredictionApp({ text, nickText, locale, year, round, deadlineAt,
                 <p className="au-note">{t.revealed.lead}</p>
                 {reveal && reveal.length > 0 ? (
                   <>
-                    <RevealedTable kind="Q" rows={reveal} drivers={drivers} teams={teams} me={player?.nick ?? null} text={text} />
-                    <RevealedTable kind="R" rows={reveal} drivers={drivers} teams={teams} me={player?.nick ?? null} text={text} />
+                    <RevealedTable kind="Q" rows={reveal} drivers={drivers} teams={teams} me={player?.publicName ?? null} text={text} />
+                    <RevealedTable kind="R" rows={reveal} drivers={drivers} teams={teams} me={player?.publicName ?? null} text={text} />
                   </>
                 ) : (
                   <p className="au-note">{reveal ? t.revealed.none : ""}</p>
@@ -222,14 +243,14 @@ function MineReadOnly({ mine, drivers, teams, text, signedIn }: { mine: RoundApi
                     return (
                       <li key={i}>
                         <span className="pd-dot" style={d ? { background: d.color } : undefined} aria-hidden="true" />
-                        <span>{id === null ? t.none : (d?.short ?? t.revealed.unknown)}</span>
+                        <span>{id === null ? t.none : (d?.short ?? t.gone)}</span>
                       </li>
                     );
                   })}
                 </ol>
                 {kind === "R" ? (
                   <p className="au-note">
-                    {t.dnf.label}: {p.allFinish ? t.dnf.all : p.dnfTeam !== null ? (teamById.get(p.dnfTeam)?.name ?? t.revealed.unknown) : t.dnf.none}
+                    {t.dnf.label}: {p.allFinish ? t.dnf.all : p.dnfTeam !== null ? (teamById.get(p.dnfTeam)?.name ?? t.goneTeam) : t.dnf.none}
                   </p>
                 ) : null}
               </div>
