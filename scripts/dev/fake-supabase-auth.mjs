@@ -132,6 +132,11 @@ const eq = (url, name) => {
   const v = url.searchParams.get(name);
   return v?.startsWith("eq.") ? Number(v.slice(3)) : NaN;
 };
+/** Текстовий фільтр `name=eq.<значення>` (searchParams уже декодовано один раз, як у PostgREST); немає фільтра — null. */
+const str = (url, name) => {
+  const v = url.searchParams.get(name);
+  return v?.startsWith("eq.") ? v.slice(3) : null;
+};
 const project = (rows, select, allowed, res) => {
   const cols = (select ?? "*") === "*" ? allowed : select.split(",");
   const bad = cols.find((c) => !allowed.includes(c));
@@ -175,7 +180,10 @@ async function handlePredictionsFake(req, res, url, origin) {
         return dl !== null && Date.now() >= dl && owner?.nick && !owner.blocked;
       })
       .map((x) => ({ id: 1, season_year: x.year, round: x.round, kind: x.kind, player: byId.get(x.userId).nick, picks: x.picks, dnf_team_id: x.dnfTeam, all_finish: x.allFinish, points: null }))
-      .sort((a, b) => a.player.localeCompare(b.player));
+      .sort((a, b) => a.player.localeCompare(b.player))
+      // Фільтри PostgREST, які ставить сайт (рев'ю 21.11): вид (kind=eq.Q), «мій» рядок (player=eq.<ім'я>) і limit — як у базі.
+      .filter((x) => (str(url, "kind") ?? x.kind) === x.kind && (str(url, "player") ?? x.player) === x.player)
+      .slice(0, Number(url.searchParams.get("limit")) || undefined);
     const out = project(rows, url.searchParams.get("select"), ["id", "season_year", "round", "kind", "player", "picks", "dnf_team_id", "all_finish", "points"], res);
     return out ? (json(res, 200, out), true) : true;
   }
