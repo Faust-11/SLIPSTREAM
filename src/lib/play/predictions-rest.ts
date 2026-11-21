@@ -51,7 +51,9 @@ export async function savePrediction(cfg: PlayConfig, token: string, p: Predicti
   });
   if (!res) return { ok: false, reason: "unavailable" };
   if (res.ok) return { ok: true };
-  if (res.status === 401 || res.status === 403) return { ok: false, reason: "unauthorized" };
+  // Не ввійшов — лише 401 (JWT недійсний) або код 28000 (auth.uid() порожній). 403 від PostgREST (42501: немає grant, схему play не
+  // відкрито) — збій сервісу, а не «сесія закінчилась»: інакше здоровому гравцеві пропонують увійти знову (рев'ю 21.11, B).
+  if (res.status === 401) return { ok: false, reason: "unauthorized" };
   const err = (await res.json().catch(() => null)) as { code?: string; message?: string } | null;
   if (err?.code === "28000") return { ok: false, reason: "unauthorized" };
   if (err?.code === "P0001") {
@@ -103,26 +105,23 @@ export async function getMyPredictions(cfg: PlayConfig, token: string, year: num
 
 export type RevealedPrediction = { kind: PredictionKind; player: string; picks: Picks; dnfTeam: number | null; allFinish: boolean; points: number | null };
 
-/**
- * Прогнози всіх гравців ПІСЛЯ дедлайну (подання play.revealed_predictions; до дедлайну воно порожнє). Публічне подання:
- * є лише публічне ім'я (нік або «Гравець XXXX» для прихованих), без user_id й пошти. Спершу — за очками (оцінені), далі — за ніком.
- */
-export async function getRevealed(cfg: PlayConfig, year: number, round: number, limit = REVEALED_LIMIT): Promise<{ ok: true; rows: RevealedPrediction[] } | { ok: false }> {
+/** Рядки подання за одним видом (кваліфікація/гонка) зі своїм лімітом; `extra` — додатковий фільтр (рядок «мого» гравця). */
+async function revealedOfKind(cfg: PlayConfig, year: number, round: number, kind: PredictionKind, limit: number, extra = ""): Promise<RevealedPrediction[] | null> {
   const list = await rows(
     await call(
       cfg,
-      `revealed_predictions?select=kind,player,picks,dnf_team_id,all_finish,points&season_year=eq.${year}&round=eq.${round}&order=points.desc.nullslast,player.asc&limit=${limit}`,
+      `revealed_predictions?select=kind,player,picks,dnf_team_id,all_finish,points&season_year=eq.${year}&round=eq.${round}&kind=eq.${kind}${extra}&order=points.desc.nullslast,player.asc&limit=${limit}`,
       { method: "GET", token: null },
     ),
   );
-  if (!list) return { ok: false };
+  if (!list) return null;
   const out: RevealedPrediction[] = [];
   for (const r of list) {
-    const kind = kindOf(r.kind);
+    const k = kindOf(r.kind);
     const picks = normalizePicks(r.picks);
-    if (!kind || !picks || typeof r.player !== "string") continue;
+    if (!k || !picks || typeof r.player !== "string") continue;
     out.push({
-      kind,
+      kind: k,
       player: r.player,
       picks,
       dnfTeam: isRowId(r.dnf_team_id) ? r.dnf_team_id : null,
@@ -130,5 +129,26 @@ export async function getRevealed(cfg: PlayConfig, year: number, round: number, 
       points: typeof r.points === "number" && Number.isFinite(r.points) ? r.points : null,
     });
   }
-  return { ok: true, rows: out };
+  return out;
+}
+
+/**
+ * Прогнози всіх гравців ПІСЛЯ дедлайну (подання play.revealed_predictions; до дедлайну воно порожнє). Публічне подання:
+ * є лише публічне ім'я (нік або «Гравець XXXX» для прихованих), без user_id й пошти. Спершу — за очками (оцінені), далі — за ніком.
+ * Запит ПО ВИДУ (кожен зі своїм лімітом): один спільний limit на Q+R мовчки губив би рядки, а підпис «показано перших N» рахується
+ * по виду (рев'ю 21.11, C). Якщо список виду заповнений до ліміту, а рядка гравця `me` (його публічне ім'я) в ньому немає, його
+ * рядок докладається окремим запитом — гравець завжди бачить власний прогноз у таблиці.
+ */
+export async function getRevealed(cfg: PlayConfig, year: number, round: number, me: string | null = null, limit = REVEALED_LIMIT): Promise<{ ok: true; rows: RevealedPrediction[] } | { ok: false }> {
+  const [q, r] = await Promise.all([revealedOfKind(cfg, year, round, "Q", limit), revealedOfKind(cfg, year, round, "R", limit)]);
+  if (!q || !r) return { ok: false };
+  const lists: Record<PredictionKind, RevealedPrediction[]> = { Q: q, R: r };
+  if (me) {
+    for (const kind of ["Q", "R"] as const) {
+      if (lists[kind].length < limit || lists[kind].some((x) => x.player === me)) continue;
+      const own = await revealedOfKind(cfg, year, round, kind, 1, `&player=eq.${encodeURIComponent(me)}`);
+      if (own?.length) lists[kind] = [...lists[kind], ...own];
+    }
+  }
+  return { ok: true, rows: [...lists.Q, ...lists.R] };
 }
