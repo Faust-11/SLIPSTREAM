@@ -22,7 +22,21 @@ const inner = src.replace(/^<svg[^>]*>/, "").replace(/<\/svg>\s*$/, "");
  * Плитка size×size: bg — тло (null — прозоре), r — радіус закруглення (частка сторони), mark — частка сторони під знак.
  * Знак вписується за більшою стороною й центрується.
  */
-const tile = (size, { r = 0, mark = 0.7, bg = BG } = {}) => {
+/**
+ * Утовщений знак для малих розмірів (16–48 px): тонкі лінії бордюру на 16 px зливаються в сіру пляму (так було й у
+ * першій версії фавікона — тоді знак спрощували). Світле тіло й червоні смуги обводимо контуром (одиниці viewBox знака):
+ * порядок — світле з обводкою, червоне з обводкою, світле без обводки (повертає дрібні світлі деталі поверх червоного).
+ */
+const paths = [...inner.matchAll(/<path\b[^>]*\/>/g)].map((m) => m[0]);
+if (paths.length === 0 || paths.join("") !== inner.trim()) throw new Error("знак має містити лише <path> — оновіть утовщення");
+const isRed = (p) => /fill="#DD1A1F"/i.test(p);
+const stroked = (p, w) => p.replace("<path", `<path stroke="${isRed(p) ? "#DD1A1F" : "#F3F4F1"}" stroke-width="${w}" stroke-linejoin="round"`);
+const boldInner = (body, red) =>
+  paths.filter((p) => !isRed(p)).map((p) => stroked(p, body)).join("") +
+  paths.filter(isRed).map((p) => stroked(p, red)).join("") +
+  paths.filter((p) => !isRed(p)).join("");
+
+const tile = (size, { r = 0, mark = 0.7, bg = BG, bold = null } = {}) => {
   const k = (size * mark) / Math.max(vw, vh);
   const w = vw * k;
   const h = vh * k;
@@ -31,18 +45,18 @@ const tile = (size, { r = 0, mark = 0.7, bg = BG } = {}) => {
   return (
     `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">` +
     (bg ? `<rect width="${size}" height="${size}" rx="${size * r}" fill="${bg}"/>` : "") +
-    `<svg x="${x}" y="${y}" width="${w}" height="${h}" viewBox="${vx} ${vy} ${vw} ${vh}">${inner}</svg></svg>`
+    `<svg x="${x}" y="${y}" width="${w}" height="${h}" viewBox="${vx} ${vy} ${vw} ${vh}" overflow="visible">${bold ? boldInner(bold[0], bold[1]) : inner}</svg></svg>`
   );
 };
 
 // favicon.svg — векторна плитка 64×64 із закругленням.
-writeFileSync(pub + "favicon.svg", tile(64, { r: 0.2, mark: 0.74 }) + "\n");
+writeFileSync(pub + "favicon.svg", tile(64, { r: 0.18, mark: 0.9 }) + "\n");
 
 const jobs = [
-  ["favicon-16x16.png", tile(16, { r: 0.2, mark: 0.82 })],
-  ["favicon-32x32.png", tile(32, { r: 0.2, mark: 0.78 })],
-  ["favicon-48x48.png", tile(48, { r: 0.2, mark: 0.74 })],
-  ["favicon-96x96.png", tile(96, { r: 0.2, mark: 0.74 })],
+  ["favicon-16x16.png", tile(16, { r: 0.18, mark: 0.84, bold: [34, 17] })],
+  ["favicon-32x32.png", tile(32, { r: 0.18, mark: 0.87, bold: [13, 6.5] })],
+  ["favicon-48x48.png", tile(48, { r: 0.18, mark: 0.88, bold: [9, 4.5] })],
+  ["favicon-96x96.png", tile(96, { r: 0.18, mark: 0.9 })],
   ["apple-touch-icon.png", tile(180, { mark: 0.66 })],
   ["icon-192.png", tile(192, { r: 0.2, mark: 0.72 })],
   ["icon-512.png", tile(512, { r: 0.2, mark: 0.72 })],
