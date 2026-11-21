@@ -3,7 +3,6 @@ import circuitDirections from "@/data/curated/circuit-directions.json";
 import circuitsJson from "@/data/curated/circuits.json";
 import type { Locale } from "@/i18n/config";
 import { pathClockwise } from "@/lib/circuit-math";
-import { sessionsFromCalendar, type SessionKind } from "@/lib/weather";
 import { getCalendarPage, type CalendarCard } from "./calendar";
 import { circuitBySlug, getCircuitPage, type CircuitLayout, type CreditItem } from "./circuits";
 import { driverPortrait, loadDriverIndex } from "./drivers";
@@ -74,7 +73,6 @@ export type HomeNext = {
   raceAt: string | null;
   raceTimed: boolean;
   /** Види сесій уїкенду (для заглушки блока погоди — стільки рядків); порожньо — розкладу ще нема. */
-  weatherKinds: SessionKind[];
   circuit: null | {
     slug: string;
     name: string;
@@ -186,7 +184,6 @@ export async function getHomePage(locale: Locale): Promise<HomePage> {
       date: nextCard.date,
       raceAt: nextCard.raceAt,
       raceTimed: nextCard.raceTimed,
-      weatherKinds: sessionsFromCalendar(nextCard.sessions.map((x) => ({ kind: x.kind, at: x.at, real: x.real }))).map((x) => x.kind),
       circuit: cp
         ? {
             slug: cp.slug,

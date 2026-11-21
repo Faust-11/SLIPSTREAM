@@ -217,7 +217,7 @@ for (const width of [320, 390, 768, 1100])
     expect(m.photo.right).toBeGreaterThanOrEqual(m.vw - 0.5);
   });
 
-test("телефон 21.11: наступна гонка — червона й над минулою; без погоди вікенду (і без запиту) й без таблиці трас гри", async ({ page }) => {
+test("телефон 21.11: наступна гонка — червона й над минулою; без таблиці трас гри", async ({ page }) => {
   const seen: string[] = [];
   await page.route("**/api/weather/**", (route) => {
     seen.push(route.request().url());
@@ -232,7 +232,6 @@ test("телефон 21.11: наступна гонка — червона й н
     last: document.querySelector(".hm-last")!.getBoundingClientRect().top,
   }));
   expect(order.next).toBeLessThan(order.last);
-  await expect(page.locator(".hm-next .ww-slot")).toBeHidden();
   await page.locator(".hm-game").scrollIntoViewIfNeeded();
   await expect(page.locator(".hm-board")).toBeHidden();
   await page.waitForTimeout(700);
@@ -355,83 +354,20 @@ test("/api/on-this-day/<мова>/<день>: JSON дня; чужа мова ч�
   expect((await request.get("/api/on-this-day/uk/13-40")).status()).toBe(404);
 });
 
-/** Ответ /api/weather для етапу 21 (Лас-Вегас): FP1 замір, Q іде зараз, R прогноз, FP2 без даних (рядок не показуємо). */
-const WEEKEND = {
-  year: 2026,
-  round: 21,
-  updated: "2026-11-15T12:00:00.000Z",
-  sessions: [
-    { kind: "FP1", start: "2026-11-20T00:30:00.000Z", end: "2026-11-20T01:30:00.000Z", state: "done", source: "openf1", data: { air: [11, 14], track: [10, 13], humidity: 48, wind: { kmh: 9, from: 210 }, rainShare: 0, mm: null, condition: null } },
-    { kind: "FP2", start: null, end: null, state: "none", source: null, data: null },
-    { kind: "Q", start: "2026-11-21T04:00:00.000Z", end: "2026-11-21T05:00:00.000Z", state: "live", source: "openf1", data: { air: [9, 10], track: [8, 9], humidity: 55, wind: { kmh: 7, from: 180 }, rainShare: 0.25, mm: null, condition: null } },
-    { kind: "R", start: "2026-11-22T04:00:00.000Z", end: "2026-11-22T06:00:00.000Z", state: "forecast", source: "met", data: { air: [7, 7], track: null, humidity: 51, wind: { kmh: 11, from: 300 }, rainShare: null, mm: 0, condition: "partly" } },
-  ],
-};
-
-/** Мок /api/weather/** (без мережі й джерел): лічильник запитів і відповідь. */
-async function mockWeather(page: import("@playwright/test").Page, body: unknown = WEEKEND, status = 200) {
+test("/uk (головна): «Погода вікенду» в блоці наступної гонки не показується (рішення 21.11 — блок став надто високим) і не робить запитів", async ({ page }) => {
   const seen: string[] = [];
   await page.route("**/api/weather/**", (route) => {
-    seen.push(new URL(route.request().url()).pathname);
-    return route.fulfill({ status, contentType: "application/json", body: JSON.stringify(body) });
+    seen.push(route.request().url());
+    return route.fulfill({ status: 200, contentType: "application/json", body: "{}" });
   });
-  return seen;
-}
-
-test("/uk (головна): «Погода вікенду» — запиту нема, поки блок далеко; після прокрутки: рядки замір / іде зараз / прогноз, без порожнього рядка", async ({ page }) => {
-  const seen = await mockWeather(page);
-  await page.goto("/uk");
-  await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
-  const slot = page.locator(".hm-next .ww-slot");
-  await expect(slot).toBeVisible(); // 15.11: до гонки 6,7 доби — пора
-  await page.waitForTimeout(700);
-  expect(seen, "до прокрутки запиту до погоди нема").toEqual([]);
-  await slot.scrollIntoViewIfNeeded();
-  await expect(slot.locator(".ww-row")).toHaveCount(3);
-  expect(seen).toEqual(["/api/weather/2026/21"]);
-  await expect(slot.locator(".ww-h")).toHaveText("Погода вікенду");
-  await expect(slot.locator(".ww-row").nth(0)).toContainText("11–14 °C");
-  await expect(slot.locator(".ww-row").nth(0)).toContainText("Траса 10–13 °C");
-  await expect(slot.locator(".ww-row").nth(0)).toContainText("Сухо");
-  await expect(slot.locator(".ww-row").nth(0).locator(".ww-s")).toHaveText("виміряно");
-  await expect(slot.locator(".ww-row").nth(1)).toContainText("Дощ · 25% часу");
-  await expect(slot.locator(".ww-row").nth(1).locator(".ww-s")).toHaveText("іде зараз");
-  await expect(slot.locator(".ww-row").nth(2)).toContainText("Мінлива хмарність");
-  await expect(slot.locator(".ww-row").nth(2).locator(".ww-s")).toHaveText("прогноз");
-  await expect(slot.locator(".ww-credit")).toContainText("MET Norway");
-  expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
-});
-
-test("/uk (головна): гонка далі ніж через 12 діб — блока й запиту нема", async ({ page }) => {
-  await page.clock.setFixedTime(new Date("2026-10-01T12:00:00Z"));
-  const seen = await mockWeather(page);
-  await page.goto("/uk");
-  await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
-  await page.locator(".hm-next .ww-slot").evaluate((el) => el.scrollIntoView());
-  await page.waitForTimeout(700);
-  await expect(page.locator(".hm-next .ww-slot")).toBeHidden();
-  expect(seen).toEqual([]);
-});
-
-for (const [label, body, status] of [["порожня відповідь (даних ще нема)", { year: 2026, round: 21, updated: "", sessions: [] }, 200], ["помилка 500", { error: "x" }, 500]] as const)
-  test(`/uk (головна): ${label} — місце під блок ховається`, async ({ page }) => {
-    await mockWeather(page, body, status);
-    await page.goto("/uk");
+  for (const width of [390, 1280]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/uk"); // 15.11: до гонки 6,7 доби — раніше саме тоді блок з'являвся
     await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
-    await page.locator(".hm-next .ww-slot").scrollIntoViewIfNeeded();
-    await expect(page.locator(".hm-next .ww-slot")).toBeHidden();
-  });
-
-for (const theme of ["light", "dark"] as const)
-  for (const width of [1024, 1280]) // на телефоні (≤600 px) погоди на головній нема — тест «телефон 21.11»
-    test(`/uk (головна): погода вікенду без порушень axe і без прокрутки вбік: ${theme}, ${width} px`, async ({ page }) => {
-      await mockWeather(page);
-      await page.emulateMedia({ colorScheme: theme });
-      await page.setViewportSize({ width, height: 900 });
-      await page.goto("/uk");
-      await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
-      await page.locator(".hm-next .ww-slot").scrollIntoViewIfNeeded();
-      await expect(page.locator(".hm-next .ww-slot .ww-row")).toHaveCount(3);
-      await expectNoA11yViolations(page);
-      expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
-    });
+    await page.locator(".hm-next").scrollIntoViewIfNeeded();
+    await page.waitForTimeout(500);
+    await expect(page.locator(".hm-next .ww-slot, .hm-next .ww")).toHaveCount(0);
+    await expect(page.locator(".hm-next")).not.toContainText("Погода вікенду");
+  }
+  expect(seen, "запиту до погоди з головної нема").toEqual([]);
+});

@@ -1431,11 +1431,6 @@
     flex: 1 1 100%;
     justify-content: center;
   }
-  /* Телефон: погоду вікенду на головній не показуємо (21.11) — вона є на сторінці календаря. Схований слот не входить у зону
-     IntersectionObserver, тож ні код блока, ні запит до /api/weather не вантажаться. */
-  .hm-next .ww-slot {
-    display: none;
-  }
   .hm-count b {
     font-size: 26px;
   }
