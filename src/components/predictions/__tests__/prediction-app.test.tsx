@@ -87,6 +87,14 @@ describe("стан входу (рев'ю 21.11, D)", () => {
     expect(link).toHaveAttribute("href", "/uk/login?next=%2Fuk%2Fpredictions%2F22");
   });
 
+  it("гість (немає позначки сесії) — картка входу є одразу, не чекаючи відповіді API, і стоїть першою (21.11)", async () => {
+    vi.spyOn(globalThis, "fetch").mockImplementation(() => new Promise(() => {})); // відповідь не приходить
+    const { container } = mount("2026-11-28T19:55:00Z");
+    const link = await screen.findByRole("link", { name: t.signIn.cta });
+    expect(link).toHaveAttribute("href", "/uk/login?next=%2Fuk%2Fpredictions%2F22");
+    expect(container.querySelector(".pd-app")?.firstElementChild).toHaveClass("pd-signin");
+  });
+
   it("ввійшов, але збій бази зачепив профіль (user=null, unavailable) — картки входу НЕМАЄ (інакше петля з /login), є «недоступно»", async () => {
     current = () => base({ signedIn: true, user: null, unavailable: true, mine: null });
     mount();

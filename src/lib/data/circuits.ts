@@ -305,6 +305,22 @@ export async function circuitBySlug(slug: string): Promise<string | null> {
   return null;
 }
 
+/** Фото траси й схема для карток (список прогнозів): без читання сторінки траси — лише куровані дані місця. */
+export type CircuitMedia = {
+  photo: null | { src: string; srcSet: string; width: number; height: number; focus: string; credit: Credit };
+  layout: null | { d: string; w: number; h: number };
+};
+export async function circuitMedia(slug: string | null): Promise<CircuitMedia> {
+  const ref = slug ? await circuitBySlug(slug) : null;
+  const p = ref ? places[ref] : undefined;
+  const credit = p?.hero?.credit ?? p?.credit;
+  const l = ref ? layouts[ref] : undefined;
+  return {
+    photo: p?.hero && credit ? { src: p.hero.src, srcSet: p.hero.srcSet, width: p.hero.width, height: p.hero.height, focus: `50% ${p.hero.focusY ?? 62}%`, credit } : null,
+    layout: l ? { d: l.page.d, w: l.page.w, h: l.page.h } : null,
+  };
+}
+
 /** Скільки перших місць у рейтингах «найуспішніші тут»; рівні на межі — до LEADERS_CAP рядків. */
 export const LEADERS_TOP = 7;
 export const LEADERS_CAP = 10;

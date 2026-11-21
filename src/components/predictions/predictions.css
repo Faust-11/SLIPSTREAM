@@ -1,6 +1,6 @@
 /*
- * Прогнози (фаза 9c, префікс pd-). Той самий дизайн «Програмка», що й вхід (auth.css, префікс au-): паперовий банер зі штампом,
- * картки з жорсткою рамкою, жовті кнопки. Тут лише те, чого там немає: сітка карток, слоти з нативними <select>, таблиця
+ * Прогнози (фаза 9c, префікс pd-). Дизайн «Програмка», як вхід (auth.css, префікс au-): штамп, картки з жорсткою рамкою, жовті кнопки; шапка — жовта з шаховою смугою (21.11),
+ * Тут лише те, чого там немає: сітка карток, слоти з нативними <select>, таблиця
  * прогнозів. Усі кольори — токени сайту (світла й темна теми); поля — 16 px і від 48 px заввишки (iOS не наближає, пальцю
  * зручно). Лише на сторінках розділу: CSS підключається зі сторінок, а не з layout.
  */
@@ -12,26 +12,230 @@
   margin-bottom: 16px;
 }
 
+/* ---------- Шапка (21.11: жовта замість сіро-зеленої, «сумної»; шахова смуга знизу, подіум 2-1-3 праворуч) ---------- */
+.pd-hero {
+  --pd-ink: #16181d;
+  position: relative;
+  isolation: isolate;
+  background: var(--yellow);
+  color: var(--pd-ink);
+  border-bottom: 0;
+}
+.pd-hero > .wrap {
+  position: relative;
+  padding-block: 40px 52px;
+}
+.pd-hero .au-stamp {
+  background: var(--pd-ink);
+  color: var(--yellow);
+}
+.pd-hero .au-lead {
+  color: var(--pd-ink);
+}
+/* Шахова смуга (два ряди по 7 px) — фініш-лінія під шапкою. */
+.pd-hero::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  block-size: 14px;
+  background: conic-gradient(var(--pd-ink) 25%, #fff 0 50%, var(--pd-ink) 0 75%, #fff 0) 0 0 / 14px 14px;
+}
+.pd-podium {
+  position: absolute;
+  inset-inline-end: 16px;
+  inset-block-end: 14px;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pd-podium li {
+  display: grid;
+  place-items: start center;
+  inline-size: 84px;
+  padding-top: 8px;
+  background: var(--pd-ink);
+  color: var(--yellow);
+  font: 400 40px/1 var(--f-display);
+}
+.pd-podium li:nth-child(1) {
+  block-size: 76px;
+}
+.pd-podium li:nth-child(2) {
+  block-size: 112px;
+}
+.pd-podium li:nth-child(3) {
+  block-size: 56px;
+}
+@media (max-width: 899px) {
+  .pd-podium {
+    display: none;
+  }
+}
+/* Сторінка етапу: фото траси під темним градієнтом (світлий текст), як шапка головної. */
+.pd-hero-photo {
+  --pd-ink: #f3f4f1;
+  background: #14151a;
+  color: var(--pd-ink);
+}
+.pd-hero-photo .au-stamp {
+  background: var(--yellow);
+  color: #16181d;
+}
+.pd-hero-photo::after {
+  background: conic-gradient(#16181d 25%, var(--yellow) 0 50%, #16181d 0 75%, var(--yellow) 0) 0 0 / 14px 14px;
+}
+.pd-hero-img {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+.pd-hero-photo::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgb(10 11 14 / 0.9) 0%, rgb(10 11 14 / 0.62) 55%, rgb(10 11 14 / 0.25) 100%),
+    linear-gradient(0deg, rgb(10 11 14 / 0.6) 0%, rgb(10 11 14 / 0) 50%);
+}
+.pd-hero-photo .pd-back {
+  color: var(--pd-ink);
+}
+
 /* ---------- Список етапів ---------- */
 .pd-rounds {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
 }
 .pd-round {
-  max-width: none;
-  align-content: start;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: var(--b2) solid var(--rule);
+  background: var(--paper);
 }
-.pd-round .au-h a {
+/* Фото траси (або темна «карбонова» заглушка зі схемою) і підпис етапу поверх нього — як банери гонок на головній. */
+.pd-pic {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: #1a1b1f;
+  background-image:
+    radial-gradient(#0e0f11 15%, transparent 16%), radial-gradient(#0e0f11 15%, transparent 16%),
+    radial-gradient(rgb(255 255 255 / 0.07) 15%, transparent 20%), radial-gradient(rgb(255 255 255 / 0.07) 15%, transparent 20%);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px, 0 1px, 4px 5px;
+  color: #f3f4f1;
+}
+.pd-pic > img {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+.pd-pic::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgb(10 11 14 / 0.25) 0%, rgb(10 11 14 / 0) 35%, rgb(10 11 14 / 0.88) 100%);
+}
+.pd-pic-layout {
+  position: absolute;
+  inset-block-start: 8%;
+  inset-inline-end: 6%;
+  inline-size: 60%;
+  block-size: 62%;
+  z-index: -1;
+}
+.pd-pic-casing {
+  fill: none;
+  stroke: rgb(255 255 255 / 0.16);
+  stroke-width: 44;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.pd-pic-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 15;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.pd-roundel {
+  position: absolute;
+  inset-block-start: 12px;
+  inset-inline-end: 12px;
+  display: grid;
+  place-items: center;
+  inline-size: 52px;
+  block-size: 52px;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: #16181d;
+  box-shadow: 0 0 0 4px rgb(10 11 14 / 0.55);
+  font: 400 22px/1 var(--f-display);
+}
+.pd-pic-label {
+  position: absolute;
+  inset-inline: 16px;
+  inset-block-end: 14px;
+}
+.pd-eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 6px;
+  font: 600 12px/1.2 var(--f-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pd-chip {
+  padding: 3px 7px;
+  background: var(--yellow);
+  color: #16181d;
+  font-size: 11px;
+}
+.pd-pic-label h3 {
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.05;
+}
+.pd-pic-label h3 a {
   color: inherit;
   text-decoration: none;
 }
-.pd-round .au-h a:hover {
+.pd-pic-label h3 a:hover {
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+.pd-round-body {
+  display: grid;
+  gap: 8px;
+  flex: 1;
+  align-content: start;
+  padding: 16px 18px 20px;
+}
+.pd-round-body .au-hint {
+  margin: 0;
+  font-weight: 600;
+}
+.pd-round-body .au-btn {
+  margin-top: 6px;
 }
 .pd-dl {
   margin: 0;
@@ -39,10 +243,33 @@
   color: var(--ink-soft);
 }
 .pd-status {
+  position: relative;
   margin: 0;
   min-height: 1.45em; /* рядок з'являється після гідратації — місце зарезервоване, картка не стрибає */
+  padding-inline-start: 18px;
   font-size: 15px;
   font-weight: 600;
+}
+/* Світлодіод стану: зелений — відкрито, червоний — закривається протягом доби, сірий — закрито. Текст каже те саме словами. */
+.pd-status::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0.45em;
+  inline-size: 10px;
+  block-size: 10px;
+  border-radius: 50%;
+  background: transparent;
+}
+.pd-status[data-state="open"]::before {
+  background: #1e8a63;
+}
+.pd-status[data-state="soon"]::before {
+  background: var(--red);
+}
+.pd-status[data-state="closed"]::before,
+.pd-status[data-state="unknown"]::before {
+  background: var(--ink-soft);
 }
 .pd-status[data-state="closed"],
 .pd-status[data-state="unknown"] {
@@ -57,20 +284,49 @@
 
 /* ---------- Як рахуємо очки ---------- */
 .pd-rules {
-  max-width: 760px;
+  max-width: 860px;
   padding: 24px;
   border: var(--b2) solid var(--rule);
   background: var(--paper);
 }
-.pd-rules ul {
+.pd-rules .au-h {
+  margin-bottom: 14px;
+}
+/* Шкала очок за місце: чотири «табло» в ряд (шрифт цифр — display, як на головній). */
+.pd-scale {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+  border: var(--b2) solid var(--rule);
+}
+.pd-scale li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+}
+.pd-scale li + li {
+  border-inline-start: var(--b2) solid var(--rule);
+}
+.pd-scale li:first-child {
+  background: var(--yellow);
+  color: #16181d;
+}
+.pd-scale span {
+  font: 600 12px/1.2 var(--f-mono);
+  letter-spacing: 0.06em;
+}
+.pd-scale b {
+  font: 400 clamp(22px, 3vw, 32px) / 1.1 var(--f-display);
+}
+.pd-rule-list {
   display: grid;
   gap: 10px;
   margin: 0;
   padding-left: 1.2em;
   line-height: 1.5;
-}
-.pd-rules .au-h {
-  margin-bottom: 14px;
 }
 
 /* ---------- Сторінка етапу ---------- */
@@ -92,6 +348,32 @@
 }
 .pd-deadline {
   gap: 6px;
+}
+/* Гість: пропозиція входу — перша картка сторінки етапу, жовта (щоб її не пропустити). */
+.pd-signin {
+  max-width: none;
+  background: var(--yellow);
+  border-color: #16181d;
+  color: #16181d;
+}
+.pd-signin .au-note {
+  color: #16181d;
+}
+.pd-signin .au-btn {
+  background: #16181d;
+  border-color: #16181d;
+  color: #fff;
+}
+.pd-signin .au-btn:hover {
+  background: transparent;
+  color: #16181d;
+}
+/* Кнопка етапу для гостя (список): текст довший за «Зробити прогноз» — на всю ширину картки, з переносом. */
+.pd-signin-btn {
+  justify-self: stretch;
+  padding-block: 12px;
+  line-height: 1.2;
+  text-align: center;
 }
 .pd-deadline:focus-visible {
   outline: 3px solid var(--focus);
