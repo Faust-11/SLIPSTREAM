@@ -46,6 +46,7 @@ export type PickDriver = {
 export type PickTeam = { id: number; slug: string; name: string; color: string };
 
 export type PredictionsData = {
+  /** Сезон календаря, з якого етапи (він же сезон прогнозу: `year` у запитах). Не плутати з сезоном результатів для команд. */
   season: number;
   rounds: PredictionRound[];
   drivers: PickDriver[];
@@ -99,7 +100,12 @@ async function latestTeamIds(season: number): Promise<Map<number, number>> {
   return new Map([...latest].map(([driver, v]) => [driver, v.team]));
 }
 
-const metaSeason = once(() => dbSelect<MetaRow>("site_meta", "select=current_season").then((r) => r[0]!.current_season));
+/**
+ * Сезон, з чиїх РЕЗУЛЬТАТІВ беремо команди пілотів, — останній сезон, де вони є (site_meta). Це НЕ сезон прогнозу: після
+ * останнього етапу календар уже може бути наступного року (calendar_sessions), а site_meta ще минулого — сезон прогнозу
+ * береться з календаря, з якого й етапи (рев'ю 21.11, A; інакше етапи 2027 йшли б із year=2026 → 409).
+ */
+const resultsSeason = once(() => dbSelect<MetaRow>("site_meta", "select=current_season").then((r) => r[0]!.current_season));
 
 /**
  * Сітка поточного сезону — пілоти з team_index.current_drivers (так сайт визначає «поточних»). driver_index.current_team
@@ -107,12 +113,12 @@ const metaSeason = once(() => dbSelect<MetaRow>("site_meta", "select=current_sea
  * вже не на сітці), а прогноз на когось поза сіткою не принесе очок. Мовонезалежна частина — один запит на процес.
  */
 const loadGrid = once(async () => {
-  const season = await metaSeason();
+  const season = await resultsSeason();
   const teamRows = (await dbSelect<GridTeamRow>("team_index", "select=id,current_position,current_drivers")).filter((t) => t.current_position !== null);
   const slugOf = new Map(teamRows.flatMap((t) => t.current_drivers.map((ref) => [ref, t.id] as const)));
   const index = (await loadDriverIndex()).filter((r) => slugOf.has(r.id));
   const [ids, teamIds] = await Promise.all([driverIds(index.map((r) => r.id)), latestTeamIds(season)]);
-  return { season, index, slugOf, ids, teamIds };
+  return { index, slugOf, ids, teamIds };
 });
 
 const teamsBySlug = new Map(curatedTeams.map((t) => [t.id, t]));
@@ -152,7 +158,7 @@ export async function getPredictionsData(locale: Locale): Promise<PredictionsDat
   // Порядок за чемпіонатом (без очок — в кінці, за прізвищем): так список пілотів у вибірі зручно гортати.
   drivers.sort((a, b) => (a.position ?? 999) - (b.position ?? 999) || a.short.localeCompare(b.short, "en"));
   return {
-    season: grid.season,
+    season: page.season,
     rounds,
     drivers,
     teams: [...teams.values()].sort((a, b) => a.name.localeCompare(b.name, "en")),
