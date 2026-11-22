@@ -33,7 +33,7 @@ import { getStoryList } from "@/lib/stories/content";
 /** Фон шапки: стартова решітка, Спа 2008 (Mark McArdle, CC BY-SA 2.0, Wikimedia Commons) — підпис у PageCredits унизу. */
 const HERO_PHOTO = {
   src: "/img/home/grid-1100.webp",
-  srcSet: "/img/home/grid-640.webp 640w, /img/home/grid-1100.webp 1100w, /img/home/grid-1600.webp 1600w",
+  srcSet: "/img/home/grid-480.webp 480w, /img/home/grid-640.webp 640w, /img/home/grid-1100.webp 1100w, /img/home/grid-1600.webp 1600w",
   credit: {
     label: "Spa-Francorchamps 2008",
     href: "https://commons.wikimedia.org/wiki/File:Spa_2008_before_start.jpg",
@@ -176,12 +176,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               className="hm-hero-photo"
               src={HERO_PHOTO.src}
               srcSet={HERO_PHOTO.srcSet}
-              sizes="(max-width: 1100px) 100vw, 880px"
+              // Занижений «слот» навмисно: фото — декоративний фон під густим градієнтом, тож телефону вистачає 640w (≈ 26 КБ замість 58) —
+              // інакше на мобільному Lighthouse (DPR 1,75) воно було найбільшим елементом і LCP сягав 4,7 с (замір 22.11).
+              sizes="(max-width: 600px) 360px, (max-width: 1100px) 720px, 880px"
               width={1600}
               height={1067}
               alt=""
               decoding="async"
-              fetchPriority="low"
             />
             <h1 className="display">
               <span>{t.h1[0]}</span>{" "}
