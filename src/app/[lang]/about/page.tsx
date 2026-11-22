@@ -7,6 +7,7 @@ import { getSiteCredits } from "@/lib/data/credits";
 import { loadSeasonIndex } from "@/lib/data/seasons";
 import circuitsJson from "@/data/curated/circuits.json";
 import { getTerms } from "@/lib/glossary/terms";
+import { turnstileSiteKey } from "@/lib/play/turnstile";
 import { analyticsEnabled, contactEmail, serviceText } from "@/lib/service/content";
 import { plural } from "@/lib/plural";
 import { pageMetadata, siteUrl } from "@/lib/seo";
@@ -120,7 +121,7 @@ export default async function AboutPage({ params }: Props) {
 
         <ServiceSection id={ids.store} title={t.store.h}>
           <ul className="sv-store" role="list">
-            {t.store.items.filter((it) => it.requires !== "analytics" || analyticsEnabled()).map((it) => (
+            {t.store.items.filter((it) => (it.requires !== "analytics" || analyticsEnabled()) && (it.requires !== "turnstile" || turnstileSiteKey() !== null)).map((it) => (
               <li key={it.name}>
                 <span className="sv-tag">{it.tag}</span>
                 <b>{it.name}</b>

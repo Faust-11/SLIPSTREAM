@@ -10,7 +10,7 @@ import type { PlayConfig } from "./config";
  */
 export type Session = { access_token: string; refresh_token: string; expires_in: number };
 
-export type AuthFailure = "invalid_email" | "invalid_code" | "rate_limited" | "bad_refresh" | "unavailable";
+export type AuthFailure = "invalid_email" | "invalid_code" | "rate_limited" | "captcha" | "bad_refresh" | "unavailable";
 export type AuthResult<T> = { ok: true; value: T } | { ok: false; reason: AuthFailure };
 
 const TIMEOUT_MS = 8000;
@@ -57,12 +57,16 @@ const isRateLimit = (status: number, code: string) => status === 429 || /^over_.
  * адресу» — лише за `email_address_invalid` (чи `validation_failed` про пошту); решта 4xx (`signup_disabled`,
  * `email_provider_disabled`, `email_address_not_authorized`, …) — налаштування проєкту, а не помилка користувача: «unavailable».
  */
-export async function sendCode(cfg: PlayConfig, email: string): Promise<AuthResult<true>> {
-  const res = await call(cfg, "/otp", { method: "POST", body: { email, create_user: true } });
+export async function sendCode(cfg: PlayConfig, email: string, captchaToken?: string | null): Promise<AuthResult<true>> {
+  // Токен Turnstile (одноразовий) віддає перевіряти Supabase: gotrue_meta_security.captcha_token. Без токена поле не шлемо.
+  const body = { email, create_user: true, ...(captchaToken ? { gotrue_meta_security: { captcha_token: captchaToken } } : {}) };
+  const res = await call(cfg, "/otp", { method: "POST", body });
   if (!res) return { ok: false, reason: "unavailable" };
   if (res.ok) return { ok: true, value: true };
   const { code, text } = await errorInfo(res);
   if (isRateLimit(res.status, code)) return { ok: false, reason: "rate_limited" };
+  // CAPTCHA в Supabase ввімкнена, а токена нема чи він недійсний/використаний: `captcha_failed` (старі версії — текст про captcha).
+  if (code === "captcha_failed" || (!code && res.status === 400 && /captcha/i.test(text))) return { ok: false, reason: "captcha" };
   const badEmail = code === "email_address_invalid" || (code === "validation_failed" && /email/i.test(text)) || (!code && /unable to validate email/i.test(text));
   if ((res.status === 400 || res.status === 422) && badEmail) return { ok: false, reason: "invalid_email" };
   return { ok: false, reason: "unavailable" };

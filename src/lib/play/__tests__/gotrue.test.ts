@@ -25,6 +25,22 @@ describe("Supabase Auth REST", () => {
     expect(h.apikey).toBe("sb_publishable_x");
     expect(h.authorization).toBeUndefined();
   });
+  it("sendCode: токен Turnstile — у gotrue_meta_security.captcha_token, і лише коли він є", async () => {
+    let spy = reply(200);
+    await sendCode(cfg, "a@b.co", "TOK");
+    expect(JSON.parse(String(spy.mock.calls[0]![1]!.body))).toEqual({ email: "a@b.co", create_user: true, gotrue_meta_security: { captcha_token: "TOK" } });
+    spy = reply(200);
+    await sendCode(cfg, "a@b.co", null);
+    expect(JSON.parse(String(spy.mock.calls.at(-1)![1]!.body))).toEqual({ email: "a@b.co", create_user: true });
+  });
+  it("sendCode: captcha_failed (400) → captcha; не плутається з лімітом чи адресою", async () => {
+    reply(400, { error_code: "captcha_failed", msg: "captcha protection: request disallowed (timeout-or-duplicate)" });
+    expect(await sendCode(cfg, "a@b.co", "TOK")).toEqual({ ok: false, reason: "captcha" });
+    reply(400, { msg: "captcha verification process failed" }); // старі версії — без error_code
+    expect(await sendCode(cfg, "a@b.co")).toEqual({ ok: false, reason: "captcha" });
+    reply(429, { error_code: "over_email_send_rate_limit" });
+    expect(await sendCode(cfg, "a@b.co", "TOK")).toEqual({ ok: false, reason: "rate_limited" });
+  });
   it("sendCode: 429 → rate_limited, 422 → invalid_email, 500 → unavailable, мережа → unavailable", async () => {
     reply(429);
     expect(await sendCode(cfg, "a@b.co")).toEqual({ ok: false, reason: "rate_limited" });

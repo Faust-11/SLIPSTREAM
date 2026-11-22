@@ -6,6 +6,7 @@ import { fill } from "@/i18n/fill";
 import { isValidCode, isValidEmail, normalizeEmail, safeNext } from "@/lib/play/validate";
 import { getAccount, refreshAccount } from "./account-store";
 import { NickForm, type NickText } from "./nick-form";
+import { TurnstileWidget } from "./turnstile";
 import { postJson } from "./post";
 
 export type LoginText = {
@@ -24,7 +25,10 @@ export type LoginText = {
   change: string;
   resent: string;
   privacy: string;
-  errors: Record<"invalidEmail" | "invalidCode" | "rateLimited" | "unavailable" | "generic", string>;
+  /** Рядок про Cloudflare Turnstile й підпис кнопки, поки триває перевірка (лише коли ключ віджета задано). */
+  botCheck: string;
+  checking: string;
+  errors: Record<"invalidEmail" | "invalidCode" | "rateLimited" | "unavailable" | "generic" | "captcha", string>;
 };
 
 /** Пауза перед повторним листом — збігається з паузою Supabase на адресу (60 с). */
@@ -32,7 +36,21 @@ const RESEND_S = 60;
 
 type Step = "email" | "code" | "nick";
 
-export function LoginForm({ text, nick, fallbackHref }: { text: LoginText; nick: NickText; fallbackHref: string }) {
+/**
+ * `turnstile` — ключ віджета й мова (лише коли задано NEXT_PUBLIC_TURNSTILE_SITE_KEY); без нього форма як раніше.
+ * Токен перевіряє Supabase, ми лише передаємо його разом із запитом коду.
+ */
+export function LoginForm({
+  text,
+  nick,
+  fallbackHref,
+  turnstile,
+}: {
+  text: LoginText;
+  nick: NickText;
+  fallbackHref: string;
+  turnstile?: { siteKey: string; lang: string };
+}) {
   const router = useRouter();
   const id = useId();
   const emailRef = useRef<HTMLInputElement>(null);
@@ -44,6 +62,33 @@ export function LoginForm({ text, nick, fallbackHref }: { text: LoginText; nick:
   const [error, setError] = useState<string | null>(null);
   const [info, setInfo] = useState<string | null>(null);
   const [wait, setWait] = useState(0);
+  // Turnstile: wait — токена ще нема (кнопки чекають), ok — є, failed — віджет не працює (скрипт заблоковано): спроба дасть помилку.
+  const [captcha, setCaptcha] = useState<"wait" | "ok" | "failed">("wait");
+  const [captchaReset, setCaptchaReset] = useState(0);
+  const captchaToken = useRef<string | null>(null);
+  const checking = Boolean(turnstile) && captcha === "wait";
+  const widget = turnstile && (
+    <>
+      <TurnstileWidget
+        key={step}
+        siteKey={turnstile.siteKey}
+        lang={turnstile.lang}
+        resetSignal={captchaReset}
+        onToken={(t) => {
+          captchaToken.current = t;
+          setCaptcha(t ? "ok" : "wait");
+        }}
+        onFail={() => {
+          captchaToken.current = null;
+          setCaptcha("failed");
+        }}
+      />
+      <p className="au-hint" role="status">
+        {checking ? text.checking : ""}
+      </p>
+      <p className="au-hint">{text.botCheck}</p>
+    </>
+  );
   /** Куди вести після входу: ?next= (лише відносний шлях цього сайту) або профіль. Читаємо в момент переходу — сторінка лишається статичною. */
   const target = () => safeNext(new URLSearchParams(window.location.search).get("next")) ?? fallbackHref;
 
@@ -64,6 +109,7 @@ export function LoginForm({ text, nick, fallbackHref }: { text: LoginText; nick:
   function failure(status: number, body: { error?: string }) {
     if (body.error === "invalid_email") return text.errors.invalidEmail;
     if (body.error === "invalid_code") return text.errors.invalidCode;
+    if (body.error === "captcha" || body.error === "captcha_required") return text.errors.captcha;
     if (status === 429 || body.error === "rate_limited") return text.errors.rateLimited;
     if (status === 0 || status === 503 || body.error === "unavailable") return text.errors.unavailable;
     return text.errors.generic;
@@ -76,10 +122,22 @@ export function LoginForm({ text, nick, fallbackHref }: { text: LoginText; nick:
       emailRef.current?.focus();
       return;
     }
+    // Ключ є, а віджет не працює (скрипт заблоковано): чесно кажемо, а не шлемо запит, який сервер однаково відхилить.
+    if (turnstile && !captchaToken.current) {
+      setError(text.errors.captcha);
+      return;
+    }
     setBusy(true);
     setError(null);
     setInfo(null);
-    const res = await postJson<{ error?: string }>("/api/auth/code", { email: addr });
+    const token = captchaToken.current;
+    const res = await postJson<{ error?: string }>("/api/auth/code", token ? { email: addr, captchaToken: token } : { email: addr });
+    // Токен одноразовий — у будь-якому разі (успіх чи помилка) скидаємо віджет і чекаємо новий.
+    if (turnstile) {
+      captchaToken.current = null;
+      setCaptcha("wait");
+      setCaptchaReset((n) => n + 1);
+    }
     setBusy(false);
     setSettled((n) => n + 1);
     if (res.status !== 200) return setError(failure(res.status, res.body));
@@ -162,12 +220,13 @@ export function LoginForm({ text, nick, fallbackHref }: { text: LoginText; nick:
         <p className="au-ok" role="status">
           {info}
         </p>
+        {widget}
         <div className="au-actions">
           <button className="btn au-btn" type="submit" disabled={busy}>
             {busy ? text.verifying : text.verify}
           </button>
-          <button className="btn btn-ghost au-btn" type="button" disabled={busy || wait > 0} onClick={() => sendCode(true)}>
-            {wait > 0 ? fill(text.resendWait, { s: wait }) : text.resend}
+          <button className="btn btn-ghost au-btn" type="button" disabled={busy || wait > 0 || checking} onClick={() => sendCode(true)}>
+            {wait > 0 ? fill(text.resendWait, { s: wait }) : checking ? text.checking : text.resend}
           </button>
           <button
             className="au-linkbtn"
@@ -217,8 +276,9 @@ export function LoginForm({ text, nick, fallbackHref }: { text: LoginText; nick:
       <p className="au-err" id={`${id}-err`} role="alert">
         {error}
       </p>
-      <button className="btn au-btn" type="submit" disabled={busy}>
-        {busy ? text.sending : text.send}
+      {widget}
+      <button className="btn au-btn" type="submit" disabled={busy || checking}>
+        {busy ? text.sending : checking ? text.checking : text.send}
       </button>
     </form>
   );

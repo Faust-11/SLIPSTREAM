@@ -3,6 +3,7 @@ import { LoginForm } from "@/components/auth/login-form";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";
 import { requireLocale } from "@/i18n/require-locale";
+import { turnstileSiteKey } from "@/lib/play/turnstile";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -17,6 +18,8 @@ export default async function LoginPage({ params }: Props) {
   const lang = requireLocale((await params).lang);
   const { auth } = await getDictionary(lang);
   const { login } = auth;
+  // Ключ віджета — з env збірки (сторінка статична): без ключа форма без Turnstile.
+  const siteKey = turnstileSiteKey();
   return (
     <div className="au-page">
       <section className="au-hero">
@@ -27,7 +30,7 @@ export default async function LoginPage({ params }: Props) {
         </div>
       </section>
       <div className="wrap au-body">
-        <LoginForm text={login} nick={auth.nick} fallbackHref={localizedPath("/profile", lang)} />
+        <LoginForm text={login} nick={auth.nick} fallbackHref={localizedPath("/profile", lang)} turnstile={siteKey ? { siteKey, lang } : undefined} />
       </div>
     </div>
   );

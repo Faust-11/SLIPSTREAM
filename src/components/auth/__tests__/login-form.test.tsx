@@ -80,3 +80,111 @@ describe("LoginForm: сесія після verify (/code-review high)", () => {
     document.cookie = "outlap_in=; path=/; max-age=0";
   });
 });
+
+describe("LoginForm: Turnstile (21.11)", () => {
+  type Opts = { sitekey: string; callback: (t: string) => void; "expired-callback": () => void; "error-callback": () => void; language: string; appearance: string };
+  let opts: Opts | null;
+  let api: { render: ReturnType<typeof vi.fn>; reset: ReturnType<typeof vi.fn>; remove: ReturnType<typeof vi.fn> };
+  const bodies: Record<string, unknown>[] = [];
+
+  beforeEach(() => {
+    opts = null;
+    bodies.length = 0;
+    api = {
+      render: vi.fn((_el: HTMLElement, o: Opts) => {
+        opts = o;
+        return "w1";
+      }),
+      reset: vi.fn(),
+      remove: vi.fn(),
+    };
+    vi.spyOn(globalThis, "fetch").mockImplementation(async (input, init) => {
+      if (String(input).includes("/api/auth/code")) {
+        bodies.push(JSON.parse(String(init?.body)));
+        return new Response(JSON.stringify({ ok: true }), { status: 200 });
+      }
+      return new Response("{}", { status: 404 });
+    });
+  });
+  afterEach(() => {
+    delete (window as { turnstile?: unknown }).turnstile;
+    document.querySelectorAll('script[src*="challenges.cloudflare.com"]').forEach((s) => s.remove());
+  });
+
+  it("без ключа: скрипт Cloudflare не вантажиться, віджета й підпису нема, запит без токена", async () => {
+    const user = userEvent.setup({ advanceTimers: (ms) => vi.advanceTimersByTime(ms) });
+    render(<LoginForm text={text} nick={nick} fallbackHref="/uk/profile" />);
+    expect(document.querySelector('script[src*="challenges.cloudflare.com"]')).toBeNull();
+    expect(screen.queryByText(text.botCheck)).toBeNull();
+    await user.type(screen.getByLabelText(text.emailLabel), "a@b.co");
+    await user.click(screen.getByRole("button", { name: text.send }));
+    await screen.findByLabelText(text.codeLabel);
+    expect(bodies).toEqual([{ email: "a@b.co" }]);
+  });
+
+  it("з ключем: віджет рендериться (interaction-only, мова), кнопка чекає токен, токен іде в запит, після відправки — reset", async () => {
+    (window as { turnstile?: unknown }).turnstile = api;
+    const user = userEvent.setup({ advanceTimers: (ms) => vi.advanceTimersByTime(ms) });
+    render(<LoginForm text={text} nick={nick} fallbackHref="/uk/profile" turnstile={{ siteKey: "1x0000", lang: "uk" }} />);
+    await waitFor(() => expect(api.render).toHaveBeenCalledTimes(1));
+    expect(opts).toMatchObject({ sitekey: "1x0000", appearance: "interaction-only", language: "uk" });
+    expect(screen.getByText(text.botCheck)).toBeInTheDocument();
+    // токена ще нема — кнопка заблокована й каже «Перевірка…», статус — у live-регіоні
+    const btn = screen.getByRole("button", { name: text.checking });
+    expect(btn).toBeDisabled();
+    expect(screen.getByRole("status")).toHaveTextContent(text.checking);
+    await user.type(screen.getByLabelText(text.emailLabel), "a@b.co");
+    act(() => opts!.callback("TOKEN-1"));
+    const send = await screen.findByRole("button", { name: text.send });
+    expect(send).toBeEnabled();
+    await user.click(send);
+    await screen.findByLabelText(text.codeLabel);
+    expect(bodies).toEqual([{ email: "a@b.co", captchaToken: "TOKEN-1" }]);
+    // Токен одноразовий: на кроці коду — новий віджет (старий знято), «Новий код» чекає свіжий токен.
+    expect(api.remove).toHaveBeenCalledWith("w1");
+    await waitFor(() => expect(api.render).toHaveBeenCalledTimes(2));
+    expect(screen.getAllByRole("status").some((el) => el.textContent === text.checking)).toBe(true);
+  });
+
+  it("помилка відповіді сервера (крок пошти лишається): віджет скидається й токен очищено", async () => {
+    (window as { turnstile?: unknown }).turnstile = api;
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response(JSON.stringify({ error: "unavailable" }), { status: 503 }));
+    const user = userEvent.setup({ advanceTimers: (ms) => vi.advanceTimersByTime(ms) });
+    render(<LoginForm text={text} nick={nick} fallbackHref="/uk/profile" turnstile={{ siteKey: "1x0000", lang: "uk" }} />);
+    await waitFor(() => expect(api.render).toHaveBeenCalled());
+    await user.type(screen.getByLabelText(text.emailLabel), "a@b.co");
+    act(() => opts!.callback("T"));
+    await user.click(await screen.findByRole("button", { name: text.send }));
+    expect(await screen.findByText(text.errors.unavailable)).toBeInTheDocument();
+    await waitFor(() => expect(api.reset).toHaveBeenCalledWith("w1"));
+    expect(screen.getByRole("button", { name: text.checking })).toBeDisabled(); // чекає новий токен
+  });
+
+  it("expired-callback повертає очікування; помилка віджета/скрипта — спроба дає зрозумілу помилку без запиту", async () => {
+    (window as { turnstile?: unknown }).turnstile = api;
+    const user = userEvent.setup({ advanceTimers: (ms) => vi.advanceTimersByTime(ms) });
+    render(<LoginForm text={text} nick={nick} fallbackHref="/uk/profile" turnstile={{ siteKey: "1x0000", lang: "uk" }} />);
+    await waitFor(() => expect(api.render).toHaveBeenCalled());
+    act(() => opts!.callback("T"));
+    expect(await screen.findByRole("button", { name: text.send })).toBeEnabled();
+    act(() => opts!["expired-callback"]());
+    expect(await screen.findByRole("button", { name: text.checking })).toBeDisabled();
+    act(() => opts!["error-callback"]());
+    await user.type(screen.getByLabelText(text.emailLabel), "a@b.co");
+    await user.click(await screen.findByRole("button", { name: text.send }));
+    expect(await screen.findByText(text.errors.captcha)).toBeInTheDocument();
+    expect(bodies).toEqual([]);
+  });
+
+  it("сервер відповів captcha/captcha_required — той самий зрозумілий текст", async () => {
+    (window as { turnstile?: unknown }).turnstile = api;
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response(JSON.stringify({ error: "captcha" }), { status: 400 }));
+    const user = userEvent.setup({ advanceTimers: (ms) => vi.advanceTimersByTime(ms) });
+    render(<LoginForm text={text} nick={nick} fallbackHref="/uk/profile" turnstile={{ siteKey: "1x0000", lang: "uk" }} />);
+    await waitFor(() => expect(api.render).toHaveBeenCalled());
+    await user.type(screen.getByLabelText(text.emailLabel), "a@b.co");
+    act(() => opts!.callback("T"));
+    await user.click(await screen.findByRole("button", { name: text.send }));
+    expect(await screen.findByText(text.errors.captcha)).toBeInTheDocument();
+  });
+});
