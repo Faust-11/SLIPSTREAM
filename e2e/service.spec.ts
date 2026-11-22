@@ -38,8 +38,8 @@ test("/uk/about: розділи, цифри з даних, зміст веде �
   await expect(page.locator(".sv-contact")).toContainText(
     /з'явиться разом із доменом|@/,
   );
-  // Аналітики ще немає (Task 3b) — пункту «Відвідування» теж немає.
-  await expect(page.locator(".sv-store li")).toHaveCount(2);
+  // Три пункти «Що зберігає сайт»: тема й рекорди в браузері, вхід, таблиця лідерів гри (21.11). Аналітики ще немає (Task 3b) — пункту «Відвідування» теж немає.
+  await expect(page.locator(".sv-store li")).toHaveCount(3);
   expect(errors).toEqual([]);
 });
 
