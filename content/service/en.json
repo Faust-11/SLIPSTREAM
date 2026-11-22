@@ -189,7 +189,7 @@
           "name": "OpenF1",
           "href": "https://openf1.org",
           "sub": "independent project, not affiliated with F1 or the FIA",
-          "what": "Weather readings at the track for each session of a weekend (since 2023)",
+          "what": "Weather readings at the track for each session of a weekend (since 2023); preliminary race results on the home page in the first hours after the finish, until the official data updates",
           "lic": "CC BY-NC-SA 4.0",
           "means": "Non-commercial use; we credit the source; free access to history is capped at 30 requests a minute, so data is cached"
         },

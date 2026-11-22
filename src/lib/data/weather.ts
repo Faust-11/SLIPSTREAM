@@ -14,13 +14,13 @@ const DAY = 86_400_000;
 /** Уікенд «свіжий», доки не минуло 3 доби після гонки: дані ще дописуються — кеш 10 хв; пізніше — 30 діб. */
 const FRESH_MS = 3 * DAY;
 const MONTH_S = 30 * 24 * 3600;
-const UA = "outlap.org hello@outlap.org";
+export const UA = "outlap.org hello@outlap.org";
 
-const openf1 = () => (process.env.OPENF1_API ?? "https://api.openf1.org/v1").replace(/\/$/, "");
+export const openf1 = () => (process.env.OPENF1_API ?? "https://api.openf1.org/v1").replace(/\/$/, "");
 const met = () => (process.env.MET_API ?? "https://api.met.no/weatherapi/locationforecast/2.0").replace(/\/$/, "");
 
 /** JSON або null (помилка мережі, 429, не-JSON): джерела не мають валити сторінку, блок просто не з'явиться. */
-async function getJson<T>(url: string, revalidate: number, headers: Record<string, string> = {}): Promise<T | null> {
+export async function getJson<T>(url: string, revalidate: number, headers: Record<string, string> = {}): Promise<T | null> {
   try {
     const res = await fetch(url, { headers: { accept: "application/json", ...headers }, signal: AbortSignal.timeout(8000), next: { revalidate } });
     if (!res.ok) return null;

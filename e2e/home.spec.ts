@@ -29,7 +29,7 @@ test("/uk: герой, чемпіон, смуга сезону, остання �
   await expect(page.locator(".hm-podium > li")).toHaveCount(3);
   await expect(page.locator("#hm-next-h")).toHaveText("Гран-прі Лас-Вегаса");
   await expect(page.locator(".hm-count b").first()).toHaveText("6"); // 15.11 12:00 → 22.11 04:00 = 6 дн 16 год
-  await expect(page.locator(".hm-map svg path")).toHaveCount(2);
+  await expect(page.locator(".hm-next-a .hm-map svg path")).toHaveCount(2);
   expect(await page.locator("#hm-st-0 > li").count()).toBeGreaterThan(10);
   await expect(page.locator(".hm-rec").nth(2).locator(".hm-rec-top")).toContainText("Ferrari");
   // Рішення 14.11: кнопка гри веде на /game; кнопки прогнозу немає. 15.11: блоку «Новачкам» на головній немає (рішення користувача).
@@ -104,9 +104,9 @@ test("широкий екран: колонка журналістів не ни
 
 test("схема наступної траси: значок рухається (animateMotion по тому самому шляху); «менше руху» — схований", async ({ page }) => {
   await page.goto("/uk");
-  await expect(page.locator(".hm-map-car animateMotion mpath")).toHaveAttribute("href", "#hm-map-route");
+  await expect(page.locator(".hm-next-a .hm-map-car animateMotion mpath")).toHaveAttribute("href", "#hm-map-route-a");
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await expect(page.locator(".hm-map-car")).toBeHidden();
+  await expect(page.locator(".hm-next-a .hm-map-car")).toBeHidden();
 });
 
 test("гонка стартувала до оновлення даних: «стартувала», відлік — до етапу 22 (як календар)", async ({ page }) => {
@@ -173,7 +173,7 @@ test("телефон — без окремого подіуму, таблиця 
   expect(gap).toBeLessThan(24);
   await page.setViewportSize({ width: 1280, height: 900 });
   await expect(page.locator(".hm-podium")).toBeVisible();
-  expect(await page.locator(".hm-next").evaluate((el) => getComputedStyle(el).backgroundColor)).toBe("rgb(180, 37, 24)");
+  expect(await page.locator(".hm-next-a").evaluate((el) => getComputedStyle(el).backgroundColor)).toBe("rgb(180, 37, 24)");
 });
 
 test("21.11: шапка — кнопки внизу поруч зі смугою показників, фото решітки під текстом; відлік із секундами; без «Тут вигравали» й підписів «перевірено» в історіях", async ({ page }) => {
@@ -188,9 +188,9 @@ test("21.11: шапка — кнопки внизу поруч зі смугою
   await expect(page.locator(".hm-hero-photo")).toHaveAttribute("src", /grid-1100\.webp$/);
   await expect(page.locator(".page-credits")).toContainText("Mark McArdle");
   // Відлік: чотири комірки, секунди — дві цифри й змінюються щосекунди.
-  await expect(page.locator(".hm-count b")).toHaveCount(4);
-  await expect(page.locator(".hm-count span").nth(3)).toHaveText("сек");
-  await expect(page.locator(".hm-count b").nth(3)).toHaveText(/^\d{2}$/);
+  await expect(page.locator(".hm-next-a .hm-count b")).toHaveCount(4);
+  await expect(page.locator(".hm-next-a .hm-count span").nth(3)).toHaveText("сек");
+  await expect(page.locator(".hm-next-a .hm-count b").nth(3)).toHaveText(/^\d{2}$/);
   await expect(page.locator(".hm-past")).toHaveCount(0);
   await expect(page.getByText("Тут вигравали")).toHaveCount(0);
   await expect(page.locator(".hm-stories")).not.toContainText("перевірено");
@@ -226,7 +226,7 @@ test("телефон 21.11: наступна гонка — червона й н
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/uk");
   await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
-  expect(await page.locator(".hm-next").evaluate((el) => getComputedStyle(el).backgroundColor)).toBe("rgb(180, 37, 24)");
+  expect(await page.locator(".hm-next-a").evaluate((el) => getComputedStyle(el).backgroundColor)).toBe("rgb(180, 37, 24)");
   const order = await page.evaluate(() => ({
     next: document.querySelector(".hm-next")!.getBoundingClientRect().top,
     last: document.querySelector(".hm-last")!.getBoundingClientRect().top,
@@ -247,6 +247,160 @@ test("телефон 21.11: наступна гонка — червона й н
   expect(row.next).toBeGreaterThan(row.last);
 });
 
+const ROOT = "[data-section=home]";
+
+test("22.11: головна перемикається за часом — до старту панель Лас-Вегаса; через 3 год після старту — Катар, смуга сезону й рядок про очікування результатів", async ({ page }) => {
+  await page.clock.setFixedTime(new Date("2026-11-22T03:00:00Z")); // до старту (04:00)
+  await page.goto("/uk");
+  await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+  await expect(page.locator("#hm-next-h")).toBeVisible();
+  await expect(page.locator("#hm-next-h-b")).toBeHidden();
+  await expect(page.locator(".hm-pending")).toBeHidden();
+  await expect(page.locator(ROOT)).toHaveAttribute("data-hm-next", "a");
+
+  await page.clock.setFixedTime(new Date("2026-11-22T06:59:00Z")); // гонка триває — ще Лас-Вегас
+  await page.goto("/uk");
+  await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+  await expect(page.locator("#hm-next-h")).toBeVisible();
+  await expect(page.locator(".hm-pending")).toBeHidden();
+
+  await page.clock.setFixedTime(new Date("2026-11-22T07:00:00Z")); // старт 04:00 + 3 год
+  await page.goto("/uk");
+  await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+  await expect(page.locator(ROOT)).toHaveAttribute("data-hm-next", "b");
+  await expect(page.locator("#hm-next-h-b")).toBeVisible();
+  await expect(page.locator("#hm-next-h-b")).toHaveText("Гран-прі Катару");
+  await expect(page.locator("#hm-next-h")).toBeHidden();
+  await expect(page.locator(".hm-pending")).toBeVisible();
+  await expect(page.locator(".hm-pending")).toContainText("Гран-прі Лас-Вегаса завершилось");
+  // Відлік у видимій панелі — до Катару (22.11 07:00 → 29.11 16:00 = 7 дн 9 год); без запису «стартувала».
+  await expect(page.locator(".hm-next-b .hm-count b").first()).toHaveText("7");
+  await expect(page.locator(".hm-next-b .hm-count-note")).toHaveCount(0);
+  // Смуга сезону узгоджена з панеллю: підписи «далі — етап 22», етап 21 — фінішував.
+  await expect(page.locator('.hm-rail-key-next[data-s="b"]')).toBeVisible();
+  await expect(page.locator('.hm-rail-key-next[data-s="b"]')).toContainText("Етап 22");
+  await expect(page.locator('.hm-rail-key-next[data-s="a"]')).toBeHidden();
+  await expect(page.locator('.hm-rail-key div[data-s="b"]').first()).toContainText("Етап 21");
+  const bars = await page.evaluate(() => {
+    const h = (sel: string) => Math.round(document.querySelector(`${sel} i`)!.getBoundingClientRect().height);
+    return { a: h(".hm-rail-a"), b: h(".hm-rail-b"), before: h(".hm-rail-cell.hm-rail-done:has(+ .hm-rail-next)") };
+  });
+  expect(bars).toEqual({ a: 20, b: 20, before: 12 });
+});
+
+test("22.11: клієнтський перехід на головну й довго відкрита сторінка теж перемикають панель (inline-скрипт не виконується)", async ({ page }) => {
+  await page.clock.setFixedTime(new Date("2026-11-22T08:00:00Z"));
+  await page.goto("/uk/calendar");
+  await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+  await page.getByRole("link", { name: "Outlap" }).first().click(); // логотип → головна, без перезавантаження
+  await expect(page.locator("#hm-next-h-b")).toBeVisible();
+  await expect(page.locator(ROOT)).toHaveAttribute("data-hm-next", "b");
+});
+
+test("22.11: сторінка, відкрита до кінця гонки, перемикається сама", async ({ page }) => {
+  await page.clock.install({ time: new Date("2026-11-22T06:59:30Z") });
+  await page.goto("/uk");
+  await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+  await expect(page.locator("#hm-next-h")).toBeVisible();
+  await page.clock.runFor(60_000);
+  await expect(page.locator("#hm-next-h-b")).toBeVisible();
+  await expect(page.locator(".hm-pending")).toBeVisible();
+});
+
+test("22.11: після кінця гонки на телефоні — Катар червоний і над минулою гонкою, рядок про результати, без прокрутки вбік", async ({ page }) => {
+  await page.clock.setFixedTime(new Date("2026-11-22T10:00:00Z"));
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/uk");
+  await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+  expect(await page.locator(".hm-next-b").evaluate((el) => getComputedStyle(el).backgroundColor)).toBe("rgb(180, 37, 24)");
+  const m = await page.evaluate(() => ({
+    next: document.querySelector(".hm-next-b")!.getBoundingClientRect().top,
+    last: document.querySelector(".hm-last")!.getBoundingClientRect().top,
+    overflow: document.documentElement.scrollWidth - window.innerWidth,
+  }));
+  expect(m.next).toBeLessThan(m.last);
+  expect(m.overflow).toBeLessThanOrEqual(0);
+  await expect(page.locator(".hm-pending")).toBeVisible();
+});
+
+test("/api/prelim/<мова>/<рік>/<етап>: попередні результати OpenF1 (фейк-сервіс) — імена з наших даних, час, відрив, статуси; нема гонки / не завершилась — 404", async ({ request }) => {
+  const uk = await request.get("/api/prelim/uk/2026/21");
+  expect(uk.status()).toBe(200);
+  const body = await uk.json();
+  expect(body).toMatchObject({ year: 2026, round: 21, sessionKey: 11420 });
+  expect(body.rows.map((r: { position: number | null }) => r.position)).toEqual([1, 2, 3, 4, 5]);
+  expect(body.rows[0]).toMatchObject({ number: 3, slug: "max-verstappen", timeMs: 5259624, gapMs: null, status: "finished", points: 25, color: "#3671C6" });
+  expect(body.rows[1]).toMatchObject({ number: 1, gapMs: 639, team: "McLaren" });
+  expect(body.rows[3]).toMatchObject({ lapsDown: 1, timeMs: null, gapMs: null });
+  expect(body.rows[4]).toMatchObject({ status: "dnf", timeMs: null });
+  expect(JSON.stringify(body)).not.toMatch(/@|email|user/i); // без персональних даних
+  const en = await (await request.get("/api/prelim/en/2026/21")).json();
+  expect(en.rows[0].name).toBe("Max Verstappen");
+  expect(en.rows[0].name).not.toBe(body.rows[0].name); // мова впливає на ім'я
+  expect((await request.get("/api/prelim/uk/2026/22")).status()).toBe(404); // Катар ще не їхали
+  expect((await request.get("/api/prelim/uk/2022/10")).status()).toBe(404); // до 2023 — джерела нема
+  expect((await request.get("/api/prelim/xx/2026/21")).status()).toBe(404);
+  expect((await request.get("/api/prelim/uk/2026/99")).status()).toBe(404);
+});
+
+test("22.11: після кінця гонки картка «Попередні результати» (OpenF1) замінює рядок; до кінця — жодного запиту до /api/prelim", async ({ page }) => {
+  const seen: string[] = [];
+  page.on("request", (r) => r.url().includes("/api/prelim/") && seen.push(new URL(r.url()).pathname));
+  await page.clock.setFixedTime(new Date("2026-11-22T03:00:00Z"));
+  await page.goto("/uk");
+  await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+  await page.locator(".hm-last").scrollIntoViewIfNeeded();
+  await page.waitForTimeout(600);
+  expect(seen, "до завершення етапу запитів до OpenF1-маршруту нема").toEqual([]);
+
+  await page.clock.setFixedTime(new Date("2026-11-22T08:00:00Z"));
+  await page.goto("/uk");
+  await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+  await page.locator(".hm-pending").scrollIntoViewIfNeeded();
+  const card = page.locator(".hm-pending .hm-prelim");
+  await expect(card).toBeVisible({ timeout: 20_000 }); // запит до API + окремий чанк картки
+  expect(seen).toEqual(["/api/prelim/uk/2026/21"]);
+  await expect(card.locator("h3")).toHaveText("Гран-прі Лас-Вегаса");
+  await expect(card).toContainText("Попередні результати");
+  await expect(card.locator(".hm-podium li")).toHaveCount(3);
+  await expect(card.locator(".hm-podium li").first()).toContainText("P1");
+  await expect(card.locator(".hm-podium li").first().locator("a")).toHaveAttribute("href", "/uk/drivers/max-verstappen");
+  await expect(card.locator(".hm-podium li").first()).toContainText("1:27:39.624"); // 5259,624 с
+  await expect(card.locator("tbody tr")).toHaveCount(5);
+  await expect(card.locator("tbody tr").nth(1)).toContainText("+0.639");
+  await expect(card.locator("tbody tr").nth(3)).toContainText("+1 коло");
+  await expect(card.locator("tbody tr").nth(4)).toContainText("Схід");
+  await expect(card.locator(".hm-prelim-src")).toContainText("OpenF1");
+  await expect(card.locator(".hm-prelim-src a")).toHaveAttribute("href", "/uk/sources");
+  await expect(page.locator(".hm-pending > p")).toHaveCount(0); // рядок «з'являться» замінено карткою
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+});
+
+for (const theme of ["light", "dark"] as const)
+  for (const width of [320, 390, 1280])
+    test(`22.11: картка попередніх результатів без порушень axe й без прокрутки вбік: ${theme}, ${width} px`, async ({ page }) => {
+      await page.emulateMedia({ colorScheme: theme });
+      await page.clock.setFixedTime(new Date("2026-11-22T08:00:00Z"));
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto("/uk");
+      await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+      await page.locator(".hm-pending").scrollIntoViewIfNeeded();
+      await expect(page.locator(".hm-pending .hm-prelim")).toBeVisible({ timeout: 20_000 });
+      await expectNoA11yViolations(page);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+    });
+
+test("22.11: помилка API попередніх результатів — лишається рядок «з'являться після оновлення», без картки", async ({ page }) => {
+  await page.route("**/api/prelim/**", (route) => route.fulfill({ status: 500, contentType: "application/json", body: "{}" }));
+  await page.clock.setFixedTime(new Date("2026-11-22T08:00:00Z"));
+  await page.goto("/uk");
+  await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+  await page.locator(".hm-pending").scrollIntoViewIfNeeded();
+  await page.waitForTimeout(800);
+  await expect(page.locator(".hm-pending > p")).toContainText("Гран-прі Лас-Вегаса завершилось");
+  await expect(page.locator(".hm-prelim")).toHaveCount(0);
+});
+
 test.describe("без JavaScript", () => {
   test.use({ javaScriptEnabled: false });
   test("обидві панелі заліку — у серверній розмітці; відлік — «—»; новин немає, є посилання «Усі новини»", async ({ page }) => {
@@ -254,6 +408,10 @@ test.describe("без JavaScript", () => {
     expect(await page.locator("#hm-st-0 > li").count()).toBeGreaterThan(10);
     await expect(page.locator("#hm-st-1 > li").first()).toBeAttached();
     await expect(page.locator(".hm-count b").first()).toHaveText("—");
+    // Без JS перемикання нема: видна панель «наступного» за збіркою (b — прихована CSS), рядка про очікування немає.
+    await expect(page.locator("#hm-next-h")).toBeVisible();
+    await expect(page.locator("#hm-next-h-b")).toBeHidden();
+    await expect(page.locator(".hm-pending")).toBeHidden();
     await expect(page.getByRole("link", { name: "Усі новини →" })).toHaveAttribute("href", "/uk/news");
   });
 });
@@ -364,10 +522,10 @@ test("/uk (головна): «Погода вікенду» в блоці нас
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/uk"); // 15.11: до гонки 6,7 доби — раніше саме тоді блок з'являвся
     await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
-    await page.locator(".hm-next").scrollIntoViewIfNeeded();
+    await page.locator(".hm-next-a").scrollIntoViewIfNeeded();
     await page.waitForTimeout(500);
     await expect(page.locator(".hm-next .ww-slot, .hm-next .ww")).toHaveCount(0);
-    await expect(page.locator(".hm-next")).not.toContainText("Погода вікенду");
+    await expect(page.locator(".hm-next").filter({ hasText: "Погода вікенду" })).toHaveCount(0);
   }
   expect(seen, "запиту до погоди з головної нема").toEqual([]);
 });

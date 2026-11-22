@@ -1223,6 +1223,11 @@
     "railLater": "ahead",
     "lastEyebrow": "Round {round} of {rounds} · results",
     "lastFinish": "Finished · {date}",
+    "pendingResults": "The {gp} is over. Results will appear on the site as soon as the data updates.",
+    "prelimTitle": "Preliminary results",
+    "prelimSource": "Preliminary data from OpenF1: the official results, standings and race page will appear when the site's data updates.",
+    "prelimSourcesLink": "Sources",
+    "prelimTable": "Preliminary race results, top ten",
     "laps": {
       "one": "{n} lap",
       "few": "{n} laps",

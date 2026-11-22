@@ -100,6 +100,8 @@ export type HomePage = {
   rail: HomeRail[];
   last: HomeLast | null;
   next: HomeNext | null;
+  /** Етап одразу після «наступного»: клієнт показує його панель, коли наступний уже завершився за часом (дані ще не оновились). */
+  after: HomeNext | null;
   upcoming: HomeUpcoming[];
   /** Залік: поточного сезону, а до першої гонки нового — підсумковий минулого. */
   standings: { season: number; final: boolean; afterRound: number; drivers: StandingRow[]; teams: TeamStandingRow[] | null };
@@ -143,11 +145,14 @@ export async function getHomePage(locale: Locale): Promise<HomePage> {
   // Календар нового року вже є, а гонок ще не було: чемпіон і залік — минулого сезону (рев'ю PR #25).
   const statSeason = calendar.started ? season : season - 1;
   const key = latestKey(keys);
-  const nextCard = calendar.cards.find((c) => c.state === "next") ?? null;
-  const [seasonPage, race, nextCircuit] = await Promise.all([
+  const nextIdx = calendar.cards.findIndex((c) => c.state === "next");
+  const nextCard = nextIdx >= 0 ? calendar.cards[nextIdx]! : null;
+  const afterCard = nextIdx >= 0 ? (calendar.cards[nextIdx + 1] ?? null) : null;
+  const [seasonPage, race, nextCircuit, afterCircuit] = await Promise.all([
     getSeasonPage(statSeason, locale),
     key ? getRacePage(key.year, key.round, locale) : null,
     nextCircuitPage(nextCard, locale),
+    nextCircuitPage(afterCard, locale),
   ]);
   const drv = (id: string) => makeDriver(id, names, locale);
 
@@ -173,38 +178,39 @@ export async function getHomePage(locale: Locale): Promise<HomePage> {
     };
   }
 
-  let next: HomeNext | null = null;
-  if (nextCard) {
-    const cp = nextCircuit;
-    next = {
-      round: nextCard.round,
-      rounds: calendar.total,
-      gp: nextCard.gp,
-      place: nextCard.place,
-      date: nextCard.date,
-      raceAt: nextCard.raceAt,
-      raceTimed: nextCard.raceTimed,
-      circuit: cp
-        ? {
-            slug: cp.slug,
-            name: cp.short,
-            place: cp.place,
-            layout: cp.layout?.page ?? null,
-            motion: layoutMotion(cp.ref, cp.layout?.page.d ?? null),
-            lengthKm: cp.facts?.lengthKm ?? null,
-            turns: cp.facts?.turns ?? null,
-            laps: cp.facts?.laps ?? null,
-            photo: cp.hero ? { src: cp.hero.src, srcSet: cp.hero.srcSet, width: cp.hero.width, height: cp.hero.height, focus: cp.hero.focus } : null,
-            winners: cp.races
-              .slice()
-              .sort((a, b) => b.year - a.year)
-              .slice(0, PAST_WINNERS)
-              .sort((a, b) => a.year - b.year)
-              .map((r) => ({ year: r.year, round: r.round, drivers: r.winners })),
-          }
-        : null,
-    };
-  }
+  const toNext = (card: CalendarCard | null, cp: Awaited<ReturnType<typeof nextCircuitPage>>): HomeNext | null =>
+    card
+      ? {
+          round: card.round,
+          rounds: calendar.total,
+          gp: card.gp,
+          place: card.place,
+          date: card.date,
+          raceAt: card.raceAt,
+          raceTimed: card.raceTimed,
+          circuit: cp
+            ? {
+                slug: cp.slug,
+                name: cp.short,
+                place: cp.place,
+                layout: cp.layout?.page ?? null,
+                motion: layoutMotion(cp.ref, cp.layout?.page.d ?? null),
+                lengthKm: cp.facts?.lengthKm ?? null,
+                turns: cp.facts?.turns ?? null,
+                laps: cp.facts?.laps ?? null,
+                photo: cp.hero ? { src: cp.hero.src, srcSet: cp.hero.srcSet, width: cp.hero.width, height: cp.hero.height, focus: cp.hero.focus } : null,
+                winners: cp.races
+                  .slice()
+                  .sort((a, b) => b.year - a.year)
+                  .slice(0, PAST_WINNERS)
+                  .sort((a, b) => a.year - b.year)
+                  .map((r) => ({ year: r.year, round: r.round, drivers: r.winners })),
+              }
+            : null,
+        }
+      : null;
+  const next = toNext(nextCard, nextCircuit);
+  const after = toNext(afterCard, afterCircuit);
 
   const standings: HomePage["standings"] = {
     season: statSeason,
@@ -231,6 +237,7 @@ export async function getHomePage(locale: Locale): Promise<HomePage> {
   };
   if (last?.photo) pushPhoto(last.photo.label || last.gp, last.photo.credit);
   if (nextCircuit?.hero) pushPhoto(nextCircuit.short, nextCircuit.hero.credit);
+  if (afterCircuit?.hero) pushPhoto(afterCircuit.short, afterCircuit.hero.credit);
   const shown = [
     ...(last?.results.map((r) => r.driver) ?? []),
     ...standings.drivers.map((r) => r.driver),
@@ -259,6 +266,7 @@ export async function getHomePage(locale: Locale): Promise<HomePage> {
     rail: calendar.cards.map((c) => ({ round: c.round, place: c.place, date: c.date, raceAt: c.raceAt, raceTimed: c.raceTimed, state: c.state })),
     last,
     next,
+    after,
     upcoming: calendar.cards.filter((c) => c.state !== "done" && c.raceAt).map((c) => ({ round: c.round, gp: c.gp, raceAt: c.raceAt! })),
     standings,
     records,

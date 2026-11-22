@@ -850,6 +850,95 @@
   color: var(--ink-soft);
 }
 
+/* ---------- перемикання «наступного» етапу за часом (22.11) ----------
+   Корінь .hm отримує data-hm-next="b" (inline-скрипт до першого кадру + HmNextSwitch), коли етап, що збірка вважає наступним,
+   уже завершився за часом (старт + 3 год), а дані ще не оновились: показуємо панель етапу після нього, смугу сезону й рядок
+   «результати з'являться». Без JS (і до виходу за час) — як збірка: панель a. */
+.hm-next-b {
+  display: none;
+}
+.hm[data-hm-next="b"] .hm-next-a {
+  display: none;
+}
+.hm[data-hm-next="b"] .hm-next-b {
+  display: flex;
+}
+.hm-pending {
+  display: none;
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  border-inline-start: 4px solid var(--yellow);
+  background: var(--paper-2);
+  font-size: 14px;
+  line-height: 1.4;
+}
+.hm[data-hm-next="b"] .hm-pending {
+  display: block;
+}
+.hm-pending p {
+  margin: 0;
+}
+/* Картка «Попередні результати» (OpenF1) замінює рядок: без жовтої смуги, з власною шапкою; подіум і таблиця — ті самі стилі, що в минулої гонки. */
+.hm-pending-card {
+  padding: 0 0 6px;
+  border-inline-start: 0;
+  background: none;
+}
+.hm-prelim {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hm-prelim h3 {
+  font-size: clamp(22px, 2.4vw, 30px);
+}
+.hm-prelim .hm-eyebrow {
+  margin: 0;
+  color: var(--red-text);
+}
+.hm-prelim-src {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+.hm-prelim-src a {
+  color: var(--blue-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.hm-rail-key [data-s="b"] {
+  display: none;
+}
+.hm[data-hm-next="b"] .hm-rail-key [data-s="a"] {
+  display: none;
+}
+.hm[data-hm-next="b"] .hm-rail-key [data-s="b"] {
+  display: block;
+}
+/* Смуга: етап a — фінішував (картатий), попередній — звичайна клітинка, етап b — червоний «наступний». */
+.hm[data-hm-next="b"] .hm-rail-cell.hm-rail-done:has(+ .hm-rail-next) i {
+  block-size: 12px;
+  background: var(--ink);
+  box-shadow: none;
+}
+.hm[data-hm-next="b"] .hm-rail-cell.hm-rail-done:has(+ .hm-rail-next) > span.num {
+  color: var(--ink-soft);
+}
+.hm[data-hm-next="b"] .hm-rail-cell.hm-rail-a i {
+  block-size: 20px;
+  background: repeating-conic-gradient(#16181d 0 25%, #f3f4f1 0 50%) 0 0 / 8px 8px;
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+}
+.hm[data-hm-next="b"] .hm-rail-cell.hm-rail-b i {
+  block-size: 20px;
+  background: var(--red);
+  box-shadow: none;
+}
+.hm[data-hm-next="b"] .hm-rail-cell.hm-rail-b > span.num {
+  color: var(--ink);
+}
+
 /* ---------- чемпіонат і рекорди ---------- */
 .hm-champs {
   border-bottom: var(--b) solid var(--rule);
@@ -1377,6 +1466,12 @@
   .hm-rail-cell.hm-rail-done:has(+ .hm-rail-next) > span.num,
   .hm-rail-cell.hm-rail-next > span.num,
   .hm-rail-done:last-of-type > span.num {
+    display: block;
+  }
+  .hm[data-hm-next="b"] .hm-rail-cell.hm-rail-done:has(+ .hm-rail-next) > span.num {
+    display: none;
+  }
+  .hm[data-hm-next="b"] .hm-rail-cell.hm-rail-b > span.num {
     display: block;
   }
   .hm-rail-key {
