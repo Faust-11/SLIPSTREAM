@@ -20,7 +20,7 @@ export type PrelimLabels = {
   dnf: string;
   dns: string;
   dsq: string;
-  lapsDown: Record<string, string>;
+  lapsDown: Parameters<typeof plural>[2];
 };
 
 const TOP = 10;
