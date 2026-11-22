@@ -8,8 +8,9 @@ import { expectNoA11yViolations } from "./axe";
  */
 test.skip(!!process.env.BASE_URL, "фейковий Supabase є лише в локальному запуску");
 
-const FAKE = "http://127.0.0.1:54321";
-const BASE = "http://localhost:3100";
+// Порти як у playwright.config (E2E_DB_PORT / E2E_PORT): другий worktree поруч з уже запущеним сервером.
+const FAKE = `http://127.0.0.1:${process.env.E2E_DB_PORT ?? 54321}`;
+const BASE = `http://localhost:${process.env.E2E_PORT ?? 3100}`;
 const SESSION_COOKIE = "__Host-outlap_s";
 
 const rnd = () => Math.random().toString(36).slice(2, 10);
@@ -70,6 +71,24 @@ test.describe("вхід кодом на пошту", () => {
     const { name } = await signUp(page);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Profile");
     await expect(page.getByRole("link", { name: `Account: ${name}` })).toHaveAttribute("href", "/profile");
+  });
+
+  test("без ключа Turnstile (збірка e2e): ні скрипта, ні запитів до Cloudflare, ні віджета; CSP без Cloudflare; код ходить без токена", async ({ page }) => {
+    const cloudflare: string[] = [];
+    page.on("request", (r) => r.url().includes("challenges.cloudflare.com") && cloudflare.push(r.url()));
+    const res = await page.goto("/login");
+    expect(res?.headers()["content-security-policy"] ?? "").not.toContain("cloudflare");
+    const sent: unknown[] = [];
+    page.on("request", (r) => r.url().includes("/api/auth/code") && sent.push(r.postDataJSON()));
+    await page.getByLabel("Email").fill(mail());
+    await expect(page.getByRole("button", { name: "Send code" })).toBeEnabled();
+    await expect(page.locator(".au-turnstile")).toHaveCount(0);
+    await expect(page.locator('script[src*="challenges.cloudflare.com"]')).toHaveCount(0);
+    await page.getByRole("button", { name: "Send code" }).click();
+    await expect(page.getByRole("heading", { name: "Enter the code" })).toBeVisible();
+    expect(sent).toHaveLength(1);
+    expect(Object.keys(sent[0] as object)).toEqual(["email"]);
+    expect(cloudflare).toEqual([]);
   });
 
   test("помилки ніка: короткий, з @, зайнятий (без урахування регістру)", async ({ page, browser }) => {

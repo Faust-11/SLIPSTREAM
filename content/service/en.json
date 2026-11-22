@@ -116,6 +116,12 @@
           "name": "News images and videos",
           "p": "News images and video previews load from the publishers' sites (formula1.com, motorsport.com, YouTube), so those sites see your request.",
           "requires": null
+        },
+        {
+          "tag": "Other sites",
+          "name": "Bot protection on sign-in",
+          "p": "The sign-in page uses Cloudflare Turnstile: your browser contacts challenges.cloudflare.com to confirm you are not a bot. It is the only page on the site that loads anything from Cloudflare.",
+          "requires": "turnstile"
         }
       ]
     },

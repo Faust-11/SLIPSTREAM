@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { NextConfig } from "next";
 import { localeRewritePattern } from "./src/i18n/routing";
+import { TURNSTILE_ORIGIN } from "./src/lib/play/turnstile";
 import { parseRedirects, storyRedirectRules } from "./src/lib/stories/redirects";
 
 const isDev = process.env.NODE_ENV === "development";
@@ -10,27 +11,34 @@ const onVercel = process.env.VERCEL === "1";
 
 // Без nonce: публічні сторінки статичні/ISR, а nonce вимикає статичний рендер
 // (docs: 02-guides/content-security-policy.md, «Without Nonces»). 'unsafe-eval' — лише dev (Fast Refresh).
-const csp = [
-  "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
-  // Обробники в атрибутах (<img onerror>) заборонені навіть при 'unsafe-inline' для <script>.
-  "script-src-attr 'none'",
-  "style-src 'self' 'unsafe-inline'",
-  // Прев'ю новин (фаза 4a, рішення 10.11): лише домени картинок видань — ті самі, що в src/lib/news/parse.ts IMAGE_HOSTS.
-  // + Wikimedia — прев'ю Commons в адмінці (фаза 7b). Для всього сайту, а не правилом для /admin: інакше значення CSP на
-  // /admin (навіть з підробленим cookie) відрізнялось би від неіснуючої сторінки й видавало адмінку (рев'ю 7b).
-  "img-src 'self' data: blob: https://media.formula1.com https://*.motorsport.com https://i.ytimg.com https://thumb.wikimedia.org https://upload.wikimedia.org",
-  // Хайлайти гонок: плеєр YouTube без cookies — лише після кліку (src/components/race/race-video.tsx).
-  "frame-src https://www.youtube-nocookie.com",
-  "font-src 'self'",
-  "connect-src 'self'",
-  "object-src 'none'",
-  "base-uri 'self'",
-  "form-action 'self'",
-  "frame-ancestors 'none'",
-  // Лише продакшн: у dev (і з телефона по http://<IP у мережі>) апгрейд на https ламав би всі ресурси.
-  ...(isDev ? [] : ["upgrade-insecure-requests"]),
-].join("; ");
+// Turnstile (вхід, 21.11): домен Cloudflare в політиці ЛИШЕ коли ключ віджета заданий при збірці — без нього політика не змінюється.
+
+/** Політика CSP; експорт — для unit-тесту (параметри замість env). */
+export function buildCsp({ dev, turnstile }: { dev: boolean; turnstile: boolean }): string {
+  const cf = turnstile ? ` ${TURNSTILE_ORIGIN}` : "";
+  return [
+    "default-src 'self'",
+    `script-src 'self' 'unsafe-inline'${dev ? " 'unsafe-eval'" : ""}${cf}`,
+    // Обробники в атрибутах (<img onerror>) заборонені навіть при 'unsafe-inline' для <script>.
+    "script-src-attr 'none'",
+    "style-src 'self' 'unsafe-inline'",
+    // Прев'ю новин (фаза 4a, рішення 10.11): лише домени картинок видань — ті самі, що в src/lib/news/parse.ts IMAGE_HOSTS.
+    // + Wikimedia — прев'ю Commons в адмінці (фаза 7b). Для всього сайту, а не правилом для /admin: інакше значення CSP на
+    // /admin (навіть з підробленим cookie) відрізнялось би від неіснуючої сторінки й видавало адмінку (рев'ю 7b).
+    "img-src 'self' data: blob: https://media.formula1.com https://*.motorsport.com https://i.ytimg.com https://thumb.wikimedia.org https://upload.wikimedia.org",
+    // Хайлайти гонок: плеєр YouTube без cookies — лише після кліку (src/components/race/race-video.tsx).
+    `frame-src https://www.youtube-nocookie.com${cf}`,
+    "font-src 'self'",
+    `connect-src 'self'${cf}`,
+    "object-src 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-ancestors 'none'",
+    // Лише продакшн: у dev (і з телефона по http://<IP у мережі>) апгрейд на https ламав би всі ресурси.
+    ...(dev ? [] : ["upgrade-insecure-requests"]),
+  ].join("; ");
+}
+const csp = buildCsp({ dev: isDev, turnstile: Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim()) });
 
 const PERMISSIONS_POLICY = [
   "accelerometer", "autoplay", "browsing-topics", "camera", "display-capture", "encrypted-media",
