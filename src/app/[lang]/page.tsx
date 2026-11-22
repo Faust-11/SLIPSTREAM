@@ -11,6 +11,8 @@ import { HmCountdown } from "@/components/home/countdown";
 import { HmFades } from "@/components/home/fades";
 import { HmOnThisDay } from "@/components/home/on-this-day";
 import { HmNews } from "@/components/home/news";
+import { HmNextSwitch } from "@/components/home/next-switch";
+import { HmPending } from "@/components/home/pending";
 import { HmSlider } from "@/components/home/slider";
 import { SeasonPhoto } from "@/components/seasons/season-photo";
 import { StoryCard } from "@/components/stories/story-card";
@@ -21,7 +23,8 @@ import { fill } from "@/i18n/fill";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";
 import { requireLocale } from "@/i18n/require-locale";
-import { getHomePage, type RecordList } from "@/lib/data/home";
+import { getHomePage, type HomeNext, type HomeRail, type RecordList } from "@/lib/data/home";
+import { nextSwitchScript, raceEndAt } from "@/lib/next-race";
 import { fmtLap, TRACK_KEYS, TRACK_SPECS } from "@/lib/game/physics";
 import { trackThumb } from "@/lib/game/thumb";
 import { circuitPhotoAlt } from "@/lib/image-alt";
@@ -104,7 +107,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const page = await getHomePage(lang);
   const path = (p: string) => localizedPath(p, lang);
   const n = (v: number) => fmt[lang].format(v);
-  const { last, next } = page;
+  const { last, next, after } = page;
+  // Коли «наступний» за збіркою завершиться за часом: клієнт покаже панель наступного за ним (без панелі b — перемикати нічого).
+  const switchAt = next && after ? raceEndAt(next.raceAt, next.raceTimed) : null;
 
   // Підказки словника в таблиці останньої гонки (рішення 15.11): віконця — один раз унизу (статуси повторюються).
   const tl = termLabels(lang, dict.glossary.more);
@@ -157,6 +162,17 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const maxTeamPts = Math.max(1, ...(page.standings.teams ?? []).map((r) => r.points));
   const lastDone = page.rail.filter((r) => r.state === "done").at(-1);
   const nextRail = page.rail.find((r) => r.state === "next");
+  const afterRail = after ? (page.rail.find((r) => r.round === after.round) ?? null) : null;
+  const railWhen = (r: HomeRail): ReactNode =>
+    r.raceTimed && r.raceAt ? (
+      <>
+        , <LocalDay iso={r.raceAt} locale={lang} />
+      </>
+    ) : r.date ? (
+      `, ${shortDay[lang].format(utc(r.date))}`
+    ) : (
+      ""
+    );
 
   // Гра й історії — статичні дані збірки (без БД). Схема — перша траса гри («Лиман»), як у макеті.
   const g = dict.gamePage;
@@ -167,9 +183,125 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const sp = dict.storiesPage;
   const storyLabels = { meterLabel: sp.meterLabel, meterKeys: sp.meterKeys, category: sp.category, read: sp.read };
 
+  /** Панель «Наступна гонка» для етапу n (v: a — наступний за збіркою, b — той, що йде за ним; b показує клієнт за часом). */
+  const renderNext = (next: HomeNext, v: "a" | "b") => {
+    const hid = v === "a" ? "hm-next-h" : "hm-next-h-b";
+    const rid = `hm-map-route-${v}`;
+    return (
+      <>
+          <div className="hm-banner hm-banner-next">
+            {next.circuit?.photo && (
+              <SeasonPhoto
+                src={next.circuit.photo.src}
+                alt={circuitPhotoAlt(dict.circuitPage.heroAlt, next.circuit.name, next.circuit.place)}
+                srcSet={next.circuit.photo.srcSet}
+                sizes="(max-width: 1100px) 100vw, 40vw"
+                width={next.circuit.photo.width}
+                height={next.circuit.photo.height}
+                priority={false}
+                eager={false}
+                style={{ objectPosition: next.circuit.photo.focus }}
+              />
+            )}
+            <div className="hm-banner-label">
+              <div>
+                <div className="hm-eyebrow">{fill(t.nextEyebrow, { round: next.round, rounds: next.rounds })}</div>
+                <h2 className="display" id={hid}>
+                  <a href={path(`/calendar#r${next.round}`)}>{next.gp}</a>
+                </h2>
+              </div>
+            </div>
+            <span className="hm-roundel hm-roundel-next" aria-hidden="true">
+              {next.round}
+            </span>
+          </div>
+          <div className="hm-next-body">
+            {next.raceAt && (
+              <div className="hm-when">
+                <strong>{next.place}</strong>
+                <span>
+                  {t.raceStart}:{" "}
+                  {/* Без справжнього часу raceAt — кінець дня за UTC: дату беремо з етапу в UTC, а не в поясі браузера
+                      (на схід від UTC вона з'їжджала б на день уперед; рев'ю PR #25, як у календарі). */}
+                  {next.raceTimed ? <LocalTime iso={next.raceAt} locale={lang} /> : formatDay(next.date ?? next.raceAt, lang, "UTC")}
+                </span>
+                {next.raceTimed && <TzNote utc={dict.calendarPage.tzUtc} local={dict.calendarPage.tzLocal} />}
+              </div>
+            )}
+            {page.upcoming.length > 0 && (
+              <HmCountdown
+                rounds={page.upcoming}
+                shown={next.round}
+                labels={{
+                  label: dict.calendarPage.countdownLabel,
+                  days: dict.calendarPage.days,
+                  hours: dict.calendarPage.hours,
+                  minutes: dict.calendarPage.minutes,
+                  seconds: dict.calendarPage.seconds,
+                  started: fill(dict.calendarPage.raceStarted, { round: next.round }),
+                  then: t.countdownThen,
+                }}
+              />
+            )}
+            {next.circuit?.layout && (
+              <figure className="hm-map">
+                <figcaption>{t.mapHead}</figcaption>
+                <svg viewBox={`-40 -40 ${next.circuit.layout.w + 80} ${next.circuit.layout.h + 80}`} role="img" aria-label={next.circuit.name}>
+                  <path className="hm-map-casing" d={next.circuit.layout.d} />
+                  <path id={rid} className="hm-map-line" d={next.circuit.layout.d} />
+                  {/* Значок їде за напрямом гонки (circuit-directions.json, макет головної); «менше руху» — схований (CSS). */}
+                  {next.circuit.motion && (
+                    <circle className="hm-map-car" r={24}>
+                      <animateMotion
+                        dur="10s"
+                        repeatCount="indefinite"
+                        calcMode="linear"
+                        keyPoints={next.circuit.motion === "reverse" ? "1;0" : "0;1"}
+                        keyTimes="0;1"
+                      >
+                        <mpath href={`#${rid}`} />
+                      </animateMotion>
+                    </circle>
+                  )}
+                </svg>
+              </figure>
+            )}
+            {next.circuit && (next.circuit.lengthKm || next.circuit.turns || next.circuit.laps) && (
+              <dl className="hm-spec">
+                {next.circuit.lengthKm && (
+                  <div>
+                    <dt>{t.km}</dt>
+                    <dd className="num">{new Intl.NumberFormat(lang, { minimumFractionDigits: 3 }).format(next.circuit.lengthKm)}</dd>
+                  </div>
+                )}
+                {next.circuit.turns && (
+                  <div>
+                    <dt>{t.turns}</dt>
+                    <dd className="num">{next.circuit.turns}</dd>
+                  </div>
+                )}
+                {next.circuit.laps && (
+                  <div>
+                    <dt>{t.raceLaps}</dt>
+                    <dd className="num">{next.circuit.laps}</dd>
+                  </div>
+                )}
+              </dl>
+            )}
+            {next.circuit && (
+              <a className="hm-more" href={path(`/circuits/${next.circuit.slug}`)}>
+                {t.circuitLink}
+              </a>
+            )}
+          </div>
+      </>
+    );
+  };
+
   return (
-    <div className="hm" data-section="home">
+    <div className="hm" data-section="home" suppressHydrationWarning>
       <JsonLd data={siteIdentity(lang, dict.meta.home.description)} />
+      {switchAt !== null && <HmNextSwitch endAt={switchAt} />}
       {/* ---------- герой ---------- */}
       <section className="hm-hero">
         <div className="wrap">
@@ -238,7 +370,11 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           </h2>
           <ol className="hm-rail-track" aria-label={fill(t.railLabel, { season: page.season })}>
             {page.rail.map((r) => (
-              <li key={r.round} className={`hm-rail-cell hm-rail-${r.state}`} title={`${r.round} · ${r.place}`}>
+              <li
+                key={r.round}
+                className={`hm-rail-cell hm-rail-${r.state}${after && next && r.round === next.round ? " hm-rail-a" : ""}${after && r.round === after.round ? " hm-rail-b" : ""}`}
+                title={`${r.round} · ${r.place}`}
+              >
                 <i aria-hidden="true" />
                 <span className="num">{r.round}</span>
                 <span className="hm-sr">
@@ -247,9 +383,10 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               </li>
             ))}
           </ol>
+          {/* data-s: a — підписи за збіркою, b — після того, як «наступний» завершився за часом (data-hm-next=b на корені). */}
           <div className="hm-rail-key">
             {lastDone && (
-              <div>
+              <div data-s="a">
                 <b>{fill(t.railLast, { round: lastDone.round })}</b>
                 <span>
                   {lastDone.place}
@@ -257,21 +394,31 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 </span>
               </div>
             )}
+            {nextRail && afterRail && (
+              <div data-s="b">
+                <b>{fill(t.railLast, { round: nextRail.round })}</b>
+                <span>
+                  {nextRail.place}
+                  {nextRail.date ? `, ${shortDay[lang].format(utc(nextRail.date))}` : ""}
+                </span>
+              </div>
+            )}
             {nextRail && (
-              <div className="hm-rail-key-next">
+              <div className="hm-rail-key-next" data-s="a">
                 <b>{fill(t.railNext, { round: nextRail.round })}</b>
                 <span>
                   {nextRail.place}
                   {/* Дата старту — у поясі браузера, як і час старту нижче (календар, PR #19); без часу — дата етапу в UTC. */}
-                  {nextRail.raceTimed && nextRail.raceAt ? (
-                    <>
-                      , <LocalDay iso={nextRail.raceAt} locale={lang} />
-                    </>
-                  ) : nextRail.date ? (
-                    `, ${shortDay[lang].format(utc(nextRail.date))}`
-                  ) : (
-                    ""
-                  )}
+                  {railWhen(nextRail)}
+                </span>
+              </div>
+            )}
+            {afterRail && (
+              <div className="hm-rail-key-next" data-s="b">
+                <b>{fill(t.railNext, { round: afterRail.round })}</b>
+                <span>
+                  {afterRail.place}
+                  {railWhen(afterRail)}
                 </span>
               </div>
             )}
@@ -284,6 +431,33 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <div className="wrap">
           {last && (
             <article className="hm-last" aria-labelledby="hm-last-h">
+              {/* Показується, коли «наступний» етап уже завершився за часом, а результатів у даних ще нема (data-hm-next=b). */}
+              {next && after && (
+                <HmPending
+                  text={fill(t.pendingResults, { gp: next.gp })}
+                  lang={lang}
+                  year={page.season}
+                  round={next.round}
+                  endAt={switchAt}
+                  gp={next.gp}
+                  driverBase={path("/drivers")}
+                  labels={{
+                    title: t.prelimTitle,
+                    source: t.prelimSource,
+                    sourcesHref: path("/sources"),
+                    sourcesLink: t.prelimSourcesLink,
+                    tableLabel: t.prelimTable,
+                    pos: t.col.pos,
+                    driver: t.col.driver,
+                    gap: t.col.gap,
+                    pts: t.col.pts,
+                    dnf: rp.status.retired,
+                    dns: rp.status.dns,
+                    dsq: rp.status.dsq,
+                    lapsDown: rp.lapsDown,
+                  }}
+                />
+              )}
               <div className="hm-banner">
                 {last.photo && (
                   <SeasonPhoto
@@ -404,115 +578,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             </article>
           )}
 
-          <article className="hm-next" aria-labelledby="hm-next-h">
+          <article className="hm-next hm-next-a" aria-labelledby="hm-next-h">
             {next ? (
-              <>
-                <div className="hm-banner hm-banner-next">
-                  {next.circuit?.photo && (
-                    <SeasonPhoto
-                      src={next.circuit.photo.src}
-                      alt={circuitPhotoAlt(dict.circuitPage.heroAlt, next.circuit.name, next.circuit.place)}
-                      srcSet={next.circuit.photo.srcSet}
-                      sizes="(max-width: 1100px) 100vw, 40vw"
-                      width={next.circuit.photo.width}
-                      height={next.circuit.photo.height}
-                      priority={false}
-                      eager={false}
-                      style={{ objectPosition: next.circuit.photo.focus }}
-                    />
-                  )}
-                  <div className="hm-banner-label">
-                    <div>
-                      <div className="hm-eyebrow">{fill(t.nextEyebrow, { round: next.round, rounds: next.rounds })}</div>
-                      <h2 className="display" id="hm-next-h">
-                        <a href={path(`/calendar#r${next.round}`)}>{next.gp}</a>
-                      </h2>
-                    </div>
-                  </div>
-                  <span className="hm-roundel hm-roundel-next" aria-hidden="true">
-                    {next.round}
-                  </span>
-                </div>
-                <div className="hm-next-body">
-                  {next.raceAt && (
-                    <div className="hm-when">
-                      <strong>{next.place}</strong>
-                      <span>
-                        {t.raceStart}:{" "}
-                        {/* Без справжнього часу raceAt — кінець дня за UTC: дату беремо з етапу в UTC, а не в поясі браузера
-                            (на схід від UTC вона з'їжджала б на день уперед; рев'ю PR #25, як у календарі). */}
-                        {next.raceTimed ? <LocalTime iso={next.raceAt} locale={lang} /> : formatDay(next.date ?? next.raceAt, lang, "UTC")}
-                      </span>
-                      {next.raceTimed && <TzNote utc={dict.calendarPage.tzUtc} local={dict.calendarPage.tzLocal} />}
-                    </div>
-                  )}
-                  {page.upcoming.length > 0 && (
-                    <HmCountdown
-                      rounds={page.upcoming}
-                      shown={next.round}
-                      labels={{
-                        label: dict.calendarPage.countdownLabel,
-                        days: dict.calendarPage.days,
-                        hours: dict.calendarPage.hours,
-                        minutes: dict.calendarPage.minutes,
-                        seconds: dict.calendarPage.seconds,
-                        started: fill(dict.calendarPage.raceStarted, { round: next.round }),
-                        then: t.countdownThen,
-                      }}
-                    />
-                  )}
-                  {next.circuit?.layout && (
-                    <figure className="hm-map">
-                      <figcaption>{t.mapHead}</figcaption>
-                      <svg viewBox={`-40 -40 ${next.circuit.layout.w + 80} ${next.circuit.layout.h + 80}`} role="img" aria-label={next.circuit.name}>
-                        <path className="hm-map-casing" d={next.circuit.layout.d} />
-                        <path id="hm-map-route" className="hm-map-line" d={next.circuit.layout.d} />
-                        {/* Значок їде за напрямом гонки (circuit-directions.json, макет головної); «менше руху» — схований (CSS). */}
-                        {next.circuit.motion && (
-                          <circle className="hm-map-car" r={24}>
-                            <animateMotion
-                              dur="10s"
-                              repeatCount="indefinite"
-                              calcMode="linear"
-                              keyPoints={next.circuit.motion === "reverse" ? "1;0" : "0;1"}
-                              keyTimes="0;1"
-                            >
-                              <mpath href="#hm-map-route" />
-                            </animateMotion>
-                          </circle>
-                        )}
-                      </svg>
-                    </figure>
-                  )}
-                  {next.circuit && (next.circuit.lengthKm || next.circuit.turns || next.circuit.laps) && (
-                    <dl className="hm-spec">
-                      {next.circuit.lengthKm && (
-                        <div>
-                          <dt>{t.km}</dt>
-                          <dd className="num">{new Intl.NumberFormat(lang, { minimumFractionDigits: 3 }).format(next.circuit.lengthKm)}</dd>
-                        </div>
-                      )}
-                      {next.circuit.turns && (
-                        <div>
-                          <dt>{t.turns}</dt>
-                          <dd className="num">{next.circuit.turns}</dd>
-                        </div>
-                      )}
-                      {next.circuit.laps && (
-                        <div>
-                          <dt>{t.raceLaps}</dt>
-                          <dd className="num">{next.circuit.laps}</dd>
-                        </div>
-                      )}
-                    </dl>
-                  )}
-                  {next.circuit && (
-                    <a className="hm-more" href={path(`/circuits/${next.circuit.slug}`)}>
-                      {t.circuitLink}
-                    </a>
-                  )}
-                </div>
-              </>
+              renderNext(next, "a")
             ) : (
               <div className="hm-next-body hm-over">
                 <h2 className="display" id="hm-next-h">
@@ -525,6 +593,17 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               </div>
             )}
           </article>
+          {/* Етап після «наступного»: ховається, поки клієнт не побачить, що попередній завершився за часом (data-hm-next=b на корені). */}
+          {after && (
+            <article className="hm-next hm-next-b" aria-labelledby="hm-next-h-b">
+              {renderNext(after, "b")}
+            </article>
+          )}
+          {after && (
+            <>
+              <script data-end={switchAt ?? undefined} dangerouslySetInnerHTML={{ __html: nextSwitchScript }} />
+            </>
+          )}
         </div>
       </section>
 

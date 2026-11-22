@@ -92,8 +92,34 @@ function cookie(req, name) {
   }
 }
 
+// OpenF1 (OPENF1_API → http://127.0.0.1:<порт>/openf1): сесії року, результати й пілоти гонки Лас-Вегаса 2026 (етап 21,
+// 22.11 04:00–06:00 UTC) — для попередніх результатів на головній (/api/prelim). ?__none=1 у URL бази не потрібен: порожній
+// стан перевіряє e2e на іншому етапі (немає сесії → 404).
+const OF1_SESSIONS = [
+  { session_key: 11420, meeting_key: 1300, session_name: "Race", date_start: "2026-11-22T04:00:00+00:00", date_end: "2026-11-22T06:00:00+00:00" },
+  { session_key: 11428, meeting_key: 1301, session_name: "Race", date_start: "2026-11-29T16:00:00+00:00", date_end: "2026-11-29T18:00:00+00:00" },
+];
+const OF1_DRIVERS = [
+  { driver_number: 3, first_name: "Max", last_name: "Verstappen", full_name: "Max VERSTAPPEN", name_acronym: "VER", team_name: "Red Bull Racing", team_colour: "3671C6" },
+  { driver_number: 1, first_name: "Lando", last_name: "Norris", full_name: "Lando NORRIS", name_acronym: "NOR", team_name: "McLaren", team_colour: "FF8000" },
+  { driver_number: 81, first_name: "Oscar", last_name: "Piastri", full_name: "Oscar PIASTRI", name_acronym: "PIA", team_name: "McLaren", team_colour: "FF8000" },
+  { driver_number: 44, first_name: "Lewis", last_name: "Hamilton", full_name: "Lewis HAMILTON", name_acronym: "HAM", team_name: "Ferrari", team_colour: "E8002D" },
+  { driver_number: 16, first_name: "Charles", last_name: "Leclerc", full_name: "Charles LECLERC", name_acronym: "LEC", team_name: "Ferrari", team_colour: "E8002D" },
+  { driver_number: 55, first_name: "Carlos", last_name: "Sainz", full_name: "Carlos SAINZ", name_acronym: "SAI", team_name: "Williams", team_colour: "64C4FF" },
+];
+const OF1_RESULT = [
+  { position: 1, driver_number: 3, number_of_laps: 50, points: 25, dnf: false, dns: false, dsq: false, duration: 5259.624, gap_to_leader: 0 },
+  { position: 2, driver_number: 1, number_of_laps: 50, points: 18, dnf: false, dns: false, dsq: false, duration: 5260.263, gap_to_leader: 0.639 },
+  { position: 3, driver_number: 81, number_of_laps: 50, points: 15, dnf: false, dns: false, dsq: false, duration: 5261.153, gap_to_leader: 1.529 },
+  { position: 4, driver_number: 16, number_of_laps: 49, points: 12, dnf: false, dns: false, dsq: false, duration: null, gap_to_leader: "+1 LAP" },
+  { position: 5, driver_number: 44, number_of_laps: 30, points: 0, dnf: true, dns: false, dsq: false, duration: null, gap_to_leader: null },
+];
 createServer(async (req, res) => {
   const url = new URL(req.url ?? "/", `http://127.0.0.1:${port}`);
+
+  if (req.method === "GET" && url.pathname === "/openf1/sessions") return json(res, 200, OF1_SESSIONS);
+  if (req.method === "GET" && url.pathname === "/openf1/session_result") return json(res, 200, url.searchParams.get("session_key") === "11420" ? OF1_RESULT : []);
+  if (req.method === "GET" && url.pathname === "/openf1/drivers") return json(res, 200, url.searchParams.get("session_key") === "11420" ? OF1_DRIVERS : []);
 
   if (req.method === "GET" && url.pathname === "/login/oauth/authorize") {
     const p = url.searchParams;
