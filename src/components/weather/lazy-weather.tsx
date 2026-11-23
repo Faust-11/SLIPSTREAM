@@ -5,7 +5,6 @@ import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "
 import { weekendWeatherDue } from "@/lib/weather";
 import { WeatherSkeleton } from "./skeleton";
 import type { WeekendWeatherProps } from "./weekend-weather";
-import "./weather.css";
 
 // Код блока й запит — окремий чанк, завантажується лише коли місце під блок наблизилось до екрана (головна на межі
 // Lighthouse: TBT/FCP). Поки далеко — лише заглушка тієї ж висоти.
