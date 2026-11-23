@@ -232,6 +232,11 @@ test("телефон 21.11: наступна гонка — червона й н
     last: document.querySelector(".hm-last")!.getBoundingClientRect().top,
   }));
   expect(order.next).toBeLessThan(order.last);
+  // 23.11: у червоній панелі є кнопка «Зробити прогноз» → прогноз на наступний етап (білий фон, червоний текст).
+  const cta = page.locator(".hm-next-a .hm-btn-onred");
+  await expect(cta).toHaveText("Зробити прогноз");
+  await expect(cta).toHaveAttribute("href", /\/uk\/predictions\/\d+$/);
+  expect(await cta.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe("rgb(255, 255, 255)");
   await page.locator(".hm-game").scrollIntoViewIfNeeded();
   await expect(page.locator(".hm-board")).toBeHidden();
   await page.waitForTimeout(700);

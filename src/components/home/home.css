@@ -1388,6 +1388,17 @@
 .hm-next .hm-more {
   color: var(--hm-on);
 }
+/* «Зробити прогноз» у червоній панелі: біла кнопка з темно-червоним текстом (контраст ≈ 6,5:1). */
+.hm-next-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+}
+.hm-btn-onred {
+  background: #fff;
+  color: var(--hm-next-bg);
+}
 
 /* ---------- адаптив ---------- */
 @media (max-width: 1100px) {
