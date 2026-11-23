@@ -250,6 +250,8 @@ test("телефон 21.11: наступна гонка — червона й н
 const ROOT = "[data-section=home]";
 
 test("22.11: головна перемикається за часом — до старту панель Лас-Вегаса; через 3 год після старту — Катар, смуга сезону й рядок про очікування результатів", async ({ page }) => {
+  // Фейковий OpenF1 одразу віддає результати й замінює рядок карткою (окремий тест нижче); тут перевіряємо сам рядок — API «ще порожнє».
+  await page.route("**/api/prelim/**", (route) => route.fulfill({ status: 404, contentType: "text/plain", body: "Not found" }));
   await page.clock.setFixedTime(new Date("2026-11-22T03:00:00Z")); // до старту (04:00)
   await page.goto("/uk");
   await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
