@@ -106,9 +106,13 @@ with psycopg.connect(DSN, autocommit=True) as conn:
         "ferrari": (1143, 250, 16), "alfa-romeo": (216, 10, 0), "vanwall": (28, 9, 1), "tyrrell": (430, 23, 1),
         "brm": (197, 17, 1), "andrea-moda": (1, 0, 0), "mercedes": (361, 143, 9), "red-bull": (437, 133, 6),
     }
+    # Команди поточного сезону ростуть з кожною гонкою (22.11: після Лас-Вегаса +1 Гран-прі, і так — до кінця сезону), тож для них
+    # еталон фази 3a — нижня межа (≥), а не рівність; історичні (alfa-romeo, vanwall, …) — рівність.
+    growing = {"ferrari", "mercedes", "red-bull"}
     for team_id, (gp, w, t) in reference.items():
         got = (idx[team_id]["gp"], idx[team_id]["w"], idx[team_id]["t"])
-        check(f"еталон {team_id} = {gp}/{w}/{t}", got == (gp, w, t), got)
+        ok = all(g >= e for g, e in zip(got, (gp, w, t))) if team_id in growing else got == (gp, w, t)
+        check(f"еталон {team_id} {'≥' if team_id in growing else '='} {gp}/{w}/{t}", ok, got)
 
     current = {k: v for k, v in idx.items() if v["pos"] is not None}
     check("11 команд поточного сезону, місця 1..11", sorted(v["pos"] for v in current.values()) == list(range(1, 12)),
@@ -122,10 +126,21 @@ with psycopg.connect(DSN, autocommit=True) as conn:
     # Паритет зі знімком фази 3a (для всіх, крім розділених Lotus і ATS).
     snap = {t["id"]: t for t in json.loads((REPO / "src/data/snapshot/teams.json").read_text(encoding="utf-8"))["teams"]}
     diffs = []
+    # Правило старту 0009 (status = 30 «не стартував» — не старт): у 7 команд єдина машина гонки не стартувала —
+    # на один Гран-прі менше, ніж у знімку 3a (замір db.yml 12.11). Решта — без змін.
+    dns_only = {"williams": 883, "minardi": 340, "osella": 131, "ensign": 99, "lola": 84, "simtek": 20, "scarab": 2}
+    cur_ids = {k for k, v in snap.items() if v["current"]}
     for team_id, s in snap.items():
         if team_id in ("lotus", "ats"):
             continue
         d = idx[team_id]
+        if team_id in cur_ids:
+            # Команди поточного сезону ростуть з кожною гонкою (+Гран-прі, перемоги, титули; місце й склад змінюються):
+            # знімок 3a — нижня межа, роки виступів — рівність (22.11: після Лас-Вегаса всі 11 команд мали +1 Гран-прі).
+            lo_gp = s["grandsPrix"] - (1 if team_id in dns_only else 0)
+            if not (d["gp"] >= lo_gp and d["w"] >= s["wins"] and d["t"] >= s["titles"] and d["seasons"] == s["seasons"]):
+                diffs.append((team_id, {"gp": (lo_gp, d["gp"]), "w": (s["wins"], d["w"]), "t": (s["titles"], d["t"])}))
+            continue
         exp = {
             "seasons": s["seasons"], "gp": s["grandsPrix"], "w": s["wins"], "t": s["titles"],
             "pos": s["current"]["position"] if s["current"] else None,
@@ -134,13 +149,11 @@ with psycopg.connect(DSN, autocommit=True) as conn:
         got = {k: d[k] for k in exp}
         if got != exp:
             diffs.append((team_id, {k: (exp[k], got[k]) for k in exp if exp[k] != got[k]}))
-    # Правило старту 0009 (status = 30 «не стартував» — не старт): у 7 команд єдина машина гонки не стартувала —
-    # на один Гран-прі менше, ніж у знімку 3a (замір db.yml 12.11). Решта — без змін.
-    dns_only = {"williams": 883, "minardi": 340, "osella": 131, "ensign": 99, "lola": 84, "simtek": 20, "scarab": 2}
     diffs = [d for d in diffs if not (d[0] in dns_only and set(d[1]) == {"gp"} and d[1]["gp"][1] == dns_only[d[0]]
                                       and d[1]["gp"][0] == dns_only[d[0]] + 1)]
     check(f"паритет зі знімком 3a: {len(snap) - 2} команд (7 — мінус один Гран-прі без старту)", not diffs, diffs[:10])
-    check("…і ці 7 справді змінились", all(idx[k]["gp"] == v for k, v in dns_only.items()), {k: idx[k]["gp"] for k in dns_only})
+    check("…і ці 7 справді змінились", all((idx[k]["gp"] >= v if k in cur_ids else idx[k]["gp"] == v) for k, v in dns_only.items()),
+          {k: idx[k]["gp"] for k in dns_only})
     check("Lotus: перемоги й Кубки як у знімку (Lotus Racing не перемагала)", (lotus["w"], lotus["t"]) == (snap["lotus"]["wins"], snap["lotus"]["titles"]))
     check("Lotus + Lotus Racing = Гран-прі знімка", lotus["gp"] + racing["gp"] == snap["lotus"]["grandsPrix"], (lotus["gp"], racing["gp"]))
     # ATS (рішення користувача 12.11): 1963 — італійська A.T.S., 1978–84 — німецька; разом = знімок 3a.
