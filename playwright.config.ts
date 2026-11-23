@@ -38,6 +38,8 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
+  // CI: 3 воркери замість типових 2 (22.11: набір e2e ≈ 600 тестів, job `check` впирається в timeout 15 хв — відміни на 596-му тесті).
+  workers: process.env.CI ? 3 : undefined,
   reporter: process.env.CI ? [["github"], ["list"]] : "list",
   globalSetup: bypass ? "./e2e/vercel-bypass.setup.ts" : undefined,
   use: {
