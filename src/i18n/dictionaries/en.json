@@ -1688,9 +1688,28 @@
       "Points appear after the race: qualifying and the race of a round are scored together.",
       "The season champion has the most points among players who predicted at least half of the rounds. If points are equal, there are several champions."
     ],
+    "tiles": [
+      {
+        "v": "+1",
+        "t": "A driver who finishes in the real top ten but not in your place earns 1 point."
+      },
+      {
+        "v": "+10",
+        "t": "The whole podium exactly right is worth another 10 points."
+      },
+      {
+        "v": "+30",
+        "t": "The whole top ten exactly right, another 30."
+      },
+      {
+        "v": "+10",
+        "t": "In the race: the team that will not finish is worth 10 points if at least one of its cars is not classified, or if you chose “Everyone finishes” and that happened."
+      }
+    ],
     "roundsH": "Rounds",
     "roundN": "Round {n}",
     "empty": "There are no upcoming rounds in the schedule. The next season will appear here as soon as it is added to the calendar.",
+    "heroNone": "No rounds are open right now. Predictions for the next ones appear as soon as the qualifying time is announced.",
     "sprint": "Sprint weekend",
     "open": "Predictions open",
     "closesIn": "close in {t}",
