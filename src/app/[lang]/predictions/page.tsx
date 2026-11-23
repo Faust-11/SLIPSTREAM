@@ -12,6 +12,7 @@ import { requireLocale } from "@/i18n/require-locale";
 import { circuitMedia, type CircuitMedia } from "@/lib/data/circuits";
 import { getPredictionsData } from "@/lib/data/predictions";
 import { fmtDay } from "@/lib/fmt";
+import { SeasonPhoto } from "@/components/seasons/season-photo";
 import { HERO_PHOTO } from "@/lib/hero-photo";
 import { circuitPhotoAlt } from "@/lib/image-alt";
 import { pageMetadata } from "@/lib/seo";
@@ -45,8 +46,9 @@ export default async function PredictionsPage({ params }: Props) {
     <div className="au-page">
       <section className="au-hero pd-hero pd-hero-main">
         {/* Фон шапки — стартова решітка (Спа 2008, як на головній) під темним градієнтом; автор і ліцензія — внизу сторінки. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        {/* Клієнтський компонент навмисно: серверний <img> потрапляв би в RSC-дані, і prefetch пункту меню «Прогнози» передзавантажував
+            це фото на головній («preloaded but not used», smoke; граблі №10). */}
+        <SeasonPhoto
           className="pd-hero-img"
           src={HERO_PHOTO.src}
           srcSet={HERO_PHOTO.srcSet}
@@ -54,7 +56,8 @@ export default async function PredictionsPage({ params }: Props) {
           width={HERO_PHOTO.width}
           height={HERO_PHOTO.height}
           alt=""
-          decoding="async"
+          priority={false}
+          eager
         />
         <div className="wrap">
           <div className="pd-hero-text">

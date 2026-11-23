@@ -7,6 +7,7 @@ import { fill } from "@/i18n/fill";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";
 import { requireLocale } from "@/i18n/require-locale";
+import { SeasonPhoto } from "@/components/seasons/season-photo";
 import { HERO_PHOTO } from "@/lib/hero-photo";
 import { circuitMedia } from "@/lib/data/circuits";
 import { getPredictionsData } from "@/lib/data/predictions";
@@ -61,8 +62,8 @@ export default async function PredictionRoundPage(props: Props) {
     <div className="au-page">
       <section className="au-hero pd-hero pd-hero-photo">
         {/* Фото траси (або решітка) — фон шапки під темним градієнтом; автор і ліцензія — внизу сторінки. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        {/* Клієнтський компонент навмисно (див. список етапів): інакше prefetch маршруту передзавантажує фото на інших сторінках. */}
+        <SeasonPhoto
           className="pd-hero-img"
           src={photo.src}
           srcSet={photo.srcSet}
@@ -70,7 +71,8 @@ export default async function PredictionRoundPage(props: Props) {
           width={photo.width}
           height={photo.height}
           alt=""
-          decoding="async"
+          priority={false}
+          eager
           style={{ objectPosition: photo.focus }}
         />
         <div className="wrap">

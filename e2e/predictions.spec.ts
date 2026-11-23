@@ -149,15 +149,23 @@ test.describe("список етапів", () => {
       await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
       const m = await page.evaluate(() => {
         const r = (q: string) => document.querySelector(q)!.getBoundingClientRect();
-        const btns = [...document.querySelectorAll<HTMLElement>("li.pd-round .pd-round-body .au-btn")].map((b) => Math.round(b.getBoundingClientRect().bottom));
-        const cards = [...document.querySelectorAll<HTMLElement>("li.pd-round .pd-ticket")].map((c) => Math.round(c.getBoundingClientRect().bottom));
-        return { text: r(".pd-hero-text"), timer: r(".pd-timer"), btns, cards };
+        // По картці: верх (ряд сітки), низ плашки й низ кнопки. На 1024 px сітка може бути 2 + 1 — вирівнювання перевіряємо в межах ряду.
+        const cards = [...document.querySelectorAll<HTMLElement>("li.pd-round")].map((li) => ({
+          top: Math.round(li.querySelector(".pd-ticket")!.getBoundingClientRect().top),
+          bottom: Math.round(li.querySelector(".pd-ticket")!.getBoundingClientRect().bottom),
+          btn: Math.round(li.querySelector(".pd-round-body .au-btn")!.getBoundingClientRect().bottom),
+        }));
+        return { text: r(".pd-hero-text"), timer: r(".pd-timer"), cards };
       });
       expect(m.timer.left, `таймер правіше тексту, ${width} px`).toBeGreaterThanOrEqual(m.text.right - 1);
       expect(Math.abs(m.timer.top - m.text.top), "верх таймера біля верху тексту").toBeLessThan(120);
-      expect(new Set(m.btns).size, `кнопки на одній лінії, ${width} px`).toBe(1);
-      expect(new Set(m.cards).size, `картки однакової висоти, ${width} px`).toBe(1);
-      expect(m.cards[0]! - m.btns[0]!, "кнопка притиснута до низу плашки (відступ ≈ 24 px)").toBeLessThan(30);
+      const rows = new Map<number, typeof m.cards>();
+      for (const c of m.cards) rows.set(c.top, [...(rows.get(c.top) ?? []), c]);
+      for (const [top, row] of rows) {
+        expect(new Set(row.map((c) => c.btn)).size, `кнопки ряду (верх ${top}) на одній лінії, ${width} px`).toBe(1);
+        expect(new Set(row.map((c) => c.bottom)).size, `картки ряду (верх ${top}) однакової висоти, ${width} px`).toBe(1);
+        expect(row[0]!.bottom - row[0]!.btn, "кнопка притиснута до низу плашки (відступ ≈ 24 px)").toBeLessThan(30);
+      }
     }
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/predictions");
