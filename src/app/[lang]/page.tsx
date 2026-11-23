@@ -34,20 +34,9 @@ import { plural } from "@/lib/plural";
 import { gapTime, lapTime, raceTime } from "@/lib/race-math";
 import { pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/site/json-ld";
+import { HERO_PHOTO } from "@/lib/hero-photo";
 import { siteIdentity } from "@/lib/jsonld";
 import { getStoryList } from "@/lib/stories/content";
-
-/** Фон шапки: стартова решітка, Спа 2008 (Mark McArdle, CC BY-SA 2.0, Wikimedia Commons) — підпис у PageCredits унизу. */
-const HERO_PHOTO = {
-  src: "/img/home/grid-1100.webp",
-  srcSet: "/img/home/grid-480.webp 480w, /img/home/grid-640.webp 640w, /img/home/grid-1100.webp 1100w, /img/home/grid-1600.webp 1600w",
-  credit: {
-    label: "Spa-Francorchamps 2008",
-    href: "https://commons.wikimedia.org/wiki/File:Spa_2008_before_start.jpg",
-    author: "Mark McArdle",
-    license: "CC BY-SA 2.0",
-  },
-};
 
 /** Історії на головній — три з макета (вибір користувача: «найцікавіші»), у порядку макета. */
 const HOME_STORIES = ["suzuka-1989", "jerez-1997", "singapore-2008"];

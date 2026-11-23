@@ -7,6 +7,7 @@ import { fill } from "@/i18n/fill";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/paths";
 import { requireLocale } from "@/i18n/require-locale";
+import { HERO_PHOTO } from "@/lib/hero-photo";
 import { circuitMedia } from "@/lib/data/circuits";
 import { getPredictionsData } from "@/lib/data/predictions";
 import { pageMetadata } from "@/lib/seo";
@@ -48,25 +49,30 @@ export default async function PredictionRoundPage(props: Props) {
   const { lang, dict, data, card } = await load(props);
   const t = dict.predictions;
   const self = localizedPath(`/predictions/${card.round}`, lang);
-  const photo = (await circuitMedia(card.circuitSlug)).photo;
+  const circuitPhoto = (await circuitMedia(card.circuitSlug)).photo;
+  // Траса без фото (Катар) — шапка з тією самою решіткою, що на списку й на головній: темна шапка всюди однакова.
+  const photo = circuitPhoto
+    ? { src: circuitPhoto.src, srcSet: circuitPhoto.srcSet, width: circuitPhoto.width, height: circuitPhoto.height, focus: circuitPhoto.focus as string | undefined }
+    : { src: HERO_PHOTO.src, srcSet: HERO_PHOTO.srcSet, width: HERO_PHOTO.width, height: HERO_PHOTO.height, focus: undefined };
+  const credit = circuitPhoto
+    ? { label: card.place, href: circuitPhoto.credit.page, author: circuitPhoto.credit.author, license: circuitPhoto.credit.license }
+    : HERO_PHOTO.credit;
   return (
     <div className="au-page">
-      <section className={photo ? "au-hero pd-hero pd-hero-photo" : "au-hero pd-hero"}>
-        {photo ? (
-          // Фото траси — фон шапки під темним градієнтом; автор і ліцензія — внизу сторінки.
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            className="pd-hero-img"
-            src={photo.src}
-            srcSet={photo.srcSet}
-            sizes="100vw"
-            width={photo.width}
-            height={photo.height}
-            alt=""
-            decoding="async"
-            style={{ objectPosition: photo.focus }}
-          />
-        ) : null}
+      <section className="au-hero pd-hero pd-hero-photo">
+        {/* Фото траси (або решітка) — фон шапки під темним градієнтом; автор і ліцензія — внизу сторінки. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className="pd-hero-img"
+          src={photo.src}
+          srcSet={photo.srcSet}
+          sizes="100vw"
+          width={photo.width}
+          height={photo.height}
+          alt=""
+          decoding="async"
+          style={{ objectPosition: photo.focus }}
+        />
         <div className="wrap">
           <p className="au-stamp">{fill(t.round.stamp, { n: card.round, place: card.place })}</p>
           <h1 className="display">{card.gp}</h1>
@@ -94,7 +100,7 @@ export default async function PredictionRoundPage(props: Props) {
         groups={[
           {
             title: t.creditsPhotos,
-            items: photo ? [{ label: card.place, href: photo.credit.page, author: photo.credit.author, license: photo.credit.license }] : [],
+            items: [credit],
           },
         ]}
       />

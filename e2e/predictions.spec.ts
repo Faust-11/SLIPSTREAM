@@ -86,11 +86,13 @@ test.describe("список етапів", () => {
     await expect(rounds.nth(1).locator(".pd-status")).toHaveAttribute("data-state", "open");
     // 21.11: гість (немає позначки сесії) після гідратації бачить не «Зробити прогноз», а «Увійти…» — з поверненням на етап.
     await expect(page.getByRole("link", { name: "Make a prediction", exact: true })).toHaveCount(0);
-    const signIn = page.getByRole("link", { name: "Sign in to make a prediction", exact: true });
+    const signIn = rounds.getByRole("link", { name: "Sign in to make a prediction", exact: true });
     await expect(signIn).toHaveCount(3);
     await expect(signIn.first()).toHaveAttribute("href", "/login?next=%2Fpredictions%2F21");
-    await expect(page.locator(".pd-rule-list li")).toHaveCount(6);
-    await expect(page.locator(".pd-scale li")).toHaveCount(4);
+    // Правила очок (21.11): плитки бонусів + три картки правил; сітки очок за місце (P1…P10) на сторінці немає.
+    await expect(page.locator(".pd-tiles li")).toHaveCount(4);
+    await expect(page.locator(".pd-rule-list li")).toHaveCount(3);
+    await expect(page.locator(".pd-scale, .pd-podium")).toHaveCount(0);
     await expectNoA11yViolations(page);
   });
 
@@ -104,7 +106,11 @@ test.describe("список етапів", () => {
     await expect(photos.first()).toHaveAttribute("loading", "lazy");
     await expect(photos.first()).toHaveAttribute("srcset", /480w/);
     await expect(page.locator(".page-credits summary")).toContainText("Track photos");
-    await expect(page.locator(".pd-hero")).toHaveCSS("background-color", "rgb(255, 196, 0)"); // жовта шапка, не сіро-зелена
+    // Шапка (21.11): темна, з фото стартової решітки; автор фото — серед підписів унизу.
+    await expect(page.locator(".pd-hero-main")).toHaveCSS("background-color", "rgb(20, 21, 26)");
+    await expect(page.locator(".pd-hero-main .pd-hero-img")).toHaveAttribute("src", /grid-1100\.webp$/);
+    await page.locator(".page-credits summary").click();
+    await expect(page.locator(".page-credits")).toContainText("Mark McArdle");
   });
 
   test("ввійшов: на картках звичайне «Зробити прогноз», не пропозиція входу", async ({ page }) => {
@@ -112,9 +118,75 @@ test.describe("список етапів", () => {
     await page.clock.setFixedTime(new Date("2026-11-20T12:00:00Z"));
     await signUp(page);
     await page.goto("/predictions");
-    await expect(page.getByRole("link", { name: "Make a prediction", exact: true })).toHaveCount(3);
+    await expect(page.locator("li.pd-round").getByRole("link", { name: "Make a prediction", exact: true })).toHaveCount(3);
     await expect(page.getByRole("link", { name: "Sign in to make a prediction", exact: true })).toHaveCount(0);
+    await expect(page.locator(".pd-timer").getByRole("link", { name: "Make a prediction", exact: true })).toHaveAttribute("href", "/predictions/21");
   });
+
+  test("таймер першого екрана: найближчий відкритий етап, секунди, кнопка; після дедлайну — наступний етап; усі закриті — пояснення", async ({ page }) => {
+    await page.clock.setFixedTime(new Date("2026-11-20T12:00:00Z")); // дедлайн етапу 21 — 21.11 03:55 UTC
+    await page.goto("/predictions");
+    const timer = page.locator(".pd-timer");
+    await expect(timer.locator(".pd-timer-gp")).toHaveText("Round 21 · Las Vegas Grand Prix");
+    await expect(timer.locator(".pd-count b")).toHaveText(["0", "15", "54", "59"]); // 15 год 55 хв без 1 мс: секунди — 59
+    await expect(timer.locator(".pd-count span").nth(3)).toHaveText("sec");
+    await expect(timer.getByRole("link", { name: "Sign in to make a prediction" })).toHaveAttribute("href", "/login?next=%2Fpredictions%2F21");
+    await page.clock.setFixedTime(new Date("2026-11-21T04:00:00Z")); // етап 21 закрито
+    await page.goto("/predictions");
+    await expect(timer.locator(".pd-timer-gp")).toContainText("Round 22");
+    await page.clock.setFixedTime(new Date("2026-12-20T04:00:00Z")); // усі етапи закрито
+    await page.goto("/predictions");
+    await expect(timer).toHaveAttribute("data-state", "none");
+    await expect(timer.locator(".pd-count")).toHaveCount(0);
+    await expect(timer).toContainText("No rounds are open right now");
+  });
+
+  test("розкладка (21.11): на ПК таймер із кнопкою — праворуч від тексту, на телефоні — під ним; кнопки етапів — по низу плашок", async ({ page }) => {
+    await page.clock.setFixedTime(new Date("2026-11-20T12:00:00Z"));
+    for (const width of [1440, 1024]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto("/predictions");
+      await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+      const m = await page.evaluate(() => {
+        const r = (q: string) => document.querySelector(q)!.getBoundingClientRect();
+        const btns = [...document.querySelectorAll<HTMLElement>("li.pd-round .pd-round-body .au-btn")].map((b) => Math.round(b.getBoundingClientRect().bottom));
+        const cards = [...document.querySelectorAll<HTMLElement>("li.pd-round .pd-ticket")].map((c) => Math.round(c.getBoundingClientRect().bottom));
+        return { text: r(".pd-hero-text"), timer: r(".pd-timer"), btns, cards };
+      });
+      expect(m.timer.left, `таймер правіше тексту, ${width} px`).toBeGreaterThanOrEqual(m.text.right - 1);
+      expect(Math.abs(m.timer.top - m.text.top), "верх таймера біля верху тексту").toBeLessThan(120);
+      expect(new Set(m.btns).size, `кнопки на одній лінії, ${width} px`).toBe(1);
+      expect(new Set(m.cards).size, `картки однакової висоти, ${width} px`).toBe(1);
+      expect(m.cards[0]! - m.btns[0]!, "кнопка притиснута до низу плашки (відступ ≈ 24 px)").toBeLessThan(30);
+    }
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/predictions");
+    const m = await page.evaluate(() => {
+      const r = (q: string) => document.querySelector(q)!.getBoundingClientRect();
+      return { text: r(".pd-hero-text"), timer: r(".pd-timer") };
+    });
+    expect(m.timer.top).toBeGreaterThanOrEqual(m.text.bottom - 1);
+  });
+
+  for (const width of [320, 390, 768, 1024, 1440])
+    for (const scheme of ["light", "dark"] as const)
+      test(`список: шапка від краю до краю, без прокрутки вбік і без порушень axe: ${scheme}, ${width} px`, async ({ page }) => {
+        await page.emulateMedia({ colorScheme: scheme });
+        await page.clock.setFixedTime(new Date("2026-11-20T12:00:00Z"));
+        await page.setViewportSize({ width, height: 900 });
+        await page.goto("/predictions");
+        await page.locator("html[data-hydrated]").waitFor({ state: "attached" });
+        const m = await page.evaluate(() => {
+          const q = (s: string) => document.querySelector(s)!.getBoundingClientRect();
+          return { vw: document.documentElement.clientWidth, hero: q(".pd-hero-main"), photo: q(".pd-hero-img"), over: document.documentElement.scrollWidth - window.innerWidth };
+        });
+        expect(m.over).toBeLessThanOrEqual(0);
+        expect(m.hero.left).toBeLessThanOrEqual(0.5);
+        expect(m.hero.right).toBeGreaterThanOrEqual(m.vw - 0.5);
+        expect(m.photo.left).toBeLessThanOrEqual(0.5);
+        expect(m.photo.right).toBeGreaterThanOrEqual(m.vw - 0.5);
+        await expectNoA11yViolations(page);
+      });
 
   test("після дедлайну етап «закрито», кнопка веде до перегляду", async ({ page }) => {
     await page.clock.setFixedTime(new Date("2026-11-21T04:00:00Z")); // дедлайн етапу 21 — 03:55
