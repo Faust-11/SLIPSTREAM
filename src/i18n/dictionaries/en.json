@@ -1254,6 +1254,7 @@
     "turns": "turns",
     "raceLaps": "race laps",
     "circuitLink": "Circuit →",
+    "predictCta": "Make a prediction",
     "raceStart": "Race start",
     "standings": "Championship",
     "afterRound": "After round {round}",

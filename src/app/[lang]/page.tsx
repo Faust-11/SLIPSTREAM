@@ -277,11 +277,16 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 )}
               </dl>
             )}
-            {next.circuit && (
-              <a className="hm-more" href={path(`/circuits/${next.circuit.slug}`)}>
-                {t.circuitLink}
+            <div className="hm-next-actions">
+              <a className="hm-btn hm-btn-onred" href={path(`/predictions/${next.round}`)}>
+                {t.predictCta}
               </a>
-            )}
+              {next.circuit && (
+                <a className="hm-more" href={path(`/circuits/${next.circuit.slug}`)}>
+                  {t.circuitLink}
+                </a>
+              )}
+            </div>
           </div>
       </>
     );

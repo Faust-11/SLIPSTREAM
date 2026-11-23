@@ -1254,6 +1254,7 @@
     "turns": "поворотів",
     "raceLaps": "кіл гонки",
     "circuitLink": "Траса →",
+    "predictCta": "Зробити прогноз",
     "raceStart": "Старт гонки",
     "standings": "Чемпіонат",
     "afterRound": "Після {round}-го етапу",
