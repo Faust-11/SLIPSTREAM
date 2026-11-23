@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+// weather.css потрібен календарю й сторінкам гонки; без цього імпорту він — окремий чанк, якого немає серед стилів головної, і prefetch
+// пункту меню «Календар» передзавантажує його даремно (CI smoke: «preloaded but not used», 22.11). У layout.tsx його переносити не можна:
+// у CI це дало CLS календаря 0,113 (PR #84).
+import "@/components/weather/weather.css";
 import { termLabels } from "@/lib/glossary/labels";
 import { getTerm, type Term as TermData } from "@/lib/glossary/terms";
 import type { CSSProperties, ReactNode } from "react";
